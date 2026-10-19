@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pin_validity_entries">
+        <item>@string/pin_validity_7_days</item>
+        <item>@string/pin_validity_14_days</item>
+        <item>@string/pin_validity_30_days</item>
+        <item>@string/pin_validity_60_days</item>
+        <item>@string/pin_validity_never</item>
+    </string-array>
+    <string-array name="pin_validity_values" translatable="false">
+        <item>7</item>
+        <item>14</item>
+        <item>30</item>
+        <item>60</item>
+        <item>0</item>
+    </string-array>
+</resources>

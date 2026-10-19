@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="content_description_file_information">ଫାଇଲ୍ ସୂଚନା</string>
+    <string name="homepage">ଗୃହପୃଷ୍ଠା</string>
+    <string name="feedback">ମତାମତ</string>
+    <string name="pin_unlock_wiped">ଅନେକ ଭୁଲ PIN ପ୍ରବେଶ କରାଯାଇଛି। PIN ବିଲୋପ କରାଯାଇଛି। ଆପଣଙ୍କର ମାଷ୍ଟର ପାସୱାର୍ଡ ପ୍ରବେଶ କରନ୍ତୁ।</string>
+    <string name="copy_protected_verification_title">କପି କରିବା ପୂର୍ବରୁ ଯାଞ୍ଚ କରନ୍ତୁ</string>
+    <string name="copy_protected_verification_summary">ସୁରକ୍ଷିତ ଫିଲ୍ଡଗୁଡ଼ିକ କପି କରିବା ପୂର୍ବରୁ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ଯାଞ୍ଚ ମାଗନ୍ତୁ। ସିଧାସଳଖ କପି କରିବାକୁ ବନ୍ଦ କରନ୍ତୁ।</string>
+    <string name="pin_unlock_category">PIN ଅନଲକ୍</string>
+    <string name="pin_validity_title">PIN ବୈଧତା</string>
+    <string name="pin_validity_summary">ଏହି ଅବଧି ମଧ୍ୟରେ ଆପ୍ ଖୋଲା ନ ଗଲେ, ଡାଟାବେସ୍ ପୁନର୍ବାର ଆମଦାନି କରି ମାଷ୍ଟର ପାସୱାର୍ଡ ଦ୍ୱାରା ଅନଲକ୍ କରିବାକୁ ପଡ଼ିବ</string>
+    <string name="pin_validity_7_days">7 ଦିନ</string>
+    <string name="pin_validity_14_days">14 ଦିନ</string>
+    <string name="pin_validity_30_days">30 ଦିନ</string>
+    <string name="pin_validity_60_days">60 ଦିନ</string>
+    <string name="pin_validity_never">କଦାପି ନୁହେଁ</string>
+    <string name="pin_manage_title">PIN ପରିଚାଳନା କରନ୍ତୁ</string>
+    <string name="pin_manage_summary">ଗୋଟିଏ ଡାଟାବେସ୍‌ର PIN ବଦଳାନ୍ତୁ କିମ୍ବା ଅକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="pin_manage_empty">କୌଣସି ଡାଟାବେସ୍‌ରେ PIN ନାହିଁ</string>
+    <string name="pin_manage_action_change">PIN ବଦଳାନ୍ତୁ</string>
+    <string name="pin_manage_action_disable">PIN ଅକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="pin_disable_confirm_title">PIN ଅନଲକ୍ ଅକ୍ଷମ କରିବେ?</string>
+    <string name="pin_disable_confirm_message">ଏହି ଡାଟାବେସ୍‌ର PIN ବିଲୋପ କରାଯିବ। ପରବର୍ତ୍ତୀ ସମୟରେ ଆପଣଙ୍କୁ ମାଷ୍ଟର ପାସୱାର୍ଡ ଦରକାର ହେବ।</string>
+    <string name="pin_disabled_done">PIN ଅନଲକ୍ ଅକ୍ଷମ ହୋଇଛି</string>
+    <string name="pin_change_dialog_title">PIN ବଦଳାନ୍ତୁ</string>
+    <string name="pin_change_old_hint">ବର୍ତ୍ତମାନର PIN</string>
+    <string name="pin_change_new_hint">ନୂଆ PIN</string>
+    <string name="pin_change_confirm_hint">ନୂଆ PIN ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <string name="pin_change_wrong_old">ଭୁଲ PIN (PIN ବିଲୋପ ପୂର୍ବରୁ ବାକି ପ୍ରୟାସ: %1$d)</string>
+    <string name="pin_change_done">PIN ବଦଳାଗଲା</string>
+    <string name="pin_master_lockout_remaining">ଭୁଲ ମାଷ୍ଟର ପାସୱାର୍ଡ (ଡାଟାବେସ୍ ଆପ୍‌ରୁ ହଟାଯିବା ପୂର୍ବରୁ ବାକି ପ୍ରୟାସ: %1$d)</string>
+    <string name="pin_master_lockout_database_deleted">ବାରମ୍ବାର ଭୁଲ ମାଷ୍ଟର ପାସୱାର୍ଡ ପ୍ରବେଶ ହେତୁ ଡାଟାବେସ୍ ଆପ୍‌ରୁ ହଟାଯାଇଛି। .kdbx ଫାଇଲ୍ ପୁନର୍ବାର ଆମଦାନି କରନ୍ତୁ।</string>
+    <string name="about_description">KeePassPN ହେଉଛି Android ପାଇଁ ଏକ ଓପନ-ସୋର୍ସ ପାସୱାର୍ଡ ମ୍ୟାନେଜର, ଯାହା KeePass (KDBX) ଡାଟାବେସ୍ ସହିତ କାମ କରେ। ଏହା ଏକ ସ୍ୱାଧୀନ, ସମ୍ପ୍ରଦାୟ ଦ୍ୱାରା ରକ୍ଷଣାବେକ୍ଷଣ ହେଉଥିବା ସଂଶୋଧନ, ଯାହା GNU GPLv3 ଲାଇସେନ୍ସ ଅଧୀନରେ ପ୍ରକାଶିତ।\n\nଏହି ସଂସ୍କରଣରେ ଏକ କନଫିଗର୍ ହୋଇପାରୁଥିବା ବୈଧତା ଅବଧି ସହିତ PIN ଦ୍ୱାରା ଦ୍ରୁତ ଅନଲକ୍, ସମ୍ବେଦନଶୀଳ ଫିଲ୍ଡ ପାଇଁ ଏକ ଇଚ୍ଛାଧୀନ «କପି କରିବା ପୂର୍ବରୁ ଯାଞ୍ଚ କରନ୍ତୁ» ସୁରକ୍ଷା ଏବଂ ପ୍ରତ୍ୟେକ ଡାଟାବେସର ଏକ ସ୍ଥାନୀୟ ପୁନରୁଦ୍ଧାର କପି ଯୋଡାଯାଇଛି। PIN ଯାଞ୍ଚ ଆପ୍ ନିଜେ କରେ, ତେଣୁ ଏହା ଆପଣଙ୍କ ମାଷ୍ଟର ପାସୱାର୍ଡ ଅପେକ୍ଷା ଦୁର୍ବଳ ସୁରକ୍ଷା ଦିଏ। ଏହି ସମନ୍ବୟକୁ ଆପଣ ଗ୍ରହଣ କଲେ ହିଁ PIN ଅନଲକ୍ ବ୍ୟବହାର କରନ୍ତୁ।\n\nସୋର୍ସ କୋଡ୍, ସମସ୍ୟା ରିପୋର୍ଟ ଏବଂ ଅବଦାନ ନିମ୍ନରେ ଲିଙ୍କ୍ ହୋଇଥିବା ପ୍ରୋଜେକ୍ଟ ରିପୋଜିଟୋରି ମାଧ୍ୟମରେ ସ୍ୱାଗତଯୋଗ୍ୟ।</string>
+</resources>

@@ -1,0 +1,164 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 5,
+    "identityHash": "814dbc8062d9332d856e36bdabeaa35f",
+    "entities": [
+      {
+        "tableName": "file_database_history",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`database_uri` TEXT NOT NULL, `database_alias` TEXT NOT NULL, `keyfile_uri` TEXT, `hardware_key` TEXT, `read_only` INTEGER, `user_verification` INTEGER, `updated` INTEGER NOT NULL, PRIMARY KEY(`database_uri`))",
+        "fields": [
+          {
+            "fieldPath": "databaseUri",
+            "columnName": "database_uri",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "databaseAlias",
+            "columnName": "database_alias",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "keyFileUri",
+            "columnName": "keyfile_uri",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hardwareKey",
+            "columnName": "hardware_key",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "readOnly",
+            "columnName": "read_only",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userVerification",
+            "columnName": "user_verification",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "updated",
+            "columnName": "updated",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "database_uri"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "cipher_database",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`database_uri` TEXT NOT NULL, `encrypted_value` TEXT NOT NULL, `specs_parameters` TEXT NOT NULL, PRIMARY KEY(`database_uri`))",
+        "fields": [
+          {
+            "fieldPath": "databaseUri",
+            "columnName": "database_uri",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "encryptedValue",
+            "columnName": "encrypted_value",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "specParameters",
+            "columnName": "specs_parameters",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "database_uri"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "pin_database",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`database_uri` TEXT NOT NULL, `encrypted_value` TEXT NOT NULL DEFAULT '', `iv_inner` TEXT NOT NULL DEFAULT '', `iv_outer` TEXT NOT NULL DEFAULT '', `pin_salt` TEXT NOT NULL DEFAULT '', `failed_attempts` INTEGER NOT NULL DEFAULT 0, `locked_until` INTEGER NOT NULL DEFAULT 0, PRIMARY KEY(`database_uri`))",
+        "fields": [
+          {
+            "fieldPath": "databaseUri",
+            "columnName": "database_uri",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "encryptedValue",
+            "columnName": "encrypted_value",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "ivInner",
+            "columnName": "iv_inner",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "ivOuter",
+            "columnName": "iv_outer",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "pinSalt",
+            "columnName": "pin_salt",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "failedAttempts",
+            "columnName": "failed_attempts",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "lockedUntil",
+            "columnName": "locked_until",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "database_uri"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '814dbc8062d9332d856e36bdabeaa35f')"
+    ]
+  }
+}

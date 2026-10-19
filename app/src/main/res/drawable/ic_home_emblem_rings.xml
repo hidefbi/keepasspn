@@ -1,0 +1,12 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    <path android:fillColor="#FFFFFFFF" android:fillType="evenOdd"
+        android:pathData="M60.00,8.00 L108.00,22.00 L108.00,62.00 C108.00,92.00 88.00,106.00 60.00,116.00 C32.00,106.00 12.00,92.00 12.00,62.00 L12.00,22.00 Z M60.00,13.40 L103.20,26.00 L103.20,62.00 C103.20,89.00 85.20,101.60 60.00,110.60 C34.80,101.60 16.80,89.00 16.80,62.00 L16.80,26.00 Z"/>
+    <path android:fillColor="#B3FFFFFF" android:fillType="evenOdd"
+        android:pathData="M60.00,18.80 L98.40,30.00 L98.40,62.00 C98.40,86.00 82.40,97.20 60.00,105.20 C37.60,97.20 21.60,86.00 21.60,62.00 L21.60,30.00 Z M60.00,23.12 L94.56,33.20 L94.56,62.00 C94.56,83.60 80.16,93.68 60.00,100.88 C39.84,93.68 25.44,83.60 25.44,62.00 L25.44,33.20 Z"/>
+    <path android:fillColor="#66FFFFFF" android:fillType="evenOdd"
+        android:pathData="M60.00,28.52 L89.76,37.20 L89.76,62.00 C89.76,80.60 77.36,89.28 60.00,95.48 C42.64,89.28 30.24,80.60 30.24,62.00 L30.24,37.20 Z M60.00,32.30 L86.40,40.00 L86.40,62.00 C86.40,78.50 75.40,86.20 60.00,91.70 C44.60,86.20 33.60,78.50 33.60,62.00 L33.60,40.00 Z"/>
+</vector>

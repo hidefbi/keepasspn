@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pin_unlock_wiped">Тым көп қате PIN енгізілді. PIN жойылды. Негізгі құпия сөзді енгізіңіз.</string>
+    <string name="copy_protected_verification_title">Көшірер алдында растау</string>
+    <string name="copy_protected_verification_summary">Қорғалған өрістерді көшірер алдында пайдаланушыдан растау сұраңыз. Оларды тікелей көшіру үшін өшіріңіз.</string>
+    <string name="pin_unlock_category">PIN арқылы ашу</string>
+    <string name="pin_validity_title">PIN жарамдылық мерзімі</string>
+    <string name="pin_validity_summary">Осы кезең ішінде қолданба ашылмаса, дерекқорды қайта импорттап, негізгі құпия сөзбен ашу қажет</string>
+    <string name="pin_validity_7_days">7 күн</string>
+    <string name="pin_validity_14_days">14 күн</string>
+    <string name="pin_validity_30_days">30 күн</string>
+    <string name="pin_validity_60_days">60 күн</string>
+    <string name="pin_validity_never">Ешқашан</string>
+    <string name="pin_manage_title">PIN кодтарын басқару</string>
+    <string name="pin_manage_summary">Дерекқордың PIN кодын өзгерту немесе өшіру</string>
+    <string name="pin_manage_empty">Ешбір дерекқорда PIN коды жоқ</string>
+    <string name="pin_manage_action_change">PIN кодын өзгерту</string>
+    <string name="pin_manage_action_disable">PIN кодын өшіру</string>
+    <string name="pin_disable_confirm_title">PIN арқылы ашуды өшіресіз бе?</string>
+    <string name="pin_disable_confirm_message">Бұл дерекқордың PIN коды жойылады. Келесі жолы негізгі құпия сөз қажет болады.</string>
+    <string name="pin_disabled_done">PIN арқылы ашу өшірілді</string>
+    <string name="pin_change_dialog_title">PIN кодын өзгерту</string>
+    <string name="pin_change_old_hint">Ағымдағы PIN коды</string>
+    <string name="pin_change_new_hint">Жаңа PIN коды</string>
+    <string name="pin_change_confirm_hint">Жаңа PIN кодын растаңыз</string>
+    <string name="pin_change_wrong_old">Қате PIN коды (PIN жойылғанға дейін %1$d әрекет қалды)</string>
+    <string name="pin_change_done">PIN коды өзгертілді</string>
+    <string name="pin_master_lockout_remaining">Қате негізгі құпия сөз (дерекқор қолданбадан алынғанға дейін %1$d әрекет қалды)</string>
+    <string name="pin_master_lockout_database_deleted">Қайта-қайта қате негізгі құпия сөз енгізілгендіктен, дерекқор қолданбадан алынды. .kdbx файлын қайта импорттаңыз.</string>
+    <string name="about_description">KeePassPN — Android үшін ашық бастапқы кодты құпия сөз менеджері, ол KeePass (KDBX) деректер қорларымен жұмыс істейді. Бұл қауымдастық қолдайтын, GNU GPLv3 лицензиясы бойынша таратылатын тәуелсіз модификация.\n\nБұл нұсқаға бапталатын жарамдылық мерзімі бар PIN-кодпен жылдам ашу, сезімтал өрістер үшін қосымша «Көшірер алдында растау» қорғанысы және әрбір деректер қорының жергілікті қалпына келтіру көшірмесі қосылған. PIN-кодты тексеруді қолданбаның өзі жүзеге асырады, сондықтан ол негізгі құпия сөзге қарағанда әлсізірек қорғаныс береді. PIN-кодпен ашуды тек осы сауданы қабылдасаңыз ғана пайдаланыңыз.\n\nБастапқы код, мәселе туралы есептер және үлестер төменде сілтемесі берілген жоба репозиторийі арқылы қарсы алынады.</string>
+</resources>

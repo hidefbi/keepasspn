@@ -1,0 +1,8 @@
+KeePassPN
+ * Rename: the application is KeePassPN, package io.github.hidefbi.keepasspn
+ * Feature: PIN unlock management in Settings > Device unlock (change PIN with the old PIN, disable PIN)
+ * Feature: PIN validity of 7, 14, 30, 60 days or never
+ * Change: three wrong PINs delete the PIN; two further wrong master passwords delete the database from the app
+ * Feature: "Verify before copying" controls copy verification; user verification uses the database PIN, then the device credential, then the first four characters of the master password
+ * Security: PIN wrap format v2 (Argon2id 64 MiB / 3 / 1, AAD bound to database URI and header)
+ * Fix: a stale original no longer overwrites offline edits kept in the private recovery copy

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pin_unlock_wiped">PIN ike mute. PIN li weka. o pana e nimi lawa suli.</string>
+    <string name="copy_protected_verification_title">o lukin e ni la o kopi</string>
+    <string name="copy_protected_verification_summary">o wile lukin pi jan lon tenpo kopi ijo lawa. o weka e lukin la, ijo kopi li kama lon.</string>
+    <string name="pin_unlock_category">open kepeken PIN</string>
+    <string name="pin_validity_title">tenpo PIN</string>
+    <string name="pin_validity_summary">ilo open ala lon tenpo ni la, o kama pana sin e poki sona, o open e ona kepeken nimi lawa suli.</string>
+    <string name="pin_validity_7_days">suno 7</string>
+    <string name="pin_validity_14_days">suno 14</string>
+    <string name="pin_validity_30_days">suno 30</string>
+    <string name="pin_validity_60_days">suno 60</string>
+    <string name="pin_validity_never">ala</string>
+    <string name="pin_manage_title">lawa e PIN mute</string>
+    <string name="pin_manage_summary">o ante anu o weka e PIN pi poki sona.</string>
+    <string name="pin_manage_empty">poki sona ala li PIN</string>
+    <string name="pin_manage_action_change">ante e PIN</string>
+    <string name="pin_manage_action_disable">weka e PIN</string>
+    <string name="pin_disable_confirm_title">o weka e open kepeken PIN?</string>
+    <string name="pin_disable_confirm_message">PIN pi poki sona ni li weka. tenpo kama la o wile e nimi lawa suli.</string>
+    <string name="pin_disabled_done">open kepeken PIN li weka. pini.</string>
+    <string name="pin_change_dialog_title">ante e PIN</string>
+    <string name="pin_change_old_hint">PIN lon tenpo ni</string>
+    <string name="pin_change_new_hint">PIN sin</string>
+    <string name="pin_change_confirm_hint">lukin e PIN sin</string>
+    <string name="pin_change_wrong_old">PIN ike. o kepeken e PIN %1$d taso la PIN li weka.</string>
+    <string name="pin_change_done">PIN li ante.</string>
+    <string name="pin_master_lockout_remaining">nimi lawa suli ike. o kepeken e nimi lawa %1$d taso la poki sona li weka lon ilo.</string>
+    <string name="pin_master_lockout_database_deleted">poki sona li weka lon ilo tawa nimi lawa suli ike mute. o kama pana sin e lipu .kdbx.</string>
+    <string name="about_description">KeePassPN li ilo lawa nimi awen tawa ilo Android. ilo ni li open-source. ilo ni li kepeken lipu sona KeePass (KDBX). ilo ni li ante lili, jan mute li pali e ona, li tawa lisensi GNU GPLv3.\n\nilo sin ni li pana e ken open kama tawa nimi PIN, tenpo open li ken ante. ilo li pana e ken \"o lukin e ni la o kopi\" tawa ijo pi len ike. ilo li pana e lipu sona pi lipu sona ale lon ilo sina, tawa tenpo pakala. jan li lukin e PIN la ilo li lukin e ona. ona li pana e pona lili taso tawa nimi awen lawa sina. o kepeken open PIN taso, sina wile e ni.\n\nkalama ilo, lipu pakala, en pana sina li pona tawa ilo lipu pi ilo ni, lipu li lon anpa.</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="contact">رابطہ</string>
+    <string name="pin_unlock_wiped">غلط PIN کی بہت زیادہ کوششیں ہوئیں۔ PIN حذف کر دیا گیا ہے۔ اپنا ماسٹر پاس ورڈ درج کریں۔</string>
+    <string name="copy_protected_verification_title">کاپی کرنے سے پہلے تصدیق کریں</string>
+    <string name="copy_protected_verification_summary">محفوظ فیلڈز کاپی کرنے سے پہلے صارف کی تصدیق طلب کریں۔ براہ راست کاپی کرنے کے لیے بند کریں۔</string>
+    <string name="pin_unlock_category">PIN سے غیر مقفل کرنا</string>
+    <string name="pin_validity_title">PIN کی مدت</string>
+    <string name="pin_validity_summary">اگر یہ ایپ اس مدت کے دوران نہ کھولی گئی تو ڈیٹا بیس دوبارہ درآمد کرنا ہوگا اور ماسٹر پاس ورڈ سے غیر مقفل کرنا ہوگا</string>
+    <string name="pin_validity_7_days">7 دن</string>
+    <string name="pin_validity_14_days">14 دن</string>
+    <string name="pin_validity_30_days">30 دن</string>
+    <string name="pin_validity_60_days">60 دن</string>
+    <string name="pin_validity_never">کبھی نہیں</string>
+    <string name="pin_manage_title">PIN کا انتظام کریں</string>
+    <string name="pin_manage_summary">کسی ڈیٹا بیس کا PIN تبدیل کریں یا غیر فعال کریں</string>
+    <string name="pin_manage_empty">کسی ڈیٹا بیس کا PIN نہیں ہے</string>
+    <string name="pin_manage_action_change">PIN تبدیل کریں</string>
+    <string name="pin_manage_action_disable">PIN غیر فعال کریں</string>
+    <string name="pin_disable_confirm_title">PIN سے غیر مقفل کرنا غیر فعال کریں؟</string>
+    <string name="pin_disable_confirm_message">اس ڈیٹا بیس کا PIN حذف ہو جائے گا۔ اگلی بار آپ کو ماسٹر پاس ورڈ کی ضرورت ہوگی۔</string>
+    <string name="pin_disabled_done">PIN سے غیر مقفل کرنا غیر فعال کر دیا گیا</string>
+    <string name="pin_change_dialog_title">PIN تبدیل کریں</string>
+    <string name="pin_change_old_hint">موجودہ PIN</string>
+    <string name="pin_change_new_hint">نیا PIN</string>
+    <string name="pin_change_confirm_hint">نیا PIN تصدیق کریں</string>
+    <string name="pin_change_wrong_old">غلط PIN (PIN حذف ہونے سے پہلے %1$d کوشش باقی ہیں)</string>
+    <string name="pin_change_done">PIN تبدیل ہو گیا</string>
+    <string name="pin_master_lockout_remaining">غلط ماسٹر پاس ورڈ (ڈیٹا بیس ایپ سے ہٹانے سے پہلے %1$d کوشش باقی ہیں)</string>
+    <string name="pin_master_lockout_database_deleted">بار بار غلط ماسٹر پاس ورڈ کی وجہ سے ڈیٹا بیس ایپ سے ہٹا دیا گیا۔ .kdbx فائل دوبارہ درآمد کریں۔</string>
+    <string name="about_description">KeePassPN ایک اوپن سورس پاس ورڈ مینیجر ہے جو Android کے لیے بنایا گیا ہے اور KeePass (KDBX) ڈیٹا بیس کے ساتھ کام کرتا ہے۔ یہ ایک آزاد، کمیونٹی کی طرف سے برقرار رکھی جانے والی ترمیم ہے جو GNU GPLv3 لائسنس کے تحت جاری کی گئی ہے۔\n\nاس ایڈیشن میں قابلِ ترتیب مدت کے ساتھ PIN سے فوری انلاک، حساس فیلڈز کے لیے اختیاری \"کاپی کرنے سے پہلے تصدیق کریں\" تحفظ، اور ہر ڈیٹا بیس کی مقامی بحالی کاپی شامل کی گئی ہے۔ PIN کی تصدیق ایپ خود کرتی ہے، اس لیے یہ آپ کے ماسٹر پاس ورڈ کے مقابلے میں کم تحفظ فراہم کرتی ہے۔ PIN انلاک صرف اسی صورت میں استعمال کریں جب آپ اس سمجھوتے کو قبول کرتے ہوں۔\n\nسورس کوڈ، مسائل کی رپورٹس اور تعاون کا خیرمقدم ہے، جو نیچے دیے گئے پروجیکٹ ریپازٹری کے ذریعے کیا جا سکتا ہے۔</string>
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clipboard_timeout_summary">Durasi panyimpenan ing clipboard (yen didhukung dening piranti)</string>
+    <string name="clipboard_timeout">Wektune papan klip resik</string>
+    <string name="clipboard_error_title">Papan klipe ora beres</string>
+    <string name="allow">Sumonggo</string>
+    <string name="file_manager_install_description">Pangurus file sing nompo tumindak Intent ACTION_CREATE_DOCUMENT lan ACTION_OPEN_DOCUMENT dibutuhake kanggo nggawe, mbukak lan nyimpen file database.</string>
+    <string name="brackets">Kurung</string>
+    <string name="application">Aplikasi</string>
+    <string name="app_timeout_summary">Wektu kosong sadurunge ngunci basis data</string>
+    <string name="app_timeout">Wektu entek applikasine</string>
+    <string name="key_derivation_function">Fungsi derivasi utama</string>
+    <string name="encryption_algorithm">Algoritma enkripsi</string>
+    <string name="encryption">Enkripsi</string>
+    <string name="security">Keamanan</string>
+    <string name="master_key">Kunci utama</string>
+    <string name="add_group">Tambah grupe</string>
+    <string name="add_entry">Tambah entrine</string>
+    <string name="accept">Mantep</string>
+    <string name="feedback">Aturi Wejangan</string>
+    <string name="homepage">Ngarep</string>
+    <string name="contribution">Urun Rembuk</string>
+    <string name="contact">Nomer Hape</string>
+    <string name="pin_unlock_wiped">PIN salah kebanyakan. PIN wis dibusak. Ketik master password sampeyan.</string>
+    <string name="copy_protected_verification_title">Verifikasi sadurunge nyalin</string>
+    <string name="copy_protected_verification_summary">Takon verifikasi pangguna sadurunge nyalin kolom sing dilindhungi. Pateni supaya bisa langsung disalin.</string>
+    <string name="pin_unlock_category">Mbukak kunci nganggo PIN</string>
+    <string name="pin_validity_title">Masa berlaku PIN</string>
+    <string name="pin_validity_summary">Yen aplikasi ora dibukak nganti periode iki, database kudu diimpor maneh lan dibukak nganggo master password</string>
+    <string name="pin_validity_7_days">7 dina</string>
+    <string name="pin_validity_14_days">14 dina</string>
+    <string name="pin_validity_30_days">30 dina</string>
+    <string name="pin_validity_60_days">60 dina</string>
+    <string name="pin_validity_never">Ora tau</string>
+    <string name="pin_manage_title">Kelola PIN</string>
+    <string name="pin_manage_summary">Ganti utawa pateni PIN saka database</string>
+    <string name="pin_manage_empty">Ora ana database sing duwe PIN</string>
+    <string name="pin_manage_action_change">Ganti PIN</string>
+    <string name="pin_manage_action_disable">Pateni PIN</string>
+    <string name="pin_disable_confirm_title">Pateni mbukak kunci nganggo PIN?</string>
+    <string name="pin_disable_confirm_message">PIN kanggo database iki bakal dibusak. Wektu sabanjure sampeyan butuh master password.</string>
+    <string name="pin_disabled_done">Mbukak kunci nganggo PIN wis dipateni</string>
+    <string name="pin_change_dialog_title">Ganti PIN</string>
+    <string name="pin_change_old_hint">PIN saiki</string>
+    <string name="pin_change_new_hint">PIN anyar</string>
+    <string name="pin_change_confirm_hint">Konfirmasi PIN anyar</string>
+    <string name="pin_change_wrong_old">PIN salah (%1$d upaya isih kasisa sadurunge PIN dibusak)</string>
+    <string name="pin_change_done">PIN wis diganti</string>
+    <string name="pin_master_lockout_remaining">Master password salah (%1$d upaya isih kasisa sadurunge database dicopot saka aplikasi)</string>
+    <string name="pin_master_lockout_database_deleted">Database wis dicopot saka aplikasi sawise master password salah bola-bali. Impor maneh file .kdbx.</string>
+    <string name="about_description">KeePassPN iku manajer sandi open-source kanggo Android sing bisa digunakake karo basis data KeePass (KDBX). Iki minangka modifikasi independen sing dijaga dening komunitas, dirilis miturut lisensi GNU GPLv3.\n\nEdisi iki nambahi buka kunci cepet nganggo PIN kanthi masa berlaku sing bisa diatur, pangayoman opsional «Verifikasi sadurunge nyalin» kanggo kolom sing sensitif, lan salinan pemulihan lokal saben basis data. Verifikasi PIN ditindakake dening aplikasi dhewe, mula pangayomané luwih ringkih tinimbang sandi utamamu. Gunakake buka kunci PIN mung yen kowe nampa kompromi iki.\n\nKode sumber, laporan masalah, lan kontribusi disambut liwat repositori proyek sing dipasang tautan ing ngisor iki.</string>
+
+    <string name="extended_ASCII">ASCII lengkap</string>
+</resources>

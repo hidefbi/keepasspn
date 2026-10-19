@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright 2020 Jeremy Jamet / Kunzisoft.
+
+ This file is part of KeePassPN.
+
+  KeePassPN is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  KeePassPN is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with KeePassPN.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Passkeys and autofill: one provider switch, then its sub-screens -->
+    <PreferenceCategory
+        android:key="@string/credential_provider_key"
+        android:title="@string/credential_provider">
+        <SwitchPreferenceCompat
+            android:key="@string/settings_credential_provider_enable_key"
+            android:title="@string/set_credential_provider_service_title"
+            android:defaultValue="@bool/settings_credential_provider_enable_default"/>
+        <Preference
+            android:key="@string/settings_passkeys_key"
+            android:dependency="@string/settings_credential_provider_enable_key"
+            android:title="@string/passkeys_preference_title"/>
+        <Preference
+            android:key="@string/settings_autofill_key"
+            android:dependency="@string/settings_credential_provider_enable_key"
+            android:title="@string/autofill_preference_title"/>
+        <SwitchPreferenceCompat
+            android:key="@string/subdomain_search_key"
+            android:title="@string/subdomain_search_title"
+            android:summary="@string/subdomain_search_summary"
+            android:defaultValue="@bool/subdomain_search_default"/>
+    </PreferenceCategory>
+
+    <!-- Magikeyboard: a custom keyboard that fills entries -->
+    <PreferenceCategory
+        android:title="@string/keyboard">
+        <SwitchPreferenceCompat
+            android:key="@string/magic_keyboard_key"
+            android:title="@string/device_keyboard_setting_title"/>
+        <Preference
+            android:key="@string/magic_keyboard_preference_key"
+            android:dependency="@string/magic_keyboard_key"
+            android:title="@string/keyboard_setting_label"/>
+        <SwitchPreferenceCompat
+            android:key="@string/autofill_share_magikeyboard_key"
+            android:title="@string/autofill_share_magikeyboard_title"
+            android:summary="@string/autofill_share_magikeyboard_summary"
+            android:defaultValue="@bool/autofill_share_magikeyboard_default"/>
+    </PreferenceCategory>
+
+    <!-- Clipboard: how long copied values stay available and what may be copied -->
+    <PreferenceCategory
+        android:title="@string/clipboard">
+        <com.keepasspn.settings.preference.DurationDialogPreference
+            android:key="@string/clipboard_timeout_key"
+            android:title="@string/clipboard_timeout"
+            android:summary="@string/clipboard_timeout_summary"
+            android:dialogTitle="@string/clipboard_timeout"
+            android:defaultValue="@string/clipboard_timeout_default"/>
+        <SwitchPreferenceCompat
+            android:key="@string/clipboard_otp_notifications_key"
+            android:title="@string/clipboard_otp_notifications_title"
+            android:summary="@string/clipboard_otp_notifications_summary"
+            android:defaultValue="@bool/clipboard_otp_notifications_default"/>
+        <SwitchPreferenceCompat
+            android:key="@string/allow_copy_password_key"
+            android:title="@string/allow_copy_password_title"
+            android:summary="@string/allow_copy_password_summary"
+            android:defaultValue="@bool/allow_copy_password_default"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

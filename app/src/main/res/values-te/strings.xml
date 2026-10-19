@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2020 Jeremy Jamet / Kunzisoft.
+
+    This file is part of KeePassPN.
+
+    KeePassPN is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    KeePassPN is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with KeePassPN.  If not, see <http://www.gnu.org/licenses/>.
+--><resources>
+    <string name="feedback">అభిప్రాయం</string>
+    <string name="homepage">హోమ్ పేజీ</string>
+    <string name="accept">ఆమోదించు</string>
+    <string name="add_entry">"ఎంట్రీని జత చెయ్యండి "</string>
+    <string name="add_group">"గ్రూపుని జత చెయ్యండి "</string>
+    <string name="encryption">ఎన్క్రిప్షన్</string>
+    <string name="encryption_algorithm">ఎన్క్రిప్షన్ అల్గోరిథం</string>
+    <string name="key_derivation_function">కీ వ్యుత్పత్తి ఫంక్షన్</string>
+    <string name="app_timeout">యాప్ కి అనువర్తించిన గడువు ముగిసింది</string>
+    <string name="pin_unlock_wiped">చాలా తప్పు PIN లు నమోదు చేశారు. PIN తొలగించబడింది. మీ ప్రధాన పాస్‌వర్డ్‌ను నమోదు చేయండి.</string>
+    <string name="copy_protected_verification_title">కాపీ చేసే ముందు ధృవీకరించండి</string>
+    <string name="copy_protected_verification_summary">రక్షిత ఫీల్డ్‌లను కాపీ చేసే ముందు వినియోగదారు ధృవీకరణ అడగండి. నేరుగా కాపీ చేయడానికి ఆఫ్ చేయండి.</string>
+    <string name="pin_unlock_category">PIN అన్‌లాక్</string>
+    <string name="pin_validity_title">PIN చెల్లుబాటు</string>
+    <string name="pin_validity_summary">ఈ వ్యవధిలో యాప్ తెరవకపోతే, డేటాబేస్‌ను మళ్లీ దిగుమతి చేసి ప్రధాన పాస్‌వర్డ్‌తో అన్‌లాక్ చేయాలి</string>
+    <string name="pin_validity_7_days">7 రోజులు</string>
+    <string name="pin_validity_14_days">14 రోజులు</string>
+    <string name="pin_validity_30_days">30 రోజులు</string>
+    <string name="pin_validity_60_days">60 రోజులు</string>
+    <string name="pin_validity_never">ఎప్పటికీ వద్దు</string>
+    <string name="pin_manage_title">PIN లను నిర్వహించండి</string>
+    <string name="pin_manage_summary">డేటాబేస్ PIN ను మార్చండి లేదా నిలిపివేయండి</string>
+    <string name="pin_manage_empty">ఏ డేటాబేస్‌కూ PIN లేదు</string>
+    <string name="pin_manage_action_change">PIN ను మార్చండి</string>
+    <string name="pin_manage_action_disable">PIN ను నిలిపివేయండి</string>
+    <string name="pin_disable_confirm_title">PIN అన్‌లాక్‌ను నిలిపివేయాలా?</string>
+    <string name="pin_disable_confirm_message">ఈ డేటాబేస్ యొక్క PIN తొలగించబడుతుంది. తదుపరిసారి మీకు ప్రధాన పాస్‌వర్డ్ అవసరం అవుతుంది.</string>
+    <string name="pin_disabled_done">PIN అన్‌లాక్ నిలిపివేయబడింది</string>
+    <string name="pin_change_dialog_title">PIN ను మార్చండి</string>
+    <string name="pin_change_old_hint">ప్రస్తుత PIN</string>
+    <string name="pin_change_new_hint">కొత్త PIN</string>
+    <string name="pin_change_confirm_hint">కొత్త PIN ను నిర్ధారించండి</string>
+    <string name="pin_change_wrong_old">తప్పు PIN (PIN తొలగించే ముందు %1$d ప్రయత్నం(లు) మిగిలి ఉన్నాయి)</string>
+    <string name="pin_change_done">PIN మార్చబడింది</string>
+    <string name="pin_master_lockout_remaining">తప్పు ప్రధాన పాస్‌వర్డ్ (యాప్ నుండి డేటాబేస్ తీసివేయబడే ముందు %1$d ప్రయత్నం(లు) మిగిలి ఉన్నాయి)</string>
+    <string name="pin_master_lockout_database_deleted">పదేపదే తప్పు ప్రధాన పాస్‌వర్డ్‌ల కారణంగా డేటాబేస్ యాప్ నుండి తీసివేయబడింది. .kdbx ఫైల్‌ను మళ్లీ దిగుమతి చేయండి.</string>
+    <string name="about_description">KeePassPN అనేది KeePass (KDBX) డేటాబేస్‌లతో పనిచేసే Android కోసం ఓపెన్-సోర్స్ పాస్‌వర్డ్ మేనేజర్. ఇది GNU GPLv3 లైసెన్స్ కింద విడుదలైన, సంఘం నిర్వహించే స్వతంత్ర మార్పు.\n\nఈ ఎడిషన్ కాన్ఫిగర్ చేయగల చెల్లుబాటు వ్యవధితో PIN ద్వారా త్వరిత అన్‌లాక్‌ను, సున్నితమైన ఫీల్డ్‌ల కోసం ఐచ్ఛిక \"కాపీ చేసే ముందు ధృవీకరించండి\" రక్షణను, ప్రతి డేటాబేస్ యొక్క స్థానిక రికవరీ కాపీని జోడిస్తుంది. PIN ధృవీకరణను యాప్ స్వయంగా నిర్వహిస్తుంది, కాబట్టి ఇది మీ మాస్టర్ పాస్‌వర్డ్ కంటే బలహీనమైన రక్షణను అందిస్తుంది. ఈ రాజీని మీరు అంగీకరిస్తేనే PIN అన్‌లాక్‌ను ఉపయోగించండి.\n\nసోర్స్ కోడ్, సమస్య నివేదికలు మరియు సహకారాలు దిగువ లింక్ చేయబడిన ప్రాజెక్ట్ రిపోజిటరీ ద్వారా స్వాగతించబడతాయి.</string>
+</resources>
