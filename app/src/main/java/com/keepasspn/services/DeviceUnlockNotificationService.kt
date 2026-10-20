@@ -61,14 +61,14 @@ class DeviceUnlockNotificationService : NotificationService() {
     }
 
     // It's simpler to use pendingIntent to perform REMOVE_DEVICE_UNLOCK_KEY_ACTION
-    // because can be directly broadcast to another module or app
+    // The broadcast is scoped to this package (see setPackage), never to another app
     @SuppressLint("LaunchActivityFromNotification")
     override fun onBind(intent: Intent): IBinder {
         super.onBind(intent)
 
         val pendingDeleteIntent = PendingIntent.getBroadcast(this,
             4577,
-            Intent(REMOVE_DEVICE_UNLOCK_KEY_ACTION),
+            Intent(REMOVE_DEVICE_UNLOCK_KEY_ACTION).setPackage(packageName),
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 PendingIntent.FLAG_IMMUTABLE
             } else {

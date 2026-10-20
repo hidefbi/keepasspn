@@ -36,11 +36,22 @@ import java.util.Locale
 @RequiresApi(api = Build.VERSION_CODES.O)
 class StructureParser(
     private val structure: AssistStructure,
-    private val webViewDenied: Boolean = false
+    private val webViewDenied: Boolean = false,
+    private val trustedBrowserPackages: () -> Set<String> = { emptySet() }
 ) {
     private var result: Result? = null
     private var usernameIdCandidate: AutofillId? = null
     private var usernameValueCandidate: AutofillValue? = null
+
+    /**
+     * Any app can put an arbitrary web domain on its own view nodes (custom views, WebViews),
+     * which would make the app borrow the credentials of another site. Web domains are only
+     * trusted when the window belongs to a known browser on the privileged allow list.
+     */
+    private val trustedWebDomainSource: Boolean by lazy {
+        val sourcePackage = structure.activityComponent?.packageName
+        sourcePackage != null && sourcePackage in trustedBrowserPackages()
+    }
 
     fun parseOrNull(saveValue: Boolean = false): Result? {
         val result = parse(saveValue)
@@ -91,14 +102,18 @@ class StructureParser(
             }
         }
 
-        // Get the domain of a web app
+        // Get the domain of a web app, only from a trusted browser window
         node.webDomain?.let { webDomain ->
             if (webDomain.isNotEmpty()) {
-                result?.webDomain = webDomain
-                NoOpLog.d(TAG, "Autofill domain: $webDomain")
+                if (trustedWebDomainSource) {
+                    result?.webDomain = webDomain
+                    NoOpLog.d(TAG, "Autofill domain: $webDomain")
+                } else {
+                    NoOpLog.w(TAG, "Ignoring web domain from a non-browser window")
+                }
             }
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && trustedWebDomainSource) {
             node.webScheme?.let { webScheme ->
                 if (webScheme.isNotEmpty()) {
                     result?.webScheme = webScheme

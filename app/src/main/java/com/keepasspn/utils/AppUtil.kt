@@ -27,6 +27,18 @@ object AppUtil {
 
     private val secureRandom = SecureRandom()
 
+    /**
+     * Package names of the installed browsers on the privileged allow list.
+     * Only these windows may supply a web domain to autofill.
+     */
+    fun trustedBrowserPackages(context: Context): Set<String> {
+        return try {
+            getInstalledBrowsersWithSignatures(context).map { it.packageName }.toSet()
+        } catch (e: Exception) {
+            emptySet()
+        }
+    }
+
     fun randomRequestCode(): Int {
         return secureRandom.nextInt(Int.MAX_VALUE)
     }

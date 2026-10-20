@@ -22,78 +22,45 @@ package com.keepasspn.encrypt
 import com.keepasspn.encrypt.aes.AESTransformer
 import org.junit.Assert.assertArrayEquals
 import org.junit.Test
-import java.io.ByteArrayInputStream
-import java.io.ByteArrayOutputStream
 import java.util.Random
 import javax.crypto.Cipher
-import javax.crypto.CipherInputStream
-import javax.crypto.CipherOutputStream
 
 class AESTest {
 
     private val mRand = Random()
 
-    @Test
-    fun testAESByteArray() {
-        // Generate random input
-        val input = ByteArray(mRand.nextInt(494) + 18)
-        mRand.nextBytes(input)
-        // Generate key
-        val keyArray = ByteArray(32)
-        mRand.nextBytes(keyArray)
-        // Generate IV
-        val ivArray = ByteArray(16)
-        mRand.nextBytes(ivArray)
-
-        val androidEncrypt = CipherFactory.getAES(Cipher.ENCRYPT_MODE, keyArray, ivArray).doFinal(input)
-        val nativeEncrypt = CipherFactory.getAES(Cipher.ENCRYPT_MODE, keyArray, ivArray, true).doFinal(input)
-
-        assertArrayEquals("Check AES encryption", androidEncrypt, nativeEncrypt)
-
-        val androidDecrypt = CipherFactory.getAES(Cipher.DECRYPT_MODE, keyArray, ivArray).doFinal(androidEncrypt)
-        val nativeDecrypt = CipherFactory.getAES(Cipher.DECRYPT_MODE, keyArray, ivArray, true).doFinal(nativeEncrypt)
-
-        assertArrayEquals("Check AES encryption/decryption", androidDecrypt, nativeDecrypt)
-
-        val androidMixDecrypt = CipherFactory.getAES(Cipher.DECRYPT_MODE, keyArray, ivArray).doFinal(nativeEncrypt)
-        val nativeMixDecrypt = CipherFactory.getAES(Cipher.DECRYPT_MODE, keyArray, ivArray, true).doFinal(androidEncrypt)
-
-        assertArrayEquals("Check AES mix encryption/decryption", androidMixDecrypt, nativeMixDecrypt)
+    private fun hexToBytes(hex: String): ByteArray {
+        return ByteArray(hex.length / 2) { index ->
+            hex.substring(2 * index, 2 * index + 2).toInt(16).toByte()
+        }
     }
 
     @Test
-    fun testAESStream() {
-        // Generate random input
+    fun testAESKnownAnswer() {
+        // NIST SP 800-38A, F.2.1 (CBC-AES128.Encrypt), first block
+        val key = hexToBytes("2b7e151628aed2a6abf7158809cf4f3c")
+        val iv = hexToBytes("000102030405060708090a0b0c0d0e0f")
+        val plain = hexToBytes("6bc1bee22e409f96e93d7e117393172a")
+        val expected = hexToBytes("7649abac8119b246cee98e9b12e9197d")
+
+        val output = CipherFactory.getAES(Cipher.ENCRYPT_MODE, key, iv).doFinal(plain)
+
+        assertArrayEquals("Check AES known answer", expected, output.copyOfRange(0, 16))
+    }
+
+    @Test
+    fun testAESRoundTrip() {
         val input = ByteArray(mRand.nextInt(494) + 18)
         mRand.nextBytes(input)
-        // Generate key
-        val keyArray = ByteArray(32)
-        mRand.nextBytes(keyArray)
-        // Generate IV
-        val ivArray = ByteArray(16)
-        mRand.nextBytes(ivArray)
+        val key = ByteArray(32)
+        mRand.nextBytes(key)
+        val iv = ByteArray(16)
+        mRand.nextBytes(iv)
 
-        val androidEncrypt = CipherFactory.getAES(Cipher.ENCRYPT_MODE, keyArray, ivArray)
-        val androidDecrypt = CipherFactory.getAES(Cipher.DECRYPT_MODE, keyArray, ivArray)
-        val androidOutputStream = ByteArrayOutputStream()
-        CipherInputStream(ByteArrayInputStream(input), androidEncrypt).use { cipherInputStream ->
-            CipherOutputStream(androidOutputStream, androidDecrypt).use { outputStream ->
-                outputStream.write(cipherInputStream.readBytes())
-            }
-        }
-        val androidOut = androidOutputStream.toByteArray()
+        val encrypted = CipherFactory.getAES(Cipher.ENCRYPT_MODE, key, iv).doFinal(input)
+        val decrypted = CipherFactory.getAES(Cipher.DECRYPT_MODE, key, iv).doFinal(encrypted)
 
-        val nativeEncrypt = CipherFactory.getAES(Cipher.ENCRYPT_MODE, keyArray, ivArray)
-        val nativeDecrypt = CipherFactory.getAES(Cipher.DECRYPT_MODE, keyArray, ivArray)
-        val nativeOutputStream = ByteArrayOutputStream()
-        CipherInputStream(ByteArrayInputStream(input), nativeEncrypt).use { cipherInputStream ->
-            CipherOutputStream(nativeOutputStream, nativeDecrypt).use { outputStream ->
-                outputStream.write(cipherInputStream.readBytes())
-            }
-        }
-        val nativeOut = nativeOutputStream.toByteArray()
-
-        assertArrayEquals("Check AES encryption/decryption", androidOut, nativeOut)
+        assertArrayEquals("Check AES round trip", input, decrypted)
     }
 
     @Test

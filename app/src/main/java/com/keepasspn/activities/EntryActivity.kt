@@ -422,7 +422,9 @@ class EntryActivity : DatabaseLockActivity() {
             timeoutCopyToClipboard(
                 label = TemplateField.getLocalizedName(this@EntryActivity, field.name),
                 value = field.protectedValue.toString(),
-                sensitive = field.protectedValue.isProtected
+                // Every copied field is treated as sensitive (hidden from clipboard previews),
+                // whatever its protection flag in the database
+                sensitive = true
             )
         }
     }

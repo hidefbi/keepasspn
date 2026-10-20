@@ -97,15 +97,28 @@ object PrivilegedAllowLists {
             } else {
                 when (e) {
                     is FileNotFoundException -> {
-                        val attemptApp = AndroidPrivilegedApp(
-                            packageName = callingAppInfo.packageName,
-                            fingerprints = callingAppInfo.signingInfo
-                                .getAllFingerprints() ?: emptySet()
-                        )
-                        throw PrivilegedException(
-                            temptingApp = attemptApp,
-                            message = "$attemptApp is not in the allow list"
-                        )
+                        // No custom list yet: check the community list bundled with this build
+                        val communityOrigin = try {
+                            getOriginFromPrivilegedAllowListStream(
+                                callingAppInfo = callingAppInfo,
+                                inputStream = context.assets.open(FILE_NAME_PRIVILEGED_APPS_COMMUNITY)
+                            )
+                        } catch (_: Exception) {
+                            null
+                        }
+                        if (!communityOrigin.isNullOrEmpty()) {
+                            communityOrigin
+                        } else {
+                            val attemptApp = AndroidPrivilegedApp(
+                                packageName = callingAppInfo.packageName,
+                                fingerprints = callingAppInfo.signingInfo
+                                    .getAllFingerprints() ?: emptySet()
+                            )
+                            throw PrivilegedException(
+                                temptingApp = attemptApp,
+                                message = "$attemptApp is not in the allow list"
+                            )
+                        }
                     }
                     else -> throw e
                 }

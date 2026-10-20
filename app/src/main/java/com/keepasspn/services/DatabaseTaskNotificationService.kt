@@ -571,7 +571,7 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
                     val pendingDeleteIntent = PendingIntent.getBroadcast(
                         this,
                         4576,
-                        Intent(LOCK_ACTION),
+                        Intent(LOCK_ACTION).setPackage(packageName),
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             PendingIntent.FLAG_IMMUTABLE
                         } else {

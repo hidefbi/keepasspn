@@ -61,6 +61,7 @@ import com.keepasspn.model.SearchInfo
 import com.keepasspn.services.ClipboardEntryNotificationService
 import com.keepasspn.settings.AutofillSettingsActivity
 import com.keepasspn.settings.PreferencesUtil
+import com.keepasspn.utils.AppUtil
 import com.keepasspn.utils.AppUtil.randomRequestCode
 import org.joda.time.DateTime
 import org.joda.time.Instant
@@ -122,7 +123,10 @@ class KeeAutofillService : AutofillService() {
 
         // Check user's settings for authenticating Responses and Datasets.
         val latestStructure = request.fillContexts.last().structure
-        StructureParser(latestStructure).parse(saveValue = false)?.let { parseResult ->
+        StructureParser(
+            structure = latestStructure,
+            trustedBrowserPackages = { AppUtil.trustedBrowserPackages(applicationContext) }
+        ).parse(saveValue = false)?.let { parseResult ->
 
             // Build the search info from the parser
             val searchInfo = SearchInfo().apply {
@@ -409,7 +413,10 @@ class KeeAutofillService : AutofillService() {
         var success = false
         if (askToSaveData && Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             val latestStructure = request.fillContexts.last().structure
-            StructureParser(latestStructure).parse(saveValue = true)?.let { parseResult ->
+            StructureParser(
+                structure = latestStructure,
+                trustedBrowserPackages = { AppUtil.trustedBrowserPackages(applicationContext) }
+            ).parse(saveValue = true)?.let { parseResult ->
 
                 if (parseResult.isValid() && autofillAllowedFor(
                         applicationId = parseResult.applicationId,

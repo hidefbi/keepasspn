@@ -52,6 +52,7 @@ import com.keepasspn.model.EntryInfo
 import com.keepasspn.model.SearchInfo
 import com.keepasspn.settings.AutofillSettingsActivity
 import com.keepasspn.settings.PreferencesUtil
+import com.keepasspn.utils.AppUtil
 import com.keepasspn.utils.AppUtil.randomRequestCode
 import com.keepasspn.utils.getParcelableCompat
 import com.keepasspn.utils.getParcelableExtraCompat
@@ -567,7 +568,10 @@ object AutofillHelper {
         if (entriesInfo.isEmpty()) {
             throw IOException("No entries found")
         } else {
-            StructureParser(autofillComponent.assistStructure).parseOrNull()?.let { result ->
+            StructureParser(
+                structure = autofillComponent.assistStructure,
+                trustedBrowserPackages = { AppUtil.trustedBrowserPackages(context) }
+            ).parseOrNull()?.let { result ->
                 // New Response
                 onIntentCreated(Intent().putExtra(
                     AutofillManager.EXTRA_AUTHENTICATION_RESULT,

@@ -122,8 +122,6 @@ class MainCredentialActivity : DatabaseModeActivity() {
     private var pinAutoUnlockPrompted = false
     // Applies the PIN validity period before any PIN prompt is shown
     private var appOpenPolicyJob: Job? = null
-    private var launchImmediatelyRequested = false
-    private var passwordWasSuppliedInIntent = false
     private var databaseFileLoadRequested = false
     // Password bytes from the attempt currently being verified, kept only long
     // enough to offer "enable PIN unlock" after a *successful* master-password
@@ -227,26 +225,12 @@ class MainCredentialActivity : DatabaseModeActivity() {
             )
         }
 
-        // If Activity is launch with a password and want to open directly
-        val intent = intent
-        // TODO Change to getCharArrayExtra(KEY_PASSWORD)
-        val password = intent.getStringExtra(KEY_PASSWORD)
-        passwordWasSuppliedInIntent = password != null
-        // Consume the intent extra password
-        intent.removeExtra(KEY_PASSWORD)
-        if (password != null) {
-            mainCredentialView.populatePasswordTextView(password.toCharArray())
-        }
-        val launchImmediately = intent.getBooleanExtra(KEY_LAUNCH_IMMEDIATELY, false)
-        launchImmediatelyRequested = launchImmediately
-        intent.removeExtra(KEY_LAUNCH_IMMEDIATELY)
-        if (launchImmediately) {
-            loadDatabase()
-        } else {
-            // Init Biometric elements
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                mDeviceUnlockViewModel?.connect(mMainCredentialViewModel.databaseFileUri)
-            }
+        // The activity is exported (VIEW intents for database files). It never accepts a
+        // password or an auto-unlock request from the caller: the user always types the
+        // master password or confirms the PIN / biometric prompt themselves.
+        // Init Biometric elements
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mDeviceUnlockViewModel?.connect(mMainCredentialViewModel.databaseFileUri)
         }
         // To validate with the keyboard
         mainCredentialView.onValidateListener = {
@@ -687,7 +671,6 @@ class MainCredentialActivity : DatabaseModeActivity() {
         appOpenPolicyJob?.join()
         if (pinAutoUnlockPrompted) return true
         if (mSpecialMode != SpecialMode.DEFAULT) return false
-        if (launchImmediatelyRequested || passwordWasSuppliedInIntent) return false
 
         val uri = mMainCredentialViewModel.databaseFileUri ?: return false
         val isPinSet = try {
@@ -1138,9 +1121,6 @@ class MainCredentialActivity : DatabaseModeActivity() {
         private const val KEY_KEYFILE = "keyFile"
         private const val KEY_HARDWARE_KEY = "hardwareKey"
         private const val VIEW_INTENT = "android.intent.action.VIEW"
-
-        private const val KEY_PASSWORD = "password"
-        private const val KEY_LAUNCH_IMMEDIATELY = "launchImmediately"
 
         private fun buildAndLaunchIntent(
             activity: Activity,

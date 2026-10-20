@@ -124,7 +124,7 @@ abstract class BinaryPool<T> {
                     val searchBinaryMD5 = it.binaryHash()
                     var i = 0
                     for ((_, binary) in pool) {
-                        if (binary.binaryHash() == searchBinaryMD5) {
+                        if (binary.binaryHash().contentEquals(searchBinaryMD5)) {
                             i++
                             if (i > 1)
                                 return true
@@ -168,7 +168,7 @@ abstract class BinaryPool<T> {
                     keyBinaryList.find {
                         val hash0 = it.binary.binaryHash()
                         val hash1 = binary.binaryHash()
-                        hash0 != 0 && hash1 != 0 && hash0 == hash1
+                        hash0.isNotEmpty() && hash1.isNotEmpty() && hash0.contentEquals(hash1)
                     }
                 } else {
                     null

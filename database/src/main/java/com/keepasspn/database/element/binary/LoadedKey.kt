@@ -1,19 +1,25 @@
 package com.keepasspn.database.element.binary
 
-import com.keepasspn.encrypt.HashManager
 import java.io.Serializable
-import java.security.Key
 import javax.crypto.KeyGenerator
+import javax.crypto.SecretKey
 
-class LoadedKey(val key: Key, val iv: ByteArray): Serializable {
+/**
+ * Session key protecting the temporary binary files written on disk.
+ *
+ * AES-256 in GCM mode (authenticated encryption). A fresh random nonce is generated for
+ * every file and stored in that file's header, so a key is never reused with the same nonce.
+ */
+class LoadedKey(val key: SecretKey) : Serializable {
     companion object {
-        const val BINARY_CIPHER = "Blowfish/CBC/PKCS5Padding"
+        const val BINARY_CIPHER = "AES/GCM/NoPadding"
+        const val GCM_IV_LENGTH = 12
+        const val GCM_TAG_LENGTH_BITS = 128
 
         fun generateNewCipherKey(): LoadedKey {
-            return LoadedKey(
-                KeyGenerator.getInstance("Blowfish").generateKey(),
-                HashManager.generateRandom(8)
-            )
+            val keyGenerator = KeyGenerator.getInstance("AES")
+            keyGenerator.init(256)
+            return LoadedKey(keyGenerator.generateKey())
         }
     }
 }

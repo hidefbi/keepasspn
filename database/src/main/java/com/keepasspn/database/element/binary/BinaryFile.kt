@@ -23,23 +23,18 @@ import android.os.Parcel
 import android.os.Parcelable
 import android.util.Base64InputStream
 import android.util.Base64OutputStream
+import com.keepasspn.encrypt.HashManager
 import com.keepasspn.utils.readAllBytes
 import java.io.*
 import java.util.zip.GZIPOutputStream
 import javax.crypto.Cipher
 import javax.crypto.CipherInputStream
 import javax.crypto.CipherOutputStream
-import javax.crypto.spec.IvParameterSpec
+import javax.crypto.spec.GCMParameterSpec
 
 class BinaryFile : BinaryData {
 
     private var mDataFile: File? = null
-
-    // Cipher to encrypt temp file
-    @Transient
-    private var cipherEncryption: Cipher = Cipher.getInstance(LoadedKey.BINARY_CIPHER)
-    @Transient
-    private var cipherDecryption: Cipher = Cipher.getInstance(LoadedKey.BINARY_CIPHER)
 
     constructor(dataFile: File,
                 compressed: Boolean = false,
@@ -68,13 +63,30 @@ class BinaryFile : BinaryData {
         return buildOutputStream(mDataFile, binaryCache)
     }
 
+    /**
+     * File layout: [GCM nonce (12 bytes)] [AES-GCM ciphertext + 16-byte tag].
+     * Each file gets its own nonce, so the same session key is safe to reuse.
+     */
     @Throws(IOException::class)
     private fun buildInputStream(file: File?, binaryCache: BinaryCache): InputStream {
         val cipherKey = binaryCache.loadedCipherKey
         return when {
             file != null && file.length() > 0 -> {
-                cipherDecryption.init(Cipher.DECRYPT_MODE, cipherKey.key, IvParameterSpec(cipherKey.iv))
-                Base64InputStream(CipherInputStream(FileInputStream(file), cipherDecryption), BASE64_FLAG)
+                val fileInputStream = FileInputStream(file)
+                try {
+                    val nonce = ByteArray(LoadedKey.GCM_IV_LENGTH)
+                    fileInputStream.readFullyOrThrow(nonce)
+                    val cipher = Cipher.getInstance(LoadedKey.BINARY_CIPHER)
+                    cipher.init(
+                        Cipher.DECRYPT_MODE,
+                        cipherKey.key,
+                        GCMParameterSpec(LoadedKey.GCM_TAG_LENGTH_BITS, nonce)
+                    )
+                    Base64InputStream(CipherInputStream(fileInputStream, cipher), BASE64_FLAG)
+                } catch (e: Exception) {
+                    fileInputStream.close()
+                    throw IOException("Unable to open the binary file", e)
+                }
             }
             else -> ByteArrayInputStream(ByteArray(0))
         }
@@ -85,10 +97,34 @@ class BinaryFile : BinaryData {
         val cipherKey = binaryCache.loadedCipherKey
         return when {
             file != null -> {
-                cipherEncryption.init(Cipher.ENCRYPT_MODE, cipherKey.key, IvParameterSpec(cipherKey.iv))
-                BinaryCountingOutputStream(Base64OutputStream(CipherOutputStream(FileOutputStream(file), cipherEncryption), BASE64_FLAG))
+                val nonce = HashManager.generateRandom(LoadedKey.GCM_IV_LENGTH)
+                val fileOutputStream = FileOutputStream(file)
+                try {
+                    fileOutputStream.write(nonce)
+                    val cipher = Cipher.getInstance(LoadedKey.BINARY_CIPHER)
+                    cipher.init(
+                        Cipher.ENCRYPT_MODE,
+                        cipherKey.key,
+                        GCMParameterSpec(LoadedKey.GCM_TAG_LENGTH_BITS, nonce)
+                    )
+                    BinaryCountingOutputStream(
+                        Base64OutputStream(CipherOutputStream(fileOutputStream, cipher), BASE64_FLAG)
+                    )
+                } catch (e: Exception) {
+                    fileOutputStream.close()
+                    throw IOException("Unable to create the binary file", e)
+                }
             }
             else -> throw IOException("Unable to write in an unknown file")
+        }
+    }
+
+    private fun InputStream.readFullyOrThrow(buffer: ByteArray) {
+        var offset = 0
+        while (offset < buffer.size) {
+            val read = read(buffer, offset, buffer.size - offset)
+            if (read < 0) throw IOException("Unexpected end of binary file header")
+            offset += read
         }
     }
 

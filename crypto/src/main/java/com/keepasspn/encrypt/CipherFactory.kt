@@ -1,7 +1,5 @@
 package com.keepasspn.encrypt
 
-import com.keepasspn.encrypt.NoOpLog
-import com.keepasspn.encrypt.aes.AESProvider
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.InvalidAlgorithmParameterException
 import java.security.InvalidKeyException
@@ -20,19 +18,10 @@ object CipherFactory {
     }
 
     @Throws(NoSuchAlgorithmException::class, NoSuchPaddingException::class, InvalidKeyException::class, InvalidAlgorithmParameterException::class)
-    fun getAES(opmode: Int, key: ByteArray, iv: ByteArray, forceNative: Boolean = false): Cipher {
-        val transformation = "AES/CBC/PKCS5Padding"
-        val cipher = if (forceNative || NativeLib.loaded()) {
-            // Try native implementation
-            try {
-                Cipher.getInstance(transformation, AESProvider())
-            } catch (exception: Exception) {
-                NoOpLog.e(CipherFactory::class.java.simpleName, "Unable to retrieve native AES cipher", exception)
-                Cipher.getInstance(transformation)
-            }
-        } else {
-            Cipher.getInstance(transformation)
-        }
+    fun getAES(opmode: Int, key: ByteArray, iv: ByteArray): Cipher {
+        // Always the platform (JCA) implementation: audited and hardware accelerated.
+        // No custom native cipher is used for user data.
+        val cipher = Cipher.getInstance("AES/CBC/PKCS5Padding")
         cipher.init(opmode, SecretKeySpec(key, "AES"), IvParameterSpec(iv))
         return cipher
     }

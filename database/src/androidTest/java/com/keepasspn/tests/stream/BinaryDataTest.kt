@@ -6,6 +6,7 @@ import com.keepasspn.database.element.binary.BinaryCache
 import com.keepasspn.database.element.binary.BinaryFile
 import com.keepasspn.utils.readAllBytes
 import junit.framework.TestCase.assertEquals
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
 import java.io.DataInputStream
 import java.io.File
@@ -42,7 +43,7 @@ class BinaryDataTest {
         saveBinary(TEST_TEXT_ASSET, binaryA)
         saveBinary(TEST_TEXT_ASSET, binaryB)
         assertEquals("Save text binary length failed.", binaryA.getSize(), binaryB.getSize())
-        assertEquals("Save text binary MD5 failed.", binaryA.binaryHash(), binaryB.binaryHash())
+        assertArrayEquals("Save text binary SHA-256 failed.", binaryA.binaryHash(), binaryB.binaryHash())
     }
 
     @Test
@@ -52,7 +53,7 @@ class BinaryDataTest {
         saveBinary(TEST_IMAGE_ASSET, binaryA)
         saveBinary(TEST_IMAGE_ASSET, binaryB)
         assertEquals("Save image binary length failed.", binaryA.getSize(), binaryB.getSize())
-        assertEquals("Save image binary failed.", binaryA.binaryHash(), binaryB.binaryHash())
+        assertArrayEquals("Save image binary failed.", binaryA.binaryHash(), binaryB.binaryHash())
     }
 
     @Test
@@ -66,10 +67,10 @@ class BinaryDataTest {
         binaryA.compress(binaryCache)
         binaryB.compress(binaryCache)
         assertEquals("Compress text length failed.", binaryA.getSize(), binaryB.getSize())
-        assertEquals("Compress text MD5 failed.", binaryA.binaryHash(), binaryB.binaryHash())
+        assertArrayEquals("Compress text SHA-256 failed.", binaryA.binaryHash(), binaryB.binaryHash())
         binaryB.decompress(binaryCache)
         assertEquals("Decompress text length failed.", binaryB.getSize(), binaryC.getSize())
-        assertEquals("Decompress text MD5 failed.", binaryB.binaryHash(), binaryC.binaryHash())
+        assertArrayEquals("Decompress text SHA-256 failed.", binaryB.binaryHash(), binaryC.binaryHash())
     }
 
     @Test
@@ -83,11 +84,11 @@ class BinaryDataTest {
         binaryA.compress(binaryCache)
         binaryB.compress(binaryCache)
         assertEquals("Compress image length failed.", binaryA.getSize(), binaryA.getSize())
-        assertEquals("Compress image failed.", binaryA.binaryHash(), binaryA.binaryHash())
+        assertArrayEquals("Compress image failed.", binaryA.binaryHash(), binaryA.binaryHash())
         binaryB = BinaryFile(fileB, true)
         binaryB.decompress(binaryCache)
         assertEquals("Decompress image length failed.", binaryB.getSize(), binaryC.getSize())
-        assertEquals("Decompress image failed.", binaryB.binaryHash(), binaryC.binaryHash())
+        assertArrayEquals("Decompress image failed.", binaryB.binaryHash(), binaryC.binaryHash())
     }
 
     @Test
@@ -118,11 +119,11 @@ class BinaryDataTest {
         binaryB.compress(binaryCache)
         assertEquals("Compress bytes decompressed failed.", binaryA.isCompressed, true)
         assertEquals("Compress bytes length failed.", binaryA.getSize(), binaryA.getSize())
-        assertEquals("Compress bytes failed.", binaryA.binaryHash(), binaryA.binaryHash())
+        assertArrayEquals("Compress bytes failed.", binaryA.binaryHash(), binaryA.binaryHash())
         binaryB.decompress(binaryCache)
         assertEquals("Decompress bytes decompressed failed.", binaryB.isCompressed, false)
         assertEquals("Decompress bytes length failed.", binaryB.getSize(), binaryC.getSize())
-        assertEquals("Decompress bytes failed.", binaryB.binaryHash(), binaryC.binaryHash())
+        assertArrayEquals("Decompress bytes failed.", binaryB.binaryHash(), binaryC.binaryHash())
     }
 
     @Test

@@ -44,13 +44,38 @@ object AESTransformer {
         if (seed == null || key == null) {
             throw IOException("Invalid seed or key")
         }
+        if (!NativeLib.init() || !nativeKdfVerified) {
+            return transformKeyInJVM(seed, key, rounds)
+        }
         return try {
-            NativeLib.init()
             NativeAESKeyTransformer.nTransformKey(seed, key, rounds.toLong())
-        } catch (exception: Exception) {
+        } catch (exception: Throwable) {
             NoOpLog.e(AESTransformer::class.java.simpleName, "Unable to perform native AES key transformation", exception)
             // Fall back on the android crypto implementation
             transformKeyInJVM(seed, key, rounds)
+        }
+    }
+
+    /**
+     * The native key transformation is used only if it reproduces the JCA result on a fixed
+     * vector. Checked once per process; any mismatch or load failure falls back to JCA.
+     */
+    private val nativeKdfVerified: Boolean by lazy {
+        try {
+            if (!NativeLib.init()) return@lazy false
+            val seed = ByteArray(32) { it.toByte() }
+            val key = ByteArray(32) { (0xA5 xor it).toByte() }
+            val rounds: ULong = 1000u
+            val nativeResult = NativeAESKeyTransformer.nTransformKey(seed, key, rounds.toLong())
+            val jvmResult = transformKeyInJVM(seed, key, rounds)
+            val verified = nativeResult != null && nativeResult.contentEquals(jvmResult)
+            if (!verified) {
+                NoOpLog.e(AESTransformer::class.java.simpleName, "Native AES KDF self-test mismatch, using JCA")
+            }
+            verified
+        } catch (exception: Throwable) {
+            NoOpLog.e(AESTransformer::class.java.simpleName, "Native AES KDF self-test failed", exception)
+            false
         }
     }
 

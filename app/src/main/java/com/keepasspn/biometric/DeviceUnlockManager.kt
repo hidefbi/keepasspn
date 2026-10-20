@@ -119,7 +119,15 @@ class DeviceUnlockManager(private var appContext: Context) {
                                             )
                                         } else if (deviceCredentialUnlockEnable) {
                                             // Authent with device credential on Legacy Android M-Q
-                                            // duration required for PIN/Pattern on older APIs
+                                            // duration required for PIN/Pattern on older APIs.
+                                            // LIMITATION (accepted): on API 23-29 the platform only offers
+                                            // time-based authorization for device credentials, so after a
+                                            // successful PIN/pattern/password unlock this app-private key
+                                            // stays usable for 5 seconds. Per-use authorization (-1) is not
+                                            // available with the keyguard flow used here. Any app-level
+                                            // attacker able to run code in this process already has the
+                                            // unlocked database, so the window adds no new exposure beyond
+                                            // the process. See SECURITY_HARDENING.md.
                                             @Suppress("DEPRECATION")
                                             setUserAuthenticationValidityDurationSeconds(5)
                                         }

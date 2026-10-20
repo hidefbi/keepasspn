@@ -56,6 +56,7 @@ import com.keepasspn.credentialprovider.passkey.data.PublicKeyCredentialCreation
 import com.keepasspn.credentialprovider.passkey.data.PublicKeyCredentialRequestOptions
 import com.keepasspn.credentialprovider.passkey.data.UserVerificationRequirement
 import com.keepasspn.credentialprovider.passkey.util.PassHelper.getOrigin
+import com.keepasspn.credentialprovider.passkey.util.PrivilegedAllowLists
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.DatabaseTaskProvider
 import com.keepasspn.database.exception.RegisterInReadOnlyDatabaseException
@@ -139,7 +140,7 @@ class PasskeyProviderService : CredentialProviderService() {
                 }
                 is BeginGetPublicKeyCredentialOption -> {
                     knownOption = true
-                    populatePasskeyData(option) { listCredentials ->
+                    populatePasskeyData(option, request.callingAppInfo) { listCredentials ->
                         callback(BeginGetCredentialResponse(listCredentials))
                     }
                 }
@@ -417,6 +418,29 @@ class PasskeyProviderService : CredentialProviderService() {
         return rpId.length in 1..253 && RELYING_PARTY_ID_REGEX.matches(rpId)
     }
 
+    /**
+     * Passkeys are offered only to callers the platform identifies as a privileged origin
+     * (verified browsers, and apps on the allow list), matched on package name and signing
+     * certificate. Their origin is computed by the system and the browser validates the RP ID
+     * against it. Any other app could claim any RP ID, which is how passkeys get phished.
+     * This app has no network permission, so Digital Asset Links cannot be fetched to verify
+     * a native app's RP ID; such apps are therefore refused (fail closed).
+     */
+    private suspend fun isPrivilegedCaller(callingAppInfo: CallingAppInfo?): Boolean {
+        if (callingAppInfo == null) return false
+        return withContext(Dispatchers.IO) {
+            try {
+                !PrivilegedAllowLists.getOriginFromPrivilegedAllowLists(
+                    callingAppInfo,
+                    applicationContext
+                ).isNullOrEmpty()
+            } catch (e: Exception) {
+                NoOpLog.w(TAG, "Caller is not a privileged origin", e)
+                false
+            }
+        }
+    }
+
     private fun buildPasskeySearchInfo(
         relyingParty: String,
         credentialIds: List<String> = listOf()
@@ -429,6 +453,7 @@ class PasskeyProviderService : CredentialProviderService() {
 
     private fun populatePasskeyData(
         option: BeginGetPublicKeyCredentialOption,
+        callingAppInfo: CallingAppInfo?,
         callback: (List<CredentialEntry>) -> Unit
     ) {
         val passkeyEntries: MutableList<CredentialEntry> = mutableListOf()
@@ -440,109 +465,122 @@ class PasskeyProviderService : CredentialProviderService() {
             callback(passkeyEntries)
             return
         }
-        val credentialIdList = publicKeyCredentialRequestOptions.allowCredentials
-            .map { b64Encode(it.id) }
-        val searchInfo = buildPasskeySearchInfo(relyingPartyId, credentialIdList)
-        val userVerification = publicKeyCredentialRequestOptions.userVerification
-        NoOpLog.d(TAG, "Build passkey search for UV $userVerification, " +
-                "RP $relyingPartyId and Credential IDs $credentialIdList")
-        SearchHelper.checkAutoSearchInfo(
-            context = this,
-            database = mDatabase,
-            searchInfo = searchInfo,
-            onItemsFound = { database, items ->
-                NoOpLog.d(TAG, "Add pending intent for passkey selection with found items")
-                for (passkeyEntry in items) {
-                    PasskeyLauncherActivity.getPendingIntent(
-                        context = applicationContext,
-                        specialMode = SpecialMode.SELECTION,
-                        nodeId = passkeyEntry.nodeId,
-                        searchInfo = searchInfo,
-                        appOrigin = passkeyEntry.appOrigin,
-                        userVerification = userVerification,
-                        userVerifiedWithAuth = false
-                    )?.let { usagePendingIntent ->
-                        val passkey = passkeyEntry.passkey
-                        passkeyEntries.add(
-                            PublicKeyCredentialEntry(
-                                context = applicationContext,
-                                username = passkey?.username ?: "Unknown",
-                                icon = passkeyEntry.buildIcon(
-                                    this@PasskeyProviderService,
-                                    database
-                                )?.apply {
-                                    setTintBlendMode(BlendMode.DST)
-                                } ?: defaultIcon,
-                                pendingIntent = usagePendingIntent,
-                                beginGetPublicKeyCredentialOption = option,
-                                displayName = passkeyEntry.getVisualTitle(),
-                                isAutoSelectAllowed = isAutoSelectAllowed
-                            )
-                        )
-                    }
-                }
-                callback(passkeyEntries)
-            },
-            onItemNotFound = { _ ->
-                NoOpLog.w(TAG, "No passkey found in the database with this relying party : $relyingPartyId")
-                if (credentialIdList.isEmpty()) {
-                    NoOpLog.d(TAG, "Add pending intent for passkey selection in opened database")
-                    PasskeyLauncherActivity.getPendingIntent(
-                        context = applicationContext,
-                        specialMode = SpecialMode.SELECTION,
-                        searchInfo = searchInfo,
-                        userVerification = userVerification,
-                        userVerifiedWithAuth = false
-                    )?.let { pendingIntent ->
-                        passkeyEntries.add(
-                            PublicKeyCredentialEntry(
-                                context = applicationContext,
-                                username = getString(R.string.credential_provider_database_username),
-                                displayName = getString(R.string.passkey_selection_description),
-                                icon = defaultIcon,
-                                pendingIntent = pendingIntent,
-                                beginGetPublicKeyCredentialOption = option,
-                                lastUsedTime = Instant.now(),
-                                isAutoSelectAllowed = isAutoSelectAllowed
-                            )
-                        )
-                    }
+        lifecycleScope.launch {
+            try {
+                if (!isPrivilegedCaller(callingAppInfo)) {
+                    NoOpLog.w(TAG, "Caller is not a privileged origin, no passkey offered")
                     callback(passkeyEntries)
-                } else {
-                    throw IOException(
-                        getString(
-                            R.string.error_passkey_credential_id,
-                            relyingPartyId,
-                            credentialIdList
-                        )
-                    )
+                    return@launch
                 }
-            },
-            onDatabaseClosed = {
-                NoOpLog.d(TAG, "Add pending intent for passkey selection in closed database")
-                // Database is locked, a public key credential entry is shown to unlock it
-                PasskeyLauncherActivity.getPendingIntent(
-                    context = applicationContext,
-                    specialMode = SpecialMode.SELECTION,
+                val credentialIdList = publicKeyCredentialRequestOptions.allowCredentials
+                    .map { b64Encode(it.id) }
+                val searchInfo = buildPasskeySearchInfo(relyingPartyId, credentialIdList)
+                val userVerification = publicKeyCredentialRequestOptions.userVerification
+                NoOpLog.d(TAG, "Build passkey search for UV $userVerification, " +
+                        "RP $relyingPartyId and Credential IDs $credentialIdList")
+                SearchHelper.checkAutoSearchInfo(
+                    context = this@PasskeyProviderService,
+                    database = mDatabase,
                     searchInfo = searchInfo,
-                    userVerifiedWithAuth = true
-                )?.let { pendingIntent ->
-                    passkeyEntries.add(
-                        PublicKeyCredentialEntry(
+                    onItemsFound = { database, items ->
+                        NoOpLog.d(TAG, "Add pending intent for passkey selection with found items")
+                        for (passkeyEntry in items) {
+                            PasskeyLauncherActivity.getPendingIntent(
+                                context = applicationContext,
+                                specialMode = SpecialMode.SELECTION,
+                                nodeId = passkeyEntry.nodeId,
+                                searchInfo = searchInfo,
+                                appOrigin = passkeyEntry.appOrigin,
+                                userVerification = userVerification,
+                                userVerifiedWithAuth = false
+                            )?.let { usagePendingIntent ->
+                                val passkey = passkeyEntry.passkey
+                                passkeyEntries.add(
+                                    PublicKeyCredentialEntry(
+                                        context = applicationContext,
+                                        username = passkey?.username ?: "Unknown",
+                                        icon = passkeyEntry.buildIcon(
+                                            this@PasskeyProviderService,
+                                            database
+                                        )?.apply {
+                                            setTintBlendMode(BlendMode.DST)
+                                        } ?: defaultIcon,
+                                        pendingIntent = usagePendingIntent,
+                                        beginGetPublicKeyCredentialOption = option,
+                                        displayName = passkeyEntry.getVisualTitle(),
+                                        isAutoSelectAllowed = isAutoSelectAllowed
+                                    )
+                                )
+                            }
+                        }
+                        callback(passkeyEntries)
+                    },
+                    onItemNotFound = { _ ->
+                        NoOpLog.w(TAG, "No passkey found in the database with this relying party : $relyingPartyId")
+                        if (credentialIdList.isEmpty()) {
+                            NoOpLog.d(TAG, "Add pending intent for passkey selection in opened database")
+                            PasskeyLauncherActivity.getPendingIntent(
+                                context = applicationContext,
+                                specialMode = SpecialMode.SELECTION,
+                                searchInfo = searchInfo,
+                                userVerification = userVerification,
+                                userVerifiedWithAuth = false
+                            )?.let { pendingIntent ->
+                                passkeyEntries.add(
+                                    PublicKeyCredentialEntry(
+                                        context = applicationContext,
+                                        username = getString(R.string.credential_provider_database_username),
+                                        displayName = getString(R.string.passkey_selection_description),
+                                        icon = defaultIcon,
+                                        pendingIntent = pendingIntent,
+                                        beginGetPublicKeyCredentialOption = option,
+                                        lastUsedTime = Instant.now(),
+                                        isAutoSelectAllowed = isAutoSelectAllowed
+                                    )
+                                )
+                            }
+                            callback(passkeyEntries)
+                        } else {
+                            throw IOException(
+                                getString(
+                                    R.string.error_passkey_credential_id,
+                                    relyingPartyId,
+                                    credentialIdList
+                                )
+                            )
+                        }
+                    },
+                    onDatabaseClosed = {
+                        NoOpLog.d(TAG, "Add pending intent for passkey selection in closed database")
+                        // Database is locked, a public key credential entry is shown to unlock it
+                        PasskeyLauncherActivity.getPendingIntent(
                             context = applicationContext,
-                            username = getString(R.string.credential_provider_database_username),
-                            displayName = getString(R.string.credential_provider_locked_database_description),
-                            icon = defaultIcon,
-                            pendingIntent = pendingIntent,
-                            beginGetPublicKeyCredentialOption = option,
-                            lastUsedTime = Instant.now(),
-                            isAutoSelectAllowed = isAutoSelectAllowed
-                        )
-                    )
-                }
-                callback(passkeyEntries)
+                            specialMode = SpecialMode.SELECTION,
+                            searchInfo = searchInfo,
+                            userVerifiedWithAuth = true
+                        )?.let { pendingIntent ->
+                            passkeyEntries.add(
+                                PublicKeyCredentialEntry(
+                                    context = applicationContext,
+                                    username = getString(R.string.credential_provider_database_username),
+                                    displayName = getString(R.string.credential_provider_locked_database_description),
+                                    icon = defaultIcon,
+                                    pendingIntent = pendingIntent,
+                                    beginGetPublicKeyCredentialOption = option,
+                                    lastUsedTime = Instant.now(),
+                                    isAutoSelectAllowed = isAutoSelectAllowed
+                                )
+                            )
+                        }
+                        callback(passkeyEntries)
+                    }
+                )
+            } catch (e: Exception) {
+                NoOpLog.e(TAG, "Passkey request failed", e)
+                toastError(e)
+                callback(emptyList())
             }
-        )
+        }
     }
 
     private fun MutableList<CreateEntry>.addPendingIntentPasskeyCreationNewEntry(
@@ -590,60 +628,73 @@ class PasskeyProviderService : CredentialProviderService() {
             callback(createEntries)
             return
         }
-        val searchInfo = buildPasskeySearchInfo(relyingPartyId)
-        val userVerification = publicKeyCredentialCreationOptions.authenticatorSelection.userVerification
-        NoOpLog.d(TAG, "Build passkey search for relying party $relyingPartyId")
-        SearchHelper.checkAutoSearchInfo(
-            context = this,
-            database = mDatabase,
-            searchInfo = searchInfo,
-            onItemsFound = { database, _ ->
-                if (database.isReadOnly) {
-                    throw RegisterInReadOnlyDatabaseException()
-                } else {
-                    // To create a new entry
-                    createEntries.addPendingIntentPasskeyCreationNewEntry(
-                        accountName = accountName,
-                        searchInfo = searchInfo,
-                        userVerification = userVerification
-                    )
+        lifecycleScope.launch {
+            try {
+                if (!isPrivilegedCaller(request.callingAppInfo)) {
+                    NoOpLog.w(TAG, "Caller is not a privileged origin, no passkey created")
+                    callback(createEntries)
+                    return@launch
                 }
-                callback(createEntries)
-            },
-            onItemNotFound = { database ->
-                // To create a new entry
-                if (database.isReadOnly) {
-                    throw RegisterInReadOnlyDatabaseException()
-                } else {
-                    createEntries.addPendingIntentPasskeyCreationNewEntry(
-                        accountName = accountName,
-                        searchInfo = searchInfo,
-                        userVerification = userVerification
-                    )
-                }
-                callback(createEntries)
-            },
-            onDatabaseClosed = {
-                // Launch the passkey launcher activity to open the database
-                NoOpLog.d(TAG, "Add pending intent for passkey registration in closed database")
-                PasskeyLauncherActivity.getPendingIntent(
-                    context = applicationContext,
-                    specialMode = SpecialMode.REGISTRATION,
+                val searchInfo = buildPasskeySearchInfo(relyingPartyId)
+                val userVerification = publicKeyCredentialCreationOptions.authenticatorSelection.userVerification
+                NoOpLog.d(TAG, "Build passkey search for relying party $relyingPartyId")
+                SearchHelper.checkAutoSearchInfo(
+                    context = this@PasskeyProviderService,
+                    database = mDatabase,
                     searchInfo = searchInfo,
-                    userVerifiedWithAuth = true
-                )?.let { pendingIntent ->
-                    createEntries.add(
-                        CreateEntry(
-                            accountName = accountName,
-                            icon = defaultIcon,
-                            pendingIntent = pendingIntent,
-                            description = getString(R.string.credential_provider_locked_database_description)
-                        )
-                    )
-                }
-                callback(createEntries)
+                    onItemsFound = { database, _ ->
+                        if (database.isReadOnly) {
+                            throw RegisterInReadOnlyDatabaseException()
+                        } else {
+                            // To create a new entry
+                            createEntries.addPendingIntentPasskeyCreationNewEntry(
+                                accountName = accountName,
+                                searchInfo = searchInfo,
+                                userVerification = userVerification
+                            )
+                        }
+                        callback(createEntries)
+                    },
+                    onItemNotFound = { database ->
+                        // To create a new entry
+                        if (database.isReadOnly) {
+                            throw RegisterInReadOnlyDatabaseException()
+                        } else {
+                            createEntries.addPendingIntentPasskeyCreationNewEntry(
+                                accountName = accountName,
+                                searchInfo = searchInfo,
+                                userVerification = userVerification
+                            )
+                        }
+                        callback(createEntries)
+                    },
+                    onDatabaseClosed = {
+                        // Launch the passkey launcher activity to open the database
+                        NoOpLog.d(TAG, "Add pending intent for passkey registration in closed database")
+                        PasskeyLauncherActivity.getPendingIntent(
+                            context = applicationContext,
+                            specialMode = SpecialMode.REGISTRATION,
+                            searchInfo = searchInfo,
+                            userVerifiedWithAuth = true
+                        )?.let { pendingIntent ->
+                            createEntries.add(
+                                CreateEntry(
+                                    accountName = accountName,
+                                    icon = defaultIcon,
+                                    pendingIntent = pendingIntent,
+                                    description = getString(R.string.credential_provider_locked_database_description)
+                                )
+                            )
+                        }
+                        callback(createEntries)
+                    }
+                )
+            } catch (e: Exception) {
+                NoOpLog.e(TAG, "Passkey request failed", e)
+                toastError(e)
+                callback(emptyList())
             }
-        )
+        }
     }
 
     companion object {

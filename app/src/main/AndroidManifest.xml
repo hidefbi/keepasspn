@@ -306,7 +306,7 @@
 
         <receiver
             android:name="com.keepasspn.receivers.DexModeReceiver"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.app.action.ENTER_KNOX_DESKTOP_MODE" />
                 <action android:name="android.app.action.EXIT_KNOX_DESKTOP_MODE" />

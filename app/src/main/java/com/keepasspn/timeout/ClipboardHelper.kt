@@ -62,7 +62,7 @@ private fun Context.getClipboardText(): String {
 fun Context.timeoutCopyToClipboard(
     label: String,
     value: CharSequence,
-    sensitive: Boolean = false
+    sensitive: Boolean = true
 ) {
     try {
         copyToClipboard(label, value, sensitive)
@@ -97,7 +97,7 @@ fun Context.timeoutCopyToClipboard(
 fun Context.timeoutCopyToClipboard(
     label: String,
     value: CharArray?,
-    sensitive: Boolean = false
+    sensitive: Boolean = true
 ) {
     if (value == null) return
     timeoutCopyToClipboard(label, String(value), sensitive)
@@ -112,7 +112,7 @@ fun Context.timeoutCopyToClipboard(
 fun Context.copyToClipboard(
     label: String,
     value: CharSequence,
-    sensitive: Boolean = false
+    sensitive: Boolean = true
 ) {
     clipboardManager()?.setPrimaryClip(
         ClipData.newPlainText(DEFAULT_LABEL, value).apply {
@@ -141,7 +141,7 @@ fun Context.copyToClipboard(
 fun Context.copyToClipboard(
     label: String,
     value: CharArray?,
-    sensitive: Boolean = false
+    sensitive: Boolean = true
 ) {
     if (value == null) return
     copyToClipboard(label, String(value), sensitive)

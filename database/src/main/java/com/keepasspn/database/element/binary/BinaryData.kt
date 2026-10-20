@@ -28,7 +28,6 @@ import org.apache.commons.io.output.CountingOutputStream
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
-import java.nio.ByteBuffer
 import java.security.MessageDigest
 import java.util.zip.GZIPInputStream
 import java.util.zip.GZIPOutputStream
@@ -41,13 +40,15 @@ abstract class BinaryData : Parcelable {
         protected set
     var isCorrupted: Boolean = false
     private var mLength: Long = 0
-    private var mBinaryHash = 0
+    // Full SHA-256 digest of the content (empty when unknown). A 32-bit hash is not
+    // collision-safe: two different attachments could be merged on save.
+    private var mBinaryHash: ByteArray = ByteArray(0)
 
     protected constructor(compressed: Boolean = false, protected: Boolean = false) {
         this.isCompressed = compressed
         this.isProtected = protected
         this.mLength = 0
-        this.mBinaryHash = 0
+        this.mBinaryHash = ByteArray(0)
     }
 
     protected constructor(parcel: Parcel) {
@@ -55,7 +56,7 @@ abstract class BinaryData : Parcelable {
         isProtected = parcel.readBooleanCompat()
         isCorrupted = parcel.readBooleanCompat()
         mLength = parcel.readLong()
-        mBinaryHash = parcel.readInt()
+        mBinaryHash = parcel.createByteArray() ?: ByteArray(0)
     }
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
@@ -63,7 +64,7 @@ abstract class BinaryData : Parcelable {
         dest.writeBooleanCompat(isProtected)
         dest.writeBooleanCompat(isCorrupted)
         dest.writeLong(mLength)
-        dest.writeInt(mBinaryHash)
+        dest.writeByteArray(mBinaryHash)
     }
 
     @Throws(IOException::class)
@@ -107,7 +108,7 @@ abstract class BinaryData : Parcelable {
     }
 
     @Throws(IOException::class)
-    fun binaryHash(): Int {
+    fun binaryHash(): ByteArray {
         return mBinaryHash
     }
 
@@ -126,7 +127,7 @@ abstract class BinaryData : Parcelable {
         if (isProtected != other.isProtected) return false
         if (isCorrupted != other.isCorrupted) return false
         if (mLength != other.mLength) return false
-        if (mBinaryHash != other.mBinaryHash) return false
+        if (!mBinaryHash.contentEquals(other.mBinaryHash)) return false
 
         return true
     }
@@ -136,7 +137,7 @@ abstract class BinaryData : Parcelable {
         result = 31 * result + isProtected.hashCode()
         result = 31 * result + isCorrupted.hashCode()
         result = 31 * result + mLength.hashCode()
-        result = 31 * result + mBinaryHash
+        result = 31 * result + mBinaryHash.contentHashCode()
         return result
     }
 
@@ -149,8 +150,8 @@ abstract class BinaryData : Parcelable {
         private val mMessageDigest: MessageDigest
         init {
             mLength = 0
-            mMessageDigest = MessageDigest.getInstance("MD5")
-            mBinaryHash = 0
+            mMessageDigest = MessageDigest.getInstance("SHA-256")
+            mBinaryHash = ByteArray(0)
         }
 
         override fun beforeWrite(n: Int) {
@@ -176,8 +177,7 @@ abstract class BinaryData : Parcelable {
         override fun close() {
             super.close()
             mLength = byteCount
-            val bytes = mMessageDigest.digest()
-            mBinaryHash = ByteBuffer.wrap(bytes).int
+            mBinaryHash = mMessageDigest.digest()
         }
     }
 

@@ -67,6 +67,9 @@ open class LockReceiver(private var lockAction: () -> Unit) : BroadcastReceiver(
                                 4575,
                                 Intent(intent).apply {
                                     action = LOCK_ACTION
+                                    // Never forward a component chosen by a caller: deliver to this app only
+                                    component = null
+                                    setPackage(context.packageName)
                                 },
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                                     PendingIntent.FLAG_IMMUTABLE
