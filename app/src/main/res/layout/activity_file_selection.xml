@@ -79,7 +79,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitCenter"
-                                android:src="@drawable/ic_home_emblem_rings"
+                                android:src="@drawable/ic_emblem_shield_bands"
                                 app:tint="?attr/colorPrimary"
                                 android:importantForAccessibility="no"/>
                             <ImageView
@@ -87,7 +87,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitCenter"
-                                android:src="@drawable/ic_home_emblem_keys"
+                                android:src="@drawable/ic_emblem_shield_keys"
                                 app:tint="?attr/colorSecondary"
                                 android:importantForAccessibility="no"/>
                         </FrameLayout>

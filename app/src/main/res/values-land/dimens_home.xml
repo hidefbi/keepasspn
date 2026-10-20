@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="home_emblem_size">112dp</dimen>
+    <dimen name="home_emblem_size">150dp</dimen>
 </resources>
