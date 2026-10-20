@@ -26,7 +26,7 @@ android {
         // TODO: bump this version scheme with every release you make;
         // it must always increase for Play Store / F-Droid updates to install.
         versionCode = 1
-        versionName = "4.5.3-keepasspn.1"
+        versionName = "1.0.0"
         multiDexEnabled = true
 
         testApplicationId = "io.github.hidefbi.keepasspn.tests"
