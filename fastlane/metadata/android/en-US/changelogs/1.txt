@@ -1,0 +1,1 @@
+First release under the KeePassPN name. Includes PIN quick unlock, verification before copying, recovery copies, and hardened handling of passkeys, autofill and binary attachments.

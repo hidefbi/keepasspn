@@ -1,0 +1,1 @@
+KeePass (KDBX) password manager with optional PIN quick unlock

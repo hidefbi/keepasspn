@@ -1,0 +1,21 @@
+KeePassPN opens and edits KeePass databases in the KDBX format. The database stays in the file you choose, either on this device or in a folder offered by a document provider.
+
+PIN quick unlock (optional)
+Set a PIN of at least six digits to open a database without typing the master password. The PIN is never stored in plain form. It protects an encrypted copy of the master password, and a key kept in the Android Keystore is also required to open it. After three wrong PINs, the PIN is deleted and the master password is required again.
+
+You can choose how long a PIN stays valid: 7, 14, 30 or 60 days, or never. If the app has not been opened within that period, the PIN and the app's copy of the database are removed. Your original .kdbx file is not changed.
+
+Verification before copying
+Copying a protected field asks you to confirm it is you. The app uses your database PIN if one is set. Otherwise it uses your device lock screen. If neither is available, it asks for the first four characters of the master password. You can turn this off under Settings, User Verification.
+
+Recovery copies
+After a database opens successfully, the app keeps a private copy in its own storage. If the original file is later replaced with an older version, the newer changes in the private copy are kept. If both copies changed, the conflicting copy is saved as a separate file.
+
+Autofill and passkeys
+The app includes an autofill service and a passkey provider for Android's Credential Manager.
+
+Before you enable PIN unlock
+A PIN has far less strength than a long master password. The attempt counter is stored by the app, so a rooted device can reset it. Use PIN unlock only if you accept that.
+
+Source code: https://github.com/hidefbi/keepasspn
+License: GNU General Public License v3.0 or later
