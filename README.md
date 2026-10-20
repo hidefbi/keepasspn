@@ -1,28 +1,43 @@
 # KeePassPN
 
-KeePassPN is an Android password manager for KeePass databases (KDBX), with optional PIN quick unlock.
+KeePassPN is an Android password manager for KeePass databases in the KDBX format. It opens and edits databases stored on the device or exposed through the Storage Access Framework, and offers optional PIN quick unlock.
 
 ## Features
 
-- Open and edit KDBX databases stored on the device or through a document provider.
-- **PIN quick unlock** (optional): unlock a database with a PIN of at least 6 digits instead of typing the master password.
-  - The PIN wraps a copy of the master credential, encrypted with a device-bound key (AndroidKeyStore) and with Argon2id (64 MiB, 3 iterations).
-  - Three wrong PINs delete the PIN and require the master password.
-  - After the PIN is deleted, two wrong master passwords delete the database from the app. The original .kdbx file is never touched.
-  - Optional validity: 7, 14, 30 or 60 days, or never. If the app is not opened within the period, the PIN and the app's copy of the database are removed, and the .kdbx file must be imported again.
-- **Verify before copying**: copying a protected field asks for user verification. The verification uses the database PIN when one is set, otherwise the device credential, otherwise the first four characters of the master password. The option can be turned off in *Settings > User verification*.
-- A private encrypted recovery copy of each database that has been opened successfully.
+- **KDBX support**: open and edit KeePass databases from local storage or any Storage Access Framework document provider.
+- **PIN quick unlock** (optional): unlock a database with a PIN of at least six digits instead of the master password.
+  - The PIN protects a copy of the master credential with two AES-GCM layers. The inner layer uses a non-exportable key in the Android Keystore. The outer layer uses a key derived from the PIN with Argon2id (64 MiB, 3 iterations, 1 lane).
+  - Each layer is authenticated against the database URI, and the outer layer also against the database header, so an entry cannot be reused for another database.
+  - Three consecutive wrong PINs delete the PIN. The master password is then required.
+- **PIN validity**: 7, 14, 30 or 60 days, or never. If the app has not been opened within the configured period, the PIN, the app's copy of the database, its recovery copy and its history entry are removed. The original `.kdbx` file is not modified.
+- **Verify before copying**: copying a protected field requires user verification. The method is chosen in this order: the database PIN (if one is set), the device credential (if available), and the first four characters of the master password. This can be turned off under *Settings > User Verification*.
+- **Recovery copies**: each database that has been opened successfully keeps a private copy in app-private storage, still protected by the master credential. A copy with unsynced edits is never overwritten by a stale original, and conflicting changes are archived instead of replaced.
 
-## Security note
+## Security notes
 
-PIN verification is checked by this app's own code, not by the Android system's security hardware. A PIN has far less entropy than the master password. Use PIN unlock only if you accept that trade-off.
+- The master password is the primary credential. PIN unlock is a convenience feature.
+- A numeric PIN has far less entropy than a master password. Argon2id increases the cost of offline guessing, but it cannot remove the risk of a short secret.
+- The PIN attempt counter is stored in the app's database and enforced by the app, not by Android's hardware-backed authentication. On a rooted or otherwise compromised device, the counter can be reset.
+- The Android Keystore key cannot be exported. Whether it is hardware-backed depends on the device.
+- Recovery copies help prevent data loss from stale synchronization. They are not a replacement for independent backups.
+- Use PIN unlock only if you accept these trade-offs.
+
+## Requirements
+
+- Android 4.4 (API 19) or later.
 
 ## Building
 
+Build the debug variants from the repository root:
+
 ```
 ./gradlew assembleFreeDebug
+./gradlew assembleLibreDebug
 ```
+
+- `free`: for closed-store distribution. Passkey privilege checks use Google's allow list only.
+- `libre`: for open-source distribution. Passkey privilege checks fall back to the community allow list.
 
 ## License
 
-KeePassPN is free software under the GNU General Public License version 3. See the `LICENSE` file.
+KeePassPN is free software licensed under the GNU General Public License v3.0 (GPL-3.0). See the [LICENSE](LICENSE) file for the full text.
