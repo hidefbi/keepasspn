@@ -788,4 +788,7 @@
     <string name="pin_setup_confirm_dialog_hint">Reinserisci lo stesso PIN</string>
     <string name="pin_setup_mismatch">I PIN non corrispondono, riprova</string>
     <string name="pin_setup_too_short">Il PIN deve avere almeno 6 cifre</string>
+    <string name="group_move_up">Sposta su</string>
+    <string name="group_move_down">Sposta giù</string>
+    <string name="group_drag_handle">Trascina per riordinare</string>
 </resources>

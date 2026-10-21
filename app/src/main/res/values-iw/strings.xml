@@ -756,4 +756,7 @@
     <string name="pin_setup_confirm_dialog_hint">הזן שוב את אותו PIN</string>
     <string name="pin_setup_mismatch">קודי ה-PIN אינם תואמים, נסה שוב</string>
     <string name="pin_setup_too_short">ה-PIN חייב להכיל לפחות 6 ספרות</string>
+    <string name="group_move_up">העבר למעלה</string>
+    <string name="group_move_down">העבר למטה</string>
+    <string name="group_drag_handle">גרור כדי לשנות את הסדר</string>
 </resources>

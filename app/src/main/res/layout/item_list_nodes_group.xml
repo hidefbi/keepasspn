@@ -119,5 +119,19 @@
             android:layout_marginEnd="12dp"
             android:layout_marginRight="12dp"
             android:src="@drawable/ic_arrow_right_white_24dp" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/node_drag_handle"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="44dp"
+            android:layout_marginRight="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/group_drag_handle"
+            android:src="@drawable/ic_drag_handle_24dp"
+            android:visibility="gone"
+            app:tint="?attr/colorControlNormal" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

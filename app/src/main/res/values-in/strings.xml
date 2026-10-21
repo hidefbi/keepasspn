@@ -760,4 +760,7 @@
     <string name="pin_setup_confirm_dialog_hint">Masukkan PIN yang sama lagi</string>
     <string name="pin_setup_mismatch">PIN tidak cocok, coba lagi</string>
     <string name="pin_setup_too_short">PIN harus terdiri dari minimal 6 digit</string>
+    <string name="group_move_up">Pindahkan ke atas</string>
+    <string name="group_move_down">Pindahkan ke bawah</string>
+    <string name="group_drag_handle">Seret untuk mengubah urutan</string>
 </resources>

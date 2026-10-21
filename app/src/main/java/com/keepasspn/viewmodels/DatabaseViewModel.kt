@@ -340,6 +340,18 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
         )
     }
 
+    fun reorderGroup(
+        groupId: GroupId,
+        targetIndex: Int,
+        save: Boolean
+    ) {
+        mDatabaseTaskProvider.startDatabaseReorderGroup(
+            groupId = groupId,
+            targetIndex = targetIndex,
+            save = save
+        )
+    }
+
     fun moveNodes(
         newParentId: GroupId,
         nodesToMove: Nodes,

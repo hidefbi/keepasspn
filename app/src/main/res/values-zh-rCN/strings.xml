@@ -784,4 +784,7 @@
     <string name="pin_setup_confirm_dialog_hint">请再次输入相同的 PIN</string>
     <string name="pin_setup_mismatch">PIN 不一致，请重试</string>
     <string name="pin_setup_too_short">PIN 至少需要 6 位数字</string>
+    <string name="group_move_up">上移</string>
+    <string name="group_move_down">下移</string>
+    <string name="group_drag_handle">拖动以调整顺序</string>
 </resources>

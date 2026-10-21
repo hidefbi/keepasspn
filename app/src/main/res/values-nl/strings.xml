@@ -787,4 +787,7 @@
     <string name="pin_setup_confirm_dialog_hint">Voer dezelfde pincode opnieuw in</string>
     <string name="pin_setup_mismatch">De pincodes komen niet overeen, probeer het opnieuw</string>
     <string name="pin_setup_too_short">De pincode moet minstens 6 cijfers hebben</string>
+    <string name="group_move_up">Omhoog verplaatsen</string>
+    <string name="group_move_down">Omlaag verplaatsen</string>
+    <string name="group_drag_handle">Sleep om te herschikken</string>
 </resources>

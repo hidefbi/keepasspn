@@ -726,4 +726,7 @@
     <string name="pin_setup_confirm_dialog_hint">ป้อน PIN เดิมอีกครั้ง</string>
     <string name="pin_setup_mismatch">PIN ไม่ตรงกัน ลองอีกครั้ง</string>
     <string name="pin_setup_too_short">PIN ต้องมีอย่างน้อย 6 หลัก</string>
+    <string name="group_move_up">ย้ายขึ้น</string>
+    <string name="group_move_down">ย้ายลง</string>
+    <string name="group_drag_handle">ลากเพื่อจัดลำดับใหม่</string>
 </resources>

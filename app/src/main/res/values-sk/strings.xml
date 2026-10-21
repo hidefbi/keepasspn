@@ -777,4 +777,7 @@
     <string name="pin_setup_confirm_dialog_hint">Zadajte rovnaký PIN znova</string>
     <string name="pin_setup_mismatch">PINy sa nezhodujú, skúste to znova</string>
     <string name="pin_setup_too_short">PIN musí mať aspoň 6 číslic</string>
+    <string name="group_move_up">Presunúť nahor</string>
+    <string name="group_move_down">Presunúť nadol</string>
+    <string name="group_drag_handle">Presuňte na zmenu poradia</string>
 </resources>

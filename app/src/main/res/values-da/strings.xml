@@ -698,4 +698,7 @@
     <string name="pin_setup_confirm_dialog_hint">Indtast den samme PIN igen</string>
     <string name="pin_setup_mismatch">PIN-koderne matcher ikke, prøv igen</string>
     <string name="pin_setup_too_short">PIN skal være mindst 6 cifre</string>
+    <string name="group_move_up">Flyt op</string>
+    <string name="group_move_down">Flyt ned</string>
+    <string name="group_drag_handle">Træk for at ændre rækkefølge</string>
 </resources>

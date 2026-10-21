@@ -783,4 +783,7 @@
     <string name="pin_setup_confirm_dialog_hint">Gib dieselbe PIN erneut ein</string>
     <string name="pin_setup_mismatch">Die PINs stimmen nicht überein, versuche es erneut</string>
     <string name="pin_setup_too_short">Die PIN muss mindestens 6 Ziffern haben</string>
+    <string name="group_move_up">Nach oben verschieben</string>
+    <string name="group_move_down">Nach unten verschieben</string>
+    <string name="group_drag_handle">Zum Umordnen ziehen</string>
 </resources>

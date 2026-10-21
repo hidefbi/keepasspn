@@ -766,4 +766,7 @@
     <string name="pin_setup_confirm_dialog_hint">Nhập lại cùng một PIN</string>
     <string name="pin_setup_mismatch">PIN không khớp, hãy thử lại</string>
     <string name="pin_setup_too_short">PIN phải có ít nhất 6 chữ số</string>
+    <string name="group_move_up">Di chuyển lên</string>
+    <string name="group_move_down">Di chuyển xuống</string>
+    <string name="group_drag_handle">Kéo để sắp xếp lại</string>
 </resources>

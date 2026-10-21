@@ -743,4 +743,7 @@
     <string name="pin_setup_confirm_dialog_hint">Sisesta sama PIN-kood uuesti</string>
     <string name="pin_setup_mismatch">PIN-koodid ei ühildu, proovi uuesti</string>
     <string name="pin_setup_too_short">PIN-kood peab olema vähemalt 6 numbrit</string>
+    <string name="group_move_up">Liiguta üles</string>
+    <string name="group_move_down">Liiguta alla</string>
+    <string name="group_drag_handle">Lohistage järjestuse muutmiseks</string>
 </resources>

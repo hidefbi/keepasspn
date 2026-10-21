@@ -776,4 +776,7 @@
     <string name="pin_setup_confirm_dialog_hint">Aynı PIN’i yeniden girin</string>
     <string name="pin_setup_mismatch">PIN’ler eşleşmedi, tekrar deneyin</string>
     <string name="pin_setup_too_short">PIN en az 6 basamaklı olmalıdır</string>
+    <string name="group_move_up">Yukarı taşı</string>
+    <string name="group_move_down">Aşağı taşı</string>
+    <string name="group_drag_handle">Sıralamak için sürükleyin</string>
 </resources>

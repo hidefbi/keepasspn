@@ -57,6 +57,7 @@ import com.keepasspn.database.action.node.AfterActionNodesFinish
 import com.keepasspn.database.action.node.CopyNodesRunnable
 import com.keepasspn.database.action.node.DeleteNodesRunnable
 import com.keepasspn.database.action.node.MoveNodesRunnable
+import com.keepasspn.database.action.node.ReorderGroupRunnable
 import com.keepasspn.database.action.node.TouchEntryRunnable
 import com.keepasspn.database.action.node.TouchGroupRunnable
 import com.keepasspn.database.action.node.UpdateEntryRunnable
@@ -365,6 +366,7 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
             ACTION_DATABASE_COPY_NODES_TASK -> buildDatabaseCopyNodesActionTask(intent, database)
             ACTION_DATABASE_MOVE_NODES_TASK -> buildDatabaseMoveNodesActionTask(intent, database)
             ACTION_DATABASE_DELETE_NODES_TASK -> buildDatabaseDeleteNodesActionTask(intent, database)
+            ACTION_DATABASE_REORDER_GROUP_TASK -> buildDatabaseReorderGroupActionTask(intent, database)
             ACTION_DATABASE_RESTORE_ENTRY_HISTORY -> buildDatabaseRestoreEntryHistoryActionTask(intent, database)
             ACTION_DATABASE_DELETE_ENTRY_HISTORY -> buildDatabaseDeleteEntryHistoryActionTask(intent, database)
             ACTION_DATABASE_UPDATE_COMPRESSION_TASK -> buildDatabaseUpdateCompressionActionTask(intent, database)
@@ -1217,6 +1219,32 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         }
     }
 
+    private fun buildDatabaseReorderGroupActionTask(
+        intent: Intent,
+        database: ContextualDatabase,
+    ): ActionRunnable? {
+        return if (intent.hasExtra(REORDER_GROUP_ID_KEY)
+            && intent.hasExtra(REORDER_TARGET_INDEX_KEY)
+            && intent.hasExtra(SAVE_DATABASE_KEY)
+        ) {
+            val groupId: GroupId = intent.getParcelableExtraCompat(REORDER_GROUP_ID_KEY) ?: return null
+            val targetIndex = intent.getIntExtra(REORDER_TARGET_INDEX_KEY, 0)
+            val saveDatabase = intent.getBooleanExtra(SAVE_DATABASE_KEY, false)
+            ReorderGroupRunnable(
+                context = this,
+                database = database,
+                groupId = groupId,
+                targetIndex = targetIndex,
+                save = !database.isReadOnly && saveDatabase,
+                afterActionNodesFinish = AfterActionNodesRunnable()
+            ) { hardwareKey, seed ->
+                retrieveResponseFromChallenge(hardwareKey, seed)
+            }
+        } else {
+            null
+        }
+    }
+
     private fun buildDatabaseDeleteNodesActionTask(
         intent: Intent,
         database: ContextualDatabase,
@@ -1476,6 +1504,9 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         const val ACTION_DATABASE_COPY_NODES_TASK = "ACTION_DATABASE_COPY_NODES_TASK"
         const val ACTION_DATABASE_MOVE_NODES_TASK = "ACTION_DATABASE_MOVE_NODES_TASK"
         const val ACTION_DATABASE_DELETE_NODES_TASK = "ACTION_DATABASE_DELETE_NODES_TASK"
+        const val ACTION_DATABASE_REORDER_GROUP_TASK = "ACTION_DATABASE_REORDER_GROUP_TASK"
+        const val REORDER_GROUP_ID_KEY = "REORDER_GROUP_ID_KEY"
+        const val REORDER_TARGET_INDEX_KEY = "REORDER_TARGET_INDEX_KEY"
         const val ACTION_DATABASE_RESTORE_ENTRY_HISTORY = "ACTION_DATABASE_RESTORE_ENTRY_HISTORY"
         const val ACTION_DATABASE_DELETE_ENTRY_HISTORY = "ACTION_DATABASE_DELETE_ENTRY_HISTORY"
         const val ACTION_DATABASE_UPDATE_NAME_TASK = "ACTION_DATABASE_UPDATE_NAME_TASK"

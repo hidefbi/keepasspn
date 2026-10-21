@@ -656,4 +656,7 @@
     <string name="pin_setup_confirm_dialog_hint">Eyni PIN-i yenidən daxil edin</string>
     <string name="pin_setup_mismatch">PIN-lər uyğun gəlmədi, yenidən cəhd edin</string>
     <string name="pin_setup_too_short">PIN ən azı 6 rəqəm olmalıdır</string>
+    <string name="group_move_up">Yuxarı köçür</string>
+    <string name="group_move_down">Aşağı köçür</string>
+    <string name="group_drag_handle">Sürükləyərək sıralayın</string>
 </resources>

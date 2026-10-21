@@ -785,4 +785,7 @@
     <string name="pin_setup_confirm_dialog_hint">Введите тот же PIN-код ещё раз</string>
     <string name="pin_setup_mismatch">PIN-коды не совпадают, попробуйте снова</string>
     <string name="pin_setup_too_short">PIN-код должен содержать не менее 6 цифр</string>
+    <string name="group_move_up">Переместить вверх</string>
+    <string name="group_move_down">Переместить вниз</string>
+    <string name="group_drag_handle">Перетащите, чтобы изменить порядок</string>
 </resources>

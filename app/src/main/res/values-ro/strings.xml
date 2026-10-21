@@ -771,4 +771,7 @@
     <string name="pin_setup_confirm_dialog_hint">Introdu din nou același PIN</string>
     <string name="pin_setup_mismatch">PIN-urile nu se potrivesc, încearcă din nou</string>
     <string name="pin_setup_too_short">PIN-ul trebuie să aibă cel puțin 6 cifre</string>
+    <string name="group_move_up">Mută în sus</string>
+    <string name="group_move_down">Mută în jos</string>
+    <string name="group_drag_handle">Trage pentru a reordona</string>
 </resources>

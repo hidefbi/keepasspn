@@ -779,4 +779,7 @@
     <string name="pin_setup_confirm_dialog_hint">Adja meg újra ugyanazt a PIN-kódot</string>
     <string name="pin_setup_mismatch">A PIN-kódok nem egyeznek, próbálja újra</string>
     <string name="pin_setup_too_short">A PIN-kódnak legalább 6 számjegyűnek kell lennie</string>
+    <string name="group_move_up">Mozgatás felfelé</string>
+    <string name="group_move_down">Mozgatás lefelé</string>
+    <string name="group_drag_handle">Húzza a sorrend módosításához</string>
 </resources>

@@ -724,4 +724,7 @@
     <string name="pin_setup_confirm_dialog_hint">Įveskite tą patį PIN kodą dar kartą</string>
     <string name="pin_setup_mismatch">PIN kodai nesutampa, bandykite dar kartą</string>
     <string name="pin_setup_too_short">PIN kodą turi sudaryti bent 6 skaitmenys</string>
+    <string name="group_move_up">Perkelti aukštyn</string>
+    <string name="group_move_down">Perkelti žemyn</string>
+    <string name="group_drag_handle">Tempkite, kad pakeistumėte tvarką</string>
 </resources>

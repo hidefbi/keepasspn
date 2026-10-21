@@ -386,6 +386,18 @@ class DatabaseTaskProvider(
         }, DatabaseTaskNotificationService.ACTION_DATABASE_IMPORT_OTP_TASK)
     }
 
+    fun startDatabaseReorderGroup(
+        groupId: GroupId,
+        targetIndex: Int,
+        save: Boolean
+    ) {
+        start(Bundle().apply {
+            putParcelable(DatabaseTaskNotificationService.REORDER_GROUP_ID_KEY, groupId)
+            putInt(DatabaseTaskNotificationService.REORDER_TARGET_INDEX_KEY, targetIndex)
+            putBoolean(DatabaseTaskNotificationService.SAVE_DATABASE_KEY, save)
+        }, DatabaseTaskNotificationService.ACTION_DATABASE_REORDER_GROUP_TASK)
+    }
+
     fun startDatabaseUpdateEntry(
         updateEntry: EntryInfo,
         save: Boolean

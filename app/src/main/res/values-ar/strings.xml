@@ -759,4 +759,7 @@
     <string name="pin_setup_confirm_dialog_hint">أعد إدخال رقم PIN نفسه</string>
     <string name="pin_setup_mismatch">أرقام PIN غير متطابقة، حاول مرة أخرى</string>
     <string name="pin_setup_too_short">يجب أن يكون رقم PIN 6 أرقام على الأقل</string>
+    <string name="group_move_up">نقل لأعلى</string>
+    <string name="group_move_down">نقل لأسفل</string>
+    <string name="group_drag_handle">اسحب لإعادة الترتيب</string>
 </resources>

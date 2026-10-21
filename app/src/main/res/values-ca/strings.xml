@@ -713,4 +713,7 @@
     <string name="pin_setup_confirm_dialog_hint">Torna a introduir el mateix PIN</string>
     <string name="pin_setup_mismatch">Els PIN no coincideixen, torna-ho a provar</string>
     <string name="pin_setup_too_short">El PIN ha de tenir almenys 6 dígits</string>
+    <string name="group_move_up">Mou amunt</string>
+    <string name="group_move_down">Mou avall</string>
+    <string name="group_drag_handle">Arrossega per reordenar</string>
 </resources>

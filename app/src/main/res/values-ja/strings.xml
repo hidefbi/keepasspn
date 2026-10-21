@@ -776,4 +776,7 @@
     <string name="pin_setup_confirm_dialog_hint">同じ PIN をもう一度入力</string>
     <string name="pin_setup_mismatch">PIN が一致しません。もう一度お試しください</string>
     <string name="pin_setup_too_short">PIN は 6 桁以上にしてください</string>
+    <string name="group_move_up">上に移動</string>
+    <string name="group_move_down">下に移動</string>
+    <string name="group_drag_handle">ドラッグして並べ替え</string>
 </resources>

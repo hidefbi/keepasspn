@@ -400,6 +400,16 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    /**
+     * Requests a new position for a group among its sibling groups.
+     */
+    fun onReorderGroup(node: SortedNodeInfo, targetIndex: Int) {
+        val groupId = (node as? GroupInfo)?.nodeId ?: return
+        viewModelScope.launch {
+            _viewEvent.emit(GroupEvent.ReorderGroup(groupId, targetIndex))
+        }
+    }
+
     fun onDeleteNodesClicked() {
         val nodes = _nodeActionState.value.selectedNodes
         if (nodes.isNotEmpty()) {
@@ -543,6 +553,7 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
         data class CopyNodes(val nodes: Nodes) : GroupEvent()
         data class MoveNodes(val nodes: Nodes) : GroupEvent()
         data class DeleteNodes(val deleteActionState: DeleteActionState) : GroupEvent()
+        data class ReorderGroup(val groupId: GroupId, val targetIndex: Int) : GroupEvent()
         data class PasteNodes(val pasteActionState: PasteActionState) : GroupEvent()
         data class ShowGroup(val group: GroupInfo) : GroupEvent()
         object HideKeyboard : GroupEvent()

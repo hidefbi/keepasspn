@@ -600,6 +600,9 @@ class GroupActivity : DatabaseLockActivity() {
                             is GroupViewModel.GroupEvent.DeleteNodes -> {
                                 deleteNodes(event.deleteActionState.nodes, event.deleteActionState.isRecycleBin)
                             }
+                            is GroupViewModel.GroupEvent.ReorderGroup -> {
+                                reorderGroup(event.groupId, event.targetIndex)
+                            }
                             is GroupViewModel.GroupEvent.PasteNodes -> {
                                 when (event.pasteActionState.pasteMode) {
                                     NodeActionMode.PASTE_FROM_COPY -> {
@@ -833,6 +836,11 @@ class GroupActivity : DatabaseLockActivity() {
     ) {
         super.onDatabaseActionFinished(database, actionTask, result)
         when (actionTask) {
+            com.keepasspn.services.DatabaseTaskNotificationService.ACTION_DATABASE_REORDER_GROUP_TASK -> {
+                if (result.isSuccess) {
+                    loadGroup()
+                }
+            }
             ACTION_DATABASE_UPDATE_ENTRY_TASK -> {
                 if (result.isSuccess) {
                     EntrySelectionHelper.doSpecialAction(

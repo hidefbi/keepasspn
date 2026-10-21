@@ -252,6 +252,9 @@
     <string name="menu_move">Move</string>
     <string name="menu_paste">Paste</string>
     <string name="menu_delete">Delete</string>
+    <string name="group_move_up">Move up</string>
+    <string name="group_move_down">Move down</string>
+    <string name="group_drag_handle">Drag to reorder</string>
     <string name="menu_save_database">Save data</string>
     <string name="menu_merge_database">Merge data</string>
     <string name="menu_reload_database">Reload data</string>

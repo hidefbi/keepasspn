@@ -216,6 +216,10 @@ abstract class DatabaseLockActivity : DatabaseModeActivity() {
         mDatabaseViewModel.reloadDatabase(fixDuplicateUuid = false)
     }
 
+    fun reorderGroup(groupId: GroupId, targetIndex: Int) {
+        mDatabaseViewModel.reorderGroup(groupId, targetIndex, mAutoSaveEnable)
+    }
+
     fun importOtpEntries(otpModels: List<com.keepasspn.model.OtpModel>) {
         mDatabaseViewModel.importOtpEntries(otpModels, mAutoSaveEnable)
     }

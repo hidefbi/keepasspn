@@ -713,4 +713,7 @@
     <string name="pin_setup_confirm_dialog_hint">Shkruaj përsëri të njëjtin PIN</string>
     <string name="pin_setup_mismatch">PIN-et nuk përputhen, provo përsëri</string>
     <string name="pin_setup_too_short">PIN-i duhet të ketë të paktën 6 shifra</string>
+    <string name="group_move_up">Lëviz lart</string>
+    <string name="group_move_down">Lëviz poshtë</string>
+    <string name="group_drag_handle">Zvarrit për të ndryshuar renditjen</string>
 </resources>

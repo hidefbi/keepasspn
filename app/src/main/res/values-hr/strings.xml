@@ -701,4 +701,7 @@
     <string name="pin_setup_confirm_dialog_hint">Ponovno unesite isti PIN</string>
     <string name="pin_setup_mismatch">PIN-ovi se ne podudaraju, pokušajte ponovno</string>
     <string name="pin_setup_too_short">PIN mora imati najmanje 6 znamenki</string>
+    <string name="group_move_up">Pomakni gore</string>
+    <string name="group_move_down">Pomakni dolje</string>
+    <string name="group_drag_handle">Povucite za promjenu redoslijeda</string>
 </resources>

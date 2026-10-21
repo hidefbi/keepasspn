@@ -31,6 +31,11 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE
+import androidx.recyclerview.widget.ItemTouchHelper
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import kotlin.math.roundToInt
 import com.keepasspn.R
 import com.keepasspn.adapters.NodesAdapter
 import com.keepasspn.credentialprovider.EntrySelectionHelper.retrieveSpecialMode
@@ -48,6 +53,8 @@ class GroupFragment : DatabaseFragment() {
     private var mLayoutManager: LinearLayoutManager? = null
 
     private var mAdapter: NodesAdapter? = null
+    private var mNodeTouchHelper: ItemTouchHelper? = null
+    private val mNodeTouchCallback = NodeTouchCallback()
 
     private val mGroupViewModel: GroupViewModel by activityViewModels()
 
@@ -69,6 +76,120 @@ class GroupFragment : DatabaseFragment() {
         }
     }
 
+    /**
+     * Drags a group by its handle to change its position among the sibling groups.
+     * Swiping a group to the left reveals a delete action, which uses the usual delete flow.
+     */
+    private inner class NodeTouchCallback : ItemTouchHelper.SimpleCallback(0, 0) {
+
+        private var mDragStartPosition = RecyclerView.NO_POSITION
+        private var mDragDistance = 0f
+        private val mDeleteBackgroundPaint by lazy {
+            Paint().apply { color = Color.rgb(0xD3, 0x2F, 0x2F) }
+        }
+        private val mDeleteTextPaint by lazy {
+            Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                color = Color.WHITE
+                textSize = 16f * resources.displayMetrics.scaledDensity
+                textAlign = Paint.Align.RIGHT
+            }
+        }
+
+        override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
+            val adapter = mAdapter ?: return 0
+            val position = viewHolder.adapterPosition
+            if (position == RecyclerView.NO_POSITION || !adapter.isGroupAt(position)) return 0
+            val dragDirections = if (adapter.isGroupReorderAllowed()) {
+                ItemTouchHelper.UP or ItemTouchHelper.DOWN
+            } else {
+                0
+            }
+            return makeMovementFlags(dragDirections, ItemTouchHelper.LEFT)
+        }
+
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean {
+            // The list is not reordered while dragging, the new position is applied on drop
+            return false
+        }
+
+        override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
+            super.onSelectedChanged(viewHolder, actionState)
+            if (actionState == ItemTouchHelper.ACTION_STATE_DRAG && viewHolder != null) {
+                mDragStartPosition = viewHolder.adapterPosition
+                mDragDistance = 0f
+            }
+        }
+
+        override fun onChildDraw(
+            canvas: Canvas,
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            dX: Float,
+            dY: Float,
+            actionState: Int,
+            isCurrentlyActive: Boolean
+        ) {
+            if (actionState == ItemTouchHelper.ACTION_STATE_DRAG) {
+                mDragDistance = dY
+            } else if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE && dX < 0) {
+                val itemView = viewHolder.itemView
+                canvas.drawRect(
+                    itemView.left.toFloat(),
+                    itemView.top.toFloat(),
+                    itemView.right.toFloat(),
+                    itemView.bottom.toFloat(),
+                    mDeleteBackgroundPaint
+                )
+                val density = resources.displayMetrics.density
+                val baseline = itemView.top + itemView.height / 2f -
+                        (mDeleteTextPaint.descent() + mDeleteTextPaint.ascent()) / 2f
+                canvas.drawText(
+                    getString(R.string.menu_delete),
+                    itemView.right - 24f * density,
+                    baseline,
+                    mDeleteTextPaint
+                )
+            }
+            super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+        }
+
+        override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
+            super.clearView(recyclerView, viewHolder)
+            val startPosition = mDragStartPosition
+            val distance = mDragDistance
+            mDragStartPosition = RecyclerView.NO_POSITION
+            mDragDistance = 0f
+            val adapter = mAdapter ?: return
+            if (startPosition == RecyclerView.NO_POSITION || !adapter.isGroupAt(startPosition)) return
+            val rowHeight = viewHolder.itemView.height
+            if (rowHeight <= 0) return
+            val rows = (distance / rowHeight).roundToInt()
+            if (rows == 0) return
+            val node = adapter.nodeAt(startPosition)
+            val currentIndex = adapter.groupIndexOf(node)
+            if (currentIndex < 0) return
+            val targetIndex = (currentIndex + rows).coerceIn(0, adapter.groupCount() - 1)
+            if (targetIndex != currentIndex) {
+                mGroupViewModel.onReorderGroup(node, targetIndex)
+            }
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            val adapter = mAdapter ?: return
+            val position = viewHolder.adapterPosition
+            if (position == RecyclerView.NO_POSITION) return
+            val node = adapter.nodeAt(position)
+            // Same selection and delete flow as the action bar, with its confirmation
+            mGroupViewModel.performLongNodeClick(node)
+            mGroupViewModel.onDeleteNodesClicked()
+            adapter.notifyItemChanged(position)
+        }
+    }
+
     override fun onDatabaseRetrieved(database: ContextualDatabase) {
         context?.let { context ->
             mAdapter = NodesAdapter(
@@ -87,10 +208,21 @@ class GroupFragment : DatabaseFragment() {
                         mGroupViewModel.performLongNodeClick(node)
                         return true
                     }
+                    override fun onGroupReorder(node: SortedNodeInfo, targetIndex: Int) {
+                        mGroupViewModel.onReorderGroup(node, targetIndex)
+                    }
                 })
                 setActionNodes(mGroupViewModel.actionsNodes.value)
             }
             mNodesRecyclerView?.adapter = mAdapter
+            mNodesRecyclerView?.let { recyclerView ->
+                if (mNodeTouchHelper == null) {
+                    mNodeTouchHelper = ItemTouchHelper(mNodeTouchCallback).also {
+                        it.attachToRecyclerView(recyclerView)
+                    }
+                }
+            }
+            mAdapter?.onDragHandleStart = { holder -> mNodeTouchHelper?.startDrag(holder) }
         }
     }
 

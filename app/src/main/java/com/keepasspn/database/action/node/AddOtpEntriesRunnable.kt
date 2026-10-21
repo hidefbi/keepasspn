@@ -83,6 +83,7 @@ class AddOtpEntriesRunnable(
         mNewGroup?.let { newGroup ->
             newGroup.touch(modified = true, touchParents = true)
             mRoot?.let { root -> database.addGroupTo(newGroup, root) }
+            mRoot?.let { root -> root.moveChildGroupToIndex(newGroup, 0) }
         }
         mGroup?.let { group ->
             mNewEntries.forEach { entry ->

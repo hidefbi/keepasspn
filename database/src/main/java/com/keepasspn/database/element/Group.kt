@@ -339,6 +339,15 @@ class Group : Node, GroupVersionedInterface<Group, Entry> {
         }
     }
 
+    fun moveChildGroupToIndex(group: Group, targetIndex: Int) {
+        group.groupKDB?.let {
+            groupKDB?.moveChildGroupToIndex(it, targetIndex)
+        }
+        group.groupKDBX?.let {
+            groupKDBX?.moveChildGroupToIndex(it, targetIndex)
+        }
+    }
+
     override fun removeChildGroup(group: Group) {
         group.groupKDB?.let {
             groupKDB?.removeChildGroup(it)

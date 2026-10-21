@@ -24,9 +24,12 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.util.TypedValue
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.core.view.ViewCompat
@@ -453,6 +456,18 @@ class NodesAdapter(
             }
         }
 
+        // Assign drag handle and up/down menu, only for groups in database order
+        holder.dragHandle?.let { handle ->
+            handle.visibility = if (node is GroupInfo && isGroupReorderAllowed()) View.VISIBLE else View.GONE
+            handle.setOnClickListener { showMoveMenu(handle, node) }
+            handle.setOnTouchListener { _, event ->
+                if (event.actionMasked == MotionEvent.ACTION_DOWN) {
+                    onDragHandleStart?.invoke(holder)
+                }
+                false
+            }
+        }
+
         // Assign click
         holder.container.setOnClickListener {
             mNodeClickCallback?.onNodeClick(node)
@@ -460,6 +475,68 @@ class NodesAdapter(
         holder.container.setOnLongClickListener {
             mNodeClickCallback?.onNodeLongClick(node) ?: false
         }
+    }
+
+    /**
+     * Called with the view holder of a group when its drag handle is touched, to start a drag
+     */
+    var onDragHandleStart: ((RecyclerView.ViewHolder) -> Unit)? = null
+
+    /**
+     * Groups can be reordered only in database order, with groups listed before entries
+     */
+    fun isGroupReorderAllowed(): Boolean {
+        return sortNode == SortNodeEnum.DB && sortNodeParameters.groupsBefore
+    }
+
+    fun isGroupAt(position: Int): Boolean {
+        return position >= 0 && position < mNodeSortedList.size()
+                && mNodeSortedList.get(position) is GroupInfo
+    }
+
+    fun nodeAt(position: Int): SortedNodeInfo {
+        return mNodeSortedList.get(position)
+    }
+
+    /**
+     * Number of groups among the listed nodes
+     */
+    fun groupCount(): Int {
+        var count = 0
+        for (position in 0 until mNodeSortedList.size()) {
+            if (mNodeSortedList.get(position) is GroupInfo) count++
+        }
+        return count
+    }
+
+    /**
+     * Index of a listed group among the listed groups, or -1 if the node is not a listed group
+     */
+    fun groupIndexOf(node: SortedNodeInfo): Int {
+        var index = 0
+        for (position in 0 until mNodeSortedList.size()) {
+            val item = mNodeSortedList.get(position)
+            if (item is GroupInfo) {
+                if (item.nodeId == node.nodeId) return index
+                index++
+            }
+        }
+        return -1
+    }
+
+    private fun showMoveMenu(anchor: View, node: SortedNodeInfo) {
+        val index = groupIndexOf(node)
+        if (index < 0) return
+        val popup = PopupMenu(anchor.context, anchor)
+        popup.menu.add(Menu.NONE, MENU_MOVE_UP, 0, R.string.group_move_up).isEnabled = index > 0
+        popup.menu.add(Menu.NONE, MENU_MOVE_DOWN, 1, R.string.group_move_down).isEnabled =
+            index < groupCount() - 1
+        popup.setOnMenuItemClickListener { item ->
+            val targetIndex = if (item.itemId == MENU_MOVE_UP) index - 1 else index + 1
+            mNodeClickCallback?.onGroupReorder(node, targetIndex)
+            true
+        }
+        popup.show()
     }
 
     private fun assignBackgroundColor(view: View?, entry: EntryInfo) {
@@ -495,6 +572,10 @@ class NodesAdapter(
     interface NodeClickCallback {
         fun onNodeClick(node: SortedNodeInfo)
         fun onNodeLongClick(node: SortedNodeInfo): Boolean
+        /**
+         * Called when a group is moved to another position among its sibling groups
+         */
+        fun onGroupReorder(node: SortedNodeInfo, targetIndex: Int) {}
     }
 
     class NodeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -510,9 +591,12 @@ class NodesAdapter(
         var numberChildren: TextView? = itemView.findViewById(R.id.node_child_numbers)
         var attachmentIcon: ImageView? = itemView.findViewById(R.id.node_attachment_icon)
         var passkeyIcon: ImageView? = itemView.findViewById(R.id.node_passkey_icon)
+        var dragHandle: View? = itemView.findViewById(R.id.node_drag_handle)
     }
 
     companion object {
         private val TAG = NodesAdapter::class.java.name
+        private const val MENU_MOVE_UP = 1
+        private const val MENU_MOVE_DOWN = 2
     }
 }

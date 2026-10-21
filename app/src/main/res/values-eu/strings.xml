@@ -680,4 +680,7 @@
     <string name="pin_setup_confirm_dialog_hint">Sartu PIN bera berriro</string>
     <string name="pin_setup_mismatch">PINak ez datoz bat, saiatu berriro</string>
     <string name="pin_setup_too_short">PINak gutxienez 6 digitu izan behar ditu</string>
+    <string name="group_move_up">Mugitu gora</string>
+    <string name="group_move_down">Mugitu behera</string>
+    <string name="group_drag_handle">Arrastatu ordena aldatzeko</string>
 </resources>
