@@ -29,6 +29,7 @@ credentials = "1.2.2"
 bouncycastle = "1.84"
 junit = "4.13.2"
 robolectric = "4.11.1"
+zxing = "3.5.3"
 
 [libraries]
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
@@ -58,6 +59,7 @@ taptargetview = { group = "com.getkeepsafe.taptargetview", name = "taptargetview
 commons-io = { group = "commons-io", name = "commons-io", version.ref = "commons-io" }
 nbvcxz = { group = "me.gosimple", name = "nbvcxz", version.ref = "nbvcxz" }
 androidx-credentials = { group = "androidx.credentials", name = "credentials", version.ref = "credentials" }
+zxing-core = { group = "com.google.zxing", name = "core", version.ref = "zxing" }
 bouncycastle-pkix = { group = "org.bouncycastle", name = "bcpkix-jdk18on", version.ref = "bouncycastle" }
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "android-test" }
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "android-test" }

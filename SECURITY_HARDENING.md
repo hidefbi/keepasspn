@@ -33,6 +33,11 @@ that call Credential Manager directly are refused.
 - If native-app passkeys must work, the trade-off is an opt-in network permission plus a
   Digital Asset Links check. That is a product decision, not a silent change.
 
+### Camera for OTP import
+The camera is used only to read QR codes exported from Google Authenticator and single
+`otpauth://` codes. Frames are decoded on the device and never stored or sent anywhere.
+The app declares the `CAMERA` permission for this. It still declares no `INTERNET` permission.
+
 ### Autofill web domains (item 2)
 Web domains from WebViews and custom views inside non-browser apps are ignored. Matching
 then falls back to the application package, which is the existing behavior for apps.

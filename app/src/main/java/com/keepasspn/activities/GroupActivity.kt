@@ -1058,6 +1058,8 @@ class GroupActivity : DatabaseLockActivity() {
             inflater.inflate(R.menu.search, menu)
             inflater.inflate(R.menu.tree, menu)
             inflater.inflate(R.menu.database, menu)
+            inflater.inflate(R.menu.group_otp, menu)
+            menu.findItem(R.id.menu_scan_otp)?.actionView?.setOnClickListener { ImportOtpPrompt.show(this) }
             if (!mGroupViewModel.saveDatabaseActionAllowed()) {
                 menu.findItem(R.id.menu_save_database)?.isVisible = false
             }
@@ -1158,6 +1160,14 @@ class GroupActivity : DatabaseLockActivity() {
         when (item.itemId) {
             android.R.id.home -> {
                 drawerLayout?.openDrawer(GravityCompat.START)
+                return true
+            }
+            R.id.menu_scan_otp -> {
+                ImportOtpPrompt.show(this)
+                return true
+            }
+            R.id.menu_verification_codes -> {
+                startActivity(Intent(this, VerificationCodesActivity::class.java))
                 return true
             }
             R.id.menu_search -> {

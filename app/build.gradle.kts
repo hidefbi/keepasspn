@@ -164,6 +164,8 @@ dependencies {
     // Credentials
     implementation(libs.nbvcxz)
     implementation(libs.androidx.credentials)
+    // Barcode reading for OTP import, decoding is done on the device
+    implementation(libs.zxing.core)
     // Modules import
     implementation(project(":database"))
     implementation(project(":icon-pack"))
