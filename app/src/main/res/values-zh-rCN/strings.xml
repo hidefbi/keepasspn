@@ -447,6 +447,8 @@
     <string name="content">内容</string>
     <string name="autofill_inline_suggestions_keyboard">已添加自动填充建议。</string>
     <string name="autofill_inline_suggestions_summary">尝试直接从兼容的键盘显示自动填充建议</string>
+    <string name="autofill_copy_totp_title">自动填充后复制 TOTP</string>
+    <string name="autofill_copy_totp_summary">自动填充带有 TOTP 的条目时，将当前的一次性验证码复制到剪贴板</string>
     <string name="autofill_inline_suggestions_title">内联建议</string>
     <string name="warning_database_revoked">文件管理器撤销了对此文件的访问，关闭数据库并从其位置重新打开它。</string>
     <string name="warning_database_info_changed_options">保存数据库或重新加载包含最新更改的数据库来合并数据和覆盖外部修改。</string>

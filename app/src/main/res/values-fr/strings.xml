@@ -454,6 +454,8 @@
     <string name="content">Contenu</string>
     <string name="autofill_inline_suggestions_keyboard">Suggestions de remplissage automatique ajoutées.</string>
     <string name="autofill_inline_suggestions_summary">Tente d\'afficher des suggestions de remplissage automatique dans la barre de suggestions des claviers compatibles</string>
+    <string name="autofill_copy_totp_title">Copier le TOTP après le remplissage automatique</string>
+    <string name="autofill_copy_totp_summary">Copier le code à usage unique actuel dans le presse-papiers lors du remplissage automatique d\'une entrée qui en possède un</string>
     <string name="autofill_inline_suggestions_title">Suggestions en ligne</string>
     <string name="warning_database_info_changed_options">Fusionner les données, écraser les modifications externes en sauvegardant la base de données ou recharger-la avec les dernières modifications.</string>
     <string name="warning_database_revoked">Accès au dossier révoqué par le gestionnaire de fichiers, fermer la base de données et la rouvrir à partir de son emplacement.</string>

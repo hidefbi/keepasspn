@@ -485,6 +485,8 @@
     <string name="autofill_close_database_summary">Adatbázis zárolása az automatikus kitöltés után</string>
     <string name="autofill_inline_suggestions_title">Soron belüli javaslatok</string>
     <string name="autofill_inline_suggestions_summary">Automatikus kitöltési javaslatok megjelenítésének kísérlete a kompatibilis billentyűzeteknél</string>
+    <string name="autofill_copy_totp_title">TOTP másolása automatikus kitöltés után</string>
+    <string name="autofill_copy_totp_summary">Az aktuális egyszer használatos kód másolása a vágólapra, ha automatikusan kitölt egy olyan bejegyzést, amelynek van ilyen kódja</string>
     <string name="autofill_manual_selection_title">Kézi kiválasztás</string>
     <string name="autofill_manual_selection_summary">Lehetőség megjelenítése, hogy a felhasználó válasszon adatbázis-bejegyzést</string>
     <string name="autofill_save_search_info_title">Keresési információk mentése</string>

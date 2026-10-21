@@ -177,6 +177,8 @@
     <bool name="autofill_inline_suggestions_default" translatable="false">false</bool>
     <string name="autofill_manual_selection_key" translatable="false">autofill_manual_selection_key</string>
     <bool name="autofill_manual_selection_default" translatable="false">true</bool>
+    <string name="autofill_copy_totp_key" translatable="false">autofill_copy_totp_key</string>
+    <bool name="autofill_copy_totp_default" translatable="false">true</bool>
     <string name="autofill_share_magikeyboard_key" translatable="false">autofill_share_magikeyboard_key</string>
     <bool name="autofill_share_magikeyboard_default" translatable="false">true</bool>
     <string name="autofill_save_search_info_key" translatable="false">autofill_save_search_info_key</string>

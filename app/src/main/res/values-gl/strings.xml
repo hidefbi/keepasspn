@@ -415,6 +415,8 @@
     <string name="custom_fields">Campos personalizados</string>
     <string name="back_to_previous_keyboard">Volver ao teclado anterior</string>
     <string name="autofill_inline_suggestions_summary">Tentar mostrar suxestións de autocompletado directamente desde un teclado compatíbel</string>
+    <string name="autofill_copy_totp_title">Copiar o TOTP despois do autocompletado</string>
+    <string name="autofill_copy_totp_summary">Copiar o código de un só uso actual no portapapeis ao autocompletar unha entrada que o teña</string>
     <string name="autofill_manual_selection_summary">Mostrar opción para permitir ao usuario seleccionar a entrada da base de datos</string>
     <string name="autofill_web_domain_blocklist_title">Lista de bloqueo dos dominios web</string>
     <string name="autofill_block">Bloquear autocompletado</string>

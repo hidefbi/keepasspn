@@ -80,6 +80,8 @@
     <string name="error_move_group_here">நீங்கள் இங்கே ஒரு குழுவை நகர்த்த முடியாது.</string>
     <string name="keyboard_previous_lock_title">பூட்டு தரவுத்தளம்</string>
     <string name="autofill_inline_suggestions_summary">இணக்கமான விசைப்பலகையிலிருந்து நேரடியாக ஆட்டோஃபில் பரிந்துரைகளைக் காண்பிக்கும் முயற்சி</string>
+    <string name="autofill_copy_totp_title">தானியங்கு நிரப்புதலுக்குப் பின் TOTP-ஐ நகலெடு</string>
+    <string name="autofill_copy_totp_summary">தானாக நிரப்பும்போது TOTP உள்ள உள்ளீட்டிற்கான தற்போதைய ஒருமுறைக் குறியீட்டை கிளிப்போர்டில் நகலெடு</string>
     <string name="autofill_manual_selection_title">கையேடு தேர்வு</string>
     <string name="autofill_ask_to_save_data_summary">ஒரு படிவத்தை நிரப்பும்போது தரவைச் சேமிக்கச் சொல்லுங்கள்</string>
     <string name="allow_no_password_summary">நற்சான்றிதழ்கள் எதுவும் தேர்ந்தெடுக்கப்படாவிட்டால் \"திறந்த\" பொத்தானைத் தட்ட அனுமதிக்கிறது</string>

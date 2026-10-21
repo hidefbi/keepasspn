@@ -460,6 +460,8 @@
     <string name="education_field_copy_summary">يمكن نسخ الحقول ولصقها في أي مكان.\n\nاستخدم طريقة ملء النموذج التي تفضلها.</string>
     <string name="html_text_dev_feature_work_hard">نحن نعمل بجد لإصدار هذه الميزة بسرعة.</string>
     <string name="autofill_inline_suggestions_summary">حاول عرض اقتراحات الملء التلقائي مباشرة من لوحة مفاتيح متوافقة</string>
+    <string name="autofill_copy_totp_title">نسخ TOTP بعد الملء التلقائي</string>
+    <string name="autofill_copy_totp_summary">نسخ رمز المرة الواحدة الحالي إلى الحافظة عند الملء التلقائي لعنصر يحتوي عليه</string>
     <string name="delete_entered_password_summary">يحذف كلمة السر التي تم إدخالها بعد محاولة الاتصال بقاعدة البيانات</string>
     <string name="education_lock_summary">يمكنك قفل قاعدة البيانات بسرعة، حيث يمكنك ضبط التطبيق لقفلها بعد فترة، وعندما تنطفئ الشاشة.</string>
     <string name="education_sort_title">فرز العناصر</string>

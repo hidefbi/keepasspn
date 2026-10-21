@@ -578,6 +578,8 @@
     <string name="autofill_suggestions_summary">Use the form recognition algorithm to suggest entries</string>
     <string name="autofill_inline_suggestions_title">Inline suggestions</string>
     <string name="autofill_inline_suggestions_summary">Attempt to display autofill suggestions directly from a compatible keyboard</string>
+    <string name="autofill_copy_totp_title">Copy TOTP after autofill</string>
+    <string name="autofill_copy_totp_summary">Copy the current one-time code to the clipboard when you autofill an entry that has one</string>
     <string name="autofill_manual_selection_title">Manual selection</string>
     <string name="autofill_manual_selection_summary">Display option to let the user select database entry</string>
     <string name="autofill_share_magikeyboard_title">Share to Magikeyboard</string>

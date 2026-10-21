@@ -455,6 +455,8 @@
     <string name="download_canceled">Geannuleerd!</string>
     <string name="autofill_inline_suggestions_keyboard">Suggesties voor automatisch aanvullen toegevoegd.</string>
     <string name="autofill_inline_suggestions_summary">Probeer suggesties voor automatisch aanvullen rechtstreeks vanaf een compatibel toetsenbord weer te geven</string>
+    <string name="autofill_copy_totp_title">TOTP kopiëren na automatisch invullen</string>
+    <string name="autofill_copy_totp_summary">Kopieer de huidige eenmalige code naar het klembord wanneer je een item met een code automatisch invult</string>
     <string name="autofill_inline_suggestions_title">Inline suggesties</string>
     <string name="warning_database_revoked">Toegang tot het bestand is ingetrokken door de bestandsbeheerder, sluit de database en open deze opnieuw vanaf de locatie.</string>
     <string name="warning_database_info_changed_options">De gegevens samenvoegen, de externe wijzigingen overschrijven door de database op te slaan of deze opnieuw te laden met de jongste wijzigingen.</string>

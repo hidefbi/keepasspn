@@ -518,6 +518,8 @@
     <string name="autofill_close_database_summary">Uždaryti duomenų bazę po automatinio pildymo pasirinkimo</string>
     <string name="autofill_inline_suggestions_title">Tiesioginiai pasiūlymai</string>
     <string name="autofill_inline_suggestions_summary">Bandyti rodyti automatinio pildymo pasiūlymus tiesiogiai iš suderinamos klaviatūros</string>
+    <string name="autofill_copy_totp_title">Kopijuoti TOTP po automatinio pildymo</string>
+    <string name="autofill_copy_totp_summary">Nukopijuoti dabartinį vienkartinį kodą į iškarpinę automatiškai pildant įrašą, kuris jį turi</string>
     <string name="autofill_manual_selection_title">Rankinis pasirinkimas</string>
     <string name="autofill_manual_selection_summary">Rodyti parinktį, leidžiančią naudotojui pasirinkti duomenų bazės įrašą</string>
     <string name="autofill_save_search_info_title">Išsaugoti paieškos informaciją</string>

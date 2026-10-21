@@ -206,6 +206,12 @@
             android:exported="false"
             android:excludeFromRecents="true" />
         <activity
+            android:name="com.keepasspn.credentialprovider.autofill.AutofillTotpCopyActivity"
+            android:theme="@style/Theme.Transparent"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:noHistory="true" />
+        <activity
             android:name="com.keepasspn.credentialprovider.activity.EntrySelectionLauncherActivity"
             android:theme="@style/Theme.Transparent"
             android:launchMode="singleInstance"

@@ -484,6 +484,8 @@
     <string name="download_canceled">Abgebrochen!</string>
     <string name="autofill_inline_suggestions_keyboard">Vorschläge zum automatischen Ausfüllen hinzugefügt.</string>
     <string name="autofill_inline_suggestions_summary">Wenn möglich, Vorschläge zum automatischen Ausfüllen direkt auf kompatibler Tastatur anzeigen</string>
+    <string name="autofill_copy_totp_title">TOTP nach dem automatischen Ausfüllen kopieren</string>
+    <string name="autofill_copy_totp_summary">Den aktuellen Einmalcode in die Zwischenablage kopieren, wenn ein Eintrag mit Einmalcode automatisch ausgefüllt wird</string>
     <string name="properties">Eigenschaften</string>
     <string name="description_app_properties">KeePassPN-Eigenschaften zur Verwaltung der App-Einstellungen</string>
     <string name="secure_note">Sicherer Hinweis</string>

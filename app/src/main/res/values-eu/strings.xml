@@ -235,6 +235,8 @@
     <string name="autofill_inline_suggestions_title">Lerroko iradokizuna</string>
     <string name="autofill_manual_selection_title">Eskuzko hautatzea</string>
     <string name="autofill_inline_suggestions_summary">Betetze automatikorako gomendioak erakusten saiatzen da teklatu bateragarri baten bidez</string>
+    <string name="autofill_copy_totp_title">Kopiatu TOTP automatikoki betetzearen ondoren</string>
+    <string name="autofill_copy_totp_summary">Kopiatu une honetako behin erabiltzeko kodea arbelera, kodea duen sarrera automatikoki betetzean</string>
     <string name="error_save_read_only">Ezin dira datuak gorde irakurketarako soilik irekitako datu-base batean.</string>
     <string name="autofill_block_restart">Berrabiarazi formularioa duen aplikazioa blokeoa aktibatzeko.</string>
     <string name="delete_entered_password_title">Ezabatu pasahitza</string>

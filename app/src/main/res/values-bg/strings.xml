@@ -542,6 +542,8 @@
     <string name="error_save_database">Хранилището не може да бъде запазено.</string>
     <string name="error_otp_period">Периодът трябва да бъде в интервала от %1$d до %2$d секунди.</string>
     <string name="autofill_inline_suggestions_summary">Опит за показване предложения за автоматично попълване от съвместимата клавиатура</string>
+    <string name="autofill_copy_totp_title">Копиране на TOTP след автоматично попълване</string>
+    <string name="autofill_copy_totp_summary">Копира текущия еднократен код в буфера при автоматично попълване на запис, който има такъв</string>
     <string name="keyboard_save_search_info_summary">При ръчен избор на запис прави опит за запазване на обща информация за по-лесно бъдещо използване</string>
     <string name="autofill_ask_to_save_data_title">Питане за запазване на данни</string>
     <string name="autofill_ask_to_save_data_summary">Искане на разрешение за запазване на информация след попълване на формуляр</string>

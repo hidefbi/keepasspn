@@ -451,6 +451,8 @@
     <string name="menu_keystore_remove_key">Elimina chiave di sblocco del dispositivo</string>
     <string name="autofill_inline_suggestions_keyboard">Suggerimento di riempimento aggiunto.</string>
     <string name="autofill_inline_suggestions_summary">Mostra i suggerimenti di riempimento campi in una tastiera compatibile</string>
+    <string name="autofill_copy_totp_title">Copia TOTP dopo il riempimento automatico</string>
+    <string name="autofill_copy_totp_summary">Copia negli appunti il codice monouso corrente quando riempi automaticamente una voce che ne ha uno</string>
     <string name="autofill_inline_suggestions_title">Suggerimenti in linea</string>
     <string name="warning_database_revoked">L\'accesso al file è stato revocato dal file manager, chiudi il database e riaprilo dalla sua posizione originale.</string>
     <string name="warning_database_info_changed_options">Unisci i dati, sovrascrivi le modifiche esterne salvando il database o ricaricalo con le ultime modifiche.</string>

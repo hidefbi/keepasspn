@@ -444,6 +444,8 @@
     <string name="autofill_inline_suggestions_title">Umetnuti prijedlozi</string>
     <string name="autofill_inline_suggestions_keyboard">Prijedlozi za automatsko ispunjavanje su dodani.</string>
     <string name="autofill_inline_suggestions_summary">Pokušaj prikazivanja prijedloga za automatsko ispunjavanje izravno s kompatibilne tipkovnice</string>
+    <string name="autofill_copy_totp_title">Kopiraj TOTP nakon automatskog ispunjavanja</string>
+    <string name="autofill_copy_totp_summary">Kopiraj trenutačni jednokratni kod u međuspremnik pri automatskom ispunjavanju unosa koji ga ima</string>
     <string name="warning_database_revoked">Pristup datoteci opozvan od upravljača datoteka. Zatvori bazu podataka i ponovo je otvori s njezinog mjesta.</string>
     <string name="warning_database_info_changed_options">Sjedini podatke, prepiši vanjske promjene spremanjem baze podataka ili je ponovo učitaj s najnovijim promjenama.</string>
     <string name="warning_database_info_changed">Podaci u datoteci tvoje baze podataka izmijenjeni su izvan aplikacije.</string>

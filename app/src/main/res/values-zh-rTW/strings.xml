@@ -53,6 +53,8 @@
     <string name="autofill_close_database_title">關閉資料庫</string>
     <string name="autofill_inline_suggestions_keyboard">已添加自動填充建議。</string>
     <string name="autofill_inline_suggestions_summary">嘗試直接從相容的鍵盤顯示自動填充建議</string>
+    <string name="autofill_copy_totp_title">自動填充後複製 TOTP</string>
+    <string name="autofill_copy_totp_summary">自動填充含有 TOTP 的項目時，將目前的一次性驗證碼複製到剪貼簿</string>
     <string name="autofill_inline_suggestions_title">內聯建議</string>
     <string name="autofill_manual_selection_summary">顯示選項讓用戶選擇資料庫條目</string>
     <string name="autofill_manual_selection_title">手動選擇</string>

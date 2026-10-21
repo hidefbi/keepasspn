@@ -581,6 +581,8 @@
     <string name="warning_large_keyfile">זה לא מומלץ להוסיף קובץ מפתח גדול, זה עלול למנוע את פתיחת מסד הנתונים.</string>
     <string name="temp_device_unlock_enable_title">ביטול נעילת מכשיר זמני</string>
     <string name="autofill_inline_suggestions_summary">נסה להציג הצעות למילוי אוטומטי ישירות ממקלדת נתמכת</string>
+    <string name="autofill_copy_totp_title">העתק TOTP לאחר מילוי אוטומטי</string>
+    <string name="autofill_copy_totp_summary">העתק לזיכרון הזמני את קוד החד-פעמי הנוכחי בעת מילוי אוטומטי של פריט שיש לו קוד כזה</string>
     <string name="education_entry_edit_summary">ערוך את הרשומה שלך עם שדות מותאמים אישית. ניתן להפנות לנתוני מאגר בין שדות רשומות שונות.</string>
     <string name="warning_keyfile_integrity">הגיבוב של הקובץ אינו מובטח מכיוון שאנדרואיד יכול לשנות את הנתונים שלו תוך כדי תנועה. שנה את הרחבת הקובץ ל־bin. עבור שלמות נכונה.</string>
     <string name="keystore_not_accessible">מאגר המפתחות אינו מאותחל כראוי.</string>

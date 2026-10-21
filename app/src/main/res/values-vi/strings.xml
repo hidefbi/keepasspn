@@ -480,6 +480,8 @@
     <string name="autofill_close_database_summary">Đóng dữ liệu sau khi lựa chọn để tự động điền</string>
     <string name="autofill_inline_suggestions_title">Đề xuất nội tuyến</string>
     <string name="autofill_inline_suggestions_summary">Cố gắng hiển thị đề xuất tự động điền trực tiếp từ bàn phím tương thích</string>
+    <string name="autofill_copy_totp_title">Sao chép TOTP sau khi tự động điền</string>
+    <string name="autofill_copy_totp_summary">Sao chép mã dùng một lần hiện tại vào bộ nhớ tạm khi tự động điền một mục có mã này</string>
     <string name="autofill_manual_selection_title">Chọn thủ công</string>
     <string name="autofill_manual_selection_summary">Tùy chọn hiển thị để cho phép người dùng chọn đề mục trong dữ liệu</string>
     <string name="autofill_save_search_info_title">Lưu thông tin tìm kiếm</string>

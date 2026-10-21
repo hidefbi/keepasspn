@@ -438,6 +438,8 @@
     <string name="keyboard_previous_database_credentials_summary">Torna automàticament al teclat anterior a la pantalla de credencials de la base de dades</string>
     <string name="back_to_previous_keyboard">Torna al teclat anterior</string>
     <string name="autofill_inline_suggestions_summary">Intenta mostrar els suggeriments d\'emplenament automàtic directament des d\'un teclat compatible</string>
+    <string name="autofill_copy_totp_title">Copia el TOTP després de l\'emplenament automàtic</string>
+    <string name="autofill_copy_totp_summary">Copia el codi d\'un sol ús actual al portapapers quan emplenes automàticament una entrada que en té un</string>
     <string name="warning_database_already_opened">Ja hi ha oberta una base de dades, tanqueu-la primer abans d\'obrir-ne una de nova</string>
     <string name="build_label">Construeix 2%1$s</string>
     <string name="device_unlock_prompt_extract_credential_title">Reconeixement de desbloqueig del dispositiu</string>

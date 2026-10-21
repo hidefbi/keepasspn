@@ -570,6 +570,8 @@
     <string name="html_text_donation">Duke &lt;strong&gt;dhënë ndihmesë&lt;/strong&gt; te projekti &lt;i&gt;(financiarisht, kod, përkthim)&lt;/i&gt;, do ta ndihmoni të vazhdojë të jetojë dhe të lulëzojë dhe do të mund të përfitoni shkyçje &lt;strong&gt;teme&lt;/strong&gt;.</string>
     <string name="show_entry_colors_summary">Bën shfaqje ngjyrash të përparme dhe të pasme për një zë</string>
     <string name="autofill_inline_suggestions_summary">Provo të shfaqësh sugjerime vetëplotësimi drejt e nga një tastierë e përputhshme</string>
+    <string name="autofill_copy_totp_title">Kopjo TOTP pas plotësimit automatik</string>
+    <string name="autofill_copy_totp_summary">Kopjo kodin aktual një-përdorimsh në clipboard kur plotëson automatikisht një hyrje që e ka</string>
     <string name="education_device_unlock_summary">Lidheni fjalëkalimin tuaj me hollësi biometrike të skanuara, ose kredenciale pajisjeje, për të shkyçur shpejt bazën tuaj të dhënave.</string>
     <string name="warning_empty_password">Të vazhdohet pa mbrojtje shkyçjeje fjalëkalimesh?</string>
     <string name="error_otp_secret_length">Kyçi i fshehtë duhet të jetë të paktën %1$d shenja.</string>

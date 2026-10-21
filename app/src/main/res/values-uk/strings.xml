@@ -436,6 +436,8 @@
     <string name="content">Вміст</string>
     <string name="autofill_inline_suggestions_keyboard">Підказки автозаповнення додано.</string>
     <string name="autofill_inline_suggestions_summary">Намагатися показувати підказки автозаповнення безпосередньо в сумісній клавіатурі</string>
+    <string name="autofill_copy_totp_title">Копіювати TOTP після автозаповнення</string>
+    <string name="autofill_copy_totp_summary">Копіювати поточний одноразовий код у буфер обміну під час автозаповнення запису, який його має</string>
     <string name="autofill_inline_suggestions_title">Вбудовані підказки</string>
     <string name="warning_database_revoked">Файловий менеджер відкликав доступ до файлу. Закрийте базу даних і знову відкрийте її з місця зберігання.</string>
     <string name="warning_database_info_changed_options">Об’єднайте дані, перезапишіть зовнішні зміни, зберігши базу даних, або перезавантажте її з найновішими змінами.</string>

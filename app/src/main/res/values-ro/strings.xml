@@ -539,6 +539,8 @@
     <string name="keyboard_previous_database_credentials_title">Ecranul cu acreditări pentru baza de date</string>
     <string name="keyboard_previous_lock_summary">Revino automat la tastatura precedentă după blocarea bazei de date</string>
     <string name="autofill_inline_suggestions_summary">Încercarea de a afișa sugestii de autocompletare direct de la o tastatură compatibilă</string>
+    <string name="autofill_copy_totp_title">Copiază TOTP după completarea automată</string>
+    <string name="autofill_copy_totp_summary">Copiază codul unic curent în clipboard când completezi automat o intrare care are unul</string>
     <string name="autofill_save_search_info_title">Salvare informații de căutare</string>
     <string name="autofill_save_search_info_summary">Încearcă să salvezi informațiile de căutare atunci când faci o selecție de intrare manuală pentru o utilizare ulterioară mai ușoară</string>
     <string name="show_entry_colors_title">Culori de intrare</string>

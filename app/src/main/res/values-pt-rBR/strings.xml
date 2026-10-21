@@ -490,6 +490,8 @@
     <string name="autofill_manual_selection_summary">Exibir opção para permitir que o usuário selecione a entrada do banco de dados</string>
     <string name="autofill_manual_selection_title">Seleção manual</string>
     <string name="autofill_inline_suggestions_summary">Tente exibir sugestões de preenchimento automático diretamente de um teclado compatível</string>
+    <string name="autofill_copy_totp_title">Copiar TOTP após o preenchimento automático</string>
+    <string name="autofill_copy_totp_summary">Copiar o código de uso único atual para a área de transferência ao preencher automaticamente uma entrada que tenha um</string>
     <string name="autofill_inline_suggestions_title">Sugestões em linha</string>
     <string name="autofill_close_database_summary">Feche o banco de dados após uma seleção de preenchimento automático</string>
     <string name="autofill_close_database_title">Fechar banco de dados</string>

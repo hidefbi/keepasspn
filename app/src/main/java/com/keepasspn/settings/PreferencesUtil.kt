@@ -808,6 +808,12 @@ object PreferencesUtil {
             context.resources.getBoolean(R.bool.autofill_inline_suggestions_default))
     }
 
+    fun isAutofillCopyTotpEnable(context: Context): Boolean {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        return prefs.getBoolean(context.getString(R.string.autofill_copy_totp_key),
+            context.resources.getBoolean(R.bool.autofill_copy_totp_default))
+    }
+
     fun isAutofillManualSelectionEnable(context: Context): Boolean {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         return prefs.getBoolean(context.getString(R.string.autofill_manual_selection_key),

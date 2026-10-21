@@ -39,6 +39,12 @@
             android:title="@string/autofill_manual_selection_title"
             android:summary="@string/autofill_manual_selection_summary"
             android:defaultValue="@bool/autofill_manual_selection_default"/>
+        <SwitchPreferenceCompat
+            android:key="@string/autofill_copy_totp_key"
+            android:dependency="@string/autofill_suggestions_key"
+            android:title="@string/autofill_copy_totp_title"
+            android:summary="@string/autofill_copy_totp_summary"
+            android:defaultValue="@bool/autofill_copy_totp_default"/>
     </PreferenceCategory>
 
     <!-- Security: lock the database again once a form has been filled -->

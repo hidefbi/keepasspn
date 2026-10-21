@@ -300,6 +300,8 @@
     <string name="device_unlock_keystore_warning">Bu xüsusiyyət, şifrələnən şəxsiyyəti təsdiq edən məlumatları cihazın təhlükəsiz açar bazasında saxlayacaqdır.\n\nƏməliyyat sisteminin yerli APİ-nin tətbiqindən asılı olaraq, tam olaraq funksional olmaya bilər.\n\nCihazın istehsalçısı və istifadə etdiyiniz ROM-un tərtibatçısı ilə açar bazasının uyğunluğu və təhlükəsizliyini yoxlayın.</string>
     <string name="autofill_inline_suggestions_title">Cümlə daxili təkliflər</string>
     <string name="autofill_inline_suggestions_summary">Birbaşa uyğun olan klaviaturadan avtomatik doldurma təkliflərini göstərməyə çalış</string>
+    <string name="autofill_copy_totp_title">Avtomatik doldurmadan sonra TOTP-ni kopyala</string>
+    <string name="autofill_copy_totp_summary">Kodu olan qeydi avtomatik doldurduqda cari birdəfəlik kodu buferə kopyalayın</string>
     <string name="autofill_manual_selection_title">Əllə seçim</string>
     <string name="autofill_manual_selection_summary">İstifadəçiyə məlumat bazası şifrəsini seçməyə imkan verən seçimi göstər</string>
     <string name="autofill_save_search_info_title">Axtarış məlumatlarını yadda saxla</string>

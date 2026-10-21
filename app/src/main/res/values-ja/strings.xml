@@ -439,6 +439,8 @@
     <string name="content">コンテンツ</string>
     <string name="autofill_inline_suggestions_keyboard">自動入力候補が追加されました。</string>
     <string name="autofill_inline_suggestions_summary">自動入力候補を互換性のあるキーボード上に直接表示することを試みます</string>
+    <string name="autofill_copy_totp_title">自動入力後に TOTP をコピー</string>
+    <string name="autofill_copy_totp_summary">自動入力する項目にワンタイムコードがある場合、現在のコードをクリップボードにコピーします</string>
     <string name="autofill_inline_suggestions_title">インライン自動入力</string>
     <string name="warning_database_revoked">ファイルへのアクセス権がファイル マネージャーによって取り消されました。データベースを閉じて、ファイルの場所から再度開いてください。</string>
     <string name="warning_database_info_changed_options">データベースを保存して外部の変更を上書きするか、再度読み込んで最新の変更を反映させてください。</string>

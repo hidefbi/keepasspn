@@ -541,6 +541,8 @@
     <string name="backspace">Backspace</string>
     <string name="autofill_inline_suggestions_title">Vložené návrhy</string>
     <string name="autofill_inline_suggestions_summary">Pokúste sa zobraziť návrhy automatického dopĺňania priamo z kompatibilnej klávesnice</string>
+    <string name="autofill_copy_totp_title">Kopírovať TOTP po automatickom vyplnení</string>
+    <string name="autofill_copy_totp_summary">Pri automatickom vyplnení položky, ktorá ho má, skopírovať aktuálny jednorazový kód do schránky</string>
     <string name="autofill_save_search_info_title">Uložiť výsledky vyhľadávania</string>
     <string name="autofill_application_id_blocklist_title">Zoznam blokovaných aplikácií</string>
     <string name="autofill_block">Blokovať automatické dopĺňanie</string>

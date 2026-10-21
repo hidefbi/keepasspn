@@ -517,6 +517,8 @@
     <string name="autofill_manual_selection_title">เลือกด้วยตนเอง</string>
     <string name="keyboard_previous_fill_in_summary">สลับไปยังแป้นพิมพ์ก่อนหน้านี้โดยอัตโนมัติหลังดำเนินการ\"การกระทำปุ่มอัตโนมัติ\"</string>
     <string name="autofill_inline_suggestions_summary">พยายามแสดงการแนะนำการกรองอัตโนมัติโดยตรงจากแป้นพิมพ์ที่รองรับ</string>
+    <string name="autofill_copy_totp_title">คัดลอก TOTP หลังการกรอกอัตโนมัติ</string>
+    <string name="autofill_copy_totp_summary">คัดลอกรหัสใช้ครั้งเดียวปัจจุบันไปยังคลิปบอร์ดเมื่อกรอกอัตโนมัติรายการที่มีรหัสนี้</string>
     <string name="autofill_save_search_info_title">บันทึกข้อมูลการค้นหา</string>
     <string name="autofill_save_search_info_summary">พยายามบันทึกข้อมูลการค้นหาเมื่อเลือกรายการด้วยตนเองเพื่อใช้งานในอนาคตง่ายขึ้น</string>
     <string name="autofill_ask_to_save_data_summary">ถามเพื่อบันทึกข้อมูลเมื่อการกรอกข้อมูลในฟอร์มเสร็จสมบูรณ์</string>

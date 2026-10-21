@@ -462,6 +462,8 @@
     <string name="autofill_close_database_summary">Peale automaattäite kasutamist sulega andmebaas</string>
     <string name="autofill_inline_suggestions_title">Otsetäite soovitused</string>
     <string name="autofill_inline_suggestions_summary">Proovi kuvada automaattäite soovitusi, kui klahvistik sellist võimalust toetab</string>
+    <string name="autofill_copy_totp_title">Kopeeri TOTP pärast automaattäitmist</string>
+    <string name="autofill_copy_totp_summary">Kopeeri praegune ühekordne kood lõikelauale, kui täidad automaatselt kirje, millel see on</string>
     <string name="autofill_manual_selection_title">Käsitsi valik</string>
     <string name="autofill_manual_selection_summary">Võimalda kasutaval käsitsi valida andmebaasi kirjet</string>
     <string name="autofill_save_search_info_title">Salvesta otsingud</string>

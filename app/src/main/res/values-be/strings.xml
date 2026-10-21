@@ -469,6 +469,8 @@
     <string name="autofill_close_database_summary">Зачыніць базу дадзеных пасля выбару аўтазапаўнення</string>
     <string name="autofill_inline_suggestions_title">Убудаваныя прапановы</string>
     <string name="autofill_inline_suggestions_summary">Спрабаваць адлюстраваць прапановы аўтазапаўнення непасрэдна з сумяшчальнай клавіятуры</string>
+    <string name="autofill_copy_totp_title">Капіраваць TOTP пасля аўтазапаўнення</string>
+    <string name="autofill_copy_totp_summary">Капіраваць бягучы аднаразовы код у буфер абмену пры аўтазапаўненні запісу, які яго мае</string>
     <string name="autofill_manual_selection_title">Ручной выбар</string>
     <string name="autofill_manual_selection_summary">Адлюстраваць опцыю, каб дазволіць карыстальніку выбраць запіс базы дадзеных</string>
     <string name="autofill_save_search_info_title">Захаваць інфармацыю пошуку</string>

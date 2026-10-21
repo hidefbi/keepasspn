@@ -592,6 +592,8 @@
     <string name="autofill_close_database_summary">Stäng databasen efter ett autofyllsval</string>
     <string name="autofill_inline_suggestions_title">Autofyllförslag i tangentbordet</string>
     <string name="autofill_inline_suggestions_summary">Försök att visa autofyllförslag direkt i ett kompatibelt tangentbord</string>
+    <string name="autofill_copy_totp_title">Kopiera TOTP efter automatisk ifyllnad</string>
+    <string name="autofill_copy_totp_summary">Kopiera den aktuella engångskoden till urklipp när du autofyllnar en post som har en</string>
     <string name="autofill_manual_selection_title">Manuellt val</string>
     <string name="autofill_manual_selection_summary">Visa ett alternativ som låter användaren välja en databaspost</string>
     <string name="autofill_share_magikeyboard_title">Dela till Magikeyboard</string>

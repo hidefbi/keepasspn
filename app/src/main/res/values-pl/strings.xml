@@ -442,6 +442,8 @@
     <string name="autofill_inline_suggestions_keyboard">Dodano sugestie automatycznego wypełniania.</string>
     <string name="autofill_inline_suggestions_title">Sugestie wbudowane</string>
     <string name="autofill_inline_suggestions_summary">Spróbuj wyświetlić sugestie automatycznego wypełniania bezpośrednio z kompatybilnej klawiatury</string>
+    <string name="autofill_copy_totp_title">Kopiuj TOTP po automatycznym wypełnieniu</string>
+    <string name="autofill_copy_totp_summary">Kopiuj bieżący jednorazowy kod do schowka podczas automatycznego wypełniania wpisu, który go ma</string>
     <string name="temp_device_unlock_enable_title">Odblokowywanie tymczasowe urządzenia</string>
     <string name="warning_database_revoked">Dostęp do pliku odwołany przez menedżera plików, zamknij bazę danych i otwórz ją ponownie z jej lokalizacji.</string>
     <string name="warning_database_info_changed_options">Scal dane, zastąp modyfikacje zewnętrzne poprzez zapisanie bazy danych lub ponownie załaduj ją z najnowszymi zmianami.</string>

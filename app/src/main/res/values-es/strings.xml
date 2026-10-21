@@ -437,6 +437,8 @@
     <string name="show_uuid_summary">Muestra el UUID vinculado a un apunte o a un grupo</string>
     <string name="show_uuid_title">Mostrar UUID</string>
     <string name="autofill_inline_suggestions_summary">Intenta mostrar sugerencias de autocompletado directamente desde un teclado compatible</string>
+    <string name="autofill_copy_totp_title">Copiar TOTP tras el autocompletado</string>
+    <string name="autofill_copy_totp_summary">Copia el código de un solo uso actual al portapapeles al autocompletar una entrada que tenga uno</string>
     <string name="autofill_inline_suggestions_keyboard">Sugerencias de autocompletado añadidas.</string>
     <string name="warning_database_revoked">Acceso al archivo revocado por el administrador de archivos, cierra la base de datos y vuelva a abrirla desde su ubicación.</string>
     <string name="unit_gibibyte">GiB</string>

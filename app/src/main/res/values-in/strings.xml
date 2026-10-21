@@ -513,6 +513,8 @@
     <string name="keyboard_previous_fill_in_title">Ganti kembali</string>
     <string name="keyboard_previous_lock_summary">Secara otomatis beralih kembali ke keyboard sebelumnya setelah mengunci basis data</string>
     <string name="autofill_inline_suggestions_summary">Coba tampilkan saran pengisian otomatis langsung dari keyboard yang kompatibel</string>
+    <string name="autofill_copy_totp_title">Salin TOTP setelah isi otomatis</string>
+    <string name="autofill_copy_totp_summary">Salin kode sekali pakai saat ini ke papan klip saat mengisi otomatis entri yang memilikinya</string>
     <string name="enable_education_screens_title">Petunjuk pendidikan</string>
     <string name="education_select_database_summary">Buka file basis data Anda sebelumnya dari peramban file Anda untuk terus menggunakannya.</string>
     <string name="show_entry_colors_title">Warna entri</string>

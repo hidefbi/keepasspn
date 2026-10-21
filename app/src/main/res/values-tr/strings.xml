@@ -443,6 +443,8 @@
     <string name="content">İçerik</string>
     <string name="autofill_inline_suggestions_keyboard">Otomatik doldurma önerileri eklendi.</string>
     <string name="autofill_inline_suggestions_summary">Doğrudan uyumlu bir klavyeden otomatik doldurma önerileri görüntülemeye çalış</string>
+    <string name="autofill_copy_totp_title">Otomatik doldurmadan sonra TOTP\'yi kopyala</string>
+    <string name="autofill_copy_totp_summary">TOTP\'si olan bir girdiyi otomatik doldururken geçerli tek kullanımlık kodu panoya kopyala</string>
     <string name="autofill_inline_suggestions_title">Satır içi öneriler</string>
     <string name="warning_database_revoked">Dosyaya erişim dosya yöneticisi tarafından iptal edildi, veri tabanını kapatın ve bulunduğu yerden yeniden açın.</string>
     <string name="warning_database_info_changed_options">Verileri birleştirin, veri tabanını kaydederek harici değişikliklerin üzerine yazın veya en son değişikliklerle yeniden yükleyin.</string>

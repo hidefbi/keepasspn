@@ -448,6 +448,8 @@
     <string name="content">Содержимое</string>
     <string name="autofill_inline_suggestions_keyboard">Предложения автозаполнения добавлены.</string>
     <string name="autofill_inline_suggestions_summary">Показывать предложения автозаполнения непосредственно в совместимой клавиатуре</string>
+    <string name="autofill_copy_totp_title">Копировать TOTP после автозаполнения</string>
+    <string name="autofill_copy_totp_summary">Копировать текущий одноразовый код в буфер обмена при автозаполнении записи, в которой он есть</string>
     <string name="autofill_inline_suggestions_title">Встроенные предложения</string>
     <string name="warning_database_revoked">Доступ к файлу отозван файловым менеджером, закройте базу и снова откройте.</string>
     <string name="warning_database_info_changed_options">Объединить данные, перезаписав внешние изменения, или перезагрузить её с последними изменениями.</string>

@@ -478,6 +478,8 @@
     <string name="keyboard_previous_database_credentials_summary">Bytt tilbake til forrige tastatur automatisk på skjermen for påloggingsinformasjonen til databasen</string>
     <string name="autofill_inline_suggestions_title">Forslag på linjen</string>
     <string name="autofill_inline_suggestions_summary">Prøv å vise autofullføringsforslag direkte fra et kompatibelt tastatur</string>
+    <string name="autofill_copy_totp_title">Kopier TOTP etter autofullføring</string>
+    <string name="autofill_copy_totp_summary">Kopier gjeldende engangskode til utklippstavlen når du autofullfører en oppføring som har en</string>
     <string name="autofill_manual_selection_title">Manuellt utvalg</string>
     <string name="autofill_manual_selection_summary">Vis alternativ for å la brukeren velge databaseoppføring</string>
     <string name="keyboard_previous_fill_in_title">Bytt tilbake</string>

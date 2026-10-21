@@ -24,6 +24,7 @@ import android.app.PendingIntent
 import android.app.assist.AssistStructure
 import android.content.Context
 import android.content.Intent
+import android.content.IntentSender
 import android.graphics.BlendMode
 import android.graphics.drawable.Icon
 import android.os.Build
@@ -49,6 +50,8 @@ import com.keepasspn.credentialprovider.activity.AutofillLauncherActivity
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.element.icon.IconImage
 import com.keepasspn.model.EntryInfo
+import com.keepasspn.model.OtpModel
+import com.keepasspn.otp.OtpType
 import com.keepasspn.model.SearchInfo
 import com.keepasspn.settings.AutofillSettingsActivity
 import com.keepasspn.settings.PreferencesUtil
@@ -168,13 +171,12 @@ object AutofillHelper {
         return this
     }
 
-    private fun buildDatasetForEntry(
+    private fun newDatasetBuilder(
         context: Context,
         database: ContextualDatabase,
         entryInfo: EntryInfo,
-        struct: StructureParser.Result,
         inlinePresentation: InlinePresentation?
-    ): Dataset {
+    ): Dataset.Builder {
         val remoteViews: RemoteViews = newRemoteViews(context, database, makeEntryTitle(entryInfo), entryInfo.icon)
 
         val datasetBuilder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -199,6 +201,17 @@ object AutofillHelper {
         }
 
         datasetBuilder.setId(entryInfo.nodeId.toString())
+        return datasetBuilder
+    }
+
+    private fun buildDatasetForEntry(
+        context: Context,
+        database: ContextualDatabase,
+        entryInfo: EntryInfo,
+        struct: StructureParser.Result,
+        inlinePresentation: InlinePresentation?
+    ): Dataset {
+        val datasetBuilder = newDatasetBuilder(context, database, entryInfo, inlinePresentation)
 
         struct.usernameId?.let { usernameId ->
             datasetBuilder.addValueToDatasetBuilder(
@@ -339,6 +352,67 @@ object AutofillHelper {
         return dataset
     }
 
+    /**
+     * Returns the TOTP to copy when the entry is autofilled, or null when the feature
+     * is disabled or the entry has no TOTP.
+     */
+    private fun totpToCopyOnAutofill(context: Context, entryInfo: EntryInfo): OtpModel? {
+        if (!PreferencesUtil.isAutofillCopyTotpEnable(context)) return null
+        return entryInfo.otpModel?.takeIf { it.type == OtpType.TOTP }
+    }
+
+    /**
+     * Wraps the filled dataset behind an authentication step, which copies the TOTP code
+     * in the foreground and then returns [filledDataset] to the autofill framework.
+     */
+    private fun buildTotpCopyDataset(
+        context: Context,
+        database: ContextualDatabase,
+        entryInfo: EntryInfo,
+        struct: StructureParser.Result,
+        inlinePresentation: InlinePresentation?,
+        otpModel: OtpModel,
+        filledDataset: Dataset
+    ): Dataset {
+        val copyIntent = Intent(context, AutofillTotpCopyActivity::class.java)
+            .putExtra(AutofillTotpCopyActivity.EXTRA_OTP_MODEL, otpModel)
+            .putExtra(AutofillTotpCopyActivity.EXTRA_FILLED_DATASET, filledDataset)
+        val pendingIntent = PendingIntent.getActivity(
+            context,
+            randomRequestCode(),
+            copyIntent,
+            PendingIntent.FLAG_IMMUTABLE
+        )
+        return buildAuthDatasetForEntry(
+            context = context,
+            database = database,
+            entryInfo = entryInfo,
+            struct = struct,
+            inlinePresentation = inlinePresentation,
+            authIntentSender = pendingIntent.intentSender
+        )
+    }
+
+    /**
+     * Dataset that requires an authentication before filling.
+     * The fields are left empty, the authentication result provides the dataset to fill.
+     */
+    private fun buildAuthDatasetForEntry(
+        context: Context,
+        database: ContextualDatabase,
+        entryInfo: EntryInfo,
+        struct: StructureParser.Result,
+        inlinePresentation: InlinePresentation?,
+        authIntentSender: IntentSender
+    ): Dataset {
+        val datasetBuilder = newDatasetBuilder(context, database, entryInfo, inlinePresentation)
+        struct.allAutofillIds().forEach { id ->
+            datasetBuilder.addValueToDatasetBuilder(id, null)
+        }
+        datasetBuilder.setAuthentication(authIntentSender)
+        return datasetBuilder.build()
+    }
+
     @SuppressLint("RestrictedApi")
     @RequiresApi(Build.VERSION_CODES.R)
     private fun buildInlinePresentationForEntry(
@@ -468,14 +542,28 @@ object AutofillHelper {
                     )
                 }
                 // Create dataset for each entry
+                val filledDataset = buildDatasetForEntry(
+                    context = context,
+                    database = database,
+                    entryInfo = entry,
+                    struct = parseResult,
+                    inlinePresentation = inlinePresentation
+                )
+                val totpToCopy = totpToCopyOnAutofill(context, entry)
                 responseBuilder.addDataset(
-                    buildDatasetForEntry(
-                        context = context,
-                        database = database,
-                        entryInfo = entry,
-                        struct = parseResult,
-                        inlinePresentation = inlinePresentation
-                    )
+                    if (totpToCopy != null) {
+                        buildTotpCopyDataset(
+                            context = context,
+                            database = database,
+                            entryInfo = entry,
+                            struct = parseResult,
+                            inlinePresentation = inlinePresentation,
+                            otpModel = totpToCopy,
+                            filledDataset = filledDataset
+                        )
+                    } else {
+                        filledDataset
+                    }
                 )
             } catch (e: Exception) {
                 NoOpLog.e(TAG, "Unable to add dataset", e)

@@ -464,6 +464,8 @@
     <string name="device_credential_unlock_enable_summary">Giver dig mulighed for at bruge dine enhedsoplysninger til at åbne databasen</string>
     <string name="device_credential_unlock_enable_title">Oplåsning via enhedsoplysninger</string>
     <string name="autofill_inline_suggestions_summary">Forsøg at vise forslag til automatisk udfyldning direkte fra et kompatibelt tastatur</string>
+    <string name="autofill_copy_totp_title">Kopiér TOTP efter automatisk udfyldning</string>
+    <string name="autofill_copy_totp_summary">Kopiér den aktuelle engangskode til udklipsholderen, når du udfylder et element, der har en</string>
     <string name="autofill_inline_suggestions_title">Indbyggede forslag</string>
     <string name="backspace">Tilbagetast</string>
     <string name="device_unlock_timeout">Tidsudløb for oplåsning</string>
