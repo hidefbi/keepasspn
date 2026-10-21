@@ -27,6 +27,7 @@ import com.keepasspn.database.element.GroupId
 import com.keepasspn.database.element.node.EmptyNodeFilter
 import com.keepasspn.database.element.node.Node
 import com.keepasspn.database.element.node.NodeFilter
+import com.keepasspn.database.element.node.NodeHandler
 import com.keepasspn.database.element.node.Nodes
 import com.keepasspn.database.search.SearchHelper
 import com.keepasspn.database.search.SearchParameters
@@ -51,6 +52,31 @@ open class DatabaseInfo: Database() {
      */
     fun getEntryInfoById(entryId: EntryId, raw: Boolean = false): EntryInfo? {
         return getEntryById(entryId)?.let { entry -> getEntryInfoFrom(entry, raw) }
+    }
+
+    /**
+     * Get the info of every entry that has a one-time password, from all groups.
+     * Used by the verification codes list, which aggregates TOTP across the whole database.
+     * @return The entries with an OTP, in traversal order (empty if none).
+     */
+    fun getEntryInfosWithOtp(): List<EntryInfo> {
+        val entryInfos = mutableListOf<EntryInfo>()
+        rootGroup?.doForEachChildAndForIt(
+            object : NodeHandler<Entry>() {
+                override fun operate(node: Entry): Boolean {
+                    if (node.getOtpElement() != null) {
+                        entryInfos.add(getEntryInfoFrom(node, raw = true))
+                    }
+                    return true
+                }
+            },
+            object : NodeHandler<Group>() {
+                override fun operate(node: Group): Boolean {
+                    return true
+                }
+            }
+        )
+        return entryInfos
     }
 
     /**

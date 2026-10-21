@@ -8,6 +8,11 @@
       android:largeScreens="true"
       android:anyDensity="true" />
     <uses-permission
+        android:name="android.permission.CAMERA" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-permission
         android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission
         android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
@@ -160,6 +165,13 @@
         <activity
             android:name="com.keepasspn.activities.IconPickerActivity"
             android:configChanges="keyboardHidden" />
+        <activity
+            android:name="com.keepasspn.activities.VerificationCodesActivity"
+            android:configChanges="keyboardHidden" />
+        <activity
+            android:name="com.keepasspn.activities.ImportOtpScannerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.keepasspn.activities.KeyGeneratorActivity"
             android:configChanges="keyboardHidden" />

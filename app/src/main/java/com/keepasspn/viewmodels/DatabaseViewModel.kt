@@ -292,6 +292,10 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
         )
     }
 
+    fun importOtpEntries(otpModels: List<com.keepasspn.model.OtpModel>, save: Boolean) {
+        mDatabaseTaskProvider.startDatabaseImportOtp(ArrayList(otpModels), save)
+    }
+
     fun createGroup(
         parentId: GroupId,
         newGroup: GroupInfo,

@@ -52,6 +52,7 @@ import com.keepasspn.database.action.history.RestoreEntryHistoryDatabaseRunnable
 import com.keepasspn.database.action.node.ActionNodesValues
 import com.keepasspn.database.action.node.AddEntryRunnable
 import com.keepasspn.database.action.node.AddGroupRunnable
+import com.keepasspn.database.action.node.AddOtpEntriesRunnable
 import com.keepasspn.database.action.node.AfterActionNodesFinish
 import com.keepasspn.database.action.node.CopyNodesRunnable
 import com.keepasspn.database.action.node.DeleteNodesRunnable
@@ -358,6 +359,7 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
             ACTION_DATABASE_UPDATE_GROUP_TASK -> buildDatabaseUpdateGroupActionTask(intent, database)
             ACTION_DATABASE_TOUCH_GROUP_TASK -> buildDatabaseTouchGroupActionTask(intent, database)
             ACTION_DATABASE_CREATE_ENTRY_TASK -> buildDatabaseCreateEntryActionTask(intent, database)
+            ACTION_DATABASE_IMPORT_OTP_TASK -> buildDatabaseImportOtpActionTask(intent, database)
             ACTION_DATABASE_UPDATE_ENTRY_TASK -> buildDatabaseUpdateEntryActionTask(intent, database)
             ACTION_DATABASE_TOUCH_ENTRY_TASK -> buildDatabaseTouchEntryActionTask(intent, database)
             ACTION_DATABASE_COPY_NODES_TASK -> buildDatabaseCopyNodesActionTask(intent, database)
@@ -1061,6 +1063,32 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         }
     }
 
+    @Suppress("DEPRECATION")
+    private fun buildDatabaseImportOtpActionTask(
+        intent: Intent,
+        database: ContextualDatabase,
+    ): ActionRunnable? {
+        return if (intent.hasExtra(OTP_MODELS_KEY)
+            && intent.hasExtra(SAVE_DATABASE_KEY)
+        ) {
+            val otpModels: ArrayList<com.keepasspn.model.OtpModel>? =
+                intent.getParcelableArrayListExtra(OTP_MODELS_KEY)
+            if (otpModels == null) return null
+            val saveDatabase = intent.getBooleanExtra(SAVE_DATABASE_KEY, false)
+            AddOtpEntriesRunnable(
+                context = this,
+                database = database,
+                otpModels = otpModels,
+                save = !database.isReadOnly && saveDatabase,
+                afterActionNodesFinish = AfterActionNodesRunnable()
+            ) { hardwareKey, seed ->
+                retrieveResponseFromChallenge(hardwareKey, seed)
+            }
+        } else {
+            null
+        }
+    }
+
     private fun buildDatabaseCreateEntryActionTask(
         intent: Intent,
         database: ContextualDatabase,
@@ -1441,6 +1469,8 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         const val ACTION_DATABASE_UPDATE_GROUP_TASK = "ACTION_DATABASE_UPDATE_GROUP_TASK"
         const val ACTION_DATABASE_TOUCH_GROUP_TASK = "ACTION_DATABASE_TOUCH_GROUP_TASK"
         const val ACTION_DATABASE_CREATE_ENTRY_TASK = "ACTION_DATABASE_CREATE_ENTRY_TASK"
+        const val ACTION_DATABASE_IMPORT_OTP_TASK = "ACTION_DATABASE_IMPORT_OTP_TASK"
+        const val OTP_MODELS_KEY = "OTP_MODELS_KEY"
         const val ACTION_DATABASE_UPDATE_ENTRY_TASK = "ACTION_DATABASE_UPDATE_ENTRY_TASK"
         const val ACTION_DATABASE_TOUCH_ENTRY_TASK = "ACTION_DATABASE_TOUCH_ENTRY_TASK"
         const val ACTION_DATABASE_COPY_NODES_TASK = "ACTION_DATABASE_COPY_NODES_TASK"

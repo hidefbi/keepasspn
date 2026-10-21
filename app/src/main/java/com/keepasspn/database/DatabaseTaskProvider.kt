@@ -376,6 +376,16 @@ class DatabaseTaskProvider(
         }, ACTION_DATABASE_CREATE_ENTRY_TASK)
     }
 
+    fun startDatabaseImportOtp(
+        otpModels: ArrayList<com.keepasspn.model.OtpModel>,
+        save: Boolean
+    ) {
+        start(Bundle().apply {
+            putParcelableArrayList(DatabaseTaskNotificationService.OTP_MODELS_KEY, otpModels)
+            putBoolean(DatabaseTaskNotificationService.SAVE_DATABASE_KEY, save)
+        }, DatabaseTaskNotificationService.ACTION_DATABASE_IMPORT_OTP_TASK)
+    }
+
     fun startDatabaseUpdateEntry(
         updateEntry: EntryInfo,
         save: Boolean
