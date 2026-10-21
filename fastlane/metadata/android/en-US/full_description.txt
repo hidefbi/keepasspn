@@ -1,21 +1,37 @@
-KeePassPN opens and edits KeePass databases in the KDBX format. The database stays in the file you choose, either on this device or in a folder offered by a document provider.
+KeePassPN lets you open and edit KeePass databases in the KDBX format. It is a fork of KeePassDX and keeps the same database management and autofill workflow. Your database stays wherever you choose to store it, either on your device or in a folder provided by a document provider.
 
-PIN quick unlock (optional)
-Set a PIN of at least six digits to open a database without typing the master password. The PIN is never stored in plain form. It protects an encrypted copy of the master password, and a key kept in the Android Keystore is also required to open it. After three wrong PINs, the PIN is deleted and the master password is required again.
+What KeePassPN adds to KeePassDX
 
-You can choose how long a PIN stays valid: 7, 14, 30 or 60 days, or never. If the app has not been opened within that period, the PIN and the app's copy of the database are removed. Your original .kdbx file is not changed.
+1. Quick unlock with a PIN
+After you unlock a database with the master password for the first time, the app asks whether you want to set a PIN of at least six digits. With a PIN, you can unlock the database without typing the master password each time.
+- The PIN is never stored in plain text.
+- The PIN protects an encrypted copy of your master password. A key stored in the Android Keystore is also required to decrypt it.
+- After three incorrect PIN attempts, the PIN is deleted and you must enter the master password again. If you then enter the master password incorrectly twice more, the database is removed from the app.
+- You can choose how long the PIN stays valid: 7, 14, 30 or 60 days, or indefinitely.
+- If you do not open the app within the selected period, the PIN and the app's copy of the database are deleted.
+- You can change or disable the PIN under Settings, Device unlock.
+Your original .kdbx file is not modified when the app's data is deleted, formatted or cleared.
 
-Verification before copying
-Copying a protected field asks you to confirm it is you. The app uses your database PIN if one is set. Otherwise it uses your device lock screen. If neither is available, it asks for the first four characters of the master password. You can turn this off under Settings, User Verification.
+2. Verify your identity before copying protected fields
+When you copy a protected field, the app asks you to verify your identity. The method is chosen in this order: the database PIN if you have set one, otherwise the device screen lock if the device has one, otherwise the first four characters of the master password. You can turn this off under Settings, User Verification.
 
-Recovery copies
-After a database opens successfully, the app keeps a private copy in its own storage. If the original file is later replaced with an older version, the newer changes in the private copy are kept. If both copies changed, the conflicting copy is saved as a separate file.
+3. Database recovery copies
+Each time a database opens successfully, the app saves a private copy in its own storage. If the original file is replaced with an older version, the app keeps the newer changes from its private copy. If both copies have changed, the app loads the original and saves the private copy as a separate conflict file. This helps preserve your newest changes when a database file is overwritten by an older version.
 
-Autofill and passkeys
-The app includes an autofill service and a passkey provider for Android's Credential Manager.
+4. Copy TOTP codes after autofill (optional)
+When an autofilled entry contains a time-based one-time password (TOTP), the app can also copy the current code to your clipboard. This setting is optional and does not change how autofill works.
 
-Before you enable PIN unlock
-A PIN has far less strength than a long master password. The attempt counter is stored by the app, so a rooted device can reset it. Use PIN unlock only if you accept that.
+5. One-time codes (2FA)
+Open Verification codes to see the current TOTP codes of entries from all groups in one list. Tap a code to copy it. To import, tap the scan button in a group, or Import codes on the Verification codes screen, then scan the batch QR code that Google Authenticator generates when you export accounts, or a single otpauth:// QR code. Imported accounts are saved to a group named 2FA. Accounts that already exist, with the same issuer, name and secret, are skipped. All QR decoding happens on your device. The app does not save camera images and does not request internet access.
+
+6. Privacy
+Android cloud backup is disabled for the app, so its data is not included in Android cloud backups.
+
+Features inherited from KeePassDX
+Opening KDBX databases from local storage or a document provider, the Android Autofill service, and passkey provider support for Android Credential Manager.
+
+Things to know before enabling PIN unlock
+A PIN is much less secure than a sufficiently long master password. The failed-attempt counter is stored by the app itself, so an attacker with root access to the device may be able to reset it. Enable PIN unlock only if you accept these risks.
 
 Source code: https://github.com/hidefbi/keepasspn
 License: GNU General Public License v3.0 or later
