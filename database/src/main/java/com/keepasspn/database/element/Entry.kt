@@ -491,13 +491,6 @@ class Entry : Node, EntryVersionedInterface<Group> {
     companion object {
         const val PMS_TAN_ENTRY = "<TAN>"
 
-        /**
-         * True if [field] name is not a standard field name
-         */
-        fun newExtraFieldNameAllowed(field: Field): Boolean {
-            return EntryKDBX.newCustomNameAllowed(field.name)
-        }
-
         @JvmField
         val CREATOR: Parcelable.Creator<Entry> = object : Parcelable.Creator<Entry> {
             override fun createFromParcel(parcel: Parcel): Entry {

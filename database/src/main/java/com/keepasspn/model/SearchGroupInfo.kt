@@ -68,13 +68,6 @@ class SearchGroupInfo : GroupInfo {
     }
 
     /**
-     * Clears all search results.
-     */
-    fun clearSearchResults() {
-        this.entriesResult.clear()
-    }
-
-    /**
      * Retrieves the list of search results.
      * @return A list of [SortedEntryInfo].
      */

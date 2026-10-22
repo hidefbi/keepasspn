@@ -120,16 +120,6 @@ class OtpDisplayView @JvmOverloads constructor(
     }
 
     /**
-     * Mask the token if it's protected.
-     */
-    fun maskToken() {
-        if (mProtected) {
-            mask()
-            populateOtpToken()
-        }
-    }
-
-    /**
      * Set the OTP model and update the view.
      * @param otpModel The OTP model to display.
      */

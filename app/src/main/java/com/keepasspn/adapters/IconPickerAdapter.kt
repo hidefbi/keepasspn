@@ -81,13 +81,6 @@ class IconPickerAdapter<I: IconImageDraw>(val context: Context, private val tint
         iconList.clear()
     }
 
-    fun setList(icons: List<I>) {
-        iconList.clear()
-        icons.forEach { iconImage ->
-            iconList.add(iconImage)
-        }
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomIconViewHolder {
         val view = inflater.inflate(R.layout.item_icon, parent, false)
         return CustomIconViewHolder(view)

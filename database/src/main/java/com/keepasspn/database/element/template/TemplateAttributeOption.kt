@@ -77,14 +77,6 @@ class TemplateAttributeOption() : Parcelable {
         }
     }
 
-    fun setNumberChars(numberChars: Int) {
-        mOptions[TEXT_NUMBER_CHARS_ATTR] = numberChars.toString()
-    }
-
-    fun setNumberCharsToMany() {
-        mOptions[TEXT_NUMBER_CHARS_ATTR] = TEXT_NUMBER_CHARS_VALUE_MANY_STRING
-    }
-
     fun getNumberLines(): Int {
         return try {
             if (mOptions[TEXT_NUMBER_LINES_ATTR].equals(TEXT_NUMBER_LINES_VALUE_MANY_STRING, true))

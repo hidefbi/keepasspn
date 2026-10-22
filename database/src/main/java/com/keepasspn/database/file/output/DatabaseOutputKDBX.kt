@@ -463,34 +463,6 @@ class DatabaseOutputKDBX(private val mDatabaseKDBX: DatabaseKDBX)
         writeString(name, String(Base64.encode(data, BASE64_FLAG)))
     }
 
-    /*
-    // Normally used by a single entry but obsolete because binaries are in meta tag with kdbx3.1-
-    // or in file header with kdbx4
-    // binary.isProtected attribute is not used to create the XML
-    @Throws(IllegalArgumentException::class, IllegalStateException::class, IOException::class)
-    private fun writeEntryBinary(binary : BinaryAttachment) {
-        if (binary.length() > 0) {
-            if (binary.isProtected) {
-                xml.attribute(null, DatabaseKDBXXML.AttrProtected, DatabaseKDBXXML.ValTrue)
-                binary.getInputDataStream().use { inputStream ->
-                    inputStream.readBytes { buffer ->
-                        val encoded = ByteArray(buffer.size)
-                        randomStream!!.processBytes(buffer, 0, encoded.size, encoded, 0)
-                        xml.text(String(Base64.encode(encoded, BASE_64_FLAG)))
-                    }
-                }
-            } else {
-                // Write the XML
-                binary.getInputDataStream().use { inputStream ->
-                    inputStream.readBytes { buffer ->
-                        xml.text(String(Base64.encode(buffer, BASE_64_FLAG)))
-                    }
-                }
-            }
-        }
-    }
-    */
-
     // Only uses with kdbx3.1 to write binaries in meta tag
     // With kdbx4, don't use this method because binaries are in header file
     @Throws(IllegalArgumentException::class, IllegalStateException::class, IOException::class)

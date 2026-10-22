@@ -76,16 +76,4 @@ object CreditCardEntryFields {
         }
     }
 
-    /**
-     * Detect if the current field is a Credit Card field
-     */
-    fun Field.isCreditCard(): Boolean {
-        return when(name) {
-            CREDIT_CARD_TAG -> true
-            LABEL_HOLDER -> true
-            LABEL_NUMBER -> true
-            LABEL_CVV -> true
-            else -> false
-        }
-    }
 }

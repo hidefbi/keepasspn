@@ -52,16 +52,6 @@ abstract class NestedSettingsFragment : PreferenceFragmentCompat() {
 
     abstract fun onCreateScreenPreference(screen: Screen, savedInstanceState: Bundle?, rootKey: String?)
 
-    protected fun preferenceInDevelopment(preferenceInDev: Preference) {
-        preferenceInDev.setOnPreferenceClickListener { preference ->
-            try { // don't check if we can
-                (preference as TwoStatePreference).isChecked = false
-            } catch (_: Exception) {}
-            UnderDevelopmentFeatureDialogFragment().show(parentFragmentManager, "underDevFeatureDialog")
-            false
-        }
-    }
-
     companion object {
 
         private const val TAG_KEY = "NESTED_KEY"

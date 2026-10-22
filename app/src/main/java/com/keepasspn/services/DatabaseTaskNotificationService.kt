@@ -1654,10 +1654,6 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
                 ?.mapNotNull { database.getGroupInfoById(it) }
         }
 
-        fun Bundle.getNewGroup(database: ContextualDatabase): GroupInfo? {
-            return getNewGroups(database)?.get(0)
-        }
-
         fun Bundle.getNewEntries(database: ContextualDatabase): List<EntryInfo>? {
             return getBundle(NEW_NODES_KEY)
                 ?.getParcelableList<EntryId>(ENTRIES_ID_KEY)

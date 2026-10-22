@@ -430,10 +430,6 @@ class Group : Node, GroupVersionedInterface<Group, Entry> {
             groupKDBX?.defaultAutoTypeSequence = value
         }
 
-    fun setExpanded(expanded: Boolean) {
-        groupKDBX?.isExpanded = expanded
-    }
-
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

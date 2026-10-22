@@ -153,15 +153,6 @@ object PrivilegedAllowLists {
     }
 
     /**
-     * Retrieves a list of all predefined and custom AndroidPrivilegedApp objects.
-     */
-    fun retrieveAllPrivilegedApps(
-        context: Context
-    ): List<AndroidPrivilegedApp> {
-        return retrievePredefinedPrivilegedApps(context) + retrieveCustomPrivilegedApps(context)
-    }
-
-    /**
      * Saves a list of custom AndroidPrivilegedApp objects to a JSON file.
      *
      * @param context Context for file operations.

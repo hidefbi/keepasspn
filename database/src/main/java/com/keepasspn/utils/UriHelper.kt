@@ -153,13 +153,4 @@ fun PackageManager.getPackageInfoCompat(packageName: String, flags: Int = 0): Pa
         @Suppress("DEPRECATION") getPackageInfo(packageName, flags)
     }
 
-@SuppressLint("QueryPermissionsNeeded")
-private fun PackageManager.queryIntentActivitiesCompat(intent: Intent, flags: Int): List<ResolveInfo> {
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        queryIntentActivities(intent, PackageManager.ResolveInfoFlags.of(flags.toLong()))
-    } else {
-        @Suppress("DEPRECATION") queryIntentActivities(intent, PackageManager.GET_META_DATA)
-    }
-}
-
 private const val TAG = "UriHelper"

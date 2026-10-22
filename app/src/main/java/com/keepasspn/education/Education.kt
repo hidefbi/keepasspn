@@ -393,16 +393,5 @@ open class Education(val activity: Activity) {
                 .apply()
         }
 
-        /**
-         * Defines if the reset education preference has been reclicked
-         *
-         * @param context The context to open the SharedPreferences
-         * @return boolean value of education_screen_reclicked_key key
-         */
-        fun isEducationScreenReclickedPerformed(context: Context): Boolean {
-            val prefs = getEducationSharedPreferences(context)
-            return prefs.getBoolean(context.getString(R.string.education_screen_reclicked_key),
-                    context.resources.getBoolean(R.bool.education_screen_reclicked_default))
-        }
     }
 }

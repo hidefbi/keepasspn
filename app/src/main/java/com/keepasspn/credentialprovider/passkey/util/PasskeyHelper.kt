@@ -130,28 +130,6 @@ object PasskeyHelper {
     }
 
     /**
-     * Build the Passkey error response
-     */
-    fun Activity.buildPasskeyErrorAndSetResult(
-        resources: Resources,
-        relyingPartyId: String?,
-        credentialIds: List<String>
-    ) {
-        val error = resources.getString(
-            R.string.error_passkey_credential_id,
-            relyingPartyId,
-            credentialIds
-        )
-        NoOpLog.e(javaClass.name, error)
-        Toast.makeText(
-            this,
-            error,
-            Toast.LENGTH_SHORT
-        ).show()
-        setResult(Activity.RESULT_CANCELED)
-    }
-
-    /**
      * Retrieve the [com.keepasspn.credentialprovider.passkey.data.PublicKeyCredentialCreationOptions] from the intent
      */
     private fun ProviderCreateCredentialRequest.retrievePasskeyCreationComponent(): PublicKeyCredentialCreationOptions {

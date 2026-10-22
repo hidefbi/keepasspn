@@ -131,38 +131,6 @@ inline fun <reified T> Parcel.readSetCompat(): Set<T> {
     return readListCompat<T>().toSet()
 }
 
-// For writing to a Parcel
-fun <K : Parcelable, V : Parcelable> Parcel.writeParcelableMap(map: Map<K, V>, flags: Int) {
-    writeInt(map.size)
-    for ((key, value) in map) {
-        writeParcelable(key, flags)
-        writeParcelable(value, flags)
-    }
-}
-
-// For reading from a Parcel
-inline fun <reified K : Parcelable, reified V : Parcelable> Parcel.readParcelableMap(): Map<K, V> {
-    val size = readInt()
-    val map = HashMap<K, V>(size)
-    (0 until size).forEach { i ->
-        val key: K? = try {
-            when {
-                SDK_INT >= 33 -> readParcelable(K::class.java.classLoader, K::class.java)
-                else -> @Suppress("DEPRECATION") readParcelable(K::class.java.classLoader)
-            }
-        } catch (_: Exception) { null }
-        val value: V? = try {
-            when {
-                SDK_INT >= 33 -> readParcelable(V::class.java.classLoader, V::class.java)
-                else -> @Suppress("DEPRECATION") readParcelable(V::class.java.classLoader)
-            }
-        } catch (_: Exception) { null }
-        if (key != null && value != null)
-            map[key] = value
-    }
-    return map
-}
-
 // For writing map with string key to a Parcel
 fun <V : Parcelable> Parcel.writeStringParcelableMap(map: HashMap<String, V>, flags: Int) {
     writeInt(map.size)

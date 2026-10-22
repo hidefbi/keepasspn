@@ -99,33 +99,6 @@ class DatabaseFilesViewModel(application: Application) : AndroidViewModel(applic
         }
     }
 
-    fun addDatabaseFile(
-        databaseUri: Uri,
-        keyFileUri: Uri?,
-        hardwareKey: HardwareKey?,
-    ) {
-        mFileDatabaseHistoryAction?.addOrUpdateDatabaseUri(
-            databaseUri,
-            keyFileUri,
-            hardwareKey,
-        ) { databaseFileAdded ->
-            databaseFileAdded?.let { _ ->
-                _databaseFilesLoaded.update { currentState ->
-                    val newList = currentState.databaseFileList.toMutableList()
-                    if (newList.contains(databaseFileAdded)) {
-                        newList.remove(databaseFileAdded)
-                    }
-                    newList.add(databaseFileAdded)
-                    currentState.copy(
-                        databaseFileAction = DatabaseFileAction.ADD,
-                        databaseFileList = newList,
-                        databaseFileToActivate = databaseFileAdded,
-                    )
-                }
-            }
-        }
-    }
-
     fun updateDatabaseFile(databaseFileToUpdate: DatabaseFile) {
         mFileDatabaseHistoryAction?.addOrUpdateDatabaseFile(databaseFileToUpdate) { databaseFileUpdated ->
             databaseFileUpdated?.let { _ ->

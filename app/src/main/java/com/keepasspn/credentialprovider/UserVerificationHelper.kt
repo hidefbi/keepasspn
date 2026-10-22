@@ -87,20 +87,6 @@ class UserVerificationHelper {
         }
 
         /**
-         * Remove the User Verification from the intent
-         */
-        fun Intent.removeUserVerification() {
-            removeExtra(EXTRA_USER_VERIFICATION)
-        }
-
-        /**
-         * Remove the User verified with auth from the intent
-         */
-        fun Intent.removeUserVerifiedWithAuth() {
-            removeExtra(EXTRA_USER_VERIFIED_WITH_AUTH)
-        }
-
-        /**
          * Get the User Verification from the intent
          */
         fun Intent.retrieveUserVerificationRequirement(): UserVerificationRequirement {

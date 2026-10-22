@@ -253,26 +253,6 @@ open class DatabaseInfo: Database() {
     }
 
     /**
-     * Convert a node to node info.
-     * @param node The node (entry or group) to convert.
-     * @return The converted node info.
-     */
-    fun getNodeInfoFrom(node: Node): NodeInfo {
-        return if (node is Entry) getEntryInfoFrom(node)
-        else getGroupInfoFrom(node as Group)
-    }
-
-    /**
-     * Get node from node info.
-     * @param nodeInfo The node info to look for.
-     * @return The node if found in the database, null otherwise.
-     */
-    fun getNodeFrom(nodeInfo: NodeInfo): Node? {
-        return if (nodeInfo is EntryInfo) this.getEntryById(nodeInfo.nodeId)
-        else this.getGroupById((nodeInfo as GroupInfo).nodeId)
-    }
-
-    /**
      * Save register info in entry info.
      * @param entryInfo The entry info to save in.
      * @param registerInfo The register info to save.
@@ -280,24 +260,6 @@ open class DatabaseInfo: Database() {
      */
     fun saveRegisterInfoIn(entryInfo: EntryInfo, registerInfo: RegisterInfo): Boolean {
         return entryInfo.saveRegisterInfo(registerInfo, allowEntryCustomFields())
-    }
-
-    /**
-     * Get the number of children entries in a group.
-     * @param node The group info.
-     * @param recursiveNumberOfEntries Whether to count entries in subgroups recursively.
-     * @param filter Filter to apply to entries.
-     * @return The number of child entries, or null if group not found.
-     */
-    fun getNumberChildrenEntries(
-        node: GroupInfo,
-        recursiveNumberOfEntries: Boolean = true,
-        filter: NodeFilter = EmptyNodeFilter(),
-    ): Int? {
-        return getGroupById(node.nodeId)?.getNumberOfChildEntries(
-            recursive = recursiveNumberOfEntries,
-            filter = filter.filter
-        )
     }
 
     /**

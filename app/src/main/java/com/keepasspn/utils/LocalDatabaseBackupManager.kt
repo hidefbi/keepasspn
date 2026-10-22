@@ -113,15 +113,6 @@ object LocalDatabaseBackupManager {
     fun isBackupUri(context: Context, logicalUri: Uri, candidate: Uri?): Boolean =
         candidate != null && candidate == backupUri(context, logicalUri)
 
-    fun isReadable(context: Context, uri: Uri): Boolean {
-        return try {
-            openInput(context, uri)?.use { it.read() >= 0 } == true
-        } catch (e: Exception) {
-            NoOpLog.d(TAG, "Database URI is not readable: $uri", e)
-            false
-        }
-    }
-
     /**
      * Synchronises the private copy after a successful load or save.
      *  - [sourceUri] is the private copy: its content is pushed back to the

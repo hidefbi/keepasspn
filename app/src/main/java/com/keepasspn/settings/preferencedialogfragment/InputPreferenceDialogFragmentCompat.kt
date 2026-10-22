@@ -48,10 +48,6 @@ abstract class InputPreferenceDialogFragmentCompat : PreferenceDialogFragmentCom
             }
         }
 
-    fun setInoutText(@StringRes inputTextId: Int) {
-        inputText = getString(inputTextId)
-    }
-
     fun showInputText(show: Boolean) {
         inputTextView?.visibility = if (show) View.VISIBLE else View.GONE
     }
@@ -162,10 +158,6 @@ abstract class InputPreferenceDialogFragmentCompat : PreferenceDialogFragmentCom
         switchElementView?.setOnCheckedChangeListener { _, isChecked ->
             onCheckedChange?.invoke(isChecked)
         }
-    }
-
-    fun isSwitchActivated(): Boolean {
-        return switchElementView?.isChecked == true
     }
 
     fun activateSwitch() {

@@ -440,10 +440,4 @@ object PinCryptoHelper {
         }
     }
 
-    suspend fun removeAllPins(context: Context) = withContext(Dispatchers.IO) {
-        pinLock.withLock {
-            dao(context).deleteAll()
-            deleteDeviceKey()
-        }
-    }
 }

@@ -289,10 +289,6 @@ abstract class TemplateAbstractView<
 
     abstract fun getActionImageView(): View?
 
-    fun setFontInVisibility(fontInVisibility: Boolean) {
-        this.mFontInVisibility = fontInVisibility
-    }
-
     fun setEntryInfo(entryInfo: EntryInfo?) {
         mEntryInfo = entryInfo
         if (mTemplate == null) {

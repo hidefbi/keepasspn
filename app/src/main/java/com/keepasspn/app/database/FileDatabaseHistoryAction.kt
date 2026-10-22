@@ -75,22 +75,6 @@ class FileDatabaseHistoryAction(private val applicationContext: Context) {
         }
     }
 
-    fun getKeyFileUriByDatabaseUri(
-        databaseUri: Uri,
-        keyFileUriResultListener: (Uri?) -> Unit
-    ) {
-        CoroutineScope(Dispatchers.Main).launch {
-            val result = withContext(Dispatchers.IO) {
-                databaseFileHistoryDao.getByDatabaseUri(databaseUri.toString())
-            }
-            result?.let { fileHistoryEntity ->
-                fileHistoryEntity.keyFileUri?.let { keyFileUri ->
-                    keyFileUriResultListener.invoke(keyFileUri.parseUri())
-                }
-            } ?: keyFileUriResultListener.invoke(null)
-        }
-    }
-
     fun getDatabaseFileList(databaseFileListResult: (List<DatabaseFile>) -> Unit) {
         CoroutineScope(Dispatchers.Main).launch {
             val result = withContext(Dispatchers.IO) {
