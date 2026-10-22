@@ -19,39 +19,30 @@
  */
 package com.keepasspn.timeout
 
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.PersistableBundle
+import java.util.UUID
 import com.keepasspn.utils.NoOpLog
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ProcessLifecycleOwner
-import androidx.lifecycle.lifecycleScope
 import com.keepasspn.R
+import com.keepasspn.receivers.ClipboardCleanReceiver
 import com.keepasspn.settings.PreferencesUtil
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 private const val TAG = "ClipboardHelper"
 private const val DEFAULT_LABEL = ""
+private const val CLIPBOARD_CLEAN_REQUEST_CODE = 7531
 
 private fun Context.clipboardManager() = ContextCompat.getSystemService(
     applicationContext,
     ClipboardManager::class.java
 )
-
-private fun Context.getClipboardText(): String {
-    val clipboardManager = clipboardManager()
-    if (clipboardManager?.hasPrimaryClip() == true) {
-        val data = clipboardManager.primaryClip
-        if (data != null && data.itemCount > 0) {
-            return data.getItemAt(0).coerceToText(applicationContext)?.toString() ?: ""
-        }
-    }
-    return ""
-}
 
 /**
  * Copy value to clipboard and clear it after a timeout.
@@ -78,13 +69,36 @@ fun Context.timeoutCopyToClipboard(
 
     val clipboardTimeout = PreferencesUtil.getClipboardTimeout(applicationContext)
     if (clipboardTimeout > 0) {
-        val valueString = value.toString()
-        ProcessLifecycleOwner.get().lifecycleScope.launch {
-            delay(clipboardTimeout)
-            if (getClipboardText() == valueString) {
-                cleanClipboard()
-            }
-        }
+        scheduleClipboardClean(clipboardTimeout)
+    }
+}
+
+/**
+ * Schedule the clipboard clean with an alarm, so it still runs when the app is in background
+ * or its process is frozen. A new copy replaces the pending alarm (restarts the timer) and
+ * gets a new token, so an older alarm can never clean the clipboard of a newer copy.
+ */
+private fun Context.scheduleClipboardClean(delayMillis: Long) {
+    val alarmManager = applicationContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager?
+        ?: return
+    val triggerTime = System.currentTimeMillis() + delayMillis
+    // A unique token per copy: only the alarm of the latest copy is allowed to clean
+    val copyToken = UUID.randomUUID().toString()
+    applicationContext.getSharedPreferences(
+        ClipboardCleanReceiver.PREFS_NAME, Context.MODE_PRIVATE
+    ).edit().putString(ClipboardCleanReceiver.KEY_LATEST_TOKEN, copyToken).apply()
+    val pendingIntent = PendingIntent.getBroadcast(
+        applicationContext,
+        CLIPBOARD_CLEAN_REQUEST_CODE,
+        Intent(applicationContext, ClipboardCleanReceiver::class.java)
+            .putExtra(ClipboardCleanReceiver.EXTRA_COPY_TOKEN, copyToken),
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+    )
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+        && !alarmManager.canScheduleExactAlarms()) {
+        alarmManager.set(AlarmManager.RTC, triggerTime, pendingIntent)
+    } else {
+        alarmManager.setExact(AlarmManager.RTC, triggerTime, pendingIntent)
     }
 }
 

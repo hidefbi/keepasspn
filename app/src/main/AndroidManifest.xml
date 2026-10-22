@@ -323,6 +323,10 @@
         </service>
 
         <receiver
+            android:name="com.keepasspn.receivers.ClipboardCleanReceiver"
+            android:exported="false" />
+
+        <receiver
             android:name="com.keepasspn.receivers.DexModeReceiver"
             android:exported="false">
             <intent-filter>

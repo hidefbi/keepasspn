@@ -33,7 +33,7 @@ import com.keepasspn.database.helper.getLocalizedName
 import com.keepasspn.model.OtpModel
 import com.keepasspn.otp.OtpElement
 import com.keepasspn.settings.PreferencesUtil
-import com.keepasspn.timeout.copyToClipboard
+import com.keepasspn.timeout.timeoutCopyToClipboard
 
 /**
  * View to display an OTP token and its progress.
@@ -80,7 +80,7 @@ class OtpDisplayView @JvmOverloads constructor(
     fun copyTokenToClipboard() {
         otpElement?.token?.let { token ->
             try {
-                context.copyToClipboard(
+                context.timeoutCopyToClipboard(
                     label = TemplateField.getLocalizedName(context, TemplateField.LABEL_TOKEN),
                     value = token,
                     sensitive = true
