@@ -102,6 +102,13 @@ object PinVerificationDialog {
                 }
             }
         }
+        dialog.window?.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
         dialog.show()
+        // Focus the PIN field and open the keyboard as soon as the dialog appears
+        edit.post {
+            edit.requestFocus()
+            (activity.getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager)
+                .showSoftInput(edit, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
+        }
     }
 }

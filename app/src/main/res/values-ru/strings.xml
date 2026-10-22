@@ -792,4 +792,6 @@
     <string name="donation_text">Бесплатно, с открытым исходным кодом и по желанию. Пожертвования не открывают функции и не означают поддержку.</string>
     <string name="menu_restore">Восстановить</string>
     <string name="warning_move_nodes_to_recycle_bin">Переместить выбранные элементы в корзину?</string>
+    <string name="move_nodes_confirm">Переместить «%1$s» в «%2$s»?</string>
+    <string name="move_confirm">Подтвердить</string>
 </resources>

@@ -790,4 +790,6 @@
     <string name="donation_text">Kostenlos, Open Source und optional. Spenden schalten keine Funktionen frei und bedeuten keine Unterstützung.</string>
     <string name="menu_restore">Wiederherstellen</string>
     <string name="warning_move_nodes_to_recycle_bin">Ausgewählte Elemente in den Papierkorb verschieben?</string>
+    <string name="move_nodes_confirm">„%1$s“ nach „%2$s“ verschieben?</string>
+    <string name="move_confirm">Bestätigen</string>
 </resources>

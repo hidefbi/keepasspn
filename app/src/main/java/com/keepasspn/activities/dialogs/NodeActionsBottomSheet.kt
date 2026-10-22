@@ -47,6 +47,8 @@ class NodeActionsBottomSheet : BottomSheetDialogFragment() {
         view.findViewById<TextView>(R.id.node_actions_title).text = args.getString(ARG_TITLE).orEmpty()
         bindAction(view, R.id.node_actions_edit, GroupViewModel.NodeAction.EDIT, true)
         bindAction(view, R.id.node_actions_duplicate, GroupViewModel.NodeAction.DUPLICATE, true)
+        bindAction(view, R.id.node_actions_move, GroupViewModel.NodeAction.MOVE,
+            args.getBoolean(ARG_CAN_MOVE))
         bindAction(view, R.id.node_actions_move_up, GroupViewModel.NodeAction.MOVE_UP,
             args.getBoolean(ARG_CAN_MOVE_UP))
         bindAction(view, R.id.node_actions_move_down, GroupViewModel.NodeAction.MOVE_DOWN,
@@ -74,12 +76,14 @@ class NodeActionsBottomSheet : BottomSheetDialogFragment() {
         private const val ARG_CAN_MOVE_UP = "ARG_CAN_MOVE_UP"
         private const val ARG_CAN_MOVE_DOWN = "ARG_CAN_MOVE_DOWN"
         private const val ARG_CAN_RESTORE = "ARG_CAN_RESTORE"
+        private const val ARG_CAN_MOVE = "ARG_CAN_MOVE"
 
         fun getInstance(
             title: String,
             canMoveUp: Boolean,
             canMoveDown: Boolean,
-            canRestore: Boolean
+            canRestore: Boolean,
+            canMove: Boolean = false
         ): NodeActionsBottomSheet {
             return NodeActionsBottomSheet().apply {
                 arguments = Bundle().apply {
@@ -87,6 +91,7 @@ class NodeActionsBottomSheet : BottomSheetDialogFragment() {
                     putBoolean(ARG_CAN_MOVE_UP, canMoveUp)
                     putBoolean(ARG_CAN_MOVE_DOWN, canMoveDown)
                     putBoolean(ARG_CAN_RESTORE, canRestore)
+                    putBoolean(ARG_CAN_MOVE, canMove)
                 }
             }
         }

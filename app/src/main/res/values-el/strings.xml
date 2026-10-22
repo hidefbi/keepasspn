@@ -713,4 +713,6 @@
     <string name="donation_text">Δωρεάν, ανοιχτού κώδικα και προαιρετικό. Οι δωρεές δεν ξεκλειδώνουν λειτουργίες ούτε σημαίνουν υποστήριξη.</string>
     <string name="menu_restore">Επαναφορά</string>
     <string name="warning_move_nodes_to_recycle_bin">Μετακίνηση των επιλεγμένων στοιχείων στον κάδο απορριμμάτων;</string>
+    <string name="move_nodes_confirm">Μετακίνηση του «%1$s» στο «%2$s»;</string>
+    <string name="move_confirm">Επιβεβαίωση</string>
 </resources>

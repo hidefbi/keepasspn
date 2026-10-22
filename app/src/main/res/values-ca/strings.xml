@@ -720,4 +720,6 @@
     <string name="donation_text">Gratuït, de codi obert i opcional. Les donacions no desbloquegen funcions ni impliquen suport.</string>
     <string name="menu_restore">Restaura</string>
     <string name="warning_move_nodes_to_recycle_bin">Voleu moure els elements seleccionats a la paperera?</string>
+    <string name="move_nodes_confirm">Voleu moure «%1$s» a «%2$s»?</string>
+    <string name="move_confirm">Confirma</string>
 </resources>

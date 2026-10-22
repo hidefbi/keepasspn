@@ -18,7 +18,10 @@
  */
 package com.keepasspn.activities
 
+import com.keepasspn.activities.dialogs.MoveDestinationDialog
 import com.keepasspn.activities.dialogs.NodeActionsBottomSheet
+import com.keepasspn.database.element.Group
+import com.keepasspn.model.toNodes
 import android.app.Activity
 import android.app.SearchManager
 import android.content.Context
@@ -617,6 +620,9 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
                                     is EntryInfo -> reorderEntry(node.nodeId, event.targetIndex)
                                 }
                             }
+                            is GroupViewModel.GroupEvent.ChooseMoveDestination -> {
+                                showMoveDestination(event.node)
+                            }
                             is GroupViewModel.GroupEvent.RestoreNodes -> {
                                 restoreNodes(event.nodes)
                             }
@@ -820,11 +826,14 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
                 && database.getGroupById(currentGroup.nodeId)?.let { current ->
                     current.nodeId == database.recycleBin?.nodeId || database.groupIsInRecycleBin(current)
                 } == true
+        // Moving is not allowed inside the recycle bin or in a read-only database
+        val canMove = mSpecialMode == SpecialMode.DEFAULT && !canRestore && database?.isReadOnly == false
         NodeActionsBottomSheet.getInstance(
             title = (event.node as? NodeInfo)?.title.orEmpty(),
             canMoveUp = event.canMoveUp,
             canMoveDown = event.canMoveDown,
-            canRestore = canRestore
+            canRestore = canRestore,
+            canMove = canMove
         ).show(supportFragmentManager, NodeActionsBottomSheet.TAG)
     }
 
@@ -835,6 +844,51 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
             nodesToDuplicate = nodes,
             copyTitleSuffix = "(${getString(R.string.menu_copy)})"
         )
+    }
+
+    /**
+     * Lets the user choose the folder the node is moved to, then moves it after confirmation.
+     * Folders inside the moved folder, the recycle bin and the templates group are not offered.
+     */
+    private fun showMoveDestination(node: com.keepasspn.model.SortedNodeInfo) {
+        val database = mDatabase ?: return
+        val currentGroupId = mGroupViewModel.groupUIState.value.group?.nodeId
+        val movingGroupId = (node as? GroupInfo)?.nodeId
+        val rootGroup = database.rootGroup
+        val rootLabel = getString(R.string.root)
+        // The templates group is hidden in the normal tree, so items moved into it would disappear
+        val templatesGroupId = database.templatesGroup?.nodeId
+        val destinations = mutableListOf<MoveDestinationDialog.Destination>()
+        database.getAllGroupsWithoutRoot().forEach { group ->
+            if (database.groupIsInRecycleBin(group)) return@forEach
+            val titles = mutableListOf<String>()
+            var excluded = false
+            var current: Group? = group
+            while (current != null && current != rootGroup) {
+                titles.add(0, current.title)
+                if (movingGroupId != null && current.nodeId == movingGroupId) excluded = true
+                if (templatesGroupId != null && current.nodeId == templatesGroupId) excluded = true
+                current = current.parent
+            }
+            if (excluded) return@forEach
+            destinations.add(
+                MoveDestinationDialog.Destination(
+                    groupId = group.nodeId,
+                    title = group.title,
+                    path = (listOf(rootLabel) + titles).joinToString(" / "),
+                    depth = titles.size - 1,
+                    enabled = group.nodeId != currentGroupId
+                )
+            )
+        }
+        MoveDestinationDialog.show(
+            activity = this,
+            title = getString(R.string.menu_move),
+            nodeTitle = (node as? NodeInfo)?.title.orEmpty(),
+            destinations = destinations
+        ) { destinationId, _ ->
+            moveNodes(destinationId, listOf(node).toNodes())
+        }
     }
 
     private fun loadGroup(clearSearch: Boolean = false) {

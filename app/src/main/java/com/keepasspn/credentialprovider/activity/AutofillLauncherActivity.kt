@@ -130,7 +130,8 @@ class AutofillLauncherActivity : DatabaseModeActivity() {
                             context = this@AutofillLauncherActivity,
                             searchInfo = uiState.searchInfo,
                             typeMode = uiState.typeMode,
-                            activityResultLauncher = mAutofillSelectionActivityResultLauncher
+                            activityResultLauncher = mAutofillSelectionActivityResultLauncher,
+                            autofillPinUnlock = true
                         )
                     }
                     is CredentialLauncherViewModel.CredentialState.LaunchFileDatabaseSelectActivityForRegistration -> {

@@ -171,7 +171,12 @@ class GroupFragment : DatabaseFragment() {
                         mGroupViewModel.performNodeClick(node)
                     }
                     override fun onNodeLongClick(node: SortedNodeInfo): Boolean {
-                        mGroupViewModel.onNodeLongClick(node, mAdapter?.isNodeReorderAllowed() == true)
+                        if (specialMode == SpecialMode.DEFAULT) {
+                            mGroupViewModel.onNodeLongClick(node, mAdapter?.isNodeReorderAllowed() == true)
+                        } else {
+                            // Autofill, passkey or other special flows keep the selection behaviour
+                            mGroupViewModel.performLongNodeClick(node)
+                        }
                         return true
                     }
                     override fun onGroupReorder(node: SortedNodeInfo, targetIndex: Int) {

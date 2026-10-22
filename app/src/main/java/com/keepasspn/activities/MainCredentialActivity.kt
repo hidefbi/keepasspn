@@ -120,6 +120,11 @@ class MainCredentialActivity : DatabaseModeActivity() {
     // A new MainCredentialActivity is created after the database is locked/closed,
     // so the PIN prompt will be shown again on the next unlock cycle.
     private var pinAutoUnlockPrompted = false
+
+    // True when this unlock screen was opened by the autofill service
+    private val mAutofillPinUnlock: Boolean by lazy {
+        intent.getBooleanExtra(AUTOFILL_PIN_UNLOCK_KEY, false)
+    }
     // Applies the PIN validity period before any PIN prompt is shown
     private var appOpenPolicyJob: Job? = null
     private var databaseFileLoadRequested = false
@@ -670,7 +675,9 @@ class MainCredentialActivity : DatabaseModeActivity() {
     private suspend fun maybeAutoUnlockWithPin(): Boolean {
         appOpenPolicyJob?.join()
         if (pinAutoUnlockPrompted) return true
-        if (mSpecialMode != SpecialMode.DEFAULT) return false
+        // Autofill selection auto-starts PIN too; other special modes keep the normal credential flow
+        val autofillSelection = mSpecialMode == SpecialMode.SELECTION && mAutofillPinUnlock
+        if (mSpecialMode != SpecialMode.DEFAULT && !autofillSelection) return false
 
         val uri = mMainCredentialViewModel.databaseFileUri ?: return false
         val isPinSet = try {
@@ -750,7 +757,14 @@ class MainCredentialActivity : DatabaseModeActivity() {
                 }
             }
         }
+        dialog.window?.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
         dialog.show()
+        // Focus the PIN field and open the keyboard as soon as the dialog appears
+        pinEditText.post {
+            pinEditText.requestFocus()
+            (getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager)
+                .showSoftInput(pinEditText, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
+        }
     }
 
     @androidx.annotation.RequiresApi(Build.VERSION_CODES.M)
@@ -1112,6 +1126,7 @@ class MainCredentialActivity : DatabaseModeActivity() {
     }
 
     companion object {
+        const val AUTOFILL_PIN_UNLOCK_KEY = "AUTOFILL_PIN_UNLOCK_KEY"
 
         private val TAG = MainCredentialActivity::class.java.name
 
@@ -1193,9 +1208,11 @@ class MainCredentialActivity : DatabaseModeActivity() {
             hardwareKey: HardwareKey?,
             typeMode: TypeMode,
             searchInfo: SearchInfo?,
-            activityResultLauncher: ActivityResultLauncher<Intent>?
+            activityResultLauncher: ActivityResultLauncher<Intent>?,
+            autofillPinUnlock: Boolean = false
         ) {
             buildAndLaunchIntent(activity, databaseFile, keyFile, hardwareKey) { intent ->
+                intent.putExtra(AUTOFILL_PIN_UNLOCK_KEY, autofillPinUnlock)
                 EntrySelectionHelper.startActivityForSelectionModeResult(
                     context = activity,
                     intent = intent,

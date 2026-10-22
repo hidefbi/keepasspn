@@ -784,4 +784,6 @@
     <string name="donation_text">Zadarmo, s otvoreným zdrojovým kódom a dobrovoľne. Dary neodomykajú funkcie ani neznamenajú podporu.</string>
     <string name="menu_restore">Obnoviť</string>
     <string name="warning_move_nodes_to_recycle_bin">Presunúť vybrané položky do koša?</string>
+    <string name="move_nodes_confirm">Presunúť „%1$s“ do „%2$s“?</string>
+    <string name="move_confirm">Potvrdiť</string>
 </resources>

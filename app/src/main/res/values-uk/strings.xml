@@ -772,4 +772,6 @@
     <string name="donation_text">Безкоштовно, з відкритим кодом і за бажанням. Пожертви не відкривають функції та не означають підтримки.</string>
     <string name="menu_restore">Відновити</string>
     <string name="warning_move_nodes_to_recycle_bin">Перемістити вибрані елементи до кошика?</string>
+    <string name="move_nodes_confirm">Перемістити «%1$s» до «%2$s»?</string>
+    <string name="move_confirm">Підтвердити</string>
 </resources>

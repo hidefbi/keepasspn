@@ -451,6 +451,9 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
                     }
                 }
             }
+            NodeAction.MOVE -> viewModelScope.launch {
+                _viewEvent.emit(GroupEvent.ChooseMoveDestination(node))
+            }
             NodeAction.DELETE -> {
                 selectNodes(listOf(node))
                 onDeleteNodesClicked()
@@ -640,6 +643,7 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
         data class DuplicateNodes(val nodes: Nodes) : GroupEvent()
         data class ReorderNode(val node: SortedNodeInfo, val targetIndex: Int) : GroupEvent()
         data class RestoreNodes(val nodes: Nodes) : GroupEvent()
+        data class ChooseMoveDestination(val node: SortedNodeInfo) : GroupEvent()
         object ClearSearch : GroupEvent()
     }
 
@@ -677,7 +681,7 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
     )
 
     enum class NodeAction {
-        EDIT, DUPLICATE, MOVE_UP, MOVE_DOWN, DELETE, RESTORE
+        EDIT, DUPLICATE, MOVE, MOVE_UP, MOVE_DOWN, DELETE, RESTORE
     }
 
     enum class NodeActionMode {

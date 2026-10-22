@@ -733,4 +733,6 @@
     <string name="donation_text">ฟรี โอเพนซอร์ส และไม่บังคับ การบริจาคไม่ได้ปลดล็อกฟีเจอร์และไม่ได้หมายถึงการสนับสนุน</string>
     <string name="menu_restore">กู้คืน</string>
     <string name="warning_move_nodes_to_recycle_bin">ย้ายรายการที่เลือกไปยังถังรีไซเคิลหรือไม่?</string>
+    <string name="move_nodes_confirm">ย้าย “%1$s” ไปยัง “%2$s” หรือไม่?</string>
+    <string name="move_confirm">ยืนยัน</string>
 </resources>

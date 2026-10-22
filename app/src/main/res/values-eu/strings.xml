@@ -687,4 +687,6 @@
     <string name="donation_text">Doan, kode irekia eta aukerakoa. Dohaintzek ez dituzte funtzioak desblokeatzen, ez eta babesa esan nahi ere.</string>
     <string name="menu_restore">Berreskuratu</string>
     <string name="warning_move_nodes_to_recycle_bin">Zabor-kutxara eraman hautatutako elementuak?</string>
+    <string name="move_nodes_confirm">«%1$s» «%2$s»-(e)ra eraman?</string>
+    <string name="move_confirm">Berretsi</string>
 </resources>

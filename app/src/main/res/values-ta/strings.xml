@@ -733,4 +733,6 @@
     <string name="donation_text">இலவசம், திறந்த மூலம் மற்றும் விருப்பத்தேர்வு. நன்கொடைகள் அம்சங்களைத் திறக்காது, ஆதரவைக் குறிக்காது.</string>
     <string name="menu_restore">மீட்டெடு</string>
     <string name="warning_move_nodes_to_recycle_bin">தேர்ந்தெடுக்கப்பட்ட உருப்படிகளை மறுசுழற்சி தொட்டிக்கு நகர்த்தவா?</string>
+    <string name="move_nodes_confirm">“%1$s” ஐ “%2$s” க்கு நகர்த்தவா?</string>
+    <string name="move_confirm">உறுதிசெய்</string>
 </resources>

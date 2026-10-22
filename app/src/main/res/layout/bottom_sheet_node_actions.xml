@@ -42,6 +42,18 @@
             android:textColor="?android:attr/textColorPrimary"
             android:text="@string/menu_copy" />
         <TextView
+            android:id="@+id/node_actions_move"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:text="@string/menu_move" />
+
+        <TextView
             android:id="@+id/node_actions_move_up"
             android:layout_width="match_parent"
             android:layout_height="56dp"

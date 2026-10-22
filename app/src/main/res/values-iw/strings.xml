@@ -763,4 +763,6 @@
     <string name="donation_text">חינמי, קוד פתוח ואופציונלי. תרומות אינן פותחות תכונות ואינן מהוות תמיכה.</string>
     <string name="menu_restore">שחזור</string>
     <string name="warning_move_nodes_to_recycle_bin">להעביר את הפריטים שנבחרו לסל המיחזור?</string>
+    <string name="move_nodes_confirm">להעביר את „%1$s“ אל „%2$s“?</string>
+    <string name="move_confirm">אישור</string>
 </resources>

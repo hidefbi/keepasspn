@@ -326,7 +326,8 @@ class FileDatabaseSelectActivity : DatabaseModeActivity() {
                         keyFile = keyFile,
                         hardwareKey = hardwareKey,
                         typeMode = typeMode,
-                        searchInfo = searchInfo
+                        searchInfo = searchInfo,
+                        autofillPinUnlock = intent.getBooleanExtra(MainCredentialActivity.AUTOFILL_PIN_UNLOCK_KEY, false)
                     )
                     onLaunchActivitySpecialMode()
                 },
@@ -505,10 +506,13 @@ class FileDatabaseSelectActivity : DatabaseModeActivity() {
             typeMode: TypeMode,
             searchInfo: SearchInfo? = null,
             activityResultLauncher: ActivityResultLauncher<Intent>?,
+            autofillPinUnlock: Boolean = false,
         ) {
             EntrySelectionHelper.startActivityForSelectionModeResult(
                 context = context,
-                intent = Intent(context, FileDatabaseSelectActivity::class.java),
+                intent = Intent(context, FileDatabaseSelectActivity::class.java).apply {
+                    putExtra(MainCredentialActivity.AUTOFILL_PIN_UNLOCK_KEY, autofillPinUnlock)
+                },
                 searchInfo = searchInfo,
                 typeMode = typeMode,
                 activityResultLauncher = activityResultLauncher

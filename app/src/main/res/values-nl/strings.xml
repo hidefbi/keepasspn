@@ -794,4 +794,6 @@
     <string name="donation_text">Gratis, open source en optioneel. Donaties ontgrendelen geen functies en betekenen geen steun.</string>
     <string name="menu_restore">Herstellen</string>
     <string name="warning_move_nodes_to_recycle_bin">De geselecteerde items naar de prullenbak verplaatsen?</string>
+    <string name="move_nodes_confirm">«%1$s» naar «%2$s» verplaatsen?</string>
+    <string name="move_confirm">Bevestigen</string>
 </resources>

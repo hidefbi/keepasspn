@@ -720,4 +720,6 @@
     <string name="donation_text">Falas, me burim të hapur dhe opsional. Dhurimet nuk zhbllokojnë veçoritë dhe nuk nënkuptojnë mbështetje.</string>
     <string name="menu_restore">Rikthe</string>
     <string name="warning_move_nodes_to_recycle_bin">Të zhvendosen elementët e zgjedhur në koshin e riciklimit?</string>
+    <string name="move_nodes_confirm">Të zhvendoset „%1$s“ në „%2$s“?</string>
+    <string name="move_confirm">Konfirmo</string>
 </resources>

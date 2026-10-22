@@ -731,4 +731,6 @@
     <string name="donation_text">Nemokamas, atviro kodo ir neprivalomas. Aukos neatrakina funkcijų ir nereiškia palaikymo.</string>
     <string name="menu_restore">Atkurti</string>
     <string name="warning_move_nodes_to_recycle_bin">Perkelti pasirinktus elementus į šiukšliadėžę?</string>
+    <string name="move_nodes_confirm">Perkelti „%1$s“ į „%2$s“?</string>
+    <string name="move_confirm">Patvirtinti</string>
 </resources>

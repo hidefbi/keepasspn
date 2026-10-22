@@ -803,4 +803,6 @@
     <string name="donation_xmr_address" translatable="false">45FU335cDyD71wiG9XxBLaDrxRmqt15p5gHi1yu12ciabYDys7wrifWgFbQ5CC8F5Yj1DRvNtcVxRPjGwaCsRH7mAwDFkwx</string>
     <string name="menu_restore">Restore</string>
     <string name="warning_move_nodes_to_recycle_bin">Move the selected items to the recycle bin?</string>
+    <string name="move_nodes_confirm">Move “%1$s” to “%2$s”?</string>
+    <string name="move_confirm">Confirm</string>
 </resources>

@@ -786,4 +786,6 @@
     <string name="donation_text">Ingyenes, nyílt forráskódú és opcionális. Az adományok nem oldanak fel funkciókat, és nem jelentenek támogatást.</string>
     <string name="menu_restore">Visszaállítás</string>
     <string name="warning_move_nodes_to_recycle_bin">Áthelyezi a kijelölt elemeket a lomtárba?</string>
+    <string name="move_nodes_confirm">Áthelyezi a(z) „%1$s” elemet a(z) „%2$s” helyre?</string>
+    <string name="move_confirm">Megerősítés</string>
 </resources>

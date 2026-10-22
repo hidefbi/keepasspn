@@ -773,4 +773,6 @@
     <string name="donation_text">Miễn phí, mã nguồn mở và tùy chọn. Quyên góp không mở khóa tính năng và không đồng nghĩa với sự ủng hộ.</string>
     <string name="menu_restore">Khôi phục</string>
     <string name="warning_move_nodes_to_recycle_bin">Chuyển các mục đã chọn vào thùng rác?</string>
+    <string name="move_nodes_confirm">Di chuyển “%1$s” đến “%2$s”?</string>
+    <string name="move_confirm">Xác nhận</string>
 </resources>

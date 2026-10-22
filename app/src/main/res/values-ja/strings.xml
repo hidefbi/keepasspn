@@ -783,4 +783,6 @@
     <string name="donation_text">無料・オープンソース・任意です。寄付で機能が解放されることも、支持を意味することもありません。</string>
     <string name="menu_restore">復元</string>
     <string name="warning_move_nodes_to_recycle_bin">選択した項目をごみ箱に移動しますか?</string>
+    <string name="move_nodes_confirm">「%1$s」を「%2$s」に移動しますか？</string>
+    <string name="move_confirm">確認</string>
 </resources>
