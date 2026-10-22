@@ -23,11 +23,9 @@ import android.content.Context
 import com.keepasspn.utils.NoOpLog
 import androidx.credentials.provider.CallingAppInfo
 import com.keepasspn.encrypt.Signature.getAllFingerprints
-import com.keepasspn.BuildConfig
 import com.keepasspn.credentialprovider.passkey.data.AndroidPrivilegedApp
 import org.json.JSONObject
 import java.io.File
-import java.io.FileNotFoundException
 import java.io.InputStream
 
 object PrivilegedAllowLists {
@@ -61,69 +59,50 @@ object PrivilegedAllowLists {
     }
 
     /**
-     * Get the origin from the predefined privileged allow lists
+     * Get the origin from the privileged allow lists: first the custom list, then the lists
+     * bundled with the app (browsers, then the community list).
      *
      * @param callingAppInfo CallingAppInfo to verify and retrieve the specific Origin
      * @param context Context for file operations.
+     * @throws PrivilegedException if the caller is in none of the lists
      */
     fun getOriginFromPrivilegedAllowLists(
         callingAppInfo: CallingAppInfo,
         context: Context
     ): String? {
-        return try {
-            // Check the custom apps first
+        val customOrigin = try {
             getOriginFromPrivilegedAllowListStream(
                 callingAppInfo = callingAppInfo,
-                File(context.filesDir, FILE_NAME_PRIVILEGED_APPS_CUSTOM)
-                    .inputStream()
+                inputStream = File(context.filesDir, FILE_NAME_PRIVILEGED_APPS_CUSTOM).inputStream()
             )
-        } catch (e: Exception) {
-            // Then the Google list if allowed
-            if (BuildConfig.CLOSED_STORE) {
-                try {
-                    // Check the Google list if allowed
-                    // http://www.gstatic.com/gpm-passkeys-privileged-apps/apps.json
-                    getOriginFromPrivilegedAllowListStream(
-                        callingAppInfo = callingAppInfo,
-                        inputStream = context.assets.open(FILE_NAME_PRIVILEGED_APPS_GOOGLE)
-                    )
-                } catch (_: Exception) {
-                    // Then the community apps list
-                    getOriginFromPrivilegedAllowListStream(
-                        callingAppInfo = callingAppInfo,
-                        inputStream = context.assets.open(FILE_NAME_PRIVILEGED_APPS_COMMUNITY)
-                    )
-                }
-            } else {
-                when (e) {
-                    is FileNotFoundException -> {
-                        // No custom list yet: check the community list bundled with this build
-                        val communityOrigin = try {
-                            getOriginFromPrivilegedAllowListStream(
-                                callingAppInfo = callingAppInfo,
-                                inputStream = context.assets.open(FILE_NAME_PRIVILEGED_APPS_COMMUNITY)
-                            )
-                        } catch (_: Exception) {
-                            null
-                        }
-                        if (!communityOrigin.isNullOrEmpty()) {
-                            communityOrigin
-                        } else {
-                            val attemptApp = AndroidPrivilegedApp(
-                                packageName = callingAppInfo.packageName,
-                                fingerprints = callingAppInfo.signingInfo
-                                    .getAllFingerprints() ?: emptySet()
-                            )
-                            throw PrivilegedException(
-                                temptingApp = attemptApp,
-                                message = "$attemptApp is not in the allow list"
-                            )
-                        }
-                    }
-                    else -> throw e
-                }
+        } catch (_: Exception) {
+            null
+        }
+        if (!customOrigin.isNullOrEmpty()) {
+            return customOrigin
+        }
+        for (bundledFileName in listOf(FILE_NAME_PRIVILEGED_APPS_GOOGLE, FILE_NAME_PRIVILEGED_APPS_COMMUNITY)) {
+            val bundledOrigin = try {
+                getOriginFromPrivilegedAllowListStream(
+                    callingAppInfo = callingAppInfo,
+                    inputStream = context.assets.open(bundledFileName)
+                )
+            } catch (_: Exception) {
+                null
+            }
+            if (!bundledOrigin.isNullOrEmpty()) {
+                return bundledOrigin
             }
         }
+        val attemptApp = AndroidPrivilegedApp(
+            packageName = callingAppInfo.packageName,
+            fingerprints = callingAppInfo.signingInfo
+                .getAllFingerprints() ?: emptySet()
+        )
+        throw PrivilegedException(
+            temptingApp = attemptApp,
+            message = "$attemptApp is not in the allow list"
+        )
     }
 
     /**
@@ -148,10 +127,8 @@ object PrivilegedAllowLists {
     ): List<AndroidPrivilegedApp> {
         return try {
             val predefinedApps = mutableListOf<AndroidPrivilegedApp>()
+            predefinedApps.addAll(retrievePrivilegedApps(context.assets.open(FILE_NAME_PRIVILEGED_APPS_GOOGLE)))
             predefinedApps.addAll(retrievePrivilegedApps(context.assets.open(FILE_NAME_PRIVILEGED_APPS_COMMUNITY)))
-            if (BuildConfig.CLOSED_STORE) {
-                predefinedApps.addAll(retrievePrivilegedApps(context.assets.open(FILE_NAME_PRIVILEGED_APPS_GOOGLE)))
-            }
             predefinedApps
         } catch (e: Exception) {
             NoOpLog.e(PrivilegedAllowLists::class.simpleName, "Error retrieving privileged apps", e)

@@ -788,4 +788,6 @@
     <string name="group_move_up">Переместить вверх</string>
     <string name="group_move_down">Переместить вниз</string>
     <string name="group_drag_handle">Перетащите, чтобы изменить порядок</string>
+    <string name="donation_title">❤️ Поддержите проект</string>
+    <string name="donation_text">Бесплатно, с открытым исходным кодом и по желанию. Пожертвования не открывают функции и не означают поддержку.</string>
 </resources>

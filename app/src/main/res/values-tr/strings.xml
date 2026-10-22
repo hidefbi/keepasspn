@@ -779,4 +779,6 @@
     <string name="group_move_up">Yukarı taşı</string>
     <string name="group_move_down">Aşağı taşı</string>
     <string name="group_drag_handle">Sıralamak için sürükleyin</string>
+    <string name="donation_title">❤️ Bu projeyi destekleyin</string>
+    <string name="donation_text">Ücretsiz, açık kaynaklı ve isteğe bağlı. Bağışlar özellik açmaz ve destek anlamına gelmez.</string>
 </resources>

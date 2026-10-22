@@ -727,4 +727,6 @@
     <string name="group_move_up">Perkelti aukštyn</string>
     <string name="group_move_down">Perkelti žemyn</string>
     <string name="group_drag_handle">Tempkite, kad pakeistumėte tvarką</string>
+    <string name="donation_title">❤️ Paremkite šį projektą</string>
+    <string name="donation_text">Nemokamas, atviro kodo ir neprivalomas. Aukos neatrakina funkcijų ir nereiškia palaikymo.</string>
 </resources>

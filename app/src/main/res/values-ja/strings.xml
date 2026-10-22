@@ -779,4 +779,6 @@
     <string name="group_move_up">上に移動</string>
     <string name="group_move_down">下に移動</string>
     <string name="group_drag_handle">ドラッグして並べ替え</string>
+    <string name="donation_title">❤️ このプロジェクトを支援</string>
+    <string name="donation_text">無料・オープンソース・任意です。寄付で機能が解放されることも、支持を意味することもありません。</string>
 </resources>

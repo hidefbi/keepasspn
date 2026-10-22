@@ -764,4 +764,6 @@
     <string name="group_move_up">Mover cara arriba</string>
     <string name="group_move_down">Mover cara abaixo</string>
     <string name="group_drag_handle">Arrastra para reordenar</string>
+    <string name="donation_title">❤️ Apoia este proxecto</string>
+    <string name="donation_text">Gratuíto, de código aberto e opcional. As doazóns non desbloquean funcións nin supoñen apoio.</string>
 </resources>

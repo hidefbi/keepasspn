@@ -766,4 +766,6 @@
     <string name="group_move_up">Mover arriba</string>
     <string name="group_move_down">Mover abajo</string>
     <string name="group_drag_handle">Arrastra para reordenar</string>
+    <string name="donation_title">❤️ Apoya este proyecto</string>
+    <string name="donation_text">Gratuito, de código abierto y opcional. Las donaciones no desbloquean funciones ni implican respaldo.</string>
 </resources>

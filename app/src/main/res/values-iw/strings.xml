@@ -759,4 +759,6 @@
     <string name="group_move_up">העבר למעלה</string>
     <string name="group_move_down">העבר למטה</string>
     <string name="group_drag_handle">גרור כדי לשנות את הסדר</string>
+    <string name="donation_title">❤️ תמכו בפרויקט</string>
+    <string name="donation_text">חינמי, קוד פתוח ואופציונלי. תרומות אינן פותחות תכונות ואינן מהוות תמיכה.</string>
 </resources>

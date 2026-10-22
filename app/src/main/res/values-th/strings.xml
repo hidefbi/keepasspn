@@ -729,4 +729,6 @@
     <string name="group_move_up">ย้ายขึ้น</string>
     <string name="group_move_down">ย้ายลง</string>
     <string name="group_drag_handle">ลากเพื่อจัดลำดับใหม่</string>
+    <string name="donation_title">❤️ สนับสนุนโครงการนี้</string>
+    <string name="donation_text">ฟรี โอเพนซอร์ส และไม่บังคับ การบริจาคไม่ได้ปลดล็อกฟีเจอร์และไม่ได้หมายถึงการสนับสนุน</string>
 </resources>

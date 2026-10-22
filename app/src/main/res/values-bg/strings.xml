@@ -764,4 +764,6 @@
     <string name="group_move_up">Преместване нагоре</string>
     <string name="group_move_down">Преместване надолу</string>
     <string name="group_drag_handle">Плъзнете, за да пренаредите</string>
+    <string name="donation_title">❤️ Подкрепете проекта</string>
+    <string name="donation_text">Безплатно, с отворен код и по желание. Даренията не отключват функции и не означават подкрепа.</string>
 </resources>

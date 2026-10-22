@@ -683,4 +683,6 @@
     <string name="group_move_up">Mugitu gora</string>
     <string name="group_move_down">Mugitu behera</string>
     <string name="group_drag_handle">Arrastatu ordena aldatzeko</string>
+    <string name="donation_title">❤️ Babestu proiektu hau</string>
+    <string name="donation_text">Doan, kode irekia eta aukerakoa. Dohaintzek ez dituzte funtzioak desblokeatzen, ez eta babesa esan nahi ere.</string>
 </resources>

@@ -786,4 +786,6 @@
     <string name="group_move_up">Nach oben verschieben</string>
     <string name="group_move_down">Nach unten verschieben</string>
     <string name="group_drag_handle">Zum Umordnen ziehen</string>
+    <string name="donation_title">❤️ Unterstütze dieses Projekt</string>
+    <string name="donation_text">Kostenlos, Open Source und optional. Spenden schalten keine Funktionen frei und bedeuten keine Unterstützung.</string>
 </resources>

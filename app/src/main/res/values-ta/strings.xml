@@ -729,4 +729,6 @@
     <string name="group_move_up">மேலே நகர்த்து</string>
     <string name="group_move_down">கீழே நகர்த்து</string>
     <string name="group_drag_handle">வரிசையை மாற்ற இழுக்கவும்</string>
+    <string name="donation_title">❤️ இந்தத் திட்டத்தை ஆதரியுங்கள்</string>
+    <string name="donation_text">இலவசம், திறந்த மூலம் மற்றும் விருப்பத்தேர்வு. நன்கொடைகள் அம்சங்களைத் திறக்காது, ஆதரவைக் குறிக்காது.</string>
 </resources>

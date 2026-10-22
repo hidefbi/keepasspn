@@ -659,4 +659,6 @@
     <string name="group_move_up">Yuxarı köçür</string>
     <string name="group_move_down">Aşağı köçür</string>
     <string name="group_drag_handle">Sürükləyərək sıralayın</string>
+    <string name="donation_title">❤️ Layihəni dəstəkləyin</string>
+    <string name="donation_text">Pulsuz, açıq mənbəli və könüllüdür. İanələr funksiyaları açmır və dəstək anlamına gəlmir.</string>
 </resources>

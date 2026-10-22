@@ -791,4 +791,6 @@
     <string name="group_move_up">Sposta su</string>
     <string name="group_move_down">Sposta giù</string>
     <string name="group_drag_handle">Trascina per riordinare</string>
+    <string name="donation_title">❤️ Sostieni questo progetto</string>
+    <string name="donation_text">Gratuito, open source e facoltativo. Le donazioni non sbloccano funzioni e non implicano un sostegno.</string>
 </resources>

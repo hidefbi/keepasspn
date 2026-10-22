@@ -789,4 +789,6 @@
     <string name="group_move_up">Posunout nahoru</string>
     <string name="group_move_down">Posunout dolů</string>
     <string name="group_drag_handle">Přetažením změňte pořadí</string>
+    <string name="donation_title">❤️ Podpořte tento projekt</string>
+    <string name="donation_text">Zdarma, s otevřeným zdrojovým kódem a dobrovolně. Dary neodemykají funkce ani neznamenají podporu.</string>
 </resources>

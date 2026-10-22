@@ -704,4 +704,6 @@
     <string name="group_move_up">Pomakni gore</string>
     <string name="group_move_down">Pomakni dolje</string>
     <string name="group_drag_handle">Povucite za promjenu redoslijeda</string>
+    <string name="donation_title">❤️ Podržite ovaj projekt</string>
+    <string name="donation_text">Besplatno, otvorenog koda i izborno. Donacije ne otključavaju značajke niti znače podršku.</string>
 </resources>

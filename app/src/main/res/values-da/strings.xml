@@ -701,4 +701,6 @@
     <string name="group_move_up">Flyt op</string>
     <string name="group_move_down">Flyt ned</string>
     <string name="group_drag_handle">Træk for at ændre rækkefølge</string>
+    <string name="donation_title">❤️ Støt dette projekt</string>
+    <string name="donation_text">Gratis, open source og valgfrit. Donationer låser ikke funktioner op og betyder ikke støtte.</string>
 </resources>

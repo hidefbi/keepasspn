@@ -71,19 +71,10 @@ object AppUtil {
                     Intent(Intent.ACTION_VIEW)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         .setData(
-                            if (sourcesURL != null
-                                && !BuildConfig.CLOSED_STORE
-                            ) {
-                                sourcesURL
-                            } else {
-                                this.getString(
-                                    if (BuildConfig.CLOSED_STORE)
-                                        R.string.play_store_url
-                                    else
-                                        R.string.f_droid_url,
-                                    packageName
-                                )
-                            }.toUri()
+                            (sourcesURL ?: this.getString(
+                                R.string.f_droid_url,
+                                packageName
+                            )).toUri()
                         )
                 )
             } else {
@@ -92,12 +83,6 @@ object AppUtil {
         } catch (e: Exception) {
             NoOpLog.e(AppUtil::class.simpleName, "App cannot be open", e)
         }
-    }
-
-    fun Context.isContributingUser(): Boolean {
-        // This build has no paid tier: every theme and icon pack is unlocked for everyone,
-        // and the donation prompt in NestedAppSettingsFragment is unreachable.
-        return true
     }
 
     @RequiresApi(Build.VERSION_CODES.P)

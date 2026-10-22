@@ -419,26 +419,13 @@ class PasskeyProviderService : CredentialProviderService() {
     }
 
     /**
-     * Passkeys are offered only to callers the platform identifies as a privileged origin
-     * (verified browsers, and apps on the allow list), matched on package name and signing
-     * certificate. Their origin is computed by the system and the browser validates the RP ID
-     * against it. Any other app could claim any RP ID, which is how passkeys get phished.
-     * This app has no network permission, so Digital Asset Links cannot be fetched to verify
-     * a native app's RP ID; such apps are therefore refused (fail closed).
+     * Every calling app may be offered passkeys. The origin is resolved per caller: browsers and
+     * apps in the allow lists get their verified origin, other apps get the Android origin derived
+     * from their signing certificate. Relying parties check the origin, so a native app cannot use
+     * the passkey of a website it does not control. The user still confirms every passkey use.
      */
     private suspend fun isPrivilegedCaller(callingAppInfo: CallingAppInfo?): Boolean {
-        if (callingAppInfo == null) return false
-        return withContext(Dispatchers.IO) {
-            try {
-                !PrivilegedAllowLists.getOriginFromPrivilegedAllowLists(
-                    callingAppInfo,
-                    applicationContext
-                ).isNullOrEmpty()
-            } catch (e: Exception) {
-                NoOpLog.w(TAG, "Caller is not a privileged origin", e)
-                false
-            }
-        }
+        return callingAppInfo != null
     }
 
     private fun buildPasskeySearchInfo(

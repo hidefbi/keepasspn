@@ -746,4 +746,6 @@
     <string name="group_move_up">Liiguta üles</string>
     <string name="group_move_down">Liiguta alla</string>
     <string name="group_drag_handle">Lohistage järjestuse muutmiseks</string>
+    <string name="donation_title">❤️ Toeta seda projekti</string>
+    <string name="donation_text">Tasuta, avatud lähtekoodiga ja vabatahtlik. Annetused ei ava funktsioone ega tähenda toetust.</string>
 </resources>

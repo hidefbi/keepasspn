@@ -780,4 +780,6 @@
     <string name="group_move_up">Presunúť nahor</string>
     <string name="group_move_down">Presunúť nadol</string>
     <string name="group_drag_handle">Presuňte na zmenu poradia</string>
+    <string name="donation_title">❤️ Podporte tento projekt</string>
+    <string name="donation_text">Zadarmo, s otvoreným zdrojovým kódom a dobrovoľne. Dary neodomykajú funkcie ani neznamenajú podporu.</string>
 </resources>

@@ -778,4 +778,6 @@
     <string name="group_move_up">Przesuń w górę</string>
     <string name="group_move_down">Przesuń w dół</string>
     <string name="group_drag_handle">Przeciągnij, aby zmienić kolejność</string>
+    <string name="donation_title">❤️ Wesprzyj ten projekt</string>
+    <string name="donation_text">Darmowy, open source i opcjonalny. Darowizny nie odblokowują funkcji i nie oznaczają poparcia.</string>
 </resources>

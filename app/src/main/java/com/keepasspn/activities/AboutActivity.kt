@@ -22,16 +22,15 @@ package com.keepasspn.activities
 import android.content.pm.PackageManager.NameNotFoundException
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
+import com.keepasspn.timeout.copyToClipboard
 import com.keepasspn.utils.NoOpLog
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.text.HtmlCompat
-import com.keepasspn.BuildConfig
 import com.keepasspn.R
 import com.keepasspn.activities.stylish.StylishActivity
-import com.keepasspn.utils.AppUtil.isContributingUser
 import com.keepasspn.utils.getPackageInfoCompat
 import org.joda.time.DateTime
 
@@ -53,23 +52,16 @@ class AboutActivity : StylishActivity() {
         findViewById<TextView>(R.id.activity_about_app_name).text = appName
 
         var version: String
-        var build: String
         try {
             version = packageManager.getPackageInfoCompat(packageName).versionName ?: ""
-            build = BuildConfig.BUILD_VERSION
         } catch (e: NameNotFoundException) {
-            NoOpLog.w(javaClass.simpleName, "Unable to get the app or the build version", e)
+            NoOpLog.w(javaClass.simpleName, "Unable to get the app version", e)
             version = "Unable to get the app version"
-            build = "Unable to get the build version"
         }
 
         version = getString(R.string.version_label, version)
         val versionTextView = findViewById<TextView>(R.id.activity_about_version)
         versionTextView.text = version
-
-        build = getString(R.string.build_label, build)
-        val buildTextView = findViewById<TextView>(R.id.activity_about_build)
-        buildTextView.text = build
 
         findViewById<TextView>(R.id.activity_about_licence_text).apply {
             movementMethod = LinkMovementMethod.getInstance()
@@ -89,6 +81,22 @@ class AboutActivity : StylishActivity() {
             movementMethod = LinkMovementMethod.getInstance()
             text = HtmlCompat.fromHtml(getString(R.string.html_about_contribution),
                     HtmlCompat.FROM_HTML_MODE_LEGACY)
+        }
+
+        bindDonationAddress(R.id.activity_about_donation_btc, "BTC", R.string.donation_btc_address)
+        bindDonationAddress(R.id.activity_about_donation_eth, "ETH", R.string.donation_eth_address)
+        bindDonationAddress(R.id.activity_about_donation_xmr, "XMR", R.string.donation_xmr_address)
+    }
+
+    /**
+     * Show a donation address and copy it to the clipboard on tap.
+     * Addresses are public, so they are not marked as sensitive.
+     */
+    private fun bindDonationAddress(viewId: Int, coin: String, addressResId: Int) {
+        val address = getString(addressResId)
+        findViewById<TextView>(viewId).apply {
+            text = "$coin: $address"
+            setOnClickListener { copyToClipboard(coin, address, sensitive = false) }
         }
     }
 

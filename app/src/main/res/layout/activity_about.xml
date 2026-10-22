@@ -96,11 +96,6 @@
                                 android:layout_height="wrap_content"
                                 android:textAppearance="@android:style/TextAppearance.Small" />
 
-                            <TextView
-                                android:id="@+id/activity_about_build"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textAppearance="@android:style/TextAppearance.Small" />
                         </LinearLayout>
                     </RelativeLayout>
 
@@ -183,6 +178,44 @@
                         android:layout_height="wrap_content"
                         android:text="@string/contribution_url"
                         android:autoLink="web"/>
+
+                    <TextView
+                        android:id="@+id/activity_about_donation_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/donation_title"
+                        style="@style/KeePassPNStyle.Title"/>
+                    <TextView
+                        android:id="@+id/activity_about_donation_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/donation_text"/>
+                    <TextView
+                        android:id="@+id/activity_about_donation_btc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="monospace"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="4dp"/>
+                    <TextView
+                        android:id="@+id/activity_about_donation_eth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="monospace"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="4dp"/>
+                    <TextView
+                        android:id="@+id/activity_about_donation_xmr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="monospace"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="4dp"/>
 
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>

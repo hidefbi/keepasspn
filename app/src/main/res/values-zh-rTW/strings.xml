@@ -768,4 +768,6 @@
     <string name="group_move_up">上移</string>
     <string name="group_move_down">下移</string>
     <string name="group_drag_handle">拖曳以調整順序</string>
+    <string name="donation_title">❤️ 支持這個專案</string>
+    <string name="donation_text">免費、開源且可選。捐贈不會解鎖任何功能，也不代表支持。</string>
 </resources>

@@ -772,4 +772,6 @@
     <string name="group_move_up">Flytt opp</string>
     <string name="group_move_down">Flytt ned</string>
     <string name="group_drag_handle">Dra for å endre rekkefølge</string>
+    <string name="donation_title">❤️ Støtt dette prosjektet</string>
+    <string name="donation_text">Gratis, åpen kildekode og valgfritt. Donasjoner låser ikke opp funksjoner og betyr ikke støtte.</string>
 </resources>

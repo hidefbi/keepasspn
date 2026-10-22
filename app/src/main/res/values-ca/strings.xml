@@ -716,4 +716,6 @@
     <string name="group_move_up">Mou amunt</string>
     <string name="group_move_down">Mou avall</string>
     <string name="group_drag_handle">Arrossega per reordenar</string>
+    <string name="donation_title">❤️ Dona suport a aquest projecte</string>
+    <string name="donation_text">Gratuït, de codi obert i opcional. Les donacions no desbloquegen funcions ni impliquen suport.</string>
 </resources>

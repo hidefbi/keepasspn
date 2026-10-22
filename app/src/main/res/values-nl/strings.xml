@@ -790,4 +790,6 @@
     <string name="group_move_up">Omhoog verplaatsen</string>
     <string name="group_move_down">Omlaag verplaatsen</string>
     <string name="group_drag_handle">Sleep om te herschikken</string>
+    <string name="donation_title">❤️ Steun dit project</string>
+    <string name="donation_text">Gratis, open source en optioneel. Donaties ontgrendelen geen functies en betekenen geen steun.</string>
 </resources>

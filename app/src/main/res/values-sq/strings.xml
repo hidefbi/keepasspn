@@ -716,4 +716,6 @@
     <string name="group_move_up">Lëviz lart</string>
     <string name="group_move_down">Lëviz poshtë</string>
     <string name="group_drag_handle">Zvarrit për të ndryshuar renditjen</string>
+    <string name="donation_title">❤️ Mbështetni këtë projekt</string>
+    <string name="donation_text">Falas, me burim të hapur dhe opsional. Dhurimet nuk zhbllokojnë veçoritë dhe nuk nënkuptojnë mbështetje.</string>
 </resources>

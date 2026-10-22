@@ -762,4 +762,6 @@
     <string name="group_move_up">نقل لأعلى</string>
     <string name="group_move_down">نقل لأسفل</string>
     <string name="group_drag_handle">اسحب لإعادة الترتيب</string>
+    <string name="donation_title">❤️ ادعم هذا المشروع</string>
+    <string name="donation_text">مجاني ومفتوح المصدر واختياري. التبرعات لا تفتح أي ميزات ولا تعني الدعم.</string>
 </resources>

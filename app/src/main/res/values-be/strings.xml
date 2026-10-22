@@ -729,4 +729,6 @@
     <string name="group_move_up">Перамясціць уверх</string>
     <string name="group_move_down">Перамясціць уніз</string>
     <string name="group_drag_handle">Перацягніце, каб змяніць парадак</string>
+    <string name="donation_title">❤️ Падтрымайце праект</string>
+    <string name="donation_text">Бясплатна, з адкрытым зыходным кодам і добраахвотна. Ахвяраванні не адкрываюць функцыі і не азначаюць падтрымку.</string>
 </resources>

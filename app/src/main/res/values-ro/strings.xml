@@ -774,4 +774,6 @@
     <string name="group_move_up">Mută în sus</string>
     <string name="group_move_down">Mută în jos</string>
     <string name="group_drag_handle">Trage pentru a reordona</string>
+    <string name="donation_title">❤️ Susține acest proiect</string>
+    <string name="donation_text">Gratuit, open source și opțional. Donațiile nu deblochează funcții și nu înseamnă sprijin.</string>
 </resources>

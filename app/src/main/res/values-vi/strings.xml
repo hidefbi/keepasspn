@@ -769,4 +769,6 @@
     <string name="group_move_up">Di chuyển lên</string>
     <string name="group_move_down">Di chuyển xuống</string>
     <string name="group_drag_handle">Kéo để sắp xếp lại</string>
+    <string name="donation_title">❤️ Ủng hộ dự án này</string>
+    <string name="donation_text">Miễn phí, mã nguồn mở và tùy chọn. Quyên góp không mở khóa tính năng và không đồng nghĩa với sự ủng hộ.</string>
 </resources>

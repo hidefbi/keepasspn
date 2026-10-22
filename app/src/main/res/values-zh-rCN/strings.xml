@@ -787,4 +787,6 @@
     <string name="group_move_up">上移</string>
     <string name="group_move_down">下移</string>
     <string name="group_drag_handle">拖动以调整顺序</string>
+    <string name="donation_title">❤️ 支持这个项目</string>
+    <string name="donation_text">免费、开源且可选。捐赠不会解锁任何功能，也不代表支持。</string>
 </resources>

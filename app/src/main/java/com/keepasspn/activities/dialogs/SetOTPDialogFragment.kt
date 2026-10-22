@@ -49,7 +49,6 @@ import com.keepasspn.otp.OtpElement.Companion.MIN_TOTP_PERIOD
 import com.keepasspn.otp.OtpTokenType
 import com.keepasspn.otp.OtpType
 import com.keepasspn.otp.TokenCalculator
-import com.keepasspn.utils.AppUtil.isContributingUser
 import com.keepasspn.utils.UriUtil.openUrl
 import com.keepasspn.utils.getParcelableCompat
 import com.keepasspn.viewmodels.EntryEditViewModel
@@ -203,9 +202,7 @@ class SetOTPDialogFragment : DatabaseDialogFragment() {
                 setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             }
             // Proprietary only on full version
-            mTotpTokenTypeArray = OtpTokenType.getTotpTokenTypeValues(
-                activity.isContributingUser()
-            )
+            mTotpTokenTypeArray = OtpTokenType.getTotpTokenTypeValues()
             totpTokenTypeAdapter = ArrayAdapter(activity,
                     android.R.layout.simple_spinner_item, mTotpTokenTypeArray!!).apply {
                 setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

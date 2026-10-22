@@ -763,4 +763,6 @@
     <string name="group_move_up">Pindahkan ke atas</string>
     <string name="group_move_down">Pindahkan ke bawah</string>
     <string name="group_drag_handle">Seret untuk mengubah urutan</string>
+    <string name="donation_title">❤️ Dukung proyek ini</string>
+    <string name="donation_text">Gratis, open source, dan opsional. Donasi tidak membuka fitur dan tidak berarti dukungan.</string>
 </resources>

@@ -31,9 +31,7 @@ import androidx.preference.ListPreference
 import androidx.preference.PreferenceCategory
 import androidx.preference.Preference
 import androidx.preference.TwoStatePreference
-import com.keepasspn.BuildConfig
 import com.keepasspn.R
-import com.keepasspn.activities.dialogs.ProFeatureDialogFragment
 import com.keepasspn.activities.dialogs.UnavailableFeatureDialogFragment
 import com.keepasspn.activities.stylish.Stylish
 import com.keepasspn.app.database.FileDatabaseHistoryAction
@@ -46,7 +44,6 @@ import com.keepasspn.education.Education
 import com.keepasspn.icons.IconPackChooser
 import com.keepasspn.settings.preference.IconPackListPreference
 import com.keepasspn.settings.preferencedialogfragment.DurationDialogFragmentCompat
-import com.keepasspn.utils.AppUtil.isContributingUser
 import com.keepasspn.utils.UriUtil.openUrl
 import com.keepasspn.utils.UriUtil.releaseAllUnnecessaryPermissionUris
 
@@ -362,27 +359,13 @@ class NestedAppSettingsFragment : NestedSettingsFragment() {
 
         activity?.let { activity ->
             findPreference<ListPreference>(getString(R.string.setting_style_key))?.setOnPreferenceChangeListener { _, newValue ->
-                var styleEnabled = true
                 val styleIdString = newValue as String
-                if (!activity.isContributingUser()) {
-                    for (themeIdDisabled in BuildConfig.STYLES_DISABLED) {
-                        if (themeIdDisabled == styleIdString) {
-                            styleEnabled = false
-                            ProFeatureDialogFragment().show(
-                                parentFragmentManager,
-                                "pro_feature_dialog"
-                            )
-                        }
-                    }
+                Stylish.assignStyle(activity, styleIdString)
+                // Relaunch the current activity to redraw theme
+                (activity as? SettingsActivity?)?.apply {
+                    reloadActivity()
                 }
-                if (styleEnabled) {
-                    Stylish.assignStyle(activity, styleIdString)
-                    // Relaunch the current activity to redraw theme
-                    (activity as? SettingsActivity?)?.apply {
-                        reloadActivity()
-                    }
-                }
-                styleEnabled
+                true
             }
 
             findPreference<ListPreference>(getString(R.string.setting_style_brightness_key))?.setOnPreferenceChangeListener { _, _ ->
@@ -393,23 +376,9 @@ class NestedAppSettingsFragment : NestedSettingsFragment() {
             }
 
             findPreference<IconPackListPreference>(getString(R.string.setting_icon_pack_choose_key))?.setOnPreferenceChangeListener { _, newValue ->
-                var iconPackEnabled = true
                 val iconPackId = newValue as String
-                if (!activity.isContributingUser()) {
-                    for (iconPackIdDisabled in BuildConfig.ICON_PACKS_DISABLED) {
-                        if (iconPackIdDisabled == iconPackId) {
-                            iconPackEnabled = false
-                            ProFeatureDialogFragment().show(
-                                parentFragmentManager,
-                                "pro_feature_dialog"
-                            )
-                        }
-                    }
-                }
-                if (iconPackEnabled) {
-                    IconPackChooser.setSelectedIconPack(iconPackId)
-                }
-                iconPackEnabled
+                IconPackChooser.setSelectedIconPack(iconPackId)
+                true
             }
 
             findPreference<Preference>(getString(R.string.reset_education_screens_key))?.setOnPreferenceClickListener {
@@ -511,14 +480,6 @@ class NestedAppSettingsFragment : NestedSettingsFragment() {
     }
 
     private var mCount = 0
-    override fun onStop() {
-        super.onStop()
-        activity?.let { activity ->
-            if (mCount == 10 && !BuildConfig.CLOSED_STORE) {
-                Education.setEducationScreenReclickedPerformed(activity)
-            }
-        }
-    }
 
     companion object {
         private const val TAG_PREF_FRAGMENT = "TAG_PREF_FRAGMENT"

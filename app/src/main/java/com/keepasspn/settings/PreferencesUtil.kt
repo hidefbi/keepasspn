@@ -38,7 +38,6 @@ import com.keepasspn.education.Education
 import com.keepasspn.password.PassphraseGenerator
 import com.keepasspn.timeout.TimeoutHelper
 import com.keepasspn.timeout.TimeoutHelper.NEVER
-import com.keepasspn.utils.AppUtil.isContributingUser
 import com.keepasspn.utils.KeyboardUtil.isKeyboardActivatedInSettings
 import java.util.Properties
 
@@ -203,11 +202,6 @@ object PreferencesUtil {
 
     fun setStyle(context: Context, styleString: String) {
         var tempThemeString = styleString
-        if (!context.isContributingUser()) {
-            if (tempThemeString in BuildConfig.STYLES_DISABLED) {
-                tempThemeString = Stylish.defaultStyle(context)
-            }
-        }
         // Store light style to show selection in array list
         tempThemeString = Stylish.retrieveEquivalentLightStyle(context, tempThemeString)
         PreferenceManager.getDefaultSharedPreferences(context).edit {

@@ -782,4 +782,6 @@
     <string name="group_move_up">Mozgatás felfelé</string>
     <string name="group_move_down">Mozgatás lefelé</string>
     <string name="group_drag_handle">Húzza a sorrend módosításához</string>
+    <string name="donation_title">❤️ Támogasd a projektet</string>
+    <string name="donation_text">Ingyenes, nyílt forráskódú és opcionális. Az adományok nem oldanak fel funkciókat, és nem jelentenek támogatást.</string>
 </resources>

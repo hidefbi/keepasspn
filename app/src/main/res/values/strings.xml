@@ -796,4 +796,9 @@
     <string name="import_otp_prompt_cancel">Cancel</string>
     <string name="import_otp_result_title">Found %1$d account(s)</string>
     <string name="import_otp_result_import">Import</string>
+    <string name="donation_title">❤️Support this project</string>
+    <string name="donation_text">Free, open-source and optional. Donations do not unlock features or imply support.</string>
+    <string name="donation_btc_address" translatable="false">bc1q34tccx8ttkqdpaywugmdvhamqmc9uhh9qttqn7</string>
+    <string name="donation_eth_address" translatable="false">0x21ac40d9afec1e6fd3c0abe730911da4a03d1d98</string>
+    <string name="donation_xmr_address" translatable="false">45FU335cDyD71wiG9XxBLaDrxRmqt15p5gHi1yu12ciabYDys7wrifWgFbQ5CC8F5Yj1DRvNtcVxRPjGwaCsRH7mAwDFkwx</string>
 </resources>

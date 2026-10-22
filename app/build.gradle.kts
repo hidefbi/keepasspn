@@ -53,58 +53,6 @@ android {
         includeInBundle = false
     }
 
-    flavorDimensions += "version"
-    productFlavors {
-        create("libre") {
-            dimension = "version"
-            applicationIdSuffix = ".libre"
-            buildConfigField("String", "BUILD_VERSION", "\"libre\"")
-            buildConfigField("boolean", "CLOSED_STORE", "false")
-            buildConfigField(
-                "String[]", "STYLES_DISABLED",
-                "{\"KeePassPNStyle_Red\"," +
-                    "\"KeePassPNStyle_Red_Night\"," +
-                    "\"KeePassPNStyle_Reply\"," +
-                    "\"KeePassPNStyle_Reply_Night\"," +
-                    "\"KeePassPNStyle_Purple\"," +
-                    "\"KeePassPNStyle_Purple_Dark\"," +
-                    "\"KeePassPNStyle_Dynamic_Light\"," +
-                    "\"KeePassPNStyle_Dynamic_Night\"}"
-            )
-            buildConfigField("String[]", "ICON_PACKS_DISABLED", "{}")
-        }
-        create("free") {
-            dimension = "version"
-            applicationIdSuffix = ".free"
-            buildConfigField("String", "BUILD_VERSION", "\"free\"")
-            buildConfigField("boolean", "CLOSED_STORE", "true")
-            buildConfigField(
-                "String[]", "STYLES_DISABLED",
-                "{\"KeePassPNStyle_Blue\"," +
-                    "\"KeePassPNStyle_Blue_Night\"," +
-                    "\"KeePassPNStyle_Red\"," +
-                    "\"KeePassPNStyle_Red_Night\"," +
-                    "\"KeePassPNStyle_Reply\"," +
-                    "\"KeePassPNStyle_Reply_Night\"," +
-                    "\"KeePassPNStyle_Purple\"," +
-                    "\"KeePassPNStyle_Purple_Dark\"," +
-                    "\"KeePassPNStyle_Dynamic_Light\"," +
-                    "\"KeePassPNStyle_Dynamic_Night\"}"
-            )
-            buildConfigField("String[]", "ICON_PACKS_DISABLED", "{}")
-            manifestPlaceholders["googlePlayServicesPackage"] = gmsPackage
-        }
-    }
-
-    sourceSets {
-        getByName("libre") {
-            res.srcDirs("src/libre/res")
-        }
-        getByName("free") {
-            res.srcDirs("src/free/res")
-        }
-    }
-
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
