@@ -18,6 +18,7 @@
  */
 package com.keepasspn.activities
 
+import com.keepasspn.activities.dialogs.NodeActionsBottomSheet
 import android.app.Activity
 import android.app.SearchManager
 import android.content.Context
@@ -81,6 +82,7 @@ import com.keepasspn.database.element.EntryId
 import com.keepasspn.database.exception.RegisterInReadOnlyDatabaseException
 import com.keepasspn.database.helper.SearchHelper
 import com.keepasspn.education.GroupActivityEducation
+import com.keepasspn.database.element.node.Nodes
 import com.keepasspn.model.DataTime
 import com.keepasspn.model.EntryInfo
 import com.keepasspn.model.GroupInfo
@@ -126,7 +128,7 @@ import org.joda.time.LocalDateTime
 import java.util.EnumSet
 
 
-class GroupActivity : DatabaseLockActivity() {
+class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
 
     // Views
     private var header: ViewGroup? = null
@@ -603,6 +605,21 @@ class GroupActivity : DatabaseLockActivity() {
                             is GroupViewModel.GroupEvent.ReorderGroup -> {
                                 reorderGroup(event.groupId, event.targetIndex)
                             }
+                            is GroupViewModel.GroupEvent.ShowNodeActions -> {
+                                showNodeActions(event)
+                            }
+                            is GroupViewModel.GroupEvent.DuplicateNodes -> {
+                                onDuplicateNodesRequested(event.nodes)
+                            }
+                            is GroupViewModel.GroupEvent.ReorderNode -> {
+                                when (val node = event.node) {
+                                    is GroupInfo -> reorderGroup(node.nodeId, event.targetIndex)
+                                    is EntryInfo -> reorderEntry(node.nodeId, event.targetIndex)
+                                }
+                            }
+                            is GroupViewModel.GroupEvent.RestoreNodes -> {
+                                restoreNodes(event.nodes)
+                            }
                             is GroupViewModel.GroupEvent.PasteNodes -> {
                                 when (event.pasteActionState.pasteMode) {
                                     NodeActionMode.PASTE_FROM_COPY -> {
@@ -796,6 +813,30 @@ class GroupActivity : DatabaseLockActivity() {
         return drawerLayout
     }
 
+    private fun showNodeActions(event: GroupViewModel.GroupEvent.ShowNodeActions) {
+        val database = mDatabase
+        val currentGroup = mGroupViewModel.groupUIState.value.group
+        val canRestore = database != null && currentGroup != null && database.recycleBin != null
+                && database.getGroupById(currentGroup.nodeId)?.let { current ->
+                    current.nodeId == database.recycleBin?.nodeId || database.groupIsInRecycleBin(current)
+                } == true
+        NodeActionsBottomSheet.getInstance(
+            title = (event.node as? NodeInfo)?.title.orEmpty(),
+            canMoveUp = event.canMoveUp,
+            canMoveDown = event.canMoveDown,
+            canRestore = canRestore
+        ).show(supportFragmentManager, NodeActionsBottomSheet.TAG)
+    }
+
+    private fun onDuplicateNodesRequested(nodes: Nodes) {
+        val parentId = mGroupViewModel.groupUIState.value.group?.nodeId ?: return
+        duplicateNodes(
+            newParentId = parentId,
+            nodesToDuplicate = nodes,
+            copyTitleSuffix = "(${getString(R.string.menu_copy)})"
+        )
+    }
+
     private fun loadGroup(clearSearch: Boolean = false) {
         if (clearSearch)
             mSearchViewModel.deactivateSearch()
@@ -836,7 +877,10 @@ class GroupActivity : DatabaseLockActivity() {
     ) {
         super.onDatabaseActionFinished(database, actionTask, result)
         when (actionTask) {
-            com.keepasspn.services.DatabaseTaskNotificationService.ACTION_DATABASE_REORDER_GROUP_TASK -> {
+            com.keepasspn.services.DatabaseTaskNotificationService.ACTION_DATABASE_REORDER_GROUP_TASK,
+            com.keepasspn.services.DatabaseTaskNotificationService.ACTION_DATABASE_REORDER_ENTRY_TASK,
+            com.keepasspn.services.DatabaseTaskNotificationService.ACTION_DATABASE_DUPLICATE_NODES_TASK,
+            com.keepasspn.services.DatabaseTaskNotificationService.ACTION_DATABASE_RESTORE_NODES_TASK -> {
                 if (result.isSuccess) {
                     loadGroup()
                 }
@@ -1067,6 +1111,7 @@ class GroupActivity : DatabaseLockActivity() {
             inflater.inflate(R.menu.tree, menu)
             inflater.inflate(R.menu.database, menu)
             inflater.inflate(R.menu.group_otp, menu)
+            inflater.inflate(R.menu.group_selection, menu)
             menu.findItem(R.id.menu_scan_otp)?.actionView?.setOnClickListener { ImportOtpPrompt.show(this) }
             if (!mGroupViewModel.saveDatabaseActionAllowed()) {
                 menu.findItem(R.id.menu_save_database)?.isVisible = false
@@ -1164,7 +1209,15 @@ class GroupActivity : DatabaseLockActivity() {
             .show(supportFragmentManager, "sortDialog")
     }
 
+    override fun onNodeActionSelected(action: GroupViewModel.NodeAction) {
+        mGroupViewModel.onNodeAction(action)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_select_nodes) {
+            mGroupViewModel.startNodeSelection()
+            return true
+        }
         when (item.itemId) {
             android.R.id.home -> {
                 drawerLayout?.openDrawer(GravityCompat.START)

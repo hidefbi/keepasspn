@@ -323,7 +323,7 @@
     <string name="menu_save_database">Zapisz dane</string>
     <string name="menu_empty_recycle_bin">Opróżnij kosz</string>
     <string name="command_execution">Wykonywanie polecenia…</string>
-    <string name="warning_permanently_delete_nodes">Czy trwale usunąć wybrane węzły\?</string>
+    <string name="warning_permanently_delete_nodes">Czy trwale usunąć wybrane węzły\? Tej operacji nie można cofnąć.</string>
     <string name="keystore_not_accessible">Magazyn kluczy nie został poprawnie zainicjowany.</string>
     <string name="recycle_bin_group_title">Kosz grupy</string>
     <string name="enable_auto_save_database_title">Automatycznie zapisuj bazę danych</string>
@@ -410,7 +410,7 @@
     <string name="notification">Powiadomienia</string>
     <string name="biometric_security_update_required">Wymagana aktualizacja zabezpieczeń biometrycznych.</string>
     <string name="configure_biometric">Nie zarejestrowano żadnych danych biometrycznych ani poświadczeń urządzenia.</string>
-    <string name="warning_empty_recycle_bin">Trwale usunąć wszystkie węzły z kosza\?</string>
+    <string name="warning_empty_recycle_bin">Trwale usunąć wszystkie węzły z kosza\? Tej operacji nie można cofnąć.</string>
     <string name="save_mode">Tryb zapisywania</string>
     <string name="search_mode">Tryb wyszukiwania</string>
     <string name="error_registration_read_only">Zapisywanie nowego elementu nie jest dozwolone w bazie danych tylko do odczytu.</string>
@@ -780,4 +780,6 @@
     <string name="group_drag_handle">Przeciągnij, aby zmienić kolejność</string>
     <string name="donation_title">❤️ Wesprzyj ten projekt</string>
     <string name="donation_text">Darmowy, open source i opcjonalny. Darowizny nie odblokowują funkcji i nie oznaczają poparcia.</string>
+    <string name="menu_restore">Przywróć</string>
+    <string name="warning_move_nodes_to_recycle_bin">Przenieść wybrane elementy do kosza?</string>
 </resources>

@@ -215,8 +215,8 @@
     <string name="warning_database_link_revoked">ファイルへのアクセス権がファイル マネージャーによって取り消されました</string>
     <string name="warning_empty_password">パスワードによるロック解除の保護なしで続行しますか？</string>
     <string name="warning_no_encryption_key">暗号鍵なしで続行しますか？</string>
-    <string name="warning_permanently_delete_nodes">選択したノードを完全に削除しますか？</string>
-    <string name="warning_empty_recycle_bin">ゴミ箱からすべてのノードを完全に削除しますか？</string>
+    <string name="warning_permanently_delete_nodes">選択したノードを完全に削除しますか？ この操作は元に戻せません。</string>
+    <string name="warning_empty_recycle_bin">ゴミ箱からすべてのノードを完全に削除しますか？ この操作は元に戻せません。</string>
     <string name="warning_file_too_big">KeePass データベースに含まれると想定されるのは、小さなユーティリティ ファイル（PGP 鍵ファイルなど）のみです。\n\nこのアップロードによりデータベースが非常に大きくなり、パフォーマンスが低下する可能性があります。</string>
     <string name="warning_replace_file">このファイルをアップロードすると、既存のファイルが置き換えられます。</string>
     <string name="warning_sure_add_file">それでもファイルを追加しますか？</string>
@@ -781,4 +781,6 @@
     <string name="group_drag_handle">ドラッグして並べ替え</string>
     <string name="donation_title">❤️ このプロジェクトを支援</string>
     <string name="donation_text">無料・オープンソース・任意です。寄付で機能が解放されることも、支持を意味することもありません。</string>
+    <string name="menu_restore">復元</string>
+    <string name="warning_move_nodes_to_recycle_bin">選択した項目をごみ箱に移動しますか?</string>
 </resources>

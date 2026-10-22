@@ -325,7 +325,7 @@
     <string name="menu_save_database">Gem data</string>
     <string name="menu_empty_recycle_bin">Tøm papirkurven</string>
     <string name="command_execution">Udfører kommandoen…</string>
-    <string name="warning_permanently_delete_nodes">Slet markerede noder permanent\?</string>
+    <string name="warning_permanently_delete_nodes">Slet markerede noder permanent\? Dette kan ikke fortrydes.</string>
     <string name="keystore_not_accessible">Nøglelageret er ikke korrekt initialiseret.</string>
     <string name="recycle_bin_group_title">Papirkurvsgruppe</string>
     <string name="enable_auto_save_database_title">Gem automatisk database</string>
@@ -412,7 +412,7 @@
     <string name="warning_file_too_big">En KeePass-database bør kun indeholde små hjælpefiler (såsom PGP-nøglefiler).
 \n
 \nDatabasen kan blive meget stor og reducere ydeevnen med denne overførelse.</string>
-    <string name="warning_empty_recycle_bin">Slet alle noder permanent fra papirkurven\?</string>
+    <string name="warning_empty_recycle_bin">Slet alle noder permanent fra papirkurven\? Dette kan ikke fortrydes.</string>
     <string name="save_mode">Gem-tilstand</string>
     <string name="search_mode">Søgetilstand</string>
     <string name="error_registration_read_only">Det er ikke tilladt at gemme et nyt element i en skrivebeskyttet database.</string>
@@ -703,4 +703,6 @@
     <string name="group_drag_handle">Træk for at ændre rækkefølge</string>
     <string name="donation_title">❤️ Støt dette projekt</string>
     <string name="donation_text">Gratis, open source og valgfrit. Donationer låser ikke funktioner op og betyder ikke støtte.</string>
+    <string name="menu_restore">Gendan</string>
+    <string name="warning_move_nodes_to_recycle_bin">Flyt de valgte elementer til papirkurven?</string>
 </resources>

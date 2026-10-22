@@ -142,7 +142,7 @@
     <string name="search_mode">Režim vyhľadávania</string>
     <string name="do_not_kill_app">Nezatvárajte aplikáciu…</string>
     <string name="filter">Filter</string>
-    <string name="warning_empty_recycle_bin">Natrvalo odstrániť všetky uzly z koša\?</string>
+    <string name="warning_empty_recycle_bin">Natrvalo odstrániť všetky uzly z koša\? Túto akciu nie je možné vrátiť späť.</string>
     <string name="warning_no_encryption_key">Pokračovať bez šifrovacieho kľúča\?</string>
     <string name="warning_replace_file">Nahraním tohto súboru nahradíte existujúci súbor.</string>
     <string name="html_text_buy_pro">Kúpou pro verzie získate prístup k tomuto &lt;strong&gt;vizuálnemu štýlu&lt;/strong&gt; a pomôžete najmä &lt;strong&gt;realizácii komunitných projektov.&lt;/strong&gt;</string>
@@ -238,7 +238,7 @@
     <string name="memory_usage">Využitie pamäte</string>
     <string name="sort_groups_before">Skupiny prvé</string>
     <string name="sort_recycle_bin_bottom">Kôš ako posledný</string>
-    <string name="warning_permanently_delete_nodes">Chcete natrvalo odstrániť vybraté uzly\?</string>
+    <string name="warning_permanently_delete_nodes">Chcete natrvalo odstrániť vybraté uzly\? Túto akciu nie je možné vrátiť späť.</string>
     <string name="warning_sure_add_file">Chcete súbor napriek tomu pridať\?</string>
     <string name="biometric_security_update_required">Vyžaduje sa biometrická aktualizácia zabezpečenia.</string>
     <string name="keystore_not_accessible">Úložisko kľúčov nie je správne inicializované.</string>
@@ -782,4 +782,6 @@
     <string name="group_drag_handle">Presuňte na zmenu poradia</string>
     <string name="donation_title">❤️ Podporte tento projekt</string>
     <string name="donation_text">Zadarmo, s otvoreným zdrojovým kódom a dobrovoľne. Dary neodomykajú funkcie ani neznamenajú podporu.</string>
+    <string name="menu_restore">Obnoviť</string>
+    <string name="warning_move_nodes_to_recycle_bin">Presunúť vybrané položky do koša?</string>
 </resources>

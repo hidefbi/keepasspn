@@ -41,19 +41,24 @@ class DeleteNodesDialogFragment : DatabaseDialogFragment() {
             }
         }
         var recycleBin = false
+        var toRecycleBin = false
         arguments?.apply {
             if (containsKey(RECYCLE_BIN_TAG)) {
                 recycleBin = this.getBoolean(RECYCLE_BIN_TAG)
+            }
+            if (containsKey(TO_RECYCLE_BIN_TAG)) {
+                toRecycleBin = this.getBoolean(TO_RECYCLE_BIN_TAG)
             }
         }
         activity?.let { activity ->
             // Use the Builder class for convenient dialog construction
             val builder = AlertDialog.Builder(activity)
 
-            builder.setMessage(if (recycleBin)
-                getString(R.string.warning_empty_recycle_bin)
-            else
-                getString(R.string.warning_permanently_delete_nodes))
+            builder.setMessage(when {
+                toRecycleBin -> getString(R.string.warning_move_nodes_to_recycle_bin)
+                recycleBin -> getString(R.string.warning_empty_recycle_bin)
+                else -> getString(R.string.warning_permanently_delete_nodes)
+            })
             builder.setPositiveButton(android.R.string.ok) { _, _ ->
                 mNodesViewModel.permanentlyDeleteNodes(mNodesToDelete)
             }
@@ -66,11 +71,13 @@ class DeleteNodesDialogFragment : DatabaseDialogFragment() {
 
     companion object {
         private const val RECYCLE_BIN_TAG = "RECYCLE_BIN_TAG"
+        private const val TO_RECYCLE_BIN_TAG = "TO_RECYCLE_BIN_TAG"
 
-        fun getInstance(recycleBin: Boolean): DeleteNodesDialogFragment {
+        fun getInstance(recycleBin: Boolean, toRecycleBin: Boolean): DeleteNodesDialogFragment {
             return DeleteNodesDialogFragment().apply {
                 arguments = Bundle().apply {
                     putBoolean(RECYCLE_BIN_TAG, recycleBin)
+                    putBoolean(TO_RECYCLE_BIN_TAG, toRecycleBin)
                 }
             }
         }

@@ -239,8 +239,8 @@
     <string name="error_cancel_by_user">Atšaukė naudotojas.</string>
     <string name="error_remove_file">Įvyko klaida šalinant failo duomenis.</string>
     <string name="error_start_database_action">Įvyko klaida atliekant veiksmą duomenų bazėje.</string>
-    <string name="warning_permanently_delete_nodes">Visam laikui ištrinti pasirinktus punktus\?</string>
-    <string name="warning_empty_recycle_bin">Visam laikui ištrinti visus punktus iš šiukšliadėžės\?</string>
+    <string name="warning_permanently_delete_nodes">Visam laikui ištrinti pasirinktus punktus\? Šio veiksmo atšaukti negalima.</string>
+    <string name="warning_empty_recycle_bin">Visam laikui ištrinti visus punktus iš šiukšliadėžės\? Šio veiksmo atšaukti negalima.</string>
     <string name="hide_broken_locations_title">Slėpti sugadintų duomenų bazių nuorodas</string>
     <string name="remember_keyfile_locations_summary">Seka, kur saugomi raktų failai</string>
     <string name="do_not_kill_app">Neuždarykite programėlės…</string>
@@ -729,4 +729,6 @@
     <string name="group_drag_handle">Tempkite, kad pakeistumėte tvarką</string>
     <string name="donation_title">❤️ Paremkite šį projektą</string>
     <string name="donation_text">Nemokamas, atviro kodo ir neprivalomas. Aukos neatrakina funkcijų ir nereiškia palaikymo.</string>
+    <string name="menu_restore">Atkurti</string>
+    <string name="warning_move_nodes_to_recycle_bin">Perkelti pasirinktus elementus į šiukšliadėžę?</string>
 </resources>

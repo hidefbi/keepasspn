@@ -160,7 +160,7 @@
     <string name="export_app_properties_title">பயன்பாட்டு அமைப்புகளை ஏற்றுமதி செய்யுங்கள்</string>
     <string name="sort_groups_before">முன் குழுக்கள்</string>
     <string name="warning_no_encryption_key">குறியாக்க விசை இல்லாமல் தொடரவா?</string>
-    <string name="warning_permanently_delete_nodes">தேர்ந்தெடுக்கப்பட்ட முனைகளை நிரந்தரமாக நீக்கவா?</string>
+    <string name="warning_permanently_delete_nodes">தேர்ந்தெடுக்கப்பட்ட முனைகளை நிரந்தரமாக நீக்கவா? இதைச் செயல்தவிர்க்க முடியாது.</string>
     <string name="device_credential_unlock_enable_summary">தரவுத்தளத்தைத் திறக்க உங்கள் சாதன நற்சான்றிதழைப் பயன்படுத்தலாம்</string>
     <string name="biometric_delete_all_key_title">குறியாக்க விசைகளை நீக்கு</string>
     <string name="biometric_delete_all_key_summary">சாதன திறத்தல் ஏற்பு தொடர்பான அனைத்து குறியாக்க விசைகளையும் நீக்கு</string>
@@ -497,7 +497,7 @@
     <string name="underline">அடிக்கோடிட்டு</string>
     <string name="unsupported_db_version">ஆதரிக்கப்படாத தரவுத்தள பதிப்பு.</string>
     <string name="warning_database_link_revoked">கோப்பு மேலாளரால் ரத்து செய்யப்பட்ட கோப்பிற்கான அணுகல்</string>
-    <string name="warning_empty_recycle_bin">மறுசுழற்சி தொட்டியில் இருந்து அனைத்து முனைகளையும் நிரந்தரமாக நீக்கவா?</string>
+    <string name="warning_empty_recycle_bin">மறுசுழற்சி தொட்டியில் இருந்து அனைத்து முனைகளையும் நிரந்தரமாக நீக்கவா? இதைச் செயல்தவிர்க்க முடியாது.</string>
     <string name="warning_file_too_big">ஒரு கீப்ச் தரவுத்தளத்தில் சிறிய பயன்பாட்டு கோப்புகள் மட்டுமே இருக்க வேண்டும் (பிசிபி விசை கோப்புகள் போன்றவை).\n\n உங்கள் தரவுத்தளம் மிகப் பெரியதாகி இந்த பதிவேற்றத்துடன் செயல்திறனைக் குறைக்கலாம்.</string>
     <string name="warning_sure_add_file">எப்படியும் கோப்பைச் சேர்க்கவா?</string>
     <string name="warning_sure_remove_data">இந்த தரவை எப்படியும் அகற்றவா?</string>
@@ -731,4 +731,6 @@
     <string name="group_drag_handle">வரிசையை மாற்ற இழுக்கவும்</string>
     <string name="donation_title">❤️ இந்தத் திட்டத்தை ஆதரியுங்கள்</string>
     <string name="donation_text">இலவசம், திறந்த மூலம் மற்றும் விருப்பத்தேர்வு. நன்கொடைகள் அம்சங்களைத் திறக்காது, ஆதரவைக் குறிக்காது.</string>
+    <string name="menu_restore">மீட்டெடு</string>
+    <string name="warning_move_nodes_to_recycle_bin">தேர்ந்தெடுக்கப்பட்ட உருப்படிகளை மறுசுழற்சி தொட்டிக்கு நகர்த்தவா?</string>
 </resources>

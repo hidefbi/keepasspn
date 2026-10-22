@@ -484,14 +484,14 @@
     <string name="properties">Propietateak</string>
     <string name="temp_device_unlock_timeout_summary">Desblokeatze aurreratua erabiltzeko denbora bere edukia ezabatu aurretik</string>
     <string name="warning_empty_keyfile_explanation">Fitxategi-gakoko edukia ez litzake inoiz aldatu beharko, eta kasu hoberenetan, ausaz sortutako datuak eduki beharko lituzke.</string>
-    <string name="warning_empty_recycle_bin">Ezabatu betirako nodo guztiak zakarrontzitik\?</string>
+    <string name="warning_empty_recycle_bin">Ezabatu betirako nodo guztiak zakarrontzitik\? Ekintza hau ezin da desegin.</string>
     <string name="warning_database_info_changed">Zure datu-base fitxategiko informazioa aplikaziotik kanpo aldatu da.</string>
     <string name="configure_biometric">Ez dago kredentzial biometrikorik gailuan.</string>
     <string name="warning_file_too_big">KeePass datu-basea soilik baliagarritasun txikiko fitxategiak (PGP gakoak) edukitzeko dago pentsatuta.
 \n
 \nIgoera honekin, zure datu-basea asko handitu daiteke eta errendimenduari eragin diezaioke.</string>
     <string name="warning_database_already_opened">Dagoeneko datu-base bat irekita dago, itxi ezazu beste bat ireki ahal izateko</string>
-    <string name="warning_permanently_delete_nodes">Ezabatu betiko hautatutako nodoak\?</string>
+    <string name="warning_permanently_delete_nodes">Ezabatu betiko hautatutako nodoak\? Ekintza hau ezin da desegin.</string>
     <string name="warning_sure_add_file">Gehitu fitxategia edonola ere\?</string>
     <string name="temp_device_unlock_enable_summary">Ez gorde zifratutako edukirik gailu desblokeatzea erabiltzeko</string>
     <string name="temp_device_unlock_timeout_title">Gailu desblokeatzearen iraungitzea</string>
@@ -685,4 +685,6 @@
     <string name="group_drag_handle">Arrastatu ordena aldatzeko</string>
     <string name="donation_title">❤️ Babestu proiektu hau</string>
     <string name="donation_text">Doan, kode irekia eta aukerakoa. Dohaintzek ez dituzte funtzioak desblokeatzen, ez eta babesa esan nahi ere.</string>
+    <string name="menu_restore">Berreskuratu</string>
+    <string name="warning_move_nodes_to_recycle_bin">Zabor-kutxara eraman hautatutako elementuak?</string>
 </resources>

@@ -489,6 +489,10 @@ class NodesAdapter(
         return sortNode == SortNodeEnum.DB && sortNodeParameters.groupsBefore
     }
 
+    fun isNodeReorderAllowed(): Boolean {
+        return sortNode == SortNodeEnum.DB
+    }
+
     fun isGroupAt(position: Int): Boolean {
         return position >= 0 && position < mNodeSortedList.size()
                 && mNodeSortedList.get(position) is GroupInfo

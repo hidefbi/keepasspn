@@ -297,7 +297,7 @@
     <string name="content_description_add_item">Adicionar item</string>
     <string name="error_otp_digits">O token tem de ter entre %1$d e %2$d dígitos.</string>
     <string name="max_history_items_title">Número máximo</string>
-    <string name="warning_permanently_delete_nodes">Eliminar permanentemente os nós selecionados\?</string>
+    <string name="warning_permanently_delete_nodes">Eliminar permanentemente os nós selecionados\? Esta ação não pode ser anulada.</string>
     <string name="max_history_size_title">Tamanho máximo</string>
     <string name="recycle_bin_group_title">Grupo do caixote da reciclagem</string>
     <string name="otp_secret">Segredo</string>
@@ -412,7 +412,7 @@
     <string name="warning_database_revoked">Acesso ao ficheiro revogado pelo gestor de ficheiros. Feche a base de dados e reabra-a a partir da sua localização.</string>
     <string name="warning_database_info_changed_options">Unir os dados, substituir as alterações externas guardado a base de dados ou recarregá-los com as últimas alterações.</string>
     <string name="warning_database_info_changed">A informação contida no seu ficheiro da base de dados foi alterada fora da aplicação.</string>
-    <string name="warning_empty_recycle_bin">Eliminar permanentemente todos os nós do caixote da reciclagem\?</string>
+    <string name="warning_empty_recycle_bin">Eliminar permanentemente todos os nós do caixote da reciclagem\? Esta ação não pode ser anulada.</string>
     <string name="save_mode">Modo de guardar</string>
     <string name="search_mode">Modo de pesquisa</string>
     <string name="menu_keystore_remove_key">Eliminar a chave de desbloqueio do dispositivo</string>
@@ -779,4 +779,6 @@
     <string name="group_drag_handle">Arraste para reordenar</string>
     <string name="donation_title">❤️ Apoie este projeto</string>
     <string name="donation_text">Gratuito, de código aberto e opcional. As doações não desbloqueiam funcionalidades nem implicam apoio.</string>
+    <string name="menu_restore">Restaurar</string>
+    <string name="warning_move_nodes_to_recycle_bin">Mover os itens selecionados para o lixo?</string>
 </resources>

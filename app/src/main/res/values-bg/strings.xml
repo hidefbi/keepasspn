@@ -426,7 +426,7 @@
     <string name="rounds_explanation">По-големият брой преобразувания дава по-добра устойчивост срещу атаки с груба сила, но може сериозно да забави зареждането изапазването.</string>
     <string name="warning_sure_remove_data">Премахване на данните въпреки това?</string>
     <string name="build_label">Компилация %1$s</string>
-    <string name="warning_permanently_delete_nodes">Безвъзвратно премахване на избраните възли?</string>
+    <string name="warning_permanently_delete_nodes">Безвъзвратно премахване на избраните възли? Това действие не може да бъде отменено.</string>
     <string name="warning_database_link_revoked">Достъпът до файла е оттеглен от приложението за управление на файлове</string>
     <string name="warning_empty_password">Продължаване без парола за защита на хранилището?</string>
     <string name="warning_no_encryption_key">Продължаване без ключ за шифроване?</string>
@@ -449,7 +449,7 @@
     <string name="database_opened">Хранилището е отключено</string>
     <string name="ask">Питане</string>
     <string name="later">По-късно</string>
-    <string name="warning_empty_recycle_bin">Безвъзвратно премахване на всички възли в кошчето?</string>
+    <string name="warning_empty_recycle_bin">Безвъзвратно премахване на всички възли в кошчето? Това действие не може да бъде отменено.</string>
     <string name="parallelism_explanation">Степен на едновременно изпълняване (т.е. брой нишки), използвана от функцията за извличане на ключове.</string>
     <string name="warning_password_encoding">Избягвайте да използвате в паролите знаци, които не са от кодировката на текста на хранилището (такива знаци ще бъдат превърнати в една буква).</string>
     <string name="warning_file_too_big">Предполага се, че хранилищата на KeePass съдържат само малки служебни файлове (например файлове с ключове на PGP).
@@ -766,4 +766,6 @@
     <string name="group_drag_handle">Плъзнете, за да пренаредите</string>
     <string name="donation_title">❤️ Подкрепете проекта</string>
     <string name="donation_text">Безплатно, с отворен код и по желание. Даренията не отключват функции и не означават подкрепа.</string>
+    <string name="menu_restore">Възстановяване</string>
+    <string name="warning_move_nodes_to_recycle_bin">Да преместя ли избраните елементи в кошчето?</string>
 </resources>

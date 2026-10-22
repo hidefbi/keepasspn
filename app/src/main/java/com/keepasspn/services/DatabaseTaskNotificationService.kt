@@ -55,6 +55,8 @@ import com.keepasspn.database.action.node.AddGroupRunnable
 import com.keepasspn.database.action.node.AddOtpEntriesRunnable
 import com.keepasspn.database.action.node.AfterActionNodesFinish
 import com.keepasspn.database.action.node.CopyNodesRunnable
+import com.keepasspn.database.action.node.ReorderEntryRunnable
+import com.keepasspn.database.action.node.RestoreNodesRunnable
 import com.keepasspn.database.action.node.DeleteNodesRunnable
 import com.keepasspn.database.action.node.MoveNodesRunnable
 import com.keepasspn.database.action.node.ReorderGroupRunnable
@@ -367,6 +369,9 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
             ACTION_DATABASE_MOVE_NODES_TASK -> buildDatabaseMoveNodesActionTask(intent, database)
             ACTION_DATABASE_DELETE_NODES_TASK -> buildDatabaseDeleteNodesActionTask(intent, database)
             ACTION_DATABASE_REORDER_GROUP_TASK -> buildDatabaseReorderGroupActionTask(intent, database)
+            ACTION_DATABASE_REORDER_ENTRY_TASK -> buildDatabaseReorderEntryActionTask(intent, database)
+            ACTION_DATABASE_RESTORE_NODES_TASK -> buildDatabaseRestoreNodesActionTask(intent, database)
+            ACTION_DATABASE_DUPLICATE_NODES_TASK -> buildDatabaseDuplicateNodesActionTask(intent, database)
             ACTION_DATABASE_RESTORE_ENTRY_HISTORY -> buildDatabaseRestoreEntryHistoryActionTask(intent, database)
             ACTION_DATABASE_DELETE_ENTRY_HISTORY -> buildDatabaseDeleteEntryHistoryActionTask(intent, database)
             ACTION_DATABASE_UPDATE_COMPRESSION_TASK -> buildDatabaseUpdateCompressionActionTask(intent, database)
@@ -1219,6 +1224,89 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         }
     }
 
+    private fun buildDatabaseDuplicateNodesActionTask(
+        intent: Intent,
+        database: ContextualDatabase,
+    ): ActionRunnable? {
+        return if (intent.hasExtra(PARENT_ID_KEY)
+            && intent.hasExtra(GROUPS_ID_KEY)
+            && intent.hasExtra(ENTRIES_ID_KEY)
+            && intent.hasExtra(COPY_TITLE_SUFFIX_KEY)
+            && intent.hasExtra(SAVE_DATABASE_KEY)
+        ) {
+            val parentId: GroupId = intent.getParcelableExtraCompat(PARENT_ID_KEY) ?: return null
+            val groupsIds = intent.getParcelableList<GroupId>(GROUPS_ID_KEY) ?: listOf()
+            val entriesIds = intent.getParcelableList<EntryId>(ENTRIES_ID_KEY) ?: listOf()
+            val saveDatabase = intent.getBooleanExtra(SAVE_DATABASE_KEY, false)
+            CopyNodesRunnable(
+                context = this,
+                database = database,
+                newParentId = parentId,
+                groupsIdsToCopy = groupsIds,
+                entriesIdsToCopy = entriesIds,
+                copyTitleSuffix = intent.getStringExtra(COPY_TITLE_SUFFIX_KEY),
+                save = !database.isReadOnly && saveDatabase,
+                afterActionNodesFinish = AfterActionNodesRunnable()
+            ) { hardwareKey, seed ->
+                retrieveResponseFromChallenge(hardwareKey, seed)
+            }
+        } else {
+            null
+        }
+    }
+
+    private fun buildDatabaseRestoreNodesActionTask(
+        intent: Intent,
+        database: ContextualDatabase,
+    ): ActionRunnable? {
+        return if (intent.hasExtra(GROUPS_ID_KEY)
+            && intent.hasExtra(ENTRIES_ID_KEY)
+            && intent.hasExtra(SAVE_DATABASE_KEY)
+        ) {
+            val groupsIds = intent.getParcelableList<GroupId>(GROUPS_ID_KEY) ?: listOf()
+            val entriesIds = intent.getParcelableList<EntryId>(ENTRIES_ID_KEY) ?: listOf()
+            val saveDatabase = intent.getBooleanExtra(SAVE_DATABASE_KEY, false)
+            RestoreNodesRunnable(
+                context = this,
+                database = database,
+                groupsIdsToRestore = groupsIds,
+                entriesIdsToRestore = entriesIds,
+                save = !database.isReadOnly && saveDatabase,
+                afterActionNodesFinish = AfterActionNodesRunnable()
+            ) { hardwareKey, seed ->
+                retrieveResponseFromChallenge(hardwareKey, seed)
+            }
+        } else {
+            null
+        }
+    }
+
+    private fun buildDatabaseReorderEntryActionTask(
+        intent: Intent,
+        database: ContextualDatabase,
+    ): ActionRunnable? {
+        return if (intent.hasExtra(REORDER_ENTRY_ID_KEY)
+            && intent.hasExtra(REORDER_TARGET_INDEX_KEY)
+            && intent.hasExtra(SAVE_DATABASE_KEY)
+        ) {
+            val entryId: EntryId = intent.getParcelableExtraCompat(REORDER_ENTRY_ID_KEY) ?: return null
+            val targetIndex = intent.getIntExtra(REORDER_TARGET_INDEX_KEY, 0)
+            val saveDatabase = intent.getBooleanExtra(SAVE_DATABASE_KEY, false)
+            ReorderEntryRunnable(
+                context = this,
+                database = database,
+                entryId = entryId,
+                targetIndex = targetIndex,
+                save = !database.isReadOnly && saveDatabase,
+                afterActionNodesFinish = AfterActionNodesRunnable()
+            ) { hardwareKey, seed ->
+                retrieveResponseFromChallenge(hardwareKey, seed)
+            }
+        } else {
+            null
+        }
+    }
+
     private fun buildDatabaseReorderGroupActionTask(
         intent: Intent,
         database: ContextualDatabase,
@@ -1507,6 +1595,11 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         const val ACTION_DATABASE_REORDER_GROUP_TASK = "ACTION_DATABASE_REORDER_GROUP_TASK"
         const val REORDER_GROUP_ID_KEY = "REORDER_GROUP_ID_KEY"
         const val REORDER_TARGET_INDEX_KEY = "REORDER_TARGET_INDEX_KEY"
+        const val ACTION_DATABASE_REORDER_ENTRY_TASK = "ACTION_DATABASE_REORDER_ENTRY_TASK"
+        const val ACTION_DATABASE_RESTORE_NODES_TASK = "ACTION_DATABASE_RESTORE_NODES_TASK"
+        const val ACTION_DATABASE_DUPLICATE_NODES_TASK = "ACTION_DATABASE_DUPLICATE_NODES_TASK"
+        const val REORDER_ENTRY_ID_KEY = "REORDER_ENTRY_ID_KEY"
+        const val COPY_TITLE_SUFFIX_KEY = "COPY_TITLE_SUFFIX_KEY"
         const val ACTION_DATABASE_RESTORE_ENTRY_HISTORY = "ACTION_DATABASE_RESTORE_ENTRY_HISTORY"
         const val ACTION_DATABASE_DELETE_ENTRY_HISTORY = "ACTION_DATABASE_DELETE_ENTRY_HISTORY"
         const val ACTION_DATABASE_UPDATE_NAME_TASK = "ACTION_DATABASE_UPDATE_NAME_TASK"

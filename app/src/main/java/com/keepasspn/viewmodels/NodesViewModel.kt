@@ -53,8 +53,8 @@ class NodesViewModel : ViewModel() {
     /**
      * Shared flow for requesting to show the delete dialog.
      */
-    private val _shouldShowDeleteDialog = MutableSharedFlow<Boolean>()
-    val shouldShowDeleteDialog: SharedFlow<Boolean> = _shouldShowDeleteDialog.asSharedFlow()
+    private val _shouldShowDeleteDialog = MutableSharedFlow<Pair<Boolean, Boolean>>()
+    val shouldShowDeleteDialog: SharedFlow<Pair<Boolean, Boolean>> = _shouldShowDeleteDialog.asSharedFlow()
 
     /**
      * Start the deletion process of nodes.
@@ -72,13 +72,11 @@ class NodesViewModel : ViewModel() {
         if (database.isRecycleBinEnabled) {
             database.ensureRecycleBinExists(recycleBinName)
         }
-        if (database.eachNodeRecyclable(nodes)) {
-            permanentlyDeleteNodes(nodes)
-        } else {
-            _nodesToDelete.value = nodes
-            viewModelScope.launch {
-                _shouldShowDeleteDialog.emit(recycleBin)
-            }
+        // Always ask before deleting, whether the nodes go to the recycle bin or are deleted permanently
+        val toRecycleBin = database.eachNodeRecyclable(nodes)
+        _nodesToDelete.value = nodes
+        viewModelScope.launch {
+            _shouldShowDeleteDialog.emit(Pair(recycleBin, toRecycleBin))
         }
     }
 

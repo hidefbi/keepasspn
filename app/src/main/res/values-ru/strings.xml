@@ -327,7 +327,7 @@
     <string name="menu_save_database">Сохранить данные</string>
     <string name="menu_empty_recycle_bin">Очистить \"корзину\"</string>
     <string name="command_execution">Выполнение команды…</string>
-    <string name="warning_permanently_delete_nodes">Безвозвратно удалить выбранные элементы\?</string>
+    <string name="warning_permanently_delete_nodes">Безвозвратно удалить выбранные элементы\? Это действие нельзя отменить.</string>
     <string name="keystore_not_accessible">Хранилище ключей не инициализировано должным образом.</string>
     <string name="recycle_bin_group_title">Группа \"корзины\"</string>
     <string name="enable_auto_save_database_title">Автосохранение базы</string>
@@ -416,7 +416,7 @@
     <string name="autofill_close_database_title">Закрывать базу</string>
     <string name="notification">Уведомление</string>
     <string name="biometric_security_update_required">Требуется обновление биометрической системы безопасности.</string>
-    <string name="warning_empty_recycle_bin">Удалить всё содержимое корзины безвозвратно\?</string>
+    <string name="warning_empty_recycle_bin">Удалить всё содержимое корзины безвозвратно\? Это действие нельзя отменить.</string>
     <string name="save_mode">Режим записи</string>
     <string name="search_mode">Режим поиска</string>
     <string name="error_registration_read_only">Сохранение новых записей невозможно, т.к. база открыта только для чтения.</string>
@@ -790,4 +790,6 @@
     <string name="group_drag_handle">Перетащите, чтобы изменить порядок</string>
     <string name="donation_title">❤️ Поддержите проект</string>
     <string name="donation_text">Бесплатно, с открытым исходным кодом и по желанию. Пожертвования не открывают функции и не означают поддержку.</string>
+    <string name="menu_restore">Восстановить</string>
+    <string name="warning_move_nodes_to_recycle_bin">Переместить выбранные элементы в корзину?</string>
 </resources>

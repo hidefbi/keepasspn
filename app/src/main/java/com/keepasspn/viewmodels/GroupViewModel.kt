@@ -91,6 +91,9 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
         .map { it.selectedNodes }
         .stateIn(viewModelScope, SharingStarted.Lazily, listOf())
 
+    // Node long pressed, used by the node actions sheet
+    private var mPendingNodeAction: SortedNodeInfo? = null
+
     private val _groupUIState = MutableStateFlow<GroupUISTate>(GroupUISTate())
     val groupUIState: StateFlow<GroupUISTate> = _groupUIState.asStateFlow()
 
@@ -410,6 +413,75 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    /**
+     * Long press on a node shows its actions in a bottom sheet.
+     * @param reorderAllowed true when the database is sorted by its own (manual) order
+     */
+    fun onNodeLongClick(node: SortedNodeInfo, reorderAllowed: Boolean) {
+        mPendingNodeAction = node
+        val siblings = siblingsOf(node)
+        val index = siblings.indexOfFirst { it.nodeId == node.nodeId }
+        val canMoveUp = reorderAllowed && index > 0
+        val canMoveDown = reorderAllowed && index >= 0 && index < siblings.size - 1
+        viewModelScope.launch {
+            _viewEvent.emit(GroupEvent.ShowNodeActions(node, canMoveUp, canMoveDown))
+        }
+    }
+
+    fun onNodeAction(action: NodeAction) {
+        val node = mPendingNodeAction ?: return
+        mPendingNodeAction = null
+        when (action) {
+            NodeAction.EDIT -> viewModelScope.launch {
+                when (node) {
+                    is GroupInfo -> _viewEvent.emit(GroupEvent.EditGroup(node))
+                    is EntryInfo -> _viewEvent.emit(GroupEvent.EditEntry(node))
+                }
+            }
+            NodeAction.DUPLICATE -> viewModelScope.launch {
+                _viewEvent.emit(GroupEvent.DuplicateNodes(listOf(node).toNodes()))
+            }
+            NodeAction.MOVE_UP, NodeAction.MOVE_DOWN -> {
+                val siblings = siblingsOf(node)
+                val index = siblings.indexOfFirst { it.nodeId == node.nodeId }
+                val targetIndex = if (action == NodeAction.MOVE_UP) index - 1 else index + 1
+                if (index >= 0 && targetIndex in siblings.indices) {
+                    viewModelScope.launch {
+                        _viewEvent.emit(GroupEvent.ReorderNode(node, targetIndex))
+                    }
+                }
+            }
+            NodeAction.DELETE -> {
+                selectNodes(listOf(node))
+                onDeleteNodesClicked()
+            }
+            NodeAction.RESTORE -> viewModelScope.launch {
+                _viewEvent.emit(GroupEvent.RestoreNodes(listOf(node).toNodes()))
+            }
+        }
+    }
+
+    /**
+     * Enters selection mode without selecting anything, for the multi-selection menu item.
+     */
+    fun startNodeSelection() {
+        _nodeActionState.update {
+            it.copy(
+                isActive = true,
+                nodeActionMode = NodeActionMode.SELECTION,
+                selectedNodes = emptyList()
+            )
+        }
+    }
+
+    /**
+     * Nodes of the same kind (group or entry) as the given node, in display order.
+     */
+    private fun siblingsOf(node: SortedNodeInfo): List<SortedNodeInfo> {
+        val isGroup = node is GroupInfo
+        return groupUIState.value.children.orEmpty().filter { (it is GroupInfo) == isGroup }
+    }
+
     fun onDeleteNodesClicked() {
         val nodes = _nodeActionState.value.selectedNodes
         if (nodes.isNotEmpty()) {
@@ -560,6 +632,14 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
         data class ShowPosition(val position: Int, val offset: Int) : GroupEvent()
         data class ScrollTo(val dy: Int) : GroupEvent()
         data class SortSelected(val sortNode: SortNode) : GroupEvent()
+        data class ShowNodeActions(
+            val node: SortedNodeInfo,
+            val canMoveUp: Boolean,
+            val canMoveDown: Boolean
+        ) : GroupEvent()
+        data class DuplicateNodes(val nodes: Nodes) : GroupEvent()
+        data class ReorderNode(val node: SortedNodeInfo, val targetIndex: Int) : GroupEvent()
+        data class RestoreNodes(val nodes: Nodes) : GroupEvent()
         object ClearSearch : GroupEvent()
     }
 
@@ -595,6 +675,10 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
         val sortNodeParameters: SortNodeEnum.SortNodeParameters? = null,
         val sortDatabaseParameters: SortNodeEnum.SortDatabaseParameters? = null
     )
+
+    enum class NodeAction {
+        EDIT, DUPLICATE, MOVE_UP, MOVE_DOWN, DELETE, RESTORE
+    }
 
     enum class NodeActionMode {
         SELECTION, PASTE_FROM_COPY, PASTE_FROM_MOVE

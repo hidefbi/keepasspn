@@ -352,6 +352,42 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
         )
     }
 
+    fun reorderEntry(
+        entryId: EntryId,
+        targetIndex: Int,
+        save: Boolean
+    ) {
+        mDatabaseTaskProvider.startDatabaseReorderEntry(
+            entryId = entryId,
+            targetIndex = targetIndex,
+            save = save
+        )
+    }
+
+    fun restoreNodes(
+        nodesToRestore: Nodes,
+        save: Boolean
+    ) {
+        mDatabaseTaskProvider.startDatabaseRestoreNodes(
+            nodesToRestore = nodesToRestore,
+            save = save
+        )
+    }
+
+    fun duplicateNodes(
+        newParentId: GroupId,
+        nodesToDuplicate: Nodes,
+        copyTitleSuffix: String,
+        save: Boolean
+    ) {
+        mDatabaseTaskProvider.startDatabaseDuplicateNodes(
+            parentId = newParentId,
+            nodes = nodesToDuplicate,
+            copyTitleSuffix = copyTitleSuffix,
+            save = save
+        )
+    }
+
     fun moveNodes(
         newParentId: GroupId,
         nodesToMove: Nodes,

@@ -342,7 +342,7 @@
     <string name="warning_database_link_revoked">Failihaldur keelas ligipääsu failile</string>
     <string name="warning_database_already_opened">Üks andmebaas on juba avatud, enne uue avamist esmalt sulge eelmine andmebaas</string>
     <string name="warning_no_encryption_key">Kas jätkame ilma krüptivõtmeta?</string>
-    <string name="warning_empty_recycle_bin">Kas kustutame kõik prügikastis asuvad sõlmed jäädavalt?</string>
+    <string name="warning_empty_recycle_bin">Kas kustutame kõik prügikastis asuvad sõlmed jäädavalt? Seda toimingut ei saa tagasi võtta.</string>
     <string name="warning_sure_add_file">Kas ikkagi lisame faili?</string>
     <string name="warning_replace_file">Selle faili üleslaadimine asendab olemasoleva faili.</string>
     <string name="warning_database_info_changed_options_read_only">Palun laadi andmebaas uuesti koos viimaste muudatustega.</string>
@@ -360,7 +360,7 @@
     <string name="character_count">Tähemärkide arv: %1$d</string>
     <string name="screenshot_mode_banner_text">Ekraanitõmmise režiim</string>
     <string name="error_disallow_no_credentials">Vähemalt üks autentimise vahend peab olema sisestatud.</string>
-    <string name="warning_permanently_delete_nodes">Kas kustutame valitud sõlmed jäädavalt?</string>
+    <string name="warning_permanently_delete_nodes">Kas kustutame valitud sõlmed jäädavalt? Seda toimingut ei saa tagasi võtta.</string>
     <string name="show_otp_token_title">Näita ühekordse salasõna tunnusluba</string>
     <string name="show_otp_token_summary">Vaikimisi kuvab ühekordse salasõna koode</string>
     <string name="compression">Pakkimine</string>
@@ -748,4 +748,6 @@
     <string name="group_drag_handle">Lohistage järjestuse muutmiseks</string>
     <string name="donation_title">❤️ Toeta seda projekti</string>
     <string name="donation_text">Tasuta, avatud lähtekoodiga ja vabatahtlik. Annetused ei ava funktsioone ega tähenda toetust.</string>
+    <string name="menu_restore">Taasta</string>
+    <string name="warning_move_nodes_to_recycle_bin">Kas teisaldada valitud üksused prügikasti?</string>
 </resources>

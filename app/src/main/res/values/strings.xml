@@ -342,8 +342,8 @@
     <string name="warning_database_already_opened">A database is already open, close it first to open the new one</string>
     <string name="warning_empty_password">Continue without password unlocking protection?</string>
     <string name="warning_no_encryption_key">Continue without encryption key?</string>
-    <string name="warning_permanently_delete_nodes">Permanently delete selected nodes?</string>
-    <string name="warning_empty_recycle_bin">Permanently delete all nodes from the recycle bin?</string>
+    <string name="warning_permanently_delete_nodes">Permanently delete selected nodes? This cannot be undone.</string>
+    <string name="warning_empty_recycle_bin">Permanently delete all nodes from the recycle bin? This cannot be undone.</string>
     <string name="warning_file_too_big">A KeePass database is supposed to contain only small utility files (such as PGP key files).\n\nYour database may get very large and reduce performance with this upload.</string>
     <string name="warning_replace_file">Uploading this file will replace the existing one.</string>
     <string name="warning_sure_add_file">Add the file anyway?</string>
@@ -801,4 +801,6 @@
     <string name="donation_btc_address" translatable="false">bc1q34tccx8ttkqdpaywugmdvhamqmc9uhh9qttqn7</string>
     <string name="donation_eth_address" translatable="false">0x21ac40d9afec1e6fd3c0abe730911da4a03d1d98</string>
     <string name="donation_xmr_address" translatable="false">45FU335cDyD71wiG9XxBLaDrxRmqt15p5gHi1yu12ciabYDys7wrifWgFbQ5CC8F5Yj1DRvNtcVxRPjGwaCsRH7mAwDFkwx</string>
+    <string name="menu_restore">Restore</string>
+    <string name="warning_move_nodes_to_recycle_bin">Move the selected items to the recycle bin?</string>
 </resources>

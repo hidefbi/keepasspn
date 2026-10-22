@@ -335,7 +335,7 @@
     <string name="unavailable">Недоступно</string>
     <string name="keystore_not_accessible">Сховище ключів ініціалізовано неправильно.</string>
     <string name="build_label">Збірка %1$s</string>
-    <string name="warning_permanently_delete_nodes">Остаточно видалити вибрані вузли?</string>
+    <string name="warning_permanently_delete_nodes">Остаточно видалити вибрані вузли? Цю дію не можна скасувати.</string>
     <string name="warning_no_encryption_key">Продовжити без ключа шифрування\?</string>
     <string name="warning_empty_password">Продовжити без захисту паролем для розблокування?</string>
     <string name="warning_database_link_revoked">Файловий менеджер відкликав доступ до файлу</string>
@@ -404,7 +404,7 @@
     <string name="notification">Сповіщення</string>
     <string name="biometric_security_update_required">Потрібне оновлення біометричної безпеки.</string>
     <string name="configure_biometric">Біометричні дані або облікові дані пристрою не налаштовано.</string>
-    <string name="warning_empty_recycle_bin">Остаточно видалити всі вузли з кошика?</string>
+    <string name="warning_empty_recycle_bin">Остаточно видалити всі вузли з кошика? Цю дію не можна скасувати.</string>
     <string name="save_mode">Режим збереження</string>
     <string name="search_mode">Режим пошуку</string>
     <string name="error_registration_read_only">У базі даних, відкритій лише для читання, не можна зберігати новий елемент.</string>
@@ -770,4 +770,6 @@
     <string name="group_drag_handle">Перетягніть, щоб змінити порядок</string>
     <string name="donation_title">❤️ Підтримайте проєкт</string>
     <string name="donation_text">Безкоштовно, з відкритим кодом і за бажанням. Пожертви не відкривають функції та не означають підтримки.</string>
+    <string name="menu_restore">Відновити</string>
+    <string name="warning_move_nodes_to_recycle_bin">Перемістити вибрані елементи до кошика?</string>
 </resources>

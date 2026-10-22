@@ -272,9 +272,9 @@
     <string name="special">พิเศษ</string>
     <string name="underline">ขีดเส้นใต้</string>
     <string name="warning_empty_password">ดำเนินการต่อโดยไม่มีการป้องกันด้วยรหัสผ่าน?</string>
-    <string name="warning_permanently_delete_nodes">ลบโหนดที่เลือกอย่างถาวรหรือไม่?</string>
+    <string name="warning_permanently_delete_nodes">ลบโหนดที่เลือกอย่างถาวรหรือไม่? ไม่สามารถยกเลิกการดำเนินการนี้ได้</string>
     <string name="warning_no_encryption_key">ดําเนินการต่อโดยไม่มีกุญแจการเข้ารหัส?</string>
-    <string name="warning_empty_recycle_bin">ลบโหนดทั้งหมดออกจากถังขยะอย่างถาวรหรือไม่?</string>
+    <string name="warning_empty_recycle_bin">ลบโหนดทั้งหมดออกจากถังขยะอย่างถาวรหรือไม่? ไม่สามารถยกเลิกการดำเนินการนี้ได้</string>
     <string name="warning_replace_file">การอัปโหลดไฟล์นี้จะแทนที่ไฟล์ที่มีอยู่</string>
     <string name="warning_remove_unlinked_attachment">การลบข้อมูลที่ไม่ได้เชื่อมโยงอาจลดขนาดฐานข้อมูลของคุณ แต่อาจลบข้อมูลที่ใช้สำหรับปลั๊กอิน KeePass ด้วย</string>
     <string name="entry_title">หัวเรื่อง</string>
@@ -731,4 +731,6 @@
     <string name="group_drag_handle">ลากเพื่อจัดลำดับใหม่</string>
     <string name="donation_title">❤️ สนับสนุนโครงการนี้</string>
     <string name="donation_text">ฟรี โอเพนซอร์ส และไม่บังคับ การบริจาคไม่ได้ปลดล็อกฟีเจอร์และไม่ได้หมายถึงการสนับสนุน</string>
+    <string name="menu_restore">กู้คืน</string>
+    <string name="warning_move_nodes_to_recycle_bin">ย้ายรายการที่เลือกไปยังถังรีไซเคิลหรือไม่?</string>
 </resources>

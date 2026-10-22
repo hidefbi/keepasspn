@@ -497,13 +497,13 @@
     <string name="warning_empty_keyfile">不推薦添加空的密鑰檔案。</string>
     <string name="warning_empty_keyfile_explanation">密鑰檔案的內容應該永不更改，在最好的情況下，應該包含隨機生成的資料。</string>
     <string name="warning_empty_password">確定不使用密碼？</string>
-    <string name="warning_empty_recycle_bin">從回收桶永久刪除所有節點？</string>
+    <string name="warning_empty_recycle_bin">從回收桶永久刪除所有節點？ 此操作無法復原。</string>
     <string name="warning_file_too_big">KeePass 資料庫應該只包含實用的小檔案（例如 PGP 密鑰檔案）。
 \n
 \n否則你的資料庫可能會變得非常大，而這會減少數據上傳的表現。</string>
     <string name="warning_no_encryption_key">確定不使用加密密鑰？</string>
     <string name="warning_password_encoding">避免在資料庫中保存編碼格式外字符的密碼（未辨識的字符將轉換為同一字符）。</string>
-    <string name="warning_permanently_delete_nodes">確定永久刪除已選項目？</string>
+    <string name="warning_permanently_delete_nodes">確定永久刪除已選項目？ 此操作無法復原。</string>
     <string name="warning_remove_unlinked_attachment">刪除未連結的資料可能會減少資料庫的大小，但也可能會刪除用於 KeePass 插件的資料。</string>
     <string name="warning_replace_file">上傳此檔案會取代現有的檔案。</string>
     <string name="warning_sure_add_file">仍要新增檔案？</string>
@@ -770,4 +770,6 @@
     <string name="group_drag_handle">拖曳以調整順序</string>
     <string name="donation_title">❤️ 支持這個專案</string>
     <string name="donation_text">免費、開源且可選。捐贈不會解鎖任何功能，也不代表支持。</string>
+    <string name="menu_restore">復原</string>
+    <string name="warning_move_nodes_to_recycle_bin">要將選取的項目移入資源回收筒嗎？</string>
 </resources>

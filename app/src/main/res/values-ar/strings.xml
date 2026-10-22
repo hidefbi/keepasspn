@@ -235,7 +235,7 @@
     <string name="content_description_keyfile_checkbox">خانة تأشير ملف المفتاح</string>
     <string name="content_description_password_checkbox">خانة تأشير كلمة السر</string>
     <string name="content_description_add_item">أضف عنصر</string>
-    <string name="warning_permanently_delete_nodes">هل تريد حذف العقد المحددة نهائياً؟</string>
+    <string name="warning_permanently_delete_nodes">هل تريد حذف العقد المحددة نهائياً؟ لا يمكن التراجع عن هذا الإجراء.</string>
     <string name="filter">تصفية</string>
     <string name="command_execution">جارٍ تنفيذ الأمر…</string>
     <string name="hide_broken_locations_title">إخفاء روابط قواعد البيانات المعطلة</string>
@@ -407,7 +407,7 @@
     <string name="hint_icon_name">اسم الأيقونة</string>
     <string name="autofill_manual_selection_title">الاختيار اليدوي</string>
     <string name="description_app_properties">خصائص KeePassPN لإدارة إعدادات التطبيقات</string>
-    <string name="warning_empty_recycle_bin">هل تريد حذف جميع العقد من سلة المحذوفات نهائياً؟</string>
+    <string name="warning_empty_recycle_bin">هل تريد حذف جميع العقد من سلة المحذوفات نهائياً؟ لا يمكن التراجع عن هذا الإجراء.</string>
     <string name="autofill_save_search_info_title">حفظ معلومات البحث</string>
     <string name="autofill_ask_to_save_data_title">اطلب حفظ البيانات</string>
     <string name="content_description_database_color">لون قاعدة البيانات</string>
@@ -764,4 +764,6 @@
     <string name="group_drag_handle">اسحب لإعادة الترتيب</string>
     <string name="donation_title">❤️ ادعم هذا المشروع</string>
     <string name="donation_text">مجاني ومفتوح المصدر واختياري. التبرعات لا تفتح أي ميزات ولا تعني الدعم.</string>
+    <string name="menu_restore">استعادة</string>
+    <string name="warning_move_nodes_to_recycle_bin">هل تريد نقل العناصر المحددة إلى سلة المحذوفات؟</string>
 </resources>

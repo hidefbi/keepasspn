@@ -91,8 +91,8 @@ abstract class DatabaseLockActivity : DatabaseModeActivity() {
                     }
                 }
                 launch {
-                    mNodesViewModel.shouldShowDeleteDialog.collect { recycleBin ->
-                        DeleteNodesDialogFragment.getInstance(recycleBin)
+                    mNodesViewModel.shouldShowDeleteDialog.collect { (recycleBin, toRecycleBin) ->
+                        DeleteNodesDialogFragment.getInstance(recycleBin, toRecycleBin)
                             .show(supportFragmentManager, "deleteNodesDialogFragment")
                     }
                 }
@@ -218,6 +218,18 @@ abstract class DatabaseLockActivity : DatabaseModeActivity() {
 
     fun reorderGroup(groupId: GroupId, targetIndex: Int) {
         mDatabaseViewModel.reorderGroup(groupId, targetIndex, mAutoSaveEnable)
+    }
+
+    fun reorderEntry(entryId: EntryId, targetIndex: Int) {
+        mDatabaseViewModel.reorderEntry(entryId, targetIndex, mAutoSaveEnable)
+    }
+
+    fun restoreNodes(nodes: Nodes) {
+        mDatabaseViewModel.restoreNodes(nodes, mAutoSaveEnable)
+    }
+
+    fun duplicateNodes(newParentId: GroupId, nodesToDuplicate: Nodes, copyTitleSuffix: String) {
+        mDatabaseViewModel.duplicateNodes(newParentId, nodesToDuplicate, copyTitleSuffix, mAutoSaveEnable)
     }
 
     fun importOtpEntries(otpModels: List<com.keepasspn.model.OtpModel>) {

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:id="@+id/node_actions_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="?android:attr/textColorPrimary" />
+
+        <TextView
+            android:id="@+id/node_actions_edit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:text="@string/menu_edit" />
+        <TextView
+            android:id="@+id/node_actions_duplicate"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:text="@string/menu_copy" />
+        <TextView
+            android:id="@+id/node_actions_move_up"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:text="@string/group_move_up" />
+        <TextView
+            android:id="@+id/node_actions_move_down"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:text="@string/group_move_down" />
+        <TextView
+            android:id="@+id/node_actions_restore"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:text="@string/menu_restore" />
+        <TextView
+            android:id="@+id/node_actions_delete"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textSize="16sp"
+            android:textColor="#D32F2F"
+            android:text="@string/menu_delete" />
+</LinearLayout>

@@ -305,7 +305,7 @@
     <string name="menu_save_database">Salva dati</string>
     <string name="menu_empty_recycle_bin">Svuota il cestino</string>
     <string name="command_execution">Esecuzione del comando…</string>
-    <string name="warning_permanently_delete_nodes">Vuoi eliminare definitivamente i nodi selezionati\?</string>
+    <string name="warning_permanently_delete_nodes">Vuoi eliminare definitivamente i nodi selezionati\? Questa operazione non può essere annullata.</string>
     <string name="entry_attachments">Allegati</string>
     <string name="auto_focus_search_summary">Richiedi una ricerca quando un database viene aperto</string>
     <string name="auto_focus_search_title">Ricerca rapida</string>
@@ -418,7 +418,7 @@
     <string name="keyboard_save_search_info_title">Salva le informazioni condivise</string>
     <string name="notification">Notifica</string>
     <string name="biometric_security_update_required">È necessario un aggiornamento della sicurezza biometrica.</string>
-    <string name="warning_empty_recycle_bin">Eliminare definitivamente tutti i nodi dal cestino\?</string>
+    <string name="warning_empty_recycle_bin">Eliminare definitivamente tutti i nodi dal cestino\? Questa operazione non può essere annullata.</string>
     <string name="save_mode">Modalità salvataggio</string>
     <string name="search_mode">Modalità ricerca</string>
     <string name="error_field_name_already_exists">Il nome del campo esiste già.</string>
@@ -793,4 +793,6 @@
     <string name="group_drag_handle">Trascina per riordinare</string>
     <string name="donation_title">❤️ Sostieni questo progetto</string>
     <string name="donation_text">Gratuito, open source e facoltativo. Le donazioni non sbloccano funzioni e non implicano un sostegno.</string>
+    <string name="menu_restore">Ripristina</string>
+    <string name="warning_move_nodes_to_recycle_bin">Spostare gli elementi selezionati nel cestino?</string>
 </resources>

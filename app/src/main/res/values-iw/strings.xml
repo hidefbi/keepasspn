@@ -354,7 +354,7 @@
     <string name="sort_last_modify_time">שינוי</string>
     <string name="encryption_explanation">אלגוריתם הצפנת מסד הנתונים המשמש לכל הנתונים</string>
     <string name="do_not_kill_app">אל תסגור את היישום…</string>
-    <string name="warning_permanently_delete_nodes">למחוק לצמיתות את הצמתים שנבחרו?</string>
+    <string name="warning_permanently_delete_nodes">למחוק לצמיתות את הצמתים שנבחרו? לא ניתן לבטל פעולה זו.</string>
     <string name="clipboard">לוח העתקה</string>
     <string name="database_opened">מסד הנתונים נפתח</string>
     <string name="education_entry_new_field_title">הוסף שדות מותאמים אישית</string>
@@ -465,7 +465,7 @@
     <string name="warning_sure_remove_data">להסיר את הנתונים האלה בכל מקרה?</string>
     <string name="warning_empty_keyfile">זה לא מומלץ להוסיף קובץ מפתח ריק.</string>
     <string name="warning_empty_keyfile_explanation">תוכן קובץ המפתח לעולם לא אמור להשתנות, ועדיף שיכיל נתונים שיוצרו רנדומלית.</string>
-    <string name="warning_empty_recycle_bin">למחוק לצמיתות את כל הצמתים מסל המחזור?</string>
+    <string name="warning_empty_recycle_bin">למחוק לצמיתות את כל הצמתים מסל המחזור? לא ניתן לבטל פעולה זו.</string>
     <string name="device_unlock_prompt_extract_credential_title">פתיחת נעילת המכשיר</string>
     <string name="device_unlock_prompt_extract_credential_message">פתיחת מסד נתונים עם אישורי מכשיר</string>
     <string name="device_unlock_invalid_key">לא ניתן לקרוא את מפתח ביטול נעילת המכשיר. נא למחוק אותו ולחזור על התהליך לזיהוי ביטול נעילה.</string>
@@ -761,4 +761,6 @@
     <string name="group_drag_handle">גרור כדי לשנות את הסדר</string>
     <string name="donation_title">❤️ תמכו בפרויקט</string>
     <string name="donation_text">חינמי, קוד פתוח ואופציונלי. תרומות אינן פותחות תכונות ואינן מהוות תמיכה.</string>
+    <string name="menu_restore">שחזור</string>
+    <string name="warning_move_nodes_to_recycle_bin">להעביר את הפריטים שנבחרו לסל המיחזור?</string>
 </resources>

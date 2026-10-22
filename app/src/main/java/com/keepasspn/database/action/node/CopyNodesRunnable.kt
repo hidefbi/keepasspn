@@ -37,6 +37,7 @@ class CopyNodesRunnable(
     newParentId: GroupId,
     val groupsIdsToCopy: List<GroupId>,
     val entriesIdsToCopy: List<EntryId>,
+    val copyTitleSuffix: String? = null,
     save: Boolean,
     afterActionNodesFinish: AfterActionNodesFinish?,
     challengeResponseRetriever: (HardwareKey, ByteArray?) -> ByteArray
@@ -71,6 +72,7 @@ class CopyNodesRunnable(
         for (currentNode in mGroupsToCopy) {
             try {
                 val groupCopied = database.copyGroupTo(currentNode, newParent)
+                copyTitleSuffix?.let { groupCopied.title = "${currentNode.title} $it" }
                 mGroupsCopied.add(groupCopied)
             } catch (_: Exception) {
                 setError(CopyGroupDatabaseException())
@@ -88,6 +90,7 @@ class CopyNodesRunnable(
                         entryToCopy = currentNode,
                         newParent = newParent
                     )
+                    copyTitleSuffix?.let { entryCopied.title = "${currentNode.title} $it" }
                     entryCopied.touch(modified = true, touchParents = true)
                     mEntriesCopied.add(entryCopied)
                 } catch (_: Exception) {

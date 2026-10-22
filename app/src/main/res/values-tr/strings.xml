@@ -321,7 +321,7 @@
     <string name="menu_save_database">Verileri kaydet</string>
     <string name="menu_empty_recycle_bin">Geri dönüşüm kutusunu boşalt</string>
     <string name="command_execution">Komut çalıştırılıyor…</string>
-    <string name="warning_permanently_delete_nodes">Seçilen düğümler kalıcı olarak silinsin mi\?</string>
+    <string name="warning_permanently_delete_nodes">Seçilen düğümler kalıcı olarak silinsin mi\? Bu işlem geri alınamaz.</string>
     <string name="keystore_not_accessible">Anahtar deposu düzgün bir şekilde başlatılmadı.</string>
     <string name="recycle_bin_group_title">Geri dönüşüm kutusu grubu</string>
     <string name="enable_auto_save_database_title">Veri tabanını otomatik kaydet</string>
@@ -410,7 +410,7 @@
     <string name="notification">Bildirim</string>
     <string name="biometric_security_update_required">Biyometrik güvenlik güncellemesi gerekli.</string>
     <string name="configure_biometric">Biyometrik bilgiler veya aygıt kimlik doğrulama bilgileri kaydedilmedi.</string>
-    <string name="warning_empty_recycle_bin">Geri dönüşüm kutusundaki tüm düğümler kalıcı olarak silinsin mi\?</string>
+    <string name="warning_empty_recycle_bin">Geri dönüşüm kutusundaki tüm düğümler kalıcı olarak silinsin mi\? Bu işlem geri alınamaz.</string>
     <string name="save_mode">Kaydetme modu</string>
     <string name="search_mode">Arama modu</string>
     <string name="error_registration_read_only">Salt okunur bir veri tabanında yeni bir öge kaydetmeye izin verilmiyor.</string>
@@ -781,4 +781,6 @@
     <string name="group_drag_handle">Sıralamak için sürükleyin</string>
     <string name="donation_title">❤️ Bu projeyi destekleyin</string>
     <string name="donation_text">Ücretsiz, açık kaynaklı ve isteğe bağlı. Bağışlar özellik açmaz ve destek anlamına gelmez.</string>
+    <string name="menu_restore">Geri yükle</string>
+    <string name="warning_move_nodes_to_recycle_bin">Seçili öğeler geri dönüşüm kutusuna taşınsın mı?</string>
 </resources>

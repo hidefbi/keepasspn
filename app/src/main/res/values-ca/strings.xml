@@ -149,7 +149,7 @@
     <string name="biometric">Biomètric</string>
     <string name="menu_appearance_settings">Aparença</string>
     <string name="database_history">Història</string>
-    <string name="warning_permanently_delete_nodes">Voleu suprimir definitivament els nodes seleccionats\?</string>
+    <string name="warning_permanently_delete_nodes">Voleu suprimir definitivament els nodes seleccionats\? Aquesta acció no es pot desfer.</string>
     <string name="warning_no_encryption_key">Voleu continuar sense contrasenya de xifratge\?</string>
     <string name="warning_database_link_revoked">L\'accés al fitxer ha estat revocat pel gestor de fitxers</string>
     <string name="warning">Advertència</string>
@@ -401,7 +401,7 @@
     <string name="error_file_to_big">El fitxer que esteu intentant pujar és massa gros.</string>
     <string name="error_cancel_by_user">S\'ha cancel·lat per l\'usuari.</string>
     <string name="error_driver_required">Es requereix un controlador per %1$s.</string>
-    <string name="warning_empty_recycle_bin">Voleu suprimir permanentment tots els nodes de la paperera de reciclatge?</string>
+    <string name="warning_empty_recycle_bin">Voleu suprimir permanentment tots els nodes de la paperera de reciclatge? Aquesta acció no es pot desfer.</string>
     <string name="warning_file_too_big">Se suposa que una base de dades KeePass només conté petits fitxers d\'utilitat (com ara fitxers de claus PGP).
 \n
 \nAmb aquesta pujada, la base de dades pot ser molt gran i afectar el rendiment.</string>
@@ -718,4 +718,6 @@
     <string name="group_drag_handle">Arrossega per reordenar</string>
     <string name="donation_title">❤️ Dona suport a aquest projecte</string>
     <string name="donation_text">Gratuït, de codi obert i opcional. Les donacions no desbloquegen funcions ni impliquen suport.</string>
+    <string name="menu_restore">Restaura</string>
+    <string name="warning_move_nodes_to_recycle_bin">Voleu moure els elements seleccionats a la paperera?</string>
 </resources>

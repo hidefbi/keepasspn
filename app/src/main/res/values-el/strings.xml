@@ -327,7 +327,7 @@
     <string name="menu_save_database">Αποθήκευση δεδομένων</string>
     <string name="menu_empty_recycle_bin">Αδειάστε τον κάδο ανακύκλωσης</string>
     <string name="command_execution">Εκτέλεση της εντολής…</string>
-    <string name="warning_permanently_delete_nodes">Οριστική διαγραφή επιλεγμένων κόμβων;</string>
+    <string name="warning_permanently_delete_nodes">Οριστική διαγραφή επιλεγμένων κόμβων; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</string>
     <string name="keystore_not_accessible">Η κλειδοθήκη δεν έχει προετοιμαστεί σωστά.</string>
     <string name="recycle_bin_group_title">Ομάδα Κάδου Ανακύκλωσης</string>
     <string name="enable_auto_save_database_title">Αυτόματη αποθήκευση βάσης δεδομένων</string>
@@ -416,7 +416,7 @@
     <string name="notification">Ειδοποίηση</string>
     <string name="biometric_security_update_required">Απαιτείται ενημέρωση βιομετρικής ασφάλειας.</string>
     <string name="configure_biometric">Κανένα πιστοποιητικό βιομετρίας ή συσκευής δεν είναι εγγεγραμμένο.</string>
-    <string name="warning_empty_recycle_bin">Να διαγραφούν οριστικά όλοι οι κόμβοι από τον κάδο ανακύκλωσης;</string>
+    <string name="warning_empty_recycle_bin">Να διαγραφούν οριστικά όλοι οι κόμβοι από τον κάδο ανακύκλωσης; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</string>
     <string name="save_mode">Λειτουργία αποθήκευσης</string>
     <string name="search_mode">Λειτουργία αναζήτησης</string>
     <string name="error_registration_read_only">Η αποθήκευση ενός νέου αντικειμένου δεν επιτρέπεται σε μια βάση δεδομένων μόνο για ανάγνωση.</string>
@@ -711,4 +711,6 @@
     <string name="group_drag_handle">Σύρετε για αλλαγή σειράς</string>
     <string name="donation_title">❤️ Στηρίξτε αυτό το έργο</string>
     <string name="donation_text">Δωρεάν, ανοιχτού κώδικα και προαιρετικό. Οι δωρεές δεν ξεκλειδώνουν λειτουργίες ούτε σημαίνουν υποστήριξη.</string>
+    <string name="menu_restore">Επαναφορά</string>
+    <string name="warning_move_nodes_to_recycle_bin">Μετακίνηση των επιλεγμένων στοιχείων στον κάδο απορριμμάτων;</string>
 </resources>

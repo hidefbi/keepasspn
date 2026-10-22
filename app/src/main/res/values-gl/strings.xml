@@ -308,8 +308,8 @@
     <string name="underline">Subliñado</string>
     <string name="warning_database_already_opened">Xa está aberta unha base de datos, féchea primeiro para abrir unha nova</string>
     <string name="warning_empty_password">Continuar sen protección de desbloqueo por contrasinal\?</string>
-    <string name="warning_permanently_delete_nodes">Borrar os nós seleccionados permanentemente\?</string>
-    <string name="warning_empty_recycle_bin">Borrar todos os nós da papeleira de reciclaxe permanentemente\?</string>
+    <string name="warning_permanently_delete_nodes">Borrar os nós seleccionados permanentemente\? Esta acción non se pode desfacer.</string>
+    <string name="warning_empty_recycle_bin">Borrar todos os nós da papeleira de reciclaxe permanentemente\? Esta acción non se pode desfacer.</string>
     <string name="warning_replace_file">O ficheiro enviado substituirá o existente.</string>
     <string name="warning_sure_add_file">Engadir o ficheiro de todos os xeitos?</string>
     <string name="import_app_properties_summary">Selecciona un ficheiro para importar a configuración da aplicación</string>
@@ -766,4 +766,6 @@
     <string name="group_drag_handle">Arrastra para reordenar</string>
     <string name="donation_title">❤️ Apoia este proxecto</string>
     <string name="donation_text">Gratuíto, de código aberto e opcional. As doazóns non desbloquean funcións nin supoñen apoio.</string>
+    <string name="menu_restore">Restaurar</string>
+    <string name="warning_move_nodes_to_recycle_bin">Mover os elementos seleccionados á papeleira?</string>
 </resources>

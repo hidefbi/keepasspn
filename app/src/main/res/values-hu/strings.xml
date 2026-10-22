@@ -298,7 +298,7 @@
     <string name="enable_auto_save_database_title">Adatbázis automatikus mentése</string>
     <string name="recycle_bin_group_title">Kuka csoportja</string>
     <string name="keystore_not_accessible">A KeyStore nincs helyesen előkészítve.</string>
-    <string name="warning_permanently_delete_nodes">Biztos, hogy végleg törli a kiválasztott csomópontokat\?</string>
+    <string name="warning_permanently_delete_nodes">Biztos, hogy végleg törli a kiválasztott csomópontokat\? Ez a művelet nem vonható vissza.</string>
     <string name="command_execution">Parancs végrehajtása…</string>
     <string name="menu_empty_recycle_bin">Kuka ürítése</string>
     <string name="menu_save_database">Adatok mentése</string>
@@ -384,7 +384,7 @@
     <string name="warning_file_too_big">A KeePass-adatbázis csak kis segédfájlok tárolására lett kitalálva (például PGP-kulcsfájlokra).
 \n
 \nA feltöltéstől az adatbázis nagyon nagyra nőhet, és csökkenhet a teljesítmény.</string>
-    <string name="warning_empty_recycle_bin">Végleg törli az összes csomópontot a kukából\?</string>
+    <string name="warning_empty_recycle_bin">Végleg törli az összes csomópontot a kukából\? Ez a művelet nem vonható vissza.</string>
     <string name="filter">Szűrő</string>
     <string name="save_mode">Mentési mód</string>
     <string name="search_mode">Keresési mód</string>
@@ -784,4 +784,6 @@
     <string name="group_drag_handle">Húzza a sorrend módosításához</string>
     <string name="donation_title">❤️ Támogasd a projektet</string>
     <string name="donation_text">Ingyenes, nyílt forráskódú és opcionális. Az adományok nem oldanak fel funkciókat, és nem jelentenek támogatást.</string>
+    <string name="menu_restore">Visszaállítás</string>
+    <string name="warning_move_nodes_to_recycle_bin">Áthelyezi a kijelölt elemeket a lomtárba?</string>
 </resources>

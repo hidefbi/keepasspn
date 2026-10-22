@@ -398,6 +398,45 @@ class DatabaseTaskProvider(
         }, DatabaseTaskNotificationService.ACTION_DATABASE_REORDER_GROUP_TASK)
     }
 
+    fun startDatabaseReorderEntry(
+        entryId: EntryId,
+        targetIndex: Int,
+        save: Boolean
+    ) {
+        start(Bundle().apply {
+            putParcelable(DatabaseTaskNotificationService.REORDER_ENTRY_ID_KEY, entryId)
+            putInt(DatabaseTaskNotificationService.REORDER_TARGET_INDEX_KEY, targetIndex)
+            putBoolean(DatabaseTaskNotificationService.SAVE_DATABASE_KEY, save)
+        }, DatabaseTaskNotificationService.ACTION_DATABASE_REORDER_ENTRY_TASK)
+    }
+
+    fun startDatabaseRestoreNodes(
+        nodesToRestore: Nodes,
+        save: Boolean
+    ) {
+        startDatabaseActionListNodes(
+            actionTask = DatabaseTaskNotificationService.ACTION_DATABASE_RESTORE_NODES_TASK,
+            newParentId = null,
+            nodes = nodesToRestore,
+            save = save
+        )
+    }
+
+    fun startDatabaseDuplicateNodes(
+        parentId: GroupId,
+        nodes: Nodes,
+        copyTitleSuffix: String,
+        save: Boolean
+    ) {
+        start(Bundle().apply {
+            putParcelable(DatabaseTaskNotificationService.PARENT_ID_KEY, parentId)
+            putParcelableList(GROUPS_ID_KEY, nodes.listGroupsIds)
+            putParcelableList(ENTRIES_ID_KEY, nodes.listEntriesIds)
+            putString(DatabaseTaskNotificationService.COPY_TITLE_SUFFIX_KEY, copyTitleSuffix)
+            putBoolean(DatabaseTaskNotificationService.SAVE_DATABASE_KEY, save)
+        }, DatabaseTaskNotificationService.ACTION_DATABASE_DUPLICATE_NODES_TASK)
+    }
+
     fun startDatabaseUpdateEntry(
         updateEntry: EntryInfo,
         save: Boolean

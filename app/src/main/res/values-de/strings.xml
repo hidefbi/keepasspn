@@ -341,7 +341,7 @@
     <string name="menu_save_database">Daten speichern</string>
     <string name="menu_empty_recycle_bin">Papierkorb leeren</string>
     <string name="command_execution">Befehl wird ausgeführt …</string>
-    <string name="warning_permanently_delete_nodes">Ausgewählten Knoten unwiderruflich löschen\?</string>
+    <string name="warning_permanently_delete_nodes">Ausgewählten Knoten unwiderruflich löschen\? Dies kann nicht rückgängig gemacht werden.</string>
     <string name="keystore_not_accessible">Der Schlüsselspeicher ist nicht richtig initialisiert.</string>
     <string name="recycle_bin_group_title">Papierkorb-Gruppe</string>
     <string name="enable_auto_save_database_title">Datenbank automatisch speichern</string>
@@ -424,7 +424,7 @@
     <string name="autofill_close_database_summary">Datenbank nach Auswahl eines Eintrags zum automatischen Ausfüllen schließen</string>
     <string name="keyboard_save_search_info_summary">Bei manueller Eintragsauswahl geteilte Informationen speichern, um sie später leichter verwenden zu können</string>
     <string name="keyboard_save_search_info_title">Geteilte Informationen speichern</string>
-    <string name="warning_empty_recycle_bin">Alle Knoten unwiderruflich aus dem Papierkorb löschen\?</string>
+    <string name="warning_empty_recycle_bin">Alle Knoten unwiderruflich aus dem Papierkorb löschen\? Dies kann nicht rückgängig gemacht werden.</string>
     <string name="error_field_name_already_exists">Der Feldname existiert bereits.</string>
     <string name="device_unlock_prompt_store_credential_message">WARNUNG: Es ist immer noch notwendig, sich die Hauptzugangsdaten für den Tresor zu merken</string>
     <string name="menu_keystore_remove_key">Schlüssel für Geräteentsperrung löschen</string>
@@ -788,4 +788,6 @@
     <string name="group_drag_handle">Zum Umordnen ziehen</string>
     <string name="donation_title">❤️ Unterstütze dieses Projekt</string>
     <string name="donation_text">Kostenlos, Open Source und optional. Spenden schalten keine Funktionen frei und bedeuten keine Unterstützung.</string>
+    <string name="menu_restore">Wiederherstellen</string>
+    <string name="warning_move_nodes_to_recycle_bin">Ausgewählte Elemente in den Papierkorb verschieben?</string>
 </resources>

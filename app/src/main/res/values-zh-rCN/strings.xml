@@ -328,7 +328,7 @@
     <string name="menu_save_database">保存数据</string>
     <string name="menu_empty_recycle_bin">清空回收站</string>
     <string name="command_execution">正在执行命令…</string>
-    <string name="warning_permanently_delete_nodes">是否永久删除选中的条目？</string>
+    <string name="warning_permanently_delete_nodes">是否永久删除选中的条目？ 此操作无法撤销。</string>
     <string name="recycle_bin_group_title">回收站（组）</string>
     <string name="enable_auto_save_database_title">自动保存数据库</string>
     <string name="enable_auto_save_database_summary">在每次执行重要操作后保存数据库（仅在编辑模式下有效）</string>
@@ -415,7 +415,7 @@
     <string name="notification">通知</string>
     <string name="biometric_security_update_required">需要生物识别安全更新。</string>
     <string name="configure_biometric">未注册生物识别或设备凭据。</string>
-    <string name="warning_empty_recycle_bin">从回收站永久删除所有节点？</string>
+    <string name="warning_empty_recycle_bin">从回收站永久删除所有节点？ 此操作无法撤销。</string>
     <string name="save_mode">保存模式</string>
     <string name="search_mode">搜索模式</string>
     <string name="error_registration_read_only">只读数据库不允许保存新条目。</string>
@@ -789,4 +789,6 @@
     <string name="group_drag_handle">拖动以调整顺序</string>
     <string name="donation_title">❤️ 支持这个项目</string>
     <string name="donation_text">免费、开源且可选。捐赠不会解锁任何功能，也不代表支持。</string>
+    <string name="menu_restore">恢复</string>
+    <string name="warning_move_nodes_to_recycle_bin">要将选中的项目移入回收站吗？</string>
 </resources>

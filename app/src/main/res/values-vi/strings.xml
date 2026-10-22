@@ -321,8 +321,8 @@
     <string name="warning_database_already_opened">Một dữ liệu đang được mở, hãy đóng nó trước để mở dữ liệu mới</string>
     <string name="warning_empty_password">Tiếp tục mà không cần bảo vệ mở khóa bằng mật khẩu?</string>
     <string name="warning_no_encryption_key">Tiếp tục mà không có khóa mã hóa?</string>
-    <string name="warning_permanently_delete_nodes">Xóa vĩnh viễn các nút đã chọn?</string>
-    <string name="warning_empty_recycle_bin">Xóa vĩnh viễn tất cả các nút khỏi thùng rác?</string>
+    <string name="warning_permanently_delete_nodes">Xóa vĩnh viễn các nút đã chọn? Không thể hoàn tác thao tác này.</string>
+    <string name="warning_empty_recycle_bin">Xóa vĩnh viễn tất cả các nút khỏi thùng rác? Không thể hoàn tác thao tác này.</string>
     <string name="warning_file_too_big">Dữ liệu KeePass được cho là chỉ chứa các tệp tiện ích nhỏ (chẳng hạn như các tệp khóa PGP).\n\nCơ sở dữ liệu của bạn có thể trở nên rất lớn và giảm hiệu suất khi tải lên.</string>
     <string name="warning_replace_file">Tải tệp này lên sẽ thay thế tệp hiện có.</string>
     <string name="warning_sure_add_file">Vẫn thêm tệp?</string>
@@ -771,4 +771,6 @@
     <string name="group_drag_handle">Kéo để sắp xếp lại</string>
     <string name="donation_title">❤️ Ủng hộ dự án này</string>
     <string name="donation_text">Miễn phí, mã nguồn mở và tùy chọn. Quyên góp không mở khóa tính năng và không đồng nghĩa với sự ủng hộ.</string>
+    <string name="menu_restore">Khôi phục</string>
+    <string name="warning_move_nodes_to_recycle_bin">Chuyển các mục đã chọn vào thùng rác?</string>
 </resources>

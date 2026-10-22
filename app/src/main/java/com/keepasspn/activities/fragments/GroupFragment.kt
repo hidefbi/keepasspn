@@ -78,22 +78,13 @@ class GroupFragment : DatabaseFragment() {
 
     /**
      * Drags a group by its handle to change its position among the sibling groups.
-     * Swiping a group to the left reveals a delete action, which uses the usual delete flow.
      */
     private inner class NodeTouchCallback : ItemTouchHelper.SimpleCallback(0, 0) {
 
         private var mDragStartPosition = RecyclerView.NO_POSITION
         private var mDragDistance = 0f
-        private val mDeleteBackgroundPaint by lazy {
-            Paint().apply { color = Color.rgb(0xD3, 0x2F, 0x2F) }
-        }
-        private val mDeleteTextPaint by lazy {
-            Paint(Paint.ANTI_ALIAS_FLAG).apply {
-                color = Color.WHITE
-                textSize = 16f * resources.displayMetrics.scaledDensity
-                textAlign = Paint.Align.RIGHT
-            }
-        }
+        // Long press opens the node actions sheet, dragging starts only from the drag handle
+        override fun isLongPressDragEnabled(): Boolean = false
 
         override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
             val adapter = mAdapter ?: return 0
@@ -104,7 +95,7 @@ class GroupFragment : DatabaseFragment() {
             } else {
                 0
             }
-            return makeMovementFlags(dragDirections, ItemTouchHelper.LEFT)
+            return makeMovementFlags(dragDirections, 0)
         }
 
         override fun onMove(
@@ -114,6 +105,10 @@ class GroupFragment : DatabaseFragment() {
         ): Boolean {
             // The list is not reordered while dragging, the new position is applied on drop
             return false
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            // Swipe is disabled, nodes are removed only through the confirmation dialog
         }
 
         override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
@@ -135,24 +130,6 @@ class GroupFragment : DatabaseFragment() {
         ) {
             if (actionState == ItemTouchHelper.ACTION_STATE_DRAG) {
                 mDragDistance = dY
-            } else if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE && dX < 0) {
-                val itemView = viewHolder.itemView
-                canvas.drawRect(
-                    itemView.left.toFloat(),
-                    itemView.top.toFloat(),
-                    itemView.right.toFloat(),
-                    itemView.bottom.toFloat(),
-                    mDeleteBackgroundPaint
-                )
-                val density = resources.displayMetrics.density
-                val baseline = itemView.top + itemView.height / 2f -
-                        (mDeleteTextPaint.descent() + mDeleteTextPaint.ascent()) / 2f
-                canvas.drawText(
-                    getString(R.string.menu_delete),
-                    itemView.right - 24f * density,
-                    baseline,
-                    mDeleteTextPaint
-                )
             }
             super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
         }
@@ -177,17 +154,6 @@ class GroupFragment : DatabaseFragment() {
                 mGroupViewModel.onReorderGroup(node, targetIndex)
             }
         }
-
-        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-            val adapter = mAdapter ?: return
-            val position = viewHolder.adapterPosition
-            if (position == RecyclerView.NO_POSITION) return
-            val node = adapter.nodeAt(position)
-            // Same selection and delete flow as the action bar, with its confirmation
-            mGroupViewModel.performLongNodeClick(node)
-            mGroupViewModel.onDeleteNodesClicked()
-            adapter.notifyItemChanged(position)
-        }
     }
 
     override fun onDatabaseRetrieved(database: ContextualDatabase) {
@@ -205,7 +171,7 @@ class GroupFragment : DatabaseFragment() {
                         mGroupViewModel.performNodeClick(node)
                     }
                     override fun onNodeLongClick(node: SortedNodeInfo): Boolean {
-                        mGroupViewModel.performLongNodeClick(node)
+                        mGroupViewModel.onNodeLongClick(node, mAdapter?.isNodeReorderAllowed() == true)
                         return true
                     }
                     override fun onGroupReorder(node: SortedNodeInfo, targetIndex: Int) {

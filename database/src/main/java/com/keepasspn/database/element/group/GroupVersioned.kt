@@ -135,6 +135,21 @@ abstract class GroupVersioned
         }
     }
 
+    /**
+     * Moves a direct child entry to the given position among the child entries.
+     * Sibling entries are renumbered so that the natural database order follows the list order.
+     */
+    fun moveChildEntryToIndex(entry: Entry, targetIndex: Int) {
+        val currentIndex = this.childEntries.indexOfFirst { it.nodeId == entry.nodeId }
+        if (currentIndex < 0) return
+        val moved = this.childEntries.removeAt(currentIndex)
+        val safeIndex = targetIndex.coerceIn(0, this.childEntries.size)
+        this.childEntries.add(safeIndex, moved)
+        this.childEntries.forEachIndexed { position, child ->
+            child.indexInParent = position
+        }
+    }
+
     override fun removeChildGroup(group: Group) {
         this.childGroups.remove(group)
     }

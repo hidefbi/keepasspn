@@ -387,10 +387,10 @@
     <string name="device_unlock_tap_delete">Trykk for å slette enhetens opplåsingsnøkler</string>
     <string name="autofill_preference_title">Autofyllings-innstillinger</string>
     <string name="warning_sure_remove_data">Fjern denne dataen uansett\?</string>
-    <string name="warning_permanently_delete_nodes">Slett valgte noder for godt\?</string>
+    <string name="warning_permanently_delete_nodes">Slett valgte noder for godt\? Dette kan ikke angres.</string>
     <string name="templates_group_uuid_title">Malgruppe</string>
     <string name="device_unlock_prompt_store_credential_title">Lenke til opplåsing av enheten</string>
-    <string name="warning_empty_recycle_bin">Slett alle noder fra papirkurven for godt\?</string>
+    <string name="warning_empty_recycle_bin">Slett alle noder fra papirkurven for godt\? Dette kan ikke angres.</string>
     <string name="export_app_properties_title">Eksporter appinnstillinger</string>
     <string name="import_app_properties_title">Importer appinnstillinger</string>
     <string name="error_duplicate_file">Fildataen finnes allerede.</string>
@@ -774,4 +774,6 @@
     <string name="group_drag_handle">Dra for å endre rekkefølge</string>
     <string name="donation_title">❤️ Støtt dette prosjektet</string>
     <string name="donation_text">Gratis, åpen kildekode og valgfritt. Donasjoner låser ikke opp funksjoner og betyr ikke støtte.</string>
+    <string name="menu_restore">Gjenopprett</string>
+    <string name="warning_move_nodes_to_recycle_bin">Flytte de valgte elementene til papirkurven?</string>
 </resources>

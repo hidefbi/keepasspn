@@ -339,7 +339,7 @@
     <string name="menu_save_database">Enregistrer les données</string>
     <string name="menu_empty_recycle_bin">Vider la corbeille</string>
     <string name="command_execution">Exécution de la commande…</string>
-    <string name="warning_permanently_delete_nodes">Supprimer définitivement les nœuds sélectionnés \?</string>
+    <string name="warning_permanently_delete_nodes">Supprimer définitivement les nœuds sélectionnés \? Cette action est irréversible.</string>
     <string name="keystore_not_accessible">Le magasin de clés n’est pas correctement initialisé.</string>
     <string name="recycle_bin_group_title">Groupe de la corbeille</string>
     <string name="enable_auto_save_database_title">Enregistrement automatique de la base de données</string>
@@ -422,7 +422,7 @@
     <string name="keyboard_save_search_info_title">Enregistrer les infos partagées</string>
     <string name="notification">Notification</string>
     <string name="biometric_security_update_required">Mise à jour de sécurité biométrique requise.</string>
-    <string name="warning_empty_recycle_bin">Supprimer définitivement tous les nœuds de la corbeille \?</string>
+    <string name="warning_empty_recycle_bin">Supprimer définitivement tous les nœuds de la corbeille \? Cette action est irréversible.</string>
     <string name="save_mode">Mode sauvegarde</string>
     <string name="search_mode">Mode recherche</string>
     <string name="error_registration_read_only">L’enregistrement d’un nouvel élément n’est pas autorisé dans une base de données en lecture seule.</string>
@@ -788,4 +788,6 @@
     <string name="group_drag_handle">Faites glisser pour réorganiser</string>
     <string name="donation_title">❤️ Soutenir ce projet</string>
     <string name="donation_text">Gratuit, open source et facultatif. Les dons ne débloquent aucune fonctionnalité et n\'impliquent aucun soutien.</string>
+    <string name="menu_restore">Restaurer</string>
+    <string name="warning_move_nodes_to_recycle_bin">Déplacer les éléments sélectionnés dans la corbeille ?</string>
 </resources>

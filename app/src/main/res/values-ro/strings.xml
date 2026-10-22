@@ -192,7 +192,7 @@
     <string name="warning_password_encoding">Evită caracterele parolei în afara formatului de codificare text în fișierul bazei de date (caracterele nerecunoscute sunt convertite în aceeași literă).</string>
     <string name="warning_empty_password">Continui fără protecția de deblocare prin parolă?</string>
     <string name="warning_no_encryption_key">Continui fără cheia de criptare?</string>
-    <string name="warning_permanently_delete_nodes">Ștergi definitiv nodurile selectate?</string>
+    <string name="warning_permanently_delete_nodes">Ștergi definitiv nodurile selectate? Această acțiune nu poate fi anulată.</string>
     <string name="version_label">Versiunea %1$s</string>
     <string name="build_label">Asamblare %1$s</string>
     <string name="keystore_not_accessible">Magazinul de chei nu este inițializat corect.</string>
@@ -467,7 +467,7 @@
     <string name="filter">Filtru</string>
     <string name="unlock">Deblocare</string>
     <string name="warning_file_too_big">O bază de date KeePass ar trebui să conțină doar fișiere utilitare mici (cum ar fi fișierele de chei PGP). \n \nBaza de date poate deveni foarte mare și poate reduce performanța cu această încărcare.</string>
-    <string name="warning_empty_recycle_bin">Ștergi definitiv toate nodurile din coșul de gunoi?</string>
+    <string name="warning_empty_recycle_bin">Ștergi definitiv toate nodurile din coșul de gunoi? Această acțiune nu poate fi anulată.</string>
     <string name="ask">Întreabă</string>
     <string name="configure">Configurare</string>
     <string name="properties">Proprietăți</string>
@@ -776,4 +776,6 @@
     <string name="group_drag_handle">Trage pentru a reordona</string>
     <string name="donation_title">❤️ Susține acest proiect</string>
     <string name="donation_text">Gratuit, open source și opțional. Donațiile nu deblochează funcții și nu înseamnă sprijin.</string>
+    <string name="menu_restore">Restaurează</string>
+    <string name="warning_move_nodes_to_recycle_bin">Mutați elementele selectate în coșul de reciclare?</string>
 </resources>
