@@ -694,6 +694,8 @@
     <string name="pin_unlock_wiped">Zbyt wiele błędnych kodów PIN. Kod PIN został usunięty. Wpisz hasło główne.</string>
     <string name="copy_protected_verification_title">Weryfikuj przed kopiowaniem</string>
     <string name="copy_protected_verification_summary">Proś użytkownika o weryfikację przed skopiowaniem chronionych pól. Wyłącz, aby kopiować je bezpośrednio.</string>
+    <string name="edit_verification_title">Weryfikuj przed edycją</string>
+    <string name="edit_verification_summary">Proś o weryfikację użytkownika przed edycją wpisów i folderów. Wyłącz, aby edytować bezpośrednio.</string>
     <string name="pin_unlock_category">Odblokowywanie kodem PIN</string>
     <string name="pin_validity_title">Ważność kodu PIN</string>
     <string name="pin_validity_summary">Jeśli aplikacja nie zostanie otwarta w tym okresie, bazę danych trzeba będzie ponownie zaimportować i odblokować hasłem głównym</string>

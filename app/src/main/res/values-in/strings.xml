@@ -679,6 +679,8 @@
     <string name="pin_unlock_wiped">Terlalu banyak PIN salah. PIN telah dihapus. Masukkan kata sandi utama Anda.</string>
     <string name="copy_protected_verification_title">Verifikasi sebelum menyalin</string>
     <string name="copy_protected_verification_summary">Minta verifikasi pengguna sebelum menyalin kolom yang dilindungi. Matikan untuk menyalin langsung.</string>
+    <string name="edit_verification_title">Verifikasi sebelum mengedit</string>
+    <string name="edit_verification_summary">Minta verifikasi pengguna sebelum mengedit entri dan folder. Nonaktifkan untuk mengedit langsung.</string>
     <string name="pin_unlock_category">Buka kunci dengan PIN</string>
     <string name="pin_validity_title">Masa berlaku PIN</string>
     <string name="pin_validity_summary">Jika aplikasi tidak dibuka selama periode ini, database harus diimpor ulang dan dibuka dengan kata sandi utama</string>

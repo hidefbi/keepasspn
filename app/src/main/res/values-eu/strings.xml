@@ -610,6 +610,8 @@
     <string name="pin_unlock_wiped">PIN kode okerregi. PIN kodea ezabatu da. Idatzi zure pasahitz nagusia.</string>
     <string name="copy_protected_verification_title">Egiaztatu kopiatu aurretik</string>
     <string name="copy_protected_verification_summary">Eskatu erabiltzailearen egiaztapena babestutako eremuak kopiatu aurretik. Desaktibatu zuzenean kopiatzeko.</string>
+    <string name="edit_verification_title">Egiaztatu editatu aurretik</string>
+    <string name="edit_verification_summary">Eskatu erabiltzailearen egiaztapena sarrerak eta karpetak editatu aurretik. Desaktibatu zuzenean editatzeko.</string>
     <string name="pin_unlock_category">PIN bidezko desblokeoa</string>
     <string name="pin_validity_title">PIN kodearen balioa</string>
     <string name="pin_validity_summary">Aldi honetan aplikazioa ez bada irekitzen, datu-basea berriz inportatu behar da eta pasahitz nagusiarekin desblokeatu</string>

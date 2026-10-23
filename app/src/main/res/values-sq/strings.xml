@@ -633,6 +633,8 @@
     <string name="pin_unlock_wiped">Shumë PIN-e të gabuar. PIN-i u fshi. Shkruani fjalëkalimin kryesor.</string>
     <string name="copy_protected_verification_title">Verifiko përpara kopjimit</string>
     <string name="copy_protected_verification_summary">Kërko verifikim të përdoruesit përpara kopjimit të fushave të mbrojtura. Çaktivizo për t\'i kopjuar drejtpërdrejt.</string>
+    <string name="edit_verification_title">Verifiko para se ndryshon</string>
+    <string name="edit_verification_summary">Kërko verifikim të përdoruesit para se të ndryshohen hyrjet dhe dosjet. Çaktivizoje për t\'i ndryshuar drejtpërdrejt.</string>
     <string name="pin_unlock_category">Shkyçja me PIN</string>
     <string name="pin_validity_title">Vlefshmëria e PIN-it</string>
     <string name="pin_validity_summary">Nëse aplikacioni nuk hapet për këtë periudhë, baza e të dhënave duhet të importohet përsëri dhe të shkyçet me fjalëkalimin kryesor</string>

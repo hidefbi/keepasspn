@@ -662,6 +662,8 @@
     <string name="pin_unlock_wiped">Liiga palju valesid PIN-koode. PIN-kood on kustutatud. Sisestage ülemparool.</string>
     <string name="copy_protected_verification_title">Kinnita enne kopeerimist</string>
     <string name="copy_protected_verification_summary">Küsi enne kaitstud väljade kopeerimist kasutaja kinnitust. Väljalülitamisel kopeeritakse need otse.</string>
+    <string name="edit_verification_title">Kinnita enne muutmist</string>
+    <string name="edit_verification_summary">Küsi kasutaja kinnitust enne kirjete ja kaustade muutmist. Lülita välja, et muuta otse.</string>
     <string name="pin_unlock_category">PIN-koodiga avamine</string>
     <string name="pin_validity_title">PIN-koodi kehtivus</string>
     <string name="pin_validity_summary">Kui rakendust ei avata selle aja jooksul, tuleb andmebaas uuesti importida ja avada ülemparooliga</string>

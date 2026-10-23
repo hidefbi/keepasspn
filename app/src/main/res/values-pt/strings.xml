@@ -668,6 +668,8 @@
     <string name="pin_unlock_wiped">Demasiados PIN errados. O PIN foi eliminado. Introduza a palavra-passe mestra.</string>
     <string name="copy_protected_verification_title">Verificar antes de copiar</string>
     <string name="copy_protected_verification_summary">Pedir verificação do utilizador antes de copiar campos protegidos. Desative para os copiar diretamente.</string>
+    <string name="edit_verification_title">Verificar antes de editar</string>
+    <string name="edit_verification_summary">Pedir verificação do usuário antes de editar entradas e pastas. Desative para editá-las diretamente.</string>
     <string name="pin_unlock_category">Desbloqueio por PIN</string>
     <string name="pin_validity_title">Validade do PIN</string>
     <string name="pin_validity_summary">Se a aplicação não for aberta durante este período, a base de dados tem de ser importada novamente e desbloqueada com a palavra-passe mestra</string>

@@ -704,6 +704,8 @@
     <string name="pin_unlock_wiped">Muitos PINs incorretos. O PIN foi excluído. Digite sua senha mestra.</string>
     <string name="copy_protected_verification_title">Verificar antes de copiar</string>
     <string name="copy_protected_verification_summary">Pedir verificação do usuário antes de copiar campos protegidos. Desative para copiá-los diretamente.</string>
+    <string name="edit_verification_title">Verificar antes de editar</string>
+    <string name="edit_verification_summary">Pedir verificação do usuário antes de editar entradas e pastas. Desative para editá-las diretamente.</string>
     <string name="pin_unlock_category">Desbloqueio por PIN</string>
     <string name="pin_validity_title">Validade do PIN</string>
     <string name="pin_validity_summary">Se o aplicativo não for aberto durante este período, o banco de dados deverá ser importado novamente e desbloqueado com a senha mestra</string>

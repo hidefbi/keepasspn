@@ -674,6 +674,8 @@
     <string name="pin_unlock_wiped">För många felaktiga PIN-koder. PIN-koden har raderats. Ange ditt huvudlösenord.</string>
     <string name="copy_protected_verification_title">Verifiera innan kopiering</string>
     <string name="copy_protected_verification_summary">Be om användarverifiering innan skyddade fält kopieras. Stäng av för att kopiera direkt.</string>
+    <string name="edit_verification_title">Verifiera före redigering</string>
+    <string name="edit_verification_summary">Begär användarverifiering innan poster och mappar redigeras. Stäng av för att redigera direkt.</string>
     <string name="pin_unlock_category">PIN-upplåsning</string>
     <string name="pin_validity_title">PIN-giltighet</string>
     <string name="pin_validity_summary">Om appen inte öppnas under denna period måste databasen importeras igen och låsas upp med huvudlösenordet</string>

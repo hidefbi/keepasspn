@@ -680,6 +680,8 @@
     <string name="pin_unlock_wiped">Твърде много грешни PIN кодове. PIN кодът е изтрит. Въведете главната си парола.</string>
     <string name="copy_protected_verification_title">Потвърждение преди копиране</string>
     <string name="copy_protected_verification_summary">Изисква потвърждение от потребителя преди копиране на защитени полета. Изключете, за да копирате директно.</string>
+    <string name="edit_verification_title">Потвърждение преди редактиране</string>
+    <string name="edit_verification_summary">Изисквай потребителско потвърждение преди редактиране на записи и папки. Изключете, за да редактирате директно.</string>
     <string name="pin_unlock_category">Отключване с PIN</string>
     <string name="pin_validity_title">Валидност на PIN кода</string>
     <string name="pin_validity_summary">Ако приложението не бъде отворено за този период, базата данни трябва да бъде импортирана отново и отключена с главната парола</string>

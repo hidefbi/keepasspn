@@ -703,6 +703,8 @@
     <string name="pin_unlock_wiped">PIN 输入错误次数过多，已删除 PIN。请输入主密码。</string>
     <string name="copy_protected_verification_title">复制前验证</string>
     <string name="copy_protected_verification_summary">复制受保护字段前要求用户验证。关闭后将直接复制。</string>
+    <string name="edit_verification_title">编辑前验证</string>
+    <string name="edit_verification_summary">编辑条目和文件夹前要求用户验证。关闭后将直接编辑。</string>
     <string name="pin_unlock_category">PIN 解锁</string>
     <string name="pin_validity_title">PIN 有效期</string>
     <string name="pin_validity_summary">如果在此期间未打开应用，则必须重新导入数据库并使用主密码解锁</string>

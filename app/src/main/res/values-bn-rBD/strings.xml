@@ -82,6 +82,8 @@
     <string name="pin_unlock_wiped">অনেকবার ভুল PIN দেওয়া হয়েছে। PIN মুছে ফেলা হয়েছে। আপনার মূল পাসওয়ার্ড লিখুন।</string>
     <string name="copy_protected_verification_title">কপি করার আগে যাচাই করুন</string>
     <string name="copy_protected_verification_summary">সুরক্ষিত ফিল্ড কপি করার আগে ব্যবহারকারীর যাচাই চাওয়া হবে। সরাসরি কপি করতে বন্ধ করুন।</string>
+    <string name="edit_verification_title">সম্পাদনার আগে যাচাই করুন</string>
+    <string name="edit_verification_summary">এন্ট্রি ও ফোল্ডার সম্পাদনার আগে ব্যবহারকারীর যাচাইকরণ চাইবে। সরাসরি সম্পাদনার জন্য বন্ধ করুন।</string>
     <string name="pin_unlock_category">PIN দিয়ে আনলক</string>
     <string name="pin_validity_title">PIN-এর মেয়াদ</string>
     <string name="pin_validity_summary">এই সময়ের মধ্যে অ্যাপ না খুললে ডেটাবেস আবার আমদানি করতে হবে এবং মূল পাসওয়ার্ড দিয়ে আনলক করতে হবে</string>

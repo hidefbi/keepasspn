@@ -617,6 +617,8 @@
     <string name="pin_unlock_wiped">For mange forkerte PIN-koder. PIN-koden er slettet. Indtast din hovedadgangskode.</string>
     <string name="copy_protected_verification_title">Bekræft før kopiering</string>
     <string name="copy_protected_verification_summary">Bed om brugerbekræftelse før kopiering af beskyttede felter. Slå fra for at kopiere direkte.</string>
+    <string name="edit_verification_title">Bekræft før redigering</string>
+    <string name="edit_verification_summary">Bed om brugerbekræftelse, før poster og mapper redigeres. Slå fra for at redigere direkte.</string>
     <string name="pin_unlock_category">PIN-kode-oplåsning</string>
     <string name="pin_validity_title">PIN-kodens gyldighed</string>
     <string name="pin_validity_summary">Hvis appen ikke åbnes i denne periode, skal databasen importeres igen og låses op med hovedadgangskoden</string>

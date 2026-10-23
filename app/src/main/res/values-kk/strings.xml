@@ -3,6 +3,8 @@
     <string name="pin_unlock_wiped">Тым көп қате PIN енгізілді. PIN жойылды. Негізгі құпия сөзді енгізіңіз.</string>
     <string name="copy_protected_verification_title">Көшірер алдында растау</string>
     <string name="copy_protected_verification_summary">Қорғалған өрістерді көшірер алдында пайдаланушыдан растау сұраңыз. Оларды тікелей көшіру үшін өшіріңіз.</string>
+    <string name="edit_verification_title">Өңдеу алдында растау</string>
+    <string name="edit_verification_summary">Жазбалар мен қалталарды өңдеу алдында пайдаланушыдан растау сұрау. Тікелей өңдеу үшін өшіріңіз.</string>
     <string name="pin_unlock_category">PIN арқылы ашу</string>
     <string name="pin_validity_title">PIN жарамдылық мерзімі</string>
     <string name="pin_validity_summary">Осы кезең ішінде қолданба ашылмаса, дерекқорды қайта импорттап, негізгі құпия сөзбен ашу қажет</string>

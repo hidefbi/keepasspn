@@ -707,6 +707,8 @@
     <string name="pin_unlock_wiped">Troppi PIN errati. Il PIN è stato eliminato. Inserisci la password principale.</string>
     <string name="copy_protected_verification_title">Verifica prima di copiare</string>
     <string name="copy_protected_verification_summary">Richiedi la verifica dell\'utente prima di copiare i campi protetti. Disattiva per copiarli direttamente.</string>
+    <string name="edit_verification_title">Verifica prima di modificare</string>
+    <string name="edit_verification_summary">Richiedi la verifica dell\'utente prima di modificare voci e cartelle. Disattiva per modificarle direttamente.</string>
     <string name="pin_unlock_category">Sblocco con PIN</string>
     <string name="pin_validity_title">Validità del PIN</string>
     <string name="pin_validity_summary">Se l\'app non viene aperta per questo periodo, il database dovrà essere importato di nuovo e sbloccato con la password principale</string>

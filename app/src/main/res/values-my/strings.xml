@@ -36,6 +36,8 @@
     <string name="pin_unlock_wiped">PIN မှားယွင်းမှု အကြိမ်အရေအတွက် များလွန်းပါသည်။ PIN ကို ဖျက်လိုက်ပါပြီ။ ပင်မစကားဝှက်ကို ရိုက်ထည့်ပါ။</string>
     <string name="copy_protected_verification_title">မကူးယူမီ စစ်ဆေးရန်</string>
     <string name="copy_protected_verification_summary">ကာကွယ်ထားသော အကွက်များကို မကူးယူမီ အသုံးပြုသူ အတည်ပြုချက် တောင်းပါ။ တိုက်ရိုက်ကူးယူရန် ပိတ်ပါ။</string>
+    <string name="edit_verification_title">တည်းဖြတ်ခြင်းမပြုမီ အတည်ပြုရန်</string>
+    <string name="edit_verification_summary">အကောင့်စာရင်းနှင့် ဖိုင်တွဲများ တည်းဖြတ်ခြင်းမပြုမီ အသုံးပြုသူ အတည်ပြုချက် တောင်းဆိုမည်။ တိုက်ရိုက်တည်းဖြတ်ရန် ပိတ်ပါ။</string>
     <string name="pin_unlock_category">PIN ဖြင့် လော့ခ်ဖွင့်ခြင်း</string>
     <string name="pin_validity_title">PIN သက်တမ်း</string>
     <string name="pin_validity_summary">ဤကာလအတွင်း အက်ပ်ကို မဖွင့်ပါက ဒေတာဘေ့စ်ကို ထပ်မံသွင်းယူပြီး ပင်မစကားဝှက်ဖြင့် လော့ခ်ဖွင့်ရပါမည်</string>

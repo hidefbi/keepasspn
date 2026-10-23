@@ -609,6 +609,16 @@ object PreferencesUtil {
             context.resources.getBoolean(R.bool.copy_protected_verification_default))
     }
 
+    /**
+     * Whether editing entries and folders asks for user verification.
+     * Only applies to databases that allow user verification.
+     */
+    fun isEditVerificationEnabled(context: Context): Boolean {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        return prefs.getBoolean(context.getString(R.string.edit_verification_key),
+            context.resources.getBoolean(R.bool.edit_verification_default))
+    }
+
     /** Days a PIN stays valid without opening the app, or [PinPolicy.VALIDITY_NEVER_DAYS]. */
     fun getPinValidityDays(context: Context): Int {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
@@ -937,6 +947,7 @@ object PreferencesUtil {
                 context.getString(R.string.delete_entered_password_key) -> editor.putBoolean(name, value.toBoolean())
                 context.getString(R.string.user_verification_mode_key) -> editor.putBoolean(name, value.toBoolean())
                 context.getString(R.string.copy_protected_verification_key) -> editor.putBoolean(name, value.toBoolean())
+                context.getString(R.string.edit_verification_key) -> editor.putBoolean(name, value.toBoolean())
                 context.getString(R.string.enable_auto_save_database_key) -> editor.putBoolean(name, value.toBoolean())
                 context.getString(R.string.enable_keep_screen_on_key) -> editor.putBoolean(name, value.toBoolean())
                 context.getString(R.string.auto_focus_search_key) -> editor.putBoolean(name, value.toBoolean())

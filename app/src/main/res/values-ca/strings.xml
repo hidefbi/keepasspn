@@ -632,6 +632,8 @@
     <string name="pin_unlock_wiped">Hi ha hagut massa PINs incorrectes. El PIN s\'ha suprimit. Introdueix la contrasenya mestra.</string>
     <string name="copy_protected_verification_title">Verifica abans de copiar</string>
     <string name="copy_protected_verification_summary">Demana la verificació de l\'usuari abans de copiar camps protegits. Desactiva-ho per copiar-los directament.</string>
+    <string name="edit_verification_title">Verifica abans d\'editar</string>
+    <string name="edit_verification_summary">Demana la verificació de l\'usuari abans d\'editar entrades i carpetes. Desactiva-ho per editar-les directament.</string>
     <string name="pin_unlock_category">Desbloqueig amb PIN</string>
     <string name="pin_validity_title">Validesa del PIN</string>
     <string name="pin_validity_summary">Si l\'aplicació no s\'obre durant aquest període, cal tornar a importar la base de dades i desbloquejar-la amb la contrasenya mestra</string>

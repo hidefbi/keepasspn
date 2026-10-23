@@ -643,6 +643,8 @@
     <string name="pin_unlock_wiped">Per daug neteisingų PIN kodų. PIN kodas ištrintas. Įveskite pagrindinį slaptažodį.</string>
     <string name="copy_protected_verification_title">Prieš kopijuojant patvirtinti</string>
     <string name="copy_protected_verification_summary">Prieš kopijuodami apsaugotus laukus, prašykite naudotojo patvirtinimo. Išjunkite, kad kopijuotumėte tiesiogiai.</string>
+    <string name="edit_verification_title">Tvirtinti prieš redaguojant</string>
+    <string name="edit_verification_summary">Prieš redaguojant įrašus ir aplankus prašyti naudotojo patvirtinimo. Išjunkite, kad redaguotumėte tiesiogiai.</string>
     <string name="pin_unlock_category">Atrakinimas PIN kodu</string>
     <string name="pin_validity_title">PIN kodo galiojimas</string>
     <string name="pin_validity_summary">Jei per šį laikotarpį programa nebus atidaryta, duomenų bazę reikės importuoti iš naujo ir atrakinti pagrindiniu slaptažodžiu</string>

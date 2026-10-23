@@ -158,6 +158,8 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
     private val mSearchViewModel: SearchViewModel by viewModels()
     private val mMainCredentialDialogViewModel: MainCredentialDialogViewModel by viewModels()
     private val mUserVerificationViewModel: UserVerificationViewModel by viewModels()
+    // Folder waiting for user verification before its editor opens
+    private var mPendingEditGroup: GroupInfo? = null
 
     private val mGroupActivityEducation = GroupActivityEducation(this)
 
@@ -574,12 +576,25 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
                                 }
                             }
                             is GroupViewModel.GroupEvent.EditGroup -> {
-                                launchDialogForGroupUpdate(event.group)
+                                if (mDatabaseAllowUserVerification
+                                    && PreferencesUtil.isEditVerificationEnabled(this@GroupActivity)) {
+                                    mPendingEditGroup = event.group
+                                    checkUserVerification(
+                                        userVerificationViewModel = mUserVerificationViewModel,
+                                        dataToVerify = UserVerificationData(
+                                            actionType = UserVerificationActionType.EDIT_GROUP,
+                                            database = mDatabase
+                                        )
+                                    )
+                                } else {
+                                    launchDialogForGroupUpdate(event.group)
+                                }
                             }
                             is GroupViewModel.GroupEvent.EditEntry -> {
                                 mDatabase?.let { database ->
                                     val entryId = event.entry.nodeId
-                                    if (mDatabaseAllowUserVerification) {
+                                    if (mDatabaseAllowUserVerification
+                                        && PreferencesUtil.isEditVerificationEnabled(this@GroupActivity)) {
                                         checkUserVerification(
                                             userVerificationViewModel = mUserVerificationViewModel,
                                             dataToVerify = UserVerificationData(
@@ -749,6 +764,10 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
                         when (data.actionType) {
                             UserVerificationActionType.EDIT_ENTRY -> {
                                 editEntry(data.database, data.entryId)
+                            }
+                            UserVerificationActionType.EDIT_GROUP -> {
+                                mPendingEditGroup?.let { launchDialogForGroupUpdate(it) }
+                                mPendingEditGroup = null
                             }
                             UserVerificationActionType.MERGE_FROM_DATABASE -> {
                                 mExternalFileHelper?.openDocument()

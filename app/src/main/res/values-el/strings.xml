@@ -625,6 +625,8 @@
     <string name="pin_unlock_wiped">Πάρα πολλά λανθασμένα PIN. Το PIN διαγράφηκε. Εισαγάγετε τον κύριο κωδικό πρόσβασής σας.</string>
     <string name="copy_protected_verification_title">Επαλήθευση πριν από την αντιγραφή</string>
     <string name="copy_protected_verification_summary">Να ζητείται επαλήθευση από τον χρήστη πριν από την αντιγραφή προστατευμένων πεδίων. Απενεργοποιήστε για άμεση αντιγραφή.</string>
+    <string name="edit_verification_title">Επαλήθευση πριν την επεξεργασία</string>
+    <string name="edit_verification_summary">Ζητά επαλήθευση χρήστη πριν από την επεξεργασία καταχωρίσεων και φακέλων. Απενεργοποιήστε για άμεση επεξεργασία.</string>
     <string name="pin_unlock_category">Ξεκλείδωμα με PIN</string>
     <string name="pin_validity_title">Ισχύς PIN</string>
     <string name="pin_validity_summary">Αν η εφαρμογή δεν ανοίξει για αυτό το διάστημα, η βάση δεδομένων πρέπει να εισαχθεί ξανά και να ξεκλειδωθεί με τον κύριο κωδικό πρόσβασης</string>

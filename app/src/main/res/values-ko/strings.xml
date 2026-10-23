@@ -346,6 +346,8 @@
     <string name="pin_unlock_wiped">잘못된 PIN을 너무 많이 입력했습니다. PIN이 삭제되었습니다. 마스터 비밀번호를 입력하세요.</string>
     <string name="copy_protected_verification_title">복사 전 확인</string>
     <string name="copy_protected_verification_summary">보호된 필드를 복사하기 전에 사용자 확인을 요청합니다. 끄면 바로 복사합니다.</string>
+    <string name="edit_verification_title">편집 전에 확인</string>
+    <string name="edit_verification_summary">항목과 폴더를 편집하기 전에 사용자 확인을 요청합니다. 끄면 바로 편집할 수 있습니다.</string>
     <string name="pin_unlock_category">PIN으로 잠금 해제</string>
     <string name="pin_validity_title">PIN 유효 기간</string>
     <string name="pin_validity_summary">이 기간 동안 앱을 열지 않으면 데이터베이스를 다시 가져온 후 마스터 비밀번호로 잠금을 해제해야 합니다</string>

@@ -22,6 +22,8 @@ package com.keepasspn.biometric
 import android.net.Uri
 import android.os.Build
 import android.view.LayoutInflater
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -55,10 +57,13 @@ object PinVerificationDialog {
         val view = LayoutInflater.from(activity).inflate(R.layout.dialog_pin_verify, null)
         val layout = view.findViewById<TextInputLayout>(R.id.pin_verify_layout)
         val edit = view.findViewById<TextInputEditText>(R.id.pin_verify_edit)
+        val progress = view.findViewById<ProgressBar>(R.id.pin_verify_progress)
 
         var finished = false
+        var busy = false
         fun cancel() {
-            if (!finished) {
+            // Ignore cancel (back key, negative button) while the PIN check is running
+            if (!finished && !busy) {
                 finished = true
                 onFailed(null)
             }
@@ -72,10 +77,22 @@ object PinVerificationDialog {
             .setOnCancelListener { cancel() }
             .create()
 
+        // Show progress and lock the input while the key derivation runs, so the
+        // user gets immediate feedback and cannot start a second attempt
+        fun setBusy(isBusy: Boolean) {
+            busy = isBusy
+            progress.visibility = if (isBusy) View.VISIBLE else View.GONE
+            edit.isEnabled = !isBusy
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = !isBusy
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).isEnabled = !isBusy
+        }
+
         dialog.setOnShowListener {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                if (busy || finished) return@setOnClickListener
                 layout.error = null
                 val pin = edit.text.toString().toCharArray()
+                setBusy(true)
                 activity.lifecycleScope.launch {
                     try {
                         // The PIN array is wiped by unlockWithPin
@@ -85,6 +102,7 @@ object PinVerificationDialog {
                         dialog.dismiss()
                         onVerified()
                     } catch (e: WrongPinException) {
+                        setBusy(false)
                         layout.error = activity.getString(
                             R.string.pin_unlock_wrong_pin, e.remainingAttemptsBeforeLockout
                         )

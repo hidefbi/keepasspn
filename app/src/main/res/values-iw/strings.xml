@@ -675,6 +675,8 @@
     <string name="pin_unlock_wiped">יותר מדי קודי PIN שגויים. קוד ה-PIN נמחק. הזן את הסיסמה הראשית שלך.</string>
     <string name="copy_protected_verification_title">אמת לפני העתקה</string>
     <string name="copy_protected_verification_summary">בקש אימות משתמש לפני העתקת שדות מוגנים. כבה כדי להעתיק אותם ישירות.</string>
+    <string name="edit_verification_title">אמת לפני עריכה</string>
+    <string name="edit_verification_summary">בקש אימות משתמש לפני עריכת פריטים ותיקיות. כבה כדי לערוך ישירות.</string>
     <string name="pin_unlock_category">ביטול נעילה באמצעות PIN</string>
     <string name="pin_validity_title">תוקף ה-PIN</string>
     <string name="pin_validity_summary">אם האפליקציה לא תיפתח במשך תקופה זו, יש לייבא מחדש את מסד הנתונים ולבטל את הנעילה עם הסיסמה הראשית</string>

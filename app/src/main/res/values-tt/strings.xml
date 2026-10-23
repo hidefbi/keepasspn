@@ -40,6 +40,8 @@
     <string name="pin_unlock_wiped">Бик күп дөрес булмаган PIN кертелде. PIN бетерелде. Баш парольне кертегез.</string>
     <string name="copy_protected_verification_title">Күчереп алдыннан тикшерү</string>
     <string name="copy_protected_verification_summary">Яклангән кырларны күчерер алдыннан кулланучы раславын сорарга. Туры күчерү өчен сүндерегез.</string>
+    <string name="edit_verification_title">Үзгәртер алдыннан раслау</string>
+    <string name="edit_verification_summary">Язмаларны һәм папкаларны үзгәртер алдыннан кулланучы раслауын сорарга. Туры үзгәртү өчен сүндерегез.</string>
     <string name="pin_unlock_category">PIN белән ачу</string>
     <string name="pin_validity_title">PIN гамәлдә булу вакыты</string>
     <string name="pin_validity_summary">Әгәр кушымта бу чор эчендә ачылмаса, мәгълүмат нигезен яңадан импорт итәргә һәм баш пароль белән ачарга кирәк</string>

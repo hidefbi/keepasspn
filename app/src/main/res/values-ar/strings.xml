@@ -678,6 +678,8 @@
     <string name="pin_unlock_wiped">رمز PIN خاطئ عدة مرات. تم حذف رمز PIN. أدخل كلمة المرور الرئيسية.</string>
     <string name="copy_protected_verification_title">التحقق قبل النسخ</string>
     <string name="copy_protected_verification_summary">اطلب التحقق من المستخدم قبل نسخ الحقول المحمية. أوقف هذا الخيار للنسخ مباشرةً.</string>
+    <string name="edit_verification_title">التحقق قبل التعديل</string>
+    <string name="edit_verification_summary">اطلب التحقق من المستخدم قبل تعديل الإدخالات والمجلدات. أوقف هذا الخيار للتعديل مباشرةً.</string>
     <string name="pin_unlock_category">فتح القفل برمز PIN</string>
     <string name="pin_validity_title">صلاحية رمز PIN</string>
     <string name="pin_validity_summary">إذا لم يتم فتح التطبيق خلال هذه المدة، يجب استيراد قاعدة البيانات مرة أخرى وفتحها بكلمة المرور الرئيسية</string>

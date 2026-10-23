@@ -690,6 +690,8 @@
     <string name="pin_unlock_wiped">Prea multe PIN-uri greșite. PIN-ul a fost șters. Introduceți parola principală.</string>
     <string name="copy_protected_verification_title">Verificați înainte de copiere</string>
     <string name="copy_protected_verification_summary">Solicită verificarea utilizatorului înainte de a copia câmpurile protejate. Dezactivați pentru a le copia direct.</string>
+    <string name="edit_verification_title">Verifică înainte de editare</string>
+    <string name="edit_verification_summary">Solicită verificarea utilizatorului înainte de a edita intrările și dosarele. Dezactivează pentru a le edita direct.</string>
     <string name="pin_unlock_category">Deblocare cu PIN</string>
     <string name="pin_validity_title">Valabilitatea PIN-ului</string>
     <string name="pin_validity_summary">Dacă aplicația nu este deschisă în această perioadă, baza de date trebuie reimportată și deblocată cu parola principală</string>

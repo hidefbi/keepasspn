@@ -276,6 +276,8 @@
     <string name="pin_unlock_wiped">Pārāk daudz nepareizu PIN kodu. PIN kods ir dzēsts. Ievadiet galveno paroli.</string>
     <string name="copy_protected_verification_title">Pārbaudīt pirms kopēšanas</string>
     <string name="copy_protected_verification_summary">Pirms aizsargātu lauku kopēšanas pieprasīt lietotāja apstiprinājumu. Izslēdziet, lai kopētu tos tieši.</string>
+    <string name="edit_verification_title">Apstiprināt pirms rediģēšanas</string>
+    <string name="edit_verification_summary">Pirms ierakstu un mapju rediģēšanas pieprasīt lietotāja verifikāciju. Izslēdziet, lai rediģētu tieši.</string>
     <string name="pin_unlock_category">PIN atbloķēšana</string>
     <string name="pin_validity_title">PIN derīgums</string>
     <string name="pin_validity_summary">Ja lietotne šajā laika posmā netiek atvērta, datubāze ir jāimportē no jauna un jāatbloķē ar galveno paroli</string>

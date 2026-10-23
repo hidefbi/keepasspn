@@ -153,6 +153,8 @@
     <string name="pin_unlock_wiped">गलत PIN बहुत बार डाला गया। PIN हटा दिया गया है। कृपया अपना मास्टर पासवर्ड डालें।</string>
     <string name="copy_protected_verification_title">कॉपी करने से पहले सत्यापित करें</string>
     <string name="copy_protected_verification_summary">सुरक्षित फ़ील्ड कॉपी करने से पहले उपयोगकर्ता सत्यापन माँगें। सीधे कॉपी करने के लिए इसे बंद करें।</string>
+    <string name="edit_verification_title">संपादन से पहले सत्यापित करें</string>
+    <string name="edit_verification_summary">प्रविष्टियाँ और फ़ोल्डर संपादित करने से पहले उपयोगकर्ता सत्यापन माँगें। सीधे संपादित करने के लिए बंद करें।</string>
     <string name="pin_unlock_category">PIN से अनलॉक</string>
     <string name="pin_validity_title">PIN की वैधता</string>
     <string name="pin_validity_summary">अगर इस अवधि में ऐप नहीं खोला गया, तो डेटाबेस को फिर से इंपोर्ट करना होगा और मास्टर पासवर्ड से अनलॉक करना होगा</string>

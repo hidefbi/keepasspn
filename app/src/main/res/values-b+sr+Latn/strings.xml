@@ -360,6 +360,8 @@
     <string name="pin_unlock_wiped">Previše pogrešnih PIN-ova. PIN je obrisan. Unesite glavnu lozinku.</string>
     <string name="copy_protected_verification_title">Potvrdi pre kopiranja</string>
     <string name="copy_protected_verification_summary">Traži potvrdu korisnika pre kopiranja zaštićenih polja. Isključite da biste ih kopirali direktno.</string>
+    <string name="edit_verification_title">Potvrdi pre izmene</string>
+    <string name="edit_verification_summary">Traži potvrdu korisnika pre izmene unosa i fascikli. Isključite da biste ih menjali direktno.</string>
     <string name="pin_unlock_category">PIN otključavanje</string>
     <string name="pin_validity_title">Važnost PIN-a</string>
     <string name="pin_validity_summary">Ako aplikacija nije otvorena tokom ovog perioda, baza podataka mora ponovo da se uveze i otključa glavnom lozinkom</string>

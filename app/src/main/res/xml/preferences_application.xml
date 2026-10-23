@@ -63,6 +63,12 @@
             android:summary="@string/copy_protected_verification_summary"
             android:defaultValue="@bool/copy_protected_verification_default"/>
 
+        <SwitchPreferenceCompat
+            android:key="@string/edit_verification_key"
+            android:title="@string/edit_verification_title"
+            android:summary="@string/edit_verification_summary"
+            android:defaultValue="@bool/edit_verification_default"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory

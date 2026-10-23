@@ -685,6 +685,8 @@
     <string name="pin_unlock_wiped">Nhập sai PIN quá nhiều lần. PIN đã bị xóa. Hãy nhập mật khẩu chính.</string>
     <string name="copy_protected_verification_title">Xác minh trước khi sao chép</string>
     <string name="copy_protected_verification_summary">Yêu cầu người dùng xác minh trước khi sao chép các trường được bảo vệ. Tắt để sao chép trực tiếp.</string>
+    <string name="edit_verification_title">Xác minh trước khi chỉnh sửa</string>
+    <string name="edit_verification_summary">Yêu cầu xác minh người dùng trước khi chỉnh sửa mục và thư mục. Tắt để chỉnh sửa trực tiếp.</string>
     <string name="pin_unlock_category">Mở khóa bằng PIN</string>
     <string name="pin_validity_title">Thời hạn PIN</string>
     <string name="pin_validity_summary">Nếu ứng dụng không được mở trong khoảng thời gian này, cơ sở dữ liệu phải được nhập lại và mở khóa bằng mật khẩu chính</string>

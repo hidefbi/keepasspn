@@ -696,6 +696,8 @@
     <string name="pin_unlock_wiped">Príliš veľa nesprávnych PIN kódov. PIN bol odstránený. Zadajte hlavné heslo.</string>
     <string name="copy_protected_verification_title">Overiť pred kopírovaním</string>
     <string name="copy_protected_verification_summary">Pred kopírovaním chránených polí vyžiadať overenie používateľom. Vypnutím ich skopírujete priamo.</string>
+    <string name="edit_verification_title">Overiť pred úpravou</string>
+    <string name="edit_verification_summary">Pred úpravou položiek a priečinkov požiadať o overenie používateľa. Vypnutím ich upravíte priamo.</string>
     <string name="pin_unlock_category">Odomknutie PIN kódom</string>
     <string name="pin_validity_title">Platnosť PIN kódu</string>
     <string name="pin_validity_summary">Ak sa aplikácia v tomto období neotvorí, databázu je potrebné znovu importovať a odomknúť hlavným heslom</string>

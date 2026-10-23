@@ -706,6 +706,8 @@
     <string name="pin_unlock_wiped">Te veel onjuiste pincodes. De pincode is verwijderd. Voer je hoofdwachtwoord in.</string>
     <string name="copy_protected_verification_title">Verifiëren voor kopiëren</string>
     <string name="copy_protected_verification_summary">Vraag om verificatie van de gebruiker voordat beveiligde velden worden gekopieerd. Schakel uit om ze direct te kopiëren.</string>
+    <string name="edit_verification_title">Verifiëren voor bewerken</string>
+    <string name="edit_verification_summary">Vraag om gebruikersverificatie voordat items en mappen worden bewerkt. Uitschakelen om ze direct te bewerken.</string>
     <string name="pin_unlock_category">Ontgrendelen met pincode</string>
     <string name="pin_validity_title">Geldigheid pincode</string>
     <string name="pin_validity_summary">Als de app gedurende deze periode niet is geopend, moet de database opnieuw worden geïmporteerd en ontgrendeld met het hoofdwachtwoord</string>

@@ -298,6 +298,8 @@
     <string name="pin_unlock_wiped">ਗਲਤ PIN ਬਹੁਤ ਵਾਰ ਦਾਖਲ ਕੀਤਾ ਗਿਆ। PIN ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ। ਆਪਣਾ ਮਾਸਟਰ ਪਾਸਵਰਡ ਦਾਖਲ ਕਰੋ।</string>
     <string name="copy_protected_verification_title">ਕਾਪੀ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਤਸਦੀਕ ਕਰੋ</string>
     <string name="copy_protected_verification_summary">ਸੁਰੱਖਿਅਤ ਖੇਤਰਾਂ ਨੂੰ ਕਾਪੀ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਉਪਭੋਗਤਾ ਤੋਂ ਤਸਦੀਕ ਮੰਗੋ। ਸਿੱਧਾ ਕਾਪੀ ਕਰਨ ਲਈ ਬੰਦ ਕਰੋ।</string>
+    <string name="edit_verification_title">ਸੰਪਾਦਨ ਤੋਂ ਪਹਿਲਾਂ ਤਸਦੀਕ ਕਰੋ</string>
+    <string name="edit_verification_summary">ਐਂਟਰੀਆਂ ਅਤੇ ਫੋਲਡਰਾਂ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਉਪਭੋਗਤਾ ਤਸਦੀਕ ਮੰਗੋ। ਸਿੱਧਾ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਬੰਦ ਕਰੋ।</string>
     <string name="pin_unlock_category">PIN ਅਨਲਾਕ</string>
     <string name="pin_validity_title">PIN ਦੀ ਵੈਧਤਾ</string>
     <string name="pin_validity_summary">ਜੇ ਇਸ ਮਿਆਦ ਦੌਰਾਨ ਐਪ ਨਹੀਂ ਖੋਲ੍ਹੀ ਗਈ, ਤਾਂ ਡੇਟਾਬੇਸ ਨੂੰ ਦੁਬਾਰਾ ਆਯਾਤ ਕਰਕੇ ਮਾਸਟਰ ਪਾਸਵਰਡ ਨਾਲ ਅਨਲਾਕ ਕਰਨਾ ਪਵੇਗਾ</string>

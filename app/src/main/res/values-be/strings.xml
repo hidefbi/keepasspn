@@ -645,6 +645,8 @@
     <string name="pin_unlock_wiped">Занадта шмат няправільных PIN-кодаў. PIN-код выдалены. Увядзіце галоўны пароль.</string>
     <string name="copy_protected_verification_title">Праверка перад капіраваннем</string>
     <string name="copy_protected_verification_summary">Патрабаваць пацверджання карыстальніка перад капіраваннем абароненых палёў. Выключыце, каб капіраваць адразу.</string>
+    <string name="edit_verification_title">Праверка перад змяненнем</string>
+    <string name="edit_verification_summary">Запытваць праверку карыстальніка перад змяненнем запісаў і папак. Выключыце, каб змяняць іх непасродна.</string>
     <string name="pin_unlock_category">Разблакіроўка PIN-кодам</string>
     <string name="pin_validity_title">Тэрмін дзеяння PIN-кода</string>
     <string name="pin_validity_summary">Калі праграма не адкрывалася на працягу гэтага перыяду, базу даных трэба імпартаваць паўторна і разблакіраваць галоўным паролем</string>

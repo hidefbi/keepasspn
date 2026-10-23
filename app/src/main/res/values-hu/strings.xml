@@ -698,6 +698,8 @@
     <string name="pin_unlock_wiped">Túl sok hibás PIN-kód. A PIN-kód törölve lett. Adja meg a főjelszavát.</string>
     <string name="copy_protected_verification_title">Ellenőrzés másolás előtt</string>
     <string name="copy_protected_verification_summary">Kérjen felhasználói ellenőrzést a védett mezők másolása előtt. Kikapcsolva közvetlenül másolja őket.</string>
+    <string name="edit_verification_title">Ellenőrzés szerkesztés előtt</string>
+    <string name="edit_verification_summary">Felhasználói ellenőrzés kérése bejegyzések és mappák szerkesztése előtt. Kikapcsolva közvetlenül szerkeszthetők.</string>
     <string name="pin_unlock_category">Feloldás PIN-kóddal</string>
     <string name="pin_validity_title">PIN-kód érvényessége</string>
     <string name="pin_validity_summary">Ha az alkalmazás ezen időszak alatt nincs megnyitva, az adatbázist újra be kell importálni, és a főjelszóval fel kell oldani</string>

@@ -323,6 +323,8 @@
     <string name="pin_unlock_wiped">Too many wrong PINs. The PIN has been deleted. Enter your master password.</string>
     <string name="copy_protected_verification_title">Verify before copying</string>
     <string name="copy_protected_verification_summary">Ask for user verification before copying protected fields. Turn off to copy them directly.</string>
+    <string name="edit_verification_title">Verify before editing</string>
+    <string name="edit_verification_summary">Ask for user verification before editing entries and folders. Turn off to edit them directly.</string>
     <string name="pin_unlock_category">PIN unlock</string>
     <string name="pin_validity_title">PIN validity</string>
     <string name="pin_validity_summary">If the app is not opened for this period, the database must be imported again and unlocked with the master password</string>

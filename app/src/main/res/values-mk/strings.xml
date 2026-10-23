@@ -32,6 +32,8 @@
     <string name="pin_unlock_wiped">Премногу погрешни PIN-кодови. PIN-кодот е избришан. Внесете ја главната лозинка.</string>
     <string name="copy_protected_verification_title">Потврди пред копирање</string>
     <string name="copy_protected_verification_summary">Бара потврда од корисникот пред копирање на заштитени полиња. Исклучете за директно копирање.</string>
+    <string name="edit_verification_title">Потврда пред уредување</string>
+    <string name="edit_verification_summary">Бара потврда од корисникот пред уредување записи и папки. Исклучете за директно уредување.</string>
     <string name="pin_unlock_category">Отклучување со PIN</string>
     <string name="pin_validity_title">Важност на PIN-кодот</string>
     <string name="pin_validity_summary">Ако апликацијата не се отвори во овој период, базата мора повторно да се увезе и да се отклучи со главната лозинка</string>

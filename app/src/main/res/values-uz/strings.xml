@@ -52,6 +52,8 @@
     <string name="pin_unlock_wiped">Juda ko\'p noto\'g\'ri PIN kiritildi. PIN o\'chirildi. Asosiy parolni kiriting.</string>
     <string name="copy_protected_verification_title">Nusxalashdan oldin tasdiqlash</string>
     <string name="copy_protected_verification_summary">Himoyalangan maydonlarni nusxalashdan oldin foydalanuvchi tasdiqlashini so\'rash. To\'g\'ridan-to\'g\'ri nusxalash uchun o\'chiring.</string>
+    <string name="edit_verification_title">Tahrirlashdan oldin tasdiqlash</string>
+    <string name="edit_verification_summary">Yozuvlar va papkalarni tahrirlashdan oldin foydalanuvchi tasdig\'ini so\'rash. To\'g\'ridan-to\'g\'ri tahrirlash uchun o\'chiring.</string>
     <string name="pin_unlock_category">PIN bilan qulfni ochish</string>
     <string name="pin_validity_title">PIN amal qilish muddati</string>
     <string name="pin_validity_summary">Agar ilova bu muddat davomida ochilmasa, ma\'lumotlar bazasini qayta import qilish va asosiy parol bilan qulfni ochish kerak bo\'ladi</string>

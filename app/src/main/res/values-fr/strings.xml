@@ -702,6 +702,8 @@
     <string name="pin_unlock_wiped">Trop de codes PIN incorrects. Le code PIN a été supprimé. Saisissez votre mot de passe principal.</string>
     <string name="copy_protected_verification_title">Vérifier avant de copier</string>
     <string name="copy_protected_verification_summary">Demander une vérification avant de copier les champs protégés. Désactivez pour les copier directement.</string>
+    <string name="edit_verification_title">Vérifier avant modification</string>
+    <string name="edit_verification_summary">Demander une vérification de l\'utilisateur avant de modifier les entrées et les dossiers. Désactiver pour les modifier directement.</string>
     <string name="pin_unlock_category">Déverrouillage par code PIN</string>
     <string name="pin_validity_title">Validité du code PIN</string>
     <string name="pin_validity_summary">Si l\'application n\'est pas ouverte pendant cette période, la base de données doit être de nouveau importée et déverrouillée avec le mot de passe principal</string>

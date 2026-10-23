@@ -29,6 +29,8 @@
     <string name="pin_unlock_wiped">చాలా తప్పు PIN లు నమోదు చేశారు. PIN తొలగించబడింది. మీ ప్రధాన పాస్‌వర్డ్‌ను నమోదు చేయండి.</string>
     <string name="copy_protected_verification_title">కాపీ చేసే ముందు ధృవీకరించండి</string>
     <string name="copy_protected_verification_summary">రక్షిత ఫీల్డ్‌లను కాపీ చేసే ముందు వినియోగదారు ధృవీకరణ అడగండి. నేరుగా కాపీ చేయడానికి ఆఫ్ చేయండి.</string>
+    <string name="edit_verification_title">సవరించే ముందు ధృవీకరించండి</string>
+    <string name="edit_verification_summary">ఎంట్రీలు మరియు ఫోల్డర్లను సవరించే ముందు వినియోగదారు ధృవీకరణ అడగండి. నేరుగా సవరించడానికి ఆఫ్ చేయండి.</string>
     <string name="pin_unlock_category">PIN అన్‌లాక్</string>
     <string name="pin_validity_title">PIN చెల్లుబాటు</string>
     <string name="pin_validity_summary">ఈ వ్యవధిలో యాప్ తెరవకపోతే, డేటాబేస్‌ను మళ్లీ దిగుమతి చేసి ప్రధాన పాస్‌వర్డ్‌తో అన్‌లాక్ చేయాలి</string>

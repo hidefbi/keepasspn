@@ -271,6 +271,8 @@
     <string name="pin_unlock_wiped">Masyadong maraming maling PIN. Nabura na ang PIN. Ilagay ang iyong master password.</string>
     <string name="copy_protected_verification_title">I-verify bago kopyahin</string>
     <string name="copy_protected_verification_summary">Humingi ng user verification bago kopyahin ang mga protektadong field. I-off para direktang makopya ang mga ito.</string>
+    <string name="edit_verification_title">I-verify bago i-edit</string>
+    <string name="edit_verification_summary">Humingi ng user verification bago i-edit ang mga entry at folder. I-off para direktang i-edit ang mga ito.</string>
     <string name="pin_unlock_category">PIN unlock</string>
     <string name="pin_validity_title">Bisa ng PIN</string>
     <string name="pin_validity_summary">Kapag hindi nabuksan ang app sa loob ng panahong ito, kailangang i-import ulit ang database at i-unlock gamit ang master password</string>

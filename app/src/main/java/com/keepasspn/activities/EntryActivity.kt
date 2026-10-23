@@ -557,7 +557,8 @@ class EntryActivity : DatabaseLockActivity() {
     }
 
     private fun requestEdition() {
-        if (mDatabaseAllowUserVerification) {
+        if (mDatabaseAllowUserVerification
+            && PreferencesUtil.isEditVerificationEnabled(this)) {
             mDatabase?.let { database ->
                 checkUserVerification(
                     userVerificationViewModel = mUserVerificationViewModel,

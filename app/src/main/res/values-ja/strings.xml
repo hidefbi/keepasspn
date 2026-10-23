@@ -695,6 +695,8 @@
     <string name="pin_unlock_wiped">PINの入力を誤りすぎました。PINは削除されました。マスターパスワードを入力してください。</string>
     <string name="copy_protected_verification_title">コピー前に確認</string>
     <string name="copy_protected_verification_summary">保護されたフィールドをコピーする前にユーザーの確認を求めます。オフにすると直接コピーされます。</string>
+    <string name="edit_verification_title">編集前に確認</string>
+    <string name="edit_verification_summary">項目とフォルダーを編集する前にユーザー確認を求めます。オフにすると直接編集できます。</string>
     <string name="pin_unlock_category">PINでのロック解除</string>
     <string name="pin_validity_title">PINの有効期間</string>
     <string name="pin_validity_summary">この期間アプリを開かなかった場合、データベースを再インポートし、マスターパスワードでロックを解除する必要があります</string>

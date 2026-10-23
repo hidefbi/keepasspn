@@ -575,6 +575,8 @@
     <string name="pin_unlock_wiped">Həddindən artıq yanlış PIN. PIN silindi. Ana parolunuzu daxil edin.</string>
     <string name="copy_protected_verification_title">Kopyalamazdan əvvəl təsdiqləyin</string>
     <string name="copy_protected_verification_summary">Qorunan sahələri kopyalamazdan əvvəl istifadəçi təsdiqi tələb edin. Birbaşa kopyalamaq üçün söndürün.</string>
+    <string name="edit_verification_title">Redaktədən əvvəl təsdiqlə</string>
+    <string name="edit_verification_summary">Qeydləri və qovluqları redaktə etməzdən əvvəl istifadəçi təsdiqi tələb edin. Birbaşa redaktə etmək üçün söndürün.</string>
     <string name="pin_unlock_category">PIN ilə açma</string>
     <string name="pin_validity_title">PIN-in etibarlılıq müddəti</string>
     <string name="pin_validity_summary">Tətbiq bu müddət ərzində açılmazsa, verilənlər bazası yenidən idxal edilməli və ana parolla açılmalıdır</string>

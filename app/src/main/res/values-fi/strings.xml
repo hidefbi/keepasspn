@@ -434,6 +434,8 @@
     <string name="pin_unlock_wiped">Liian monta väärää PIN-koodia. PIN-koodi on poistettu. Anna pääsalasana.</string>
     <string name="copy_protected_verification_title">Vahvista ennen kopiointia</string>
     <string name="copy_protected_verification_summary">Pyydä käyttäjän vahvistus ennen suojattujen kenttien kopiointia. Kun tämä on pois päältä, kenttiä kopioidaan suoraan.</string>
+    <string name="edit_verification_title">Vahvista ennen muokkausta</string>
+    <string name="edit_verification_summary">Pyydä käyttäjän vahvistus ennen merkintöjen ja kansioiden muokkaamista. Poista käytöstä muokataksesi suoraan.</string>
     <string name="pin_unlock_category">Avaaminen PIN-koodilla</string>
     <string name="pin_validity_title">PIN-koodin voimassaolo</string>
     <string name="pin_validity_summary">Jos sovellusta ei avata tämän ajanjakson aikana, tietokanta on tuotava uudelleen ja avattava pääsalasanalla</string>

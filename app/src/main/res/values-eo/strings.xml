@@ -129,6 +129,8 @@
     <string name="pin_unlock_wiped">Tro multaj malĝustaj PIN-oj. La PIN estis forigita. Enigu vian ĉefan pasvorton.</string>
     <string name="copy_protected_verification_title">Konfirmi antaŭ kopiado</string>
     <string name="copy_protected_verification_summary">Peti konfirmon de la uzanto antaŭ kopii protektitajn kampojn. Malŝaltu por kopii ilin rekte.</string>
+    <string name="edit_verification_title">Kontroli antaŭ redakto</string>
+    <string name="edit_verification_summary">Peti uzantan kontrolon antaŭ redakto de eroj kaj dosierujoj. Malŝaltu por redakti rekte.</string>
     <string name="pin_unlock_category">Malŝlosado per PIN</string>
     <string name="pin_validity_title">Valideco de PIN</string>
     <string name="pin_validity_summary">Se la aplikaĵo ne estas malfermita dum ĉi tiu periodo, la datumbazo devas esti reimportita kaj malŝlosita per la ĉefa pasvorto</string>
