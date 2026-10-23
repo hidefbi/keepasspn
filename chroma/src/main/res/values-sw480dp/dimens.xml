@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="chroma_dialog_height_multiplier" format="float" type="dimen">0.7</item>
+    <item name="chroma_dialog_width_multiplier" format="float" type="dimen">0.7</item>
+</resources>

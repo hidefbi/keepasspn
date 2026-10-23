@@ -106,7 +106,7 @@ dependencies {
     // Utilities
     implementation(libs.androidx.autofill)
     implementation(libs.joda.time)
-    implementation(libs.chroma)
+    implementation(project(":chroma"))
     implementation(libs.taptargetview)
     implementation(libs.commons.io)
     // Credentials

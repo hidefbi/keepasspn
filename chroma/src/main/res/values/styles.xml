@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Style for a Preference Entry -->
+    <style name="AppPreference">
+        <item name="android:layout">@layout/preference_layout</item>
+    </style>
+</resources>

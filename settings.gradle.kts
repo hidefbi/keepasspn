@@ -11,7 +11,6 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url = uri("https://jitpack.io") }
     }
 }
 
@@ -19,6 +18,7 @@ rootProject.name = "KeePassPN"
 include(":app")
 include(":database")
 include(":crypto")
+include(":chroma")
 include(":icon-pack")
 include(":icon-pack:classic")
 include(":icon-pack:material")

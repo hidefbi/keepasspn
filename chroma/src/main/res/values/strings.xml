@@ -1,0 +1,19 @@
+<resources>
+    <!--<string name="button_positive">OK</string>-->
+    <!--<string name="button_negative">Cancel</string>-->
+
+    <string name="channel_alpha">A</string>
+    <string name="channel_red">R</string>
+    <string name="channel_green">G</string>
+    <string name="channel_blue">B</string>
+
+    <string name="channel_hue">H</string>
+    <string name="channel_saturation">S</string>
+    <string name="channel_value">V</string>
+    <string name="channel_lightness">L</string>
+
+    <string name="channel_cyan">C</string>
+    <string name="channel_magenta">M</string>
+    <string name="channel_yellow">Y</string>
+    <string name="channel_black">K</string>
+</resources>

@@ -22,7 +22,6 @@ media = "1.6.0"
 fragment-ktx = "1.6.0"
 tokenautocomplete = "4.0.0-beta05"
 autofill = "1.1.0"
-chroma = "2.6"
 taptargetview = "1.13.3"
 nbvcxz = "1.5.1"
 credentials = "1.2.2"
@@ -54,7 +53,6 @@ androidx-room-runtime = { group = "androidx.room", name = "room-runtime", versio
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 androidx-autofill = { group = "androidx.autofill", name = "autofill", version.ref = "autofill" }
 joda-time = { group = "joda-time", name = "joda-time", version.ref = "joda-time" }
-chroma = { group = "com.github.Kunzisoft", name = "AndroidClearChroma", version.ref = "chroma" }
 taptargetview = { group = "com.getkeepsafe.taptargetview", name = "taptargetview", version.ref = "taptargetview" }
 commons-io = { group = "commons-io", name = "commons-io", version.ref = "commons-io" }
 nbvcxz = { group = "me.gosimple", name = "nbvcxz", version.ref = "nbvcxz" }
