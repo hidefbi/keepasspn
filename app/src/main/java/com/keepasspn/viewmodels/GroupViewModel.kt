@@ -144,7 +144,7 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
                     val summaryNode = if (groupId == TotpSummary.NODE_ID) {
                         TotpSummary.buildNode(
                             title = PreferencesUtil.getTotpSummaryTitle(getApplication()),
-                            numberOfEntries = database.getEntryInfosWithOtp().size
+                            numberOfEntries = database.getSummaryEntryInfos().size
                         )
                     } else {
                         null
@@ -169,7 +169,7 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
                         // Children
                         val isRootGroup = summaryNode == null && group.nodeId == database.rootGroup?.nodeId
                         val children: List<SortedNodeInfo> = if (summaryNode != null) {
-                            database.getEntryInfosWithOtpAndGroup().map { (entryInfo, groupTitle) ->
+                            database.getSummaryEntryInfos().map { (entryInfo, groupTitle) ->
                                 SortedEntryInfo(
                                     entryToCopy = entryInfo,
                                     path = getApplication<Application>().getString(
@@ -185,13 +185,19 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
                                 nodeFilter = mNodeFilter
                             ) ?: listOf()
                             if (isRootGroup && !mRecyclingBinIsCurrentGroup) {
-                                // The virtual TOTP Summary folder is always on top of the root group
+                                // Fixed order at the root: TOTP Summary first, then the 2FA import group
+                                val importGroupIds = database.rootGroup?.getChildGroups().orEmpty()
+                                    .filter { TotpSummary.isImportGroup(it) }
+                                    .map { it.nodeId }
+                                val (importGroups, otherChildren) = sortedChildren.partition { child ->
+                                    importGroupIds.any { it == child.nodeId }
+                                }
                                 listOf(
                                     TotpSummary.buildNode(
                                         title = PreferencesUtil.getTotpSummaryTitle(getApplication()),
-                                        numberOfEntries = database.getEntryInfosWithOtp().size
+                                        numberOfEntries = database.getSummaryEntryInfos().size
                                     )
-                                ) + sortedChildren
+                                ) + importGroups + otherChildren
                             } else {
                                 sortedChildren
                             }
@@ -449,7 +455,7 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
      * Requests a new position for a group among its sibling groups.
      */
     fun onReorderGroup(node: SortedNodeInfo, targetIndex: Int) {
-        if (TotpSummary.isSummary(node)) return
+        if (TotpSummary.isSummary(node) || isImportGroupNode(node)) return
         val groupId = (node as? GroupInfo)?.nodeId ?: return
         viewModelScope.launch {
             _viewEvent.emit(GroupEvent.ReorderGroup(groupId, targetIndex))
@@ -467,12 +473,16 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
             }
             return
         }
+        // Codes inside the TOTP Summary folder have no actions on long press
+        if (mainGroup?.nodeId == TotpSummary.NODE_ID) return
         mPendingNodeAction = node
         val siblings = siblingsOf(node)
         val index = siblings.indexOfFirst { it.nodeId == node.nodeId }
         val inSummary = mainGroup?.nodeId == TotpSummary.NODE_ID
-        val canMoveUp = reorderAllowed && !inSummary && index > 0
-        val canMoveDown = reorderAllowed && !inSummary && index >= 0 && index < siblings.size - 1
+        // The 2FA import group keeps its fixed position at the root
+        val pinned = isImportGroupNode(node)
+        val canMoveUp = reorderAllowed && !inSummary && !pinned && index > 0
+        val canMoveDown = reorderAllowed && !inSummary && !pinned && index >= 0 && index < siblings.size - 1
         viewModelScope.launch {
             _viewEvent.emit(GroupEvent.ShowNodeActions(node, canMoveUp, canMoveDown))
         }
@@ -530,6 +540,12 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
     /**
      * Nodes of the same kind (group or entry) as the given node, in display order.
      */
+    private fun isImportGroupNode(node: SortedNodeInfo): Boolean {
+        return mDatabase?.rootGroup?.getChildGroups().orEmpty().any {
+            TotpSummary.isImportGroup(it) && it.nodeId == node.nodeId
+        }
+    }
+
     private fun siblingsOf(node: SortedNodeInfo): List<SortedNodeInfo> {
         val isGroup = node is GroupInfo
         return groupUIState.value.children.orEmpty()

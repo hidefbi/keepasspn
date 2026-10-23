@@ -29,6 +29,7 @@ import com.keepasspn.hardware.HardwareKey
 import com.keepasspn.model.EntryInfo
 import com.keepasspn.model.GroupInfo
 import com.keepasspn.model.OtpModel
+import com.keepasspn.otp.TotpSummary
 import com.keepasspn.utils.NoOpLog
 
 /**
@@ -86,8 +87,8 @@ class AddOtpEntriesRunnable(
         mNewGroup?.let { newGroup ->
             newGroup.touch(modified = true, touchParents = true)
             mRoot?.let { root -> database.addGroupTo(newGroup, root) }
-            // Second position at the root, after the virtual TOTP Summary folder
-            mRoot?.let { root -> root.moveChildGroupToIndex(newGroup, 1) }
+            // First group of the root; the virtual TOTP Summary folder is displayed above it
+            mRoot?.let { root -> root.moveChildGroupToIndex(newGroup, 0) }
         }
         mGroup?.let { group ->
             mNewEntries.forEach { entry ->
@@ -120,7 +121,7 @@ class AddOtpEntriesRunnable(
         /**
          * Custom data key that marks the group holding the imported codes
          */
-        const val TOTP_GROUP_MARKER_KEY = "keepasspn.totp"
+        const val TOTP_GROUP_MARKER_KEY = TotpSummary.IMPORT_GROUP_MARKER_KEY
         private fun buildTotpGroupInfo(title: String): GroupInfo {
             return GroupInfo().apply {
                 this.title = title
@@ -130,7 +131,7 @@ class AddOtpEntriesRunnable(
 
         private fun findTotpGroup(database: ContextualDatabase): Group? {
             return database.rootGroup?.getChildGroups()?.firstOrNull { group ->
-                group.customData.get(TOTP_GROUP_MARKER_KEY)?.value == "true"
+                TotpSummary.isImportGroup(group)
             }
         }
 

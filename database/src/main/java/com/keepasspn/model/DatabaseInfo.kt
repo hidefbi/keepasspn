@@ -36,6 +36,7 @@ import com.keepasspn.model.PasskeyEntryFields.setPasskey
 import com.keepasspn.otp.OtpElement
 import com.keepasspn.otp.OtpEntryFields
 import com.keepasspn.otp.OtpEntryFields.setOtp
+import com.keepasspn.otp.TotpSummary
 
 /**
  * Database utility class to manage database information and conversion between elements and info objects.
@@ -66,6 +67,32 @@ open class DatabaseInfo: Database() {
                 override fun operate(node: Entry): Boolean {
                     if (node.getOtpElement() != null) {
                         entryInfos.add(getEntryInfoFrom(node, raw = true))
+                    }
+                    return true
+                }
+            },
+            object : NodeHandler<Group>() {
+                override fun operate(node: Group): Boolean {
+                    return true
+                }
+            }
+        )
+        return entryInfos
+    }
+
+    /**
+     * Get the entries shown in the TOTP Summary folder: every entry with a one-time password,
+     * except the codes held by the import group (those are only listed in that group).
+     * @return Pairs of entry info and parent group title, in traversal order (empty if none).
+     */
+    fun getSummaryEntryInfos(): List<Pair<EntryInfo, String>> {
+        val entryInfos = mutableListOf<Pair<EntryInfo, String>>()
+        rootGroup?.doForEachChildAndForIt(
+            object : NodeHandler<Entry>() {
+                override fun operate(node: Entry): Boolean {
+                    val parent = node.parent
+                    if (node.getOtpElement() != null && !TotpSummary.isImportGroup(parent)) {
+                        entryInfos.add(getEntryInfoFrom(node, raw = true) to (parent?.title ?: ""))
                     }
                     return true
                 }
