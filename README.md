@@ -67,8 +67,9 @@ Open *Verification codes* to see the current TOTP codes of entries from all grou
 - To import, tap the scan button in a group, or *Import codes* on the Verification codes screen. Then scan:
   - the batch QR code that Google Authenticator generates when you export accounts, which can span several QR codes, or
   - a single `otpauth://` QR code for one account.
-- Imported accounts are saved to a group named **2FA**, which you can rename.
+- Imported accounts are saved to a group named **2FA**, which you can rename. It sits second at the root, right after the TOTP Summary folder.
 - Accounts that already exist, with the same issuer, name and secret, are skipped.
+- The **TOTP Summary** folder at the top of the root group lists the entries of your database that already have a one-time password, with their live codes and the group each one belongs to. Codes you scan are not listed there; they stay in the 2FA group. Long-press the folder to rename it. Codes inside it have no actions on long press.
 
 All QR code decoding happens on your device. The camera is used only for this. The app does not save camera images and does not request internet access.
 

@@ -3,6 +3,8 @@ KeePassPN
  * Feature: Trusted browsers for autofill under Form filling; only trusted browsers can tell autofill the current website
  * Feature: Long-press an entry or folder for edit, move to folder and duplicate; entries can be reordered by hand when the group allows it
  * Feature: Verification codes (2FA) screen with import from Google Authenticator exports and otpauth:// QR codes
+ * Feature: TOTP Summary folder at the top of the root group lists the entries that already have a one-time password, with their live codes; its name can be changed by long-press
+ * Feature: scanned codes are saved only to the 2FA group, which sits second at the root, after TOTP Summary
  * Feature: About > Check for updates shows the installed version and opens the release page
  * Change: the free and libre build variants are merged into one; build with ./gradlew assembleDebug
  * Change: the PIN check shows a progress bar and locks the input while it runs
