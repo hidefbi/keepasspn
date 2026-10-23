@@ -1,4 +1,13 @@
 KeePassPN
+ * Feature: "Verify before editing" in App settings > User Verification controls verification for editing entries and folders (on by default)
+ * Feature: Trusted browsers for autofill under Form filling; only trusted browsers can tell autofill the current website
+ * Feature: Long-press an entry or folder for edit, move to folder and duplicate; entries can be reordered by hand when the group allows it
+ * Feature: Verification codes (2FA) screen with import from Google Authenticator exports and otpauth:// QR codes
+ * Feature: About > Check for updates shows the installed version and opens the release page
+ * Change: the free and libre build variants are merged into one; build with ./gradlew assembleDebug
+ * Change: the PIN check shows a progress bar and locks the input while it runs
+ * Security: passkeys are offered only to privileged callers (verified browsers and allow-listed apps)
+ * Security: saving writes to a temporary file first, so an interrupted save cannot replace the database with a partial file
  * Rename: the application is KeePassPN, package io.github.hidefbi.keepasspn
  * Feature: PIN unlock management in Settings > Device unlock (change PIN with the old PIN, disable PIN)
  * Feature: PIN validity of 7, 14, 30, 60 days or never
