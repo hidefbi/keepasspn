@@ -282,11 +282,18 @@ data class MasterCredential(
             try {
                 val documentBuilderFactory = DocumentBuilderFactory.newInstance()
 
-                // Disable certain unsecure XML-Parsing DocumentBuilderFactory features
+                // Disable the XML features that allow external entities (XML External Entity injection)
                 try {
                     documentBuilderFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)
+                    // A key file never needs a DTD, refusing it blocks external entities entirely
+                    documentBuilderFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)
+                    documentBuilderFactory.setFeature("http://xml.org/sax/features/external-general-entities", false)
+                    documentBuilderFactory.setFeature("http://xml.org/sax/features/external-parameter-entities", false)
+                    documentBuilderFactory.setXIncludeAware(false)
+                    documentBuilderFactory.setExpandEntityReferences(false)
                 } catch (_ : ParserConfigurationException) {
-                    NoOpLog.w(TAG, "Unable to add FEATURE_SECURE_PROCESSING to prevent XML eXternal Entity injection (XXE)")
+                    NoOpLog.w(TAG, "Unable to disable XML external entities, the key file is refused")
+                    return null
                 }
 
                 val documentBuilder = documentBuilderFactory.newDocumentBuilder()

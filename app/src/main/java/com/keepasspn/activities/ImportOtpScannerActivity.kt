@@ -268,6 +268,10 @@ class ImportOtpScannerActivity : DatabaseLockActivity(), SurfaceHolder.Callback 
         } catch (e: Exception) {
             openedCamera?.release()
             showToast(R.string.import_otp_camera_error)
+        } catch (e: Throwable) {
+            // Errors such as OutOfMemoryError must not keep the camera locked
+            openedCamera?.release()
+            throw e
         }
     }
 

@@ -517,13 +517,32 @@ class DatabaseKDBXMerger(private var database: DatabaseKDBX) {
                     // Don't touch the location but update the entry history
                     entry.addHistoryFrom(entryToMerge)
                 } else if (entry.lastModificationTime.isEquals(entryToMerge.lastModificationTime)) {
-                    // If it's the same modification time, simply move entry to the right location,
-                    // Current entry and entry to merge are normally the same
+                    // Same second, but the content may still differ: keep the other version in history
+                    if (!entry.hasSameContentAs(entryToMerge)) {
+                        entry.addHistoryFrom(entryToMerge)
+                    }
+                    // Simply move entry to the right location
                     database.removeEntryFrom(entry, entry.parent)
                     database.addEntryTo(entry, parentEntryToMerge)
                 }
             }
         }
+    }
+
+    /**
+     * Whether two entries have the same content, ignoring their location and history.
+     */
+    private fun EntryKDBX.hasSameContentAs(entryA: EntryKDBX): Boolean {
+        val fields = getFields()
+        val otherFields = entryA.getFields()
+        return title == entryA.title
+                && username == entryA.username
+                && password.contentEquals(entryA.password)
+                && url == entryA.url
+                && notes == entryA.notes
+                && tags == entryA.tags
+                && fields.size == otherFields.size
+                && fields.all { it in otherFields }
     }
 
     /**
@@ -581,7 +600,7 @@ class DatabaseKDBXMerger(private var database: DatabaseKDBX) {
                     // Update the current group location to the verified one
                     database.removeGroupFrom(group, group.parent)
                     database.addGroupTo(group, parentGroupToMerge)
-                } else if (group.lastModificationTime.isAfter(group.lastModificationTime)) {
+                } else if (group.lastModificationTime.isAfter(groupToMerge.lastModificationTime)) {
                     // Don't touch the location
                 } else if (group.lastModificationTime.isEquals(groupToMerge.lastModificationTime)) {
                     // If it's the same modification time, simply move group to the right location

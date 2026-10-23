@@ -238,6 +238,12 @@ object OtpEntryFields {
                 otpElement.algorithm = HashAlgorithm.fromString(algorithmParam)
             }
 
+            // An OTP without a valid secret can never produce a code, so it is refused
+            if (otpElement.otpModel.secret.isNullOrEmpty()) {
+                NoOpLog.e(TAG, "OTP secret is missing or invalid.")
+                return false
+            }
+
             return true
         }
         return false
