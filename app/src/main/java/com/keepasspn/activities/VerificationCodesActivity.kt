@@ -128,6 +128,7 @@ class VerificationCodesActivity : DatabaseLockActivity() {
             holder.title.text = entryInfo.title.ifEmpty { entryInfo.url }
             holder.username.text = entryInfo.username
             holder.group.text = getString(R.string.totp_summary_belongs_to, groupTitle)
+            holder.otp.setAlwaysVisibleToken(true)
             holder.otp.setOtpModel(entryInfo.otpModel)
             holder.itemView.setOnClickListener { copyCode(entryInfo) }
         }

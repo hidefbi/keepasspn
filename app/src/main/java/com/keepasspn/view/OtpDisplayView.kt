@@ -214,6 +214,14 @@ class OtpDisplayView @JvmOverloads constructor(
         this.mNeedUserVerificationToReveal = needUserVerificationToReveal
     }
 
+    /**
+     * Show the token without protection, for places where the codes are the content (like the TOTP Summary).
+     * @param alwaysVisible true to always show the token, false to keep the protection of the lists.
+     */
+    fun setAlwaysVisibleToken(alwaysVisible: Boolean) {
+        this.mProtected = !alwaysVisible
+    }
+
     override fun isRevealed(): Boolean {
         return mRevealed
     }

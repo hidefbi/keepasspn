@@ -20,6 +20,7 @@
 package com.keepasspn.activities.fragments
 
 import android.os.Bundle
+import com.keepasspn.otp.TotpSummary
 import com.keepasspn.utils.NoOpLog
 import android.view.LayoutInflater
 import android.view.View
@@ -224,6 +225,7 @@ class GroupFragment : DatabaseFragment() {
                             groupUIState.group?.let { currentGroup ->
                                 val isSearchInfo = currentGroup is SearchGroupInfo
                                 val children = groupUIState.children
+                                mAdapter?.showAllOtpCodes = currentGroup.nodeId == TotpSummary.NODE_ID
                                 if (children != null) {
                                     mAdapter?.rebuildList(
                                         nodes = children,

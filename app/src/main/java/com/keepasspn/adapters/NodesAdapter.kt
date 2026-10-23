@@ -88,6 +88,8 @@ class NodesAdapter(
     private var mRecursiveNumberEntries: Boolean = false
     private var mOldVirtualGroup = false
     private var mVirtualGroup = false
+    // The TOTP Summary folder shows the codes themselves, not hidden ones
+    var showAllOtpCodes: Boolean = false
 
     private var mActionNodesList = mutableListOf<SortedNodeInfo>()
     private var mActionNodeIds = mutableSetOf<NodeId<*>>()
@@ -386,6 +388,7 @@ class NodesAdapter(
             }
 
             // OTP
+            holder.otpDisplay?.setAlwaysVisibleToken(showAllOtpCodes)
             holder.otpDisplay?.setOtpModel(node.otpModel)
 
             // Attachment
