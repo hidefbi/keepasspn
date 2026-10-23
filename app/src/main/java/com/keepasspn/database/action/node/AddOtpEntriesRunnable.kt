@@ -20,6 +20,7 @@
 package com.keepasspn.database.action.node
 
 import android.content.Context
+import com.keepasspn.R
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.element.CustomDataItem
 import com.keepasspn.database.element.Entry
@@ -31,9 +32,10 @@ import com.keepasspn.model.OtpModel
 import com.keepasspn.utils.NoOpLog
 
 /**
- * Adds one-time password accounts to the database, in a dedicated group.
+ * Adds one-time password accounts to the database, in a dedicated import group.
  *
- * The group is found with its custom data marker, or created at the root of the database.
+ * The group is found with its custom data marker, or created at the root of the database,
+ * in second position. Its name is the default import name, which the user can change.
  * Accounts already present (same issuer, name and secret) are skipped.
  */
 class AddOtpEntriesRunnable(
@@ -51,6 +53,7 @@ class AddOtpEntriesRunnable(
     challengeResponseRetriever
 ) {
 
+    private val mImportGroupTitle: String = context.getString(R.string.totp_import_group_title)
     private var mRoot: Group? = null
     private var mGroup: Group? = null
     private var mNewGroup: Group? = null
@@ -63,7 +66,7 @@ class AddOtpEntriesRunnable(
         } else {
             mGroup = findTotpGroup(database)
             if (mGroup == null) {
-                mNewGroup = database.createGroup(buildTotpGroupInfo())
+                mNewGroup = database.createGroup(buildTotpGroupInfo(mImportGroupTitle))
                 mGroup = mNewGroup
             }
             val knownAccounts = buildKnownAccounts(database)
@@ -83,7 +86,8 @@ class AddOtpEntriesRunnable(
         mNewGroup?.let { newGroup ->
             newGroup.touch(modified = true, touchParents = true)
             mRoot?.let { root -> database.addGroupTo(newGroup, root) }
-            mRoot?.let { root -> root.moveChildGroupToIndex(newGroup, 0) }
+            // Second position at the root, after the virtual TOTP Summary folder
+            mRoot?.let { root -> root.moveChildGroupToIndex(newGroup, 1) }
         }
         mGroup?.let { group ->
             mNewEntries.forEach { entry ->
@@ -117,11 +121,9 @@ class AddOtpEntriesRunnable(
          * Custom data key that marks the group holding the imported codes
          */
         const val TOTP_GROUP_MARKER_KEY = "keepasspn.totp"
-        const val TOTP_GROUP_TITLE = "2FA"
-
-        private fun buildTotpGroupInfo(): GroupInfo {
+        private fun buildTotpGroupInfo(title: String): GroupInfo {
             return GroupInfo().apply {
-                title = TOTP_GROUP_TITLE
+                this.title = title
                 customData.put(CustomDataItem(TOTP_GROUP_MARKER_KEY, "true"))
             }
         }

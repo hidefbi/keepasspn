@@ -43,7 +43,7 @@ import com.keepasspn.view.OtpDisplayView
  */
 class VerificationCodesActivity : DatabaseLockActivity() {
 
-    private var entries: List<EntryInfo> = emptyList()
+    private var entries: List<Pair<EntryInfo, String>> = emptyList()
     private lateinit var listView: RecyclerView
     private lateinit var emptyView: View
     private val adapter = VerificationCodesAdapter()
@@ -74,7 +74,7 @@ class VerificationCodesActivity : DatabaseLockActivity() {
 
     override fun onDatabaseRetrieved(database: ContextualDatabase) {
         super.onDatabaseRetrieved(database)
-        entries = database.getEntryInfosWithOtp()
+        entries = database.getEntryInfosWithOtpAndGroup()
         adapter.notifyDataSetChanged()
         emptyView.visibility = if (entries.isEmpty()) View.VISIBLE else View.GONE
     }
@@ -100,7 +100,7 @@ class VerificationCodesActivity : DatabaseLockActivity() {
 
     override fun onDestroy() {
         // Drop the secrets kept in memory for the list
-        entries.forEach { it.otpModel?.clear() }
+        entries.forEach { it.first.otpModel?.clear() }
         super.onDestroy()
     }
 
@@ -124,9 +124,10 @@ class VerificationCodesActivity : DatabaseLockActivity() {
         }
 
         override fun onBindViewHolder(holder: VerificationCodeViewHolder, position: Int) {
-            val entryInfo = entries[position]
+            val (entryInfo, groupTitle) = entries[position]
             holder.title.text = entryInfo.title.ifEmpty { entryInfo.url }
             holder.username.text = entryInfo.username
+            holder.group.text = getString(R.string.totp_summary_belongs_to, groupTitle)
             holder.otp.setOtpModel(entryInfo.otpModel)
             holder.itemView.setOnClickListener { copyCode(entryInfo) }
         }
@@ -137,6 +138,7 @@ class VerificationCodesActivity : DatabaseLockActivity() {
     private class VerificationCodeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.item_verification_code_title)
         val username: TextView = view.findViewById(R.id.item_verification_code_username)
+        val group: TextView = view.findViewById(R.id.item_verification_code_group)
         val otp: OtpDisplayView = view.findViewById(R.id.item_verification_code_otp)
     }
 }

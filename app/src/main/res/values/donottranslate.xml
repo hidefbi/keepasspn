@@ -86,6 +86,7 @@
     <bool name="user_verification_mode_default" translatable="false">true</bool>
     <string name="copy_protected_verification_key" translatable="false">copy_protected_verification_key</string>
     <bool name="copy_protected_verification_default" translatable="false">true</bool>
+    <string name="totp_summary_title_key" translatable="false">totp_summary_title_key</string>
     <string name="edit_verification_key" translatable="false">edit_verification_key</string>
     <bool name="edit_verification_default" translatable="false">true</bool>
     <string name="pin_validity_key" translatable="false">pin_validity_key</string>

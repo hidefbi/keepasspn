@@ -6,6 +6,11 @@
     <string name="copy_protected_verification_summary">محفوظ فیلڈز کاپی کرنے سے پہلے صارف کی تصدیق طلب کریں۔ براہ راست کاپی کرنے کے لیے بند کریں۔</string>
     <string name="edit_verification_title">ترمیم سے پہلے تصدیق کریں</string>
     <string name="edit_verification_summary">اندراجات اور فولڈرز میں ترمیم سے پہلے صارف کی تصدیق طلب کریں۔ براہ راست ترمیم کے لیے بند کریں۔</string>
+    <string name="totp_summary_default_title">TOTP خلاصہ</string>
+    <string name="totp_import_group_title">2FA درآمد</string>
+    <string name="totp_summary_belongs_to">گروپ: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP خلاصے کا نام تبدیل کریں</string>
+    <string name="totp_summary_rename_hint">نام</string>
     <string name="pin_unlock_category">PIN سے غیر مقفل کرنا</string>
     <string name="pin_validity_title">PIN کی مدت</string>
     <string name="pin_validity_summary">اگر یہ ایپ اس مدت کے دوران نہ کھولی گئی تو ڈیٹا بیس دوبارہ درآمد کرنا ہوگا اور ماسٹر پاس ورڈ سے غیر مقفل کرنا ہوگا</string>

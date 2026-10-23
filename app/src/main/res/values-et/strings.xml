@@ -664,6 +664,11 @@
     <string name="copy_protected_verification_summary">Küsi enne kaitstud väljade kopeerimist kasutaja kinnitust. Väljalülitamisel kopeeritakse need otse.</string>
     <string name="edit_verification_title">Kinnita enne muutmist</string>
     <string name="edit_verification_summary">Küsi kasutaja kinnitust enne kirjete ja kaustade muutmist. Lülita välja, et muuta otse.</string>
+    <string name="totp_summary_default_title">TOTP kokkuvõte</string>
+    <string name="totp_import_group_title">2FA import</string>
+    <string name="totp_summary_belongs_to">Rühm: %1$s</string>
+    <string name="totp_summary_rename_title">Nimeta TOTP kokkuvõte ümber</string>
+    <string name="totp_summary_rename_hint">Nimi</string>
     <string name="pin_unlock_category">PIN-koodiga avamine</string>
     <string name="pin_validity_title">PIN-koodi kehtivus</string>
     <string name="pin_validity_summary">Kui rakendust ei avata selle aja jooksul, tuleb andmebaas uuesti importida ja avada ülemparooliga</string>

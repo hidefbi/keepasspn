@@ -42,6 +42,11 @@
     <string name="copy_protected_verification_summary">Яклангән кырларны күчерер алдыннан кулланучы раславын сорарга. Туры күчерү өчен сүндерегез.</string>
     <string name="edit_verification_title">Үзгәртер алдыннан раслау</string>
     <string name="edit_verification_summary">Язмаларны һәм папкаларны үзгәртер алдыннан кулланучы раслауын сорарга. Туры үзгәртү өчен сүндерегез.</string>
+    <string name="totp_summary_default_title">TOTP җыелмасы</string>
+    <string name="totp_import_group_title">2FA импорты</string>
+    <string name="totp_summary_belongs_to">Төркем: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP җыелмасының исемен үзгәртү</string>
+    <string name="totp_summary_rename_hint">Исем</string>
     <string name="pin_unlock_category">PIN белән ачу</string>
     <string name="pin_validity_title">PIN гамәлдә булу вакыты</string>
     <string name="pin_validity_summary">Әгәр кушымта бу чор эчендә ачылмаса, мәгълүмат нигезен яңадан импорт итәргә һәм баш пароль белән ачарга кирәк</string>

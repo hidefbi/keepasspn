@@ -697,6 +697,11 @@
     <string name="copy_protected_verification_summary">Korumalı alanları kopyalamadan önce kullanıcı doğrulaması iste. Doğrudan kopyalamak için kapatın.</string>
     <string name="edit_verification_title">Düzenlemeden önce doğrula</string>
     <string name="edit_verification_summary">Kayıtları ve klasörleri düzenlemeden önce kullanıcı doğrulaması iste. Doğrudan düzenlemek için kapatın.</string>
+    <string name="totp_summary_default_title">TOTP özeti</string>
+    <string name="totp_import_group_title">2FA içe aktarma</string>
+    <string name="totp_summary_belongs_to">Grup: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP özetini yeniden adlandır</string>
+    <string name="totp_summary_rename_hint">Ad</string>
     <string name="pin_unlock_category">PIN ile kilit açma</string>
     <string name="pin_validity_title">PIN geçerliliği</string>
     <string name="pin_validity_summary">Uygulama bu süre boyunca açılmazsa veritabanı yeniden içe aktarılmalı ve ana parolayla kilidi açılmalıdır</string>

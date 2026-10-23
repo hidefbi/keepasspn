@@ -682,6 +682,11 @@
     <string name="copy_protected_verification_summary">Изисква потвърждение от потребителя преди копиране на защитени полета. Изключете, за да копирате директно.</string>
     <string name="edit_verification_title">Потвърждение преди редактиране</string>
     <string name="edit_verification_summary">Изисквай потребителско потвърждение преди редактиране на записи и папки. Изключете, за да редактирате директно.</string>
+    <string name="totp_summary_default_title">Обобщение на TOTP</string>
+    <string name="totp_import_group_title">Импорт 2FA</string>
+    <string name="totp_summary_belongs_to">Група: %1$s</string>
+    <string name="totp_summary_rename_title">Преименувай обобщението на TOTP</string>
+    <string name="totp_summary_rename_hint">Име</string>
     <string name="pin_unlock_category">Отключване с PIN</string>
     <string name="pin_validity_title">Валидност на PIN кода</string>
     <string name="pin_validity_summary">Ако приложението не бъде отворено за този период, базата данни трябва да бъде импортирана отново и отключена с главната парола</string>

@@ -682,6 +682,11 @@
     <string name="copy_protected_verification_summary">Pedir verificación do usuario antes de copiar os campos protexidos. Desactiva para copialos directamente.</string>
     <string name="edit_verification_title">Verificar antes de editar</string>
     <string name="edit_verification_summary">Pedir verificación do usuario antes de editar entradas e cartafoles. Desactivar para editalos directamente.</string>
+    <string name="totp_summary_default_title">Resumo TOTP</string>
+    <string name="totp_import_group_title">Importación 2FA</string>
+    <string name="totp_summary_belongs_to">Grupo: %1$s</string>
+    <string name="totp_summary_rename_title">Cambiar o nome do resumo TOTP</string>
+    <string name="totp_summary_rename_hint">Nome</string>
     <string name="pin_unlock_category">Desbloqueo con PIN</string>
     <string name="pin_validity_title">Validez do PIN</string>
     <string name="pin_validity_summary">Se a aplicación non se abre durante este período, a base de datos debe volver importarse e desbloquearse co contrasinal mestre</string>

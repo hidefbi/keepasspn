@@ -299,6 +299,11 @@
     <string name="copy_protected_verification_summary">قبل از کپی کردن فیلدهای محافظت‌شده تأیید کاربر را بخواه. برای کپی مستقیم خاموش کن.</string>
     <string name="edit_verification_title">تأیید قبل از ویرایش</string>
     <string name="edit_verification_summary">قبل از ویرایش ورودی‌ها و پوشه‌ها تأیید کاربر خواسته شود. برای ویرایش مستقیم خاموش کنید.</string>
+    <string name="totp_summary_default_title">خلاصه TOTP</string>
+    <string name="totp_import_group_title">واردات 2FA</string>
+    <string name="totp_summary_belongs_to">گروه: %1$s</string>
+    <string name="totp_summary_rename_title">تغییر نام خلاصه TOTP</string>
+    <string name="totp_summary_rename_hint">نام</string>
     <string name="pin_unlock_category">باز کردن قفل با PIN</string>
     <string name="pin_validity_title">اعتبار PIN</string>
     <string name="pin_validity_summary">اگر برنامه در این مدت باز نشود، پایگاه داده باید دوباره وارد شود و با کلمه عبور اصلی باز شود</string>

@@ -692,6 +692,11 @@
     <string name="copy_protected_verification_summary">Solicită verificarea utilizatorului înainte de a copia câmpurile protejate. Dezactivați pentru a le copia direct.</string>
     <string name="edit_verification_title">Verifică înainte de editare</string>
     <string name="edit_verification_summary">Solicită verificarea utilizatorului înainte de a edita intrările și dosarele. Dezactivează pentru a le edita direct.</string>
+    <string name="totp_summary_default_title">Rezumat TOTP</string>
+    <string name="totp_import_group_title">Import 2FA</string>
+    <string name="totp_summary_belongs_to">Grup: %1$s</string>
+    <string name="totp_summary_rename_title">Redenumește rezumatul TOTP</string>
+    <string name="totp_summary_rename_hint">Nume</string>
     <string name="pin_unlock_category">Deblocare cu PIN</string>
     <string name="pin_validity_title">Valabilitatea PIN-ului</string>
     <string name="pin_validity_summary">Dacă aplicația nu este deschisă în această perioadă, baza de date trebuie reimportată și deblocată cu parola principală</string>

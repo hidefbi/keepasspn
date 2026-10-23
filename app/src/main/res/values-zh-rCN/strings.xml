@@ -705,6 +705,11 @@
     <string name="copy_protected_verification_summary">复制受保护字段前要求用户验证。关闭后将直接复制。</string>
     <string name="edit_verification_title">编辑前验证</string>
     <string name="edit_verification_summary">编辑条目和文件夹前要求用户验证。关闭后将直接编辑。</string>
+    <string name="totp_summary_default_title">TOTP 汇总</string>
+    <string name="totp_import_group_title">2FA 导入</string>
+    <string name="totp_summary_belongs_to">分组：%1$s</string>
+    <string name="totp_summary_rename_title">重命名 TOTP 汇总</string>
+    <string name="totp_summary_rename_hint">名称</string>
     <string name="pin_unlock_category">PIN 解锁</string>
     <string name="pin_validity_title">PIN 有效期</string>
     <string name="pin_validity_summary">如果在此期间未打开应用，则必须重新导入数据库并使用主密码解锁</string>

@@ -706,6 +706,11 @@
     <string name="copy_protected_verification_summary">Запрашивать подтверждение пользователя перед копированием защищённых полей. Выключите, чтобы копировать их сразу.</string>
     <string name="edit_verification_title">Проверка перед изменением</string>
     <string name="edit_verification_summary">Запрашивать подтверждение пользователя перед изменением записей и папок. Выключите, чтобы изменять их напрямую.</string>
+    <string name="totp_summary_default_title">Сводка TOTP</string>
+    <string name="totp_import_group_title">Импорт 2FA</string>
+    <string name="totp_summary_belongs_to">Группа: %1$s</string>
+    <string name="totp_summary_rename_title">Переименовать сводку TOTP</string>
+    <string name="totp_summary_rename_hint">Название</string>
     <string name="pin_unlock_category">Разблокировка PIN-кодом</string>
     <string name="pin_validity_title">Срок действия PIN-кода</string>
     <string name="pin_validity_summary">Если приложение не открывалось в течение этого периода, базу данных нужно импортировать заново и разблокировать мастер-паролем</string>

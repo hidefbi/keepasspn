@@ -351,6 +351,11 @@
     <string name="copy_protected_verification_summary">സംരക്ഷിത ഫീൽഡുകൾ പകർത്തുന്നതിന് മുമ്പ് ഉപയോക്താവിന്റെ സ്ഥിരീകരണം ആവശ്യപ്പെടുക. നേരിട്ട് പകർത്താൻ ഓഫ് ചെയ്യുക.</string>
     <string name="edit_verification_title">എഡിറ്റ് ചെയ്യുന്നതിന് മുമ്പ് സ്ഥിരീകരിക്കുക</string>
     <string name="edit_verification_summary">എൻട്രികളും ഫോൾഡറുകളും എഡിറ്റ് ചെയ്യുന്നതിന് മുമ്പ് ഉപയോക്തൃ സ്ഥിരീകരണം ആവശ്യപ്പെടും. നേരിട്ട് എഡിറ്റ് ചെയ്യാൻ ഓഫ് ചെയ്യുക.</string>
+    <string name="totp_summary_default_title">TOTP സംഗ്രഹം</string>
+    <string name="totp_import_group_title">2FA ഇറക്കുമതി</string>
+    <string name="totp_summary_belongs_to">ഗ്രൂപ്പ്: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP സംഗ്രഹത്തിന്റെ പേര് മാറ്റുക</string>
+    <string name="totp_summary_rename_hint">പേര്</string>
     <string name="pin_unlock_category">PIN അൺലോക്ക്</string>
     <string name="pin_validity_title">PIN സാധുത</string>
     <string name="pin_validity_summary">ഈ കാലയളവിൽ ആപ്പ് തുറന്നില്ലെങ്കിൽ, ഡാറ്റാബേസ് വീണ്ടും ഇമ്പോർട്ട് ചെയ്ത് മാസ്റ്റർ പാസ്‌വേഡ് ഉപയോഗിച്ച് അൺലോക്ക് ചെയ്യണം</string>

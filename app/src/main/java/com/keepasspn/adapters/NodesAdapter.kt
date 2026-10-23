@@ -48,6 +48,7 @@ import com.keepasspn.model.GroupInfo
 import com.keepasspn.model.SortedEntryInfo
 import com.keepasspn.model.SortedGroupInfo
 import com.keepasspn.model.SortedNodeInfo
+import com.keepasspn.otp.TotpSummary
 import com.keepasspn.settings.PreferencesUtil
 import com.keepasspn.view.OtpDisplayView
 import com.keepasspn.view.setTextSize
@@ -458,7 +459,7 @@ class NodesAdapter(
 
         // Assign drag handle and up/down menu, only for groups in database order
         holder.dragHandle?.let { handle ->
-            handle.visibility = if (node is GroupInfo && isGroupReorderAllowed()) View.VISIBLE else View.GONE
+            handle.visibility = if (node is GroupInfo && !TotpSummary.isSummary(node) && isGroupReorderAllowed()) View.VISIBLE else View.GONE
             handle.setOnClickListener { showMoveMenu(handle, node) }
             handle.setOnTouchListener { _, event ->
                 if (event.actionMasked == MotionEvent.ACTION_DOWN) {
@@ -495,7 +496,7 @@ class NodesAdapter(
 
     fun isGroupAt(position: Int): Boolean {
         return position >= 0 && position < mNodeSortedList.size()
-                && mNodeSortedList.get(position) is GroupInfo
+                && mNodeSortedList.get(position).let { it is GroupInfo && !TotpSummary.isSummary(it) }
     }
 
     fun nodeAt(position: Int): SortedNodeInfo {
@@ -508,7 +509,8 @@ class NodesAdapter(
     fun groupCount(): Int {
         var count = 0
         for (position in 0 until mNodeSortedList.size()) {
-            if (mNodeSortedList.get(position) is GroupInfo) count++
+            val item = mNodeSortedList.get(position)
+            if (item is GroupInfo && !TotpSummary.isSummary(item)) count++
         }
         return count
     }
@@ -520,7 +522,7 @@ class NodesAdapter(
         var index = 0
         for (position in 0 until mNodeSortedList.size()) {
             val item = mNodeSortedList.get(position)
-            if (item is GroupInfo) {
+            if (item is GroupInfo && !TotpSummary.isSummary(item)) {
                 if (item.nodeId == node.nodeId) return index
                 index++
             }

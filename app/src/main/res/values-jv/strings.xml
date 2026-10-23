@@ -26,6 +26,11 @@
     <string name="copy_protected_verification_summary">Takon verifikasi pangguna sadurunge nyalin kolom sing dilindhungi. Pateni supaya bisa langsung disalin.</string>
     <string name="edit_verification_title">Verifikasi sadurunge nyunting</string>
     <string name="edit_verification_summary">Njaluk verifikasi pangguna sadurunge nyunting entri lan folder. Pateni supaya bisa nyunting langsung.</string>
+    <string name="totp_summary_default_title">Ringkesan TOTP</string>
+    <string name="totp_import_group_title">Impor 2FA</string>
+    <string name="totp_summary_belongs_to">Grup: %1$s</string>
+    <string name="totp_summary_rename_title">Ganti jeneng Ringkesan TOTP</string>
+    <string name="totp_summary_rename_hint">Jeneng</string>
     <string name="pin_unlock_category">Mbukak kunci nganggo PIN</string>
     <string name="pin_validity_title">Masa berlaku PIN</string>
     <string name="pin_validity_summary">Yen aplikasi ora dibukak nganti periode iki, database kudu diimpor maneh lan dibukak nganggo master password</string>

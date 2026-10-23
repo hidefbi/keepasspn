@@ -58,6 +58,11 @@
     <string name="copy_protected_verification_summary">Zahtevaj potrditev uporabnika pred kopiranjem zaščitenih polj. Izklopi, če jih želiš kopirati neposredno.</string>
     <string name="edit_verification_title">Preveri pred urejanjem</string>
     <string name="edit_verification_summary">Pred urejanjem vnosov in map zahtevaj preverjanje uporabnika. Izklopi za neposredno urejanje.</string>
+    <string name="totp_summary_default_title">Povzetek TOTP</string>
+    <string name="totp_import_group_title">Uvoz 2FA</string>
+    <string name="totp_summary_belongs_to">Skupina: %1$s</string>
+    <string name="totp_summary_rename_title">Preimenuj povzetek TOTP</string>
+    <string name="totp_summary_rename_hint">Ime</string>
     <string name="pin_unlock_category">Odklepanje s PIN-om</string>
     <string name="pin_validity_title">Veljavnost PIN-a</string>
     <string name="pin_validity_summary">Če aplikacija ni odprta v tem obdobju, je treba bazo ponovno uvoziti in odkleniti z glavnim geslom</string>

@@ -36,6 +36,7 @@ import com.keepasspn.model.SortedEntryInfo
 import com.keepasspn.model.SortedGroupInfo
 import com.keepasspn.model.SortedNodeInfo
 import com.keepasspn.model.toNodes
+import com.keepasspn.otp.TotpSummary
 import com.keepasspn.settings.PreferencesUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -154,12 +155,24 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
                             recursiveNumberOfEntries = mRecursiveNumberEntries,
                             nodeFilter = mNodeFilter
                         ) ?: listOf()
-                        // Children
-                        val children = mDatabase?.getSortedChildrenOf(
+                        // Children, with the virtual TOTP Summary folder on top of the root group
+                        val sortedChildren = mDatabase?.getSortedChildrenOf(
                             parentId = group.nodeId,
                             recursiveNumberOfEntries = mRecursiveNumberEntries,
                             nodeFilter = mNodeFilter
                         ) ?: listOf()
+                        val children = if (group.nodeId == database.rootGroup?.nodeId
+                            && !mRecyclingBinIsCurrentGroup
+                        ) {
+                            listOf(
+                                TotpSummary.buildNode(
+                                    title = PreferencesUtil.getTotpSummaryTitle(getApplication()),
+                                    numberOfEntries = database.getEntryInfosWithOtp().size
+                                )
+                            ) + sortedChildren
+                        } else {
+                            sortedChildren
+                        }
                         // To enable add button
                         val addGroupEnabled = database.allowAddGroupIn(group = group)
                         val addEntryEnabled = database.allowAddEntryIn(group = group)
@@ -282,6 +295,10 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
     fun performNodeClick(node: SortedNodeInfo) {
         viewModelScope.launch {
             val state = nodeActionState.value
+            if (TotpSummary.isSummary(node)) {
+                if (state.nodeActionMode == null) _viewEvent.emit(GroupEvent.OpenTotpSummary)
+                return@launch
+            }
             when (state.nodeActionMode) {
                 NodeActionMode.SELECTION -> {
                     val selectedNodes = state.selectedNodes.toMutableList()
@@ -313,6 +330,7 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
     }
 
     fun performLongNodeClick(node: SortedNodeInfo): Boolean {
+        if (TotpSummary.isSummary(node)) return true
         viewModelScope.launch {
             val state = nodeActionState.value
             when (state.nodeActionMode) {
@@ -407,6 +425,7 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
      * Requests a new position for a group among its sibling groups.
      */
     fun onReorderGroup(node: SortedNodeInfo, targetIndex: Int) {
+        if (TotpSummary.isSummary(node)) return
         val groupId = (node as? GroupInfo)?.nodeId ?: return
         viewModelScope.launch {
             _viewEvent.emit(GroupEvent.ReorderGroup(groupId, targetIndex))
@@ -418,6 +437,12 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
      * @param reorderAllowed true when the database is sorted by its own (manual) order
      */
     fun onNodeLongClick(node: SortedNodeInfo, reorderAllowed: Boolean) {
+        if (TotpSummary.isSummary(node)) {
+            viewModelScope.launch {
+                _viewEvent.emit(GroupEvent.RenameTotpSummary((node as? GroupInfo)?.title.orEmpty()))
+            }
+            return
+        }
         mPendingNodeAction = node
         val siblings = siblingsOf(node)
         val index = siblings.indexOfFirst { it.nodeId == node.nodeId }
@@ -482,7 +507,8 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
      */
     private fun siblingsOf(node: SortedNodeInfo): List<SortedNodeInfo> {
         val isGroup = node is GroupInfo
-        return groupUIState.value.children.orEmpty().filter { (it is GroupInfo) == isGroup }
+        return groupUIState.value.children.orEmpty()
+            .filter { !TotpSummary.isSummary(it) && (it is GroupInfo) == isGroup }
     }
 
     fun onDeleteNodesClicked() {
@@ -642,6 +668,8 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
         ) : GroupEvent()
         data class DuplicateNodes(val nodes: Nodes) : GroupEvent()
         data class ReorderNode(val node: SortedNodeInfo, val targetIndex: Int) : GroupEvent()
+        object OpenTotpSummary : GroupEvent()
+        data class RenameTotpSummary(val currentTitle: String) : GroupEvent()
         data class RestoreNodes(val nodes: Nodes) : GroupEvent()
         data class ChooseMoveDestination(val node: SortedNodeInfo) : GroupEvent()
         object ClearSearch : GroupEvent()

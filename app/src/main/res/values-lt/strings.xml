@@ -645,6 +645,11 @@
     <string name="copy_protected_verification_summary">Prieš kopijuodami apsaugotus laukus, prašykite naudotojo patvirtinimo. Išjunkite, kad kopijuotumėte tiesiogiai.</string>
     <string name="edit_verification_title">Tvirtinti prieš redaguojant</string>
     <string name="edit_verification_summary">Prieš redaguojant įrašus ir aplankus prašyti naudotojo patvirtinimo. Išjunkite, kad redaguotumėte tiesiogiai.</string>
+    <string name="totp_summary_default_title">TOTP santrauka</string>
+    <string name="totp_import_group_title">2FA importas</string>
+    <string name="totp_summary_belongs_to">Grupė: %1$s</string>
+    <string name="totp_summary_rename_title">Pervadinti TOTP santrauką</string>
+    <string name="totp_summary_rename_hint">Pavadinimas</string>
     <string name="pin_unlock_category">Atrakinimas PIN kodu</string>
     <string name="pin_validity_title">PIN kodo galiojimas</string>
     <string name="pin_validity_summary">Jei per šį laikotarpį programa nebus atidaryta, duomenų bazę reikės importuoti iš naujo ir atrakinti pagrindiniu slaptažodžiu</string>

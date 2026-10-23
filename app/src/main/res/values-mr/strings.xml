@@ -17,6 +17,11 @@
     <string name="copy_protected_verification_summary">संरक्षित फील्ड कॉपी करण्यापूर्वी वापरकर्त्याची पडताळणी मागा. थेट कॉपी करण्यासाठी बंद करा.</string>
     <string name="edit_verification_title">संपादनापूर्वी पडताळणी करा</string>
     <string name="edit_verification_summary">नोंदी आणि फोल्डर संपादित करण्यापूर्वी वापरकर्ता पडताळणी मागा. थेट संपादनासाठी बंद करा.</string>
+    <string name="totp_summary_default_title">TOTP सारांश</string>
+    <string name="totp_import_group_title">2FA आयात</string>
+    <string name="totp_summary_belongs_to">गट: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP सारांशाचे नाव बदला</string>
+    <string name="totp_summary_rename_hint">नाव</string>
     <string name="pin_unlock_category">PIN अनलॉक</string>
     <string name="pin_validity_title">PIN वैधता</string>
     <string name="pin_validity_summary">हा कालावधी संपेपर्यंत ॲप उघडले न गेल्यास, डेटाबेस पुन्हा इंपोर्ट करून मास्टर पासवर्डने अनलॉक करावा लागेल</string>

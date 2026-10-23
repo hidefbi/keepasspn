@@ -677,6 +677,11 @@
     <string name="copy_protected_verification_summary">בקש אימות משתמש לפני העתקת שדות מוגנים. כבה כדי להעתיק אותם ישירות.</string>
     <string name="edit_verification_title">אמת לפני עריכה</string>
     <string name="edit_verification_summary">בקש אימות משתמש לפני עריכת פריטים ותיקיות. כבה כדי לערוך ישירות.</string>
+    <string name="totp_summary_default_title">סיכום TOTP</string>
+    <string name="totp_import_group_title">ייבוא 2FA</string>
+    <string name="totp_summary_belongs_to">קבוצה: %1$s</string>
+    <string name="totp_summary_rename_title">שינוי שם של סיכום TOTP</string>
+    <string name="totp_summary_rename_hint">שם</string>
     <string name="pin_unlock_category">ביטול נעילה באמצעות PIN</string>
     <string name="pin_validity_title">תוקף ה-PIN</string>
     <string name="pin_validity_summary">אם האפליקציה לא תיפתח במשך תקופה זו, יש לייבא מחדש את מסד הנתונים ולבטל את הנעילה עם הסיסמה הראשית</string>

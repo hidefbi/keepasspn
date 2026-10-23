@@ -700,6 +700,11 @@
     <string name="copy_protected_verification_summary">Kérjen felhasználói ellenőrzést a védett mezők másolása előtt. Kikapcsolva közvetlenül másolja őket.</string>
     <string name="edit_verification_title">Ellenőrzés szerkesztés előtt</string>
     <string name="edit_verification_summary">Felhasználói ellenőrzés kérése bejegyzések és mappák szerkesztése előtt. Kikapcsolva közvetlenül szerkeszthetők.</string>
+    <string name="totp_summary_default_title">TOTP összesítő</string>
+    <string name="totp_import_group_title">2FA importálás</string>
+    <string name="totp_summary_belongs_to">Csoport: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP összesítő átnevezése</string>
+    <string name="totp_summary_rename_hint">Név</string>
     <string name="pin_unlock_category">Feloldás PIN-kóddal</string>
     <string name="pin_validity_title">PIN-kód érvényessége</string>
     <string name="pin_validity_summary">Ha az alkalmazás ezen időszak alatt nincs megnyitva, az adatbázist újra be kell importálni, és a főjelszóval fel kell oldani</string>

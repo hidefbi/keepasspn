@@ -289,6 +289,11 @@
     <string name="copy_protected_verification_summary">Be om brukarstadfesting før vern felt blir kopierte. Slå av for å kopiere dei direkte.</string>
     <string name="edit_verification_title">Stadfest før redigering</string>
     <string name="edit_verification_summary">Be om brukarstadfesting før oppføringar og mapper vert redigerte. Slå av for å redigere direkte.</string>
+    <string name="totp_summary_default_title">TOTP-oversikt</string>
+    <string name="totp_import_group_title">2FA-import</string>
+    <string name="totp_summary_belongs_to">Gruppe: %1$s</string>
+    <string name="totp_summary_rename_title">Gi TOTP-oversikta nytt namn</string>
+    <string name="totp_summary_rename_hint">Namn</string>
     <string name="pin_unlock_category">PIN-opplåsing</string>
     <string name="pin_validity_title">PIN-gyldigheit</string>
     <string name="pin_validity_summary">Viss appen ikkje blir opna i denne perioden, må databasen importerast på nytt og låsast opp med hovudpassordet</string>

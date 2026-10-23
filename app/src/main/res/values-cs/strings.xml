@@ -707,6 +707,11 @@
     <string name="copy_protected_verification_summary">Před kopírováním chráněných polí vyžadovat ověření uživatele. Vypnutím se pole zkopírují přímo.</string>
     <string name="edit_verification_title">Ověřit před úpravou</string>
     <string name="edit_verification_summary">Před úpravou položek a složek požádat o ověření uživatele. Vypnutím je můžete upravit přímo.</string>
+    <string name="totp_summary_default_title">Přehled TOTP</string>
+    <string name="totp_import_group_title">Import 2FA</string>
+    <string name="totp_summary_belongs_to">Skupina: %1$s</string>
+    <string name="totp_summary_rename_title">Přejmenovat přehled TOTP</string>
+    <string name="totp_summary_rename_hint">Název</string>
     <string name="pin_unlock_category">Odemknutí PINem</string>
     <string name="pin_validity_title">Platnost PINu</string>
     <string name="pin_validity_summary">Pokud aplikace nebude po tuto dobu otevřena, je nutné databázi znovu importovat a odemknout ji hlavním heslem</string>

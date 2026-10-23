@@ -5,6 +5,11 @@
     <string name="copy_protected_verification_summary">o wile lukin pi jan lon tenpo kopi ijo lawa. o weka e lukin la, ijo kopi li kama lon.</string>
     <string name="edit_verification_title">Verify before editing</string>
     <string name="edit_verification_summary">Ask for user verification before editing entries and folders. Turn off to edit them directly.</string>
+    <string name="totp_summary_default_title">TOTP Summary</string>
+    <string name="totp_import_group_title">2FA Import</string>
+    <string name="totp_summary_belongs_to">Group: %1$s</string>
+    <string name="totp_summary_rename_title">Rename TOTP Summary</string>
+    <string name="totp_summary_rename_hint">Name</string>
     <string name="pin_unlock_category">open kepeken PIN</string>
     <string name="pin_validity_title">tenpo PIN</string>
     <string name="pin_validity_summary">ilo open ala lon tenpo ni la, o kama pana sin e poki sona, o open e ona kepeken nimi lawa suli.</string>

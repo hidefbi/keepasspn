@@ -54,6 +54,14 @@
             android:ellipsize="end"
             android:maxLines="1" />
 
+        <TextView
+            android:id="@+id/item_verification_code_group"
+            style="@style/KeePassPNStyle.SubTitle.Entry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1" />
+
     </LinearLayout>
 
     <com.keepasspn.view.OtpDisplayView

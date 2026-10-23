@@ -389,6 +389,11 @@
     <string name="copy_protected_verification_summary">Тражи потврду корисника пре копирања заштићених поља. Искључите да бисте их копирали директно.</string>
     <string name="edit_verification_title">Потврди пре измене</string>
     <string name="edit_verification_summary">Тражи потврду корисника пре измене уноса и фасцикли. Искључите да бисте их мењали директно.</string>
+    <string name="totp_summary_default_title">TOTP преглед</string>
+    <string name="totp_import_group_title">2FA увоз</string>
+    <string name="totp_summary_belongs_to">Група: %1$s</string>
+    <string name="totp_summary_rename_title">Преименуј TOTP преглед</string>
+    <string name="totp_summary_rename_hint">Назив</string>
     <string name="pin_unlock_category">Откључавање PIN-ом</string>
     <string name="pin_validity_title">Важење PIN-а</string>
     <string name="pin_validity_summary">Ако апликација не буде отворена у овом периоду, базу података треба поново увести и откључати главном лозинком</string>

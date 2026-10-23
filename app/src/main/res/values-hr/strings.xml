@@ -622,6 +622,11 @@
     <string name="copy_protected_verification_summary">Traži potvrdu korisnika prije kopiranja zaštićenih polja. Isključi za izravno kopiranje.</string>
     <string name="edit_verification_title">Potvrdi prije uređivanja</string>
     <string name="edit_verification_summary">Traži korisničku potvrdu prije uređivanja unosa i mapa. Isključite za izravno uređivanje.</string>
+    <string name="totp_summary_default_title">TOTP sažetak</string>
+    <string name="totp_import_group_title">2FA uvoz</string>
+    <string name="totp_summary_belongs_to">Grupa: %1$s</string>
+    <string name="totp_summary_rename_title">Preimenuj TOTP sažetak</string>
+    <string name="totp_summary_rename_hint">Naziv</string>
     <string name="pin_unlock_category">Otključavanje PIN-om</string>
     <string name="pin_validity_title">Valjanost PIN-a</string>
     <string name="pin_validity_summary">Ako se aplikacija ne otvori tijekom ovog razdoblja, bazu podataka treba ponovno uvesti i otključati glavnom lozinkom</string>

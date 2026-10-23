@@ -54,6 +54,11 @@
     <string name="copy_protected_verification_summary">Himoyalangan maydonlarni nusxalashdan oldin foydalanuvchi tasdiqlashini so\'rash. To\'g\'ridan-to\'g\'ri nusxalash uchun o\'chiring.</string>
     <string name="edit_verification_title">Tahrirlashdan oldin tasdiqlash</string>
     <string name="edit_verification_summary">Yozuvlar va papkalarni tahrirlashdan oldin foydalanuvchi tasdig\'ini so\'rash. To\'g\'ridan-to\'g\'ri tahrirlash uchun o\'chiring.</string>
+    <string name="totp_summary_default_title">TOTP xulosasi</string>
+    <string name="totp_import_group_title">2FA import</string>
+    <string name="totp_summary_belongs_to">Guruh: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP xulosasini qayta nomlash</string>
+    <string name="totp_summary_rename_hint">Nom</string>
     <string name="pin_unlock_category">PIN bilan qulfni ochish</string>
     <string name="pin_validity_title">PIN amal qilish muddati</string>
     <string name="pin_validity_summary">Agar ilova bu muddat davomida ochilmasa, ma\'lumotlar bazasini qayta import qilish va asosiy parol bilan qulfni ochish kerak bo\'ladi</string>

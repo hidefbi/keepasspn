@@ -647,6 +647,11 @@
     <string name="copy_protected_verification_summary">ขอให้ผู้ใช้ยืนยันก่อนคัดลอกฟิลด์ที่ได้รับการป้องกัน ปิดเพื่อคัดลอกโดยตรง</string>
     <string name="edit_verification_title">ยืนยันก่อนแก้ไข</string>
     <string name="edit_verification_summary">ขอการยืนยันจากผู้ใช้ก่อนแก้ไขรายการและโฟลเดอร์ ปิดเพื่อแก้ไขโดยตรง</string>
+    <string name="totp_summary_default_title">สรุป TOTP</string>
+    <string name="totp_import_group_title">นำเข้า 2FA</string>
+    <string name="totp_summary_belongs_to">กลุ่ม: %1$s</string>
+    <string name="totp_summary_rename_title">เปลี่ยนชื่อสรุป TOTP</string>
+    <string name="totp_summary_rename_hint">ชื่อ</string>
     <string name="pin_unlock_category">การปลดล็อกด้วย PIN</string>
     <string name="pin_validity_title">อายุการใช้งาน PIN</string>
     <string name="pin_validity_summary">หากไม่ได้เปิดแอปในช่วงเวลานี้ ต้องนำเข้าฐานข้อมูลอีกครั้งและปลดล็อกด้วยรหัสผ่านหลัก</string>

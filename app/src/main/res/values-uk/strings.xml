@@ -686,6 +686,11 @@
     <string name="copy_protected_verification_summary">Запитувати підтвердження користувача перед копіюванням захищених полів. Вимкніть, щоб копіювати напряму.</string>
     <string name="edit_verification_title">Підтвердження перед редагуванням</string>
     <string name="edit_verification_summary">Запитувати підтвердження користувача перед редагуванням записів і папок. Вимкніть, щоб редагувати напряму.</string>
+    <string name="totp_summary_default_title">Зведення TOTP</string>
+    <string name="totp_import_group_title">Імпорт 2FA</string>
+    <string name="totp_summary_belongs_to">Група: %1$s</string>
+    <string name="totp_summary_rename_title">Перейменувати зведення TOTP</string>
+    <string name="totp_summary_rename_hint">Назва</string>
     <string name="pin_unlock_category">Розблокування PIN-кодом</string>
     <string name="pin_validity_title">Термін дії PIN-коду</string>
     <string name="pin_validity_summary">Якщо застосунок не відкривався протягом цього періоду, базу даних потрібно імпортувати знову та розблокувати головним паролем</string>

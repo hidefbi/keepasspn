@@ -8,6 +8,11 @@
     <string name="copy_protected_verification_summary">ସୁରକ୍ଷିତ ଫିଲ୍ଡଗୁଡ଼ିକ କପି କରିବା ପୂର୍ବରୁ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ଯାଞ୍ଚ ମାଗନ୍ତୁ। ସିଧାସଳଖ କପି କରିବାକୁ ବନ୍ଦ କରନ୍ତୁ।</string>
     <string name="edit_verification_title">ସମ୍ପାଦନା ପୂର୍ବରୁ ଯାଞ୍ଚ କରନ୍ତୁ</string>
     <string name="edit_verification_summary">ଏଣ୍ଟ୍ରି ଓ ଫୋଲ୍ଡର ସମ୍ପାଦନା ପୂର୍ବରୁ ଉପଯୋଗକର୍ତ୍ତା ଯାଞ୍ଚ ମାଗିବ। ସିଧାସଳଖ ସମ୍ପାଦନା ପାଇଁ ବନ୍ଦ କରନ୍ତୁ।</string>
+    <string name="totp_summary_default_title">TOTP ସାରାଂଶ</string>
+    <string name="totp_import_group_title">2FA ଆମଦାନୀ</string>
+    <string name="totp_summary_belongs_to">ଗୋଷ୍ଠୀ: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP ସାରାଂଶର ନାମ ବଦଳାନ୍ତୁ</string>
+    <string name="totp_summary_rename_hint">ନାମ</string>
     <string name="pin_unlock_category">PIN ଅନଲକ୍</string>
     <string name="pin_validity_title">PIN ବୈଧତା</string>
     <string name="pin_validity_summary">ଏହି ଅବଧି ମଧ୍ୟରେ ଆପ୍ ଖୋଲା ନ ଗଲେ, ଡାଟାବେସ୍ ପୁନର୍ବାର ଆମଦାନି କରି ମାଷ୍ଟର ପାସୱାର୍ଡ ଦ୍ୱାରା ଅନଲକ୍ କରିବାକୁ ପଡ଼ିବ</string>

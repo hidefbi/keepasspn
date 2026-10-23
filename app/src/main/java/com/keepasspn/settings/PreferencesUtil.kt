@@ -619,6 +619,22 @@ object PreferencesUtil {
             context.resources.getBoolean(R.bool.edit_verification_default))
     }
 
+    /**
+     * Name of the virtual TOTP Summary folder on this device. Empty means the default name.
+     * It is kept in the app settings, not in the database.
+     */
+    fun getTotpSummaryTitle(context: Context): String {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        val savedTitle = prefs.getString(context.getString(R.string.totp_summary_title_key), "") ?: ""
+        return savedTitle.ifEmpty { context.getString(R.string.totp_summary_default_title) }
+    }
+
+    fun setTotpSummaryTitle(context: Context, title: String) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putString(context.getString(R.string.totp_summary_title_key), title.trim())
+        }
+    }
+
     /** Days a PIN stays valid without opening the app, or [PinPolicy.VALIDITY_NEVER_DAYS]. */
     fun getPinValidityDays(context: Context): Int {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)

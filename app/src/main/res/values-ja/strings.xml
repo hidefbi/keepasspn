@@ -697,6 +697,11 @@
     <string name="copy_protected_verification_summary">保護されたフィールドをコピーする前にユーザーの確認を求めます。オフにすると直接コピーされます。</string>
     <string name="edit_verification_title">編集前に確認</string>
     <string name="edit_verification_summary">項目とフォルダーを編集する前にユーザー確認を求めます。オフにすると直接編集できます。</string>
+    <string name="totp_summary_default_title">TOTP の概要</string>
+    <string name="totp_import_group_title">2FA インポート</string>
+    <string name="totp_summary_belongs_to">グループ: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP の概要の名前を変更</string>
+    <string name="totp_summary_rename_hint">名前</string>
     <string name="pin_unlock_category">PINでのロック解除</string>
     <string name="pin_validity_title">PINの有効期間</string>
     <string name="pin_validity_summary">この期間アプリを開かなかった場合、データベースを再インポートし、マスターパスワードでロックを解除する必要があります</string>

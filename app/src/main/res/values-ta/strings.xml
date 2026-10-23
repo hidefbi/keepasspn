@@ -647,6 +647,11 @@
     <string name="copy_protected_verification_summary">பாதுகாக்கப்பட்ட புலங்களை நகலெடுப்பதற்கு முன் பயனர் சரிபார்ப்பைக் கேள். நேரடியாக நகலெடுக்க அணைக்கவும்.</string>
     <string name="edit_verification_title">திருத்துவதற்கு முன் சரிபார்க்கவும்</string>
     <string name="edit_verification_summary">உள்ளீடுகள் மற்றும் கோப்புறைகளைத் திருத்துவதற்கு முன் பயனர் சரிபார்ப்பைக் கேளுங்கள். நேரடியாகத் திருத்த முடக்கவும்.</string>
+    <string name="totp_summary_default_title">TOTP சுருக்கம்</string>
+    <string name="totp_import_group_title">2FA இறக்குமதி</string>
+    <string name="totp_summary_belongs_to">குழு: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP சுருக்கத்தின் பெயரை மாற்று</string>
+    <string name="totp_summary_rename_hint">பெயர்</string>
     <string name="pin_unlock_category">PIN திறத்தல்</string>
     <string name="pin_validity_title">PIN செல்லுபடியாகும் காலம்</string>
     <string name="pin_validity_summary">இந்த காலத்திற்குள் பயன்பாடு திறக்கப்படாவிட்டால், தரவுத்தளத்தை மீண்டும் இறக்குமதி செய்து முதன்மை கடவுச்சொல்லால் திறக்க வேண்டும்</string>

@@ -708,6 +708,11 @@
     <string name="copy_protected_verification_summary">Vraag om verificatie van de gebruiker voordat beveiligde velden worden gekopieerd. Schakel uit om ze direct te kopiëren.</string>
     <string name="edit_verification_title">Verifiëren voor bewerken</string>
     <string name="edit_verification_summary">Vraag om gebruikersverificatie voordat items en mappen worden bewerkt. Uitschakelen om ze direct te bewerken.</string>
+    <string name="totp_summary_default_title">TOTP-overzicht</string>
+    <string name="totp_import_group_title">2FA-import</string>
+    <string name="totp_summary_belongs_to">Groep: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP-overzicht hernoemen</string>
+    <string name="totp_summary_rename_hint">Naam</string>
     <string name="pin_unlock_category">Ontgrendelen met pincode</string>
     <string name="pin_validity_title">Geldigheid pincode</string>
     <string name="pin_validity_summary">Als de app gedurende deze periode niet is geopend, moet de database opnieuw worden geïmporteerd en ontgrendeld met het hoofdwachtwoord</string>

@@ -80,6 +80,30 @@ open class DatabaseInfo: Database() {
     }
 
     /**
+     * Get the info of every entry that has a one-time password, with the title of the group holding it.
+     * @return Pairs of entry info and parent group title, in traversal order (empty if none).
+     */
+    fun getEntryInfosWithOtpAndGroup(): List<Pair<EntryInfo, String>> {
+        val entryInfos = mutableListOf<Pair<EntryInfo, String>>()
+        rootGroup?.doForEachChildAndForIt(
+            object : NodeHandler<Entry>() {
+                override fun operate(node: Entry): Boolean {
+                    if (node.getOtpElement() != null) {
+                        entryInfos.add(getEntryInfoFrom(node, raw = true) to (node.parent?.title ?: ""))
+                    }
+                    return true
+                }
+            },
+            object : NodeHandler<Group>() {
+                override fun operate(node: Group): Boolean {
+                    return true
+                }
+            }
+        )
+        return entryInfos
+    }
+
+    /**
      * Get group info by its ID.
      * @param groupId Unique identifier of the group.
      * @return The group info if found, null otherwise.

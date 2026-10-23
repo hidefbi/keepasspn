@@ -634,6 +634,11 @@
     <string name="copy_protected_verification_summary">Demana la verificació de l\'usuari abans de copiar camps protegits. Desactiva-ho per copiar-los directament.</string>
     <string name="edit_verification_title">Verifica abans d\'editar</string>
     <string name="edit_verification_summary">Demana la verificació de l\'usuari abans d\'editar entrades i carpetes. Desactiva-ho per editar-les directament.</string>
+    <string name="totp_summary_default_title">Resum TOTP</string>
+    <string name="totp_import_group_title">Importació 2FA</string>
+    <string name="totp_summary_belongs_to">Grup: %1$s</string>
+    <string name="totp_summary_rename_title">Canvia el nom del resum TOTP</string>
+    <string name="totp_summary_rename_hint">Nom</string>
     <string name="pin_unlock_category">Desbloqueig amb PIN</string>
     <string name="pin_validity_title">Validesa del PIN</string>
     <string name="pin_validity_summary">Si l\'aplicació no s\'obre durant aquest període, cal tornar a importar la base de dades i desbloquejar-la amb la contrasenya mestra</string>

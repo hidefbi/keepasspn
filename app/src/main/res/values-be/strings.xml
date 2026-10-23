@@ -647,6 +647,11 @@
     <string name="copy_protected_verification_summary">Патрабаваць пацверджання карыстальніка перад капіраваннем абароненых палёў. Выключыце, каб капіраваць адразу.</string>
     <string name="edit_verification_title">Праверка перад змяненнем</string>
     <string name="edit_verification_summary">Запытваць праверку карыстальніка перад змяненнем запісаў і папак. Выключыце, каб змяняць іх непасродна.</string>
+    <string name="totp_summary_default_title">Зводка TOTP</string>
+    <string name="totp_import_group_title">Імпарт 2FA</string>
+    <string name="totp_summary_belongs_to">Група: %1$s</string>
+    <string name="totp_summary_rename_title">Перайменаваць зводку TOTP</string>
+    <string name="totp_summary_rename_hint">Назва</string>
     <string name="pin_unlock_category">Разблакіроўка PIN-кодам</string>
     <string name="pin_validity_title">Тэрмін дзеяння PIN-кода</string>
     <string name="pin_validity_summary">Калі праграма не адкрывалася на працягу гэтага перыяду, базу даных трэба імпартаваць паўторна і разблакіраваць галоўным паролем</string>

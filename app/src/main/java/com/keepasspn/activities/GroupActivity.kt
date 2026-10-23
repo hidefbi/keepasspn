@@ -37,10 +37,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
+import androidx.appcompat.app.AlertDialog
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.view.ActionMode
@@ -626,6 +629,12 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
                             is GroupViewModel.GroupEvent.ShowNodeActions -> {
                                 showNodeActions(event)
                             }
+                            is GroupViewModel.GroupEvent.OpenTotpSummary -> {
+                                startActivity(Intent(this@GroupActivity, VerificationCodesActivity::class.java))
+                            }
+                            is GroupViewModel.GroupEvent.RenameTotpSummary -> {
+                                launchDialogForTotpSummaryRename(event.currentTitle)
+                            }
                             is GroupViewModel.GroupEvent.DuplicateNodes -> {
                                 onDuplicateNodesRequested(event.nodes)
                             }
@@ -836,6 +845,30 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
 
     override fun viewToInvalidateTimeout(): View? {
         return drawerLayout
+    }
+
+    private fun launchDialogForTotpSummaryRename(currentTitle: String) {
+        val input = EditText(this).apply {
+            setSingleLine()
+            hint = getString(R.string.totp_summary_rename_hint)
+            setText(currentTitle)
+            setSelection(text?.length ?: 0)
+        }
+        val container = FrameLayout(this).apply {
+            val padding = resources.getDimensionPixelSize(R.dimen.default_margin)
+            setPadding(padding, 0, padding, 0)
+            addView(input)
+        }
+        AlertDialog.Builder(this)
+            .setTitle(R.string.totp_summary_rename_title)
+            .setView(container)
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                // An empty name restores the default one
+                PreferencesUtil.setTotpSummaryTitle(this, input.text.toString())
+                mGroupViewModel.loadGroup()
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
     }
 
     private fun showNodeActions(event: GroupViewModel.GroupEvent.ShowNodeActions) {

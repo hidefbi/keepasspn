@@ -273,6 +273,11 @@
     <string name="copy_protected_verification_summary">Humingi ng user verification bago kopyahin ang mga protektadong field. I-off para direktang makopya ang mga ito.</string>
     <string name="edit_verification_title">I-verify bago i-edit</string>
     <string name="edit_verification_summary">Humingi ng user verification bago i-edit ang mga entry at folder. I-off para direktang i-edit ang mga ito.</string>
+    <string name="totp_summary_default_title">TOTP Summary</string>
+    <string name="totp_import_group_title">2FA Import</string>
+    <string name="totp_summary_belongs_to">Grupo: %1$s</string>
+    <string name="totp_summary_rename_title">Palitan ang pangalan ng TOTP Summary</string>
+    <string name="totp_summary_rename_hint">Pangalan</string>
     <string name="pin_unlock_category">PIN unlock</string>
     <string name="pin_validity_title">Bisa ng PIN</string>
     <string name="pin_validity_summary">Kapag hindi nabuksan ang app sa loob ng panahong ito, kailangang i-import ulit ang database at i-unlock gamit ang master password</string>

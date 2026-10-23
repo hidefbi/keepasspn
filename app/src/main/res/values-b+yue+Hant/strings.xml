@@ -134,6 +134,11 @@
     <string name="copy_protected_verification_summary">複製受保護欄位前要求用戶驗證。關閉後會直接複製。</string>
     <string name="edit_verification_title">編輯前驗證</string>
     <string name="edit_verification_summary">編輯項目同資料夾前要求用戶驗證。關閉後可直接編輯。</string>
+    <string name="totp_summary_default_title">TOTP 總覽</string>
+    <string name="totp_import_group_title">2FA 匯入</string>
+    <string name="totp_summary_belongs_to">群組：%1$s</string>
+    <string name="totp_summary_rename_title">重新命名 TOTP 總覽</string>
+    <string name="totp_summary_rename_hint">名稱</string>
     <string name="pin_unlock_category">PIN 解鎖</string>
     <string name="pin_validity_title">PIN 有效期</string>
     <string name="pin_validity_summary">如果一段時間內未開啟本應用程式，就必須重新匯入資料庫並以主密碼解鎖</string>

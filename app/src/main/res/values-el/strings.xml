@@ -627,6 +627,11 @@
     <string name="copy_protected_verification_summary">Να ζητείται επαλήθευση από τον χρήστη πριν από την αντιγραφή προστατευμένων πεδίων. Απενεργοποιήστε για άμεση αντιγραφή.</string>
     <string name="edit_verification_title">Επαλήθευση πριν την επεξεργασία</string>
     <string name="edit_verification_summary">Ζητά επαλήθευση χρήστη πριν από την επεξεργασία καταχωρίσεων και φακέλων. Απενεργοποιήστε για άμεση επεξεργασία.</string>
+    <string name="totp_summary_default_title">Σύνοψη TOTP</string>
+    <string name="totp_import_group_title">Εισαγωγή 2FA</string>
+    <string name="totp_summary_belongs_to">Ομάδα: %1$s</string>
+    <string name="totp_summary_rename_title">Μετονομασία σύνοψης TOTP</string>
+    <string name="totp_summary_rename_hint">Όνομα</string>
     <string name="pin_unlock_category">Ξεκλείδωμα με PIN</string>
     <string name="pin_validity_title">Ισχύς PIN</string>
     <string name="pin_validity_summary">Αν η εφαρμογή δεν ανοίξει για αυτό το διάστημα, η βάση δεδομένων πρέπει να εισαχθεί ξανά και να ξεκλειδωθεί με τον κύριο κωδικό πρόσβασης</string>

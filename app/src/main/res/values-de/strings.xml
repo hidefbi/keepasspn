@@ -704,6 +704,11 @@
     <string name="copy_protected_verification_summary">Vor dem Kopieren geschützter Felder eine Bestätigung anfordern. Deaktivieren, um sie direkt zu kopieren.</string>
     <string name="edit_verification_title">Vor dem Bearbeiten bestätigen</string>
     <string name="edit_verification_summary">Vor dem Bearbeiten von Einträgen und Ordnern eine Benutzerbestätigung anfordern. Deaktivieren, um sie direkt zu bearbeiten.</string>
+    <string name="totp_summary_default_title">TOTP-Übersicht</string>
+    <string name="totp_import_group_title">2FA-Import</string>
+    <string name="totp_summary_belongs_to">Gruppe: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP-Übersicht umbenennen</string>
+    <string name="totp_summary_rename_hint">Name</string>
     <string name="pin_unlock_category">PIN-Entsperrung</string>
     <string name="pin_validity_title">PIN-Gültigkeit</string>
     <string name="pin_validity_summary">Wenn die App in diesem Zeitraum nicht geöffnet wird, muss die Datenbank erneut importiert und mit dem Hauptpasswort entsperrt werden</string>

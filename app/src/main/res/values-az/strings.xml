@@ -577,6 +577,11 @@
     <string name="copy_protected_verification_summary">Qorunan sahələri kopyalamazdan əvvəl istifadəçi təsdiqi tələb edin. Birbaşa kopyalamaq üçün söndürün.</string>
     <string name="edit_verification_title">Redaktədən əvvəl təsdiqlə</string>
     <string name="edit_verification_summary">Qeydləri və qovluqları redaktə etməzdən əvvəl istifadəçi təsdiqi tələb edin. Birbaşa redaktə etmək üçün söndürün.</string>
+    <string name="totp_summary_default_title">TOTP xülasəsi</string>
+    <string name="totp_import_group_title">2FA idxalı</string>
+    <string name="totp_summary_belongs_to">Qrup: %1$s</string>
+    <string name="totp_summary_rename_title">TOTP xülasəsinin adını dəyişdir</string>
+    <string name="totp_summary_rename_hint">Ad</string>
     <string name="pin_unlock_category">PIN ilə açma</string>
     <string name="pin_validity_title">PIN-in etibarlılıq müddəti</string>
     <string name="pin_validity_summary">Tətbiq bu müddət ərzində açılmazsa, verilənlər bazası yenidən idxal edilməli və ana parolla açılmalıdır</string>

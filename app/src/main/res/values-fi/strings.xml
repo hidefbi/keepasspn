@@ -436,6 +436,11 @@
     <string name="copy_protected_verification_summary">Pyydä käyttäjän vahvistus ennen suojattujen kenttien kopiointia. Kun tämä on pois päältä, kenttiä kopioidaan suoraan.</string>
     <string name="edit_verification_title">Vahvista ennen muokkausta</string>
     <string name="edit_verification_summary">Pyydä käyttäjän vahvistus ennen merkintöjen ja kansioiden muokkaamista. Poista käytöstä muokataksesi suoraan.</string>
+    <string name="totp_summary_default_title">TOTP-yhteenveto</string>
+    <string name="totp_import_group_title">2FA-tuonti</string>
+    <string name="totp_summary_belongs_to">Ryhmä: %1$s</string>
+    <string name="totp_summary_rename_title">Nimeä TOTP-yhteenveto uudelleen</string>
+    <string name="totp_summary_rename_hint">Nimi</string>
     <string name="pin_unlock_category">Avaaminen PIN-koodilla</string>
     <string name="pin_validity_title">PIN-koodin voimassaolo</string>
     <string name="pin_validity_summary">Jos sovellusta ei avata tämän ajanjakson aikana, tietokanta on tuotava uudelleen ja avattava pääsalasanalla</string>

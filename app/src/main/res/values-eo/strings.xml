@@ -131,6 +131,11 @@
     <string name="copy_protected_verification_summary">Peti konfirmon de la uzanto antaŭ kopii protektitajn kampojn. Malŝaltu por kopii ilin rekte.</string>
     <string name="edit_verification_title">Kontroli antaŭ redakto</string>
     <string name="edit_verification_summary">Peti uzantan kontrolon antaŭ redakto de eroj kaj dosierujoj. Malŝaltu por redakti rekte.</string>
+    <string name="totp_summary_default_title">TOTP-resumo</string>
+    <string name="totp_import_group_title">2FA-enporto</string>
+    <string name="totp_summary_belongs_to">Grupo: %1$s</string>
+    <string name="totp_summary_rename_title">Renomi la TOTP-resumon</string>
+    <string name="totp_summary_rename_hint">Nomo</string>
     <string name="pin_unlock_category">Malŝlosado per PIN</string>
     <string name="pin_validity_title">Valideco de PIN</string>
     <string name="pin_validity_summary">Se la aplikaĵo ne estas malfermita dum ĉi tiu periodo, la datumbazo devas esti reimportita kaj malŝlosita per la ĉefa pasvorto</string>
