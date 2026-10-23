@@ -10,24 +10,28 @@ After you unlock a database with the master password for the first time, the app
 
 - The PIN is never stored in plain text.
 - The PIN protects an encrypted copy of your master password. A key stored in the Android Keystore is also required to decrypt it.
+- Checking the PIN takes a moment by design, because the PIN is stretched with Argon2id. While it is checked, the dialog shows a progress bar and the input is locked.
 - After three incorrect PIN attempts, the PIN is deleted and you must enter the master password again. If you then enter the master password incorrectly twice more, the database is removed from the app.
 - You can choose how long the PIN stays valid: 7, 14, 30 or 60 days, or indefinitely.
 - If you do not open the app within the selected period, the PIN and the app's copy of the database are deleted.
-- You can change or disable the PIN under *Settings > Device unlock*.
+- You can change or disable the PIN under *Settings > Device unlocking*.
 
 Note: Your original `.kdbx` file is not modified when the app's data is deleted, formatted or cleared.
 
 Even if your `.kdbx` file is stored outside your device, you can still unlock the database quickly with your PIN. Back up the latest copy of your database regularly.
 
-### 2. Verify your identity before copying protected fields
+### 2. Verify your identity before copying or editing
 
-When you copy a protected field, the app asks you to verify your identity. The verification method is chosen in this order:
+Some actions ask you to verify your identity first:
+
+- **Copying protected fields.** Controlled by *App settings > User Verification > Verify before copying*.
+- **Editing entries and folders.** Controlled by *App settings > User Verification > Verify before editing*. It is on by default. Turn it off to edit entries and folders without verification. It applies to databases that allow user verification.
+
+The verification method is chosen in this order:
 
 1. The database PIN, if you have set one.
 2. The device screen lock, if no PIN is set and the device has one.
 3. The first four characters of the master password, if neither option is available.
-
-You can turn this feature off under *Settings > User Verification*.
 
 ### 3. Database recovery copies
 
@@ -35,16 +39,27 @@ Each time a database opens successfully, the app saves a private copy in its own
 
 - If the original file is replaced with an older version, the app keeps the newer changes from its private copy.
 - If both copies have changed, the app loads the original file and saves the private copy as a separate conflict file.
+- Saving writes to a temporary file first, so an interrupted save does not replace your database with a partial file.
 
 This helps preserve your newest changes and reduces the risk of data loss when a database file is overwritten by an older version.
 
-### 4. Copy TOTP codes after autofill (optional)
+### 4. Trusted browsers for autofill
+
+Autofill can only offer entries for a website when it knows which website you are on. Browsers tell it this, and KeePassPN only believes browsers you trust.
+
+- Choose trusted browsers under *Settings > Form filling > Trusted browsers*.
+- Built-in browsers are verified by their signature. Additional browsers can be added from the installed apps.
+- Trust is tied to the browser's signature. If the signature changes, for example after an update that changes the signing key, the browser must be trusted again.
+- Trusted browsers require Android 9 or later.
+- Other apps never get a website from autofill, so an app cannot borrow another site's credentials.
+
+### 5. Copy TOTP codes after autofill (optional)
 
 When an autofilled entry contains a time-based one-time password (TOTP), the app can also copy the current code to your clipboard.
 
-This setting is optional and does not change how autofill works.
+This setting is optional and does not change how autofill works. You can turn it on under *Settings > Form filling*.
 
-### 5. One-time codes (2FA)
+### 6. One-time codes (2FA)
 
 Open *Verification codes* to see the current TOTP codes of entries from all groups in one list.
 
@@ -55,9 +70,19 @@ Open *Verification codes* to see the current TOTP codes of entries from all grou
 - Imported accounts are saved to a group named **2FA**, which you can rename.
 - Accounts that already exist, with the same issuer, name and secret, are skipped.
 
-All QR code decoding happens on your device. The app does not save camera images and does not request internet access.
+All QR code decoding happens on your device. The camera is used only for this. The app does not save camera images and does not request internet access.
 
-### 6. Privacy
+### 7. Organising entries and folders
+
+- Long-press an entry or folder to open its actions: edit it, move it to another folder, or duplicate it.
+- Entries can be reordered by hand when the group allows reordering.
+- Edits follow the verification setting described in section 2.
+
+### 8. Check for updates
+
+*Settings > About > Check for updates* shows the installed version and opens the release page in your browser, where you can compare it with the latest release. KeePassPN does not connect to the internet itself.
+
+### 9. Privacy
 
 Android cloud backup is disabled for the app, so its data is not included in Android cloud backups.
 
@@ -69,6 +94,17 @@ KeePassPN keeps these KeePassDX features:
 - The Android Autofill service.
 - Passkey provider support for Android Credential Manager.
 
+## Passkeys and privileged apps
+
+Passkeys are offered only to privileged callers: browsers and apps on a privileged allow list. KeePassPN checks these lists in this order:
+
+1. A custom list stored on the device, if one is set.
+2. The bundled lists: Google's list, then the community list.
+
+A browser that is missing from every list will not show passkeys.
+
+KeePassPN declares no `INTERNET` permission. Native apps that call Credential Manager directly are refused, because verifying them would require network access. See `SECURITY_HARDENING.md` for the reasoning.
+
 ## Things to know before enabling PIN unlock
 
 A PIN is much less secure than a sufficiently long master password.
@@ -79,17 +115,13 @@ Enable PIN unlock only if you accept these risks.
 
 ## Building
 
-Build the debug variants from the repository root:
+Build the debug app from the repository root:
 
 ```
-./gradlew assembleFreeDebug
-./gradlew assembleLibreDebug
+./gradlew assembleDebug
 ```
 
-- `free`: for closed-store distribution. Passkey privilege checks use Google's allow list only.
-- `libre`: for open-source distribution. Passkey privilege checks fall back to the community allow list.
-
-## Project information
+There is a single build variant. ## Project information
 
 - Project name: KeePassPN
 - Source code: https://github.com/hidefbi/keepasspn
