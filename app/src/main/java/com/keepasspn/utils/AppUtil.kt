@@ -11,6 +11,7 @@ import android.view.Window
 import android.view.WindowManager.LayoutParams.FLAG_SECURE
 import androidx.annotation.RequiresApi
 import androidx.core.net.toUri
+import com.keepasspn.credentialprovider.autofill.TrustedBrowsers
 import com.keepasspn.encrypt.Signature.getAllFingerprints
 import com.keepasspn.BuildConfig
 import com.keepasspn.R
@@ -28,12 +29,12 @@ object AppUtil {
     private val secureRandom = SecureRandom()
 
     /**
-     * Package names of the installed browsers on the privileged allow list.
-     * Only these windows may supply a web domain to autofill.
+     * Packages whose windows may supply a web domain to autofill: built-in and user-confirmed
+     * browsers, each verified by signature. See [TrustedBrowsers].
      */
     fun trustedBrowserPackages(context: Context): Set<String> {
         return try {
-            getInstalledBrowsersWithSignatures(context).map { it.packageName }.toSet()
+            TrustedBrowsers.verifiedPackages(context)
         } catch (e: Exception) {
             emptySet()
         }

@@ -785,4 +785,17 @@
     <string name="warning_move_nodes_to_recycle_bin">Seçili öğeler geri dönüşüm kutusuna taşınsın mı?</string>
     <string name="move_nodes_confirm">“%1$s” öğesi “%2$s” konumuna taşınsın mı?</string>
     <string name="move_confirm">Onayla</string>
+    <string name="autofill_trusted_browsers_title">Güvenilir tarayıcılar</string>
+    <string name="autofill_trusted_browsers_summary">Otomatik doldurmaya hangi web sitesinde olduğunuzu bildirebilecek tarayıcılar. Yerleşik tarayıcılar imza ile doğrulanır.</string>
+    <string name="trusted_browsers_dialog_title">Ek güvenilir tarayıcılar</string>
+    <string name="trusted_browsers_none">Başka tarayıcı yüklü değil.</string>
+    <string name="trusted_browsers_unsupported">Güvenilir tarayıcılar için Android 9 veya üstü gerekir.</string>
+    <string name="trusted_browsers_confirm_title">Bu tarayıcılara güvenilsin mi?</string>
+    <string name="trusted_browsers_confirm_message">Güvenilir bir tarayıcı, o sitenin kayıtlarını önerebilmesi için KeePassPN\'e hangi web sitesinde olduğunuzu bildirir. Güven, tarayıcının mevcut imzasına bağlıdır ve imza değişirse sona erer.\n\n%1$s</string>
+    <string name="about_category_title">Hakkında</string>
+    <string name="check_for_updates">Güncellemeleri kontrol et</string>
+    <string name="check_for_updates_summary">Sürüm sayfasını açar. KeePassPN internete bağlanmaz.</string>
+    <string name="check_for_updates_dialog_message">Yüklü sürüm: %1$s\n\nEn son sürümle karşılaştırmak için sürüm sayfası açılsın mı?</string>
+    <string name="open_releases_page">Sürüm sayfasını aç</string>
+    <string name="releases_page_unavailable">Sürüm sayfasını açabilecek bir uygulama yok.</string>
 </resources>

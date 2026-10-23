@@ -794,4 +794,17 @@
     <string name="warning_move_nodes_to_recycle_bin">Переместить выбранные элементы в корзину?</string>
     <string name="move_nodes_confirm">Переместить «%1$s» в «%2$s»?</string>
     <string name="move_confirm">Подтвердить</string>
+    <string name="autofill_trusted_browsers_title">Доверенные браузеры</string>
+    <string name="autofill_trusted_browsers_summary">Браузеры, которые могут сообщать автозаполнению, на каком сайте вы находитесь. Встроенные браузеры проверяются по подписи.</string>
+    <string name="trusted_browsers_dialog_title">Дополнительные доверенные браузеры</string>
+    <string name="trusted_browsers_none">Других браузеров не установлено.</string>
+    <string name="trusted_browsers_unsupported">Доверенные браузеры требуют Android 9 или выше.</string>
+    <string name="trusted_browsers_confirm_title">Доверять этим браузерам?</string>
+    <string name="trusted_browsers_confirm_message">Доверенный браузер сообщает KeePassPN, на каком сайте вы находитесь, чтобы предлагать записи для этого сайта. Доверие привязано к текущей подписи браузера и прекращается, если она изменится.\n\n%1$s</string>
+    <string name="about_category_title">О приложении</string>
+    <string name="check_for_updates">Проверить обновления</string>
+    <string name="check_for_updates_summary">Открывает страницу релизов. KeePassPN не подключается к интернету.</string>
+    <string name="check_for_updates_dialog_message">Установленная версия: %1$s\n\nОткрыть страницу релизов, чтобы сравнить с последней версией?</string>
+    <string name="open_releases_page">Открыть страницу релизов</string>
+    <string name="releases_page_unavailable">Нет приложения, которое может открыть страницу релизов.</string>
 </resources>

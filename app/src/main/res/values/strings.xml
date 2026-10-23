@@ -805,4 +805,17 @@
     <string name="warning_move_nodes_to_recycle_bin">Move the selected items to the recycle bin?</string>
     <string name="move_nodes_confirm">Move “%1$s” to “%2$s”?</string>
     <string name="move_confirm">Confirm</string>
+    <string name="autofill_trusted_browsers_title">Trusted browsers</string>
+    <string name="autofill_trusted_browsers_summary">Browsers that may tell autofill which website you are on. Built-in browsers are verified by signature.</string>
+    <string name="trusted_browsers_dialog_title">Additional trusted browsers</string>
+    <string name="trusted_browsers_none">No other browsers are installed.</string>
+    <string name="trusted_browsers_unsupported">Trusted browsers require Android 9 or higher.</string>
+    <string name="trusted_browsers_confirm_title">Trust these browsers?</string>
+    <string name="trusted_browsers_confirm_message">A trusted browser tells KeePassPN which website you are on, so entries for that site can be suggested. Trust is bound to the browser\'s current signature and ends if it changes.\n\n%1$s</string>
+    <string name="about_category_title">About</string>
+    <string name="check_for_updates">Check for updates</string>
+    <string name="check_for_updates_summary">Opens the releases page. KeePassPN does not connect to the internet.</string>
+    <string name="check_for_updates_dialog_message">Installed version: %1$s\n\nOpen the releases page to compare it with the latest version?</string>
+    <string name="open_releases_page">Open releases page</string>
+    <string name="releases_page_unavailable">No app can open the releases page.</string>
 </resources>

@@ -373,4 +373,17 @@
     <string name="about_description">KeePassPN은 KeePass(KDBX) 데이터베이스와 호환되는 Android용 오픈 소스 비밀번호 관리자입니다. GNU GPLv3 라이선스에 따라 배포되는, 커뮤니티가 유지 관리하는 독립적인 수정본입니다.\n\n이 버전에는 유효 기간을 설정할 수 있는 PIN 빠른 잠금 해제, 민감한 필드를 위한 선택적 「복사 전 확인」 보호, 그리고 각 데이터베이스의 로컬 복구 사본 기능이 추가되었습니다. PIN 확인은 앱 자체에서 수행되므로 마스터 비밀번호보다 보호 수준이 낮습니다. 이러한 절충을 수용하는 경우에만 PIN 잠금 해제를 사용하세요.\n\n소스 코드, 문제 보고 및 기여는 아래에 링크된 프로젝트 저장소를 통해 환영합니다.</string>
 
     <string name="extended_ASCII">확장 ASCII</string>
+    <string name="autofill_trusted_browsers_title">신뢰할 수 있는 브라우저</string>
+    <string name="autofill_trusted_browsers_summary">자동 완성에 현재 웹사이트를 알려줄 수 있는 브라우저입니다. 내장 브라우저는 서명으로 검증됩니다.</string>
+    <string name="trusted_browsers_dialog_title">추가 신뢰할 수 있는 브라우저</string>
+    <string name="trusted_browsers_none">설치된 다른 브라우저가 없습니다.</string>
+    <string name="trusted_browsers_unsupported">신뢰할 수 있는 브라우저는 Android 9 이상이 필요합니다.</string>
+    <string name="trusted_browsers_confirm_title">이 브라우저를 신뢰하시겠습니까?</string>
+    <string name="trusted_browsers_confirm_message">신뢰할 수 있는 브라우저는 KeePassPN에 현재 웹사이트를 알려 주어, 해당 사이트의 항목을 제안할 수 있게 합니다. 신뢰는 브라우저의 현재 서명에 묶이며, 서명이 바뀌면 종료됩니다.\n\n%1$s</string>
+    <string name="about_category_title">정보</string>
+    <string name="check_for_updates">업데이트 확인</string>
+    <string name="check_for_updates_summary">릴리스 페이지를 엽니다. KeePassPN은 인터넷에 연결하지 않습니다.</string>
+    <string name="check_for_updates_dialog_message">설치된 버전: %1$s\n\n릴리스 페이지를 열어 최신 버전과 비교하시겠습니까?</string>
+    <string name="open_releases_page">릴리스 페이지 열기</string>
+    <string name="releases_page_unavailable">릴리스 페이지를 열 수 있는 앱이 없습니다.</string>
 </resources>

@@ -785,4 +785,17 @@
     <string name="warning_move_nodes_to_recycle_bin">選択した項目をごみ箱に移動しますか?</string>
     <string name="move_nodes_confirm">「%1$s」を「%2$s」に移動しますか？</string>
     <string name="move_confirm">確認</string>
+    <string name="autofill_trusted_browsers_title">信頼できるブラウザ</string>
+    <string name="autofill_trusted_browsers_summary">自動入力に、現在表示しているウェブサイトを伝えることができるブラウザです。内蔵ブラウザは署名で検証されます。</string>
+    <string name="trusted_browsers_dialog_title">追加の信頼できるブラウザ</string>
+    <string name="trusted_browsers_none">他にインストールされたブラウザはありません。</string>
+    <string name="trusted_browsers_unsupported">信頼できるブラウザには Android 9 以降が必要です。</string>
+    <string name="trusted_browsers_confirm_title">これらのブラウザを信頼しますか？</string>
+    <string name="trusted_browsers_confirm_message">信頼できるブラウザは、KeePassPN に現在のウェブサイトを伝えるため、そのサイトのエントリを提案できます。信頼はブラウザの現在の署名に紐づき、署名が変わると終了します。\n\n%1$s</string>
+    <string name="about_category_title">情報</string>
+    <string name="check_for_updates">アップデートを確認</string>
+    <string name="check_for_updates_summary">リリースページを開きます。KeePassPN はインターネットに接続しません。</string>
+    <string name="check_for_updates_dialog_message">インストール済みのバージョン: %1$s\n\nリリースページを開いて最新バージョンと比較しますか？</string>
+    <string name="open_releases_page">リリースページを開く</string>
+    <string name="releases_page_unavailable">リリースページを開けるアプリがありません。</string>
 </resources>

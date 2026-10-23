@@ -792,4 +792,17 @@
     <string name="warning_move_nodes_to_recycle_bin">Ausgewählte Elemente in den Papierkorb verschieben?</string>
     <string name="move_nodes_confirm">„%1$s“ nach „%2$s“ verschieben?</string>
     <string name="move_confirm">Bestätigen</string>
+    <string name="autofill_trusted_browsers_title">Vertrauenswürdige Browser</string>
+    <string name="autofill_trusted_browsers_summary">Browser, die der Autofill-Funktion mitteilen dürfen, auf welcher Website Sie sich befinden. Integrierte Browser werden per Signatur geprüft.</string>
+    <string name="trusted_browsers_dialog_title">Zusätzliche vertrauenswürdige Browser</string>
+    <string name="trusted_browsers_none">Keine weiteren Browser installiert.</string>
+    <string name="trusted_browsers_unsupported">Vertrauenswürdige Browser erfordern Android 9 oder höher.</string>
+    <string name="trusted_browsers_confirm_title">Diesen Browsern vertrauen?</string>
+    <string name="trusted_browsers_confirm_message">Ein vertrauenswürdiger Browser teilt KeePassPN mit, auf welcher Website Sie sich befinden, damit Einträge für diese Seite vorgeschlagen werden können. Das Vertrauen ist an die aktuelle Signatur des Browsers gebunden und endet, wenn sie sich ändert.\n\n%1$s</string>
+    <string name="about_category_title">Info</string>
+    <string name="check_for_updates">Auf Updates prüfen</string>
+    <string name="check_for_updates_summary">Öffnet die Release-Seite. KeePassPN stellt keine Internetverbindung her.</string>
+    <string name="check_for_updates_dialog_message">Installierte Version: %1$s\n\nRelease-Seite öffnen, um sie mit der neuesten Version zu vergleichen?</string>
+    <string name="open_releases_page">Release-Seite öffnen</string>
+    <string name="releases_page_unavailable">Keine App kann die Release-Seite öffnen.</string>
 </resources>

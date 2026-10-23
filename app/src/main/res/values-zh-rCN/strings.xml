@@ -793,4 +793,17 @@
     <string name="warning_move_nodes_to_recycle_bin">要将选中的项目移入回收站吗？</string>
     <string name="move_nodes_confirm">确定将「%1$s」移动到「%2$s」吗？</string>
     <string name="move_confirm">确认</string>
+    <string name="autofill_trusted_browsers_title">受信任的浏览器</string>
+    <string name="autofill_trusted_browsers_summary">可告知自动填充您当前所在网站的浏览器。内置浏览器通过签名验证。</string>
+    <string name="trusted_browsers_dialog_title">其他受信任的浏览器</string>
+    <string name="trusted_browsers_none">未安装其他浏览器。</string>
+    <string name="trusted_browsers_unsupported">受信任的浏览器需要 Android 9 或更高版本。</string>
+    <string name="trusted_browsers_confirm_title">信任这些浏览器？</string>
+    <string name="trusted_browsers_confirm_message">受信任的浏览器会告知 KeePassPN 您当前所在的网站，以便提示该网站的条目。信任与浏览器当前签名绑定，签名变化后失效。\n\n%1$s</string>
+    <string name="about_category_title">关于</string>
+    <string name="check_for_updates">检查更新</string>
+    <string name="check_for_updates_summary">打开发布页面。KeePassPN 不连接互联网。</string>
+    <string name="check_for_updates_dialog_message">已安装版本：%1$s\n\n打开发布页面与最新版本比较？</string>
+    <string name="open_releases_page">打开发布页面</string>
+    <string name="releases_page_unavailable">没有可以打开发布页面的应用。</string>
 </resources>

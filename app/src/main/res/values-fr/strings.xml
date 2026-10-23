@@ -792,4 +792,17 @@
     <string name="warning_move_nodes_to_recycle_bin">Déplacer les éléments sélectionnés dans la corbeille ?</string>
     <string name="move_nodes_confirm">Déplacer « %1$s » vers « %2$s » ?</string>
     <string name="move_confirm">Confirmer</string>
+    <string name="autofill_trusted_browsers_title">Navigateurs de confiance</string>
+    <string name="autofill_trusted_browsers_summary">Navigateurs autorisés à indiquer à la saisie automatique le site web sur lequel vous êtes. Les navigateurs intégrés sont vérifiés par leur signature.</string>
+    <string name="trusted_browsers_dialog_title">Navigateurs de confiance supplémentaires</string>
+    <string name="trusted_browsers_none">Aucun autre navigateur n\'est installé.</string>
+    <string name="trusted_browsers_unsupported">Les navigateurs de confiance nécessitent Android 9 ou supérieur.</string>
+    <string name="trusted_browsers_confirm_title">Faire confiance à ces navigateurs ?</string>
+    <string name="trusted_browsers_confirm_message">Un navigateur de confiance indique à KeePassPN le site web sur lequel vous êtes, afin que les entrées de ce site puissent être suggérées. La confiance est liée à la signature actuelle du navigateur et prend fin si elle change.\n\n%1$s</string>
+    <string name="about_category_title">À propos</string>
+    <string name="check_for_updates">Rechercher des mises à jour</string>
+    <string name="check_for_updates_summary">Ouvre la page des versions. KeePassPN ne se connecte pas à Internet.</string>
+    <string name="check_for_updates_dialog_message">Version installée : %1$s\n\nOuvrir la page des versions pour la comparer à la dernière version ?</string>
+    <string name="open_releases_page">Ouvrir la page des versions</string>
+    <string name="releases_page_unavailable">Aucune application ne peut ouvrir la page des versions.</string>
 </resources>

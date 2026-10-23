@@ -774,4 +774,17 @@
     <string name="warning_move_nodes_to_recycle_bin">Перемістити вибрані елементи до кошика?</string>
     <string name="move_nodes_confirm">Перемістити «%1$s» до «%2$s»?</string>
     <string name="move_confirm">Підтвердити</string>
+    <string name="autofill_trusted_browsers_title">Довірені браузери</string>
+    <string name="autofill_trusted_browsers_summary">Браузери, які можуть повідомляти автозаповненню, на якому сайті ви перебуваєте. Вбудовані браузери перевіряються за підписом.</string>
+    <string name="trusted_browsers_dialog_title">Додаткові довірені браузери</string>
+    <string name="trusted_browsers_none">Інших браузерів не встановлено.</string>
+    <string name="trusted_browsers_unsupported">Довірені браузери потребують Android 9 або новішого.</string>
+    <string name="trusted_browsers_confirm_title">Довіряти цим браузерам?</string>
+    <string name="trusted_browsers_confirm_message">Довірений браузер повідомляє KeePassPN, на якому сайті ви перебуваєте, щоб можна було пропонувати записи для цього сайту. Довіра прив\'язана до поточного підпису браузера і припиняється, якщо він змінюється.\n\n%1$s</string>
+    <string name="about_category_title">Про застосунок</string>
+    <string name="check_for_updates">Перевірити оновлення</string>
+    <string name="check_for_updates_summary">Відкриває сторінку випусків. KeePassPN не підключається до інтернету.</string>
+    <string name="check_for_updates_dialog_message">Встановлена версія: %1$s\n\nВідкрити сторінку випусків, щоб порівняти її з останньою версією?</string>
+    <string name="open_releases_page">Відкрити сторінку випусків</string>
+    <string name="releases_page_unavailable">Немає застосунку, який може відкрити сторінку випусків.</string>
 </resources>

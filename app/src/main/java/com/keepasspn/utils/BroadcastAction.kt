@@ -145,7 +145,7 @@ fun Context.registerLockReceiver(
             if (registerTimeoutProgress) {
                 addAction(UPDATE_TIMEOUT_PROGRESS_ACTION)
             }
-        }, ContextCompat.RECEIVER_EXPORTED)
+        }, ContextCompat.RECEIVER_NOT_EXPORTED)
     }
 }
 

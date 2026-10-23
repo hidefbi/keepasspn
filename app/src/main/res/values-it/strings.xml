@@ -797,4 +797,17 @@
     <string name="warning_move_nodes_to_recycle_bin">Spostare gli elementi selezionati nel cestino?</string>
     <string name="move_nodes_confirm">Spostare «%1$s» in «%2$s»?</string>
     <string name="move_confirm">Conferma</string>
+    <string name="autofill_trusted_browsers_title">Browser attendibili</string>
+    <string name="autofill_trusted_browsers_summary">Browser che possono indicare all\'autocompletamento il sito web su cui ti trovi. I browser integrati sono verificati tramite firma.</string>
+    <string name="trusted_browsers_dialog_title">Browser attendibili aggiuntivi</string>
+    <string name="trusted_browsers_none">Non ci sono altri browser installati.</string>
+    <string name="trusted_browsers_unsupported">I browser attendibili richiedono Android 9 o successivo.</string>
+    <string name="trusted_browsers_confirm_title">Considerare attendibili questi browser?</string>
+    <string name="trusted_browsers_confirm_message">Un browser attendibile indica a KeePassPN il sito web su cui ti trovi, così da poter suggerire le voci di quel sito. L\'attendibilità è legata alla firma attuale del browser e termina se cambia.\n\n%1$s</string>
+    <string name="about_category_title">Info</string>
+    <string name="check_for_updates">Controlla aggiornamenti</string>
+    <string name="check_for_updates_summary">Apre la pagina delle versioni. KeePassPN non si connette a internet.</string>
+    <string name="check_for_updates_dialog_message">Versione installata: %1$s\n\nAprire la pagina delle versioni per confrontarla con l\'ultima versione?</string>
+    <string name="open_releases_page">Apri pagina delle versioni</string>
+    <string name="releases_page_unavailable">Nessuna app può aprire la pagina delle versioni.</string>
 </resources>

@@ -19,14 +19,18 @@
  */
 package com.keepasspn.settings
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.TwoStatePreference
 import com.keepasspn.R
+import com.keepasspn.credentialprovider.autofill.TrustedBrowsers
 import com.keepasspn.settings.preferencedialogfragment.AutofillBlocklistAppIdPreferenceDialogFragmentCompat
 import com.keepasspn.settings.preferencedialogfragment.AutofillBlocklistWebDomainPreferenceDialogFragmentCompat
 
@@ -45,6 +49,64 @@ class AutofillSettingsFragment : PreferenceFragmentCompat() {
         val autofillAskSaveDataPreference: TwoStatePreference? = findPreference(getString(R.string.autofill_ask_to_save_data_key))
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
             autofillAskSaveDataPreference?.isVisible = false
+        }
+
+        findPreference<Preference>(getString(R.string.autofill_trusted_browsers_key))?.setOnPreferenceClickListener {
+            showTrustedBrowsersDialog()
+            true
+        }
+    }
+
+    private fun showTrustedBrowsersDialog() {
+        val context = requireContext()
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
+            Toast.makeText(context, R.string.trusted_browsers_unsupported, Toast.LENGTH_LONG).show()
+            return
+        }
+        // Only non built-in browsers are managed here, built-in ones are always verified
+        val candidates = TrustedBrowsers.candidatePackages(context)
+            .sortedBy { labelOf(it).lowercase() }
+        if (candidates.isEmpty()) {
+            Toast.makeText(context, R.string.trusted_browsers_none, Toast.LENGTH_LONG).show()
+            return
+        }
+        val userPinned = TrustedBrowsers.userBrowsers(context).keys
+        val checked = candidates.map { it in userPinned }.toBooleanArray()
+        AlertDialog.Builder(context)
+            .setTitle(R.string.trusted_browsers_dialog_title)
+            .setMultiChoiceItems(candidates.map { labelOf(it) as CharSequence }.toTypedArray(), checked) { _, which, isChecked ->
+                checked[which] = isChecked
+            }
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                val selected = candidates.filterIndexed { index, _ -> checked[index] }.toSet()
+                candidates.filter { it in userPinned && it !in selected }
+                    .forEach { TrustedBrowsers.removeUserBrowser(context, it) }
+                val toAdd = selected - userPinned
+                if (toAdd.isNotEmpty()) {
+                    confirmTrustedBrowsers(context, toAdd.toList())
+                }
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
+    private fun confirmTrustedBrowsers(context: Context, packages: List<String>) {
+        AlertDialog.Builder(context)
+            .setTitle(R.string.trusted_browsers_confirm_title)
+            .setMessage(getString(R.string.trusted_browsers_confirm_message, packages.joinToString("\n") { labelOf(it) }))
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                packages.forEach { TrustedBrowsers.addUserBrowser(context, it) }
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
+    private fun labelOf(packageName: String): String {
+        val packageManager = requireContext().packageManager
+        return try {
+            packageManager.getApplicationLabel(packageManager.getApplicationInfo(packageName, 0)).toString()
+        } catch (e: Exception) {
+            packageName
         }
     }
 

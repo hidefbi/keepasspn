@@ -775,4 +775,17 @@
     <string name="warning_move_nodes_to_recycle_bin">Chuyển các mục đã chọn vào thùng rác?</string>
     <string name="move_nodes_confirm">Di chuyển “%1$s” đến “%2$s”?</string>
     <string name="move_confirm">Xác nhận</string>
+    <string name="autofill_trusted_browsers_title">Trình duyệt đáng tin cậy</string>
+    <string name="autofill_trusted_browsers_summary">Các trình duyệt có thể cho biết với tính năng tự động điền bạn đang ở trang web nào. Trình duyệt tích hợp được xác minh bằng chữ ký.</string>
+    <string name="trusted_browsers_dialog_title">Trình duyệt đáng tin cậy bổ sung</string>
+    <string name="trusted_browsers_none">Chưa cài đặt trình duyệt nào khác.</string>
+    <string name="trusted_browsers_unsupported">Trình duyệt đáng tin cậy yêu cầu Android 9 trở lên.</string>
+    <string name="trusted_browsers_confirm_title">Tin cậy các trình duyệt này?</string>
+    <string name="trusted_browsers_confirm_message">Trình duyệt đáng tin cậy cho KeePassPN biết bạn đang ở trang web nào để có thể gợi ý mục của trang đó. Sự tin cậy gắn với chữ ký hiện tại của trình duyệt và sẽ kết thúc nếu chữ ký thay đổi.\n\n%1$s</string>
+    <string name="about_category_title">Giới thiệu</string>
+    <string name="check_for_updates">Kiểm tra cập nhật</string>
+    <string name="check_for_updates_summary">Mở trang phát hành. KeePassPN không kết nối internet.</string>
+    <string name="check_for_updates_dialog_message">Phiên bản đã cài: %1$s\n\nMở trang phát hành để so sánh với phiên bản mới nhất?</string>
+    <string name="open_releases_page">Mở trang phát hành</string>
+    <string name="releases_page_unavailable">Không có ứng dụng nào mở được trang phát hành.</string>
 </resources>

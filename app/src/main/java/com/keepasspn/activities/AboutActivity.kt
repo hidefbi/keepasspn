@@ -83,21 +83,19 @@ class AboutActivity : StylishActivity() {
                     HtmlCompat.FROM_HTML_MODE_LEGACY)
         }
 
-        bindDonationAddress(R.id.activity_about_donation_btc, "BTC", R.string.donation_btc_address)
-        bindDonationAddress(R.id.activity_about_donation_eth, "ETH", R.string.donation_eth_address)
-        bindDonationAddress(R.id.activity_about_donation_xmr, "XMR", R.string.donation_xmr_address)
+        bindDonationAddress(R.id.activity_about_donation_btc, R.id.activity_about_donation_btc_address, "BTC", R.string.donation_btc_address)
+        bindDonationAddress(R.id.activity_about_donation_eth, R.id.activity_about_donation_eth_address, "ETH", R.string.donation_eth_address)
+        bindDonationAddress(R.id.activity_about_donation_xmr, R.id.activity_about_donation_xmr_address, "XMR", R.string.donation_xmr_address)
     }
 
     /**
-     * Show a donation address and copy it to the clipboard on tap.
+     * Show a donation address and copy it to the clipboard when its row is tapped.
      * Addresses are public, so they are not marked as sensitive.
      */
-    private fun bindDonationAddress(viewId: Int, coin: String, addressResId: Int) {
+    private fun bindDonationAddress(rowId: Int, addressId: Int, coin: String, addressResId: Int) {
         val address = getString(addressResId)
-        findViewById<TextView>(viewId).apply {
-            text = "$coin: $address"
-            setOnClickListener { copyToClipboard(coin, address, sensitive = false) }
-        }
+        findViewById<TextView>(addressId).text = address
+        findViewById<View>(rowId).setOnClickListener { copyToClipboard(coin, address, sensitive = false) }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

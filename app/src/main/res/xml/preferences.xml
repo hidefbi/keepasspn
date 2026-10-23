@@ -72,4 +72,12 @@
 			android:persistent="false" />
 	</PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/about_category_title">
+        <Preference
+            android:key="@string/settings_check_update_key"
+            android:title="@string/check_for_updates"
+            android:summary="@string/check_for_updates_summary"/>
+    </PreferenceCategory>
+
 </PreferenceScreen>

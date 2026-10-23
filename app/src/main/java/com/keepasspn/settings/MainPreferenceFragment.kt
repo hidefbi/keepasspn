@@ -19,8 +19,14 @@
  */
 package com.keepasspn.settings
 
+import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.widget.Toast
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -78,6 +84,13 @@ class MainPreferenceFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preferences, rootKey)
 
+        findPreference<Preference>(getString(R.string.settings_check_update_key))?.apply {
+            onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                showUpdateCheckDialog()
+                true
+            }
+        }
+
         // add listeners for non-default actions
         findPreference<Preference>(getString(R.string.settings_app_key))?.apply {
             onPreferenceClickListener = Preference.OnPreferenceClickListener {
@@ -129,6 +142,30 @@ class MainPreferenceFragment : PreferenceFragmentCompat() {
         }
 
         checkDatabaseLoaded(mDatabase?.loaded == true)
+    }
+
+    private fun showUpdateCheckDialog() {
+        val context = requireContext()
+        val version = try {
+            context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: ""
+        } catch (e: PackageManager.NameNotFoundException) {
+            ""
+        }
+        AlertDialog.Builder(context)
+            .setTitle(R.string.check_for_updates)
+            .setMessage(getString(R.string.check_for_updates_dialog_message, version))
+            .setPositiveButton(R.string.open_releases_page) { _, _ -> openReleasesPage() }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
+    private fun openReleasesPage() {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.releases_url)))
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(requireContext(), R.string.releases_page_unavailable, Toast.LENGTH_LONG).show()
+        }
     }
 
     interface Callback {

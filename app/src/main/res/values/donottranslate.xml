@@ -36,6 +36,8 @@
     <!-- Project repository and support channel. -->
     <string name="contribution_url" translatable="false">https://github.com/hidefbi/keepasspn</string>
     <string name="homepage_url" translatable="false">https://github.com/hidefbi/keepasspn</string>
+    <string name="releases_url" translatable="false">https://github.com/hidefbi/keepasspn/releases/latest</string>
+    <string name="settings_check_update_key" translatable="false">settings_check_update_key</string>
     <string name="external_icon_url" translatable="false">https://github.com/hidefbi/keepasspn</string>
     <string name="issues_url" translatable="false">https://github.com/hidefbi/keepasspn/issues</string>
     <!-- Feature documentation links on the project wiki. -->
@@ -177,6 +179,7 @@
     <bool name="autofill_inline_suggestions_default" translatable="false">false</bool>
     <string name="autofill_manual_selection_key" translatable="false">autofill_manual_selection_key</string>
     <bool name="autofill_manual_selection_default" translatable="false">true</bool>
+    <string name="autofill_trusted_browsers_key" translatable="false">autofill_trusted_browsers_key</string>
     <string name="autofill_copy_totp_key" translatable="false">autofill_copy_totp_key</string>
     <bool name="autofill_copy_totp_default" translatable="false">true</bool>
     <string name="autofill_share_magikeyboard_key" translatable="false">autofill_share_magikeyboard_key</string>

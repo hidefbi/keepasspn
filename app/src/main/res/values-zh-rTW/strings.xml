@@ -774,4 +774,17 @@
     <string name="warning_move_nodes_to_recycle_bin">要將選取的項目移入資源回收筒嗎？</string>
     <string name="move_nodes_confirm">確定要將「%1$s」移動到「%2$s」嗎？</string>
     <string name="move_confirm">確認</string>
+    <string name="autofill_trusted_browsers_title">受信任的瀏覽器</string>
+    <string name="autofill_trusted_browsers_summary">可告知自動填入您目前所在網站的瀏覽器。內建瀏覽器透過簽章驗證。</string>
+    <string name="trusted_browsers_dialog_title">其他受信任的瀏覽器</string>
+    <string name="trusted_browsers_none">未安裝其他瀏覽器。</string>
+    <string name="trusted_browsers_unsupported">受信任的瀏覽器需要 Android 9 或更高版本。</string>
+    <string name="trusted_browsers_confirm_title">信任這些瀏覽器？</string>
+    <string name="trusted_browsers_confirm_message">受信任的瀏覽器會告知 KeePassPN 您目前所在的網站，以便提示該網站的項目。信任與瀏覽器目前的簽章綁定，簽章變更後即失效。\n\n%1$s</string>
+    <string name="about_category_title">關於</string>
+    <string name="check_for_updates">檢查更新</string>
+    <string name="check_for_updates_summary">開啟發布頁面。KeePassPN 不連接網際網路。</string>
+    <string name="check_for_updates_dialog_message">已安裝版本：%1$s\n\n開啟發布頁面與最新版本比較？</string>
+    <string name="open_releases_page">開啟發布頁面</string>
+    <string name="releases_page_unavailable">沒有可以開啟發布頁面的應用程式。</string>
 </resources>

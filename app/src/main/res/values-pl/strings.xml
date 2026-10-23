@@ -784,4 +784,17 @@
     <string name="warning_move_nodes_to_recycle_bin">Przenieść wybrane elementy do kosza?</string>
     <string name="move_nodes_confirm">Przenieść „%1$s” do „%2$s”?</string>
     <string name="move_confirm">Potwierdź</string>
+    <string name="autofill_trusted_browsers_title">Zaufane przeglądarki</string>
+    <string name="autofill_trusted_browsers_summary">Przeglądarki, które mogą informować autouzupełnianie, na jakiej stronie jesteś. Wbudowane przeglądarki są weryfikowane podpisem.</string>
+    <string name="trusted_browsers_dialog_title">Dodatkowe zaufane przeglądarki</string>
+    <string name="trusted_browsers_none">Nie zainstalowano innych przeglądarek.</string>
+    <string name="trusted_browsers_unsupported">Zaufane przeglądarki wymagają Androida 9 lub nowszego.</string>
+    <string name="trusted_browsers_confirm_title">Zaufać tym przeglądarkom?</string>
+    <string name="trusted_browsers_confirm_message">Zaufana przeglądarka informuje KeePassPN, na jakiej stronie jesteś, aby można było podpowiadać wpisy dla tej strony. Zaufanie jest powiązane z bieżącym podpisem przeglądarki i wygasa, jeśli się zmieni.\n\n%1$s</string>
+    <string name="about_category_title">Informacje</string>
+    <string name="check_for_updates">Sprawdź aktualizacje</string>
+    <string name="check_for_updates_summary">Otwiera stronę wydań. KeePassPN nie łączy się z internetem.</string>
+    <string name="check_for_updates_dialog_message">Zainstalowana wersja: %1$s\n\nOtworzyć stronę wydań, aby porównać ją z najnowszą wersją?</string>
+    <string name="open_releases_page">Otwórz stronę wydań</string>
+    <string name="releases_page_unavailable">Żadna aplikacja nie może otworzyć strony wydań.</string>
 </resources>

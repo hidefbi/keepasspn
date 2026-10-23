@@ -768,4 +768,17 @@
     <string name="warning_move_nodes_to_recycle_bin">هل تريد نقل العناصر المحددة إلى سلة المحذوفات؟</string>
     <string name="move_nodes_confirm">هل تريد نقل “%1$s” إلى “%2$s”؟</string>
     <string name="move_confirm">تأكيد</string>
+    <string name="autofill_trusted_browsers_title">المتصفحات الموثوقة</string>
+    <string name="autofill_trusted_browsers_summary">متصفحات يمكنها إخبار الملء التلقائي بالموقع الذي تزوره. يتم التحقق من المتصفحات المدمجة بالتوقيع.</string>
+    <string name="trusted_browsers_dialog_title">متصفحات موثوقة إضافية</string>
+    <string name="trusted_browsers_none">لا توجد متصفحات أخرى مثبتة.</string>
+    <string name="trusted_browsers_unsupported">تتطلب المتصفحات الموثوقة نظام Android 9 أو أحدث.</string>
+    <string name="trusted_browsers_confirm_title">هل تثق بهذه المتصفحات؟</string>
+    <string name="trusted_browsers_confirm_message">يُخبر المتصفح الموثوق KeePassPN بالموقع الذي تزوره، حتى يمكن اقتراح إدخالات ذلك الموقع. يرتبط الوثوق بالتوقيع الحالي للمتصفح وينتهي إذا تغيّر.\n\n%1$s</string>
+    <string name="about_category_title">حول</string>
+    <string name="check_for_updates">التحقق من التحديثات</string>
+    <string name="check_for_updates_summary">يفتح صفحة الإصدارات. لا يتصل KeePassPN بالإنترنت.</string>
+    <string name="check_for_updates_dialog_message">الإصدار المثبت: %1$s\n\nهل تريد فتح صفحة الإصدارات لمقارنته بأحدث إصدار؟</string>
+    <string name="open_releases_page">فتح صفحة الإصدارات</string>
+    <string name="releases_page_unavailable">لا يوجد تطبيق يمكنه فتح صفحة الإصدارات.</string>
 </resources>
