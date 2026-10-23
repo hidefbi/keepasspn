@@ -91,7 +91,10 @@ open class DatabaseInfo: Database() {
             object : NodeHandler<Entry>() {
                 override fun operate(node: Entry): Boolean {
                     val parent = node.parent
-                    if (node.getOtpElement() != null && !TotpSummary.isImportGroup(parent)) {
+                    if (node.getOtpElement() != null
+                        && !TotpSummary.isImportGroup(parent)
+                        && !isInRecycleBin(parent)
+                    ) {
                         entryInfos.add(getEntryInfoFrom(node, raw = true) to (parent?.title ?: ""))
                     }
                     return true
@@ -104,6 +107,19 @@ open class DatabaseInfo: Database() {
             }
         )
         return entryInfos
+    }
+
+    /**
+     * Whether the group is the recycle bin or is inside it, at any depth.
+     */
+    private fun isInRecycleBin(group: Group?): Boolean {
+        val bin = recycleBin ?: return false
+        var current: Group? = group
+        while (current != null) {
+            if (current.nodeId == bin.nodeId) return true
+            current = current.parent
+        }
+        return false
     }
 
     /**

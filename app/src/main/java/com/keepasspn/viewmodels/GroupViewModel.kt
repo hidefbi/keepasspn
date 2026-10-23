@@ -169,12 +169,11 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
                         // Children
                         val isRootGroup = summaryNode == null && group.nodeId == database.rootGroup?.nodeId
                         val children: List<SortedNodeInfo> = if (summaryNode != null) {
-                            database.getSummaryEntryInfos().map { (entryInfo, groupTitle) ->
+                            database.getSummaryEntryInfos().map { (entryInfo, _) ->
+                                // No group line in the summary: name, account and code only
                                 SortedEntryInfo(
                                     entryToCopy = entryInfo,
-                                    path = getApplication<Application>().getString(
-                                        R.string.totp_summary_belongs_to, groupTitle
-                                    ),
+                                    path = null,
                                     isReferenced = false
                                 )
                             }
