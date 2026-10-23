@@ -25,6 +25,7 @@ import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.MainCredential
 import com.keepasspn.database.element.MasterCredential
 import com.keepasspn.database.exception.DatabaseException
+import com.keepasspn.database.exception.DatabaseOutputException
 import com.keepasspn.hardware.HardwareKey
 import com.keepasspn.tasks.ActionRunnable
 import com.keepasspn.tasks.ProgressTaskUpdater
@@ -32,7 +33,10 @@ import com.keepasspn.utils.AppUtil.getLimits
 import com.keepasspn.utils.LocalDatabaseBackupManager
 import com.keepasspn.utils.clear
 import com.keepasspn.utils.getUriOutputStream
+import com.keepasspn.utils.withFileScheme
 import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 
 open class SaveDatabaseRunnable(
     protected var context: Context,
@@ -61,19 +65,31 @@ open class SaveDatabaseRunnable(
         database.checkVersion()
         // Save database in all cases if it's a copy
         if ((databaseCopyUri != null || save) && result.isSuccess) {
+            val targetUri = databaseCopyUri ?: database.fileUri
+            val localPath = targetUri?.takeIf { it.withFileScheme() }?.path
+            // Local files are written to a sibling temp file and renamed only after the save is verified
+            val tempFile = localPath?.let { File("$it.saving") }
             try {
                 val contentResolver = context.contentResolver
                 mMasterCredential = mainCredential?.toMasterCredential(contentResolver)
-                // Build temp database file to avoid file corruption if error
+                // Cache name is unique per database, so a leftover cache never mixes two databases
                 database.saveData(
-                    cacheFile = File(context.cacheDir, databaseCopyUri.hashCode().toString()),
+                    cacheFile = File(context.cacheDir, "save_" + (targetUri?.toString() ?: "").hashCode()),
                     databaseOutputStream = {
-                        contentResolver.getUriOutputStream(databaseCopyUri ?: database.fileUri)
+                        if (tempFile != null) FileOutputStream(tempFile)
+                        else contentResolver.getUriOutputStream(targetUri)
+                    },
+                    databaseInputStream = {
+                        if (tempFile != null) tempFile.inputStream()
+                        else targetUri?.let { contentResolver.openInputStream(it) }
                     },
                     masterCredential = mMasterCredential,
                     challengeResponseRetriever = cachingRetriever,
                     limits = context.getLimits()
                 )
+                if (tempFile != null && localPath != null && !tempFile.renameTo(File(localPath))) {
+                    throw DatabaseOutputException(IOException("Unable to replace the database file"))
+                }
                 // Indicate data was saved only if it's not a new location
                 if (databaseCopyUri == null) {
                     database.indicateUpToDateData()
@@ -93,6 +109,9 @@ open class SaveDatabaseRunnable(
                 }
             } catch (e: DatabaseException) {
                 setError(e)
+            } finally {
+                // Removes the temp file if the save failed; after a successful rename it no longer exists
+                tempFile?.delete()
             }
         } else if (dataModified) {
             database.indicateNotSavedData()

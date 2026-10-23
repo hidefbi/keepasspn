@@ -62,10 +62,12 @@ import com.keepasspn.utils.readBytes4ToUInt
 import java.io.BufferedInputStream
 import java.io.File
 import java.io.FileNotFoundException
+import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets
+import java.security.MessageDigest
 import java.util.UUID
 
 
@@ -786,10 +788,12 @@ open class Database {
     fun saveData(
         cacheFile: File,
         databaseOutputStream: () -> OutputStream?,
+        databaseInputStream: () -> InputStream?,
         masterCredential: MasterCredential?,
         challengeResponseRetriever: (HardwareKey, ByteArray?) -> ByteArray,
         limits: Limits
     ) {
+        var cacheComplete = false
         try {
             kdfEngine?.checkLimits(limits)
             // Save in a temp memory to avoid exception
@@ -826,26 +830,36 @@ open class Database {
                     }
                 }
             }
-            // Copy from the cache to the final stream
-            databaseOutputStream.invoke()?.use { outputStream ->
+            cacheComplete = true
+            val expectedHash = cacheFile.sha256()
+            // Copy from the cache to the destination
+            val output = databaseOutputStream.invoke()
+                ?: throw DatabaseOutputException(IOException("Unable to open the database destination"))
+            output.use { outputStream ->
                 cacheFile.inputStream().use { inputStream ->
-                    inputStream.readAllBytes { buffer ->
-                        outputStream.write(buffer)
-                    }
+                    inputStream.copyTo(outputStream)
                 }
+                outputStream.flush()
             }
+            // Read the destination back when the provider allows it. A readable copy that
+            // differs from the cache means the save failed; an unreadable one keeps the previous behavior.
+            val savedHash = try {
+                databaseInputStream.invoke()?.sha256()
+            } catch (e: Exception) {
+                NoOpLog.w(TAG, "Unable to read back the saved database", e)
+                null
+            }
+            if (savedHash != null && savedHash != expectedHash)
+                throw DatabaseOutputException(IOException("Saved database does not match the cache"))
+            // The cache is only needed until the save is verified
+            cacheFile.delete()
         } catch (e: Exception) {
+            // A partial cache is not valid, drop it. A complete cache is kept for recovery.
+            if (!cacheComplete) cacheFile.delete()
             NoOpLog.e(TAG, "Unable to save database", e)
             if (e is DatabaseException)
                 throw e
             throw DatabaseOutputException(e)
-        } finally {
-            try {
-                NoOpLog.d(TAG, "Delete database cache file $cacheFile")
-                cacheFile.delete()
-            } catch (e: Exception) {
-                NoOpLog.e(TAG, "Cache file $cacheFile cannot be deleted", e)
-            }
         }
     }
 
@@ -1346,3 +1360,18 @@ open class Database {
         val DEFAULT_PASSWORD_ENCODING: Charset = StandardCharsets.UTF_8
     }
 }
+
+private fun InputStream.sha256(): String {
+    val digest = MessageDigest.getInstance("SHA-256")
+    val buffer = ByteArray(8192)
+    use { stream ->
+        while (true) {
+            val read = stream.read(buffer)
+            if (read == -1) break
+            digest.update(buffer, 0, read)
+        }
+    }
+    return digest.digest().joinToString("") { String.format("%02x", it) }
+}
+
+private fun File.sha256(): String = inputStream().use { it.sha256() }

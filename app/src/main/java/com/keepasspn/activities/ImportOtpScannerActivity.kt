@@ -211,6 +211,8 @@ class ImportOtpScannerActivity : DatabaseLockActivity(), SurfaceHolder.Callback 
     }
 
     override fun onDestroy() {
+        // Drop queued UI callbacks before the secrets are cleared below
+        mainHandler.removeCallbacksAndMessages(null)
         decodeExecutor.shutdownNow()
         if (!handedOver) {
             // Nothing was handed to the database, drop the secrets kept in memory
@@ -391,6 +393,8 @@ class ImportOtpScannerActivity : DatabaseLockActivity(), SurfaceHolder.Callback 
             }
         }
         mainHandler.post {
+            // The activity may have been destroyed while this message was queued
+            if (isFinishing || isDestroyed) return@post
             updateStatus()
             if (isMigrationComplete()) showResult()
         }
