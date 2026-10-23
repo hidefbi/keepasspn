@@ -35,6 +35,7 @@ import com.keepasspn.model.NodeInfo
 import com.keepasspn.model.SortedEntryInfo
 import com.keepasspn.model.SortedGroupInfo
 import com.keepasspn.model.SortedNodeInfo
+import com.keepasspn.R
 import com.keepasspn.model.toNodes
 import com.keepasspn.otp.TotpSummary
 import com.keepasspn.settings.PreferencesUtil
@@ -139,43 +140,65 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
                     val groupId = groupState?.groupId
                     val showFromPosition = groupState?.firstVisibleItem
                     val showFromOffset = groupState?.firstVisibleItemOffset ?: 0
-                    val group = if (groupId != null) {
-                        database.getGroupInfoById(groupId)
+                    // The TOTP Summary folder is virtual: its children are the entries with a TOTP
+                    val summaryNode = if (groupId == TotpSummary.NODE_ID) {
+                        TotpSummary.buildNode(
+                            title = PreferencesUtil.getTotpSummaryTitle(getApplication()),
+                            numberOfEntries = database.getEntryInfosWithOtp().size
+                        )
                     } else {
-                        database.getRootGroupInfo()
+                        null
                     }
+                    val group: GroupInfo? = summaryNode
+                        ?: if (groupId != null) database.getGroupInfoById(groupId) else database.getRootGroupInfo()
                     if (group != null) {
-                        mRecyclingBinIsCurrentGroup = group.isRecycleBin(database)
+                        mRecyclingBinIsCurrentGroup = summaryNode == null && group.isRecycleBin(database)
                         mainGroup = group
                         // Save group state
                         mMainGroupState = GroupState(group.nodeId, showFromPosition, showFromOffset)
                         // Breadcrumbs
-                        val breadcrumbs = mDatabase?.getBreadcrumbsFrom(
-                            groupId = group.nodeId,
-                            recursiveNumberOfEntries = mRecursiveNumberEntries,
-                            nodeFilter = mNodeFilter
-                        ) ?: listOf()
-                        // Children, with the virtual TOTP Summary folder on top of the root group
-                        val sortedChildren = mDatabase?.getSortedChildrenOf(
-                            parentId = group.nodeId,
-                            recursiveNumberOfEntries = mRecursiveNumberEntries,
-                            nodeFilter = mNodeFilter
-                        ) ?: listOf()
-                        val children = if (group.nodeId == database.rootGroup?.nodeId
-                            && !mRecyclingBinIsCurrentGroup
-                        ) {
-                            listOf(
-                                TotpSummary.buildNode(
-                                    title = PreferencesUtil.getTotpSummaryTitle(getApplication()),
-                                    numberOfEntries = database.getEntryInfosWithOtp().size
-                                )
-                            ) + sortedChildren
+                        val breadcrumbs = if (summaryNode != null) {
+                            listOf(summaryNode)
                         } else {
-                            sortedChildren
+                            mDatabase?.getBreadcrumbsFrom(
+                                groupId = group.nodeId,
+                                recursiveNumberOfEntries = mRecursiveNumberEntries,
+                                nodeFilter = mNodeFilter
+                            ) ?: listOf()
                         }
-                        // To enable add button
-                        val addGroupEnabled = database.allowAddGroupIn(group = group)
-                        val addEntryEnabled = database.allowAddEntryIn(group = group)
+                        // Children
+                        val isRootGroup = summaryNode == null && group.nodeId == database.rootGroup?.nodeId
+                        val children: List<SortedNodeInfo> = if (summaryNode != null) {
+                            database.getEntryInfosWithOtpAndGroup().map { (entryInfo, groupTitle) ->
+                                SortedEntryInfo(
+                                    entryToCopy = entryInfo,
+                                    path = getApplication<Application>().getString(
+                                        R.string.totp_summary_belongs_to, groupTitle
+                                    ),
+                                    isReferenced = false
+                                )
+                            }
+                        } else {
+                            val sortedChildren: List<SortedNodeInfo> = mDatabase?.getSortedChildrenOf(
+                                parentId = group.nodeId,
+                                recursiveNumberOfEntries = mRecursiveNumberEntries,
+                                nodeFilter = mNodeFilter
+                            ) ?: listOf()
+                            if (isRootGroup && !mRecyclingBinIsCurrentGroup) {
+                                // The virtual TOTP Summary folder is always on top of the root group
+                                listOf(
+                                    TotpSummary.buildNode(
+                                        title = PreferencesUtil.getTotpSummaryTitle(getApplication()),
+                                        numberOfEntries = database.getEntryInfosWithOtp().size
+                                    )
+                                ) + sortedChildren
+                            } else {
+                                sortedChildren
+                            }
+                        }
+                        // To enable add buttons, never inside the virtual folder
+                        val addGroupEnabled = summaryNode == null && database.allowAddGroupIn(group = group)
+                        val addEntryEnabled = summaryNode == null && database.allowAddEntryIn(group = group)
                         mAddGroupOrEntryAllowed = addGroupEnabled || addEntryEnabled
                         withContext(Dispatchers.Main) {
                             _groupUIState.update { groupState ->
@@ -256,6 +279,7 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
             // If last item & not a virtual root group
             val currentGroup = mainGroup
             if (currentGroup != null && group.nodeId == currentGroup.nodeId
+                && currentGroup.nodeId != TotpSummary.NODE_ID
                 && (currentGroup.nodeId != mDatabase?.rootGroup?.nodeId
                         || mDatabase?.rootGroupIsVirtual != true)
             ) {
@@ -276,6 +300,7 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
             val currentGroup = mainGroup
             if (mDatabase?.isReadOnly == false
                 && currentGroup != null
+                && currentGroup.nodeId != TotpSummary.NODE_ID
                 && group.nodeId == currentGroup.nodeId
                 && (mDatabase?.rootGroupIsVirtual != true
                         || currentGroup.nodeId != mDatabase?.rootGroup?.nodeId)
@@ -295,8 +320,7 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
     fun performNodeClick(node: SortedNodeInfo) {
         viewModelScope.launch {
             val state = nodeActionState.value
-            if (TotpSummary.isSummary(node)) {
-                if (state.nodeActionMode == null) _viewEvent.emit(GroupEvent.OpenTotpSummary)
+            if (TotpSummary.isSummary(node) && state.nodeActionMode != null) {
                 return@launch
             }
             when (state.nodeActionMode) {
@@ -446,8 +470,9 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
         mPendingNodeAction = node
         val siblings = siblingsOf(node)
         val index = siblings.indexOfFirst { it.nodeId == node.nodeId }
-        val canMoveUp = reorderAllowed && index > 0
-        val canMoveDown = reorderAllowed && index >= 0 && index < siblings.size - 1
+        val inSummary = mainGroup?.nodeId == TotpSummary.NODE_ID
+        val canMoveUp = reorderAllowed && !inSummary && index > 0
+        val canMoveDown = reorderAllowed && !inSummary && index >= 0 && index < siblings.size - 1
         viewModelScope.launch {
             _viewEvent.emit(GroupEvent.ShowNodeActions(node, canMoveUp, canMoveDown))
         }
@@ -668,7 +693,6 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
         ) : GroupEvent()
         data class DuplicateNodes(val nodes: Nodes) : GroupEvent()
         data class ReorderNode(val node: SortedNodeInfo, val targetIndex: Int) : GroupEvent()
-        object OpenTotpSummary : GroupEvent()
         data class RenameTotpSummary(val currentTitle: String) : GroupEvent()
         data class RestoreNodes(val nodes: Nodes) : GroupEvent()
         data class ChooseMoveDestination(val node: SortedNodeInfo) : GroupEvent()

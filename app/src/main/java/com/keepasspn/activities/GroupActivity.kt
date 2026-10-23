@@ -629,9 +629,6 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
                             is GroupViewModel.GroupEvent.ShowNodeActions -> {
                                 showNodeActions(event)
                             }
-                            is GroupViewModel.GroupEvent.OpenTotpSummary -> {
-                                startActivity(Intent(this@GroupActivity, VerificationCodesActivity::class.java))
-                            }
                             is GroupViewModel.GroupEvent.RenameTotpSummary -> {
                                 launchDialogForTotpSummaryRename(event.currentTitle)
                             }
