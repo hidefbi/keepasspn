@@ -300,7 +300,11 @@
     <string name="pin_change_done">PIN kods mainīts</string>
     <string name="pin_master_lockout_remaining">Nepareiza galvenā parole (atlikušo mēģinājumu skaits līdz datubāzes noņemšanai no lietotnes: %1$d)</string>
     <string name="pin_master_lockout_database_deleted">Pēc vairākkārtējām nepareizām galvenajām parolēm datubāze tika noņemta no lietotnes. Importējiet .kdbx failu vēlreiz.</string>
-    <string name="about_description">KeePassPN ir atvērtā koda paroļu pārvaldnieks Android ierīcēm, kas darbojas ar KeePass (KDBX) datubāzēm. Tā ir neatkarīga, kopienas uzturēta modifikācija, kas izplatīta saskaņā ar GNU GPLv3 licenci.\n\nŠajā izdevumā ir pievienota ātrā atbloķēšana ar PIN kodu ar konfigurējamu derīguma termiņu, neobligāta aizsardzība «Pārbaudīt pirms kopēšanas» sensitīviem laukiem un katras datubāzes vietēja atkopšanas kopija. PIN koda pārbaudi veic pati lietotne, tāpēc tā nodrošina vājāku aizsardzību nekā galvenā parole. Izmantojiet atbloķēšanu ar PIN kodu tikai tad, ja piekrītat šim kompromisam.\n\nPirmkods, problēmu ziņojumi un ieguldījumi ir laipni gaidīti, izmantojot tālāk saistīto projekta krātuvi.</string>
+    <string name="about_description">KeePassPN ir atvērtā koda paroļu pārvaldnieks Android ierīcēm, kas darbojas ar KeePass (KDBX) datubāzēm. Tā ir neatkarīga, kopienas uzturēta modificēta versija, kas izplatīta saskaņā ar GNU GPLv3 licenci, bez jebkādas garantijas.
+
+Lietotne neapkopo lietotāju datus, nesavienojas ar nevienu serveri, darbojas tikai lokāli un pilnībā respektē lietotāju privātumu.
+
+Lai saglabātu mūsu brīvību, labotu kļūdas, pievienotu funkcijas un uzturētu projektu aktīvu, mēs ceram uz jūsu ieguldījumu.</string>
 
     <string name="extended_ASCII">Paplašinātais ASCII</string>
     <string name="style_name_classic">Klasisks</string>

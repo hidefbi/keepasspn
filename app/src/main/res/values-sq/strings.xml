@@ -657,7 +657,11 @@
     <string name="pin_change_done">PIN-i u ndryshua</string>
     <string name="pin_master_lockout_remaining">Fjalëkalim kryesor i gabuar (%1$d tentativë(e) të mbetura përpara se baza e të dhënave të hiqet nga aplikacioni)</string>
     <string name="pin_master_lockout_database_deleted">Baza e të dhënave u hoq nga aplikacioni pas disa fjalëkalimeve kryesore të gabuara. Importoni përsëri skedarin .kdbx.</string>
-    <string name="about_description">KeePassPN është një menaxher fjalëkalimesh me burim të hapur për Android, që punon me bazat e të dhënave KeePass (KDBX). Është një modifikim i pavarur, i mirëmbajtur nga komuniteti, i publikuar sipas licencës GNU GPLv3.\n\nKy version shton shkyçjen e shpejtë me PIN, me një periudhë vlefshmërie të konfigurueshme, një mbrojtje opsionale „Verifiko përpara kopjimit“ për fushat e ndjeshme dhe një kopje lokale rikuperimi të çdo baze të dhënash. Verifikimi i PIN-it kryhet nga vetë aplikacioni, prandaj ofron mbrojtje më të dobët se fjalëkalimi kryesor. Përdorni shkyçjen me PIN vetëm nëse e pranoni këtë kompromis.\n\nKodi burimor, raportet e problemeve dhe kontributet janë të mirëpritura përmes depove të projektit të lidhur më poshtë.</string>
+    <string name="about_description">KeePassPN është një menaxher fjalëkalimesh me burim të hapur për Android, që punon me bazat e të dhënave KeePass (KDBX). Është një version i modifikuar i pavarur, i mirëmbajtur nga komuniteti dhe i publikuar sipas licencës GNU GPLv3, pa asnjë garanci.
+
+Aplikacioni nuk mbledh të dhëna të përdoruesve, nuk lidhet me asnjë server, funksionon vetëm lokalisht dhe respekton plotësisht privatësinë e përdoruesve.
+
+Për të ruajtur lirinë tonë, për të rregulluar gabimet, për të shtuar funksione dhe për ta mbajtur projektin aktiv, presim kontributin tuaj.</string>
 
     <string name="extended_ASCII">ASCII e Zgjeruar</string>
     <string name="lower_case">të vogla</string>

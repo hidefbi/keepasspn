@@ -719,7 +719,11 @@
     <string name="pin_change_done">PINを変更しました</string>
     <string name="pin_master_lockout_remaining">マスターパスワードが違います（データベースがアプリから削除されるまであと%1$d回）</string>
     <string name="pin_master_lockout_database_deleted">マスターパスワードの誤入力が繰り返されたため、データベースはアプリから削除されました。.kdbxファイルを再度インポートしてください。</string>
-    <string name="about_description">KeePassPN は、KeePass（KDBX）データベースに対応した Android 向けのオープンソースのパスワードマネージャーです。GNU GPLv3 ライセンスの下で公開された、コミュニティによって維持される独立した改変版です。\n\nこのエディションでは、有効期間を設定できる PIN によるクイックロック解除、機密フィールド向けの任意の「コピー前に確認」保護、およびデータベースごとのローカル復元用コピーが追加されています。PIN の検証はアプリ自体が行うため、マスターパスワードよりも保護は弱くなります。このトレードオフに同意する場合にのみ PIN によるロック解除を使用してください。\n\nソースコード、問題報告、貢献は、下記のリンク先のプロジェクトリポジトリを通じて歓迎します。</string>
+    <string name="about_description">KeePassPN は、KeePass（KDBX）データベースに対応した Android 用のオープンソースパスワードマネージャーです。コミュニティが保守する独立した改変版で、GNU GPLv3 ライセンスの下で公開されており、いかなる保証もありません。
+
+ユーザーデータは一切収集せず、いかなるサーバーにも接続せず、ローカルでのみ動作し、ユーザーのプライバシーを十分に尊重します。
+
+自由を守り、バグを修正し、機能を追加し、プロジェクトを活発に保つため、皆さんのご貢献をお待ちしています。</string>
 
     <string name="extended_ASCII">拡張 ASCII</string>
     <string name="lower_case">すべて小文字</string>

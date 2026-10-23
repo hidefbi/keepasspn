@@ -686,7 +686,11 @@
     <string name="pin_change_done">PIN-kood muudetud</string>
     <string name="pin_master_lockout_remaining">Vale ülemparool (enne andmebaasi eemaldamist rakendusest on jäänud %1$d katset)</string>
     <string name="pin_master_lockout_database_deleted">Andmebaas eemaldati rakendusest pärast korduvalt valesid ülemparoole. Importige .kdbx-fail uuesti.</string>
-    <string name="about_description">KeePassPN on Androidi avatud lähtekoodiga paroolihaldur, mis töötab KeePassi (KDBX) andmebaasidega. See on sõltumatu, kogukonna poolt hooldatav muudatus, mis on avaldatud GNU GPLv3 litsentsi all.\n\nSee väljaanne lisab PIN-koodiga kiire lahtilukustamise seadistatava kehtivusajaga, tundlike väljade valikulise kaitse «Kinnita enne kopeerimist» ja iga andmebaasi kohaliku taastekoopia. PIN-koodi kontrollib rakendus ise, seega pakub see nõrgemat kaitset kui peaparool. Kasutage PIN-koodiga lahtilukustamist ainult siis, kui nõustute selle kompromissiga.\n\nLähtekood, veateated ja panused on oodatud allpool lingitud projekti hoidlas.</string>
+    <string name="about_description">KeePassPN on Androidi avatud lähtekoodiga paroolihaldur, mis töötab KeePassi (KDBX) andmebaasidega. See on sõltumatu, kogukonna poolt hooldatav muudetud versioon, mis on avaldatud GNU GPLv3 litsentsi all ja on ilma igasuguse garantiita.
+
+Rakendus ei kogu kasutajaandmeid, ei ühenda ühegi serveriga, töötab ainult kohalikult ja austab täielikult kasutajate privaatsust.
+
+Meie vabaduse säilitamiseks, vigade parandamiseks, uute funktsioonide lisamiseks ja projekti aktiivsena hoidmiseks ootame teie panust.</string>
 
     <string name="extended_ASCII">Laiendatud ASCII</string>
     <string name="lower_case">väiketähed</string>

@@ -719,7 +719,11 @@
     <string name="pin_change_done">PIN değiştirildi</string>
     <string name="pin_master_lockout_remaining">Yanlış ana parola (veritabanı uygulamadan kaldırılmadan önce %1$d deneme hakkı kaldı)</string>
     <string name="pin_master_lockout_database_deleted">Tekrarlanan yanlış ana parolalar nedeniyle veritabanı uygulamadan kaldırıldı. .kdbx dosyasını yeniden içe aktarın.</string>
-    <string name="about_description">KeePassPN, KeePass (KDBX) veritabanlarıyla çalışan, Android için açık kaynaklı bir parola yöneticisidir. GNU GPLv3 lisansı altında yayımlanan, topluluk tarafından sürdürülen bağımsız bir değişikliktir.\n\nBu sürüm, yapılandırılabilir geçerlilik süresine sahip PIN ile hızlı kilit açma, hassas alanlar için isteğe bağlı \"Kopyalamadan önce doğrula\" koruması ve her veritabanının yerel bir kurtarma kopyasını ekler. PIN doğrulaması uygulamanın kendisi tarafından yapıldığı için ana parolanızdan daha zayıf koruma sağlar. PIN ile kilit açmayı yalnızca bu ödünleşmeyi kabul ediyorsanız kullanın.\n\nKaynak kodu, sorun bildirimleri ve katkılar, aşağıda bağlantısı verilen proje deposu üzerinden memnuniyetle karşılanır.</string>
+    <string name="about_description">KeePassPN, KeePass (KDBX) veritabanlarıyla çalışan, Android için açık kaynaklı bir parola yöneticisidir. Topluluk tarafından sürdürülen bağımsız, değiştirilmiş bir sürümdür; GNU GPLv3 lisansı altında yayımlanmıştır ve hiçbir garanti içermez.
+
+Uygulama kullanıcı verilerini toplamaz, hiçbir sunucuya bağlanmaz, yalnızca yerel olarak çalışır ve kullanıcıların gizliliğine tam olarak saygı gösterir.
+
+Özgürlüğümüzü korumak, hataları düzeltmek, yeni özellikler eklemek ve projeyi aktif tutmak için katkınızı bekliyoruz.</string>
 
     <string name="extended_ASCII">Genişletilmiş ASCII</string>
     <string name="lower_case">küçük harf</string>

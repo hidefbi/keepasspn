@@ -634,7 +634,11 @@
     <string name="pin_change_done">PIN kodea aldatu da</string>
     <string name="pin_master_lockout_remaining">Pasahitz nagusi okerra (datu-basea aplikaziotik kendu aurretik %1$d saiakera geratzen dira)</string>
     <string name="pin_master_lockout_database_deleted">Datu-basea aplikaziotik kendu da pasahitz nagusi okerrak behin eta berriz idatzi direlako. Inportatu .kdbx fitxategia berriro.</string>
-    <string name="about_description">KeePassPN Android gailurako pasahitz-kudeatzaile kode irekia da, KeePass (KDBX) datu-baseekin funtzionatzen duena. Komunitateak mantendutako aldaketa independentea da, GNU GPLv3 lizentziapean argitaratua.\n\nEdizio honek PIN bidezko desblokeo azkarra gehitzen du, iraupen-epe konfiguragarriarekin, eremu sentikorrentzako «Egiaztatu kopiatu aurretik» babes aukerakoa eta datu-base bakoitzaren tokiko berreskuratze-kopia. PINaren egiaztapena aplikazioak berak egiten du, beraz, pasahitz nagusiak baino babes ahulagoa eskaintzen du. Erabili PIN bidezko desblokeoa soilik trukatze hori onartzen baduzu.\n\nIturburu-kodea, arazo-txostenak eta ekarpenak ongi etorriak dira jarraian esteka duen proiektuaren biltegiaren bidez.</string>
+    <string name="about_description">KeePassPN Android-erako iturburu irekiko pasahitz-kudeatzailea da, KeePass (KDBX) datu-baseekin funtzionatzen duena. Komunitateak mantentzen duen bertsio aldatu independentea da, GNU GPLv3 lizentziapean argitaratua eta inolako bermerik gabe.
+
+Aplikazioak ez ditu erabiltzaileen datuak biltzen, ez da zerbitzari batera konektatzen, lokalean bakarrik dabil eta erabiltzaileen pribatutasuna guztiz errespetatzen du.
+
+Gure askatasuna mantentzeko, akatsak konpontzeko, funtzio berriak gehitzeko eta proiektua aktibo mantentzeko, zure laguntza espero dugu.</string>
 
     <string name="extended_ASCII">ASCII hedatua</string>
     <string name="lower_case">minuskulak</string>

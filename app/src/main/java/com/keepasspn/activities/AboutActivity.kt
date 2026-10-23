@@ -32,7 +32,6 @@ import androidx.core.text.HtmlCompat
 import com.keepasspn.R
 import com.keepasspn.activities.stylish.StylishActivity
 import com.keepasspn.utils.getPackageInfoCompat
-import org.joda.time.DateTime
 
 class AboutActivity : StylishActivity() {
 
@@ -62,26 +61,6 @@ class AboutActivity : StylishActivity() {
         version = getString(R.string.version_label, version)
         val versionTextView = findViewById<TextView>(R.id.activity_about_version)
         versionTextView.text = version
-
-        findViewById<TextView>(R.id.activity_about_licence_text).apply {
-            movementMethod = LinkMovementMethod.getInstance()
-            text = HtmlCompat.fromHtml(getString(R.string.html_about_licence, DateTime().year),
-                    HtmlCompat.FROM_HTML_MODE_LEGACY)
-            textDirection = View.TEXT_DIRECTION_ANY_RTL
-            
-        }
-
-        findViewById<TextView>(R.id.activity_about_privacy_text).apply {
-            movementMethod = LinkMovementMethod.getInstance()
-            text = HtmlCompat.fromHtml(getString(R.string.html_about_privacy),
-                HtmlCompat.FROM_HTML_MODE_LEGACY)
-        }
-
-        findViewById<TextView>(R.id.activity_about_contribution_text).apply {
-            movementMethod = LinkMovementMethod.getInstance()
-            text = HtmlCompat.fromHtml(getString(R.string.html_about_contribution),
-                    HtmlCompat.FROM_HTML_MODE_LEGACY)
-        }
 
         bindDonationAddress(R.id.activity_about_donation_btc, R.id.activity_about_donation_btc_address, "BTC", R.string.donation_btc_address)
         bindDonationAddress(R.id.activity_about_donation_eth, R.id.activity_about_donation_eth_address, "ETH", R.string.donation_eth_address)

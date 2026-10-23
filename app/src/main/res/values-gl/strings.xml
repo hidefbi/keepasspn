@@ -704,7 +704,11 @@
     <string name="pin_change_done">PIN cambiado</string>
     <string name="pin_master_lockout_remaining">Contrasinal mestre incorrecto (quédanche %1$d intento(s) antes de que a base de datos se elimine da aplicación)</string>
     <string name="pin_master_lockout_database_deleted">A base de datos eliminouse da aplicación despois de repetidos contrasinais mestres incorrectos. Importa de novo o ficheiro .kdbx.</string>
-    <string name="about_description">KeePassPN é un xestor de contrasinais de código aberto para Android que funciona con bases de datos KeePass (KDBX). É unha modificación independente, mantida pola comunidade e publicada baixo a licenza GNU GPLv3.\n\nEsta edición engade o desbloqueo rápido con PIN cun período de validez configurable, unha protección opcional «Verificar antes de copiar» para os campos sensibles e unha copia de recuperación local de cada base de datos. A verificación do PIN realízaa a propia aplicación, polo que ofrece unha protección máis débil que o contrasinal mestre. Use o desbloqueo con PIN só se acepta esta compensación.\n\nO código fonte, os informes de problemas e as contribucións son benvidos a través do repositorio do proxecto ligado a continuación.</string>
+    <string name="about_description">KeePassPN é un xestor de contrasinais de código aberto para Android que funciona con bases de datos KeePass (KDBX). É unha versión modificada independente, mantida pola comunidade e publicada baixo a licenza GNU GPLv3, sen ningunha garantía.
+
+Non recolle datos dos usuarios, non se conecta a ningún servidor, funciona só en local e respecta plenamente a privacidade dos usuarios.
+
+Para manter a nosa liberdade, corrixir erros, engadir funcións e manter o proxecto activo, contamos coa túa contribución.</string>
 
     <string name="extended_ASCII">ASCII extendido</string>
     <string name="lower_case">minúsculas</string>

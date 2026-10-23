@@ -153,7 +153,11 @@
     <string name="pin_change_done">PIN ŝanĝita</string>
     <string name="pin_master_lockout_remaining">Malĝusta ĉefa pasvorto (%1$d provo(j) restas antaŭ ol la datumbazo estos forigita el la aplikaĵo)</string>
     <string name="pin_master_lockout_database_deleted">La datumbazo estis forigita el la aplikaĵo post ripetaj malĝustaj ĉefaj pasvortoj. Reimportu la dosieron .kdbx.</string>
-    <string name="about_description">KeePassPN estas malfermitkoda pasvortadministrilo por Android, kiu funkcias kun datumbazoj de KeePass (KDBX). Ĝi estas sendependa, de la komunumo prizorgata modifo, publikigita laŭ la permesilo GNU GPLv3.\n\nĈi tiu eldono aldonas rapidan malŝlosadon per PIN-kodo kun agordebla valida periodo, laŭvolan protekton «Konfirmi antaŭ kopiado» por sentemaj kampoj, kaj lokan restarigan kopion de ĉiu datumbazo. La kontrolo de la PIN-kodo estas farata de la aplikaĵo mem, do ĝi ofertas pli malfortan protekton ol via ĉefa pasvorto. Uzu malŝlosadon per PIN-kodo nur se vi akceptas ĉi tiun interŝanĝon.\n\nFontkodo, raportoj pri problemoj kaj kontribuoj estas bonvenaj per la deponejo de la projekto ligita sube.</string>
+    <string name="about_description">KeePassPN estas malfermitkoda pasvortadministrilo por Android, kiu funkcias kun KeePass-datumbazoj (KDBX). Ĝi estas sendependa, komunume prizorgata modifita versio, eldonita laŭ la GNU GPLv3-permesilo, sen ia ajn garantio.
+
+La aplikaĵo ne kolektas uzantajn datumojn, ne konektiĝas al iu ajn servilo, funkcias nur loke kaj plene respektas la privatecon de uzantoj.
+
+Por konservi nian liberecon, ripari erarojn, aldoni funkciojn kaj konservi la projekton aktiva, ni atendas vian kontribuon.</string>
 
     <string name="extended_ASCII">Etendita ASCII</string>
 </resources>

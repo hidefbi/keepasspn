@@ -729,7 +729,11 @@
     <string name="pin_change_done">PIN byl změněn</string>
     <string name="pin_master_lockout_remaining">Chybné hlavní heslo (zbývající počet pokusů před odebráním databáze z aplikace: %1$d)</string>
     <string name="pin_master_lockout_database_deleted">Po opakovaně zadaných chybných hlavních heslech byla databáze z aplikace odebrána. Importujte soubor .kdbx znovu.</string>
-    <string name="about_description">KeePassPN je správce hesel s otevřeným zdrojovým kódem pro Android, který pracuje s databázemi KeePass (KDBX). Jde o nezávislou úpravu udržovanou komunitou, vydanou pod licencí GNU GPLv3.\n\nTato verze přidává rychlé odemykání PIN kódem s nastavitelnou dobou platnosti, volitelnou ochranu „Ověřit před kopírováním“ pro citlivá pole a místní záložní kopii každé databáze. Ověření PIN kódu provádí samotná aplikace, proto nabízí slabší ochranu než hlavní heslo. Odemykání PIN kódem používejte pouze tehdy, pokud s tímto kompromisem souhlasíte.\n\nZdrojový kód, hlášení problémů a příspěvky jsou vítány prostřednictvím níže uvedeného repozitáře projektu.</string>
+    <string name="about_description">KeePassPN je open-source správce hesel pro Android, který pracuje s databázemi KeePass (KDBX). Je to nezávislá, komunitně udržovaná upravená verze vydaná pod licencí GNU GPLv3, bez jakékoli záruky.
+
+Aplikace neshromažďuje žádná uživatelská data, nepřipojuje se k žádnému serveru, pracuje pouze lokálně a plně respektuje soukromí uživatelů.
+
+Abychom zachovali svobodu, opravovali chyby, přidávali funkce a udrželi projekt aktivní, těšíme se na váš příspěvek.</string>
 
     <string name="extended_ASCII">Rozšířené ASCII</string>
     <string name="lower_case">malá písmena</string>

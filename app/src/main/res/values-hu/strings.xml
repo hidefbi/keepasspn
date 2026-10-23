@@ -722,7 +722,11 @@
     <string name="pin_change_done">PIN-kód módosítva</string>
     <string name="pin_master_lockout_remaining">Hibás főjelszó (%1$d próbálkozás maradt, mielőtt az adatbázis eltávolításra kerül az alkalmazásból)</string>
     <string name="pin_master_lockout_database_deleted">Az adatbázis eltávolításra került az alkalmazásból, miután többször hibás főjelszót adtak meg. Importálja újra a .kdbx fájlt.</string>
-    <string name="about_description">A KeePassPN egy nyílt forráskódú jelszókezelő Androidra, amely KeePass (KDBX) adatbázisokkal működik. Ez egy független, a közösség által karbantartott módosítás, amely a GNU GPLv3 licenc alatt jelent meg.\n\nEz a kiadás PIN-kóddal történő gyors feloldást ad hozzá, konfigurálható érvényességi idővel, valamint az érzékeny mezőkhöz egy opcionális „Ellenőrzés másolás előtt” védelmet és minden adatbázishoz egy helyi helyreállítási másolatot. A PIN-kód ellenőrzését maga az alkalmazás végzi, ezért gyengébb védelmet nyújt, mint a mesterjelszó. A PIN-kóddal történő feloldást csak akkor használja, ha elfogadja ezt a kompromisszumot.\n\nA forráskódot, a hibajelentéseket és a hozzájárulásokat a lent linkelt projekttárolón keresztül szívesen fogadjuk.</string>
+    <string name="about_description">A KeePassPN egy nyílt forráskódú jelszókezelő Androidra, amely KeePass (KDBX) adatbázisokkal működik. Ez egy független, a közösség által karbantartott módosított változat, amely a GNU GPLv3 licenc alatt jelent meg, és semmilyen garanciát nem nyújt.
+
+Az alkalmazás nem gyűjt felhasználói adatokat, nem csatlakozik semmilyen szerverhez, csak helyben működik, és teljes mértékben tiszteletben tartja a felhasználók adatvédelmét.
+
+Szabadságunk megőrzése, a hibák javítása, új funkciók hozzáadása és a projekt aktívan tartása érdekében számítunk az Ön közreműködésére.</string>
 
     <string name="extended_ASCII">Bővített ASCII</string>
     <string name="lower_case">kisbetűk</string>

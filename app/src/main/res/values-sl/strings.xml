@@ -80,7 +80,11 @@
     <string name="pin_change_done">PIN je spremenjen</string>
     <string name="pin_master_lockout_remaining">Napačno glavno geslo (še %1$d poskus(ov), preden bo baza odstranjena iz aplikacije)</string>
     <string name="pin_master_lockout_database_deleted">Baza je bila po večkratnem napačnem glavnem geslu odstranjena iz aplikacije. Znova uvozite datoteko .kdbx.</string>
-    <string name="about_description">KeePassPN je upravitelj gesel z odprto kodo za Android, ki deluje z zbirkami KeePass (KDBX). Gre za neodvisno spremembo, ki jo vzdržuje skupnost, izdano pa je pod licenco GNU GPLv3.\n\nTa izdaja dodaja hitro odklepanje s PIN-om z nastavljivim obdobjem veljavnosti, neobvezno zaščito »Preveri pred kopiranjem« za občutljiva polja in lokalno obnovitveno kopijo vsake zbirke. Preverjanje PIN-a izvaja sama aplikacija, zato nudi šibkejšo zaščito kot glavno geslo. Odklepanje s PIN-om uporabljajte le, če sprejemate ta kompromis.\n\nIzvorna koda, poročila o težavah in prispevki so dobrodošli prek spodaj navedenega repozitorija projekta.</string>
+    <string name="about_description">KeePassPN je odprtokodni upravitelj gesel za Android, ki deluje z bazami podatkov KeePass (KDBX). Gre za neodvisno, skupnost vzdrževano spremenjeno različico, objavljeno pod licenco GNU GPLv3, brez kakršnega koli jamstva.
+
+Aplikacija ne zbira uporabniških podatkov, ne povezuje se z nobenim strežnikom, deluje samo lokalno in v celoti spoštuje zasebnost uporabnikov.
+
+Da bi ohranili svobodo, odpravljali napake, dodajali funkcije in ohranjali projekt aktivnega, računamo na vaš prispevek.</string>
 
     <string name="extended_ASCII">Razširjeni ASCII</string>
 </resources>

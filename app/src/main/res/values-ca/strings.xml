@@ -656,7 +656,11 @@
     <string name="pin_change_done">PIN canviat</string>
     <string name="pin_master_lockout_remaining">Contrasenya mestra incorrecta (queden %1$d intent(s) abans que la base de dades s\'elimini de l\'aplicació)</string>
     <string name="pin_master_lockout_database_deleted">La base de dades s\'ha eliminat de l\'aplicació després de repetides contrasenyes mestres incorrectes. Torna a importar el fitxer .kdbx.</string>
-    <string name="about_description">KeePassPN és un gestor de contrasenyes de codi obert per a Android que funciona amb bases de dades KeePass (KDBX). És una modificació independent, mantinguda per la comunitat, publicada sota la llicència GNU GPLv3.\n\nAquesta edició afegeix el desbloqueig ràpid amb PIN amb un període de validesa configurable, una protecció opcional «Verifica abans de copiar» per als camps sensibles i una còpia de recuperació local de cada base de dades. La verificació del PIN la fa l\'aplicació mateixa, de manera que ofereix una protecció més feble que la contrasenya mestra. Utilitzeu el desbloqueig amb PIN només si accepteu aquest compromís.\n\nEl codi font, els informes d\'incidències i les contribucions són benvinguts a través del repositori del projecte enllaçat a continuació.</string>
+    <string name="about_description">KeePassPN és un gestor de contrasenyes de codi obert per a Android que funciona amb bases de dades KeePass (KDBX). És una versió modificada independent, mantinguda per la comunitat i publicada sota la llicència GNU GPLv3, sense cap garantia de cap tipus.
+
+No recull dades dels usuaris, no es connecta a cap servidor, funciona només en local i respecta plenament la privadesa dels usuaris.
+
+Per mantenir la nostra llibertat, corregir errors, afegir funcions i mantenir el projecte actiu, comptem amb la vostra contribució.</string>
 
     <string name="extended_ASCII">ASCII estès</string>
     <string name="lower_case">minúscula</string>

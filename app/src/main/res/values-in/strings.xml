@@ -703,7 +703,11 @@
     <string name="pin_change_done">PIN berhasil diubah</string>
     <string name="pin_master_lockout_remaining">Kata sandi utama salah (%1$d percobaan tersisa sebelum database dihapus dari aplikasi)</string>
     <string name="pin_master_lockout_database_deleted">Database telah dihapus dari aplikasi setelah beberapa kali memasukkan kata sandi utama yang salah. Impor ulang file .kdbx.</string>
-    <string name="about_description">KeePassPN adalah pengelola kata sandi sumber terbuka untuk Android yang bekerja dengan basis data KeePass (KDBX). Ini adalah modifikasi independen yang dikelola komunitas, dirilis di bawah lisensi GNU GPLv3.\n\nEdisi ini menambahkan buka kunci cepat dengan PIN dengan masa berlaku yang dapat dikonfigurasi, perlindungan opsional «Verifikasi sebelum menyalin» untuk kolom sensitif, dan salinan pemulihan lokal untuk setiap basis data. Verifikasi PIN dilakukan oleh aplikasi itu sendiri, sehingga perlindungannya lebih lemah daripada kata sandi utama Anda. Gunakan buka kunci PIN hanya jika Anda menerima pertukaran ini.\n\nKode sumber, laporan masalah, dan kontribusi disambut melalui repositori proyek yang ditautkan di bawah ini.</string>
+    <string name="about_description">KeePassPN adalah pengelola kata sandi open-source untuk Android yang bekerja dengan basis data KeePass (KDBX). Ini adalah versi modifikasi independen yang dikelola oleh komunitas, dirilis di bawah lisensi GNU GPLv3, tanpa jaminan apa pun.
+
+Aplikasi ini tidak mengumpulkan data pengguna, tidak terhubung ke server mana pun, hanya bekerja secara lokal, dan sepenuhnya menghormati privasi pengguna.
+
+Untuk menjaga kebebasan kami, memperbaiki bug, menambah fitur, dan menjaga proyek tetap aktif, kami mengharapkan kontribusi Anda.</string>
 
     <string name="extended_ASCII">ASCII Diperluas</string>
     <string name="lower_case">huruf kecil</string>

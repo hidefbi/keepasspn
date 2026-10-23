@@ -753,7 +753,11 @@
     <string name="user_verification_database_credential">Enter the first four characters of your database password</string>
     <string name="first_chars">First chars</string>
     <string name="check">Check</string>
-    <string name="about_description">KeePassPN is an open-source password manager for Android that works with KeePass (KDBX) databases. It is an independent, community-maintained modification released under the GNU GPLv3 license.\n\nThis edition adds PIN quick unlock with a configurable validity period, an optional \"Verify before copying\" protection for sensitive fields, and a local recovery copy of each database. PIN verification is performed by the app itself, so it offers weaker protection than your master password. Use PIN unlock only if you accept that trade-off.\n\nSource code, issue reports and contributions are welcome through the project repository linked below.</string>
+    <string name="about_description">KeePassPN is an open-source password manager for Android that works with KeePass (KDBX) databases. It is an independent, community-maintained modified version, released under the GNU GPLv3 license, with no warranty of any kind.
+
+It does not collect user data. The app does not connect to any server, works only locally, and fully respects your privacy.
+
+To keep our freedom, fix bugs, add features and keep the project active, we welcome your contributions.</string>
 
     <string name="extended_ASCII">Extended ASCII</string>
     <string name="lower_case">lower case</string>

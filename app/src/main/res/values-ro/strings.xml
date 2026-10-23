@@ -714,7 +714,11 @@
     <string name="pin_change_done">PIN-ul a fost modificat</string>
     <string name="pin_master_lockout_remaining">Parolă principală greșită (numărul de încercări rămase înainte de eliminarea bazei de date din aplicație: %1$d)</string>
     <string name="pin_master_lockout_database_deleted">Baza de date a fost eliminată din aplicație după parole principale greșite repetate. Importați din nou fișierul .kdbx.</string>
-    <string name="about_description">KeePassPN este un manager de parole open-source pentru Android, care funcționează cu baze de date KeePass (KDBX). Este o modificare independentă, întreținută de comunitate și lansată sub licența GNU GPLv3.\n\nAceastă ediție adaugă deblocarea rapidă cu PIN, cu o perioadă de valabilitate configurabilă, o protecție opțională „Verificați înainte de copiere” pentru câmpurile sensibile și o copie locală de recuperare a fiecărei baze de date. Verificarea PIN-ului este realizată de aplicație, deci oferă o protecție mai slabă decât parola principală. Folosiți deblocarea cu PIN doar dacă acceptați acest compromis.\n\nCodul sursă, rapoartele de probleme și contribuțiile sunt binevenite prin depozitul proiectului, indicat mai jos.</string>
+    <string name="about_description">KeePassPN este un manager de parole open-source pentru Android, care funcționează cu baze de date KeePass (KDBX). Este o versiune modificată independentă, întreținută de comunitate și lansată sub licența GNU GPLv3, fără nicio garanție.
+
+Aplicația nu colectează date ale utilizatorilor, nu se conectează la niciun server, funcționează doar local și respectă pe deplin confidențialitatea utilizatorilor.
+
+Pentru a ne menține libertatea, a repara erori, a adăuga funcționalități și a păstra proiectul activ, contăm pe contribuția ta.</string>
 
     <string name="extended_ASCII">ASCII extins</string>
     <string name="lower_case">litere mici</string>

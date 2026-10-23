@@ -712,7 +712,11 @@
     <string name="pin_change_done">PIN-kode endret</string>
     <string name="pin_master_lockout_remaining">Feil hovedpassord (antall forsøk igjen før databasen fjernes fra appen: %1$d)</string>
     <string name="pin_master_lockout_database_deleted">Databasen ble fjernet fra appen etter gjentatte feil hovedpassord. Importer .kdbx-filen på nytt.</string>
-    <string name="about_description">KeePassPN er en passordbehandler med åpen kildekode for Android som fungerer med KeePass-databaser (KDBX). Det er en uavhengig, fellesskapsvedlikeholdt modifikasjon utgitt under GNU GPLv3-lisensen.\n\nDenne utgaven legger til hurtigopplåsing med PIN-kode med en konfigurerbar gyldighetsperiode, en valgfri beskyttelse «Bekreft før kopiering» for sensitive felt og en lokal gjenopprettingskopi av hver database. PIN-verifiseringen utføres av selve appen, så den gir svakere beskyttelse enn hovedpassordet ditt. Bruk PIN-opplåsing bare hvis du godtar denne avveiningen.\n\nKildekode, feilrapporter og bidrag er velkomne gjennom prosjektets depot som er lenket til nedenfor.</string>
+    <string name="about_description">KeePassPN er en åpen kildekode-passordbehandler for Android som fungerer med KeePass (KDBX)-databaser. Det er en uavhengig, fellesskapsvedlikeholdt modifisert versjon, utgitt under GNU GPLv3-lisensen, uten noen form for garanti.
+
+Appen samler ikke inn brukerdata, kobler ikke til noen server, fungerer kun lokalt og respekterer brukernes personvern fullt ut.
+
+For å bevare friheten vår, rette feil, legge til funksjoner og holde prosjektet aktivt, ser vi frem til ditt bidrag.</string>
 
     <string name="extended_ASCII">Utvidet ASCII</string>
     <string name="lower_case">små bokstaver</string>

@@ -667,7 +667,11 @@
     <string name="pin_change_done">PIN kodas pakeistas</string>
     <string name="pin_master_lockout_remaining">Neteisingas pagrindinis slaptažodis (iki duomenų bazės pašalinimo iš programos liko %1$d bandymas(ų))</string>
     <string name="pin_master_lockout_database_deleted">Duomenų bazė pašalinta iš programos po kelių neteisingų pagrindinių slaptažodžių. Importuokite .kdbx failą iš naujo.</string>
-    <string name="about_description">KeePassPN – tai atvirojo kodo slaptažodžių tvarkyklė, skirta Android, veikianti su KeePass (KDBX) duomenų bazėmis. Tai nepriklausoma, bendruomenės prižiūrima modifikacija, platinama pagal GNU GPLv3 licenciją.\n\nŠiame leidime pridėtas greitas atrakinimas PIN kodu su konfigūruojamu galiojimo laikotarpiu, neprivalomas „Prieš kopijuojant patvirtinti“ apsaugos įjungimas jautriems laukams ir vietinė kiekvienos duomenų bazės atkūrimo kopija. PIN kodą tikrina pati programa, todėl apsauga yra silpnesnė nei pagrindinis slaptažodis. Naudokite atrakinimą PIN kodu tik tuo atveju, jei sutinkate su šiuo kompromisu.\n\nŠaltinio kodas, pranešimai apie problemas ir indėlis laukiami per žemiau nurodytą projekto saugyklą.</string>
+    <string name="about_description">KeePassPN – tai atvirojo kodo slaptažodžių tvarkyklė, skirta Android, veikianti su KeePass (KDBX) duomenų bazėmis. Tai nepriklausoma, bendruomenės palaikoma modifikuota versija, platinama pagal GNU GPLv3 licenciją, be jokių garantijų.
+
+Programa nerenka naudotojų duomenų, neprisijungia prie jokio serverio, veikia tik vietoje ir visiškai gerbia naudotojų privatumą.
+
+Siekdami išsaugoti laisvę, taisyti klaidas, pridėti funkcijų ir palaikyti projektą aktyvų, tikimės jūsų indėlio.</string>
 
     <string name="extended_ASCII">Išplėstas ASCII</string>
     <string name="lower_case">mažosios raidės</string>

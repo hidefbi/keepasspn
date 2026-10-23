@@ -76,7 +76,11 @@
     <string name="pin_change_done">PIN kod o\'zgartirildi</string>
     <string name="pin_master_lockout_remaining">Noto\'g\'ri asosiy parol (ma\'lumotlar bazasi ilovadan olib tashlanishidan oldin %1$d urinish qoldi)</string>
     <string name="pin_master_lockout_database_deleted">Bir necha marta noto\'g\'ri asosiy parol kiritilgani uchun ma\'lumotlar bazasi ilovadan olib tashlandi. .kdbx faylini qayta import qiling.</string>
-    <string name="about_description">KeePassPN — bu KeePass (KDBX) ma\'lumotlar bazalari bilan ishlaydigan, Android uchun ochiq manbali parol menejeri. U GNU GPLv3 litsenziyasi ostida chiqarilgan, hamjamiyat tomonidan qo\'llab-quvvatlanadigan mustaqil o\'zgartirishdir.\n\nUshbu nashrda sozlanadigan amal qilish muddati bilan PIN orqali tezkor ochish, maxfiy maydonlar uchun ixtiyoriy \"Nusxalashdan oldin tasdiqlash\" himoyasi va har bir ma\'lumotlar bazasining mahalliy tiklash nusxasi qo\'shilgan. PIN tekshiruvi ilovaning o\'zi tomonidan amalga oshiriladi, shuning uchun u asosiy parolingizga qaraganda kuchsizroq himoya beradi. PIN bilan ochishdan faqat bu kelishuvga rozi bo\'lsangiz foydalaning.\n\nManba kodi, muammo haqidagi hisobotlar va hissalar quyida havola etilgan loyiha ombori orqali qabul qilinadi.</string>
+    <string name="about_description">KeePassPN — KeePass (KDBX) ma\'lumotlar bazalari bilan ishlaydigan Android uchun ochiq manbali parol menejeri. Bu jamiyat tomonidan qo\'llab-quvvatlanadigan mustaqil o\'zgartirilgan versiya bo\'lib, GNU GPLv3 litsenziyasi ostida chiqarilgan va hech qanday kafolatsiz.
+
+Ilova foydalanuvchi ma\'lumotlarini to\'plamaydi, hech qanday serverga ulanmaydi, faqat mahalliy ishlaydi va foydalanuvchilar maxfiyligini to\'liq hurmat qiladi.
+
+Erkinligimizni saqlash, xatolarni tuzatish, yangi imkoniyatlar qo\'shish va loyihani faol saqlash uchun sizning hissangizni kutamiz.</string>
 
     <string name="extended_ASCII">Kengaytirilgan ASCII to\'plami</string>
 </resources>

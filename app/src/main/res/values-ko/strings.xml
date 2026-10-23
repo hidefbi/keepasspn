@@ -370,7 +370,11 @@
     <string name="pin_change_done">PIN이 변경되었습니다</string>
     <string name="pin_master_lockout_remaining">잘못된 마스터 비밀번호입니다 (데이터베이스가 앱에서 삭제되기 전까지 %1$d회 남았습니다)</string>
     <string name="pin_master_lockout_database_deleted">잘못된 마스터 비밀번호를 여러 번 입력하여 데이터베이스가 앱에서 삭제되었습니다. .kdbx 파일을 다시 가져오세요.</string>
-    <string name="about_description">KeePassPN은 KeePass(KDBX) 데이터베이스와 호환되는 Android용 오픈 소스 비밀번호 관리자입니다. GNU GPLv3 라이선스에 따라 배포되는, 커뮤니티가 유지 관리하는 독립적인 수정본입니다.\n\n이 버전에는 유효 기간을 설정할 수 있는 PIN 빠른 잠금 해제, 민감한 필드를 위한 선택적 「복사 전 확인」 보호, 그리고 각 데이터베이스의 로컬 복구 사본 기능이 추가되었습니다. PIN 확인은 앱 자체에서 수행되므로 마스터 비밀번호보다 보호 수준이 낮습니다. 이러한 절충을 수용하는 경우에만 PIN 잠금 해제를 사용하세요.\n\n소스 코드, 문제 보고 및 기여는 아래에 링크된 프로젝트 저장소를 통해 환영합니다.</string>
+    <string name="about_description">KeePassPN은 KeePass (KDBX) 데이터베이스와 함께 작동하는 Android용 오픈 소스 비밀번호 관리자입니다. 커뮤니티가 관리하는 독립적인 수정 버전이며 GNU GPLv3 라이선스에 따라 배포되고, 어떠한 보증도 제공하지 않습니다.
+
+이 앱은 사용자 데이터를 수집하지 않고, 어떤 서버에도 연결하지 않으며, 로컬에서만 작동하고 사용자의 개인정보를 완전히 존중합니다.
+
+우리의 자유를 지키고, 버그를 수정하고, 기능을 추가하며, 프로젝트를 계속 활발하게 유지하기 위해 여러분의 기여를 기다리고 있습니다.</string>
 
     <string name="extended_ASCII">확장 ASCII</string>
     <string name="autofill_trusted_browsers_title">신뢰할 수 있는 브라우저</string>

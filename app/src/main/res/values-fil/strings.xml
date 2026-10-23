@@ -295,7 +295,11 @@
     <string name="pin_change_done">Napalitan ang PIN</string>
     <string name="pin_master_lockout_remaining">Maling master password (%1$d na pagsubok ang natitira bago maalis ang database sa app)</string>
     <string name="pin_master_lockout_database_deleted">Naalis ang database sa app matapos ang paulit-ulit na maling master password. I-import ulit ang .kdbx file.</string>
-    <string name="about_description">Ang KeePassPN ay isang open-source na password manager para sa Android na gumagana sa mga database ng KeePass (KDBX). Ito ay isang independiyente, pinapanatili ng komunidad na binagong bersyon na inilabas sa ilalim ng lisensiyang GNU GPLv3.\n\nIdinadagdag ng edisyong ito ang mabilisang pag-unlock gamit ang PIN na may maaaring i-configure na panahon ng bisa, opsyonal na proteksyon na “I-verify bago kopyahin” para sa mga sensitibong field, at lokal na kopya ng pagbawi para sa bawat database. Ang pag-verify ng PIN ay isinasagawa mismo ng app, kaya mas mahina ito kaysa sa iyong master password. Gamitin lamang ang PIN unlock kung tinatanggap mo ang kompromisong ito.\n\nMalugod na tinatanggap ang source code, mga ulat ng isyu, at mga ambag sa pamamagitan ng repository ng proyekto na naka-link sa ibaba.</string>
+    <string name="about_description">Ang KeePassPN ay isang open-source na password manager para sa Android na gumagana sa mga KeePass (KDBX) database. Ito ay isang independiyente, pinapanatili ng komunidad na binagong bersyon na inilabas sa ilalim ng lisensyang GNU GPLv3, at walang anumang garantiya.
+
+Hindi nangangalap ang app ng datos ng user, hindi kumokonekta sa anumang server, gumagana lamang nang lokal, at lubos na iginagalang ang privacy ng mga user.
+
+Upang mapanatili ang aming kalayaan, ayusin ang mga bug, magdagdag ng mga feature, at panatilihing aktibo ang proyekto, umaasa kami sa iyong kontribusyon.</string>
 
     <string name="extended_ASCII">Napalawak na ASCII</string>
 </resources>

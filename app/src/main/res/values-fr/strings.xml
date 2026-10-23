@@ -726,7 +726,11 @@
     <string name="pin_change_done">Code PIN modifié</string>
     <string name="pin_master_lockout_remaining">Mot de passe principal incorrect (%1$d tentative(s) restante(s) avant la suppression de la base de données de l\'application)</string>
     <string name="pin_master_lockout_database_deleted">La base de données a été supprimée de l\'application après plusieurs mots de passe principaux incorrects. Importez à nouveau le fichier .kdbx.</string>
-    <string name="about_description">KeePassPN est un gestionnaire de mots de passe open source pour Android, compatible avec les bases de données KeePass (KDBX). Il s\'agit d\'une modification indépendante, maintenue par la communauté et publiée sous licence GNU GPLv3.\n\nCette édition ajoute le déverrouillage rapide par code PIN avec une durée de validité configurable, une protection facultative « Vérifier avant de copier » pour les champs sensibles et une copie de récupération locale de chaque base de données. La vérification du code PIN est effectuée par l\'application elle-même ; elle offre donc une protection moins forte que votre mot de passe principal. N\'utilisez le déverrouillage par code PIN que si vous acceptez ce compromis.\n\nLe code source, les rapports de problèmes et les contributions sont les bienvenus via le dépôt du projet indiqué ci-dessous.</string>
+    <string name="about_description">KeePassPN est un gestionnaire de mots de passe open source pour Android, qui fonctionne avec les bases de données KeePass (KDBX). Il s\'agit d\'une version modifiée indépendante, maintenue par la communauté et publiée sous licence GNU GPLv3, sans aucune garantie.
+
+Aucune donnée utilisateur n\'est collectée, l\'application ne se connecte à aucun serveur, fonctionne uniquement en local et respecte pleinement la vie privée des utilisateurs.
+
+Pour préserver notre liberté, corriger les bugs, ajouter des fonctionnalités et maintenir le projet actif, nous comptons sur votre contribution.</string>
 
     <string name="extended_ASCII">ASCII étendu</string>
     <string name="lower_case">minuscule</string>

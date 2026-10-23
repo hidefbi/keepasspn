@@ -730,7 +730,11 @@
     <string name="pin_change_done">Pincode gewijzigd</string>
     <string name="pin_master_lockout_remaining">Onjuist hoofdwachtwoord (nog %1$d poging(en) over voordat de database uit de app wordt verwijderd)</string>
     <string name="pin_master_lockout_database_deleted">De database is na herhaaldelijk onjuiste hoofdwachtwoorden uit de app verwijderd. Importeer het .kdbx-bestand opnieuw.</string>
-    <string name="about_description">KeePassPN is een open-sourcewachtwoordmanager voor Android die werkt met KeePass-databases (KDBX). Het is een onafhankelijke, door de gemeenschap onderhouden aanpassing die is uitgebracht onder de GNU GPLv3-licentie.\n\nDeze editie voegt snelle ontgrendeling met pincode toe, met een instelbare geldigheidsduur, een optionele bescherming „Verifiëren voor kopiëren“ voor gevoelige velden en een lokale herstelkopie van elke database. De pincode wordt door de app zelf gecontroleerd, waardoor de bescherming zwakker is dan uw hoofdwachtwoord. Gebruik pincode-ontgrendeling alleen als u deze afweging accepteert.\n\nBroncode, probleemmeldingen en bijdragen zijn welkom via de projectrepository die hieronder is gelinkt.</string>
+    <string name="about_description">KeePassPN is een open-source wachtwoordmanager voor Android die werkt met KeePass (KDBX)-databases. Het is een onafhankelijke, door de gemeenschap onderhouden gewijzigde versie, uitgebracht onder de GNU GPLv3-licentie, zonder enige garantie.
+
+Er worden geen gebruikersgegevens verzameld, de app maakt geen verbinding met servers, werkt alleen lokaal en respecteert de privacy van gebruikers volledig.
+
+Om onze vrijheid te behouden, bugs te verhelpen, functies toe te voegen en het project actief te houden, rekenen we op jouw bijdrage.</string>
 
     <string name="extended_ASCII">Uitgebreide ASCII</string>
     <string name="lower_case">kleine letters</string>

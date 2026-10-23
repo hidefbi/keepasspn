@@ -709,7 +709,11 @@
     <string name="pin_change_done">Đã đổi PIN</string>
     <string name="pin_master_lockout_remaining">Mật khẩu chính sai (còn %1$d lần thử trước khi cơ sở dữ liệu bị xóa khỏi ứng dụng)</string>
     <string name="pin_master_lockout_database_deleted">Cơ sở dữ liệu đã bị xóa khỏi ứng dụng do nhập sai mật khẩu chính nhiều lần. Hãy nhập lại tệp .kdbx.</string>
-    <string name="about_description">KeePassPN là trình quản lý mật khẩu mã nguồn mở dành cho Android, hoạt động với cơ sở dữ liệu KeePass (KDBX). Đây là một bản chỉnh sửa độc lập, do cộng đồng duy trì và được phát hành theo giấy phép GNU GPLv3.\n\nPhiên bản này bổ sung tính năng mở khóa nhanh bằng mã PIN với thời hạn hiệu lực có thể cấu hình, tùy chọn bảo vệ \"Xác minh trước khi sao chép\" cho các trường nhạy cảm và bản sao khôi phục cục bộ của từng cơ sở dữ liệu. Việc xác minh PIN do chính ứng dụng thực hiện nên mức bảo vệ yếu hơn mật khẩu chính của bạn. Chỉ sử dụng mở khóa bằng PIN nếu bạn chấp nhận sự đánh đổi này.\n\nMã nguồn, báo cáo sự cố và đóng góp đều được hoan nghênh thông qua kho dự án được liên kết bên dưới.</string>
+    <string name="about_description">KeePassPN là trình quản lý mật khẩu mã nguồn mở dành cho Android, hoạt động với cơ sở dữ liệu KeePass (KDBX). Đây là phiên bản chỉnh sửa độc lập, do cộng đồng duy trì, được phát hành theo giấy phép GNU GPLv3 và không có bất kỳ bảo đảm nào.
+
+Ứng dụng không thu thập dữ liệu người dùng, không kết nối với bất kỳ máy chủ nào, chỉ hoạt động cục bộ và tôn trọng quyền riêng tư của người dùng một cách đầy đủ.
+
+Để giữ gìn tự do, sửa lỗi, bổ sung tính năng và giữ cho dự án luôn hoạt động, chúng tôi mong nhận được đóng góp của bạn.</string>
 
     <string name="extended_ASCII">Tranh ASCII mở rộng</string>
     <string name="lower_case">chữ thường</string>

@@ -458,7 +458,11 @@
     <string name="pin_change_done">PIN-koodi vaihdettu</string>
     <string name="pin_master_lockout_remaining">Väärä pääsalasana (%1$d yritys(tä) jäljellä ennen tietokannan poistamista sovelluksesta)</string>
     <string name="pin_master_lockout_database_deleted">Tietokanta poistettiin sovelluksesta toistuvien väärien pääsalasanojen vuoksi. Tuo .kdbx-tiedosto uudelleen.</string>
-    <string name="about_description">KeePassPN on avoimen lähdekoodin salasanahallinta Androidille, joka toimii KeePass (KDBX) -tietokantojen kanssa. Se on itsenäinen, yhteisön ylläpitämä muokkaus, joka on julkaistu GNU GPLv3 -lisenssillä.\n\nTämä julkaisu lisää PIN-koodilla tapahtuvan pikaavauksen, jonka voimassaoloaikaa voi määrittää, valinnaisen suojauksen ”Vahvista ennen kopiointia” arkaluonteisille kentille sekä jokaisesta tietokannasta paikallisen palautuskopion. Sovellus itse tarkistaa PIN-koodin, joten suojaus on heikompi kuin pääsalasanalla. Käytä PIN-koodilla avaamista vain, jos hyväksyt tämän kompromissin.\n\nLähdekoodi, ongelmailmoitukset ja kontribuutiot ovat tervetulleita alla linkitetyn projektivaraston kautta.</string>
+    <string name="about_description">KeePassPN on Androidille tarkoitettu avoimen lähdekoodin salasanahallinta, joka toimii KeePass (KDBX) -tietokantojen kanssa. Se on itsenäinen, yhteisön ylläpitämä muokattu versio, joka on julkaistu GNU GPLv3-lisenssillä eikä sisällä minkäänlaista takuuta.
+
+Sovellus ei kerää käyttäjien tietoja, ei yhdistä mihinkään palvelimeen, toimii vain paikallisesti ja kunnioittaa täysin käyttäjien yksityisyyttä.
+
+Jotta säilyttäisimme vapautemme, korjaisimme virheitä, lisäisimme ominaisuuksia ja pitäisimme projektin aktiivisena, odotamme sinun panostasi.</string>
 
     <string name="extended_ASCII">Laajennettu ASCII</string>
 </resources>

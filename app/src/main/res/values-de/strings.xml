@@ -726,7 +726,11 @@
     <string name="pin_change_done">PIN geändert</string>
     <string name="pin_master_lockout_remaining">Falsches Hauptpasswort (noch %1$d Versuch(e), bevor die Datenbank aus der App entfernt wird)</string>
     <string name="pin_master_lockout_database_deleted">Die Datenbank wurde nach wiederholt falschen Hauptpasswörtern aus der App entfernt. Importiere die .kdbx-Datei erneut.</string>
-    <string name="about_description">KeePassPN ist ein Open-Source-Passwortmanager für Android, der mit KeePass-Datenbanken (KDBX) funktioniert. Es handelt sich um eine unabhängige, von der Community gepflegte Modifikation, die unter der GNU GPLv3-Lizenz veröffentlicht wird.\n\nDiese Edition ergänzt eine PIN-Schnellentsperrung mit konfigurierbarer Gültigkeitsdauer, einen optionalen Schutz „Vor dem Kopieren bestätigen“ für sensible Felder sowie eine lokale Wiederherstellungskopie jeder Datenbank. Die PIN-Prüfung erfolgt durch die App selbst und bietet daher einen geringeren Schutz als Ihr Master-Passwort. Nutzen Sie die PIN-Entsperrung nur, wenn Sie diesen Kompromiss akzeptieren.\n\nQuellcode, Fehlerberichte und Beiträge sind über das unten verlinkte Projekt-Repository willkommen.</string>
+    <string name="about_description">KeePassPN ist ein Open-Source-Passwortmanager für Android, der mit KeePass-(KDBX-)Datenbanken arbeitet. Es ist eine unabhängige, von der Community gepflegte modifizierte Version, die unter der GNU GPLv3-Lizenz veröffentlicht wird und ohne jede Gewährleistung bereitgestellt wird.
+
+Es werden keine Benutzerdaten erfasst, die App verbindet sich mit keinem Server, arbeitet nur lokal und respektiert die Privatsphäre der Nutzer vollständig.
+
+Um unsere Freiheit zu bewahren, Fehler zu beheben, neue Funktionen hinzuzufügen und das Projekt aktiv zu halten, zählen wir auf Ihre Unterstützung.</string>
 
     <string name="extended_ASCII">Erweiterter ASCII</string>
     <string name="lower_case">Kleinbuchstaben</string>

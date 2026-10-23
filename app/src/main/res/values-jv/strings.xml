@@ -48,7 +48,11 @@
     <string name="pin_change_done">PIN wis diganti</string>
     <string name="pin_master_lockout_remaining">Master password salah (%1$d upaya isih kasisa sadurunge database dicopot saka aplikasi)</string>
     <string name="pin_master_lockout_database_deleted">Database wis dicopot saka aplikasi sawise master password salah bola-bali. Impor maneh file .kdbx.</string>
-    <string name="about_description">KeePassPN iku manajer sandi open-source kanggo Android sing bisa digunakake karo basis data KeePass (KDBX). Iki minangka modifikasi independen sing dijaga dening komunitas, dirilis miturut lisensi GNU GPLv3.\n\nEdisi iki nambahi buka kunci cepet nganggo PIN kanthi masa berlaku sing bisa diatur, pangayoman opsional «Verifikasi sadurunge nyalin» kanggo kolom sing sensitif, lan salinan pemulihan lokal saben basis data. Verifikasi PIN ditindakake dening aplikasi dhewe, mula pangayomané luwih ringkih tinimbang sandi utamamu. Gunakake buka kunci PIN mung yen kowe nampa kompromi iki.\n\nKode sumber, laporan masalah, lan kontribusi disambut liwat repositori proyek sing dipasang tautan ing ngisor iki.</string>
+    <string name="about_description">KeePassPN iku manajer sandi open-source kanggo Android sing bisa digunakake karo database KeePass (KDBX). Iki versi modifikasi independen sing dijaga dening komunitas, dirilis miturut lisensi GNU GPLv3, tanpa jaminan apa wae.
+
+Aplikasi iki ora ngumpulake data pangguna, ora nyambung menyang server apa wae, mung mlaku sacara lokal, lan ngormati privasi pangguna kanthi lengkap.
+
+Kanggo njaga kebebasan kita, mbenerake bug, nambah fitur, lan njaga proyek tetep aktif, kita ngarep-arep kontribusi sampeyan.</string>
 
     <string name="extended_ASCII">ASCII lengkap</string>
 </resources>

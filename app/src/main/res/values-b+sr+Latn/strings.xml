@@ -384,7 +384,11 @@
     <string name="pin_change_done">PIN je promenjen</string>
     <string name="pin_master_lockout_remaining">Pogrešna glavna lozinka (preostalo pokušaja pre uklanjanja baze podataka iz aplikacije: %1$d)</string>
     <string name="pin_master_lockout_database_deleted">Baza podataka je uklonjena iz aplikacije nakon više pogrešnih glavnih lozinki. Ponovo uvezite .kdbx datoteku.</string>
-    <string name="about_description">KeePassPN je open-source menadžer lozinki za Android koji radi sa KeePass (KDBX) bazama podataka. Reč je o nezavisnoj modifikaciji koju održava zajednica, objavljenoj pod licencom GNU GPLv3.\n\nOva verzija dodaje brzo otključavanje PIN-om sa podesivim periodom važenja, opcionu zaštitu „Potvrdi pre kopiranja“ za osetljiva polja i lokalnu kopiju za oporavak svake baze podataka. Proveru PIN-a obavlja sama aplikacija, pa pruža slabiju zaštitu nego glavna lozinka. Koristite otključavanje PIN-om samo ako prihvatate ovaj kompromis.\n\nIzvorni kod, prijave problema i doprinosi dobrodošli su preko repozitorijuma projekta navedenog ispod.</string>
+    <string name="about_description">KeePassPN je open-source menadžer lozinki za Android koji radi sa KeePass (KDBX) bazama podataka. To je nezavisna, od zajednice održavana izmenjena verzija objavljena pod licencom GNU GPLv3, bez ikakve garancije.
+
+Aplikacija ne prikuplja podatke korisnika, ne povezuje se ni na jedan server, radi isključivo lokalno i u potpunosti poštuje privatnost korisnika.
+
+Da bismo sačuvali našu slobodu, ispravljali greške, dodavali funkcije i održavali projekat aktivnim, očekujemo vaš doprinos.</string>
 
     <string name="extended_ASCII">Prošireni ASCII</string>
 </resources>

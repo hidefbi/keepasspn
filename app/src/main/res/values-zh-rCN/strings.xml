@@ -727,7 +727,11 @@
     <string name="pin_change_done">PIN 已更改</string>
     <string name="pin_master_lockout_remaining">主密码错误（从应用中移除数据库前还剩 %1$d 次机会）</string>
     <string name="pin_master_lockout_database_deleted">多次输入错误的主密码后，数据库已从应用中移除。请重新导入 .kdbx 文件。</string>
-    <string name="about_description">KeePassPN 是一款适用于 Android 的开源密码管理器，可与 KeePass（KDBX）数据库配合使用。它是一个独立的、由社区维护的修改版本，依据 GNU GPLv3 许可证发布。\n\n此版本新增了可配置有效期的 PIN 快速解锁、针对敏感字段的可选\"复制前验证\"保护，以及每个数据库的本地恢复副本。PIN 验证由应用自身完成，因此其保护强度低于主密码。只有在接受这一权衡的情况下，才应使用 PIN 解锁。\n\n欢迎通过下方链接的项目仓库提交源代码、问题报告和贡献。</string>
+    <string name="about_description">KeePassPN 是一款适用于 Android 的开源密码管理器，可与 KeePass（KDBX）数据库配合使用。它是一个独立的、由社区维护的修改版本，依据 GNU GPLv3 许可证发布，不含任何形式的担保。
+
+不获取用户数据，此应用不连接任何服务器，仅在本地运行，并充分尊重用户的隐私。
+
+为了维持我们的自由、修复 bug、添加更多功能以及始终保持项目活跃，我们期待您的贡献。</string>
 
     <string name="extended_ASCII">ASCII拓展区字符</string>
     <string name="lower_case">小写</string>
