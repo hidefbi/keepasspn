@@ -239,7 +239,8 @@ object OtpEntryFields {
             }
 
             // An OTP without a valid secret can never produce a code, so it is refused
-            if (otpElement.otpModel.secret.isNullOrEmpty()) {
+            val secret = otpElement.otpModel.secret
+            if (secret == null || secret.isEmpty()) {
                 NoOpLog.e(TAG, "OTP secret is missing or invalid.")
                 return false
             }
