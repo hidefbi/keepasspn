@@ -163,11 +163,18 @@ class ImportEntriesRunnable(
 
         database.createEntry(entryInfo)?.let { entry ->
             entry.touch(modified = true, touchParents = true)
-            imported.createdAt?.let { entry.creationTime = DateInstant(it) }
-            imported.modifiedAt?.let { entry.lastModificationTime = DateInstant(it) }
+            imported.createdAt?.let { entry.creationTime = dateInstantOf(it) }
+            imported.modifiedAt?.let { entry.lastModificationTime = dateInstantOf(it) }
             database.addEntryTo(entry, parent)
             mNewEntries.add(entry to parent)
         } ?: throw IllegalStateException("Unable to create an imported entry")
+    }
+
+    /**
+     * Date of the entry in the database format, which keeps Joda-Time instants.
+     */
+    private fun dateInstantOf(instant: java.time.Instant): DateInstant {
+        return DateInstant(org.joda.time.Instant(instant.toEpochMilli()))
     }
 
     /**
