@@ -34,11 +34,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import android.content.Intent
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.TwoStatePreference
 import com.kunzisoft.androidclearchroma.ChromaUtil
 import com.keepasspn.R
+import com.keepasspn.activities.ImportEntriesActivity
 import com.keepasspn.activities.dialogs.SetMainCredentialDialogFragment
 import com.keepasspn.activities.legacy.DatabaseRetrieval
 import com.keepasspn.activities.legacy.resetAppTimeoutWhenViewTouchedOrFocused
@@ -200,6 +202,9 @@ class NestedDatabaseSettingsFragment : NestedSettingsFragment(), DatabaseRetriev
                                                 .getInstance(database.allowNoMasterKey)
                                                 .show(parentFragmentManager, "passwordDialog")
                                         }
+                                        getString(R.string.import_entries_key) -> {
+                                            startActivity(Intent(requireContext(), ImportEntriesActivity::class.java))
+                                        }
                                         else -> {}
                                     }
                                     // TODO Settings in compose
@@ -241,8 +246,10 @@ class NestedDatabaseSettingsFragment : NestedSettingsFragment(), DatabaseRetriev
         when (screen) {
             Screen.DATABASE -> {
                 setPreferencesFromResource(R.xml.preferences_database, rootKey)
-                if (database?.loaded == true)
+                if (database?.loaded == true) {
                     onCreateDatabasePreference(database)
+                    onCreateDatabaseImportPreference(database)
+                }
             }
             Screen.DATABASE_SECURITY -> {
                 setPreferencesFromResource(R.xml.preferences_database_security, rootKey)
@@ -280,6 +287,7 @@ class NestedDatabaseSettingsFragment : NestedSettingsFragment(), DatabaseRetriev
             when (mScreen) {
                 Screen.DATABASE -> {
                     onCreateDatabasePreference(database)
+                    onCreateDatabaseImportPreference(database)
                 }
                 Screen.DATABASE_SECURITY -> {
                     onCreateDatabaseSecurityPreference(database)
@@ -477,6 +485,28 @@ class NestedDatabaseSettingsFragment : NestedSettingsFragment(), DatabaseRetriev
         // Parallelism
         mParallelismPref = findPreference<InputKdfNumberPreference>(getString(R.string.parallelism_key))?.apply {
             summary = database.kdfEngine?.getParallelism()?.toString()
+        }
+    }
+
+    private fun onCreateDatabaseImportPreference(database: ContextualDatabase) {
+        val importKey = getString(R.string.import_entries_key)
+        findPreference<Preference>(importKey)?.apply {
+            isEnabled = !mDatabaseReadOnly
+            onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                if (mDatabaseUserVerificationAllowed) {
+                    checkUserVerification(
+                        mUserVerificationViewModel,
+                        UserVerificationData(
+                            actionType = UserVerificationActionType.EDIT_DATABASE_SETTING,
+                            database = database,
+                            preferenceKey = importKey
+                        )
+                    )
+                } else {
+                    startActivity(Intent(requireContext(), ImportEntriesActivity::class.java))
+                }
+                false
+            }
         }
     }
 

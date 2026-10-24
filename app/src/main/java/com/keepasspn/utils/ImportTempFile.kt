@@ -56,6 +56,20 @@ object ImportTempFile {
     }
 
     /**
+     * True only for a copy this object created in the private import directory.
+     * Used to refuse any other path received from an Intent.
+     */
+    fun isImportCopy(context: Context, file: File): Boolean {
+        return try {
+            file.parentFile?.canonicalPath == context.noBackupFilesDir.canonicalPath
+                && file.name.startsWith(PREFIX)
+                && file.name.endsWith(SUFFIX)
+        } catch (e: java.io.IOException) {
+            false
+        }
+    }
+
+    /**
      * Deletes [file] if it exists. Returns true when nothing is left on disk.
      */
     fun delete(file: File?): Boolean {

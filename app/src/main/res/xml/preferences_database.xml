@@ -127,4 +127,16 @@
             android:negativeButtonText="@string/entry_cancel"/>
 
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="@string/database_category_import_key"
+        android:title="@string/import_entries_category">
+
+        <Preference
+            android:key="@string/import_entries_key"
+            android:persistent="false"
+            android:title="@string/import_entries_title"
+            android:summary="@string/import_entries_summary" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

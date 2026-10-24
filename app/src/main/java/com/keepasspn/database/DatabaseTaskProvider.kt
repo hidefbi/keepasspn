@@ -386,6 +386,18 @@ class DatabaseTaskProvider(
         }, DatabaseTaskNotificationService.ACTION_DATABASE_IMPORT_OTP_TASK)
     }
 
+    fun startDatabaseImportEntries(
+        importFilePath: String,
+        groupTitle: String,
+        save: Boolean
+    ) {
+        start(Bundle().apply {
+            putString(DatabaseTaskNotificationService.IMPORT_FILE_PATH_KEY, importFilePath)
+            putString(DatabaseTaskNotificationService.IMPORT_GROUP_TITLE_KEY, groupTitle)
+            putBoolean(DatabaseTaskNotificationService.SAVE_DATABASE_KEY, save)
+        }, DatabaseTaskNotificationService.ACTION_DATABASE_IMPORT_ENTRIES_TASK)
+    }
+
     fun startDatabaseReorderGroup(
         groupId: GroupId,
         targetIndex: Int,

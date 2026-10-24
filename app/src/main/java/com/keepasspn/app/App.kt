@@ -24,6 +24,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.multidex.MultiDexApplication
 import com.keepasspn.activities.stylish.Stylish
+import com.keepasspn.utils.ImportTempFile
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -36,6 +37,9 @@ class App : MultiDexApplication() {
         super.onCreate()
 
         ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifecycleObserver)
+
+        // Remove private import copies left behind by an interrupted import
+        ImportTempFile.deleteLeftovers(this)
 
         Stylish.load(this)
     }

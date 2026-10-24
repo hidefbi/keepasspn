@@ -27,6 +27,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
 import android.os.Parcelable
+import com.keepasspn.utils.ImportTempFile
 import com.keepasspn.utils.NoOpLog
 import androidx.annotation.StringRes
 import androidx.media.app.NotificationCompat
@@ -52,6 +53,7 @@ import com.keepasspn.database.action.history.RestoreEntryHistoryDatabaseRunnable
 import com.keepasspn.database.action.node.ActionNodesValues
 import com.keepasspn.database.action.node.AddEntryRunnable
 import com.keepasspn.database.action.node.AddGroupRunnable
+import com.keepasspn.database.action.node.ImportEntriesRunnable
 import com.keepasspn.database.action.node.AddOtpEntriesRunnable
 import com.keepasspn.database.action.node.AfterActionNodesFinish
 import com.keepasspn.database.action.node.CopyNodesRunnable
@@ -99,6 +101,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
+import java.io.File
 import java.io.Serializable
 
 open class DatabaseTaskNotificationService : LockNotificationService(), ProgressTaskUpdater {
@@ -363,6 +366,7 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
             ACTION_DATABASE_TOUCH_GROUP_TASK -> buildDatabaseTouchGroupActionTask(intent, database)
             ACTION_DATABASE_CREATE_ENTRY_TASK -> buildDatabaseCreateEntryActionTask(intent, database)
             ACTION_DATABASE_IMPORT_OTP_TASK -> buildDatabaseImportOtpActionTask(intent, database)
+            ACTION_DATABASE_IMPORT_ENTRIES_TASK -> buildDatabaseImportEntriesActionTask(intent, database)
             ACTION_DATABASE_UPDATE_ENTRY_TASK -> buildDatabaseUpdateEntryActionTask(intent, database)
             ACTION_DATABASE_TOUCH_ENTRY_TASK -> buildDatabaseTouchEntryActionTask(intent, database)
             ACTION_DATABASE_COPY_NODES_TASK -> buildDatabaseCopyNodesActionTask(intent, database)
@@ -1096,6 +1100,32 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         }
     }
 
+    private fun buildDatabaseImportEntriesActionTask(
+        intent: Intent,
+        database: ContextualDatabase,
+    ): ActionRunnable? {
+        val path = intent.getStringExtra(IMPORT_FILE_PATH_KEY) ?: return null
+        val file = File(path)
+        // Only a copy made by the import screen is accepted, never another path from an Intent
+        if (!ImportTempFile.isImportCopy(this, file)) return null
+        val groupTitle = intent.getStringExtra(IMPORT_GROUP_TITLE_KEY)
+        if (groupTitle == null || !intent.hasExtra(SAVE_DATABASE_KEY)) {
+            ImportTempFile.delete(file)
+            return null
+        }
+        val saveDatabase = intent.getBooleanExtra(SAVE_DATABASE_KEY, false)
+        return ImportEntriesRunnable(
+            context = this,
+            database = database,
+            importFile = file,
+            groupTitle = groupTitle,
+            save = !database.isReadOnly && saveDatabase,
+            afterActionNodesFinish = AfterActionNodesRunnable()
+        ) { hardwareKey, seed ->
+            retrieveResponseFromChallenge(hardwareKey, seed)
+        }
+    }
+
     private fun buildDatabaseCreateEntryActionTask(
         intent: Intent,
         database: ContextualDatabase,
@@ -1587,6 +1617,9 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         const val ACTION_DATABASE_CREATE_ENTRY_TASK = "ACTION_DATABASE_CREATE_ENTRY_TASK"
         const val ACTION_DATABASE_IMPORT_OTP_TASK = "ACTION_DATABASE_IMPORT_OTP_TASK"
         const val OTP_MODELS_KEY = "OTP_MODELS_KEY"
+        const val ACTION_DATABASE_IMPORT_ENTRIES_TASK = "ACTION_DATABASE_IMPORT_ENTRIES_TASK"
+        const val IMPORT_FILE_PATH_KEY = "IMPORT_FILE_PATH_KEY"
+        const val IMPORT_GROUP_TITLE_KEY = "IMPORT_GROUP_TITLE_KEY"
         const val ACTION_DATABASE_UPDATE_ENTRY_TASK = "ACTION_DATABASE_UPDATE_ENTRY_TASK"
         const val ACTION_DATABASE_TOUCH_ENTRY_TASK = "ACTION_DATABASE_TOUCH_ENTRY_TASK"
         const val ACTION_DATABASE_COPY_NODES_TASK = "ACTION_DATABASE_COPY_NODES_TASK"

@@ -296,6 +296,10 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
         mDatabaseTaskProvider.startDatabaseImportOtp(ArrayList(otpModels), save)
     }
 
+    fun importEntries(importFilePath: String, groupTitle: String, save: Boolean) {
+        mDatabaseTaskProvider.startDatabaseImportEntries(importFilePath, groupTitle, save)
+    }
+
     fun createGroup(
         parentId: GroupId,
         newGroup: GroupInfo,

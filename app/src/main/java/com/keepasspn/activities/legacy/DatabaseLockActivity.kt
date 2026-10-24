@@ -236,6 +236,10 @@ abstract class DatabaseLockActivity : DatabaseModeActivity() {
         mDatabaseViewModel.importOtpEntries(otpModels, mAutoSaveEnable)
     }
 
+    fun importEntries(importFilePath: String, groupTitle: String) {
+        mDatabaseViewModel.importEntries(importFilePath, groupTitle, mAutoSaveEnable)
+    }
+
     fun createGroup(
         parentId: GroupId,
         groupInfo: GroupInfo
