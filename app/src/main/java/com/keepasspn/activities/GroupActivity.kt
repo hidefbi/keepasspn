@@ -1451,10 +1451,9 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
 
         private fun checkTimeAndBuildIntent(
             context: Context,
-            lockFromKeyboard: Boolean = false,
             intentBuildLauncher: (Intent) -> Unit
         ) {
-            if (TimeoutHelper.checkTimeAndLockIfTimeout(context, lockFromKeyboard)) {
+            if (TimeoutHelper.checkTimeAndLockIfTimeout(context)) {
                 buildIntent(context, intentBuildLauncher)
             }
         }
@@ -1511,10 +1510,7 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
             activityResultLauncher: ActivityResultLauncher<Intent>?,
         ) {
             if (database.loaded) {
-                checkTimeAndBuildIntent(
-                    context,
-                    lockFromKeyboard = typeMode == TypeMode.MAGIKEYBOARD
-                ) { intent ->
+                checkTimeAndBuildIntent(context) { intent ->
                     intent.addAutoSearch(autoSearch)
                     EntrySelectionHelper.startActivityForSelectionModeResult(
                         context = context,

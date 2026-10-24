@@ -143,13 +143,12 @@ object SearchHelper {
         onItemsFound: (openedDatabase: ContextualDatabase,
                        items: List<EntryInfo>) -> Unit,
         onItemNotFound: (openedDatabase: ContextualDatabase) -> Unit,
-        onDatabaseClosed: () -> Unit,
-        lockFromKeyboard: Boolean = false
+        onDatabaseClosed: () -> Unit
     ) {
         // Do not place coroutine at start, bug in Passkey implementation
         if (database == null || !database.loaded) {
             onDatabaseClosed.invoke()
-        } else if (TimeoutHelper.checkTime(context, lockFromKeyboard = lockFromKeyboard)) {
+        } else if (TimeoutHelper.checkTime(context)) {
             if (searchInfo != null
                 && !searchInfo.manualSelection
                 && !searchInfo.containsOnlyNullValues()
