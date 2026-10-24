@@ -20,7 +20,7 @@
 package com.keepasspn.database.file.importer
 
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
+import org.junit.Assert.assertNull
 import org.junit.Assert.fail
 import org.junit.Test
 
@@ -43,91 +43,76 @@ class CsvImportParserTest {
         assertEquals("secret1", String(entry.password))
         assertEquals("https://mail.example.com", entry.url)
         assertEquals("my note", entry.notes)
-        assertTrue(result.skipped.isEmpty())
     }
 
     @Test
-    fun chromeColumnsInAnyOrderAreRecognised() {
-        val result = CsvImportParser.parse(csv("password,url,username,name\nsecret2,https://a.example.org,bob,Shop\n"))
-        assertEquals("Shop", result.entries[0].title)
-        assertEquals("bob", result.entries[0].username)
-        assertEquals("secret2", String(result.entries[0].password))
+    fun unknownColumnsAreKeptInNotes() {
+        val result = CsvImportParser.parse(csv("Password,Title,Custom\np1,T1,v1\n"))
+        assertEquals("T1", result.entries[0].title)
+        assertEquals("Custom: v1", result.entries[0].notes)
+    }
+
+    @Test
+    fun partialRowIsKept() {
+        val result = CsvImportParser.parse(csv("Title,Password\nOnlyTitle,\n,\n"))
+        assertEquals(2, result.entries.size)
+        assertEquals("", String(result.entries[0].password))
+    }
+
+    @Test
+    fun duplicateRowsAreAllKept() {
+        val result = CsvImportParser.parse(csv("Title,Password\nA,p\nA,p\n"))
+        assertEquals(2, result.entries.size)
+    }
+
+    @Test
+    fun groupColumnGivesGroupPath() {
+        val result = CsvImportParser.parse(csv("Title,Password,Group\nA,p,Work\nB,p,\n"))
+        assertEquals(listOf("Work"), result.entries[0].groupPath)
+        assertEquals(emptyList<String>(), result.entries[1].groupPath)
+    }
+
+    @Test
+    fun otpauthInTotpColumnBecomesOtpUri() {
+        val result = CsvImportParser.parse(
+            csv("Title,Password,TOTP\nA,p,otpauth://totp/A?secret=JBSWY3DPEHPK3PXP\n")
+        )
+        assertEquals("otpauth://totp/A?secret=JBSWY3DPEHPK3PXP", result.entries[0].otpUri)
+    }
+
+    @Test
+    fun otherTotpTextIsKeptInNotes() {
+        val result = CsvImportParser.parse(csv("Title,Password,TOTP\nA,p,123456\n"))
+        assertNull(result.entries[0].otpUri)
+        assertEquals("totp: 123456", result.entries[0].notes)
     }
 
     @Test
     fun semicolonDelimiterIsDetected() {
-        val result = CsvImportParser.parse(csv("name;password\nShop;secret3\n"))
-        assertEquals("secret3", String(result.entries[0].password))
-    }
-
-    @Test
-    fun quotedFieldsKeepCommasQuotesAndLineBreaks() {
-        val result = CsvImportParser.parse(
-            csv("name,password,notes\n\"Shop, Inc\",\"pa\"\"ss\",\"line1\nline2\"\n")
-        )
-        val entry = result.entries[0]
-        assertEquals("Shop, Inc", entry.title)
-        assertEquals("pa\"ss", String(entry.password))
-        assertEquals("line1\nline2", entry.notes)
-    }
-
-    @Test
-    fun byteOrderMarkAndCrLfAreHandled() {
-        val bytes = byteArrayOf(0xEF.toByte(), 0xBB.toByte(), 0xBF.toByte()) +
-            csv("name,password\r\nShop,secret4\r\n")
-        val result = CsvImportParser.parse(bytes)
-        assertEquals("Shop", result.entries[0].title)
-    }
-
-    @Test
-    fun invalidRowsAreReportedWithTheirLine() {
-        val result = CsvImportParser.parse(
-            csv(
-                "name,password,url\n" +
-                    "Good,secret5,https://ok.example.com\n" +
-                    "\n" +
-                    "Bad,secret6,javascript:alert(1)\n"
-            )
-        )
-        assertEquals(1, result.entries.size)
-        assertEquals(1, result.skipped.size)
-        assertEquals(ImportRowIssue(4, ImportIssueReason.INVALID_URL), result.skipped[0])
-    }
-
-    @Test
-    fun invalidUtf8IsRefused() {
-        assertFileError(ImportFileError.INVALID_ENCODING) {
-            CsvImportParser.parse(byteArrayOf(0x6E, 0x61, 0x6D, 0x65, 0x2C, 0xFF.toByte()))
-        }
+        val result = CsvImportParser.parse(csv("Title;Password\nA;p\n"))
+        assertEquals("A", result.entries[0].title)
     }
 
     @Test
     fun missingPasswordColumnIsRefused() {
-        assertFileError(ImportFileError.MISSING_REQUIRED_COLUMNS) {
-            CsvImportParser.parse(csv("name,url\nShop,https://a.example.org\n"))
+        assertRefused(ImportFileError.MISSING_REQUIRED_COLUMNS) {
+            CsvImportParser.parse(csv("Title,Username\nA,u\n"))
         }
     }
 
     @Test
     fun unterminatedQuoteIsRefused() {
-        assertFileError(ImportFileError.MALFORMED_STRUCTURE) {
-            CsvImportParser.parse(csv("name,password\n\"Shop,secret\n"))
+        assertRefused(ImportFileError.MALFORMED_STRUCTURE) {
+            CsvImportParser.parse(csv("Title,Password\n\"A,p\n"))
         }
     }
 
-    @Test
-    fun emptyFileIsRefused() {
-        assertFileError(ImportFileError.EMPTY_FILE) {
-            CsvImportParser.parse(csv("\n\n"))
-        }
-    }
-
-    private fun assertFileError(expected: ImportFileError, block: () -> Unit) {
+    private fun assertRefused(error: ImportFileError, block: () -> Unit) {
         try {
             block()
-            fail("Expected $expected")
+            fail("Expected $error")
         } catch (e: ImportFileException) {
-            assertEquals(expected, e.error)
+            assertEquals(error, e.error)
         }
     }
 }

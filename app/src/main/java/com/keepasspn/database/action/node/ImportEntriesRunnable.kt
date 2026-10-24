@@ -28,18 +28,22 @@ import com.keepasspn.database.file.importer.ImportedEntry
 import com.keepasspn.hardware.HardwareKey
 import com.keepasspn.model.EntryInfo
 import com.keepasspn.model.GroupInfo
+import com.keepasspn.otp.OtpEntryFields
 import com.keepasspn.utils.ImportTempFile
 import com.keepasspn.utils.NoOpLog
 import java.io.File
 
 /**
- * Parses a private copy of an import file and writes its entries into a new group at the root
- * of the database.
+ * Parses a private copy of an import file and writes its entries into the database.
+ *
+ * All entries are written, as the file gives them. A new group named after the import is added
+ * at the root of the database; the groups of the file are nested inside it, and an entry without
+ * group sits directly in it. One-time passwords are stored as OTP fields when they can be read,
+ * otherwise their text is kept in the notes.
  *
  * The file is parsed here, on the task thread, so that no password is kept in an Intent or in
- * the main thread. Entries that repeat within the same import (same title, username, URL and
- * password) are written once. Passwords are wiped and the copy is deleted when the action
- * finishes, whether it succeeded or not.
+ * the main thread. Passwords are wiped and the copy is deleted when the action finishes, whether
+ * it succeeded or not. When the action fails, everything it created is removed.
  */
 class ImportEntriesRunnable(
     context: Context,
@@ -58,40 +62,19 @@ class ImportEntriesRunnable(
 ) {
 
     private var mImported: List<ImportedEntry> = emptyList()
-    private var mRoot: Group? = null
-    private var mNewGroup: Group? = null
-    private var mGroupAdded = false
-    private val mNewEntries = mutableListOf<Entry>()
+    private val mCreatedGroups = mutableListOf<Pair<Group, Group>>()
+    private val mNewEntries = mutableListOf<Pair<Entry, Group>>()
 
     override fun nodeAction() {
         val root = database.rootGroup
             ?: throw IllegalStateException("Unable to retrieve the root group to import entries")
-        mRoot = root
         mImported = importFile.inputStream().use { ImportParser.parse(it).entries }
 
-        val newGroup = database.createGroup(GroupInfo().apply { this.title = groupTitle })
-            ?: throw IllegalStateException("Unable to create the group for the imported entries")
-        mNewGroup = newGroup
-        newGroup.touch(modified = true, touchParents = true)
-        database.addGroupTo(newGroup, root)
-        mGroupAdded = true
-
-        val seenKeys = HashSet<String>()
+        val importGroup = createGroup(groupTitle, root)
+        val groupsByPath = HashMap<List<String>, Group>()
         mImported.forEach { imported ->
-            if (seenKeys.add(duplicateKey(imported))) {
-                val entryInfo = EntryInfo().apply {
-                    title = imported.title
-                    username = imported.username
-                    password = imported.password.copyOf()
-                    url = imported.url
-                    notes = imported.notes
-                }
-                database.createEntry(entryInfo)?.let { entry ->
-                    entry.touch(modified = true, touchParents = true)
-                    database.addEntryTo(entry, newGroup)
-                    mNewEntries.add(entry)
-                }
-            }
+            val parent = groupFor(imported.groupPath, importGroup, groupsByPath)
+            createEntry(imported, parent)
         }
     }
 
@@ -108,38 +91,87 @@ class ImportEntriesRunnable(
             ImportTempFile.delete(importFile)
         }
         return ActionNodesValues(
-            newEntriesIds = mNewEntries.map { it.nodeId },
-            newGroupsIds = if (mGroupAdded) mNewGroup?.nodeId?.let { listOf(it) } else null
+            newEntriesIds = mNewEntries.map { it.first.nodeId },
+            newGroupsIds = if (mCreatedGroups.isEmpty()) {
+                null
+            } else {
+                mCreatedGroups.map { it.first.nodeId }
+            }
         )
     }
 
-    private fun rollback() {
-        mNewGroup?.let { group ->
-            mNewEntries.forEach { entry ->
-                database.removeEntryFrom(entry, group)
+    private fun createGroup(title: String, parent: Group): Group {
+        val group = database.createGroup(GroupInfo().apply { this.title = title })
+            ?: throw IllegalStateException("Unable to create a group for the imported entries")
+        group.touch(modified = true, touchParents = true)
+        database.addGroupTo(group, parent)
+        mCreatedGroups.add(group to parent)
+        return group
+    }
+
+    /**
+     * Group at the end of [path], created with its parents when they do not exist yet.
+     * An empty path gives [base].
+     */
+    private fun groupFor(path: List<String>, base: Group, groupsByPath: MutableMap<List<String>, Group>): Group {
+        var parent = base
+        for (depth in 1..path.size) {
+            val key = path.subList(0, depth).toList()
+            val existing = groupsByPath[key]
+            if (existing != null) {
+                parent = existing
+            } else {
+                val group = createGroup(path[depth - 1], parent)
+                groupsByPath[key] = group
+                parent = group
             }
         }
-        if (mGroupAdded) {
-            val group = mNewGroup
-            val root = mRoot
-            if (group != null && root != null) {
-                database.removeGroupFrom(group, root)
+        return parent
+    }
+
+    private fun createEntry(imported: ImportedEntry, parent: Group) {
+        val entryInfo = EntryInfo().apply {
+            title = imported.title
+            username = imported.username
+            password = imported.password.copyOf()
+            url = imported.url
+            notes = imported.notes
+        }
+        val otpUri = imported.otpUri
+        if (otpUri != null) {
+            val otpElement = OtpEntryFields.parseOTPUri(otpUri)
+            if (otpElement != null) {
+                entryInfo.customFields = mutableListOf(
+                    OtpEntryFields.buildOtpField(otpElement, imported.title, imported.username)
+                )
+            } else {
+                entryInfo.notes = listOf(imported.notes, "otp: $otpUri")
+                    .filter { it.isNotEmpty() }
+                    .joinToString("\n")
             }
+        }
+        database.createEntry(entryInfo)?.let { entry ->
+            entry.touch(modified = true, touchParents = true)
+            database.addEntryTo(entry, parent)
+            mNewEntries.add(entry to parent)
+        } ?: throw IllegalStateException("Unable to create an imported entry")
+    }
+
+    /**
+     * Removes what this action created, entries first, then groups from the deepest one.
+     */
+    private fun rollback() {
+        mNewEntries.asReversed().forEach { (entry, parent) ->
+            database.removeEntryFrom(entry, parent)
+        }
+        mCreatedGroups.asReversed().forEach { (group, parent) ->
+            database.removeGroupFrom(group, parent)
         }
         mNewEntries.clear()
-        mGroupAdded = false
+        mCreatedGroups.clear()
     }
 
     companion object {
         private val TAG = ImportEntriesRunnable::class.simpleName
-
-        /**
-         * Identity of an entry inside one import. The password is part of it, so two accounts
-         * with the same title and user name but different passwords are both kept.
-         */
-        private fun duplicateKey(imported: ImportedEntry): String {
-            return listOf(imported.title, imported.username, imported.url, String(imported.password))
-                .joinToString("\u0000")
-        }
     }
 }

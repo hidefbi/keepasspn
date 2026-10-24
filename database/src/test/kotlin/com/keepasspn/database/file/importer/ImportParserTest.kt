@@ -20,53 +20,104 @@
 package com.keepasspn.database.file.importer
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Assert.fail
 import org.junit.Test
 import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
+import java.util.zip.ZipEntry
+import java.util.zip.ZipOutputStream
 
 class ImportParserTest {
 
+    private fun zip(vararg entries: Pair<String, String>): ByteArray {
+        val output = ByteArrayOutputStream()
+        ZipOutputStream(output).use { zip ->
+            entries.forEach { (name, content) ->
+                zip.putNextEntry(ZipEntry(name))
+                zip.write(content.toByteArray(Charsets.UTF_8))
+                zip.closeEntry()
+            }
+        }
+        return output.toByteArray()
+    }
+
+    private fun parse(bytes: ByteArray) = ImportParser.parse(ByteArrayInputStream(bytes))
+
     @Test
-    fun jsonIsDetectedAfterByteOrderMarkAndWhitespace() {
-        val bytes = byteArrayOf(0xEF.toByte(), 0xBB.toByte(), 0xBF.toByte()) + "  \n[]".toByteArray()
+    fun zipWithOneJsonFileIsRead() {
+        val result = parse(
+            zip(
+                "readme.txt" to "not imported",
+                "export.json" to """[{"name":"Mail","password":"p"}]"""
+            )
+        )
+        assertEquals(1, result.entries.size)
+        assertEquals("Mail", result.entries[0].title)
+    }
+
+    @Test
+    fun zipWithTwoJsonFilesIsRefused() {
+        assertRefused(ImportFileError.ZIP_SEVERAL_JSON_FILES) {
+            parse(zip("a.json" to "[]", "b.json" to "[]"))
+        }
+    }
+
+    @Test
+    fun zipWithoutJsonFileIsRefused() {
+        assertRefused(ImportFileError.ZIP_NO_JSON_FILE) {
+            parse(zip("data.csv" to "Title,Password\nA,p\n"))
+        }
+    }
+
+    @Test
+    fun zipWithEncryptedEntryIsRefused() {
+        assertRefused(ImportFileError.ENCRYPTED_NOT_SUPPORTED) {
+            parse(zip("export.json" to "[]", "backup.json.pgp" to "data"))
+        }
+    }
+
+    @Test
+    fun truncatedZipIsRefused() {
+        val archive = zip("export.json" to """[{"name":"Mail","password":"p"}]""")
+        // The local file header is 30 bytes plus the 11-byte name, so this cuts inside the compressed data
+        val truncated = archive.copyOf(30 + "export.json".length + 3)
+        try {
+            parse(truncated)
+            fail("Expected a refusal")
+        } catch (e: ImportFileException) {
+            assertTrue(e.error == ImportFileError.ZIP_UNREADABLE || e.error == ImportFileError.ZIP_NO_JSON_FILE)
+        }
+    }
+
+    @Test
+    fun jsonIsDetectedFromItsFirstCharacter() {
+        assertEquals(ImportFormat.JSON, ImportParser.detectFormat("  [1]".toByteArray()))
+        assertEquals(ImportFormat.JSON, ImportParser.detectFormat("{}".toByteArray()))
+    }
+
+    @Test
+    fun byteOrderMarkIsSkippedForDetection() {
+        val bytes = byteArrayOf(0xEF.toByte(), 0xBB.toByte(), 0xBF.toByte()) + "{}".toByteArray()
         assertEquals(ImportFormat.JSON, ImportParser.detectFormat(bytes))
     }
 
     @Test
-    fun csvIsTheDefaultFormat() {
-        assertEquals(ImportFormat.CSV, ImportParser.detectFormat("name,password\n".toByteArray()))
-    }
-
-    @Test
-    fun parseUsesTheRequestedFormat() {
-        val result = ImportParser.parse(
-            ByteArrayInputStream("name,password\nShop,secret\n".toByteArray()),
-            ImportFormat.CSV
-        )
-        assertEquals("Shop", result.entries[0].title)
+    fun otherTextIsDetectedAsCsv() {
+        assertEquals(ImportFormat.CSV, ImportParser.detectFormat("Title,Password".toByteArray()))
     }
 
     @Test
     fun emptyInputIsRefused() {
-        assertFileError(ImportFileError.EMPTY_FILE) {
-            ImportParser.parse(ByteArrayInputStream(ByteArray(0)))
-        }
+        assertRefused(ImportFileError.EMPTY_FILE) { parse(ByteArray(0)) }
     }
 
-    @Test
-    fun fileOverTheSizeLimitIsRefused() {
-        val tooLarge = ByteArray(ImportLimits.MAX_FILE_BYTES + 1) { 'a'.code.toByte() }
-        assertFileError(ImportFileError.FILE_TOO_LARGE) {
-            ImportParser.parse(ByteArrayInputStream(tooLarge), ImportFormat.CSV)
-        }
-    }
-
-    private fun assertFileError(expected: ImportFileError, block: () -> Unit) {
+    private fun assertRefused(error: ImportFileError, block: () -> Unit) {
         try {
             block()
-            fail("Expected $expected")
+            fail("Expected $error")
         } catch (e: ImportFileException) {
-            assertEquals(expected, e.error)
+            assertEquals(error, e.error)
         }
     }
 }

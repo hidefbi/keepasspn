@@ -21,6 +21,7 @@ package com.keepasspn.database.file.importer
 
 /**
  * Formats that can be imported. They are data files, never opened as a database.
+ * A ZIP archive is accepted too, when it holds one JSON file.
  */
 enum class ImportFormat {
     CSV,
@@ -29,20 +30,22 @@ enum class ImportFormat {
 
 /**
  * Limits applied to every import, to bound memory use and to refuse abusive input.
+ * They refuse oversized files; they never change the content of an accepted file.
  */
 object ImportLimits {
     const val MAX_FILE_BYTES = 10 * 1024 * 1024
     const val MAX_ENTRIES = 10_000
     const val MAX_JSON_DEPTH = 16
-    const val MAX_TITLE_LENGTH = 4 * 1024
-    const val MAX_USERNAME_LENGTH = 4 * 1024
-    const val MAX_NOTES_LENGTH = 4 * 1024
-    const val MAX_PASSWORD_LENGTH = 1024
-    const val MAX_URL_LENGTH = 2 * 1024
+    const val MAX_ZIP_ENTRIES = 1_000
+    const val MAX_ZIP_INFLATED_BYTES = 64 * 1024 * 1024
 }
 
 /**
- * Entry read from an import file. The password is a char array so it can be wiped after use.
+ * Entry read from an import file, with its values as they are in the file.
+ * The password is a char array so it can be wiped after use.
+ *
+ * [groupPath] is the chain of group names the entry sits in, outermost first; empty for no group.
+ * [otpUri] is an otpauth:// address when the file holds a one-time password.
  */
 class ImportedEntry(
     val title: String,
@@ -50,28 +53,13 @@ class ImportedEntry(
     val password: CharArray,
     val url: String,
     val notes: String,
-    val groupName: String
+    val groupPath: List<String>,
+    val otpUri: String?
 ) {
     fun wipe() {
         password.fill('\u0000')
     }
 }
-
-/**
- * Why a single row or entry was skipped.
- */
-enum class ImportIssueReason {
-    MISSING_TITLE_AND_URL,
-    FIELD_TOO_LONG,
-    INVALID_CHARACTER,
-    INVALID_URL,
-    INVALID_VALUE
-}
-
-/**
- * A skipped row. [position] is the line number for CSV, and the entry number for JSON.
- */
-data class ImportRowIssue(val position: Int, val reason: ImportIssueReason)
 
 /**
  * Problems that stop the whole import, so nothing is written.
@@ -84,7 +72,10 @@ enum class ImportFileError {
     TOO_DEEP,
     TOO_MANY_ENTRIES,
     MISSING_REQUIRED_COLUMNS,
-    EMPTY_FILE
+    EMPTY_FILE,
+    ZIP_NO_JSON_FILE,
+    ZIP_SEVERAL_JSON_FILES,
+    ZIP_UNREADABLE
 }
 
 /**
@@ -93,9 +84,9 @@ enum class ImportFileError {
 class ImportFileException(val error: ImportFileError) : Exception(error.name)
 
 /**
- * Parsed entries, and the rows that were skipped with their reasons.
+ * Parsed entries, and how many characters were removed because a database cannot store them.
  */
 class ImportResult(
     val entries: List<ImportedEntry>,
-    val skipped: List<ImportRowIssue>
+    val removedCharacters: Int
 )

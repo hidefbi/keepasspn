@@ -20,36 +20,49 @@
 package com.keepasspn.database.file.importer
 
 /**
- * Reads JSON files: either an array of entries, or an object holding that array under one of
- * the keys in [ENTRY_LIST_KEYS].
+ * Reads JSON files: a list of entries, or an object holding the list under one of
+ * [ENTRY_LIST_KEYS]. A Proton Pass export (an object with "vaults") is read by [ProtonPassParser].
  *
  * Keys read per entry, the first present one wins:
- * title or name, username, password, url or uri, notes or note, group or folder.
- * A nested "login" object (Bitwarden layout) provides the username, password and first URI
- * when the entry does not have them itself.
+ * title or name, username, password, url or uri, notes or note, group or folder, totp.
+ * A nested "login" object (Bitwarden layout) provides the username, password, first URI and
+ * totp when the entry does not have them itself. A "folderId" is looked up in the "folders" list.
+ *
+ * Every other key is kept in the notes as "key: value", so no data is lost.
  */
 internal object JsonImportParser {
 
+    private val ENTRY_LIST_KEYS = listOf("items", "entries", "logins", "passwords")
     private val TITLE_KEYS = listOf("title", "name")
     private val USERNAME_KEYS = listOf("username")
     private val PASSWORD_KEYS = listOf("password")
     private val URL_KEYS = listOf("url", "uri")
     private val NOTES_KEYS = listOf("notes", "note")
     private val GROUP_KEYS = listOf("group", "folder")
-    private val ENTRY_LIST_KEYS = listOf("items", "entries", "logins", "passwords")
+    private val OTP_KEYS = listOf("totp")
+
+    /** Keys that are read into a field, so they are not repeated in the notes. */
+    private val MAPPED_KEYS = setOf(
+        "title", "name", "username", "password", "url", "uri", "notes", "note",
+        "group", "folder", "folderId", "login", "totp"
+    )
 
     fun parse(bytes: ByteArray): ImportResult {
         val text = ImportText.decodeUtf8(bytes)
         val root = SafeJsonParser(text, ImportLimits.MAX_JSON_DEPTH).parse()
+        if (root is Map<*, *> && root["encrypted"] == true) {
+            throw ImportFileException(ImportFileError.ENCRYPTED_NOT_SUPPORTED)
+        }
+        val collector = ImportCollector()
+        if (root is Map<*, *> && root["vaults"] is Map<*, *>) {
+            ProtonPassParser.parse(root, collector)
+            return collector.result()
+        }
+
         val items: List<*> = when (root) {
             is List<*> -> root
-            is Map<*, *> -> {
-                if (root["encrypted"] == true) {
-                    throw ImportFileException(ImportFileError.ENCRYPTED_NOT_SUPPORTED)
-                }
-                ENTRY_LIST_KEYS.firstNotNullOfOrNull { root[it] as? List<*> }
-                    ?: throw ImportFileException(ImportFileError.MALFORMED_STRUCTURE)
-            }
+            is Map<*, *> -> ENTRY_LIST_KEYS.firstNotNullOfOrNull { root[it] as? List<*> }
+                ?: throw ImportFileException(ImportFileError.MALFORMED_STRUCTURE)
             else -> throw ImportFileException(ImportFileError.MALFORMED_STRUCTURE)
         }
         if (items.isEmpty()) {
@@ -59,77 +72,114 @@ internal object JsonImportParser {
             throw ImportFileException(ImportFileError.TOO_MANY_ENTRIES)
         }
 
-        val entries = ArrayList<ImportedEntry>()
-        val skipped = ArrayList<ImportRowIssue>()
-        items.forEachIndexed { index, item ->
-            val position = index + 1
-            val row = item as? Map<*, *>
-            val fields = row?.let { withLoginFields(it) }
-            if (fields == null) {
-                skipped.add(ImportRowIssue(position, ImportIssueReason.INVALID_VALUE))
-                return@forEachIndexed
-            }
-            val values = listOf(
-                fieldText(fields, TITLE_KEYS),
-                fieldText(fields, USERNAME_KEYS),
-                fieldText(fields, PASSWORD_KEYS),
-                fieldText(fields, URL_KEYS),
-                fieldText(fields, NOTES_KEYS),
-                fieldText(fields, GROUP_KEYS)
-            )
-            if (values.any { it == null }) {
-                skipped.add(ImportRowIssue(position, ImportIssueReason.INVALID_VALUE))
-                return@forEachIndexed
-            }
-            val texts = values.map { it.orEmpty() }
-            when (val result = ImportSanitizer.validateRow(
-                title = texts[0],
-                username = texts[1],
-                password = texts[2],
-                url = texts[3],
-                notes = texts[4],
-                groupName = texts[5]
-            )) {
-                is RowResult.Accepted -> entries.add(result.entry)
-                is RowResult.Rejected -> skipped.add(ImportRowIssue(position, result.reason))
-            }
+        val folderNames = folderNames(root as? Map<*, *>)
+        for (item in items) {
+            addItem(item, folderNames, collector)
         }
-        return ImportResult(entries, skipped)
+        return collector.result()
     }
 
     /**
-     * The entry's fields, with the username, password and first URI of a nested "login" object
-     * added where the entry has none of its own. Returns null when "login" is not an object.
+     * Folder names by identifier, from a "folders" list of objects with "id" and "name".
      */
-    private fun withLoginFields(row: Map<*, *>): Map<*, *>? {
-        val loginValue = row["login"] ?: return row
-        val login = loginValue as? Map<*, *> ?: return null
-        val merged = LinkedHashMap<Any?, Any?>(row)
-        for (key in listOf("username", "password")) {
-            val loginField = login[key]
-            if (merged[key] == null && loginField != null) {
-                merged[key] = loginField
-            }
+    private fun folderNames(root: Map<*, *>?): Map<String, String> {
+        val folders = root?.get("folders") as? List<*> ?: return emptyMap()
+        val names = HashMap<String, String>()
+        for (folder in folders) {
+            val map = folder as? Map<*, *> ?: continue
+            val id = map["id"] as? String ?: continue
+            val name = map["name"] as? String ?: continue
+            names[id] = name
         }
-        if (merged["url"] == null && merged["uri"] == null) {
-            val uris = login["uris"] as? List<*>
-            val firstUri = uris?.firstNotNullOfOrNull { (it as? Map<*, *>)?.get("uri") as? String }
-            if (firstUri != null) {
-                merged["url"] = firstUri
-            }
-        }
-        return merged
+        return names
     }
 
+    private fun addItem(item: Any?, folderNames: Map<String, String>, collector: ImportCollector) {
+        val map = item as? Map<*, *>
+        if (map == null) {
+            // Not an object: kept whole in the notes
+            collector.add("", "", "", "", ImportValues.json(item), emptyList(), null)
+            return
+        }
+
+        val login = map["login"]
+        val loginMap = login as? Map<*, *>
+        val lines = ArrayList<String>()
+
+        val title = pick(TITLE_KEYS, map).orEmpty()
+        val username = pick(USERNAME_KEYS, map) ?: pick(USERNAME_KEYS, loginMap).orEmpty()
+        val password = pick(PASSWORD_KEYS, map) ?: pick(PASSWORD_KEYS, loginMap).orEmpty()
+        val uris = (loginMap?.get("uris") as? List<*>)
+            ?.mapNotNull { uri -> pick(listOf("uri"), uri as? Map<*, *>)?.takeIf { it.isNotEmpty() } }
+            .orEmpty()
+        val url = pick(URL_KEYS, map) ?: uris.firstOrNull().orEmpty()
+        uris.drop(if (pick(URL_KEYS, map) == null && uris.isNotEmpty()) 1 else 0)
+            .forEach { lines.add("uri: $it") }
+
+        pick(NOTES_KEYS, map)?.takeIf { it.isNotEmpty() }?.let { lines.add(it) }
+
+        val groupPath = ArrayList<String>()
+        val group = pick(GROUP_KEYS, map)
+        if (!group.isNullOrEmpty()) {
+            groupPath.add(group)
+        } else {
+            val folderId = pick(listOf("folderId"), map)
+            if (!folderId.isNullOrEmpty()) {
+                val folderName = folderNames[folderId]
+                if (folderName != null) groupPath.add(folderName) else lines.add("folderId: $folderId")
+            }
+        }
+
+        var otpUri: String? = null
+        for (candidate in listOfNotNull(pick(OTP_KEYS, map), pick(OTP_KEYS, loginMap))) {
+            if (otpUri == null && candidate.startsWith("otpauth://", ignoreCase = true)) {
+                otpUri = candidate
+            } else if (candidate.isNotEmpty()) {
+                lines.add("totp: $candidate")
+            }
+        }
+
+        if (login != null && loginMap == null && login != SafeJsonParser.JsonNull) {
+            lines.add("login: ${ImportValues.json(login)}")
+        }
+        loginMap?.forEach { (key, value) ->
+            val name = key.toString()
+            if (name !in LOGIN_MAPPED_KEYS) {
+                val text = ImportValues.text(value)
+                if (text.isNotEmpty()) lines.add("login.$name: $text")
+            }
+        }
+        map.forEach { (key, value) ->
+            val name = key.toString()
+            if (name !in MAPPED_KEYS) {
+                val text = ImportValues.text(value)
+                if (text.isNotEmpty()) lines.add("$name: $text")
+            }
+        }
+
+        collector.add(
+            title = title,
+            username = username,
+            password = password,
+            url = url,
+            notes = lines.joinToString("\n"),
+            groupPath = groupPath,
+            otpUri = otpUri
+        )
+    }
+
+    private val LOGIN_MAPPED_KEYS = setOf("username", "password", "uris", "totp")
+
     /**
-     * Text of the first key present, an empty string when none is, or null when the value
-     * is an object or an array, which is not a field value.
+     * Text of the first key present with a value, or null when none is. A JSON null counts as absent.
      */
-    private fun fieldText(row: Map<*, *>, keys: List<String>): String? {
+    private fun pick(keys: List<String>, source: Map<*, *>?): String? {
+        if (source == null) return null
         for (key in keys) {
-            val value = row[key] ?: continue
-            return value as? String
+            val value = source[key] ?: continue
+            if (value == SafeJsonParser.JsonNull) continue
+            return ImportValues.text(value)
         }
-        return ""
+        return null
     }
 }

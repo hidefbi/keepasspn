@@ -36,9 +36,7 @@ import com.keepasspn.activities.legacy.DatabaseLockActivity
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.file.importer.ImportFileError
 import com.keepasspn.database.file.importer.ImportFileException
-import com.keepasspn.database.file.importer.ImportIssueReason
 import com.keepasspn.database.file.importer.ImportParser
-import com.keepasspn.database.file.importer.ImportRowIssue
 import com.keepasspn.services.DatabaseTaskNotificationService
 import com.keepasspn.tasks.ActionRunnable
 import com.keepasspn.utils.ImportTempFile
@@ -54,7 +52,8 @@ import java.util.concurrent.Executors
  * Imports entries from a CSV or JSON file chosen by the user.
  *
  * The file is copied into a private, non-backed-up location and read there. The user sees a
- * preview (number of entries, skipped rows with their reason) before anything is written.
+ * preview (number of entries, characters removed because a database cannot store them) before
+ * anything is written.
  * Only the path of the private copy is handed to the background task, which parses it again,
  * writes the entries into a new group and deletes the copy. The original file is never modified.
  */
@@ -64,7 +63,7 @@ class ImportEntriesActivity : DatabaseLockActivity() {
     private lateinit var chooseButton: Button
     private lateinit var previewContainer: LinearLayout
     private lateinit var summaryView: TextView
-    private lateinit var issuesView: TextView
+    private lateinit var removedView: TextView
     private lateinit var groupNameView: EditText
     private lateinit var importButton: Button
     private lateinit var cancelButton: Button
@@ -77,7 +76,6 @@ class ImportEntriesActivity : DatabaseLockActivity() {
     // Private copy waiting for the user's confirmation, only touched on the UI thread
     private var pendingFile: File? = null
     private var reading = false
-    private var skippedCount = 0
     @Volatile private var destroyed = false
 
     override fun manageDatabaseInfo(): Boolean = true
@@ -101,7 +99,7 @@ class ImportEntriesActivity : DatabaseLockActivity() {
         chooseButton = findViewById(R.id.import_entries_choose)
         previewContainer = findViewById(R.id.import_entries_preview)
         summaryView = findViewById(R.id.import_entries_summary)
-        issuesView = findViewById(R.id.import_entries_issues)
+        removedView = findViewById(R.id.import_entries_issues)
         groupNameView = findViewById(R.id.import_entries_group_name)
         importButton = findViewById(R.id.import_entries_confirm)
         cancelButton = findViewById(R.id.import_entries_cancel)
@@ -149,7 +147,7 @@ class ImportEntriesActivity : DatabaseLockActivity() {
                 ImportTempFile.delete(file)
                 PreviewOutcome.Failed(R.string.import_entries_none)
             } else {
-                PreviewOutcome.Ready(file, result.entries.size, result.skipped)
+                PreviewOutcome.Ready(file, result.entries.size, result.removedCharacters)
             }
         } catch (e: ImportFileException) {
             ImportTempFile.delete(copy)
@@ -177,14 +175,11 @@ class ImportEntriesActivity : DatabaseLockActivity() {
             }
             is PreviewOutcome.Ready -> {
                 pendingFile = outcome.file
-                skippedCount = outcome.skipped.size
                 statusView.setText(R.string.import_entries_status_ready)
-                summaryView.text = getString(
-                    R.string.import_entries_summary_count,
-                    outcome.count,
-                    outcome.skipped.size
-                )
-                issuesView.text = formatIssues(outcome.skipped)
+                summaryView.text = getString(R.string.import_entries_summary_count, outcome.count)
+                val removedText = removedMessage(outcome.removedCharacters)
+                removedView.text = removedText.orEmpty()
+                removedView.visibility = if (removedText == null) View.GONE else View.VISIBLE
                 previewContainer.visibility = View.VISIBLE
                 importButton.isEnabled = true
             }
@@ -214,11 +209,7 @@ class ImportEntriesActivity : DatabaseLockActivity() {
     ) {
         if (actionTask == DatabaseTaskNotificationService.ACTION_DATABASE_IMPORT_ENTRIES_TASK) {
             if (result.isSuccess) {
-                Toast.makeText(
-                    this,
-                    getString(R.string.import_entries_done, skippedCount),
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(this, R.string.import_entries_done, Toast.LENGTH_LONG).show()
             } else {
                 showToast(R.string.import_entries_failed)
             }
@@ -240,32 +231,12 @@ class ImportEntriesActivity : DatabaseLockActivity() {
         pendingFile = null
     }
 
-    private fun formatIssues(issues: List<ImportRowIssue>): String {
-        if (issues.isEmpty()) return getString(R.string.import_entries_no_issues)
-        val shown = issues.take(MAX_LISTED_ISSUES).joinToString("\n") { issue ->
-            getString(
-                R.string.import_entries_issue_line,
-                issue.position,
-                getString(reasonMessage(issue.reason))
-            )
-        }
-        val hidden = issues.size - MAX_LISTED_ISSUES
-        return if (hidden > 0) {
-            shown + "\n" + getString(R.string.import_entries_issues_more, hidden)
-        } else {
-            shown
-        }
-    }
-
-    @StringRes
-    private fun reasonMessage(reason: ImportIssueReason): Int {
-        return when (reason) {
-            ImportIssueReason.MISSING_TITLE_AND_URL -> R.string.import_entries_reason_missing_title
-            ImportIssueReason.FIELD_TOO_LONG -> R.string.import_entries_reason_too_long
-            ImportIssueReason.INVALID_CHARACTER -> R.string.import_entries_reason_invalid_character
-            ImportIssueReason.INVALID_URL -> R.string.import_entries_reason_invalid_url
-            ImportIssueReason.INVALID_VALUE -> R.string.import_entries_reason_invalid_value
-        }
+    /**
+     * Text telling how many characters were removed, or null when nothing was removed.
+     */
+    private fun removedMessage(removedCharacters: Int): String? {
+        if (removedCharacters == 0) return null
+        return getString(R.string.import_entries_removed_characters, removedCharacters)
     }
 
     @StringRes
@@ -279,6 +250,9 @@ class ImportEntriesActivity : DatabaseLockActivity() {
             ImportFileError.TOO_MANY_ENTRIES -> R.string.import_entries_error_too_many
             ImportFileError.MISSING_REQUIRED_COLUMNS -> R.string.import_entries_error_columns
             ImportFileError.EMPTY_FILE -> R.string.import_entries_none
+            ImportFileError.ZIP_NO_JSON_FILE -> R.string.import_entries_error_zip_no_json
+            ImportFileError.ZIP_SEVERAL_JSON_FILES -> R.string.import_entries_error_zip_several_json
+            ImportFileError.ZIP_UNREADABLE -> R.string.import_entries_error_zip_unreadable
         }
     }
 
@@ -295,14 +269,13 @@ class ImportEntriesActivity : DatabaseLockActivity() {
         class Ready(
             val file: File,
             val count: Int,
-            val skipped: List<ImportRowIssue>
+            val removedCharacters: Int
         ) : PreviewOutcome()
 
         class Failed(@StringRes val messageId: Int) : PreviewOutcome()
     }
 
     companion object {
-        private const val MAX_LISTED_ISSUES = 100
         private const val MAX_GROUP_TITLE_LENGTH = 128
         // Any type is offered: exports often carry a generic or non-standard MIME type, and the
         // content is checked by the parser, so the picker's filter is not a security boundary

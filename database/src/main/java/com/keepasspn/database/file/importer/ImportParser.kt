@@ -23,7 +23,7 @@ import java.io.ByteArrayOutputStream
 import java.io.InputStream
 
 /**
- * Entry point for importing CSV or JSON files.
+ * Entry point for importing CSV, JSON, or a ZIP archive holding one JSON file.
  *
  * The input is read once with a size limit and parsed in memory. Nothing is written to disk here:
  * the caller owns the input stream and closes it.
@@ -31,17 +31,24 @@ import java.io.InputStream
 object ImportParser {
 
     fun parse(input: InputStream, requested: ImportFormat? = null): ImportResult {
-        val bytes = readLimited(input)
+        val raw = readLimited(input)
+        var unpacked: ByteArray? = null
         try {
-            if (bytes.isEmpty()) {
+            if (raw.isEmpty()) {
                 throw ImportFileException(ImportFileError.EMPTY_FILE)
+            }
+            val bytes = if (isZip(raw)) {
+                ZipJson.read(raw).also { unpacked = it }
+            } else {
+                raw
             }
             return when (requested ?: detectFormat(bytes)) {
                 ImportFormat.CSV -> CsvImportParser.parse(bytes)
                 ImportFormat.JSON -> JsonImportParser.parse(bytes)
             }
         } finally {
-            bytes.fill(0)
+            raw.fill(0)
+            unpacked?.fill(0)
         }
     }
 
@@ -63,6 +70,17 @@ object ImportParser {
         }
         val first = if (i < bytes.size) bytes[i].toInt() else -1
         return if (first == 0x7B || first == 0x5B) ImportFormat.JSON else ImportFormat.CSV
+    }
+
+    /**
+     * ZIP archives start with the local file header signature.
+     */
+    private fun isZip(bytes: ByteArray): Boolean {
+        return bytes.size >= 4
+            && bytes[0] == 'P'.code.toByte()
+            && bytes[1] == 'K'.code.toByte()
+            && bytes[2] == 0x03.toByte()
+            && bytes[3] == 0x04.toByte()
     }
 
     private fun readLimited(input: InputStream): ByteArray {

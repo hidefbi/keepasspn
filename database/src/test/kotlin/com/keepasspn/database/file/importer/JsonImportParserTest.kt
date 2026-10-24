@@ -20,7 +20,7 @@
 package com.keepasspn.database.file.importer
 
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
+import org.junit.Assert.assertNull
 import org.junit.Assert.fail
 import org.junit.Test
 
@@ -29,9 +29,9 @@ class JsonImportParserTest {
     private fun json(text: String): ByteArray = text.toByteArray(Charsets.UTF_8)
 
     @Test
-    fun arrayOfEntriesIsImported() {
-        val text = "[{\"title\":\"Mail\",\"username\":\"alice\",\"password\":\"s1\"," +
-            "\"url\":\"https://mail.example.com\",\"notes\":\"n\",\"group\":\"Work\"}]"
+    fun arrayOfEntriesIsImportedAsIs() {
+        val text = """[{"title":"Mail","username":"alice","password":"s1",""" +
+            """"url":"https://mail.example.com","notes":"n","group":"Work"}]"""
         val result = JsonImportParser.parse(json(text))
         assertEquals(1, result.entries.size)
         val entry = result.entries[0]
@@ -40,8 +40,22 @@ class JsonImportParserTest {
         assertEquals("s1", String(entry.password))
         assertEquals("https://mail.example.com", entry.url)
         assertEquals("n", entry.notes)
-        assertEquals("Work", entry.groupName)
-        assertTrue(result.skipped.isEmpty())
+        assertEquals(listOf("Work"), entry.groupPath)
+        assertEquals(0, result.removedCharacters)
+    }
+
+    @Test
+    fun duplicateEntriesAreAllKept() {
+        val text = """[{"name":"Shop","password":"p"},{"name":"Shop","password":"p"}]"""
+        assertEquals(2, JsonImportParser.parse(json(text)).entries.size)
+    }
+
+    @Test
+    fun entryWithOnlyANumberIsKept() {
+        val result = JsonImportParser.parse(json("""[{"password":12345}]"""))
+        assertEquals(1, result.entries.size)
+        assertEquals("12345", String(result.entries[0].password))
+        assertEquals("", result.entries[0].title)
     }
 
     @Test
@@ -52,84 +66,66 @@ class JsonImportParserTest {
     }
 
     @Test
-    fun numericPasswordIsKeptAsText() {
-        val result = JsonImportParser.parse(json("""[{"name":"Pin","password":12345}]"""))
-        assertEquals("12345", String(result.entries[0].password))
-    }
-
-    @Test
-    fun unicodeEscapesAreDecoded() {
-        val result = JsonImportParser.parse(json("""[{"name":"été","password":"p"}]"""))
-        assertEquals("été", result.entries[0].title)
-    }
-
-    @Test
-    fun nestedLoginFieldsAreRead() {
-        val result = JsonImportParser.parse(
-            json("""[{"name":"Shop","login":{"username":"b","password":"p","uris":[{"uri":"https://shop.example.com"}]}}]""")
-        )
-        val entry = result.entries[0]
-        assertEquals("Shop", entry.title)
-        assertEquals("b", entry.username)
+    fun bitwardenLoginIsRead() {
+        val text = """[{"name":"Shop","login":{"username":"u","password":"p",""" +
+            """"uris":[{"uri":"https://a.example"},{"uri":"https://b.example"}],""" +
+            """"totp":"otpauth://totp/Shop?secret=JBSWY3DPEHPK3PXP"}}]"""
+        val entry = JsonImportParser.parse(json(text)).entries[0]
+        assertEquals("u", entry.username)
         assertEquals("p", String(entry.password))
-        assertEquals("https://shop.example.com", entry.url)
-        assertTrue(result.skipped.isEmpty())
+        assertEquals("https://a.example", entry.url)
+        assertEquals("uri: https://b.example", entry.notes)
+        assertEquals("otpauth://totp/Shop?secret=JBSWY3DPEHPK3PXP", entry.otpUri)
     }
 
     @Test
-    fun loginThatIsNotAnObjectIsSkipped() {
-        val result = JsonImportParser.parse(json("""[{"name":"Shop","login":"p"}]"""))
-        assertTrue(result.entries.isEmpty())
-        assertEquals(ImportRowIssue(1, ImportIssueReason.INVALID_VALUE), result.skipped[0])
+    fun folderIdIsReplacedByFolderName() {
+        val text = """{"folders":[{"id":"f1","name":"Work"}],""" +
+            """"items":[{"name":"A","password":"p","folderId":"f1"}]}"""
+        assertEquals(listOf("Work"), JsonImportParser.parse(json(text)).entries[0].groupPath)
     }
 
     @Test
-    fun entriesWrapperIsAccepted() {
-        val result = JsonImportParser.parse(json("""{"entries":[{"title":"Mail","password":"s"}]}"""))
-        assertEquals("Mail", result.entries[0].title)
+    fun unknownKeysAreKeptInNotes() {
+        val entry = JsonImportParser.parse(json("""[{"name":"A","password":"p","pin":"1234"}]""")).entries[0]
+        assertEquals("pin: 1234", entry.notes)
+    }
+
+    @Test
+    fun invalidControlCharacterIsRemovedAndCounted() {
+        val result = JsonImportParser.parse(json("""[{"name":"A\u0001B","password":"p"}]"""))
+        assertEquals("AB", result.entries[0].title)
+        assertEquals(1, result.removedCharacters)
     }
 
     @Test
     fun encryptedFileIsRefused() {
-        assertFileError(ImportFileError.ENCRYPTED_NOT_SUPPORTED) {
-            JsonImportParser.parse(json("""{"encrypted":true,"data":"abc"}"""))
+        assertRefused(ImportFileError.ENCRYPTED_NOT_SUPPORTED) {
+            JsonImportParser.parse(json("""{"encrypted":true,"items":[]}"""))
         }
     }
 
     @Test
-    fun trailingCommaIsRefused() {
-        assertFileError(ImportFileError.MALFORMED_STRUCTURE) {
-            JsonImportParser.parse(json("""[{"name":"a","password":"b"},]"""))
-        }
+    fun emptyListIsRefused() {
+        assertRefused(ImportFileError.EMPTY_FILE) { JsonImportParser.parse(json("[]")) }
     }
 
     @Test
-    fun controlCharacterInsideStringIsRefused() {
-        assertFileError(ImportFileError.MALFORMED_STRUCTURE) {
-            JsonImportParser.parse(json("[{\"name\":\"a\u0001\",\"password\":\"b\"}]"))
-        }
+    fun objectWithoutListIsRefused() {
+        assertRefused(ImportFileError.MALFORMED_STRUCTURE) { JsonImportParser.parse(json("""{"a":1}""")) }
     }
 
     @Test
-    fun deepNestingIsRefused() {
-        assertFileError(ImportFileError.TOO_DEEP) {
-            JsonImportParser.parse(json("[".repeat(20) + "]".repeat(20)))
-        }
+    fun entryWithoutOtpHasNoOtpUri() {
+        assertNull(JsonImportParser.parse(json("""[{"password":"p"}]""")).entries[0].otpUri)
     }
 
-    @Test
-    fun emptyArrayIsRefused() {
-        assertFileError(ImportFileError.EMPTY_FILE) {
-            JsonImportParser.parse(json("[]"))
-        }
-    }
-
-    private fun assertFileError(expected: ImportFileError, block: () -> Unit) {
+    private fun assertRefused(error: ImportFileError, block: () -> Unit) {
         try {
             block()
-            fail("Expected $expected")
+            fail("Expected $error")
         } catch (e: ImportFileException) {
-            assertEquals(expected, e.error)
+            assertEquals(error, e.error)
         }
     }
 }

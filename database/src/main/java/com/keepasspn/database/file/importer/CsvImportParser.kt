@@ -22,6 +22,8 @@ package com.keepasspn.database.file.importer
 /**
  * Reads CSV files. Columns are found from the header row, so their order does not matter.
  * The delimiter is detected from the header: comma, semicolon or tab.
+ *
+ * Columns that are not recognised are kept in the notes as "header: value", so no data is lost.
  */
 internal object CsvImportParser {
 
@@ -31,6 +33,7 @@ internal object CsvImportParser {
     private val URL_COLUMNS = setOf("web site", "website", "url", "login_uri", "uri")
     private val NOTES_COLUMNS = setOf("comments", "notes", "note", "extra")
     private val GROUP_COLUMNS = setOf("group", "grouping", "folder")
+    private val OTP_COLUMNS = setOf("totp", "otp")
 
     private class Record(val line: Int, val cells: List<String>)
 
@@ -41,34 +44,53 @@ internal object CsvImportParser {
             throw ImportFileException(ImportFileError.EMPTY_FILE)
         }
 
-        val headers = records[0].cells.map { it.trim().lowercase() }
+        val rawHeaders = records[0].cells.map { it.trim() }
+        val headers = rawHeaders.map { it.lowercase() }
         val titleIndex = indexOf(headers, TITLE_COLUMNS)
         val usernameIndex = indexOf(headers, USERNAME_COLUMNS)
         val passwordIndex = indexOf(headers, PASSWORD_COLUMNS)
         val urlIndex = indexOf(headers, URL_COLUMNS)
         val notesIndex = indexOf(headers, NOTES_COLUMNS)
         val groupIndex = indexOf(headers, GROUP_COLUMNS)
+        val otpIndex = indexOf(headers, OTP_COLUMNS)
         if (passwordIndex < 0 || (titleIndex < 0 && urlIndex < 0)) {
             throw ImportFileException(ImportFileError.MISSING_REQUIRED_COLUMNS)
         }
 
-        val entries = ArrayList<ImportedEntry>()
-        val skipped = ArrayList<ImportRowIssue>()
+        val recognised = setOf(
+            titleIndex, usernameIndex, passwordIndex, urlIndex, notesIndex, groupIndex, otpIndex
+        )
+        val otherColumns = headers.indices.filter { it !in recognised }
+
+        val collector = ImportCollector()
         for (record in records.subList(1, records.size)) {
-            val result = ImportSanitizer.validateRow(
+            val notes = ArrayList<String>()
+            val notesCell = cell(record, notesIndex)
+            if (notesCell.isNotEmpty()) notes.add(notesCell)
+            for (index in otherColumns) {
+                val value = cell(record, index)
+                if (value.isNotEmpty()) {
+                    val label = rawHeaders.getOrNull(index)?.ifEmpty { null } ?: "column ${index + 1}"
+                    notes.add("$label: $value")
+                }
+            }
+            val otpCell = cell(record, otpIndex)
+            val otpUri = otpCell.takeIf { it.startsWith("otpauth://", ignoreCase = true) }
+            if (otpCell.isNotEmpty() && otpUri == null) {
+                notes.add("totp: $otpCell")
+            }
+            val group = cell(record, groupIndex)
+            collector.add(
                 title = cell(record, titleIndex),
                 username = cell(record, usernameIndex),
                 password = cell(record, passwordIndex),
                 url = cell(record, urlIndex),
-                notes = cell(record, notesIndex),
-                groupName = cell(record, groupIndex)
+                notes = notes.joinToString("\n"),
+                groupPath = if (group.isEmpty()) emptyList() else listOf(group),
+                otpUri = otpUri
             )
-            when (result) {
-                is RowResult.Accepted -> entries.add(result.entry)
-                is RowResult.Rejected -> skipped.add(ImportRowIssue(record.line, result.reason))
-            }
         }
-        return ImportResult(entries, skipped)
+        return collector.result()
     }
 
     private fun detectDelimiter(text: String): Char {
