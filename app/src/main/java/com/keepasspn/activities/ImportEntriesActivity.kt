@@ -304,13 +304,8 @@ class ImportEntriesActivity : DatabaseLockActivity() {
     companion object {
         private const val MAX_LISTED_ISSUES = 100
         private const val MAX_GROUP_TITLE_LENGTH = 128
-        private val IMPORT_MIME_TYPES = arrayOf(
-            "text/csv",
-            "text/comma-separated-values",
-            "application/csv",
-            "application/json",
-            "text/plain",
-            "application/octet-stream"
-        )
+        // Any type is offered: exports often carry a generic or non-standard MIME type, and the
+        // content is checked by the parser, so the picker's filter is not a security boundary
+        private val IMPORT_MIME_TYPES = arrayOf("*/*")
     }
 }

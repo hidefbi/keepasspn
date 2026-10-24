@@ -64,12 +64,29 @@ class JsonImportParserTest {
     }
 
     @Test
-    fun entryWithNestedLoginIsSkipped() {
+    fun nestedLoginFieldsAreRead() {
         val result = JsonImportParser.parse(
-            json("""[{"name":"Shop","login":{"username":"b","password":"p"}}]""")
+            json("""[{"name":"Shop","login":{"username":"b","password":"p","uris":[{"uri":"https://shop.example.com"}]}}]""")
         )
+        val entry = result.entries[0]
+        assertEquals("Shop", entry.title)
+        assertEquals("b", entry.username)
+        assertEquals("p", String(entry.password))
+        assertEquals("https://shop.example.com", entry.url)
+        assertTrue(result.skipped.isEmpty())
+    }
+
+    @Test
+    fun loginThatIsNotAnObjectIsSkipped() {
+        val result = JsonImportParser.parse(json("""[{"name":"Shop","login":"p"}]"""))
         assertTrue(result.entries.isEmpty())
         assertEquals(ImportRowIssue(1, ImportIssueReason.INVALID_VALUE), result.skipped[0])
+    }
+
+    @Test
+    fun entriesWrapperIsAccepted() {
+        val result = JsonImportParser.parse(json("""{"entries":[{"title":"Mail","password":"s"}]}"""))
+        assertEquals("Mail", result.entries[0].title)
     }
 
     @Test

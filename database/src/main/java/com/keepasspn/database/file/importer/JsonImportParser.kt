@@ -20,11 +20,13 @@
 package com.keepasspn.database.file.importer
 
 /**
- * Reads JSON files: either an array of entries, or an object with an "items" array.
+ * Reads JSON files: either an array of entries, or an object holding that array under one of
+ * the keys in [ENTRY_LIST_KEYS].
  *
  * Keys read per entry, the first present one wins:
  * title or name, username, password, url or uri, notes or note, group or folder.
- * Objects nested inside an entry (for example "login") are not supported and are skipped.
+ * A nested "login" object (Bitwarden layout) provides the username, password and first URI
+ * when the entry does not have them itself.
  */
 internal object JsonImportParser {
 
@@ -34,6 +36,7 @@ internal object JsonImportParser {
     private val URL_KEYS = listOf("url", "uri")
     private val NOTES_KEYS = listOf("notes", "note")
     private val GROUP_KEYS = listOf("group", "folder")
+    private val ENTRY_LIST_KEYS = listOf("items", "entries", "logins", "passwords")
 
     fun parse(bytes: ByteArray): ImportResult {
         val text = ImportText.decodeUtf8(bytes)
@@ -44,7 +47,8 @@ internal object JsonImportParser {
                 if (root["encrypted"] == true) {
                     throw ImportFileException(ImportFileError.ENCRYPTED_NOT_SUPPORTED)
                 }
-                root["items"] as? List<*> ?: throw ImportFileException(ImportFileError.MALFORMED_STRUCTURE)
+                ENTRY_LIST_KEYS.firstNotNullOfOrNull { root[it] as? List<*> }
+                    ?: throw ImportFileException(ImportFileError.MALFORMED_STRUCTURE)
             }
             else -> throw ImportFileException(ImportFileError.MALFORMED_STRUCTURE)
         }
@@ -60,17 +64,18 @@ internal object JsonImportParser {
         items.forEachIndexed { index, item ->
             val position = index + 1
             val row = item as? Map<*, *>
-            if (row == null || row.containsKey("login")) {
+            val fields = row?.let { withLoginFields(it) }
+            if (fields == null) {
                 skipped.add(ImportRowIssue(position, ImportIssueReason.INVALID_VALUE))
                 return@forEachIndexed
             }
             val values = listOf(
-                fieldText(row, TITLE_KEYS),
-                fieldText(row, USERNAME_KEYS),
-                fieldText(row, PASSWORD_KEYS),
-                fieldText(row, URL_KEYS),
-                fieldText(row, NOTES_KEYS),
-                fieldText(row, GROUP_KEYS)
+                fieldText(fields, TITLE_KEYS),
+                fieldText(fields, USERNAME_KEYS),
+                fieldText(fields, PASSWORD_KEYS),
+                fieldText(fields, URL_KEYS),
+                fieldText(fields, NOTES_KEYS),
+                fieldText(fields, GROUP_KEYS)
             )
             if (values.any { it == null }) {
                 skipped.add(ImportRowIssue(position, ImportIssueReason.INVALID_VALUE))
@@ -90,6 +95,30 @@ internal object JsonImportParser {
             }
         }
         return ImportResult(entries, skipped)
+    }
+
+    /**
+     * The entry's fields, with the username, password and first URI of a nested "login" object
+     * added where the entry has none of its own. Returns null when "login" is not an object.
+     */
+    private fun withLoginFields(row: Map<*, *>): Map<*, *>? {
+        val loginValue = row["login"] ?: return row
+        val login = loginValue as? Map<*, *> ?: return null
+        val merged = LinkedHashMap<Any?, Any?>(row)
+        for (key in listOf("username", "password")) {
+            val loginField = login[key]
+            if (merged[key] == null && loginField != null) {
+                merged[key] = loginField
+            }
+        }
+        if (merged["url"] == null && merged["uri"] == null) {
+            val uris = login["uris"] as? List<*>
+            val firstUri = uris?.firstNotNullOfOrNull { (it as? Map<*, *>)?.get("uri") as? String }
+            if (firstUri != null) {
+                merged["url"] = firstUri
+            }
+        }
+        return merged
     }
 
     /**
