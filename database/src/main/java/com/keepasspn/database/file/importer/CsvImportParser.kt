@@ -28,6 +28,10 @@ import java.time.Instant
  * Known columns go to their field: title, user name, password, URL, notes, group, one-time
  * password, creation and modification dates. Every other column is kept as a custom field,
  * named after its header, so no value is lost and none is mixed into the notes.
+ *
+ * A Bitwarden export is recognised by its columns. Its own columns (type, favorite, reprompt)
+ * are dropped, its dates are not kept, its comma-separated URIs become several URLs, and its
+ * "fields" column, one "name: value" line per field, becomes one custom field per line.
  */
 internal object CsvImportParser {
 
@@ -37,7 +41,8 @@ internal object CsvImportParser {
     private val URL_COLUMNS = setOf("web site", "website", "url", "login_uri", "uri")
     private val NOTES_COLUMNS = setOf("comments", "notes", "note", "extra")
     private val GROUP_COLUMNS = setOf("group", "grouping", "folder")
-    private val OTP_COLUMNS = setOf("totp", "otp")
+    private val OTP_COLUMNS = setOf("totp", "otp", "login_totp")
+    private val BITWARDEN_METADATA_COLUMNS = setOf("type", "favorite", "reprompt")
     private val CREATED_COLUMNS = setOf(
         "created", "created at", "created_at", "creation date", "creation time", "date created", "create time"
     )
@@ -74,7 +79,14 @@ internal object CsvImportParser {
             titleIndex, usernameIndex, passwordIndex, urlIndex, notesIndex, groupIndex, otpIndex,
             createdIndex, modifiedIndex
         )
-        val customIndexes = headers.indices.filter { it !in recognised }
+        val bitwarden = headers.contains("login_uri") && headers.contains("reprompt")
+        val fieldsIndex = if (bitwarden) headers.indexOf("fields") else -1
+        val dropped = if (bitwarden) {
+            headers.indices.filter { headers[it] in BITWARDEN_METADATA_COLUMNS }
+        } else {
+            emptyList()
+        }
+        val customIndexes = headers.indices.filter { it !in recognised && it !in dropped && it != fieldsIndex }
 
         val collector = ImportCollector()
         for (record in records.subList(1, records.size)) {
@@ -88,8 +100,23 @@ internal object CsvImportParser {
                 if (otpUri == null) fields.add(ImportedField("TOTP", otpCell, isProtected = true))
             }
 
-            val createdAt = dateOf(record, createdIndex, rawHeaders, fields)
-            val modifiedAt = dateOf(record, modifiedIndex, rawHeaders, fields)
+            val createdAt = if (bitwarden) null else dateOf(record, createdIndex, rawHeaders, fields)
+            val modifiedAt = if (bitwarden) null else dateOf(record, modifiedIndex, rawHeaders, fields)
+
+            if (bitwarden) {
+                for (named in bitwardenFields(cell(record, fieldsIndex))) {
+                    fields.add(ImportedField(named.first, named.second, ImportValues.isSecretName(named.first)))
+                }
+            }
+            val urlCell = cell(record, urlIndex)
+            val urls = if (bitwarden) {
+                urlCell.split(",").map { it.trim() }.filter { it.isNotEmpty() }
+            } else {
+                listOf(urlCell)
+            }
+            urls.drop(1).forEachIndexed { index, extra ->
+                fields.add(ImportedField("URI ${index + 2}", extra, false))
+            }
 
             for (index in customIndexes) {
                 val value = cell(record, index)
@@ -103,7 +130,7 @@ internal object CsvImportParser {
                 title = title,
                 username = cell(record, usernameIndex),
                 password = cell(record, passwordIndex),
-                url = cell(record, urlIndex),
+                url = urls.firstOrNull().orEmpty(),
                 notes = cell(record, notesIndex),
                 groupPath = if (group.isEmpty()) emptyList() else listOf(group),
                 otpUri = otpUri,
@@ -113,6 +140,28 @@ internal object CsvImportParser {
             )
         }
         return collector.result()
+    }
+
+    /**
+     * The "name: value" lines of a Bitwarden "fields" cell. A line without a name continues the
+     * value of the line before it, so a value written on several lines is kept whole.
+     */
+    private fun bitwardenFields(text: String): List<Pair<String, String>> {
+        val pairs = ArrayList<Pair<String, String>>()
+        for (line in text.lines()) {
+            if (line.isBlank()) continue
+            val separator = line.indexOf(':')
+            if (separator > 0) {
+                val name = line.substring(0, separator).trim().ifEmpty { "field" }
+                pairs.add(name to line.substring(separator + 1).trim())
+            } else if (pairs.isNotEmpty()) {
+                val last = pairs.removeAt(pairs.size - 1)
+                pairs.add(last.first to (last.second + "\n" + line.trim()))
+            } else {
+                pairs.add("field" to line.trim())
+            }
+        }
+        return pairs.filter { it.second.isNotEmpty() }
     }
 
     /**

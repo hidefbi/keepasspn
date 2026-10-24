@@ -146,6 +146,26 @@ class JsonImportParserTest {
         assertNull(JsonImportParser.parse(json("""[{"password":"p"}]""")).entries[0].otpUri)
     }
 
+    @Test
+    fun bitwardenExportDropsItsOwnKeysAndDates() {
+        val text = """{"encrypted":false,"folders":[{"id":"f1","name":"Work"}],"items":[{"id":"i1",""" +
+            """"organizationId":null,"folderId":"f1","type":1,"reprompt":0,"favorite":false,"name":"Mail",""" +
+            """"notes":"n","creationDate":"2024-01-02T03:04:05Z","revisionDate":"2025-01-01T00:00:00Z",""" +
+            """"fields":[{"name":"Code","value":"1234","type":0},{"name":"PIN","value":"9","type":1}],""" +
+            """"login":{"uris":[{"uri":"https://a.example"},{"uri":"https://b.example"}],"username":"alice",""" +
+            """"password":"pw","totp":"JBSWY3DPEHPK3PXP","passwordRevisionDate":"2024-01-01T00:00:00Z"},""" +
+            """"collections":[]}]}"""
+        val entry = JsonImportParser.parse(json(text)).entries[0]
+        assertEquals(listOf("Work"), entry.groupPath)
+        assertEquals("n", entry.notes)
+        assertEquals("https://a.example", entry.url)
+        assertEquals("otpauth://totp/Mail?secret=JBSWY3DPEHPK3PXP", entry.otpUri)
+        assertEquals(listOf("URI 2", "Code", "PIN"), entry.fields.map { it.name })
+        assertTrue(entry.fields[2].isProtected)
+        assertNull(entry.createdAt)
+        assertNull(entry.modifiedAt)
+    }
+
     private fun assertRefused(error: ImportFileError, block: () -> Unit) {
         try {
             block()

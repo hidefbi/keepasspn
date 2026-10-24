@@ -20,6 +20,7 @@
 package com.keepasspn.database.file.importer
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Assert.fail
@@ -127,6 +128,24 @@ class CsvImportParserTest {
         assertRefused(ImportFileError.MALFORMED_STRUCTURE) {
             CsvImportParser.parse(csv("Title,Password\n\"A,p\n"))
         }
+    }
+
+    @Test
+    fun bitwardenCsvIsReadWithoutItsOwnColumns() {
+        val text = "folder,favorite,type,name,notes,fields,reprompt,login_uri,login_username,login_password,login_totp\n" +
+            "Work,1,login,Mail,my note,\"Code: 1234\nPIN: 9999\",0,\"https://a.example,https://b.example\",alice,pw," +
+            "otpauth://totp/Mail?secret=JBSWY3DPEHPK3PXP\n"
+        val entry = CsvImportParser.parse(csv(text)).entries[0]
+        assertEquals(listOf("Work"), entry.groupPath)
+        assertEquals("Mail", entry.title)
+        assertEquals("my note", entry.notes)
+        assertEquals("https://a.example", entry.url)
+        assertEquals("otpauth://totp/Mail?secret=JBSWY3DPEHPK3PXP", entry.otpUri)
+        assertEquals(listOf("URI 2", "Code", "PIN"), entry.fields.map { it.name })
+        assertEquals("https://b.example", entry.fields[0].value)
+        assertFalse(entry.fields[1].isProtected)
+        assertTrue(entry.fields[2].isProtected)
+        assertNull(entry.createdAt)
     }
 
     private fun assertRefused(error: ImportFileError, block: () -> Unit) {

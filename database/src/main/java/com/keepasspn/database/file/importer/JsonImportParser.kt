@@ -56,6 +56,15 @@ internal object JsonImportParser {
 
     private val LOGIN_MAPPED_KEYS = setOf("username", "password", "uris", "totp")
 
+    /** Bitwarden's own item keys: identifiers, flags, types and times, which are not imported. */
+    private val BITWARDEN_ITEM_KEYS = setOf(
+        "id", "organizationId", "collections", "favorite", "reprompt", "type", "deletedDate",
+        "revisionDate", "creationDate", "secureNote", "card", "identity"
+    )
+    private val BITWARDEN_LOGIN_KEYS = setOf("passwordRevisionDate")
+    private val CARD_SECRET_KEYS = setOf("number", "code")
+    private val IDENTITY_SECRET_KEYS = setOf("ssn", "passportNumber", "licenseNumber")
+
     fun parse(bytes: ByteArray): ImportResult {
         val text = ImportText.decodeUtf8(bytes)
         val root = SafeJsonParser(text, ImportLimits.MAX_JSON_DEPTH).parse()
@@ -82,8 +91,9 @@ internal object JsonImportParser {
         }
 
         val folderNames = folderNames(root as? Map<*, *>)
+        val bitwarden = root is Map<*, *> && root.containsKey("encrypted")
         for (item in items) {
-            addItem(item, folderNames, collector)
+            addItem(item, folderNames, bitwarden, collector)
         }
         return collector.result()
     }
@@ -103,11 +113,16 @@ internal object JsonImportParser {
         return names
     }
 
-    private fun addItem(item: Any?, folderNames: Map<String, String>, collector: ImportCollector) {
+    private fun addItem(
+        item: Any?,
+        folderNames: Map<String, String>,
+        bitwarden: Boolean,
+        collector: ImportCollector
+    ) {
         val map = item as? Map<*, *>
         if (map == null) {
             // Not an object: its whole value is kept as one custom field
-            val field = ImportedField("item", ImportValues.json(item), isProtected = false)
+            val field = ImportedField("item", ImportValues.json(item), false)
             collector.add("", "", "", "", "", emptyList(), null, listOf(field))
             return
         }
@@ -126,7 +141,7 @@ internal object JsonImportParser {
         val urlFromLogin = pick(URL_KEYS, map) == null
         val url = pick(URL_KEYS, map) ?: uris.firstOrNull().orEmpty()
         uris.forEachIndexed { index, uri ->
-            if (!(urlFromLogin && index == 0)) fields.add(ImportedField("URI ${index + 1}", uri, isProtected = false))
+            if (!(urlFromLogin && index == 0)) fields.add(ImportedField("URI ${index + 1}", uri, false))
         }
 
         val notes = pick(NOTES_KEYS, map).orEmpty()
@@ -141,8 +156,8 @@ internal object JsonImportParser {
                 val folderName = folderNames[folderId]
                 if (folderName != null) {
                     groupPath.add(folderName)
-                } else {
-                    fields.add(ImportedField("folderId", folderId, isProtected = false))
+                } else if (!bitwarden) {
+                    fields.add(ImportedField("folderId", folderId, false))
                 }
             }
         }
@@ -154,30 +169,38 @@ internal object JsonImportParser {
             if (uri != null && otpUri == null) {
                 otpUri = uri
             } else {
-                fields.add(ImportedField("TOTP", candidate, isProtected = true))
+                fields.add(ImportedField("TOTP", candidate, true))
             }
         }
 
-        val createdAt = dateOf(CREATED_KEYS, map, fields)
-        val modifiedAt = dateOf(MODIFIED_KEYS, map, fields)
+        // Bitwarden's dates are not imported, so they are not read here
+        val createdAt = if (bitwarden) null else dateOf(CREATED_KEYS, map, fields)
+        val modifiedAt = if (bitwarden) null else dateOf(MODIFIED_KEYS, map, fields)
 
         if (login != null && loginMap == null && login != SafeJsonParser.JsonNull) {
-            fields.add(ImportedField("login", ImportValues.json(login), isProtected = false))
+            fields.add(ImportedField("login", ImportValues.json(login), false))
         }
         loginMap?.forEach { (key, value) ->
             val name = key.toString()
-            if (name !in LOGIN_MAPPED_KEYS) {
+            if (name !in LOGIN_MAPPED_KEYS && !(bitwarden && name in BITWARDEN_LOGIN_KEYS)) {
                 addField("login.$name", value, fields)
             }
         }
         map.forEach { (key, value) ->
             val name = key.toString()
-            if (name !in MAPPED_KEYS) {
+            if (name in MAPPED_KEYS || (bitwarden && name in BITWARDEN_ITEM_KEYS)) return@forEach
+            if (bitwarden && name == "passwordHistory") {
+                addPasswordHistory(value, fields)
+            } else {
                 addField(name, value, fields)
             }
         }
         (map[FIELD_LIST_KEY] as? List<*>)?.forEach { custom ->
             addCustomField(custom as? Map<*, *>, fields)
+        }
+        if (bitwarden) {
+            addNestedFields("card", map["card"], CARD_SECRET_KEYS, fields)
+            addNestedFields("identity", map["identity"], IDENTITY_SECRET_KEYS, fields)
         }
 
         collector.add(
@@ -192,6 +215,32 @@ internal object JsonImportParser {
             createdAt = createdAt,
             modifiedAt = modifiedAt
         )
+    }
+
+    /**
+     * The passwords of a Bitwarden password history, without their dates, as one protected field.
+     */
+    private fun addPasswordHistory(value: Any?, fields: MutableList<ImportedField>) {
+        val passwords = (value as? List<*>)
+            ?.mapNotNull { entry -> pick(listOf("password"), entry as? Map<*, *>)?.takeIf { it.isNotEmpty() } }
+            .orEmpty()
+        if (passwords.isNotEmpty()) {
+            fields.add(ImportedField("passwordHistory", passwords.joinToString("\n"), true))
+        }
+    }
+
+    /**
+     * The values of a Bitwarden card or identity, one custom field per value. Secret values are protected.
+     */
+    private fun addNestedFields(prefix: String, value: Any?, secretKeys: Set<String>, fields: MutableList<ImportedField>) {
+        val map = value as? Map<*, *> ?: return
+        map.forEach { (key, item) ->
+            val name = key.toString()
+            val text = ImportValues.text(item)
+            if (text.isNotEmpty()) {
+                fields.add(ImportedField("$prefix.$name", text, name in secretKeys))
+            }
+        }
     }
 
     /**
