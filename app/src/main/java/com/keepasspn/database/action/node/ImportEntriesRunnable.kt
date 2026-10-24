@@ -140,20 +140,26 @@ class ImportEntriesRunnable(
             url = imported.url
             notes = imported.notes
         }
-        val fields = mutableListOf<Field>()
-        imported.fields.forEach { field ->
-            fields.add(Field(field.name, ProtectedString(field.isProtected, field.value)))
-        }
         val otpUri = imported.otpUri
-        if (otpUri != null) {
-            val otpElement = OtpEntryFields.parseOTPUri(otpUri)
+        val otpElement = otpUri?.let { OtpEntryFields.parseOTPUri(it) }
+        if (database.allowEntryCustomFields()) {
+            val fields = mutableListOf<Field>()
+            imported.fields.forEach { field ->
+                fields.add(Field(field.name, ProtectedString(field.isProtected, field.value)))
+            }
             if (otpElement != null) {
                 fields.add(OtpEntryFields.buildOtpField(otpElement, imported.title, imported.username))
-            } else {
+            } else if (otpUri != null) {
                 fields.add(Field("TOTP", ProtectedString(true, otpUri)))
             }
+            entryInfo.customFields = fields
+        } else {
+            // Legacy KDB databases have no custom fields: the values are kept in the notes instead
+            val lines = mutableListOf(imported.notes)
+            imported.fields.forEach { field -> lines.add("${field.name}: ${field.value}") }
+            if (otpElement == null && otpUri != null) lines.add("TOTP: $otpUri")
+            entryInfo.notes = lines.filter { it.isNotEmpty() }.joinToString("\n")
         }
-        entryInfo.customFields = fields
 
         database.createEntry(entryInfo)?.let { entry ->
             entry.touch(modified = true, touchParents = true)
