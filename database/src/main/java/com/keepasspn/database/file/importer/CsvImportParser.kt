@@ -103,11 +103,6 @@ internal object CsvImportParser {
             val createdAt = if (bitwarden) null else dateOf(record, createdIndex, rawHeaders, fields)
             val modifiedAt = if (bitwarden) null else dateOf(record, modifiedIndex, rawHeaders, fields)
 
-            if (bitwarden) {
-                for (named in bitwardenFields(cell(record, fieldsIndex))) {
-                    fields.add(ImportedField(named.first, named.second, ImportValues.isSecretName(named.first)))
-                }
-            }
             val urlCell = cell(record, urlIndex)
             val urls = if (bitwarden) {
                 urlCell.split(",").map { it.trim() }.filter { it.isNotEmpty() }
@@ -116,6 +111,11 @@ internal object CsvImportParser {
             }
             urls.drop(1).forEachIndexed { index, extra ->
                 fields.add(ImportedField("URI ${index + 2}", extra, false))
+            }
+            if (bitwarden) {
+                for (named in bitwardenFields(cell(record, fieldsIndex))) {
+                    fields.add(ImportedField(named.first, named.second, ImportValues.isSecretName(named.first)))
+                }
             }
 
             for (index in customIndexes) {
