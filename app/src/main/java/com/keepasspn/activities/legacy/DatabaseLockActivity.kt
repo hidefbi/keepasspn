@@ -378,13 +378,23 @@ abstract class DatabaseLockActivity : DatabaseModeActivity() {
                 .setMessage(R.string.discard_changes)
                 .setNegativeButton(android.R.string.cancel, null)
                 .setPositiveButton(R.string.lock) { _, _ ->
-                    sendBroadcast(Intent(LOCK_ACTION))
-                    finish()
+                    lockDatabaseAndExit()
                 }.create().show()
         } else {
-            sendBroadcast(Intent(LOCK_ACTION))
-            finish()
+            lockDatabaseAndExit()
         }
+    }
+
+    /**
+     * Closes the database before this activity stops. The lock broadcast alone is not enough:
+     * the receiver of this activity is unregistered when it is destroyed, so the broadcast can
+     * arrive too late and leave the database open behind the password screen.
+     */
+    private fun lockDatabaseAndExit() {
+        closeDatabase(mDatabase)
+        mExitLock = true
+        sendBroadcast(Intent(LOCK_ACTION))
+        finish()
     }
 
     fun resetAppTimeout() {
