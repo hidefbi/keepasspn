@@ -90,4 +90,53 @@ Ilova foydalanuvchi ma\'lumotlarini to\'plamaydi, hech qanday serverga ulanmaydi
 Erkinligimizni saqlash, xatolarni tuzatish, yangi imkoniyatlar qo\'shish va loyihani faol saqlash uchun sizning hissangizni kutamiz.</string>
 
     <string name="extended_ASCII">Kengaytirilgan ASCII to\'plami</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">Import</string>
+    <string name="import_entries_title">Fayldan import qilish</string>
+    <string name="import_entries_summary">CSV yoki JSON eksportini yangi guruhga import qilish</string>
+    <string name="import_entries_title_bar">Yozuvlarni import qilish</string>
+    <string name="import_entries_intro">Boshqa parol menejeridan CSV yoki JSON eksportini tanlang. Tasdiqlamaguningizcha hech narsa yozilmaydi. Tanlangan fayl o\'zgartirilmaydi va o\'chirilmaydi.</string>
+    <string name="import_entries_choose">Faylni tanlash</string>
+    <string name="import_entries_reading">Fayl o\'qilmoqda</string>
+    <string name="import_entries_read_failed">Faylni o\'qib bo\'lmadi</string>
+    <string name="import_entries_none">Bu fayldan hech qanday yozuvni import qilib bo\'lmaydi</string>
+    <string name="import_entries_status_ready">Import qilishdan oldin quyidagi yozuvlarni ko\'rib chiqing</string>
+    <string name="import_entries_summary_count">Import qilishga tayyor yozuvlar: %1$d, o\'tkazib yuborilgan qatorlar: %2$d</string>
+    <string name="import_entries_no_issues">Hech qanday qator o\'tkazib yuborilmadi</string>
+    <string name="import_entries_issue_line">Qator %1$d: %2$s</string>
+    <string name="import_entries_issues_more">Va yana %1$d ta o\'tkazib yuborilgan qator</string>
+    <string name="import_entries_group_label">Yangi guruh nomi</string>
+    <string name="import_entries_group_default">%1$s ni import qilish</string>
+    <string name="import_entries_group_invalid">Guruh nomi bo\'sh, juda uzun yoki noto\'g\'ri belgilar mavjud</string>
+    <string name="import_entries_cancel">Bekor qilish</string>
+    <string name="import_entries_confirm">Import qilish</string>
+    <string name="import_entries_done">Yozuvlar import qilindi, o\'tkazib yuborilgan qatorlar: %1$d</string>
+    <string name="import_entries_failed">Yozuvlarni import qilib bo\'lmadi</string>
+    <string name="import_entries_reason_missing_title">Sarlavha ham, URL ham yo\'q</string>
+    <string name="import_entries_reason_too_long">Maydon juda uzun</string>
+    <string name="import_entries_reason_invalid_character">Maydonda boshqaruv belgisi bor</string>
+    <string name="import_entries_reason_invalid_url">URL noto\'g\'ri shakllangan yoki uning sxemasiga ruxsat berilmagan</string>
+    <string name="import_entries_reason_invalid_value">Qiymat qo\'llab-quvvatlanmaydigan turda</string>
+    <string name="import_entries_error_too_large">Fayl 10 MB dan katta</string>
+    <string name="import_entries_error_encoding">Fayl to\'g\'ri UTF-8 matni emas</string>
+    <string name="import_entries_error_encrypted">Shifrlangan eksportlar qo\'llab-quvvatlanmaydi</string>
+    <string name="import_entries_error_malformed">Fayl tuzilishi noto\'g\'ri</string>
+    <string name="import_entries_error_too_deep">Fayl juda chuqur ichma-ich joylashgan</string>
+    <string name="import_entries_error_too_many">Fayl 10000 dan ortiq yozuvni o\'z ichiga oladi</string>
+    <string name="import_entries_error_columns">Faylda parol ustuni hamda sarlavha yoki URL ustuni bo\'lishi kerak</string>
+    <string name="autofill_trusted_browsers_title">Ishonchli brauzerlar</string>
+    <string name="autofill_trusted_browsers_summary">Avtomatik to\'ldirishga qaysi veb-saytda ekaningizni aytishi mumkin bo\'lgan brauzerlar. O\'rnatilgan brauzerlar imzo orqali tekshiriladi.</string>
+    <string name="trusted_browsers_dialog_title">Qo\'shimcha ishonchli brauzerlar</string>
+    <string name="trusted_browsers_none">Boshqa brauzerlar o\'rnatilmagan.</string>
+    <string name="trusted_browsers_unsupported">Ishonchli brauzerlar uchun Android 9 yoki undan yuqori versiya kerak.</string>
+    <string name="trusted_browsers_confirm_title">Bu brauzerlarga ishonasizmi?</string>
+    <string name="trusted_browsers_confirm_message">Ishonchli brauzer KeePassPN ga qaysi veb-saytda ekaningizni aytadi, shu sayt uchun yozuvlar taklif qilinishi mumkin. Ishonch brauzerning joriy imzosiga bog\'langan va u o\'zgarsa, tugaydi.\\n\\n%1$s</string>
+    <string name="about_category_title">Ilova haqida</string>
+    <string name="check_for_updates">Yangilanishlarni tekshirish</string>
+    <string name="check_for_updates_summary">Relizlar sahifasini ochadi. KeePassPN internetga ulanmaydi.</string>
+    <string name="check_for_updates_dialog_message">O\'rnatilgan versiya: %1$s\\n\\nSo\'nggi versiya bilan solishtirish uchun relizlar sahifasini ochasizmi?</string>
+    <string name="open_releases_page">Relizlar sahifasini ochish</string>
+    <string name="releases_page_unavailable">Relizlar sahifasini ochadigan ilova yo\'q.</string>
 </resources>

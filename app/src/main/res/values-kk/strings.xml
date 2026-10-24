@@ -39,4 +39,53 @@
 Қолданба пайдаланушы деректерін жинамайды, ешбір серверге қосылмайды, тек жергілікті жерде жұмыс істейді және пайдаланушылардың құпиялылығын толық сақтайды.
 
 Біздің бостандығымызды сақтау, қателерді түзету, жаңа мүмкіндіктер қосу және жобаны белсенді ұстау үшін сіздің үлесіңізді күтеміз.</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">Импорттау</string>
+    <string name="import_entries_title">Файлдан импорттау</string>
+    <string name="import_entries_summary">CSV немесе JSON экспортын жаңа топқа импорттау</string>
+    <string name="import_entries_title_bar">Жазбаларды импорттау</string>
+    <string name="import_entries_intro">Басқа құпия сөз менеджерінен CSV немесе JSON экспортын таңдаңыз. Растамай тұрып ешнәрсе жазылмайды. Таңдалған файл өзгертілмейді және жойылмайды.</string>
+    <string name="import_entries_choose">Файлды таңдау</string>
+    <string name="import_entries_reading">Файл оқылуда</string>
+    <string name="import_entries_read_failed">Файлды оқу мүмкін емес</string>
+    <string name="import_entries_none">Бұл файлдан ешбір жазба импорттала алмайды</string>
+    <string name="import_entries_status_ready">Импорттамас бұрын төмендегі жазбаларды тексеріңіз</string>
+    <string name="import_entries_summary_count">%1$d жазба импорттауға дайын, %2$d жол өткізіп жіберілді</string>
+    <string name="import_entries_no_issues">Ешбір жол өткізілмеді</string>
+    <string name="import_entries_issue_line">%1$d жол: %2$s</string>
+    <string name="import_entries_issues_more">Және тағы %1$d өткізіп жіберілген жол</string>
+    <string name="import_entries_group_label">Жаңа топтың атауы</string>
+    <string name="import_entries_group_default">%1$s импорттау</string>
+    <string name="import_entries_group_invalid">Топ атауы бос, тым ұзын немесе жарамсыз таңбалар бар</string>
+    <string name="import_entries_cancel">Бас тарту</string>
+    <string name="import_entries_confirm">Импорттау</string>
+    <string name="import_entries_done">Жазбалар импортталды, %1$d жол өткізіп жіберілді</string>
+    <string name="import_entries_failed">Жазбаларды импорттау мүмкін емес</string>
+    <string name="import_entries_reason_missing_title">Атауы да, URL-і де жоқ</string>
+    <string name="import_entries_reason_too_long">Бір өріс тым ұзын</string>
+    <string name="import_entries_reason_invalid_character">Бір өрісте басқару таңбасы бар</string>
+    <string name="import_entries_reason_invalid_url">URL дұрыс емес немесе схемасына рұқсат етілмеген</string>
+    <string name="import_entries_reason_invalid_value">Мәннің түрі қолдау көрсетілмейді</string>
+    <string name="import_entries_error_too_large">Файл 10 MB-тан үлкен</string>
+    <string name="import_entries_error_encoding">Файл жарамды UTF-8 мәтіні емес</string>
+    <string name="import_entries_error_encrypted">Шифрланған экспорттар қолдау көрсетілмейді</string>
+    <string name="import_entries_error_malformed">Файлдың құрылымы жарамсыз</string>
+    <string name="import_entries_error_too_deep">Файл тым терең ұяланған</string>
+    <string name="import_entries_error_too_many">Файлда 10000-нан көп жазба бар</string>
+    <string name="import_entries_error_columns">Файлда құпия сөз бағаны және атау немесе URL бағаны болуы керек</string>
+    <string name="autofill_trusted_browsers_title">Сенімді браузерлер</string>
+    <string name="autofill_trusted_browsers_summary">Автотолтыруға қай веб-сайтта екеніңізді айта алатын браузерлер. Кіріктірілген браузерлер қолтаңба арқылы тексеріледі.</string>
+    <string name="trusted_browsers_dialog_title">Қосымша сенімді браузерлер</string>
+    <string name="trusted_browsers_none">Басқа браузерлер орнатылмаған.</string>
+    <string name="trusted_browsers_unsupported">Сенімді браузерлерге Android 9 немесе одан жоғары нұсқа қажет.</string>
+    <string name="trusted_browsers_confirm_title">Осы браузерлерге сенесіз бе?</string>
+    <string name="trusted_browsers_confirm_message">Сенімді браузер KeePassPN-ге қай веб-сайтта екеніңізді айтады, сондықтан сол сайттың жазбалары ұсынылуы мүмкін. Сенім браузердің ағымдағы қолтаңбасына байланысты және ол өзгерсе, аяқталады.\\n\\n%1$s</string>
+    <string name="about_category_title">Бағдарлама туралы</string>
+    <string name="check_for_updates">Жаңартуларды тексеру</string>
+    <string name="check_for_updates_summary">Шығарылымдар бетін ашады. KeePassPN интернетке қосылмайды.</string>
+    <string name="check_for_updates_dialog_message">Орнатылған нұсқа: %1$s\\n\\nСоңғы нұсқамен салыстыру үшін шығарылымдар бетін ашасыз ба?</string>
+    <string name="open_releases_page">Шығарылымдар бетін ашу</string>
+    <string name="releases_page_unavailable">Шығарылымдар бетін аша алатын қолданба жоқ.</string>
 </resources>

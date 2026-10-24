@@ -167,4 +167,53 @@ La aplikaĵo ne kolektas uzantajn datumojn, ne konektiĝas al iu ajn servilo, fu
 Por konservi nian liberecon, ripari erarojn, aldoni funkciojn kaj konservi la projekton aktiva, ni atendas vian kontribuon.</string>
 
     <string name="extended_ASCII">Etendita ASCII</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">Enporti</string>
+    <string name="import_entries_title">Enporti el dosiero</string>
+    <string name="import_entries_summary">Enporti CSV- aŭ JSON-eksporton en novan grupon</string>
+    <string name="import_entries_title_bar">Enporti erojn</string>
+    <string name="import_entries_intro">Elektu CSV- aŭ JSON-eksporton el alia pasvortadministrilo. Nenio estas skribita ĝis vi konfirmas. La elektita dosiero ne estas ŝanĝata nek forigata.</string>
+    <string name="import_entries_choose">Elekti dosieron</string>
+    <string name="import_entries_reading">Legado de la dosiero</string>
+    <string name="import_entries_read_failed">Ne eblas legi la dosieron</string>
+    <string name="import_entries_none">Neniu ero povas esti enportita el ĉi tiu dosiero</string>
+    <string name="import_entries_status_ready">Kontrolu la erojn sube antaŭ enporto</string>
+    <string name="import_entries_summary_count">%1$d eroj pretaj por enporto, %2$d vicoj preterlasitaj</string>
+    <string name="import_entries_no_issues">Neniu vico estis preterlasita</string>
+    <string name="import_entries_issue_line">Vico %1$d: %2$s</string>
+    <string name="import_entries_issues_more">Kaj %1$d pliaj preterlasitaj vicoj</string>
+    <string name="import_entries_group_label">Nomo de la nova grupo</string>
+    <string name="import_entries_group_default">Enporti %1$s</string>
+    <string name="import_entries_group_invalid">La nomo de la grupo estas malplena, tro longa aŭ enhavas nevalidajn signojn</string>
+    <string name="import_entries_cancel">Nuligi</string>
+    <string name="import_entries_confirm">Enporti</string>
+    <string name="import_entries_done">Eroj enportitaj, %1$d vicoj preterlasitaj</string>
+    <string name="import_entries_failed">Ne eblas enporti la erojn</string>
+    <string name="import_entries_reason_missing_title">Neniu titolo kaj neniu URL</string>
+    <string name="import_entries_reason_too_long">Kampo estas tro longa</string>
+    <string name="import_entries_reason_invalid_character">Kampo enhavas kontrolsignon</string>
+    <string name="import_entries_reason_invalid_url">La URL estas misformata aŭ ĝia skemo ne estas permesata</string>
+    <string name="import_entries_reason_invalid_value">Valoro havas nesubtenatan tipon</string>
+    <string name="import_entries_error_too_large">La dosiero estas pli granda ol 10 MB</string>
+    <string name="import_entries_error_encoding">La dosiero ne estas valida UTF-8-teksto</string>
+    <string name="import_entries_error_encrypted">Ĉifritaj eksportoj ne estas subtenataj</string>
+    <string name="import_entries_error_malformed">La strukturo de la dosiero estas nevalida</string>
+    <string name="import_entries_error_too_deep">La dosiero estas enmetita tro profunde</string>
+    <string name="import_entries_error_too_many">La dosiero enhavas pli ol 10000 erojn</string>
+    <string name="import_entries_error_columns">La dosiero bezonas pasvortan kolumnon kaj titolan aŭ URL-kolumnon</string>
+    <string name="autofill_trusted_browsers_title">Fidindaj retumiloj</string>
+    <string name="autofill_trusted_browsers_summary">Retumiloj, kiuj povas diri al aŭtomata plenigo, kiun retejon vi vizitas. Enkonstruitaj retumiloj estas kontrolataj per subskribo.</string>
+    <string name="trusted_browsers_dialog_title">Pliaj fidindaj retumiloj</string>
+    <string name="trusted_browsers_none">Neniu alia retumilo estas instalita.</string>
+    <string name="trusted_browsers_unsupported">Fidindaj retumiloj postulas Android 9 aŭ pli novan.</string>
+    <string name="trusted_browsers_confirm_title">Ĉu fidi ĉi tiujn retumilojn?</string>
+    <string name="trusted_browsers_confirm_message">Fidinda retumilo diras al KeePassPN, kiun retejon vi vizitas, por ke eroj por tiu retejo povu esti sugestataj. La fido ligiĝas al la nuna subskribo de la retumilo kaj finiĝas, se ĝi ŝanĝiĝas.\\n\\n%1$s</string>
+    <string name="about_category_title">Pri</string>
+    <string name="check_for_updates">Serĉi ĝisdatigojn</string>
+    <string name="check_for_updates_summary">Malfermas la paĝon de eldonoj. KeePassPN ne konektiĝas al la interreto.</string>
+    <string name="check_for_updates_dialog_message">Instalita versio: %1$s\\n\\nĈu malfermi la paĝon de eldonoj por kompari ĝin kun la plej nova versio?</string>
+    <string name="open_releases_page">Malfermi la paĝon de eldonoj</string>
+    <string name="releases_page_unavailable">Neniu aplikaĵo povas malfermi la paĝon de eldonoj.</string>
 </resources>

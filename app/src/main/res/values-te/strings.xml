@@ -65,4 +65,53 @@
 ఈ యాప్ వినియోగదారు డేటాను సేకరించదు, ఏ సర్వర్‌కూ కనెక్ట్ కాదు, స్థానికంగా మాత్రమే పనిచేస్తుంది, వినియోగదారుల గోప్యతను పూర్తిగా గౌరవిస్తుంది.
 
 మా స్వేచ్ఛను కాపాడుకోవడానికి, లోపాలను సరిచేయడానికి, కొత్త ఫీచర్లు జోడించడానికి, ప్రాజెక్ట్‌ను చురుకుగా ఉంచడానికి, మీ సహకారం కోసం మేము ఎదురు చూస్తున్నాము.</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">దిగుమతి</string>
+    <string name="import_entries_title">ఫైల్ నుండి దిగుమతి చేయండి</string>
+    <string name="import_entries_summary">CSV లేదా JSON ఎగుమతిని కొత్త సమూహంలోకి దిగుమతి చేయండి</string>
+    <string name="import_entries_title_bar">ఎంట్రీలను దిగుమతి చేయండి</string>
+    <string name="import_entries_intro">మరో పాస్‌వర్డ్ మేనేజర్ నుండి CSV లేదా JSON ఎగుమతిని ఎంచుకోండి. మీరు నిర్ధారించే వరకు ఏమీ వ్రాయబడదు. మీరు ఎంచుకున్న ఫైల్ మార్చబడదు లేదా తొలగించబడదు.</string>
+    <string name="import_entries_choose">ఫైల్‌ను ఎంచుకోండి</string>
+    <string name="import_entries_reading">ఫైల్ చదువుతోంది</string>
+    <string name="import_entries_read_failed">ఫైల్‌ను చదవడం సాధ్యం కాలేదు</string>
+    <string name="import_entries_none">ఈ ఫైల్ నుండి ఏ ఎంట్రీనీ దిగుమతి చేయలేము</string>
+    <string name="import_entries_status_ready">దిగుమతి చేసే ముందు కింద ఉన్న ఎంట్రీలను సమీక్షించండి</string>
+    <string name="import_entries_summary_count">దిగుమతికి సిద్ధంగా ఉన్న ఎంట్రీలు %1$d, దాటవేసిన వరుసలు %2$d</string>
+    <string name="import_entries_no_issues">ఏ వరుసనూ దాటవేయలేదు</string>
+    <string name="import_entries_issue_line">వరుస %1$d: %2$s</string>
+    <string name="import_entries_issues_more">ఇంకా %1$d దాటవేసిన వరుసలు</string>
+    <string name="import_entries_group_label">కొత్త సమూహం పేరు</string>
+    <string name="import_entries_group_default">%1$s ను దిగుమతి చేయి</string>
+    <string name="import_entries_group_invalid">సమూహం పేరు ఖాళీగా ఉంది, చాలా పొడవుగా ఉంది లేదా చెల్లని అక్షరాలు ఉన్నాయి</string>
+    <string name="import_entries_cancel">రద్దు చేయి</string>
+    <string name="import_entries_confirm">దిగుమతి చేయి</string>
+    <string name="import_entries_done">ఎంట్రీలు దిగుమతి అయ్యాయి, దాటవేసిన వరుసలు %1$d</string>
+    <string name="import_entries_failed">ఎంట్రీలను దిగుమతి చేయలేకపోయాం</string>
+    <string name="import_entries_reason_missing_title">శీర్షిక లేదు, URL కూడా లేదు</string>
+    <string name="import_entries_reason_too_long">ఒక ఫీల్డ్ చాలా పొడవుగా ఉంది</string>
+    <string name="import_entries_reason_invalid_character">ఒక ఫీల్డ్‌లో కంట్రోల్ అక్షరం ఉంది</string>
+    <string name="import_entries_reason_invalid_url">URL సరిగ్గా లేదు లేదా దాని స్కీమ్ అనుమతించబడదు</string>
+    <string name="import_entries_reason_invalid_value">ఒక విలువ మద్దతు లేని రకంలో ఉంది</string>
+    <string name="import_entries_error_too_large">ఫైల్ 10 MB కంటే పెద్దది</string>
+    <string name="import_entries_error_encoding">ఫైల్ చెల్లుబాటు అయ్యే UTF-8 టెక్స్ట్ కాదు</string>
+    <string name="import_entries_error_encrypted">ఎన్‌క్రిప్ట్ చేసిన ఎగుమతులకు మద్దతు లేదు</string>
+    <string name="import_entries_error_malformed">ఫైల్ నిర్మాణం చెల్లదు</string>
+    <string name="import_entries_error_too_deep">ఫైల్ చాలా లోతుగా నెస్ట్ చేయబడింది</string>
+    <string name="import_entries_error_too_many">ఫైల్‌లో 10000 కంటే ఎక్కువ ఎంట్రీలు ఉన్నాయి</string>
+    <string name="import_entries_error_columns">ఫైల్‌కు పాస్‌వర్డ్ కాలమ్, అలాగే శీర్షిక లేదా URL కాలమ్ అవసరం</string>
+    <string name="autofill_trusted_browsers_title">విశ్వసనీయ బ్రౌజర్లు</string>
+    <string name="autofill_trusted_browsers_summary">మీరు ఏ వెబ్‌సైట్‌లో ఉన్నారో ఆటోఫిల్‌కు తెలియజేయగల బ్రౌజర్లు. అంతర్నిర్మిత బ్రౌజర్లు సంతకం ద్వారా ధృవీకరించబడతాయి.</string>
+    <string name="trusted_browsers_dialog_title">అదనపు విశ్వసనీయ బ్రౌజర్లు</string>
+    <string name="trusted_browsers_none">ఇతర బ్రౌజర్లు ఏవీ ఇన్‌స్టాల్ చేయబడలేదు.</string>
+    <string name="trusted_browsers_unsupported">విశ్వసనీయ బ్రౌజర్లకు Android 9 లేదా అంతకంటే ఎక్కువ అవసరం.</string>
+    <string name="trusted_browsers_confirm_title">ఈ బ్రౌజర్లను విశ్వసించాలా?</string>
+    <string name="trusted_browsers_confirm_message">విశ్వసనీయ బ్రౌజర్ మీరు ఏ వెబ్‌సైట్‌లో ఉన్నారో KeePassPN కి తెలియజేస్తుంది, తద్వారా ఆ సైట్ కోసం ఎంట్రీలు సూచించబడతాయి. విశ్వాసం బ్రౌజర్ ప్రస్తుత సంతకానికి ముడిపడి ఉంటుంది, అది మారితే ముగుస్తుంది.\\n\\n%1$s</string>
+    <string name="about_category_title">గురించి</string>
+    <string name="check_for_updates">అప్‌డేట్‌ల కోసం తనిఖీ చేయి</string>
+    <string name="check_for_updates_summary">విడుదలల పేజీని తెరుస్తుంది. KeePassPN ఇంటర్నెట్‌కు కనెక్ట్ కాదు.</string>
+    <string name="check_for_updates_dialog_message">ఇన్‌స్టాల్ చేసిన వెర్షన్: %1$s\\n\\nతాజా వెర్షన్‌తో పోల్చడానికి విడుదలల పేజీని తెరవాలా?</string>
+    <string name="open_releases_page">విడుదలల పేజీని తెరవండి</string>
+    <string name="releases_page_unavailable">విడుదలల పేజీని తెరవగల యాప్ ఏదీ లేదు.</string>
 </resources>

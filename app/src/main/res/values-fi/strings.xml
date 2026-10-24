@@ -472,4 +472,53 @@ Sovellus ei kerää käyttäjien tietoja, ei yhdistä mihinkään palvelimeen, t
 Jotta säilyttäisimme vapautemme, korjaisimme virheitä, lisäisimme ominaisuuksia ja pitäisimme projektin aktiivisena, odotamme sinun panostasi.</string>
 
     <string name="extended_ASCII">Laajennettu ASCII</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">Tuo</string>
+    <string name="import_entries_title">Tuo tiedostosta</string>
+    <string name="import_entries_summary">Tuo CSV- tai JSON-vienti uuteen ryhmään</string>
+    <string name="import_entries_title_bar">Tuo merkinnät</string>
+    <string name="import_entries_intro">Valitse CSV- tai JSON-vienti toisesta salasanahallinnasta. Mitään ei kirjoiteta ennen vahvistusta. Valittua tiedostoa ei muuteta eikä poisteta.</string>
+    <string name="import_entries_choose">Valitse tiedosto</string>
+    <string name="import_entries_reading">Luetaan tiedostoa</string>
+    <string name="import_entries_read_failed">Tiedostoa ei voi lukea</string>
+    <string name="import_entries_none">Tästä tiedostosta ei voi tuoda yhtään merkintää</string>
+    <string name="import_entries_status_ready">Tarkista alla olevat merkinnät ennen tuontia</string>
+    <string name="import_entries_summary_count">%1$d merkintää valmiina tuotavaksi, %2$d riviä ohitettu</string>
+    <string name="import_entries_no_issues">Yhtään riviä ei ohitettu</string>
+    <string name="import_entries_issue_line">Rivi %1$d: %2$s</string>
+    <string name="import_entries_issues_more">Ja %1$d ohitettua riviä lisää</string>
+    <string name="import_entries_group_label">Uuden ryhmän nimi</string>
+    <string name="import_entries_group_default">Tuo %1$s</string>
+    <string name="import_entries_group_invalid">Ryhmän nimi on tyhjä, liian pitkä tai sisältää virheellisiä merkkejä</string>
+    <string name="import_entries_cancel">Peruuta</string>
+    <string name="import_entries_confirm">Tuo</string>
+    <string name="import_entries_done">Merkinnät tuotu, %1$d riviä ohitettu</string>
+    <string name="import_entries_failed">Merkintöjen tuonti ei onnistunut</string>
+    <string name="import_entries_reason_missing_title">Ei otsikkoa eikä URL-osoitetta</string>
+    <string name="import_entries_reason_too_long">Kenttä on liian pitkä</string>
+    <string name="import_entries_reason_invalid_character">Kenttä sisältää ohjausmerkin</string>
+    <string name="import_entries_reason_invalid_url">URL-osoite on virheellinen tai sen skeema ei ole sallittu</string>
+    <string name="import_entries_reason_invalid_value">Arvo on tyypiltään tukematon</string>
+    <string name="import_entries_error_too_large">Tiedosto on suurempi kuin 10 MB</string>
+    <string name="import_entries_error_encoding">Tiedosto ei ole kelvollista UTF-8-tekstiä</string>
+    <string name="import_entries_error_encrypted">Salattuja vientejä ei tueta</string>
+    <string name="import_entries_error_malformed">Tiedoston rakenne on virheellinen</string>
+    <string name="import_entries_error_too_deep">Tiedosto on sisäkkäin liian syvällä</string>
+    <string name="import_entries_error_too_many">Tiedostossa on yli 10000 merkintää</string>
+    <string name="import_entries_error_columns">Tiedostossa pitää olla salasanasarake sekä otsikko- tai URL-sarake</string>
+    <string name="autofill_trusted_browsers_title">Luotetut selaimet</string>
+    <string name="autofill_trusted_browsers_summary">Selaimet, jotka voivat kertoa automaattitäytölle, millä verkkosivulla olet. Sisäänrakennetut selaimet tarkistetaan allekirjoituksen perusteella.</string>
+    <string name="trusted_browsers_dialog_title">Lisäluotetut selaimet</string>
+    <string name="trusted_browsers_none">Muita selaimia ei ole asennettu.</string>
+    <string name="trusted_browsers_unsupported">Luotetut selaimet vaativat Android 9:n tai uudemman.</string>
+    <string name="trusted_browsers_confirm_title">Luotetaanko näihin selaimiin?</string>
+    <string name="trusted_browsers_confirm_message">Luotettu selain kertoo KeePassPN:lle, millä verkkosivulla olet, jotta sivun merkintöjä voidaan ehdottaa. Luottamus on sidottu selaimen nykyiseen allekirjoitukseen ja päättyy, jos se muuttuu.\\n\\n%1$s</string>
+    <string name="about_category_title">Tietoja</string>
+    <string name="check_for_updates">Tarkista päivitykset</string>
+    <string name="check_for_updates_summary">Avaa julkaisusivun. KeePassPN ei muodosta yhteyttä internetiin.</string>
+    <string name="check_for_updates_dialog_message">Asennettu versio: %1$s\\n\\nAvataanko julkaisusivu vertaamaan sitä uusimpaan versioon?</string>
+    <string name="open_releases_page">Avaa julkaisusivu</string>
+    <string name="releases_page_unavailable">Mikään sovellus ei voi avata julkaisusivua.</string>
 </resources>

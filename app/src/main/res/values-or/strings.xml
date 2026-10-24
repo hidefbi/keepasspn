@@ -42,4 +42,53 @@
 ଏହି ଆପ୍ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ତଥ୍ୟ ସଂଗ୍ରହ କରେ ନାହିଁ, କୌଣସି ସର୍ଭରରେ ସଂଯୁକ୍ତ ହୁଏ ନାହିଁ, କେବଳ ସ୍ଥାନୀୟ ଭାବରେ କାର୍ଯ୍ୟ କରେ ଏବଂ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ଗୋପନୀୟତାକୁ ସମ୍ପୂର୍ଣ୍ଣ ସମ୍ମାନ ଦିଏ।
 
 ଆମର ସ୍ୱାଧୀନତା ବଜାୟ ରଖିବା, ତ୍ରୁଟି ସଂଶୋଧନ କରିବା, ନୂତନ ବୈଶିଷ୍ଟ୍ୟ ଯୋଡିବା ଏବଂ ପ୍ରକଳ୍ପକୁ ସକ୍ରିୟ ରଖିବା ପାଇଁ ଆମେ ଆପଣଙ୍କ ଅବଦାନ ଆଶା କରୁଛୁ।</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">ଆମଦାନି</string>
+    <string name="import_entries_title">ଫାଇଲରୁ ଆମଦାନି କରନ୍ତୁ</string>
+    <string name="import_entries_summary">ଏକ CSV କିମ୍ବା JSON ଏକ୍ସପୋର୍ଟକୁ ନୂଆ ଗୋଷ୍ଠୀରେ ଆମଦାନି କରନ୍ତୁ</string>
+    <string name="import_entries_title_bar">ଏଣ୍ଟ୍ରିଗୁଡ଼ିକ ଆମଦାନି କରନ୍ତୁ</string>
+    <string name="import_entries_intro">ଅନ୍ୟ ପାସୱାର୍ଡ ମ୍ୟାନେଜରରୁ ଏକ CSV କିମ୍ବା JSON ଏକ୍ସପୋର୍ଟ ବାଛନ୍ତୁ। ଆପଣ ନିଶ୍ଚିତ ନକରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ଲେଖାଯିବ ନାହିଁ। ଆପଣ ବାଛିଥିବା ଫାଇଲ ବଦଳାଯିବ କିମ୍ବା ଡିଲିଟ ହେବ ନାହିଁ।</string>
+    <string name="import_entries_choose">ଫାଇଲ ବାଛନ୍ତୁ</string>
+    <string name="import_entries_reading">ଫାଇଲ ପଢ଼ାଯାଉଛି</string>
+    <string name="import_entries_read_failed">ଫାଇଲ ପଢ଼ାଯାଇପାରିଲା ନାହିଁ</string>
+    <string name="import_entries_none">ଏହି ଫାଇଲରୁ କୌଣସି ଏଣ୍ଟ୍ରି ଆମଦାନି କରାଯାଇପାରିବ ନାହିଁ</string>
+    <string name="import_entries_status_ready">ଆମଦାନି କରିବା ପୂର୍ବରୁ ନିମ୍ନରେ ଥିବା ଏଣ୍ଟ୍ରିଗୁଡ଼ିକ ଯାଞ୍ଚ କରନ୍ତୁ</string>
+    <string name="import_entries_summary_count">ଆମଦାନି ପାଇଁ %1$d ଏଣ୍ଟ୍ରି ପ୍ରସ୍ତୁତ, %2$d ସାରି ଛାଡ଼ି ଦିଆଗଲା</string>
+    <string name="import_entries_no_issues">କୌଣସି ସାରି ଛାଡ଼ି ଦିଆଯାଇ ନାହିଁ</string>
+    <string name="import_entries_issue_line">ସାରି %1$d: %2$s</string>
+    <string name="import_entries_issues_more">ଆହୁରି %1$d ସାରି ଛାଡ଼ି ଦିଆଗଲା</string>
+    <string name="import_entries_group_label">ନୂଆ ଗୋଷ୍ଠୀର ନାମ</string>
+    <string name="import_entries_group_default">%1$s ଆମଦାନି କରନ୍ତୁ</string>
+    <string name="import_entries_group_invalid">ଗୋଷ୍ଠୀ ନାମ ଖାଲି, ଅତ୍ୟଧିକ ଲମ୍ବା କିମ୍ବା ଅବୈଧ ଅକ୍ଷର ଧାରଣ କରେ</string>
+    <string name="import_entries_cancel">ବାତିଲ କରନ୍ତୁ</string>
+    <string name="import_entries_confirm">ଆମଦାନି କରନ୍ତୁ</string>
+    <string name="import_entries_done">ଏଣ୍ଟ୍ରି ଆମଦାନି ହେଲା, %1$d ସାରି ଛାଡ଼ି ଦିଆଗଲା</string>
+    <string name="import_entries_failed">ଏଣ୍ଟ୍ରିଗୁଡ଼ିକ ଆମଦାନି କରାଯାଇପାରିଲା ନାହିଁ</string>
+    <string name="import_entries_reason_missing_title">ଶିରୋନାମା ଏବଂ URL ଦୁଇଟି ନାହିଁ</string>
+    <string name="import_entries_reason_too_long">ଏକ ଫିଲ୍ଡ ଅତ୍ୟଧିକ ଲମ୍ବା</string>
+    <string name="import_entries_reason_invalid_character">ଏକ ଫିଲ୍ଡରେ ନିୟନ୍ତ୍ରଣ ଅକ୍ଷର ଅଛି</string>
+    <string name="import_entries_reason_invalid_url">URL ତ୍ରୁଟିପୂର୍ଣ୍ଣ କିମ୍ବା ଏହାର ସ୍କିମ ଅନୁମତିପ୍ରାପ୍ତ ନୁହେଁ</string>
+    <string name="import_entries_reason_invalid_value">ଏକ ମୂଲ୍ୟର ପ୍ରକାର ସମର୍ଥିତ ନୁହେଁ</string>
+    <string name="import_entries_error_too_large">ଫାଇଲଟି 10 MB ଠାରୁ ବଡ଼</string>
+    <string name="import_entries_error_encoding">ଫାଇଲଟି ବୈଧ UTF-8 ପାଠ୍ୟ ନୁହେଁ</string>
+    <string name="import_entries_error_encrypted">ଏନକ୍ରିପ୍ଟ ହୋଇଥିବା ଏକ୍ସପୋର୍ଟ ସମର୍ଥିତ ନୁହେଁ</string>
+    <string name="import_entries_error_malformed">ଫାଇଲର ଗଠନ ଅବୈଧ</string>
+    <string name="import_entries_error_too_deep">ଫାଇଲଟି ଅତ୍ୟଧିକ ଗଭୀର ଭାବେ ନେଷ୍ଟେଡ୍ ଅଟେ</string>
+    <string name="import_entries_error_too_many">ଫାଇଲରେ 10000 ରୁ ଅଧିକ ଏଣ୍ଟ୍ରି ଅଛି</string>
+    <string name="import_entries_error_columns">ଫାଇଲରେ ଏକ ପାସୱାର୍ଡ କଲମ ଏବଂ ଏକ ଶିରୋନାମା କିମ୍ବା URL କଲମ ଥିବା ଆବଶ୍ୟକ</string>
+    <string name="autofill_trusted_browsers_title">ବିଶ୍ୱସନୀୟ ବ୍ରାଉଜର</string>
+    <string name="autofill_trusted_browsers_summary">ଯେଉଁ ବ୍ରାଉଜରଗୁଡ଼ିକ ଅଟୋଫିଲକୁ ଆପଣ କେଉଁ ୱେବସାଇଟରେ ଅଛନ୍ତି ତାହା କହିପାରିବ। ଅନ୍ତର୍ନିର୍ମିତ ବ୍ରାଉଜରଗୁଡ଼ିକ ସିଗ୍ନେଚର ଦ୍ୱାରା ଯାଞ୍ଚ ହୁଏ।</string>
+    <string name="trusted_browsers_dialog_title">ଅତିରିକ୍ତ ବିଶ୍ୱସନୀୟ ବ୍ରାଉଜର</string>
+    <string name="trusted_browsers_none">ଅନ୍ୟ କୌଣସି ବ୍ରାଉଜର ସଂସ୍ଥାପିତ ନାହିଁ।</string>
+    <string name="trusted_browsers_unsupported">ବିଶ୍ୱସନୀୟ ବ୍ରାଉଜର ପାଇଁ Android 9 କିମ୍ବା ଉଚ୍ଚତର ଆବଶ୍ୟକ।</string>
+    <string name="trusted_browsers_confirm_title">ଏହି ବ୍ରାଉଜରଗୁଡ଼ିକୁ ବିଶ୍ୱାସ କରିବେ କି?</string>
+    <string name="trusted_browsers_confirm_message">ଏକ ବିଶ୍ୱସନୀୟ ବ୍ରାଉଜର KeePassPN କୁ କହେ ଆପଣ କେଉଁ ୱେବସାଇଟରେ ଅଛନ୍ତି, ଯାହା ଦ୍ୱାରା ସେହି ସାଇଟ ପାଇଁ ଏଣ୍ଟ୍ରି ସୁପାରିଶ କରାଯାଇପାରିବ। ବିଶ୍ୱାସ ବ୍ରାଉଜରର ବର୍ତ୍ତମାନର ସିଗ୍ନେଚର ସହ ଜଡ଼ିତ ଏବଂ ତାହା ବଦଳିଗଲେ ଶେଷ ହୁଏ।\\n\\n%1$s</string>
+    <string name="about_category_title">ବିବରଣୀ</string>
+    <string name="check_for_updates">ଅପଡେଟ ପାଇଁ ଯାଞ୍ଚ କରନ୍ତୁ</string>
+    <string name="check_for_updates_summary">ରିଲିଜ ପୃଷ୍ଠା ଖୋଲେ। KeePassPN ଇଣ୍ଟରନେଟ ସହ ସଂଯୋଗ କରେ ନାହିଁ।</string>
+    <string name="check_for_updates_dialog_message">ସଂସ୍ଥାପିତ ସଂସ୍କରଣ: %1$s\\n\\nସର୍ବଶେଷ ସଂସ୍କରଣ ସହ ତୁଳନା କରିବାକୁ ରିଲିଜ ପୃଷ୍ଠା ଖୋଲିବେ କି?</string>
+    <string name="open_releases_page">ରିଲିଜ ପୃଷ୍ଠା ଖୋଲନ୍ତୁ</string>
+    <string name="releases_page_unavailable">କୌଣସି ଆପ ରିଲିଜ ପୃଷ୍ଠା ଖୋଲିପାରିବ ନାହିଁ।</string>
 </resources>

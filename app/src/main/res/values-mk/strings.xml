@@ -70,4 +70,53 @@
 За да ја зачуваме нашата слобода, да поправаме грешки, да додаваме функции и проектот да остане активен, очекуваме вашиот придонес.</string>
 
     <string name="extended_ASCII">Проширен ASCII</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">Увоз</string>
+    <string name="import_entries_title">Увези од датотека</string>
+    <string name="import_entries_summary">Увези CSV или JSON извоз во нова група</string>
+    <string name="import_entries_title_bar">Увези записи</string>
+    <string name="import_entries_intro">Изберете CSV или JSON извоз од друг менаџер на лозинки. Ништо не се запишува додека не потврдите. Датотеката што ја избирате не се менува и не се брише.</string>
+    <string name="import_entries_choose">Избери датотека</string>
+    <string name="import_entries_reading">Се чита датотеката</string>
+    <string name="import_entries_read_failed">Датотеката не може да се прочита</string>
+    <string name="import_entries_none">Од оваа датотека не може да се увезе ниту еден запис</string>
+    <string name="import_entries_status_ready">Прегледајте ги записите подолу пред увоз</string>
+    <string name="import_entries_summary_count">%1$d записи се подготвени за увоз, %2$d редови се прескокнати</string>
+    <string name="import_entries_no_issues">Ниту еден ред не е прескокнат</string>
+    <string name="import_entries_issue_line">Ред %1$d: %2$s</string>
+    <string name="import_entries_issues_more">Уште %1$d прескокнати редови</string>
+    <string name="import_entries_group_label">Име на новата група</string>
+    <string name="import_entries_group_default">Увези %1$s</string>
+    <string name="import_entries_group_invalid">Името на групата е празно, предолго или содржи неважечки знаци</string>
+    <string name="import_entries_cancel">Откажи</string>
+    <string name="import_entries_confirm">Увези</string>
+    <string name="import_entries_done">Записите се увезени, прескокнати се %1$d редови</string>
+    <string name="import_entries_failed">Записите не можат да се увезат</string>
+    <string name="import_entries_reason_missing_title">Нема наслов ниту URL</string>
+    <string name="import_entries_reason_too_long">Поле е предолго</string>
+    <string name="import_entries_reason_invalid_character">Поле содржи контролен знак</string>
+    <string name="import_entries_reason_invalid_url">URL-то е неправилно или шемата не е дозволена</string>
+    <string name="import_entries_reason_invalid_value">Вредноста има неподдржан тип</string>
+    <string name="import_entries_error_too_large">Датотеката е поголема од 10 MB</string>
+    <string name="import_entries_error_encoding">Датотеката не е валиден текст во UTF-8</string>
+    <string name="import_entries_error_encrypted">Шифрирани извози не се поддржани</string>
+    <string name="import_entries_error_malformed">Структурата на датотеката е неважечка</string>
+    <string name="import_entries_error_too_deep">Датотеката е премногу длабоко вгнездена</string>
+    <string name="import_entries_error_too_many">Датотеката содржи повеќе од 10000 записи</string>
+    <string name="import_entries_error_columns">Датотеката треба да има колона со лозинка и колона со наслов или URL</string>
+    <string name="autofill_trusted_browsers_title">Доверливи прелистувачи</string>
+    <string name="autofill_trusted_browsers_summary">Прелистувачи што можат да му кажат на автоматското пополнување на кој веб-сајт сте. Вградените прелистувачи се проверуваат по потпис.</string>
+    <string name="trusted_browsers_dialog_title">Дополнителни доверливи прелистувачи</string>
+    <string name="trusted_browsers_none">Нема други инсталирани прелистувачи.</string>
+    <string name="trusted_browsers_unsupported">Доверливите прелистувачи бараат Android 9 или понов.</string>
+    <string name="trusted_browsers_confirm_title">Да се веруваат овие прелистувачи?</string>
+    <string name="trusted_browsers_confirm_message">Доверлив прелистувач му кажува на KeePassPN на кој веб-сајт сте, за да може да се предложат записи за тој сајт. Довербата е врзана за тековниот потпис на прелистувачот и престанува ако тој се промени.\\n\\n%1$s</string>
+    <string name="about_category_title">За апликацијата</string>
+    <string name="check_for_updates">Провери за ажурирања</string>
+    <string name="check_for_updates_summary">Ја отвора страницата со изданија. KeePassPN не се поврзува со интернет.</string>
+    <string name="check_for_updates_dialog_message">Инсталирана верзија: %1$s\\n\\nДа ја отворам страницата со изданија за споредба со најновата верзија?</string>
+    <string name="open_releases_page">Отвори страница со изданија</string>
+    <string name="releases_page_unavailable">Ниту една апликација не може да ја отвори страницата со изданија.</string>
 </resources>

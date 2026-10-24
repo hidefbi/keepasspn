@@ -309,4 +309,53 @@ Hindi nangangalap ang app ng datos ng user, hindi kumokonekta sa anumang server,
 Upang mapanatili ang aming kalayaan, ayusin ang mga bug, magdagdag ng mga feature, at panatilihing aktibo ang proyekto, umaasa kami sa iyong kontribusyon.</string>
 
     <string name="extended_ASCII">Napalawak na ASCII</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">I-import</string>
+    <string name="import_entries_title">Mag-import mula sa file</string>
+    <string name="import_entries_summary">I-import ang CSV o JSON export sa bagong grupo</string>
+    <string name="import_entries_title_bar">I-import ang mga entry</string>
+    <string name="import_entries_intro">Pumili ng CSV o JSON export mula sa ibang password manager. Walang isusulat hanggang hindi mo kinukumpirma. Hindi babaguhin o buburahin ang file na pipiliin mo.</string>
+    <string name="import_entries_choose">Pumili ng file</string>
+    <string name="import_entries_reading">Binabasa ang file</string>
+    <string name="import_entries_read_failed">Hindi mabasa ang file</string>
+    <string name="import_entries_none">Walang entry na maaaring i-import mula sa file na ito</string>
+    <string name="import_entries_status_ready">Suriin ang mga entry sa ibaba bago mag-import</string>
+    <string name="import_entries_summary_count">%1$d entry ang handa nang i-import, %2$d row ang nilaktawan</string>
+    <string name="import_entries_no_issues">Walang row na nilaktawan</string>
+    <string name="import_entries_issue_line">Row %1$d: %2$s</string>
+    <string name="import_entries_issues_more">At %1$d pang row na nilaktawan</string>
+    <string name="import_entries_group_label">Pangalan ng bagong grupo</string>
+    <string name="import_entries_group_default">I-import ang %1$s</string>
+    <string name="import_entries_group_invalid">Walang laman ang pangalan ng grupo, masyadong mahaba, o may hindi wastong karakter</string>
+    <string name="import_entries_cancel">Kanselahin</string>
+    <string name="import_entries_confirm">I-import</string>
+    <string name="import_entries_done">Na-import ang mga entry, %1$d row ang nilaktawan</string>
+    <string name="import_entries_failed">Hindi ma-import ang mga entry</string>
+    <string name="import_entries_reason_missing_title">Walang pamagat at walang URL</string>
+    <string name="import_entries_reason_too_long">Masyadong mahaba ang isang field</string>
+    <string name="import_entries_reason_invalid_character">May control character ang isang field</string>
+    <string name="import_entries_reason_invalid_url">Sira ang URL o hindi pinapayagan ang scheme nito</string>
+    <string name="import_entries_reason_invalid_value">Hindi suportadong uri ang isang value</string>
+    <string name="import_entries_error_too_large">Mas malaki sa 10 MB ang file</string>
+    <string name="import_entries_error_encoding">Hindi valid na UTF-8 text ang file</string>
+    <string name="import_entries_error_encrypted">Hindi sinusuportahan ang mga naka-encrypt na export</string>
+    <string name="import_entries_error_malformed">Hindi wasto ang istruktura ng file</string>
+    <string name="import_entries_error_too_deep">Masyadong malalim ang pagkaka-nest ng file</string>
+    <string name="import_entries_error_too_many">Lampas sa 10000 entry ang file</string>
+    <string name="import_entries_error_columns">Kailangan ng file ng password column at title o URL column</string>
+    <string name="autofill_trusted_browsers_title">Mga pinagkakatiwalaang browser</string>
+    <string name="autofill_trusted_browsers_summary">Mga browser na maaaring magsabi sa autofill kung aling website ka naroroon. Bine-verify ng signature ang mga built-in na browser.</string>
+    <string name="trusted_browsers_dialog_title">Karagdagang pinagkakatiwalaang browser</string>
+    <string name="trusted_browsers_none">Walang ibang naka-install na browser.</string>
+    <string name="trusted_browsers_unsupported">Kailangan ng pinagkakatiwalaang browser ang Android 9 o mas mataas.</string>
+    <string name="trusted_browsers_confirm_title">Pagkatiwalaan ang mga browser na ito?</string>
+    <string name="trusted_browsers_confirm_message">Sinasabi ng pinagkakatiwalaang browser sa KeePassPN kung aling website ka naroroon, para maipakita ang mga entry para sa site na iyon. Nakatali ang tiwala sa kasalukuyang signature ng browser at magtatapos kapag nagbago ito.\\n\\n%1$s</string>
+    <string name="about_category_title">Tungkol</string>
+    <string name="check_for_updates">Tingnan ang mga update</string>
+    <string name="check_for_updates_summary">Binubuksan ang releases page. Hindi kumokonekta sa internet ang KeePassPN.</string>
+    <string name="check_for_updates_dialog_message">Naka-install na bersyon: %1$s\\n\\nBuksan ang releases page para ihambing ito sa pinakabagong bersyon?</string>
+    <string name="open_releases_page">Buksan ang releases page</string>
+    <string name="releases_page_unavailable">Walang app na makapagbubukas ng releases page.</string>
 </resources>

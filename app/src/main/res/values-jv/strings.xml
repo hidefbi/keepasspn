@@ -62,4 +62,53 @@ Aplikasi iki ora ngumpulake data pangguna, ora nyambung menyang server apa wae, 
 Kanggo njaga kebebasan kita, mbenerake bug, nambah fitur, lan njaga proyek tetep aktif, kita ngarep-arep kontribusi sampeyan.</string>
 
     <string name="extended_ASCII">ASCII lengkap</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">Impor</string>
+    <string name="import_entries_title">Impor saka berkas</string>
+    <string name="import_entries_summary">Impor ekspor CSV utawa JSON menyang grup anyar</string>
+    <string name="import_entries_title_bar">Impor entri</string>
+    <string name="import_entries_intro">Pilih ekspor CSV utawa JSON saka manajer sandi liyane. Ora ana sing ditulis nganti sampeyan konfirmasi. Berkas sing dipilih ora bakal diowahi utawa dibusak.</string>
+    <string name="import_entries_choose">Pilih berkas</string>
+    <string name="import_entries_reading">Maca berkas</string>
+    <string name="import_entries_read_failed">Ora bisa maca berkas</string>
+    <string name="import_entries_none">Ora ana entri sing bisa diimpor saka berkas iki</string>
+    <string name="import_entries_status_ready">Priksa entri ing ngisor sadurunge ngimpor</string>
+    <string name="import_entries_summary_count">%1$d entri siap diimpor, %2$d baris dilewati</string>
+    <string name="import_entries_no_issues">Ora ana baris sing dilewati</string>
+    <string name="import_entries_issue_line">Baris %1$d: %2$s</string>
+    <string name="import_entries_issues_more">Lan %1$d baris liyane sing dilewati</string>
+    <string name="import_entries_group_label">Jeneng grup anyar</string>
+    <string name="import_entries_group_default">Impor %1$s</string>
+    <string name="import_entries_group_invalid">Jeneng grup kosong, dawa banget, utawa ngandhut karakter sing ora sah</string>
+    <string name="import_entries_cancel">Batal</string>
+    <string name="import_entries_confirm">Impor</string>
+    <string name="import_entries_done">Entri wis diimpor, %1$d baris dilewati</string>
+    <string name="import_entries_failed">Ora bisa ngimpor entri</string>
+    <string name="import_entries_reason_missing_title">Ora ana judul lan ora ana URL</string>
+    <string name="import_entries_reason_too_long">Salah sawijining kolom dawa banget</string>
+    <string name="import_entries_reason_invalid_character">Salah sawijining kolom ngandhut karakter kontrol</string>
+    <string name="import_entries_reason_invalid_url">URL rusak utawa skema ora diidini</string>
+    <string name="import_entries_reason_invalid_value">Salah sawijining nilai nduweni jinis sing ora didhukung</string>
+    <string name="import_entries_error_too_large">Berkas luwih gedhe tinimbang 10 MB</string>
+    <string name="import_entries_error_encoding">Berkas dudu teks UTF-8 sing sah</string>
+    <string name="import_entries_error_encrypted">Ekspor sing dienkripsi ora didhukung</string>
+    <string name="import_entries_error_malformed">Struktur berkas ora sah</string>
+    <string name="import_entries_error_too_deep">Berkas kesarang banget</string>
+    <string name="import_entries_error_too_many">Berkas ngandhut luwih saka 10000 entri</string>
+    <string name="import_entries_error_columns">Berkas kudu duwe kolom sandi lan kolom judul utawa URL</string>
+    <string name="autofill_trusted_browsers_title">Browser sing dipercaya</string>
+    <string name="autofill_trusted_browsers_summary">Browser sing bisa ngandhani autofill situs web endi sing lagi sampeyan buka. Browser bawaan diverifikasi nganggo tandha tangan.</string>
+    <string name="trusted_browsers_dialog_title">Browser sing dipercaya tambahan</string>
+    <string name="trusted_browsers_none">Ora ana browser liyane sing keinstal.</string>
+    <string name="trusted_browsers_unsupported">Browser sing dipercaya mbutuhake Android 9 utawa luwih anyar.</string>
+    <string name="trusted_browsers_confirm_title">Percaya browser iki?</string>
+    <string name="trusted_browsers_confirm_message">Browser sing dipercaya ngandhani KeePassPN situs web endi sing lagi sampeyan buka, supaya entri kanggo situs kasebut bisa disaranake. Kepercayaan kasambung karo tandha tangan browser saiki lan bakal rampung yen tandha tangan kasebut owah.\\n\\n%1$s</string>
+    <string name="about_category_title">Babagan</string>
+    <string name="check_for_updates">Priksa pembaruan</string>
+    <string name="check_for_updates_summary">Mbukak kaca rilis. KeePassPN ora nyambung menyang internet.</string>
+    <string name="check_for_updates_dialog_message">Versi sing diinstal: %1$s\\n\\nBukak kaca rilis kanggo mbandhingake karo versi paling anyar?</string>
+    <string name="open_releases_page">Bukak kaca rilis</string>
+    <string name="releases_page_unavailable">Ora ana aplikasi sing bisa mbukak kaca rilis.</string>
 </resources>

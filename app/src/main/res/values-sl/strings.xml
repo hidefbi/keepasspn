@@ -94,4 +94,53 @@ Aplikacija ne zbira uporabniških podatkov, ne povezuje se z nobenim strežnikom
 Da bi ohranili svobodo, odpravljali napake, dodajali funkcije in ohranjali projekt aktivnega, računamo na vaš prispevek.</string>
 
     <string name="extended_ASCII">Razširjeni ASCII</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">Uvoz</string>
+    <string name="import_entries_title">Uvoz iz datoteke</string>
+    <string name="import_entries_summary">Uvozi izvoz CSV ali JSON v novo skupino</string>
+    <string name="import_entries_title_bar">Uvoz vnosov</string>
+    <string name="import_entries_intro">Izberite izvoz CSV ali JSON iz drugega upravitelja gesel. Dokler ne potrdite, ni nič zapisano. Izbrana datoteka ni spremenjena ali izbrisana.</string>
+    <string name="import_entries_choose">Izberi datoteko</string>
+    <string name="import_entries_reading">Branje datoteke</string>
+    <string name="import_entries_read_failed">Datoteke ni mogoče prebrati</string>
+    <string name="import_entries_none">Iz te datoteke ni mogoče uvoziti nobenega vnosa</string>
+    <string name="import_entries_status_ready">Pred uvozom preglejte spodnje vnose</string>
+    <string name="import_entries_summary_count">Pripravljenih za uvoz vnosov: %1$d, preskočenih vrstic: %2$d</string>
+    <string name="import_entries_no_issues">Nobena vrstica ni bila preskočena</string>
+    <string name="import_entries_issue_line">Vrstica %1$d: %2$s</string>
+    <string name="import_entries_issues_more">Še %1$d preskočenih vrstic</string>
+    <string name="import_entries_group_label">Ime nove skupine</string>
+    <string name="import_entries_group_default">Uvoz %1$s</string>
+    <string name="import_entries_group_invalid">Ime skupine je prazno, predolgo ali vsebuje neveljavne znake</string>
+    <string name="import_entries_cancel">Prekliči</string>
+    <string name="import_entries_confirm">Uvozi</string>
+    <string name="import_entries_done">Vnosi uvoženi, preskočenih vrstic: %1$d</string>
+    <string name="import_entries_failed">Vnosov ni mogoče uvoziti</string>
+    <string name="import_entries_reason_missing_title">Ni naslova in ni URL-ja</string>
+    <string name="import_entries_reason_too_long">Polje je predolgo</string>
+    <string name="import_entries_reason_invalid_character">Polje vsebuje kontrolni znak</string>
+    <string name="import_entries_reason_invalid_url">URL je neveljaven ali njegova shema ni dovoljena</string>
+    <string name="import_entries_reason_invalid_value">Vrednost ima nepodprt tip</string>
+    <string name="import_entries_error_too_large">Datoteka je večja od 10 MB</string>
+    <string name="import_entries_error_encoding">Datoteka ni veljavno besedilo UTF-8</string>
+    <string name="import_entries_error_encrypted">Šifrirani izvozi niso podprti</string>
+    <string name="import_entries_error_malformed">Struktura datoteke je neveljavna</string>
+    <string name="import_entries_error_too_deep">Datoteka je pregloboko gnezdena</string>
+    <string name="import_entries_error_too_many">Datoteka vsebuje več kot 10000 vnosov</string>
+    <string name="import_entries_error_columns">Datoteka potrebuje stolpec za geslo ter stolpec za naslov ali URL</string>
+    <string name="autofill_trusted_browsers_title">Zaupanja vredni brskalniki</string>
+    <string name="autofill_trusted_browsers_summary">Brskalniki, ki lahko samodejnemu polnjenju sporočijo, na katerem spletnem mestu ste. Vgrajeni brskalniki se preverijo s podpisom.</string>
+    <string name="trusted_browsers_dialog_title">Dodatni zaupanja vredni brskalniki</string>
+    <string name="trusted_browsers_none">Drugi brskalniki niso nameščeni.</string>
+    <string name="trusted_browsers_unsupported">Zaupanja vredni brskalniki zahtevajo Android 9 ali novejši.</string>
+    <string name="trusted_browsers_confirm_title">Zaupate tem brskalnikom?</string>
+    <string name="trusted_browsers_confirm_message">Zaupanja vreden brskalnik sporoči KeePassPN, na katerem spletnem mestu ste, da se lahko predlagajo vnosi za to mesto. Zaupanje je vezano na trenutni podpis brskalnika in preneha veljati, če se podpis spremeni.\\n\\n%1$s</string>
+    <string name="about_category_title">O aplikaciji</string>
+    <string name="check_for_updates">Preveri posodobitve</string>
+    <string name="check_for_updates_summary">Odpre stran z izdajami. KeePassPN ne vzpostavi povezave z internetom.</string>
+    <string name="check_for_updates_dialog_message">Nameščena različica: %1$s\\n\\nOdpri stran z izdajami za primerjavo z najnovejšo različico?</string>
+    <string name="open_releases_page">Odpri stran z izdajami</string>
+    <string name="releases_page_unavailable">Nobena aplikacija ne more odpreti strani z izdajami.</string>
 </resources>

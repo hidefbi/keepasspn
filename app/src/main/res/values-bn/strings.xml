@@ -364,4 +364,53 @@
 আমাদের স্বাধীনতা রক্ষা করতে, বাগ ঠিক করতে, নতুন ফিচার যোগ করতে এবং প্রকল্পটিকে সক্রিয় রাখতে, আমরা আপনার অবদানের অপেক্ষায় আছি।</string>
 
     <string name="extended_ASCII">বর্ধিত ASCII</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">আমদানি</string>
+    <string name="import_entries_title">একটি ফাইল থেকে আমদানি</string>
+    <string name="import_entries_summary">একটি CSV বা JSON রপ্তানি নতুন গ্রুপে আমদানি করুন</string>
+    <string name="import_entries_title_bar">এন্ট্রি আমদানি</string>
+    <string name="import_entries_intro">অন্য পাসওয়ার্ড ম্যানেজার থেকে একটি CSV বা JSON রপ্তানি বেছে নিন। আপনি নিশ্চিত না করা পর্যন্ত কিছু লেখা হবে না। আপনার বেছে নেওয়া ফাইলটি পরিবর্তিত বা মুছে ফেলা হবে না।</string>
+    <string name="import_entries_choose">ফাইল বেছে নিন</string>
+    <string name="import_entries_reading">ফাইল পড়া হচ্ছে</string>
+    <string name="import_entries_read_failed">ফাইলটি পড়া যায়নি</string>
+    <string name="import_entries_none">এই ফাইল থেকে কোনো এন্ট্রি আমদানি করা যাবে না</string>
+    <string name="import_entries_status_ready">আমদানি করার আগে নিচের এন্ট্রিগুলো যাচাই করুন</string>
+    <string name="import_entries_summary_count">%1$d টি এন্ট্রি আমদানির জন্য প্রস্তুত, %2$d টি সারি বাদ দেওয়া হয়েছে</string>
+    <string name="import_entries_no_issues">কোনো সারি বাদ দেওয়া হয়নি</string>
+    <string name="import_entries_issue_line">সারি %1$d: %2$s</string>
+    <string name="import_entries_issues_more">এবং আরও %1$d টি সারি বাদ দেওয়া হয়েছে</string>
+    <string name="import_entries_group_label">নতুন গ্রুপের নাম</string>
+    <string name="import_entries_group_default">%1$s আমদানি</string>
+    <string name="import_entries_group_invalid">গ্রুপের নাম ফাঁকা, অনেক লম্বা বা এতে অবৈধ অক্ষর আছে</string>
+    <string name="import_entries_cancel">বাতিল</string>
+    <string name="import_entries_confirm">আমদানি</string>
+    <string name="import_entries_done">এন্ট্রি আমদানি হয়েছে, %1$d টি সারি বাদ দেওয়া হয়েছে</string>
+    <string name="import_entries_failed">এন্ট্রিগুলো আমদানি করা যায়নি</string>
+    <string name="import_entries_reason_missing_title">কোনো শিরোনাম বা URL নেই</string>
+    <string name="import_entries_reason_too_long">একটি ঘর অনেক লম্বা</string>
+    <string name="import_entries_reason_invalid_character">একটি ঘরে নিয়ন্ত্রণ অক্ষর আছে</string>
+    <string name="import_entries_reason_invalid_url">URL ত্রুটিপূর্ণ অথবা এর স্কিম অনুমোদিত নয়</string>
+    <string name="import_entries_reason_invalid_value">একটি মান অসমর্থিত ধরনের</string>
+    <string name="import_entries_error_too_large">ফাইলটি 10 MB-এর চেয়ে বড়</string>
+    <string name="import_entries_error_encoding">ফাইলটি বৈধ UTF-8 টেক্সট নয়</string>
+    <string name="import_entries_error_encrypted">এনক্রিপ্টেড রপ্তানি সমর্থিত নয়</string>
+    <string name="import_entries_error_malformed">ফাইলের গঠন অবৈধ</string>
+    <string name="import_entries_error_too_deep">ফাইলটি অত্যধিক গভীরভাবে নেস্টেড</string>
+    <string name="import_entries_error_too_many">ফাইলে 10000 এর বেশি এন্ট্রি আছে</string>
+    <string name="import_entries_error_columns">ফাইলে একটি পাসওয়ার্ড কলাম এবং একটি শিরোনাম বা URL কলাম থাকতে হবে</string>
+    <string name="autofill_trusted_browsers_title">বিশ্বস্ত ব্রাউজার</string>
+    <string name="autofill_trusted_browsers_summary">যে ব্রাউজারগুলো অটোফিলকে জানাতে পারে আপনি কোন ওয়েবসাইটে আছেন। বিল্ট-ইন ব্রাউজার স্বাক্ষর দিয়ে যাচাই করা হয়।</string>
+    <string name="trusted_browsers_dialog_title">অতিরিক্ত বিশ্বস্ত ব্রাউজার</string>
+    <string name="trusted_browsers_none">অন্য কোনো ব্রাউজার ইনস্টল করা নেই।</string>
+    <string name="trusted_browsers_unsupported">বিশ্বস্ত ব্রাউজারের জন্য Android 9 বা তার উপরের সংস্করণ প্রয়োজন।</string>
+    <string name="trusted_browsers_confirm_title">এই ব্রাউজারগুলোকে বিশ্বাস করবেন?</string>
+    <string name="trusted_browsers_confirm_message">একটি বিশ্বস্ত ব্রাউজার KeePassPN-কে জানায় আপনি কোন ওয়েবসাইটে আছেন, যাতে সেই সাইটের এন্ট্রি প্রস্তাব করা যায়। বিশ্বাস ব্রাউজারের বর্তমান স্বাক্ষরের সঙ্গে যুক্ত এবং স্বাক্ষর বদলালে তা শেষ হয়ে যায়।\\n\\n%1$s</string>
+    <string name="about_category_title">সম্পর্কে</string>
+    <string name="check_for_updates">আপডেট দেখুন</string>
+    <string name="check_for_updates_summary">রিলিজ পৃষ্ঠা খোলে। KeePassPN ইন্টারনেটের সাথে সংযুক্ত হয় না।</string>
+    <string name="check_for_updates_dialog_message">ইনস্টল করা সংস্করণ: %1$s\\n\\nসর্বশেষ সংস্করণের সাথে তুলনা করতে রিলিজ পৃষ্ঠা খুলবেন?</string>
+    <string name="open_releases_page">রিলিজ পৃষ্ঠা খুলুন</string>
+    <string name="releases_page_unavailable">রিলিজ পৃষ্ঠা খুলতে পারে এমন কোনো অ্যাপ নেই।</string>
 </resources>

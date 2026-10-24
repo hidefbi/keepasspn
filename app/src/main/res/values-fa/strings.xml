@@ -335,4 +335,53 @@
 برای حفظ آزادی‌مان، رفع اشکال، افزودن امکانات و فعال نگه داشتن پروژه، منتظر مشارکت شما هستیم.</string>
 
     <string name="extended_ASCII">گسترش ASCII</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">وارد کردن</string>
+    <string name="import_entries_title">وارد کردن از یک فایل</string>
+    <string name="import_entries_summary">وارد کردن خروجی CSV یا JSON در یک گروه جدید</string>
+    <string name="import_entries_title_bar">وارد کردن ورودی‌ها</string>
+    <string name="import_entries_intro">یک خروجی CSV یا JSON از مدیر گذرواژه‌ی دیگر را انتخاب کنید. تا زمانی که تأیید نکنید چیزی نوشته نمی‌شود. فایلی که انتخاب می‌کنید تغییر نمی‌کند و حذف نمی‌شود.</string>
+    <string name="import_entries_choose">انتخاب فایل</string>
+    <string name="import_entries_reading">در حال خواندن فایل</string>
+    <string name="import_entries_read_failed">خواندن فایل ممکن نیست</string>
+    <string name="import_entries_none">هیچ ورودی‌ای از این فایل قابل وارد کردن نیست</string>
+    <string name="import_entries_status_ready">پیش از وارد کردن، ورودی‌های زیر را بررسی کنید</string>
+    <string name="import_entries_summary_count">%1$d ورودی آماده وارد کردن است، %2$d سطر رد شد</string>
+    <string name="import_entries_no_issues">هیچ سطری رد نشد</string>
+    <string name="import_entries_issue_line">سطر %1$d: %2$s</string>
+    <string name="import_entries_issues_more">و %1$d سطر رد شده‌ی دیگر</string>
+    <string name="import_entries_group_label">نام گروه جدید</string>
+    <string name="import_entries_group_default">وارد کردن %1$s</string>
+    <string name="import_entries_group_invalid">نام گروه خالی است، بسیار طولانی است یا نویسه‌های نامعتبر دارد</string>
+    <string name="import_entries_cancel">لغو</string>
+    <string name="import_entries_confirm">وارد کردن</string>
+    <string name="import_entries_done">ورودی‌ها وارد شدند، %1$d سطر رد شد</string>
+    <string name="import_entries_failed">وارد کردن ورودی‌ها ممکن نیست</string>
+    <string name="import_entries_reason_missing_title">عنوان و نشانی وب وجود ندارد</string>
+    <string name="import_entries_reason_too_long">یک فیلد خیلی طولانی است</string>
+    <string name="import_entries_reason_invalid_character">یک فیلد شامل نویسه‌ی کنترلی است</string>
+    <string name="import_entries_reason_invalid_url">نشانی وب نادرست است یا طرح آن مجاز نیست</string>
+    <string name="import_entries_reason_invalid_value">یک مقدار نوع پشتیبانی‌نشده دارد</string>
+    <string name="import_entries_error_too_large">حجم فایل بیشتر از 10 MB است</string>
+    <string name="import_entries_error_encoding">فایل متن UTF-8 معتبر نیست</string>
+    <string name="import_entries_error_encrypted">خروجی‌های رمزگذاری‌شده پشتیبانی نمی‌شوند</string>
+    <string name="import_entries_error_malformed">ساختار فایل نامعتبر است</string>
+    <string name="import_entries_error_too_deep">فایل بیش از حد تودرتو است</string>
+    <string name="import_entries_error_too_many">فایل بیش از 10000 ورودی دارد</string>
+    <string name="import_entries_error_columns">فایل به یک ستون رمز عبور و یک ستون عنوان یا نشانی وب نیاز دارد</string>
+    <string name="autofill_trusted_browsers_title">مرورگرهای مورد اعتماد</string>
+    <string name="autofill_trusted_browsers_summary">مرورگرهایی که ممکن است به تکمیل خودکار بگویند کاربر در کدام وب‌سایت است. مرورگرهای داخلی با امضا تأیید می‌شوند.</string>
+    <string name="trusted_browsers_dialog_title">مرورگرهای مورد اعتماد اضافی</string>
+    <string name="trusted_browsers_none">مرورگر دیگری نصب نشده است.</string>
+    <string name="trusted_browsers_unsupported">مرورگرهای مورد اعتماد به اندروید 9 یا بالاتر نیاز دارند.</string>
+    <string name="trusted_browsers_confirm_title">به این مرورگرها اعتماد می‌کنید؟</string>
+    <string name="trusted_browsers_confirm_message">یک مرورگر مورد اعتماد به KeePassPN می‌گوید کاربر در کدام وب‌سایت است تا ورودی‌های آن سایت پیشنهاد شوند. اعتماد به امضای فعلی مرورگر وابسته است و در صورت تغییر آن پایان می‌یابد.\\n\\n%1$s</string>
+    <string name="about_category_title">درباره</string>
+    <string name="check_for_updates">بررسی به‌روزرسانی‌ها</string>
+    <string name="check_for_updates_summary">صفحه‌ی انتشار را باز می‌کند. KeePassPN به اینترنت متصل نمی‌شود.</string>
+    <string name="check_for_updates_dialog_message">نسخه‌ی نصب‌شده: %1$s\\n\\nصفحه‌ی انتشار باز شود تا با آخرین نسخه مقایسه شود؟</string>
+    <string name="open_releases_page">باز کردن صفحه‌ی انتشار</string>
+    <string name="releases_page_unavailable">هیچ برنامه‌ای نمی‌تواند صفحه‌ی انتشار را باز کند.</string>
 </resources>

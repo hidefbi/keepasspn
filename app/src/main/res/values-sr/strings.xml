@@ -425,4 +425,53 @@
 Да бисмо сачували нашу слободу, исправљали грешке, додавали функције и одржавали пројекат активним, очекујемо ваш допринос.</string>
 
     <string name="extended_ASCII">Проширени АСЦИИ</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">Увоз</string>
+    <string name="import_entries_title">Увоз из датотеке</string>
+    <string name="import_entries_summary">Увоз CSV или JSON извоза у нову групу</string>
+    <string name="import_entries_title_bar">Увоз уноса</string>
+    <string name="import_entries_intro">Изаберите CSV или JSON извоз из другог менаџера лозинки. Ништа се не уписује док не потврдите. Изабрана датотека се не мења и не брише.</string>
+    <string name="import_entries_choose">Изабери датотеку</string>
+    <string name="import_entries_reading">Читање датотеке</string>
+    <string name="import_entries_read_failed">Датотека не може да се прочита</string>
+    <string name="import_entries_none">Из ове датотеке не може да се увезе ниједан унос</string>
+    <string name="import_entries_status_ready">Прегледајте уносе испод пре увоза</string>
+    <string name="import_entries_summary_count">%1$d уноса спремно за увоз, %2$d редова прескочено</string>
+    <string name="import_entries_no_issues">Ниједан ред није прескочен</string>
+    <string name="import_entries_issue_line">Ред %1$d: %2$s</string>
+    <string name="import_entries_issues_more">Још %1$d прескочених редова</string>
+    <string name="import_entries_group_label">Назив нове групе</string>
+    <string name="import_entries_group_default">Увоз %1$s</string>
+    <string name="import_entries_group_invalid">Назив групе је празан, предугачак или садржи неважеће знакове</string>
+    <string name="import_entries_cancel">Откажи</string>
+    <string name="import_entries_confirm">Увези</string>
+    <string name="import_entries_done">Уноси су увезени, %1$d редова прескочено</string>
+    <string name="import_entries_failed">Уноси не могу да се увезу</string>
+    <string name="import_entries_reason_missing_title">Нема наслова и нема URL-а</string>
+    <string name="import_entries_reason_too_long">Поље је предугачко</string>
+    <string name="import_entries_reason_invalid_character">Поље садржи контролни знак</string>
+    <string name="import_entries_reason_invalid_url">URL је неисправан или његова шема није дозвољена</string>
+    <string name="import_entries_reason_invalid_value">Вредност има неподржан тип</string>
+    <string name="import_entries_error_too_large">Датотека је већа од 10 MB</string>
+    <string name="import_entries_error_encoding">Датотека није исправан UTF-8 текст</string>
+    <string name="import_entries_error_encrypted">Шифровани извози нису подржани</string>
+    <string name="import_entries_error_malformed">Структура датотеке је неисправна</string>
+    <string name="import_entries_error_too_deep">Датотека је превише дубоко угнежђена</string>
+    <string name="import_entries_error_too_many">Датотека садржи више од 10000 уноса</string>
+    <string name="import_entries_error_columns">Датотека мора да има колону за лозинку и колону за наслов или URL</string>
+    <string name="autofill_trusted_browsers_title">Поуздани прегледачи</string>
+    <string name="autofill_trusted_browsers_summary">Прегледачи који могу аутоматском попуњавању да кажу на којем сајту се налазите. Уграђени прегледачи се верификују потписом.</string>
+    <string name="trusted_browsers_dialog_title">Додатни поуздани прегледачи</string>
+    <string name="trusted_browsers_none">Нису инсталирани други прегледачи.</string>
+    <string name="trusted_browsers_unsupported">Поуздани прегледачи захтевају Android 9 или новији.</string>
+    <string name="trusted_browsers_confirm_title">Да ли верујете овим прегледачима?</string>
+    <string name="trusted_browsers_confirm_message">Поуздани прегледач говори KeePassPN-у на ком сајту се налазите, како би могли да се предложе уноси за тај сајт. Поверење је везано за тренутни потпис прегледача и престаје ако се он промени.\\n\\n%1$s</string>
+    <string name="about_category_title">О апликацији</string>
+    <string name="check_for_updates">Провери ажурирања</string>
+    <string name="check_for_updates_summary">Отвара страницу са издањима. KeePassPN се не повезује на интернет.</string>
+    <string name="check_for_updates_dialog_message">Инсталирана верзија: %1$s\\n\\nОтворити страницу са издањима да бисте је упоредили с најновијом верзијом?</string>
+    <string name="open_releases_page">Отвори страницу са издањима</string>
+    <string name="releases_page_unavailable">Ниједна апликација не може да отвори страницу са издањима.</string>
 </resources>

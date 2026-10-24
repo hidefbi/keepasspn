@@ -398,4 +398,53 @@ Aplikacija ne prikuplja podatke korisnika, ne povezuje se ni na jedan server, ra
 Da bismo sačuvali našu slobodu, ispravljali greške, dodavali funkcije i održavali projekat aktivnim, očekujemo vaš doprinos.</string>
 
     <string name="extended_ASCII">Prošireni ASCII</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">Uvoz</string>
+    <string name="import_entries_title">Uvoz iz datoteke</string>
+    <string name="import_entries_summary">Uvezi CSV ili JSON izvoz u novu grupu</string>
+    <string name="import_entries_title_bar">Uvoz unosa</string>
+    <string name="import_entries_intro">Izaberite CSV ili JSON izvoz iz drugog menadžera lozinki. Ništa se ne upisuje dok ne potvrdite. Datoteka koju izaberete se ne menja i ne briše.</string>
+    <string name="import_entries_choose">Izaberi datoteku</string>
+    <string name="import_entries_reading">Čitanje datoteke</string>
+    <string name="import_entries_read_failed">Nije moguće pročitati datoteku</string>
+    <string name="import_entries_none">Nijedan unos ne može biti uvezen iz ove datoteke</string>
+    <string name="import_entries_status_ready">Pregledajte unose ispod pre uvoza</string>
+    <string name="import_entries_summary_count">%1$d unosa spremno za uvoz, %2$d redova preskočeno</string>
+    <string name="import_entries_no_issues">Nijedan red nije preskočen</string>
+    <string name="import_entries_issue_line">Red %1$d: %2$s</string>
+    <string name="import_entries_issues_more">Još %1$d preskočenih redova</string>
+    <string name="import_entries_group_label">Naziv nove grupe</string>
+    <string name="import_entries_group_default">Uvoz %1$s</string>
+    <string name="import_entries_group_invalid">Naziv grupe je prazan, predugačak ili sadrži neispravne znakove</string>
+    <string name="import_entries_cancel">Otkaži</string>
+    <string name="import_entries_confirm">Uvezi</string>
+    <string name="import_entries_done">Unosi uvezeni, %1$d redova preskočeno</string>
+    <string name="import_entries_failed">Nije moguće uvesti unose</string>
+    <string name="import_entries_reason_missing_title">Nema naslova i nema URL-a</string>
+    <string name="import_entries_reason_too_long">Polje je predugačko</string>
+    <string name="import_entries_reason_invalid_character">Polje sadrži kontrolni znak</string>
+    <string name="import_entries_reason_invalid_url">URL je neispravan ili njegova šema nije dozvoljena</string>
+    <string name="import_entries_reason_invalid_value">Vrednost je nepodržanog tipa</string>
+    <string name="import_entries_error_too_large">Datoteka je veća od 10 MB</string>
+    <string name="import_entries_error_encoding">Datoteka nije ispravan UTF-8 tekst</string>
+    <string name="import_entries_error_encrypted">Šifrovani izvozi nisu podržani</string>
+    <string name="import_entries_error_malformed">Struktura datoteke je neispravna</string>
+    <string name="import_entries_error_too_deep">Datoteka je previše duboko ugnježdena</string>
+    <string name="import_entries_error_too_many">Datoteka sadrži više od 10000 unosa</string>
+    <string name="import_entries_error_columns">Datoteka mora imati kolonu za lozinku i kolonu za naslov ili URL</string>
+    <string name="autofill_trusted_browsers_title">Pouzdani pregledači</string>
+    <string name="autofill_trusted_browsers_summary">Pregledači koji mogu automatskom popunjavanju da kažu na kom ste sajtu. Ugrađeni pregledači se proveravaju potpisom.</string>
+    <string name="trusted_browsers_dialog_title">Dodatni pouzdani pregledači</string>
+    <string name="trusted_browsers_none">Nijedan drugi pregledač nije instaliran.</string>
+    <string name="trusted_browsers_unsupported">Pouzdani pregledači zahtevaju Android 9 ili noviji.</string>
+    <string name="trusted_browsers_confirm_title">Verujete li ovim pregledačima?</string>
+    <string name="trusted_browsers_confirm_message">Pouzdani pregledač govori KeePassPN-u na kom ste sajtu, pa se unosi za taj sajt mogu predložiti. Poverenje je vezano za trenutni potpis pregledača i prestaje ako se on promeni.\\n\\n%1$s</string>
+    <string name="about_category_title">O aplikaciji</string>
+    <string name="check_for_updates">Proveri ažuriranja</string>
+    <string name="check_for_updates_summary">Otvara stranicu sa izdanjima. KeePassPN se ne povezuje na internet.</string>
+    <string name="check_for_updates_dialog_message">Instalirana verzija: %1$s\\n\\nDa otvorim stranicu sa izdanjima radi poređenja sa najnovijom verzijom?</string>
+    <string name="open_releases_page">Otvori stranicu sa izdanjima</string>
+    <string name="releases_page_unavailable">Nijedna aplikacija ne može da otvori stranicu sa izdanjima.</string>
 </resources>

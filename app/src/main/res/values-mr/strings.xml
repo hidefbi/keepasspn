@@ -51,4 +51,53 @@
 हे अॅप वापरकर्त्यांचा कोणताही डेटा गोळा करत नाही, कोणत्याही सर्व्हरशी कनेक्ट होत नाही, केवळ स्थानिक पातळीवर काम करते आणि वापरकर्त्यांच्या गोपनीयतेचा पूर्ण आदर करते.
 
 आमचे स्वातंत्र्य टिकवण्यासाठी, बग दुरुस्त करण्यासाठी, नवीन वैशिष्ट्ये जोडण्यासाठी आणि प्रकल्प सक्रिय ठेवण्यासाठी, आम्ही तुमच्या योगदानाची अपेक्षा करतो.</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">आयात</string>
+    <string name="import_entries_title">फाइलमधून आयात करा</string>
+    <string name="import_entries_summary">CSV किंवा JSON निर्यात नवीन गटात आयात करा</string>
+    <string name="import_entries_title_bar">नोंदी आयात करा</string>
+    <string name="import_entries_intro">दुसऱ्या पासवर्ड व्यवस्थापकाकडून CSV किंवा JSON निर्यात निवडा. तुम्ही पुष्टी करेपर्यंत काहीही लिहिले जात नाही. तुम्ही निवडलेली फाइल बदलली किंवा हटवली जात नाही.</string>
+    <string name="import_entries_choose">फाइल निवडा</string>
+    <string name="import_entries_reading">फाइल वाचत आहे</string>
+    <string name="import_entries_read_failed">फाइल वाचता आली नाही</string>
+    <string name="import_entries_none">या फाइलमधून कोणतीही नोंद आयात करता येत नाही</string>
+    <string name="import_entries_status_ready">आयात करण्यापूर्वी खालील नोंदी तपासा</string>
+    <string name="import_entries_summary_count">%1$d नोंदी आयातासाठी तयार, %2$d ओळी वगळल्या</string>
+    <string name="import_entries_no_issues">एकही ओळ वगळली नाही</string>
+    <string name="import_entries_issue_line">ओळ %1$d: %2$s</string>
+    <string name="import_entries_issues_more">आणखी %1$d ओळी वगळल्या</string>
+    <string name="import_entries_group_label">नवीन गटाचे नाव</string>
+    <string name="import_entries_group_default">%1$s आयात करा</string>
+    <string name="import_entries_group_invalid">गटाचे नाव रिकामे आहे, खूप लांब आहे किंवा अवैध वर्ण आहेत</string>
+    <string name="import_entries_cancel">रद्द करा</string>
+    <string name="import_entries_confirm">आयात करा</string>
+    <string name="import_entries_done">नोंदी आयात झाल्या, %1$d ओळी वगळल्या</string>
+    <string name="import_entries_failed">नोंदी आयात करता आल्या नाहीत</string>
+    <string name="import_entries_reason_missing_title">शीर्षक आणि URL दोन्ही नाहीत</string>
+    <string name="import_entries_reason_too_long">एक फील्ड खूप लांब आहे</string>
+    <string name="import_entries_reason_invalid_character">एका फील्डमध्ये नियंत्रण वर्ण आहे</string>
+    <string name="import_entries_reason_invalid_url">URL चुकीचे आहे किंवा त्याची योजना अनुमत नाही</string>
+    <string name="import_entries_reason_invalid_value">एका मूल्याचा प्रकार समर्थित नाही</string>
+    <string name="import_entries_error_too_large">फाइल 10 MB पेक्षा मोठी आहे</string>
+    <string name="import_entries_error_encoding">फाइल वैध UTF-8 मजकूर नाही</string>
+    <string name="import_entries_error_encrypted">एन्क्रिप्टेड निर्यात समर्थित नाहीत</string>
+    <string name="import_entries_error_malformed">फाइलची रचना अवैध आहे</string>
+    <string name="import_entries_error_too_deep">फाइल खूप खोलवर नेस्ट केलेली आहे</string>
+    <string name="import_entries_error_too_many">फाइलमध्ये 10000 पेक्षा जास्त नोंदी आहेत</string>
+    <string name="import_entries_error_columns">फाइलमध्ये पासवर्ड स्तंभ आणि शीर्षक किंवा URL स्तंभ असणे आवश्यक आहे</string>
+    <string name="autofill_trusted_browsers_title">विश्वासार्ह ब्राउझर</string>
+    <string name="autofill_trusted_browsers_summary">ऑटोफिलला तुम्ही कोणत्या वेबसाइटवर आहात हे सांगू शकणारे ब्राउझर. अंगभूत ब्राउझर सिग्नेचरद्वारे पडताळले जातात.</string>
+    <string name="trusted_browsers_dialog_title">अतिरिक्त विश्वासार्ह ब्राउझर</string>
+    <string name="trusted_browsers_none">इतर कोणतेही ब्राउझर इंस्टॉल केलेले नाहीत.</string>
+    <string name="trusted_browsers_unsupported">विश्वासार्ह ब्राउझरना Android 9 किंवा त्यापुढील आवृत्ती आवश्यक आहे.</string>
+    <string name="trusted_browsers_confirm_title">हे ब्राउझर विश्वासार्ह मानायचे?</string>
+    <string name="trusted_browsers_confirm_message">विश्वासार्ह ब्राउझर KeePassPN ला तुम्ही कोणत्या वेबसाइटवर आहात हे सांगतो, जेणेकरून त्या साइटसाठी नोंदी सुचवता येतील. विश्वास ब्राउझरच्या सध्याच्या सिग्नेचरशी जोडलेला असतो आणि ते बदलल्यास संपतो.\\n\\n%1$s</string>
+    <string name="about_category_title">माहिती</string>
+    <string name="check_for_updates">अपडेट तपासा</string>
+    <string name="check_for_updates_summary">रिलीझ पेज उघडते. KeePassPN इंटरनेटशी कनेक्ट होत नाही.</string>
+    <string name="check_for_updates_dialog_message">इंस्टॉल केलेली आवृत्ती: %1$s\\n\\nनवीनतम आवृत्तीशी तुलना करण्यासाठी रिलीझ पेज उघडायचे का?</string>
+    <string name="open_releases_page">रिलीझ पेज उघडा</string>
+    <string name="releases_page_unavailable">रिलीझ पेज उघडू शकेल असे कोणतेही अॅप नाही.</string>
 </resources>

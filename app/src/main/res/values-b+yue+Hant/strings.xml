@@ -170,4 +170,53 @@
 為咗維持我哋嘅自由、修正 bug、加入更多功能，同埋令項目保持活躍，我哋期待你嘅貢獻。</string>
 
     <string name="extended_ASCII">延伸ASCII</string>
+
+    <string name="database_category_import_key">database_category_import</string>
+    <string name="import_entries_key">import_entries</string>
+    <string name="import_entries_category">匯入</string>
+    <string name="import_entries_title">從檔案匯入</string>
+    <string name="import_entries_summary">將 CSV 或 JSON 匯出檔匯入至新群組</string>
+    <string name="import_entries_title_bar">匯入項目</string>
+    <string name="import_entries_intro">選擇從其他密碼管理工具匯出的 CSV 或 JSON 檔案。確認之前不會寫入任何內容。你選擇的檔案不會被更改或刪除。</string>
+    <string name="import_entries_choose">選擇檔案</string>
+    <string name="import_entries_reading">正在讀取檔案</string>
+    <string name="import_entries_read_failed">無法讀取檔案</string>
+    <string name="import_entries_none">此檔案中沒有可匯入的項目</string>
+    <string name="import_entries_status_ready">匯入前請檢查以下項目</string>
+    <string name="import_entries_summary_count">%1$d 個項目可匯入，%2$d 行已略過</string>
+    <string name="import_entries_no_issues">沒有略過任何行</string>
+    <string name="import_entries_issue_line">第 %1$d 行：%2$s</string>
+    <string name="import_entries_issues_more">另外還有 %1$d 行已略過</string>
+    <string name="import_entries_group_label">新群組名稱</string>
+    <string name="import_entries_group_default">匯入 %1$s</string>
+    <string name="import_entries_group_invalid">群組名稱為空、太長或包含無效字元</string>
+    <string name="import_entries_cancel">取消</string>
+    <string name="import_entries_confirm">匯入</string>
+    <string name="import_entries_done">已匯入項目，%1$d 行已略過</string>
+    <string name="import_entries_failed">無法匯入項目</string>
+    <string name="import_entries_reason_missing_title">沒有標題也沒有網址</string>
+    <string name="import_entries_reason_too_long">某個欄位太長</string>
+    <string name="import_entries_reason_invalid_character">某個欄位包含控制字元</string>
+    <string name="import_entries_reason_invalid_url">網址格式錯誤或其通訊協定不允許</string>
+    <string name="import_entries_reason_invalid_value">某個值的類型不受支援</string>
+    <string name="import_entries_error_too_large">檔案大於 10 MB</string>
+    <string name="import_entries_error_encoding">檔案不是有效的 UTF-8 文字</string>
+    <string name="import_entries_error_encrypted">不支援加密的匯出檔</string>
+    <string name="import_entries_error_malformed">檔案結構無效</string>
+    <string name="import_entries_error_too_deep">檔案嵌套層級太深</string>
+    <string name="import_entries_error_too_many">檔案包含超過 10000 個項目</string>
+    <string name="import_entries_error_columns">檔案需要一個密碼欄，以及一個標題或網址欄</string>
+    <string name="autofill_trusted_browsers_title">受信任的瀏覽器</string>
+    <string name="autofill_trusted_browsers_summary">可能會告知自動填入你目前所在網站的瀏覽器。內建瀏覽器會以簽章驗證。</string>
+    <string name="trusted_browsers_dialog_title">其他受信任的瀏覽器</string>
+    <string name="trusted_browsers_none">未安裝其他瀏覽器。</string>
+    <string name="trusted_browsers_unsupported">受信任的瀏覽器需要 Android 9 或以上版本。</string>
+    <string name="trusted_browsers_confirm_title">信任這些瀏覽器？</string>
+    <string name="trusted_browsers_confirm_message">受信任的瀏覽器會告知 KeePassPN 你目前所在的網站，以便建議該網站的項目。信任與瀏覽器目前的簽章綁定，若簽章改變則信任會結束。\\n\\n%1$s</string>
+    <string name="about_category_title">關於</string>
+    <string name="check_for_updates">檢查更新</string>
+    <string name="check_for_updates_summary">開啟發行版頁面。KeePassPN 不會連接互聯網。</string>
+    <string name="check_for_updates_dialog_message">已安裝版本：%1$s\\n\\n要開啟發行版頁面以與最新版本比較嗎？</string>
+    <string name="open_releases_page">開啟發行版頁面</string>
+    <string name="releases_page_unavailable">沒有應用程式可以開啟發行版頁面。</string>
 </resources>
