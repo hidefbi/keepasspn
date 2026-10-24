@@ -83,7 +83,19 @@ All QR code decoding happens on your device. The camera is used only for this. T
 
 *Settings > About > Check for updates* shows the installed version and opens the release page in your browser, where you can compare it with the latest release. KeePassPN does not connect to the internet itself.
 
-### 9. Privacy
+### 9. Import entries from a file
+
+The bottom of the database settings has *Import from a file*, which imports a CSV or JSON file into a new group.
+
+- Choose the file. The app copies it privately, checks it, and shows how many entries it found and which rows it will skip, with the reason for each. Nothing is written until you confirm, and you can change the group name first.
+- CSV files need a password column and a title or URL column. Column names in the KeePass and Chrome styles are recognised, in any order. Comma, semicolon and tab separators are detected.
+- JSON files can be a list of entries, or an object holding the list under `items`, `entries`, `logins` or `passwords`. A nested `login` object, as written by Bitwarden, is read.
+- Encrypted exports are not supported. Files larger than 10 MB and files with more than 10,000 entries are refused.
+- Only `http`, `https` and `androidapp` links are kept. Rows with a control character, a field that is too long, or a malformed link are skipped.
+- The file you chose is never changed or deleted. The app deletes only its own private copy, when the import finishes or the next time the app starts.
+- Entries that repeat within the same file are written once.
+
+### 10. Privacy
 
 Android cloud backup is disabled for the app, so its data is not included in Android cloud backups.
 

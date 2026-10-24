@@ -1,4 +1,5 @@
 KeePassPN
+ * Feature: Import entries from a CSV or JSON file into a new group, from the bottom of the database settings, with a preview of the rows that will be skipped
  * Feature: "Verify before editing" in App settings > User Verification controls verification for editing entries and folders (on by default)
  * Feature: Trusted browsers for autofill under Form filling; only trusted browsers can tell autofill the current website
  * Feature: Long-press an entry or folder for edit, move to folder and duplicate; entries can be reordered by hand when the group allows it
