@@ -542,7 +542,8 @@ class MagikeyboardService : InputMethodService(),
                 // Select if database not opened
                 removeEntryInfo()
                 launchEntrySelection(searchInfo)
-            }
+            },
+            lockFromKeyboard = true
         )
     }
 

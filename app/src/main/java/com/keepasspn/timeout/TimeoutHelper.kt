@@ -26,6 +26,7 @@ import android.content.Intent
 import android.os.Build
 import com.keepasspn.utils.NoOpLog
 import com.keepasspn.settings.PreferencesUtil
+import com.keepasspn.utils.EXTRA_LOCK_FROM_KEYBOARD
 import com.keepasspn.utils.LOCK_ACTION
 
 object TimeoutHelper {
@@ -112,9 +113,14 @@ object TimeoutHelper {
     /**
      * Check the time previously record with recordTime and do the [timeoutAction] if timeout.
      * If temporarilyDisableTimeout() is called, the function as no effect until releaseTemporarilyDisableTimeoutAndCheckTime() is called
-     * return 'false' and send broadcast lock action if timeout, 'true' if in time
+     * return 'false' and send broadcast lock action if timeout, 'true' if in time.
+     * [lockFromKeyboard] marks the lock as raised by a keyboard entry request.
      */
-    fun checkTime(context: Context, timeoutAction: (() -> Unit)? = null): Boolean {
+    fun checkTime(
+        context: Context,
+        timeoutAction: (() -> Unit)? = null,
+        lockFromKeyboard: Boolean = false
+    ): Boolean {
         // No effect if temporarily disable
         if (temporarilyDisableLock)
             return true
@@ -141,7 +147,9 @@ object TimeoutHelper {
         if (diff >= appTimeout) {
             // We have timed out
             timeoutAction?.invoke()
-            context.sendBroadcast(Intent(LOCK_ACTION))
+            context.sendBroadcast(
+                Intent(LOCK_ACTION).putExtra(EXTRA_LOCK_FROM_KEYBOARD, lockFromKeyboard)
+            )
             return false
         }
         return true
@@ -150,10 +158,9 @@ object TimeoutHelper {
     /**
      * Check the time previously record with recordTime and lock the database if timeout
      */
-    fun checkTimeAndLockIfTimeout(context: Context): Boolean {
-        return checkTime(context) {
-            context.sendBroadcast(Intent(LOCK_ACTION))
-        }
+    fun checkTimeAndLockIfTimeout(context: Context, lockFromKeyboard: Boolean = false): Boolean {
+        // checkTime() already sends the lock broadcast on timeout
+        return checkTime(context, lockFromKeyboard = lockFromKeyboard)
     }
 
     /**

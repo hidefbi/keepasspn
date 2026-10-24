@@ -47,6 +47,8 @@ const val UPDATE_TIMEOUT_PROGRESS_ACTION = "com.keepasspn.UPDATE_TIMEOUT_PROGRES
 const val EXTRA_PROGRESS = "com.keepasspn.EXTRA_PROGRESS"
 const val REMOVE_ENTRY_MAGIKEYBOARD_ACTION = "com.keepasspn.REMOVE_ENTRY_MAGIKEYBOARD"
 const val BACK_PREVIOUS_KEYBOARD_ACTION = "com.keepasspn.BACK_PREVIOUS_KEYBOARD"
+// Set on a lock raised while the keyboard asks for an entry: the keyboard stays in place
+const val EXTRA_LOCK_FROM_KEYBOARD = "com.keepasspn.EXTRA_LOCK_FROM_KEYBOARD"
 
 open class LockReceiver(private var lockAction: () -> Unit) : BroadcastReceiver() {
 
@@ -103,7 +105,8 @@ open class LockReceiver(private var lockAction: () -> Unit) : BroadcastReceiver(
                     LOCK_ACTION -> {
                         lockAction.invoke()
                         AppLifecycleObserver.lockBackgroundEvent = false
-                        if (PreferencesUtil.isKeyboardPreviousLockEnable(context)) {
+                        val fromKeyboard = intent.getBooleanExtra(EXTRA_LOCK_FROM_KEYBOARD, false)
+                        if (PreferencesUtil.isKeyboardPreviousLockEnable(context) && !fromKeyboard) {
                             backToPreviousKeyboardAction?.invoke()
                         } else {}
                     }
