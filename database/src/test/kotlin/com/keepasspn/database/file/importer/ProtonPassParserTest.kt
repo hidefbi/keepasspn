@@ -68,7 +68,8 @@ class ProtonPassParserTest {
             """"content":{"password":"p","urls":["https://a.example","https://b.example"]}}}"""
         val entry = JsonImportParser.parse(export(item)).entries[0]
         assertEquals("https://a.example", entry.url)
-        assertEquals("url: https://b.example", entry.notes)
+        assertEquals("URL 2", entry.fields[0].name)
+        assertEquals("https://b.example", entry.fields[0].value)
     }
 
     @Test
@@ -78,7 +79,10 @@ class ProtonPassParserTest {
         val entry = JsonImportParser.parse(export(item)).entries[0]
         assertEquals("Wifi", entry.title)
         assertEquals("", String(entry.password))
-        assertEquals("secret: s3", entry.notes)
+        assertEquals("", entry.notes)
+        assertEquals("secret", entry.fields[0].name)
+        assertEquals("s3", entry.fields[0].value)
+        assertTrue(entry.fields[0].isProtected)
         assertNull(entry.otpUri)
     }
 

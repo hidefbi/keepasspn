@@ -20,7 +20,9 @@
 package com.keepasspn.database.file.importer
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Assert.fail
 import org.junit.Test
 
@@ -74,7 +76,8 @@ class JsonImportParserTest {
         assertEquals("u", entry.username)
         assertEquals("p", String(entry.password))
         assertEquals("https://a.example", entry.url)
-        assertEquals("uri: https://b.example", entry.notes)
+        assertEquals("URI 2", entry.fields[0].name)
+        assertEquals("https://b.example", entry.fields[0].value)
         assertEquals("otpauth://totp/Shop?secret=JBSWY3DPEHPK3PXP", entry.otpUri)
     }
 
@@ -86,9 +89,32 @@ class JsonImportParserTest {
     }
 
     @Test
-    fun unknownKeysAreKeptInNotes() {
-        val entry = JsonImportParser.parse(json("""[{"name":"A","password":"p","pin":"1234"}]""")).entries[0]
-        assertEquals("pin: 1234", entry.notes)
+    fun unknownKeysBecomeProtectedCustomFields() {
+        val entry = JsonImportParser.parse(json("""[{"name":"A","password":"p","pin":"1234","color":"red"}]""")).entries[0]
+        assertEquals("", entry.notes)
+        assertEquals(listOf("pin", "color"), entry.fields.map { it.name })
+        assertTrue(entry.fields[0].isProtected)
+        assertFalse(entry.fields[1].isProtected)
+    }
+
+    @Test
+    fun bitwardenCustomFieldsAreRead() {
+        val text = """[{"name":"A","password":"p","fields":[{"name":"Code","value":"xyz","type":1},""" +
+            """{"name":"Note","value":"plain","type":0}]}]"""
+        val fields = JsonImportParser.parse(json(text)).entries[0].fields
+        assertEquals(listOf("Code", "Note"), fields.map { it.name })
+        assertTrue(fields[0].isProtected)
+        assertFalse(fields[1].isProtected)
+    }
+
+    @Test
+    fun datesBecomeEntryDates() {
+        val text = """[{"name":"A","password":"p","creationDate":"2024-01-02T03:04:05Z",""" +
+            """"revisionDate":"2025-06-07T08:09:10Z"}]"""
+        val entry = JsonImportParser.parse(json(text)).entries[0]
+        assertEquals(java.time.Instant.parse("2024-01-02T03:04:05Z"), entry.createdAt)
+        assertEquals(java.time.Instant.parse("2025-06-07T08:09:10Z"), entry.modifiedAt)
+        assertTrue(entry.fields.isEmpty())
     }
 
     @Test

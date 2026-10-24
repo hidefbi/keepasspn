@@ -21,8 +21,11 @@ package com.keepasspn.database.action.node
 
 import android.content.Context
 import com.keepasspn.database.ContextualDatabase
+import com.keepasspn.database.element.DateInstant
 import com.keepasspn.database.element.Entry
+import com.keepasspn.database.element.Field
 import com.keepasspn.database.element.Group
+import com.keepasspn.database.element.security.ProtectedString
 import com.keepasspn.database.file.importer.ImportParser
 import com.keepasspn.database.file.importer.ImportedEntry
 import com.keepasspn.hardware.HardwareKey
@@ -38,8 +41,8 @@ import java.io.File
  *
  * All entries are written, as the file gives them. A new group named after the import is added
  * at the root of the database; the groups of the file are nested inside it, and an entry without
- * group sits directly in it. One-time passwords are stored as OTP fields when they can be read,
- * otherwise their text is kept in the notes.
+ * group sits directly in it. The other values of an entry become custom fields, and its creation
+ * and modification dates are kept when the file has them.
  *
  * The file is parsed here, on the task thread, so that no password is kept in an Intent or in
  * the main thread. Passwords are wiped and the copy is deleted when the action finishes, whether
@@ -137,21 +140,25 @@ class ImportEntriesRunnable(
             url = imported.url
             notes = imported.notes
         }
+        val fields = mutableListOf<Field>()
+        imported.fields.forEach { field ->
+            fields.add(Field(field.name, ProtectedString(field.isProtected, field.value)))
+        }
         val otpUri = imported.otpUri
         if (otpUri != null) {
             val otpElement = OtpEntryFields.parseOTPUri(otpUri)
             if (otpElement != null) {
-                entryInfo.customFields = mutableListOf(
-                    OtpEntryFields.buildOtpField(otpElement, imported.title, imported.username)
-                )
+                fields.add(OtpEntryFields.buildOtpField(otpElement, imported.title, imported.username))
             } else {
-                entryInfo.notes = listOf(imported.notes, "otp: $otpUri")
-                    .filter { it.isNotEmpty() }
-                    .joinToString("\n")
+                fields.add(Field("TOTP", ProtectedString(true, otpUri)))
             }
         }
+        entryInfo.customFields = fields
+
         database.createEntry(entryInfo)?.let { entry ->
             entry.touch(modified = true, touchParents = true)
+            imported.createdAt?.let { entry.creationTime = DateInstant(it) }
+            imported.modifiedAt?.let { entry.lastModificationTime = DateInstant(it) }
             database.addEntryTo(entry, parent)
             mNewEntries.add(entry to parent)
         } ?: throw IllegalStateException("Unable to create an imported entry")

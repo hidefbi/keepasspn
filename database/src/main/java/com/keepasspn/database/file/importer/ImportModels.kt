@@ -19,6 +19,8 @@
  */
 package com.keepasspn.database.file.importer
 
+import java.time.Instant
+
 /**
  * Formats that can be imported. They are data files, never opened as a database.
  * A ZIP archive is accepted too, when it holds one JSON file.
@@ -41,11 +43,23 @@ object ImportLimits {
 }
 
 /**
+ * Custom field read from an import file: a name and a value, as the file gives them.
+ * [isProtected] is true when the value is a secret, such as a PIN or a password history.
+ */
+class ImportedField(
+    val name: String,
+    val value: String,
+    val isProtected: Boolean
+)
+
+/**
  * Entry read from an import file, with its values as they are in the file.
  * The password is a char array so it can be wiped after use.
  *
  * [groupPath] is the chain of group names the entry sits in, outermost first; empty for no group.
  * [otpUri] is an otpauth:// address when the file holds a one-time password.
+ * [fields] are the other values of the entry, stored as custom fields.
+ * [createdAt] and [modifiedAt] are the dates of the entry in the file, when it has them.
  */
 class ImportedEntry(
     val title: String,
@@ -54,7 +68,10 @@ class ImportedEntry(
     val url: String,
     val notes: String,
     val groupPath: List<String>,
-    val otpUri: String?
+    val otpUri: String?,
+    val fields: List<ImportedField>,
+    val createdAt: Instant?,
+    val modifiedAt: Instant?
 ) {
     fun wipe() {
         password.fill('\u0000')

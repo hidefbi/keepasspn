@@ -19,6 +19,8 @@
  */
 package com.keepasspn.database.file.importer
 
+import java.time.Instant
+
 /**
  * Collects the entries of one file, exactly as the file gives them.
  *
@@ -38,7 +40,10 @@ internal class ImportCollector {
         url: String,
         notes: String,
         groupPath: List<String>,
-        otpUri: String?
+        otpUri: String?,
+        fields: List<ImportedField> = emptyList(),
+        createdAt: Instant? = null,
+        modifiedAt: Instant? = null
     ) {
         if (entries.size >= ImportLimits.MAX_ENTRIES) {
             throw ImportFileException(ImportFileError.TOO_MANY_ENTRIES)
@@ -51,7 +56,16 @@ internal class ImportCollector {
                 url = clean(url),
                 notes = clean(notes),
                 groupPath = groupPath.map { clean(it) }.filter { it.isNotEmpty() },
-                otpUri = otpUri?.let { clean(it) }
+                otpUri = otpUri?.let { clean(it) },
+                fields = fields.map { field ->
+                    ImportedField(
+                        name = clean(field.name).ifEmpty { "field" },
+                        value = clean(field.value),
+                        isProtected = field.isProtected
+                    )
+                },
+                createdAt = createdAt,
+                modifiedAt = modifiedAt
             )
         )
     }

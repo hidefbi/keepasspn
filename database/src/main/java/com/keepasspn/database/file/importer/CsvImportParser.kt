@@ -19,11 +19,15 @@
  */
 package com.keepasspn.database.file.importer
 
+import java.time.Instant
+
 /**
  * Reads CSV files. Columns are found from the header row, so their order does not matter.
  * The delimiter is detected from the header: comma, semicolon or tab.
  *
- * Columns that are not recognised are kept in the notes as "header: value", so no data is lost.
+ * Known columns go to their field: title, user name, password, URL, notes, group, one-time
+ * password, creation and modification dates. Every other column is kept as a custom field,
+ * named after its header, so no value is lost and none is mixed into the notes.
  */
 internal object CsvImportParser {
 
@@ -34,6 +38,13 @@ internal object CsvImportParser {
     private val NOTES_COLUMNS = setOf("comments", "notes", "note", "extra")
     private val GROUP_COLUMNS = setOf("group", "grouping", "folder")
     private val OTP_COLUMNS = setOf("totp", "otp")
+    private val CREATED_COLUMNS = setOf(
+        "created", "created at", "created_at", "creation date", "creation time", "date created", "create time"
+    )
+    private val MODIFIED_COLUMNS = setOf(
+        "modified", "modified at", "modified_at", "last modified", "last_modified", "lastmodified",
+        "last updated", "updated", "updated at", "revision date", "modify time"
+    )
 
     private class Record(val line: Int, val cells: List<String>)
 
@@ -53,44 +64,74 @@ internal object CsvImportParser {
         val notesIndex = indexOf(headers, NOTES_COLUMNS)
         val groupIndex = indexOf(headers, GROUP_COLUMNS)
         val otpIndex = indexOf(headers, OTP_COLUMNS)
+        val createdIndex = indexOf(headers, CREATED_COLUMNS)
+        val modifiedIndex = indexOf(headers, MODIFIED_COLUMNS)
         if (passwordIndex < 0 || (titleIndex < 0 && urlIndex < 0)) {
             throw ImportFileException(ImportFileError.MISSING_REQUIRED_COLUMNS)
         }
 
         val recognised = setOf(
-            titleIndex, usernameIndex, passwordIndex, urlIndex, notesIndex, groupIndex, otpIndex
+            titleIndex, usernameIndex, passwordIndex, urlIndex, notesIndex, groupIndex, otpIndex,
+            createdIndex, modifiedIndex
         )
-        val otherColumns = headers.indices.filter { it !in recognised }
+        val customIndexes = headers.indices.filter { it !in recognised }
 
         val collector = ImportCollector()
         for (record in records.subList(1, records.size)) {
-            val notes = ArrayList<String>()
-            val notesCell = cell(record, notesIndex)
-            if (notesCell.isNotEmpty()) notes.add(notesCell)
-            for (index in otherColumns) {
-                val value = cell(record, index)
-                if (value.isNotEmpty()) {
-                    val label = rawHeaders.getOrNull(index)?.ifEmpty { null } ?: "column ${index + 1}"
-                    notes.add("$label: $value")
-                }
-            }
+            val title = cell(record, titleIndex)
+            val fields = ArrayList<ImportedField>()
+
             val otpCell = cell(record, otpIndex)
-            val otpUri = otpCell.takeIf { it.startsWith("otpauth://", ignoreCase = true) }
-            if (otpCell.isNotEmpty() && otpUri == null) {
-                notes.add("totp: $otpCell")
+            var otpUri: String? = null
+            if (otpCell.isNotEmpty()) {
+                otpUri = ImportValues.otpUriOf(otpCell, title)
+                if (otpUri == null) fields.add(ImportedField("TOTP", otpCell, isProtected = true))
             }
+
+            val createdAt = dateOf(record, createdIndex, rawHeaders, fields)
+            val modifiedAt = dateOf(record, modifiedIndex, rawHeaders, fields)
+
+            for (index in customIndexes) {
+                val value = cell(record, index)
+                if (value.isEmpty()) continue
+                val name = rawHeaders.getOrNull(index)?.ifEmpty { null } ?: "column ${index + 1}"
+                fields.add(ImportedField(name, value, ImportValues.isSecretName(name)))
+            }
+
             val group = cell(record, groupIndex)
             collector.add(
-                title = cell(record, titleIndex),
+                title = title,
                 username = cell(record, usernameIndex),
                 password = cell(record, passwordIndex),
                 url = cell(record, urlIndex),
-                notes = notes.joinToString("\n"),
+                notes = cell(record, notesIndex),
                 groupPath = if (group.isEmpty()) emptyList() else listOf(group),
-                otpUri = otpUri
+                otpUri = otpUri,
+                fields = fields,
+                createdAt = createdAt,
+                modifiedAt = modifiedAt
             )
         }
         return collector.result()
+    }
+
+    /**
+     * Date of a column. A value that is not a date is kept as a custom field under its header.
+     */
+    private fun dateOf(
+        record: Record,
+        index: Int,
+        rawHeaders: List<String>,
+        fields: MutableList<ImportedField>
+    ): Instant? {
+        val value = cell(record, index)
+        if (value.isEmpty()) return null
+        val date = ImportValues.instantOf(value)
+        if (date == null) {
+            val name = rawHeaders.getOrNull(index)?.ifEmpty { null } ?: "column ${index + 1}"
+            fields.add(ImportedField(name, value, isProtected = false))
+        }
+        return date
     }
 
     private fun detectDelimiter(text: String): Char {

@@ -19,10 +19,75 @@
  */
 package com.keepasspn.database.file.importer
 
+import java.net.URLEncoder
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.OffsetDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeParseException
+
 /**
- * Text of JSON values, so that a value the importer does not map is kept in the notes.
+ * Helpers shared by the parsers: text of JSON values, one-time passwords, dates and secret names.
  */
 internal object ImportValues {
+
+    private val BASE32_SECRET = Regex("^[A-Z2-7]{16,}=*$")
+    private val SECRET_WORDS = setOf("pin", "passcode", "passwd", "secret", "token", "cvv", "cvc", "key")
+
+    /**
+     * True for a name that holds a secret, so its value is stored protected. A word of the name
+     * must be one of [SECRET_WORDS], or the name must contain "password".
+     */
+    fun isSecretName(name: String): Boolean {
+        val lower = name.lowercase()
+        if (lower.contains("password")) return true
+        return lower.split(Regex("[^a-z]+")).any { it in SECRET_WORDS }
+    }
+
+    /**
+     * An otpauth:// address for a one-time password. A bare Base32 secret is turned into one,
+     * labelled with [label]. Returns null when [value] is neither.
+     */
+    fun otpUriOf(value: String, label: String): String? {
+        val trimmed = value.trim()
+        if (trimmed.startsWith("otpauth://", ignoreCase = true)) return trimmed
+        val secret = trimmed.replace(" ", "").uppercase()
+        if (!BASE32_SECRET.matches(secret)) return null
+        val encodedLabel = URLEncoder.encode(label.ifEmpty { "entry" }, "UTF-8").replace("+", "%20")
+        return "otpauth://totp/$encodedLabel?secret=$secret"
+    }
+
+    /**
+     * Date of a value written as an ISO 8601 date or date-time, a "yyyy-MM-dd HH:mm:ss" date-time
+     * (in the device time zone), a "yyyy-MM-dd" date, or a Unix time in seconds or milliseconds.
+     * Returns null when the value is none of these.
+     */
+    fun instantOf(value: String): Instant? {
+        val text = value.trim()
+        if (text.isEmpty()) return null
+        if (text.all { it.isDigit() }) {
+            val number = text.toLongOrNull() ?: return null
+            return if (text.length >= 13) Instant.ofEpochMilli(number) else Instant.ofEpochSecond(number)
+        }
+        return try {
+            Instant.parse(text)
+        } catch (e: DateTimeParseException) {
+            try {
+                OffsetDateTime.parse(text).toInstant()
+            } catch (e: DateTimeParseException) {
+                try {
+                    LocalDateTime.parse(text.replace(' ', 'T')).atZone(ZoneId.systemDefault()).toInstant()
+                } catch (e: DateTimeParseException) {
+                    try {
+                        LocalDate.parse(text).atStartOfDay(ZoneId.systemDefault()).toInstant()
+                    } catch (e: DateTimeParseException) {
+                        null
+                    }
+                }
+            }
+        }
+    }
 
     /**
      * Text of a scalar, the JSON text of an object or an array, and an empty string for null.

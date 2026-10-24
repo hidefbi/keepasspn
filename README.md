@@ -90,10 +90,10 @@ The bottom of the database settings has *Import from a file*, which imports a CS
 - Choose the file. The app copies it privately, checks it, and shows how many entries it found. Nothing is written until you confirm, and you can change the group name first.
 - Everything in the file is imported as it is: every entry is kept, including entries that repeat, entries with only one value, and values of any length. Groups and folders of the file are recreated inside the new group, and an entry without group sits directly in it.
 - The only change is the removal of characters that a database cannot store, such as control characters. The preview tells how many were removed.
-- CSV files need a password column and a title or URL column. Column names in the KeePass and Chrome styles are recognised, in any order. Comma, semicolon and tab separators are detected. Columns that are not recognised are kept in the notes.
-- JSON files can be a list of entries, or an object holding the list under `items`, `entries`, `logins` or `passwords`. A nested `login` object, as written by Bitwarden, is read. A Proton Pass export (an object with `vaults`) is read, each vault becoming a group.
+- CSV files need a password column and a title or URL column. Column names in the KeePass and Chrome styles are recognised, in any order. Comma, semicolon and tab separators are detected. Columns that are not recognised become custom fields named after their header. The creation and modification date columns become the dates of the entry.
+- JSON files can be a list of entries, or an object holding the list under `items`, `entries`, `logins` or `passwords`. A nested `login` object and the `fields` list, as written by Bitwarden, are read. Other keys become custom fields. A Proton Pass export (an object with `vaults`) is read, each vault becoming a group, and its extra fields become custom fields.
 - A ZIP archive is accepted when it holds exactly one JSON file; other files in the archive are ignored.
-- One-time passwords (`otpauth://` addresses) are stored as verification codes when they can be read; otherwise their text is kept in the notes.
+- One-time passwords are stored as verification codes: `otpauth://` addresses, Base32 secrets, and the TOTP fields of a Proton Pass export. Any other value of that kind is kept as a protected custom field.
 - Encrypted exports (Bitwarden encrypted JSON, Proton Pass PGP files, or encrypted ZIP entries) are not supported. Files larger than 10 MB and files with more than 10,000 entries are refused.
 - The file you chose is never changed or deleted. The app deletes only its own private copy, when the import finishes or the next time the app starts.
 - If the import fails, everything it created is removed.

@@ -21,6 +21,7 @@ package com.keepasspn.database.file.importer
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Assert.fail
 import org.junit.Test
 
@@ -46,10 +47,29 @@ class CsvImportParserTest {
     }
 
     @Test
-    fun unknownColumnsAreKeptInNotes() {
+    fun unknownColumnsBecomeCustomFields() {
         val result = CsvImportParser.parse(csv("Password,Title,Custom\np1,T1,v1\n"))
         assertEquals("T1", result.entries[0].title)
-        assertEquals("Custom: v1", result.entries[0].notes)
+        assertEquals("", result.entries[0].notes)
+        assertEquals("Custom", result.entries[0].fields[0].name)
+        assertEquals("v1", result.entries[0].fields[0].value)
+    }
+
+    @Test
+    fun dateColumnsBecomeEntryDates() {
+        val result = CsvImportParser.parse(
+            csv("Title,Password,Created,Last Modified\nA,p,2024-01-02 03:04:05,2025-06-07\n")
+        )
+        val entry = result.entries[0]
+        assertTrue(entry.createdAt != null)
+        assertTrue(entry.modifiedAt != null)
+        assertTrue(entry.fields.isEmpty())
+    }
+
+    @Test
+    fun base32SecretInTotpColumnBecomesOtpUri() {
+        val result = CsvImportParser.parse(csv("Title,Password,TOTP\nMy Site,p,JBSW Y3DP EHPK 3PXP\n"))
+        assertEquals("otpauth://totp/My%20Site?secret=JBSWY3DPEHPK3PXP", result.entries[0].otpUri)
     }
 
     @Test
@@ -81,10 +101,12 @@ class CsvImportParserTest {
     }
 
     @Test
-    fun otherTotpTextIsKeptInNotes() {
+    fun otherTotpTextBecomesProtectedField() {
         val result = CsvImportParser.parse(csv("Title,Password,TOTP\nA,p,123456\n"))
         assertNull(result.entries[0].otpUri)
-        assertEquals("totp: 123456", result.entries[0].notes)
+        assertEquals("TOTP", result.entries[0].fields[0].name)
+        assertEquals("123456", result.entries[0].fields[0].value)
+        assertTrue(result.entries[0].fields[0].isProtected)
     }
 
     @Test
