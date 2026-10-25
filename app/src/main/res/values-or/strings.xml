@@ -87,4 +87,7 @@
     <string name="check_for_updates_dialog_message">ସଂସ୍ଥାପିତ ସଂସ୍କରଣ: %1$s\\n\\nସର୍ବଶେଷ ସଂସ୍କରଣ ସହ ତୁଳନା କରିବାକୁ ରିଲିଜ ପୃଷ୍ଠା ଖୋଲିବେ କି?</string>
     <string name="open_releases_page">ରିଲିଜ ପୃଷ୍ଠା ଖୋଲନ୍ତୁ</string>
     <string name="releases_page_unavailable">କୌଣସି ଆପ ରିଲିଜ ପୃଷ୍ଠା ଖୋଲିପାରିବ ନାହିଁ।</string>
+    <string name="keyboard_auto_go_confirm_title">ସ୍ୱୟଂଚାଳିତ ଦାଖଲ ଚାଲୁ କରିବେ?</string>
+    <string name="keyboard_auto_go_confirm_message">ଚାଲୁ ଥିଲେ Magikeyboard ପୂରଣ ପରେ ଫର୍ମ ଦାଖଲ କରିବ, ଆଉ ଥରେ ଟ୍ୟାପ୍ ଦରକାର ନାହିଁ। ଏକ ନକଲି ଲଗଇନ ପୃଷ୍ଠା ଏହାକୁ ବ୍ୟବହାର କରି ଆପଣଙ୍କ ପରିଚୟପତ୍ର ସଂଗ୍ରହ କରିପାରେ। ପ୍ରତି ପୂରଣ ପୂର୍ବରୁ ପୃଷ୍ଠା ଯାଞ୍ଚ କରିଲେ ହିଁ ଚାଲୁ କରନ୍ତୁ।</string>
+    <string name="keyboard_auto_go_confirm_button">ଚାଲୁ କରନ୍ତୁ</string>
 </resources>

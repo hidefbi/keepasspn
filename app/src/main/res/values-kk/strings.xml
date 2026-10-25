@@ -84,4 +84,7 @@
     <string name="check_for_updates_dialog_message">Орнатылған нұсқа: %1$s\\n\\nСоңғы нұсқамен салыстыру үшін шығарылымдар бетін ашасыз ба?</string>
     <string name="open_releases_page">Шығарылымдар бетін ашу</string>
     <string name="releases_page_unavailable">Шығарылымдар бетін аша алатын қолданба жоқ.</string>
+    <string name="keyboard_auto_go_confirm_title">Автоматты жіберуді қосасыз ба?</string>
+    <string name="keyboard_auto_go_confirm_message">Қосулы кезде Magikeyboard толтырылғаннан кейін форманы қосымша түртпейтін жіберді. Жалған кіру беті мұны сіздің деректеріңізді жинау үшін пайдалануы мүмкін. Тек әр толтырудан бұрын бетті тексерсеңіз ғана қосыңыз.</string>
+    <string name="keyboard_auto_go_confirm_button">Қосу</string>
 </resources>

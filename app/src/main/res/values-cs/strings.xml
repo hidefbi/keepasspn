@@ -851,4 +851,7 @@ Abychom zachovali svobodu, opravovali chyby, přidávali funkce a udrželi proje
     <string name="check_for_updates_dialog_message">Nainstalovaná verze: %1$s\\n\\nOtevřít stránku vydání a porovnat ji s nejnovější verzí?</string>
     <string name="open_releases_page">Otevřít stránku vydání</string>
     <string name="releases_page_unavailable">Žádná aplikace nemůže otevřít stránku vydání.</string>
+    <string name="keyboard_auto_go_confirm_title">Zapnout automatické odeslání?</string>
+    <string name="keyboard_auto_go_confirm_message">Po zapnutí Magikeyboard odešle formulář hned po vyplnění, bez dalšího klepnutí. Falešná přihlašovací stránka toho může využít k získání vašich údajů. Zapněte jen tehdy, když stránku před každým vyplněním zkontrolujete.</string>
+    <string name="keyboard_auto_go_confirm_button">Zapnout</string>
 </resources>

@@ -381,4 +381,7 @@
     <string name="check_for_updates_dialog_message">ਇੰਸਟੌਲ ਕੀਤਾ ਵਰਜਨ: %1$s\\n\\nਨਵੀਨਤਮ ਵਰਜਨ ਨਾਲ ਤੁਲਨਾ ਕਰਨ ਲਈ ਰਿਲੀਜ਼ ਪੰਨਾ ਖੋਲ੍ਹਣਾ ਹੈ?</string>
     <string name="open_releases_page">ਰਿਲੀਜ਼ ਪੰਨਾ ਖੋਲ੍ਹੋ</string>
     <string name="releases_page_unavailable">ਕੋਈ ਵੀ ਐਪ ਰਿਲੀਜ਼ ਪੰਨਾ ਨਹੀਂ ਖੋਲ੍ਹ ਸਕਦੀ।</string>
+    <string name="keyboard_auto_go_confirm_title">ਆਟੋ ਸਬਮਿਟ ਚਾਲੂ ਕਰੀਏ?</string>
+    <string name="keyboard_auto_go_confirm_message">ਚਾਲੂ ਹੋਣ \'ਤੇ Magikeyboard ਭਰਨ ਤੋਂ ਤੁਰੰਤ ਬਾਅਦ ਫਾਰਮ ਸਬਮਿਟ ਕਰ ਦੇਵੇਗਾ, ਹੋਰ ਟੈਪ ਕੀਤੇ ਬਿਨਾਂ। ਇੱਕ ਨਕਲੀ ਲੌਗਇਨ ਪੰਨਾ ਇਸਦੀ ਵਰਤੋਂ ਕਰਕੇ ਤੁਹਾਡੀਆਂ ਪਛਾਣ-ਜਾਣਕਾਰੀਆਂ ਇਕੱਠੀਆਂ ਕਰ ਸਕਦਾ ਹੈ। ਹਰ ਭਰਨ ਤੋਂ ਪਹਿਲਾਂ ਪੰਨਾ ਜਾਂਚਣ \'ਤੇ ਹੀ ਚਾਲੂ ਕਰੋ।</string>
+    <string name="keyboard_auto_go_confirm_button">ਚਾਲੂ ਕਰੋ</string>
 </resources>

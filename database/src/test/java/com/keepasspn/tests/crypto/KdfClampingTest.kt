@@ -48,6 +48,7 @@ class KdfClampingTest {
         // Test parallelism clamping with limits
         argon2Kdf.setParallelism(20_000_000L) // Above max
         assertEquals(argon2Kdf.maxParallelism, argon2Kdf.getParallelism())
+        assertEquals(256L, argon2Kdf.getParallelism())
 
         argon2Kdf.setParallelism(0L) // Below min
         assertEquals(argon2Kdf.minParallelism, argon2Kdf.getParallelism())
@@ -85,6 +86,9 @@ class KdfClampingTest {
         // Test rounds clamping
         aesKdf.setKeyRounds(10_000_000_000_000_000_000uL) // Above max
         assertEquals(aesKdf.maxKeyRounds, aesKdf.getKeyRounds())
+
+        aesKdf.setKeyRounds(5_000_000_000uL) // Above 32 bits
+        assertEquals(UInt.MAX_VALUE.toULong(), aesKdf.getKeyRounds())
 
         aesKdf.setKeyRounds(0uL) // Below min
         assertEquals(aesKdf.minKeyRounds, aesKdf.getKeyRounds())

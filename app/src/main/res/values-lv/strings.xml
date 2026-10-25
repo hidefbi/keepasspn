@@ -369,4 +369,7 @@ Lai saglabātu mūsu brīvību, labotu kļūdas, pievienotu funkcijas un uzturē
     <string name="check_for_updates_dialog_message">Instalētā versija: %1$s\\n\\nAtvērt laidienu lapu, lai salīdzinātu to ar jaunāko versiju?</string>
     <string name="open_releases_page">Atvērt laidienu lapu</string>
     <string name="releases_page_unavailable">Neviena lietotne nevar atvērt laidienu lapu.</string>
+    <string name="keyboard_auto_go_confirm_title">Ieslēgt automātisko nosūtīšanu?</string>
+    <string name="keyboard_auto_go_confirm_message">Kad tas ir ieslēgts, Magikeyboard nosūta veidlapu uzreiz pēc aizpildīšanas, bez papildu pieskāriena. Viltots pieteikšanās lapa to var izmantot, lai savāktu jūsu datus. Ieslēdziet tikai tad, ja pirms katras aizpildīšanas pārbaudāt lapu.</string>
+    <string name="keyboard_auto_go_confirm_button">Ieslēgt</string>
 </resources>

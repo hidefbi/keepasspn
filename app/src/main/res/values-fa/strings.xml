@@ -380,4 +380,7 @@
     <string name="check_for_updates_dialog_message">نسخه‌ی نصب‌شده: %1$s\\n\\nصفحه‌ی انتشار باز شود تا با آخرین نسخه مقایسه شود؟</string>
     <string name="open_releases_page">باز کردن صفحه‌ی انتشار</string>
     <string name="releases_page_unavailable">هیچ برنامه‌ای نمی‌تواند صفحه‌ی انتشار را باز کند.</string>
+    <string name="keyboard_auto_go_confirm_title">آیا ارسال خودکار فعال شود؟</string>
+    <string name="keyboard_auto_go_confirm_message">با فعال بودن این گزینه، Magikeyboard بلافاصله پس از پرکردن، فرم را بدون یک ضربه دیگر ارسال می‌کند. یک صفحه ورود جعلی ممکن است از این برای جمع‌آوری اطلاعات شما استفاده کند. فقط در صورتی فعالش کنید که قبل از هر پرکردن صفحه را بررسی کنید.</string>
+    <string name="keyboard_auto_go_confirm_button">فعال کردن</string>
 </resources>

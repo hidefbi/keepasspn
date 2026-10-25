@@ -95,7 +95,8 @@ class AesKdf : KdfEngine() {
 
     override val minKeyRounds: ULong = 1u
 
-    override val maxKeyRounds: ULong = Long.MAX_VALUE.toULong() // Theoretically ULong.MAX_VALUE but limited by JVM
+    // The native key loop counts in 32 bits, so larger values are refused
+    override val maxKeyRounds: ULong = UInt.MAX_VALUE.toULong()
 
     override fun toString(): String {
         return "AES"

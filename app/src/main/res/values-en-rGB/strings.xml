@@ -406,4 +406,7 @@ To keep our freedom, fix bugs, add features and keep the project active, we welc
     <string name="check_for_updates_dialog_message">Installed version: %1$s\\n\\nOpen the releases page to compare it with the latest version?</string>
     <string name="open_releases_page">Open releases page</string>
     <string name="releases_page_unavailable">No app can open the releases page.</string>
+    <string name="keyboard_auto_go_confirm_title">Turn on automatic submit?</string>
+    <string name="keyboard_auto_go_confirm_message">With this on, Magikeyboard submits the form right after filling, without another tap. A fake login page could use this to collect your credentials. Turn it on only if you check the page before every fill.</string>
+    <string name="keyboard_auto_go_confirm_button">Turn on</string>
 </resources>

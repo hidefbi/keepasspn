@@ -20,6 +20,7 @@
 package com.keepasspn.settings
 
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -39,6 +40,29 @@ class MagikeyboardSettingsFragment : PreferenceFragmentCompat() {
             val keyboardSwitchPreference: TwoStatePreference? = findPreference(getString(R.string.keyboard_auto_switch_key))
             keyboardSwitchPreference?.isEnabled = context.isAutoSwitchMagikeyboardAllowed()
         }
+
+        // Turning the auto action on needs a confirmation; the switch is set only when accepted
+        findPreference<TwoStatePreference>(getString(R.string.keyboard_auto_go_action_key))
+            ?.setOnPreferenceChangeListener { preference, newValue ->
+                if (newValue == true) {
+                    confirmAutoGoAction(preference as TwoStatePreference)
+                    false
+                } else {
+                    true
+                }
+            }
+    }
+
+    private fun confirmAutoGoAction(preference: TwoStatePreference) {
+        val context = context ?: return
+        AlertDialog.Builder(context)
+            .setTitle(R.string.keyboard_auto_go_confirm_title)
+            .setMessage(R.string.keyboard_auto_go_confirm_message)
+            .setPositiveButton(R.string.keyboard_auto_go_confirm_button) { _, _ ->
+                preference.isChecked = true
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
     }
 
     override fun onDisplayPreferenceDialog(preference: Preference) {

@@ -778,4 +778,7 @@ Për të ruajtur lirinë tonë, për të rregulluar gabimet, për të shtuar fun
     <string name="check_for_updates_dialog_message">Versioni i instaluar: %1$s\\n\\nTë hapet faqja e versioneve për ta krahasuar me versionin më të fundit?</string>
     <string name="open_releases_page">Hap faqen e versioneve</string>
     <string name="releases_page_unavailable">Asnjë aplikacion nuk mund ta hapë faqen e versioneve.</string>
+    <string name="keyboard_auto_go_confirm_title">Të aktivizohet dërgimi automatik?</string>
+    <string name="keyboard_auto_go_confirm_message">Kur është aktive, Magikeyboard e dërgon formularin menjëherë pas plotësimit, pa një prekje tjetër. Një faqe e rreme hyrjeje mund ta përdorë këtë për të mbledhur kredencialet tuaja. Aktivizojeni vetëm nëse e kontrolloni faqen para çdo plotësimi.</string>
+    <string name="keyboard_auto_go_confirm_button">Aktivizo</string>
 </resources>

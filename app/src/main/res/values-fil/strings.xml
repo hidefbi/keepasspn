@@ -354,4 +354,7 @@ Upang mapanatili ang aming kalayaan, ayusin ang mga bug, magdagdag ng mga featur
     <string name="check_for_updates_dialog_message">Naka-install na bersyon: %1$s\\n\\nBuksan ang releases page para ihambing ito sa pinakabagong bersyon?</string>
     <string name="open_releases_page">Buksan ang releases page</string>
     <string name="releases_page_unavailable">Walang app na makapagbubukas ng releases page.</string>
+    <string name="keyboard_auto_go_confirm_title">I-on ang awtomatikong pagpapadala?</string>
+    <string name="keyboard_auto_go_confirm_message">Kapag naka-on, ipapadala agad ng Magikeyboard ang form pagkatapos punan, nang walang karagdagang tap. Maaaring gamitin ito ng isang pekeng pahina ng pag-log in para kolektahin ang iyong mga kredensyal. I-on lamang kung tinitingnan mo ang pahina bago ang bawat pagpuno.</string>
+    <string name="keyboard_auto_go_confirm_button">I-on</string>
 </resources>

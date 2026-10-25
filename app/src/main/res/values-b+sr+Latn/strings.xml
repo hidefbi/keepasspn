@@ -443,4 +443,7 @@ Da bismo sačuvali našu slobodu, ispravljali greške, dodavali funkcije i održ
     <string name="check_for_updates_dialog_message">Instalirana verzija: %1$s\\n\\nDa otvorim stranicu sa izdanjima radi poređenja sa najnovijom verzijom?</string>
     <string name="open_releases_page">Otvori stranicu sa izdanjima</string>
     <string name="releases_page_unavailable">Nijedna aplikacija ne može da otvori stranicu sa izdanjima.</string>
+    <string name="keyboard_auto_go_confirm_title">Uključiti automatsko slanje?</string>
+    <string name="keyboard_auto_go_confirm_message">Kada je uključeno, Magikeyboard šalje obrazac odmah posle popunjavanja, bez dodatnog dodira. Lažna stranica za prijavu mogla bi to iskoristiti da prikupi vaše podatke. Uključite samo ako proverite stranicu pre svakog popunjavanja.</string>
+    <string name="keyboard_auto_go_confirm_button">Uključi</string>
 </resources>

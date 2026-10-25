@@ -850,4 +850,7 @@
     <string name="import_entries_error_zip_several_json">Архив ZIP содержит более одного файла JSON</string>
     <string name="import_entries_error_zip_unreadable">Не удается прочитать архив ZIP</string>
     <string name="import_entries_error_columns">В файле должны быть столбец с паролем и столбец с названием или URL</string>
+    <string name="keyboard_auto_go_confirm_title">Включить автоматическую отправку?</string>
+    <string name="keyboard_auto_go_confirm_message">Когда опция включена, Magikeyboard отправляет форму сразу после заполнения, без дополнительного нажатия. Поддельная страница входа может использовать это, чтобы собрать ваши данные. Включайте, только если проверяете страницу перед каждым заполнением.</string>
+    <string name="keyboard_auto_go_confirm_button">Включить</string>
 </resources>

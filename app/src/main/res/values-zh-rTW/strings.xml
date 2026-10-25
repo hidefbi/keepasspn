@@ -830,4 +830,7 @@
     <string name="import_entries_error_zip_several_json">ZIP 壓縮檔中包含多個 JSON 檔案</string>
     <string name="import_entries_error_zip_unreadable">無法讀取 ZIP 壓縮檔</string>
     <string name="import_entries_error_columns">檔案需要包含密碼欄以及標題或 URL 欄</string>
+    <string name="keyboard_auto_go_confirm_title">要開啟自動提交嗎？</string>
+    <string name="keyboard_auto_go_confirm_message">開啟後，魔法鍵盤會在填入後直接提交表單，無需再點擊。偽造的登入頁面可能利用這一點取得你的憑證。只有在每次填入前都確認頁面可信時才建議開啟。</string>
+    <string name="keyboard_auto_go_confirm_button">開啟</string>
 </resources>

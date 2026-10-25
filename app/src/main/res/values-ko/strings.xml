@@ -429,4 +429,7 @@
     <string name="import_entries_error_zip_several_json">ZIP 압축 파일에 JSON 파일이 두 개 이상 있습니다</string>
     <string name="import_entries_error_zip_unreadable">ZIP 압축 파일을 읽을 수 없습니다</string>
     <string name="import_entries_error_columns">파일에는 암호 열과 제목 또는 URL 열이 필요합니다</string>
+    <string name="keyboard_auto_go_confirm_title">자동 제출을 켜시겠습니까?</string>
+    <string name="keyboard_auto_go_confirm_message">켜면 Magikeyboard가 입력한 뒤 추가로 탭하지 않아도 양식을 바로 제출합니다. 가짜 로그인 페이지가 이를 이용해 자격 증명을 수집할 수 있습니다. 입력하기 전에 매번 페이지를 확인하는 경우에만 켜세요.</string>
+    <string name="keyboard_auto_go_confirm_button">켜기</string>
 </resources>

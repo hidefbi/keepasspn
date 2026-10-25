@@ -791,4 +791,7 @@
     <string name="check_for_updates_dialog_message">Усталяваная версія: %1$s\\n\\nАдкрыць старонку выпускаў, каб параўнаць яе з апошняй версіяй?</string>
     <string name="open_releases_page">Адкрыць старонку выпускаў</string>
     <string name="releases_page_unavailable">Ніводная праграма не можа адкрыць старонку выпускаў.</string>
+    <string name="keyboard_auto_go_confirm_title">Уключыць аўтаматычнае адпраўленне?</string>
+    <string name="keyboard_auto_go_confirm_message">Пасля ўключэння Magikeyboard адпраўляе форму адразу пасля запаўнення, без дадатковага націску. Фальшывая старонка ўваходу можа выкарыстаць гэта, каб сабраць вашы дадзеныя. Уключайце, толькі калі правяраеце старонку перад кожным запаўненнем.</string>
+    <string name="keyboard_auto_go_confirm_button">Уключыць</string>
 </resources>

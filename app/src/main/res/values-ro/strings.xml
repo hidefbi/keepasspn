@@ -836,4 +836,7 @@ Pentru a ne menține libertatea, a repara erori, a adăuga funcționalități ș
     <string name="check_for_updates_dialog_message">Versiunea instalată: %1$s\\n\\nDeschideți pagina de lansări pentru a compara cu cea mai recentă versiune?</string>
     <string name="open_releases_page">Deschide pagina de lansări</string>
     <string name="releases_page_unavailable">Nicio aplicație nu poate deschide pagina de lansări.</string>
+    <string name="keyboard_auto_go_confirm_title">Activați trimiterea automată?</string>
+    <string name="keyboard_auto_go_confirm_message">Când este activată, Magikeyboard trimite formularul imediat după completare, fără o atingere suplimentară. O pagină de autentificare falsă ar putea folosi asta pentru a colecta datele de autentificare. Activați doar dacă verificați pagina înainte de fiecare completare.</string>
+    <string name="keyboard_auto_go_confirm_button">Activează</string>
 </resources>

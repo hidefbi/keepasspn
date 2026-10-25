@@ -841,4 +841,7 @@
     <string name="import_entries_error_zip_several_json">ZIPアーカイブに複数のJSONファイルが含まれています</string>
     <string name="import_entries_error_zip_unreadable">ZIPアーカイブを読み取れません</string>
     <string name="import_entries_error_columns">ファイルにはパスワード列と、タイトルまたはURLの列が必要です</string>
+    <string name="keyboard_auto_go_confirm_title">自動送信を有効にしますか？</string>
+    <string name="keyboard_auto_go_confirm_message">有効にすると、Magikeyboard は入力後にもう一度タップしなくてもフォームを送信します。偽のログインページがこれを悪用して認証情報を盗むおそれがあります。入力のたびにページを確認できる場合にのみ有効にしてください。</string>
+    <string name="keyboard_auto_go_confirm_button">有効にする</string>
 </resources>

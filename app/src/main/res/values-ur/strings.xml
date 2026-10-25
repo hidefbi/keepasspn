@@ -85,4 +85,7 @@
     <string name="check_for_updates_dialog_message">انسٹال شدہ ورژن: %1$s\\n\\nتازہ ترین ورژن سے موازنہ کرنے کے لیے ریلیزز کا صفحہ کھولیں؟</string>
     <string name="open_releases_page">ریلیزز کا صفحہ کھولیں</string>
     <string name="releases_page_unavailable">ریلیزز کا صفحہ کھولنے والی کوئی ایپ نہیں ہے۔</string>
+    <string name="keyboard_auto_go_confirm_title">کیا خودکار جمع کرانا فعال کریں؟</string>
+    <string name="keyboard_auto_go_confirm_message">فعال ہونے پر Magikeyboard بھرنے کے فوراً بعد فارم جمع کر دے گا، کسی اور ٹیپ کے بغیر۔ ایک جعلی لاگ اِن صفحہ اس کا استعمال کر کے آپ کی اسناد جمع کر سکتا ہے۔ صرف اسی صورت میں فعال کریں جب آپ ہر بار بھرنے سے پہلے صفحہ جانچتے ہوں۔</string>
+    <string name="keyboard_auto_go_confirm_button">فعال کریں</string>
 </resources>

@@ -834,4 +834,7 @@ For å bevare friheten vår, rette feil, legge til funksjoner og holde prosjekte
     <string name="check_for_updates_dialog_message">Installert versjon: %1$s\\n\\nÅpne utgivelsessiden for å sammenligne med siste versjon?</string>
     <string name="open_releases_page">Åpne utgivelsessiden</string>
     <string name="releases_page_unavailable">Ingen app kan åpne utgivelsessiden.</string>
+    <string name="keyboard_auto_go_confirm_title">Slå på automatisk sending?</string>
+    <string name="keyboard_auto_go_confirm_message">Når dette er på, sender Magikeyboard skjemaet like etter utfylling, uten et ekstra trykk. En falsk innloggingsside kan bruke dette til å samle inn påloggingsopplysningene dine. Slå det bare på hvis du sjekker siden før hver utfylling.</string>
+    <string name="keyboard_auto_go_confirm_button">Slå på</string>
 </resources>

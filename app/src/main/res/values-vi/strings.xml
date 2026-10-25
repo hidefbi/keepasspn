@@ -831,4 +831,7 @@
     <string name="import_entries_error_zip_several_json">Tệp ZIP chứa nhiều hơn một tệp JSON</string>
     <string name="import_entries_error_zip_unreadable">Không thể đọc tệp ZIP</string>
     <string name="import_entries_error_columns">Tệp cần có cột mật khẩu và cột tiêu đề hoặc URL</string>
+    <string name="keyboard_auto_go_confirm_title">Bật tự động gửi?</string>
+    <string name="keyboard_auto_go_confirm_message">Khi bật, Magikeyboard sẽ gửi biểu mẫu ngay sau khi điền, không cần chạm thêm. Một trang đăng nhập giả mạo có thể lợi dụng điều này để thu thập thông tin đăng nhập của bạn. Chỉ bật khi bạn kiểm tra trang trước mỗi lần điền.</string>
+    <string name="keyboard_auto_go_confirm_button">Bật</string>
 </resources>

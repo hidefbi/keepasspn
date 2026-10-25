@@ -826,4 +826,7 @@
     <string name="check_for_updates_dialog_message">Инсталирана версия: %1$s\\n\\nДа се отвори ли страницата с издания, за да се сравни с последната версия?</string>
     <string name="open_releases_page">Отваряне на страницата с издания</string>
     <string name="releases_page_unavailable">Никое приложение не може да отвори страницата с издания.</string>
+    <string name="keyboard_auto_go_confirm_title">Да се включи ли автоматичното изпращане?</string>
+    <string name="keyboard_auto_go_confirm_message">При включване Magikeyboard изпраща формата веднага след попълването, без допълнително докосване. Фалшива страница за вход може да използва това, за да събере данните ви. Включвайте само ако проверявате страницата преди всяко попълване.</string>
+    <string name="keyboard_auto_go_confirm_button">Включи</string>
 </resources>

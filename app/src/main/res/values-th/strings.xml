@@ -791,4 +791,7 @@
     <string name="check_for_updates_dialog_message">เวอร์ชันที่ติดตั้ง: %1$s\\n\\nเปิดหน้าเวอร์ชันที่เผยแพร่เพื่อเปรียบเทียบกับเวอร์ชันล่าสุดหรือไม่</string>
     <string name="open_releases_page">เปิดหน้าเวอร์ชันที่เผยแพร่</string>
     <string name="releases_page_unavailable">ไม่มีแอปใดที่เปิดหน้าเวอร์ชันที่เผยแพร่ได้</string>
+    <string name="keyboard_auto_go_confirm_title">เปิดการส่งอัตโนมัติไหม?</string>
+    <string name="keyboard_auto_go_confirm_message">เมื่อเปิดไว้ Magikeyboard จะส่งแบบฟอร์มทันทีหลังกรอกเสร็จ โดยไม่ต้องแตะอีกครั้ง หน้าเข้าสู่ระบบปลอมอาจใช้สิ่งนี้เพื่อรวบรวมข้อมูลเข้าสู่ระบบของคุณได้ เปิดเฉพาะเมื่อคุณตรวจสอบหน้านั้นก่อนกรอกทุกครั้ง</string>
+    <string name="keyboard_auto_go_confirm_button">เปิด</string>
 </resources>

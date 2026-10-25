@@ -34,4 +34,7 @@
     <string name="pin_change_done">PIN li ante.</string>
     <string name="pin_master_lockout_remaining">nimi lawa suli ike. o kepeken e nimi lawa %1$d taso la poki sona li weka lon ilo.</string>
     <string name="pin_master_lockout_database_deleted">poki sona li weka lon ilo tawa nimi lawa suli ike mute. o kama pana sin e lipu .kdbx.</string>
+    <string name="keyboard_auto_go_confirm_title">Turn on automatic submit?</string>
+    <string name="keyboard_auto_go_confirm_message">With this on, Magikeyboard submits the form right after filling, without another tap. A fake login page could use this to collect your credentials. Turn it on only if you check the page before every fill.</string>
+    <string name="keyboard_auto_go_confirm_button">Turn on</string>
 </resources>

@@ -814,4 +814,7 @@ Para manter a nossa liberdade, corrigir bugs, adicionar funcionalidades e manter
     <string name="import_entries_error_zip_several_json">O ficheiro ZIP contém mais do que um ficheiro JSON</string>
     <string name="import_entries_error_zip_unreadable">Não é possível ler o ficheiro ZIP</string>
     <string name="import_entries_error_columns">O ficheiro precisa de uma coluna de palavra-passe e uma coluna de título ou URL</string>
+    <string name="keyboard_auto_go_confirm_title">Ativar envio automático?</string>
+    <string name="keyboard_auto_go_confirm_message">Com essa opção ativada, o Magikeyboard envia o formulário logo após preenchê-lo, sem toque extra. Uma página de login falsa pode aproveitar isso para coletar suas credenciais. Ative apenas se você verificar a página antes de cada preenchimento.</string>
+    <string name="keyboard_auto_go_confirm_button">Ativar</string>
 </resources>

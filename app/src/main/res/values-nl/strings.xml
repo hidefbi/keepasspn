@@ -852,4 +852,7 @@ Om onze vrijheid te behouden, bugs te verhelpen, functies toe te voegen en het p
     <string name="import_entries_error_zip_several_json">Het ZIP-archief bevat meer dan één JSON-bestand</string>
     <string name="import_entries_error_zip_unreadable">Het ZIP-archief kan niet worden gelezen</string>
     <string name="import_entries_error_columns">Het bestand heeft een wachtwoordkolom en een titel- of URL-kolom nodig</string>
+    <string name="keyboard_auto_go_confirm_title">Automatisch verzenden inschakelen?</string>
+    <string name="keyboard_auto_go_confirm_message">Met deze optie aan verstuurt Magikeyboard het formulier direct na het invullen, zonder nog een tik. Een nep-inlogpagina kan dit gebruiken om uw gegevens te verzamelen. Schakel dit alleen in als u de pagina voor elke invulling controleert.</string>
+    <string name="keyboard_auto_go_confirm_button">Inschakelen</string>
 </resources>

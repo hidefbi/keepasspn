@@ -256,6 +256,7 @@ class Argon2Kdf(private val type: Type) : KdfEngine() {
 
         private const val DEFAULT_PARALLELISM: UInt = 4u
         private const val MIN_PARALLELISM: UInt = 1u
-        private val MAX_PARALLELISM: UInt = ((1 shl 24) - 1).toUInt()
+        // One thread is started per lane, so keep the number small
+        private const val MAX_PARALLELISM: UInt = 256u
     }
 }

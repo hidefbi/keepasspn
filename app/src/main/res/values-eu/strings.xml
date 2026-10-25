@@ -745,4 +745,7 @@ Gure askatasuna mantentzeko, akatsak konpontzeko, funtzio berriak gehitzeko eta 
     <string name="check_for_updates_dialog_message">Instalatutako bertsioa: %1$s\\n\\nArgitalpen-orria ireki nahi duzu azken bertsioarekin alderatzeko?</string>
     <string name="open_releases_page">Ireki argitalpen-orria</string>
     <string name="releases_page_unavailable">Ez dago aplikaziorik argitalpen-orria irekitzeko.</string>
+    <string name="keyboard_auto_go_confirm_title">Gaitu bidalketa automatikoa?</string>
+    <string name="keyboard_auto_go_confirm_message">Aktibatuta dagoenean, Magikeyboard-ek formularioa bidaltzen du betetzen amaitu bezain pronto, beste sakatze bat behar izan gabe. Saioa hasteko orri faltsu batek hori erabil dezake zure kredentzialak biltzeko. Gaitu soilik orria kontrolatzen baduzu betetze bakoitza baino lehen.</string>
+    <string name="keyboard_auto_go_confirm_button">Gaitu</string>
 </resources>

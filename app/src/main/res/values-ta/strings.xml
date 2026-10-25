@@ -791,4 +791,7 @@
     <string name="check_for_updates_dialog_message">நிறுவப்பட்ட பதிப்பு: %1$s\\n\\nசமீபத்திய பதிப்புடன் ஒப்பிட வெளியீடுகள் பக்கத்தைத் திறக்கவா?</string>
     <string name="open_releases_page">வெளியீடுகள் பக்கத்தைத் திற</string>
     <string name="releases_page_unavailable">வெளியீடுகள் பக்கத்தை எந்தப் பயன்பாட்டாலும் திறக்க முடியாது.</string>
+    <string name="keyboard_auto_go_confirm_title">தானியங்கி சமர்ப்பிப்பை இயக்கவா?</string>
+    <string name="keyboard_auto_go_confirm_message">இயக்கப்பட்டிருக்கும்போது, நிரப்பிய உடனே Magikeyboard படிவத்தை சமர்ப்பிக்கும், கூடுதல் தட்டல் தேவையில்லை. போலி உள்நுழைவுப் பக்கம் இதைப் பயன்படுத்தி உங்கள் சான்றுகளைச் சேகரிக்கலாம். ஒவ்வொரு முறை நிரப்பும் முன்பும் பக்கத்தைச் சரிபார்த்தால் மட்டும் இயக்கவும்.</string>
+    <string name="keyboard_auto_go_confirm_button">இயக்கு</string>
 </resources>

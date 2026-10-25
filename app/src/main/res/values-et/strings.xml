@@ -808,4 +808,7 @@ Meie vabaduse säilitamiseks, vigade parandamiseks, uute funktsioonide lisamisek
     <string name="check_for_updates_dialog_message">Paigaldatud versioon: %1$s\\n\\nKas avada väljaannete leht, et võrrelda seda viimase versiooniga?</string>
     <string name="open_releases_page">Ava väljaannete leht</string>
     <string name="releases_page_unavailable">Ükski rakendus ei saa väljaannete lehte avada.</string>
+    <string name="keyboard_auto_go_confirm_title">Kas lülitada automaatne esitamine sisse?</string>
+    <string name="keyboard_auto_go_confirm_message">Sisselülitatuna saadab Magikeyboard vormi kohe pärast täitmist, ilma täiendava puudutuseta. Võltsitud sisselogimisleht võib seda kasutada teie andmete kogumiseks. Lülitage sisse ainult siis, kui kontrollite lehte enne iga täitmist.</string>
+    <string name="keyboard_auto_go_confirm_button">Lülita sisse</string>
 </resources>

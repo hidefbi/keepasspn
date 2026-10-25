@@ -212,4 +212,7 @@ Por konservi nian liberecon, ripari erarojn, aldoni funkciojn kaj konservi la pr
     <string name="check_for_updates_dialog_message">Instalita versio: %1$s\\n\\nĈu malfermi la paĝon de eldonoj por kompari ĝin kun la plej nova versio?</string>
     <string name="open_releases_page">Malfermi la paĝon de eldonoj</string>
     <string name="releases_page_unavailable">Neniu aplikaĵo povas malfermi la paĝon de eldonoj.</string>
+    <string name="keyboard_auto_go_confirm_title">Ĉu ŝalti aŭtomatan sendon?</string>
+    <string name="keyboard_auto_go_confirm_message">Kiam ĝi estas ŝaltita, Magikeyboard sendas la formularon tuj post plenigo, sen alia tuŝo. Falsa ensaluta paĝo povus uzi tion por kolekti viajn akreditaĵojn. Ŝaltu nur se vi kontrolas la paĝon antaŭ ĉiu plenigo.</string>
+    <string name="keyboard_auto_go_confirm_button">Ŝalti</string>
 </resources>

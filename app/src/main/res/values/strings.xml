@@ -861,4 +861,7 @@ To keep our freedom, fix bugs, add features and keep the project active, we welc
     <string name="import_entries_error_zip_several_json">The ZIP archive contains more than one JSON file</string>
     <string name="import_entries_error_zip_unreadable">The ZIP archive cannot be read</string>
     <string name="import_entries_error_columns">The file needs a password column and a title or URL column</string>
+    <string name="keyboard_auto_go_confirm_title">Turn on automatic submit?</string>
+    <string name="keyboard_auto_go_confirm_message">With this on, Magikeyboard submits the form right after filling, without another tap. A fake login page could use this to collect your credentials. Turn it on only if you check the page before every fill.</string>
+    <string name="keyboard_auto_go_confirm_button">Turn on</string>
 </resources>

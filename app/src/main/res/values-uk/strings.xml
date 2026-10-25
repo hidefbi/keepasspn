@@ -830,4 +830,7 @@
     <string name="import_entries_error_zip_several_json">ZIP-архів містить більше одного файлу JSON</string>
     <string name="import_entries_error_zip_unreadable">ZIP-архів неможливо прочитати</string>
     <string name="import_entries_error_columns">Файл має містити стовпець пароля та стовпець назви або URL</string>
+    <string name="keyboard_auto_go_confirm_title">Увімкнути автоматичне надсилання?</string>
+    <string name="keyboard_auto_go_confirm_message">Коли увімкнено, Magikeyboard надсилає форму одразу після заповнення, без додаткового натискання. Фальшива сторінка входу може використати це, щоб зібрати ваші дані. Увімкніть, лише якщо перевіряєте сторінку перед кожним заповненням.</string>
+    <string name="keyboard_auto_go_confirm_button">Увімкнути</string>
 </resources>

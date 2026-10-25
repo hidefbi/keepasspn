@@ -789,4 +789,7 @@ Siekdami išsaugoti laisvę, taisyti klaidas, pridėti funkcijų ir palaikyti pr
     <string name="check_for_updates_dialog_message">Įdiegta versija: %1$s\\n\\nAtidaryti leidimų puslapį, kad būtų palyginta su naujausia versija?</string>
     <string name="open_releases_page">Atidaryti leidimų puslapį</string>
     <string name="releases_page_unavailable">Nėra programos, kuri galėtų atidaryti leidimų puslapį.</string>
+    <string name="keyboard_auto_go_confirm_title">Įjungti automatinį siuntimą?</string>
+    <string name="keyboard_auto_go_confirm_message">Įjungus, Magikeyboard formą išsiunčia iškart po užpildymo, be papildomo palietimo. Netikras prisijungimo puslapis gali tai panaudoti jūsų duomenims rinkti. Įjunkite tik tada, jei prieš kiekvieną užpildymą patikrinate puslapį.</string>
+    <string name="keyboard_auto_go_confirm_button">Įjungti</string>
 </resources>

@@ -432,4 +432,7 @@
     <string name="check_for_updates_dialog_message">ഇൻസ്റ്റാൾ ചെയ്ത പതിപ്പ്: %1$s\\n\\nഏറ്റവും പുതിയ പതിപ്പുമായി താരതമ്യം ചെയ്യാൻ റിലീസ് പേജ് തുറക്കണോ?</string>
     <string name="open_releases_page">റിലീസ് പേജ് തുറക്കുക</string>
     <string name="releases_page_unavailable">റിലീസ് പേജ് തുറക്കാൻ ഒരു ആപ്പിനും കഴിയില്ല.</string>
+    <string name="keyboard_auto_go_confirm_title">സ്വയം സമർപ്പിക്കൽ ഓണാക്കണോ?</string>
+    <string name="keyboard_auto_go_confirm_message">ഓണാക്കിയാൽ, പൂരിപ്പിച്ചതിനുശേഷം Magikeyboard മറ്റൊരു ടാപ്പില്ലാതെ ഫോം സമർപ്പിക്കും. വ്യാജ ലോഗിൻ പേജിന് ഇത് ഉപയോഗിച്ച് നിങ്ങളുടെ വിവരങ്ങൾ ശേഖരിക്കാനാകും. ഓരോ പൂരിപ്പിക്കലിനും മുമ്പ് പേജ് പരിശോധിക്കുന്നെങ്കിൽ മാത്രം ഓണാക്കുക.</string>
+    <string name="keyboard_auto_go_confirm_button">ഓണാക്കുക</string>
 </resources>

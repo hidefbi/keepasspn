@@ -215,4 +215,7 @@
     <string name="check_for_updates_dialog_message">已安裝版本：%1$s\\n\\n要開啟發行版頁面以與最新版本比較嗎？</string>
     <string name="open_releases_page">開啟發行版頁面</string>
     <string name="releases_page_unavailable">沒有應用程式可以開啟發行版頁面。</string>
+    <string name="keyboard_auto_go_confirm_title">要開啟自動提交嗎？</string>
+    <string name="keyboard_auto_go_confirm_message">開啟後，魔法鍵盤會在填入後直接提交表單，無需再點擊。偽造的登入頁面可能利用這一點取得你的憑證。只有在每次填入前都確認頁面可信時才建議開啟。</string>
+    <string name="keyboard_auto_go_confirm_button">開啟</string>
 </resources>

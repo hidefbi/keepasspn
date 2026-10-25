@@ -848,4 +848,7 @@ Um unsere Freiheit zu bewahren, Fehler zu beheben, neue Funktionen hinzuzufügen
     <string name="import_entries_error_zip_several_json">Das ZIP-Archiv enthält mehr als eine JSON-Datei</string>
     <string name="import_entries_error_zip_unreadable">Das ZIP-Archiv kann nicht gelesen werden</string>
     <string name="import_entries_error_columns">Die Datei benötigt eine Passwort-Spalte sowie eine Titel- oder URL-Spalte</string>
+    <string name="keyboard_auto_go_confirm_title">Automatisches Absenden aktivieren?</string>
+    <string name="keyboard_auto_go_confirm_message">Mit dieser Option sendet die Magikeyboard das Formular direkt nach dem Ausfüllen ab, ohne weiteres Tippen. Eine gefälschte Anmeldeseite könnte das nutzen, um Ihre Zugangsdaten abzugreifen. Aktivieren Sie die Option nur, wenn Sie die Seite vor jedem Ausfüllen prüfen.</string>
+    <string name="keyboard_auto_go_confirm_button">Aktivieren</string>
 </resources>

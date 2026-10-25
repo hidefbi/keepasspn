@@ -236,4 +236,7 @@
     <string name="check_for_updates_dialog_message">इंस्टॉल किया गया संस्करण: %1$s\\n\\nनवीनतम संस्करण से तुलना करने के लिए रिलीज़ पेज खोलें?</string>
     <string name="open_releases_page">रिलीज़ पेज खोलें</string>
     <string name="releases_page_unavailable">रिलीज़ पेज खोलने वाला कोई ऐप नहीं है।</string>
+    <string name="keyboard_auto_go_confirm_title">स्वचालित सबमिट चालू करें?</string>
+    <string name="keyboard_auto_go_confirm_message">चालू होने पर Magikeyboard भरने के तुरंत बाद फ़ॉर्म सबमिट कर देगा, बिना एक और टैप के। कोई नकली लॉगिन पेज इसका उपयोग करके आपके क्रेडेंशियल जमा कर सकता है। इसे तभी चालू करें जब आप हर बार भरने से पहले पेज की जाँच करते हों।</string>
+    <string name="keyboard_auto_go_confirm_button">चालू करें</string>
 </resources>

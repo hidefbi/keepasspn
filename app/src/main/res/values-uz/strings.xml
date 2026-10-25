@@ -135,4 +135,7 @@ Erkinligimizni saqlash, xatolarni tuzatish, yangi imkoniyatlar qo\'shish va loyi
     <string name="check_for_updates_dialog_message">O\'rnatilgan versiya: %1$s\\n\\nSo\'nggi versiya bilan solishtirish uchun relizlar sahifasini ochasizmi?</string>
     <string name="open_releases_page">Relizlar sahifasini ochish</string>
     <string name="releases_page_unavailable">Relizlar sahifasini ochadigan ilova yo\'q.</string>
+    <string name="keyboard_auto_go_confirm_title">Avtomatik yuborishni yoqasizmi?</string>
+    <string name="keyboard_auto_go_confirm_message">Yoqilganda Magikeyboard to‘ldirilgandan so‘ng shaklni boshqa bosmasdan yuboradi. Soxta kirish sahifasi buni maʼlumotlaringizni yig‘ish uchun ishlatishi mumkin. Faqat har safar to‘ldirishdan oldin sahifani tekshirsangizgina yoqing.</string>
+    <string name="keyboard_auto_go_confirm_button">Yoqish</string>
 </resources>

@@ -848,4 +848,7 @@ Pour préserver notre liberté, corriger les bugs, ajouter des fonctionnalités 
     <string name="import_entries_error_zip_several_json">L\'archive ZIP contient plusieurs fichiers JSON</string>
     <string name="import_entries_error_zip_unreadable">L\'archive ZIP ne peut pas être lue</string>
     <string name="import_entries_error_columns">Le fichier doit contenir une colonne de mot de passe et une colonne de titre ou d\'URL</string>
+    <string name="keyboard_auto_go_confirm_title">Activer la soumission automatique ?</string>
+    <string name="keyboard_auto_go_confirm_message">Avec cette option, Magikeyboard soumet le formulaire juste après le remplissage, sans appui supplémentaire. Une fausse page de connexion pourrait en profiter pour récupérer vos identifiants. Ne l\'activez que si vous vérifiez la page avant chaque remplissage.</string>
+    <string name="keyboard_auto_go_confirm_button">Activer</string>
 </resources>

@@ -115,4 +115,7 @@
     <string name="check_for_updates_dialog_message">Инсталирана верзија: %1$s\\n\\nДа ја отворам страницата со изданија за споредба со најновата верзија?</string>
     <string name="open_releases_page">Отвори страница со изданија</string>
     <string name="releases_page_unavailable">Ниту една апликација не може да ја отвори страницата со изданија.</string>
+    <string name="keyboard_auto_go_confirm_title">Да се вклучи автоматското испраќање?</string>
+    <string name="keyboard_auto_go_confirm_message">Кога е вклучено, Magikeyboard го испраќа образецот веднаш по пополнувањето, без дополнителен допир. Лажна страница за најава може да го искористи за да ги собере вашите податоци. Вклучете само ако ја проверувате страницата пред секое пополнување.</string>
+    <string name="keyboard_auto_go_confirm_button">Вклучи</string>
 </resources>

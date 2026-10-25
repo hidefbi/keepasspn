@@ -771,4 +771,7 @@
     <string name="check_for_updates_dialog_message">Εγκατεστημένη έκδοση: %1$s\\n\\nΝα ανοίξει η σελίδα κυκλοφοριών για σύγκριση με την πιο πρόσφατη έκδοση;</string>
     <string name="open_releases_page">Άνοιγμα σελίδας κυκλοφοριών</string>
     <string name="releases_page_unavailable">Καμία εφαρμογή δεν μπορεί να ανοίξει τη σελίδα κυκλοφοριών.</string>
+    <string name="keyboard_auto_go_confirm_title">Ενεργοποίηση αυτόματης υποβολής;</string>
+    <string name="keyboard_auto_go_confirm_message">Όταν είναι ενεργή, το Magikeyboard υποβάλλει τη φόρμα αμέσως μετά τη συμπλήρωση, χωρίς άλλο πάτημα. Μια ψεύτικη σελίδα σύνδεσης θα μπορούσε να το εκμεταλλευτεί για να συλλέξει τα στοιχεία σας. Ενεργοποιήστε το μόνο αν ελέγχετε τη σελίδα πριν από κάθε συμπλήρωση.</string>
+    <string name="keyboard_auto_go_confirm_button">Ενεργοποίηση</string>
 </resources>

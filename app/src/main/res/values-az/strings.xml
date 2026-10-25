@@ -721,4 +721,7 @@ Azadlığımızı qorumaq, səhvləri düzəltmək, yeni funksiyalar əlavə etm
     <string name="check_for_updates_dialog_message">Quraşdırılmış versiya: %1$s\\n\\nQuraşdırılmış versiyanı ən son versiya ilə müqayisə etmək üçün buraxılışlar səhifəsini açaq?</string>
     <string name="open_releases_page">Buraxılışlar səhifəsini aç</string>
     <string name="releases_page_unavailable">Buraxılışlar səhifəsini aça bilən heç bir tətbiq yoxdur.</string>
+    <string name="keyboard_auto_go_confirm_title">Avtomatik göndərmə aktivləşdirilsin?</string>
+    <string name="keyboard_auto_go_confirm_message">Aktiv olduqda Magikeyboard doldurmadan dərhal sonra formanı göndərəcək, əlavə toxunuş tələb olunmayacaq. Saxta giriş səhifəsi bunu məlumatlarınızı toplamaq üçün istifadə edə bilər. Yalnız hər doldurmadan əvvəl səhifəni yoxladığınız halda aktivləşdirin.</string>
+    <string name="keyboard_auto_go_confirm_button">Aktivləşdir</string>
 </resources>

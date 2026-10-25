@@ -825,4 +825,7 @@ Untuk menjaga kebebasan kami, memperbaiki bug, menambah fitur, dan menjaga proye
     <string name="check_for_updates_dialog_message">Versi terpasang: %1$s\\n\\nBuka halaman rilis untuk membandingkannya dengan versi terbaru?</string>
     <string name="open_releases_page">Buka halaman rilis</string>
     <string name="releases_page_unavailable">Tidak ada aplikasi yang dapat membuka halaman rilis.</string>
+    <string name="keyboard_auto_go_confirm_title">Aktifkan kirim otomatis?</string>
+    <string name="keyboard_auto_go_confirm_message">Saat aktif, Magikeyboard mengirim formulir tepat setelah mengisi, tanpa ketukan lain. Halaman login palsu dapat memanfaatkannya untuk mengumpulkan kredensial Anda. Aktifkan hanya jika Anda memeriksa halaman sebelum setiap pengisian.</string>
+    <string name="keyboard_auto_go_confirm_button">Aktifkan</string>
 </resources>

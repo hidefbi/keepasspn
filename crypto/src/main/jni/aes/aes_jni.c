@@ -90,7 +90,8 @@ uint32_t generate_key_material(void *arg) {
   #if defined(KPD_PROFILE)
   struct timespec start, end;
   #endif
-  uint32_t i, flip = 0;
+  uint64_t i;
+  uint32_t flip = 0;
   uint8_t *key1, *key2;
   master_key *mk = (master_key *)arg;
   aes_encrypt_ctx e_ctx[1] __attribute__ ((aligned (16)));
@@ -111,7 +112,7 @@ uint32_t generate_key_material(void *arg) {
   #endif
 
   aes_encrypt_key256(mk->c_seed, e_ctx);
-  for (i = 0; i < (uint32_t)mk->rounds; i++) {
+  for (i = 0; i < mk->rounds; i++) {
     if ( flip ) {
       aes_encrypt(key2, key1, e_ctx);
       flip = 0;

@@ -826,4 +826,7 @@ Para manter a nosa liberdade, corrixir erros, engadir funcións e manter o proxe
     <string name="check_for_updates_dialog_message">Versión instalada: %1$s\\n\\nAbrir a páxina de versións para comparala coa última versión?</string>
     <string name="open_releases_page">Abrir a páxina de versións</string>
     <string name="releases_page_unavailable">Non hai ningunha aplicación que poida abrir a páxina de versións.</string>
+    <string name="keyboard_auto_go_confirm_title">Activar o envío automático?</string>
+    <string name="keyboard_auto_go_confirm_message">Con esta opción activada, Magikeyboard envía o formulario xusto despois de enchelo, sen tocar nada máis. Unha páxina de inicio de sesión falsa podería aproveitalo para obter as túas credenciais. Actívao só se revisas a páxina antes de cada enchido.</string>
+    <string name="keyboard_auto_go_confirm_button">Activar</string>
 </resources>

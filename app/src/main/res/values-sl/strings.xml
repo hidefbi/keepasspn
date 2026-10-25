@@ -139,4 +139,7 @@ Da bi ohranili svobodo, odpravljali napake, dodajali funkcije in ohranjali proje
     <string name="check_for_updates_dialog_message">Nameščena različica: %1$s\\n\\nOdpri stran z izdajami za primerjavo z najnovejšo različico?</string>
     <string name="open_releases_page">Odpri stran z izdajami</string>
     <string name="releases_page_unavailable">Nobena aplikacija ne more odpreti strani z izdajami.</string>
+    <string name="keyboard_auto_go_confirm_title">Vklopim samodejno pošiljanje?</string>
+    <string name="keyboard_auto_go_confirm_message">Ko je vklopljeno, Magikeyboard obrazec pošlje takoj po izpolnjevanju, brez dodatnega dotika. Lažna stran za prijavo bi to lahko izkoristila za zbiranje vaših podatkov. Vklopite le, če stran preverite pred vsakim izpolnjevanjem.</string>
+    <string name="keyboard_auto_go_confirm_button">Vklopi</string>
 </resources>

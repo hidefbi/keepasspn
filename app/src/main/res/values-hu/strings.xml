@@ -844,4 +844,7 @@ Szabadságunk megőrzése, a hibák javítása, új funkciók hozzáadása és a
     <string name="check_for_updates_dialog_message">Telepített verzió: %1$s\\n\\nMegnyissa a kiadások oldalát, hogy összehasonlítsa a legújabb verzióval?</string>
     <string name="open_releases_page">Kiadások oldalának megnyitása</string>
     <string name="releases_page_unavailable">Nincs olyan alkalmazás, amely meg tudná nyitni a kiadások oldalát.</string>
+    <string name="keyboard_auto_go_confirm_title">Automatikus küldés bekapcsolása?</string>
+    <string name="keyboard_auto_go_confirm_message">Bekapcsolt állapotban a Magikeyboard a kitöltés után azonnal elküldi az űrlapot, újabb koppintás nélkül. Egy hamis bejelentkező oldal ezzel gyűjthetne be az adataidat. Csak akkor kapcsold be, ha minden kitöltés előtt ellenőrzöd az oldalt.</string>
+    <string name="keyboard_auto_go_confirm_button">Bekapcsolás</string>
 </resources>

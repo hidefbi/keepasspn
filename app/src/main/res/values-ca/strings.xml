@@ -778,4 +778,7 @@ Per mantenir la nostra llibertat, corregir errors, afegir funcions i mantenir el
     <string name="check_for_updates_dialog_message">Versió instal·lada: %1$s\\n\\nVols obrir la pàgina de versions per comparar-la amb la versió més recent?</string>
     <string name="open_releases_page">Obre la pàgina de versions</string>
     <string name="releases_page_unavailable">Cap aplicació no pot obrir la pàgina de versions.</string>
+    <string name="keyboard_auto_go_confirm_title">Vols activar l\'enviament automàtic?</string>
+    <string name="keyboard_auto_go_confirm_message">Amb aquesta opció activada, el Magikeyboard envia el formulari just després d\'omplir-lo, sense cap toc més. Una pàgina d\'inici de sessió falsa podria aprofitar-ho per recollir les teves credencials. Activa-la només si revises la pàgina abans de cada omplidura.</string>
+    <string name="keyboard_auto_go_confirm_button">Activar</string>
 </resources>

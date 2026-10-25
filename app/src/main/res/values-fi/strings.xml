@@ -517,4 +517,7 @@ Jotta säilyttäisimme vapautemme, korjaisimme virheitä, lisäisimme ominaisuuk
     <string name="check_for_updates_dialog_message">Asennettu versio: %1$s\\n\\nAvataanko julkaisusivu vertaamaan sitä uusimpaan versioon?</string>
     <string name="open_releases_page">Avaa julkaisusivu</string>
     <string name="releases_page_unavailable">Mikään sovellus ei voi avata julkaisusivua.</string>
+    <string name="keyboard_auto_go_confirm_title">Otetaanko automaattinen lähetys käyttöön?</string>
+    <string name="keyboard_auto_go_confirm_message">Kun tämä on päällä, Magikeyboard lähettää lomakkeen heti täytön jälkeen ilman ylimääräistä napautusta. Väärennetty kirjautumissivu voi käyttää tätä tietojesi keräämiseen. Ota käyttöön vain, jos tarkistat sivun ennen jokaista täyttöä.</string>
+    <string name="keyboard_auto_go_confirm_button">Ota käyttöön</string>
 </resources>

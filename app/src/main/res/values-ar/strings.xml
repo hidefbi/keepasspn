@@ -824,4 +824,7 @@
     <string name="import_entries_error_zip_several_json">يحتوي أرشيف ZIP على أكثر من ملف JSON واحد</string>
     <string name="import_entries_error_zip_unreadable">تعذّرت قراءة أرشيف ZIP</string>
     <string name="import_entries_error_columns">يحتاج الملف إلى عمود لكلمة المرور وعمود للعنوان أو الرابط</string>
+    <string name="keyboard_auto_go_confirm_title">هل تريد تفعيل الإرسال التلقائي؟</string>
+    <string name="keyboard_auto_go_confirm_message">عند التفعيل، ستُرسل لوحة Magikeyboard النموذج مباشرةً بعد التعبئة دون نقرة أخرى. قد تستغل صفحة تسجيل دخول مزيفة ذلك لجمع بيانات اعتمادك. فعّله فقط إذا تحققت من الصفحة قبل كل تعبئة.</string>
+    <string name="keyboard_auto_go_confirm_button">تفعيل</string>
 </resources>

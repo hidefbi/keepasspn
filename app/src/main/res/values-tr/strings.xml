@@ -841,4 +841,7 @@ Uygulama kullanıcı verilerini toplamaz, hiçbir sunucuya bağlanmaz, yalnızca
     <string name="import_entries_error_zip_several_json">ZIP arşivinde birden fazla JSON dosyası var</string>
     <string name="import_entries_error_zip_unreadable">ZIP arşivi okunamıyor</string>
     <string name="import_entries_error_columns">Dosyada bir parola sütunu ile bir başlık veya URL sütunu olmalı</string>
+    <string name="keyboard_auto_go_confirm_title">Otomatik gönderme açılsın mı?</string>
+    <string name="keyboard_auto_go_confirm_message">Açıkken Magikeyboard, doldurduktan hemen sonra formu başka bir dokunuş olmadan gönderir. Sahte bir giriş sayfası bunu kimlik bilgilerinizi toplamak için kullanabilir. Yalnızca her doldurmadan önce sayfayı kontrol ediyorsanız açın.</string>
+    <string name="keyboard_auto_go_confirm_button">Aç</string>
 </resources>

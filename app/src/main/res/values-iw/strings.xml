@@ -821,4 +821,7 @@
     <string name="check_for_updates_dialog_message">גרסה מותקנת: %1$s\\n\\nלפתוח את דף הגרסאות כדי להשוות אותה לגרסה האחרונה?</string>
     <string name="open_releases_page">פתיחת דף הגרסאות</string>
     <string name="releases_page_unavailable">אין אפליקציה שיכולה לפתוח את דף הגרסאות.</string>
+    <string name="keyboard_auto_go_confirm_title">האם להפעיל שליחה אוטומטית?</string>
+    <string name="keyboard_auto_go_confirm_message">כשהאפשרות פעילה, Magikeyboard שולח את הטופס מיד אחרי המילוי, בלי לחיצה נוספת. דף התחברות מזויף עלול לנצל זאת כדי לאסוף את פרטי הכניסה שלך. הפעל רק אם אתה בודק את הדף לפני כל מילוי.</string>
+    <string name="keyboard_auto_go_confirm_button">הפעל</string>
 </resources>

@@ -840,4 +840,7 @@ Aby zachować naszą wolność, naprawiać błędy, dodawać funkcje i utrzymywa
     <string name="import_entries_error_zip_several_json">Archiwum ZIP zawiera więcej niż jeden plik JSON</string>
     <string name="import_entries_error_zip_unreadable">Nie można odczytać archiwum ZIP</string>
     <string name="import_entries_error_columns">Plik musi zawierać kolumnę z hasłem oraz kolumnę tytułu lub URL</string>
+    <string name="keyboard_auto_go_confirm_title">Włączyć automatyczne wysyłanie?</string>
+    <string name="keyboard_auto_go_confirm_message">Po włączeniu Magikeyboard wysyła formularz zaraz po wypełnieniu, bez kolejnego dotknięcia. Fałszywa strona logowania może to wykorzystać, aby zebrać Twoje dane. Włącz tylko wtedy, gdy sprawdzasz stronę przed każdym wypełnieniem.</string>
+    <string name="keyboard_auto_go_confirm_button">Włącz</string>
 </resources>

@@ -820,4 +820,7 @@ För att bevara vår frihet, rätta buggar, lägga till funktioner och hålla pr
     <string name="check_for_updates_dialog_message">Installerad version: %1$s\\n\\nÖppna sidan med utgåvor för att jämföra med den senaste versionen?</string>
     <string name="open_releases_page">Öppna sidan med utgåvor</string>
     <string name="releases_page_unavailable">Ingen app kan öppna sidan med utgåvor.</string>
+    <string name="keyboard_auto_go_confirm_title">Aktivera automatisk skickning?</string>
+    <string name="keyboard_auto_go_confirm_message">När den är aktiverad skickar Magikeyboard formuläret direkt efter ifyllningen, utan ett extra tryck. En falsk inloggningssida kan använda detta för att samla in dina uppgifter. Aktivera bara om du kontrollerar sidan före varje ifyllning.</string>
+    <string name="keyboard_auto_go_confirm_button">Aktivera</string>
 </resources>
