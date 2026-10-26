@@ -1,4 +1,8 @@
 KeePassPN
+ * Feature: Brand icons for entries: the icon picker has a Brand tab with the logo of the brand that matches the web address of the entry; the logos are stored in the app, so nothing is downloaded, and choosing one saves it as a custom icon of the database
+ * Change: text styles and buttons of the import, settings dialogs, about, entry and icon screens now use the Material 3 components
+ * Security: the AES key derivation loop no longer cuts the number of rounds to 32 bits, and the AES rounds and Argon2 parallelism are limited to the values the code supports
+ * Security: turning on automatic submit in Magikeyboard asks for confirmation first, because the form is then sent without another tap
  * Feature: Import entries from a CSV, JSON or ZIP file (one JSON file inside), including Proton Pass exports, from the bottom of the database settings; every entry and group of the file is imported as it is, with TOTP codes as verification codes, other values as custom fields, dates as entry dates, and a count of characters removed because a database cannot store them
  * Feature: "Verify before editing" in App settings > User Verification controls verification for editing entries and folders (on by default)
  * Feature: Trusted browsers for autofill under Form filling; only trusted browsers can tell autofill the current website
