@@ -15,9 +15,7 @@
         android:paddingBottom="8dp"
         android:ellipsize="end"
         android:singleLine="true"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="?android:attr/textColorPrimary" />
+        android:textAppearance="?attr/textAppearanceTitleMedium" />
 
         <TextView
             android:id="@+id/node_actions_edit"
@@ -27,8 +25,7 @@
             android:gravity="center_vertical"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:textSize="16sp"
-            android:textColor="?android:attr/textColorPrimary"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
             android:text="@string/menu_edit" />
         <TextView
             android:id="@+id/node_actions_duplicate"
@@ -38,8 +35,7 @@
             android:gravity="center_vertical"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:textSize="16sp"
-            android:textColor="?android:attr/textColorPrimary"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
             android:text="@string/menu_copy" />
         <TextView
             android:id="@+id/node_actions_move"
@@ -49,8 +45,7 @@
             android:gravity="center_vertical"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:textSize="16sp"
-            android:textColor="?android:attr/textColorPrimary"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
             android:text="@string/menu_move" />
 
         <TextView
@@ -61,8 +56,7 @@
             android:gravity="center_vertical"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:textSize="16sp"
-            android:textColor="?android:attr/textColorPrimary"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
             android:text="@string/group_move_up" />
         <TextView
             android:id="@+id/node_actions_move_down"
@@ -72,8 +66,7 @@
             android:gravity="center_vertical"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:textSize="16sp"
-            android:textColor="?android:attr/textColorPrimary"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
             android:text="@string/group_move_down" />
         <TextView
             android:id="@+id/node_actions_restore"
@@ -83,8 +76,7 @@
             android:gravity="center_vertical"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:textSize="16sp"
-            android:textColor="?android:attr/textColorPrimary"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
             android:text="@string/menu_restore" />
         <TextView
             android:id="@+id/node_actions_delete"
@@ -94,7 +86,7 @@
             android:gravity="center_vertical"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:textSize="16sp"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
             android:textColor="#D32F2F"
             android:text="@string/menu_delete" />
 </LinearLayout>
