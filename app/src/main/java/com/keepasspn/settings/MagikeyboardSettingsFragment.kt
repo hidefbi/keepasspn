@@ -26,7 +26,6 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.TwoStatePreference
 import com.keepasspn.R
-import com.keepasspn.credentialprovider.magikeyboard.MagikeyboardService.Companion.isAutoSwitchMagikeyboardAllowed
 import com.keepasspn.settings.preferencedialogfragment.DurationDialogFragmentCompat
 
 class MagikeyboardSettingsFragment : PreferenceFragmentCompat() {
@@ -34,12 +33,6 @@ class MagikeyboardSettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         // Load the preferences from an XML resource
         setPreferencesFromResource(R.xml.preferences_keyboard, rootKey)
-
-        // Disable the switch preference if KeyboardSwitcher app not installed
-        context?.let { context ->
-            val keyboardSwitchPreference: TwoStatePreference? = findPreference(getString(R.string.keyboard_auto_switch_key))
-            keyboardSwitchPreference?.isEnabled = context.isAutoSwitchMagikeyboardAllowed()
-        }
 
         // Turning the auto action on needs a confirmation; the switch is set only when accepted
         findPreference<TwoStatePreference>(getString(R.string.keyboard_auto_go_action_key))
