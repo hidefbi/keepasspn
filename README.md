@@ -99,7 +99,17 @@ The bottom of the database settings has *Import from a file*, which imports a CS
 - The file you chose is never changed or deleted. The app deletes only its own private copy, when the import finishes or the next time the app starts.
 - If the import fails, everything it created is removed.
 
-### 10. Privacy
+### 10. Brand icons for entries
+
+When you edit an entry and tap its icon, the icon picker has a *Brand* tab. It shows the logo of the brand that matches the web address of the entry, for example GitHub for `https://github.com/login`.
+
+- The logos are stored in the app, so nothing is downloaded and the matching works offline. They come from Simple Icons, and only icons released under CC0 or without a license entry are included.
+- Matching uses the domain only, and the first part of the domain must be the name of the brand. So `paypal-secure.com` gets no icon. A few other names are matched through a short list of aliases, for example `twitter.com` gives the X logo.
+- Choosing a logo saves a copy of it as a custom icon of the database, so other KeePass apps can show it too. Choosing the same brand again adds another copy.
+- Nothing changes on its own. The icon is applied only when you choose it.
+- Logos are trademarks of their owners. Using them to recognise the site of an entry is what this feature is for; check the brand's guidelines before you reuse them anywhere else.
+
+### 11. Privacy
 
 Android cloud backup is disabled for the app, so its data is not included in Android cloud backups.
 
