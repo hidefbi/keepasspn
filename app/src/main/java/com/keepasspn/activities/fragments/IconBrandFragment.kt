@@ -33,7 +33,7 @@ import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.icons.brand.BrandIcon
 import com.keepasspn.icons.brand.BrandIconRenderer
 import com.keepasspn.icons.brand.BrandIconRepository
-import com.keepasspn.tasks.BinaryDatabaseManager
+import com.keepasspn.icons.brand.BrandIconStore
 import com.keepasspn.viewmodels.IconPickerViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -124,51 +124,27 @@ class IconBrandFragment : DatabaseFragment() {
         cardView.isEnabled = false
         val (background, foreground) = themeColors()
         lifecycleScope.launch {
-            val iconState = withContext(Dispatchers.IO) {
-                createCustomIcon(database, icon, background, foreground)
+            val stored = withContext(Dispatchers.IO) {
+                BrandIconStore.findOrStore(database, icon, background, foreground)
             }
             cardView.isEnabled = true
-            val customIcon = iconState.iconCustom
-            // The picker shows the error or adds the icon to the custom list
-            iconPickerViewModel.addCustomIcon(iconState)
-            if (!iconState.error && customIcon != null) {
-                iconPickerViewModel.pickCustomIcon(customIcon)
+            if (stored == null) {
+                iconPickerViewModel.addCustomIcon(
+                    IconPickerViewModel.IconCustomState(null, true, R.string.error_upload_file)
+                )
+                return@launch
             }
-        }
-    }
-
-    /**
-     * Draws the brand and stores it in the database as a new custom icon.
-     */
-    private fun createCustomIcon(
-            database: ContextualDatabase,
-            icon: BrandIcon,
-            background: Int?,
-            foreground: Int?
-    ): IconPickerViewModel.IconCustomState {
-        val iconState = IconPickerViewModel.IconCustomState(null, true, R.string.error_upload_file)
-        val bitmap = BrandIconRenderer.toBitmap(icon, STORED_SIZE_PX, background, foreground)
-            ?: return iconState
-        database.buildNewCustomIcon { customIcon, binary ->
-            if (customIcon != null) {
-                iconState.iconCustom = customIcon
-                if (binary != null) {
-                    BinaryDatabaseManager.storeBitmapInBinaryFile(database, bitmap, binary)
-                    if (binary.getSize() > 0) {
-                        iconState.error = false
-                    }
-                }
-                if (iconState.error) {
-                    database.removeCustomIcon(customIcon)
-                    iconState.iconCustom = null
-                }
+            // An icon stored by an earlier selection is already in the custom list
+            if (stored.created) {
+                iconPickerViewModel.addCustomIcon(
+                    IconPickerViewModel.IconCustomState(stored.icon, false)
+                )
             }
+            iconPickerViewModel.pickCustomIcon(stored.icon)
         }
-        return iconState
     }
 
     companion object {
         private const val PREVIEW_SIZE_PX = 96
-        private const val STORED_SIZE_PX = 128
     }
 }

@@ -21,6 +21,7 @@ package com.keepasspn.adapters
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -39,10 +40,13 @@ import androidx.recyclerview.widget.SortedList
 import androidx.recyclerview.widget.SortedListAdapterCallback
 import com.keepasspn.R
 import com.keepasspn.database.element.SortNodeEnum
+import com.keepasspn.database.element.database.DatabaseVersioned
 import com.keepasspn.database.element.Tag
 import com.keepasspn.database.element.node.NodeId
 import com.keepasspn.database.element.node.NodeType
+import com.keepasspn.database.element.icon.IconImageStandard
 import com.keepasspn.icons.IconDrawableFactory
+import com.keepasspn.icons.brand.BrandIconPreview
 import com.keepasspn.model.EntryInfo
 import com.keepasspn.model.GroupInfo
 import com.keepasspn.model.SortedEntryInfo
@@ -86,6 +90,7 @@ class NodesAdapter(
     private var mShowTags: Boolean = false
     private var mShowUUID: Boolean = false
     private var mRecursiveNumberEntries: Boolean = false
+    private val brandIconPreview = BrandIconPreview(context)
     private var mOldVirtualGroup = false
     private var mVirtualGroup = false
     // The TOTP Summary folder shows the codes themselves, not hidden ones
@@ -301,6 +306,32 @@ class NodesAdapter(
         return nodeViewHolder
     }
 
+    /**
+     * Brand bitmap drawn instead of the key icon of an entry, when the entry keeps the default icon
+     * and its web address matches a brand. The database is not changed.
+     */
+    private fun brandBitmapFor(node: SortedNodeInfo): Bitmap? {
+        if (node !is EntryInfo) return null
+        val webDomain = node.url
+        val hasDefaultIcon = node.icon.custom.uuid == DatabaseVersioned.UUID_ZERO
+                && node.icon.standard.id == IconImageStandard.KEY_ID
+        if (webDomain.isBlank() || !hasDefaultIcon) return null
+        brandIconPreview.load(webDomain, mColorSurfaceContainer, mTextColorPrimary) {
+            notifyEntriesWithUrl(webDomain)
+        }
+        return brandIconPreview.bitmapFor(webDomain)
+    }
+
+    /** Refreshes the entries with [url] once their brand has been looked up */
+    private fun notifyEntriesWithUrl(url: String) {
+        for (position in 0 until mNodeSortedList.size()) {
+            val node = mNodeSortedList.get(position)
+            if (node is EntryInfo && node.url == url) {
+                notifyItemChanged(position)
+            }
+        }
+    }
+
     override fun onBindViewHolder(holder: NodeViewHolder, position: Int) {
         val node = mNodeSortedList.get(position)
 
@@ -452,7 +483,13 @@ class NodesAdapter(
         // Assign image
         holder.imageIdentifier?.setColorFilter(iconColor)
         holder.icon.apply {
-            iconDrawableFactory.assignDatabaseIcon(this, node.icon, iconColor)
+            val brandBitmap = brandBitmapFor(node)
+            if (brandBitmap != null) {
+                clearColorFilter()
+                setImageBitmap(brandBitmap)
+            } else {
+                iconDrawableFactory.assignDatabaseIcon(this, node.icon, iconColor)
+            }
             // Relative size of the icon
             layoutParams?.apply {
                 height = (mIconDefaultDimension * mPrefSizeMultiplier).toInt()

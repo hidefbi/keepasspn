@@ -132,6 +132,13 @@ open class Database {
         mDatabaseKDBX?.buildNewCustomIcon(null, result)
     }
 
+    /**
+     * Same as [buildNewCustomIcon], with the icon given a [name]
+     */
+    fun buildNewCustomIcon(name: String, result: (IconImageCustom?, BinaryData?) -> Unit) {
+        mDatabaseKDBX?.addCustomIcon(null, name, null, false, result)
+    }
+
     fun isCustomIconBinaryDuplicate(binaryData: BinaryData): Boolean {
         return mDatabaseKDBX?.isCustomIconBinaryDuplicate(binaryData) ?: false
     }

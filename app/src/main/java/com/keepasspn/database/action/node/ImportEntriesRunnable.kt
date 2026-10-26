@@ -25,15 +25,20 @@ import com.keepasspn.database.element.DateInstant
 import com.keepasspn.database.element.Entry
 import com.keepasspn.database.element.Field
 import com.keepasspn.database.element.Group
+import com.keepasspn.database.element.icon.IconImage
+import com.keepasspn.database.element.icon.IconImageCustom
 import com.keepasspn.database.element.security.ProtectedString
 import com.keepasspn.database.file.importer.ImportParser
 import com.keepasspn.database.file.importer.ImportedEntry
 import com.keepasspn.hardware.HardwareKey
+import com.keepasspn.icons.brand.BrandIconRepository
+import com.keepasspn.icons.brand.BrandIconStore
 import com.keepasspn.model.EntryInfo
 import com.keepasspn.model.GroupInfo
 import com.keepasspn.otp.OtpEntryFields
 import com.keepasspn.utils.ImportTempFile
 import com.keepasspn.utils.NoOpLog
+import kotlinx.coroutines.runBlocking
 import java.io.File
 
 /**
@@ -43,6 +48,9 @@ import java.io.File
  * at the root of the database; the groups of the file are nested inside it, and an entry without
  * group sits directly in it. The other values of an entry become custom fields, and its creation
  * and modification dates are kept when the file has them.
+ *
+ * When the web address of an entry matches a brand, the entry gets the brand as its icon.
+ * Databases without custom icons keep the default icons.
  *
  * The file is parsed here, on the task thread, so that no password is kept in an Intent or in
  * the main thread. Passwords are wiped and the copy is deleted when the action finishes, whether
@@ -67,6 +75,8 @@ class ImportEntriesRunnable(
     private var mImported: List<ImportedEntry> = emptyList()
     private val mCreatedGroups = mutableListOf<Pair<Group, Group>>()
     private val mNewEntries = mutableListOf<Pair<Entry, Group>>()
+    private val mCreatedIcons = mutableListOf<IconImageCustom>()
+    private val brandContext: Context = context.applicationContext
 
     override fun nodeAction() {
         val root = database.rootGroup
@@ -140,6 +150,9 @@ class ImportEntriesRunnable(
             url = imported.url
             notes = imported.notes
         }
+        if (imported.url.isNotBlank()) {
+            brandIconFor(imported.url)?.let { entryInfo.icon = it }
+        }
         val otpUri = imported.otpUri
         val otpElement = otpUri?.let { OtpEntryFields.parseOTPUri(it) }
         if (database.allowEntryCustomFields()) {
@@ -171,6 +184,31 @@ class ImportEntriesRunnable(
     }
 
     /**
+     * Icon of the brand matching the web address, stored in the database for the first entry
+     * that needs it. Returns null when no brand matches, or when the database has no custom icons.
+     */
+    private fun brandIconFor(url: String): IconImage? {
+        if (!database.allowCustomIcons) return null
+        return try {
+            val brand = runBlocking { BrandIconRepository.brandIconForWebDomain(brandContext, url) }
+                ?: return null
+            val stored = BrandIconStore.findOrStore(
+                database,
+                brand,
+                BrandIconStore.DEFAULT_BACKGROUND,
+                BrandIconStore.DEFAULT_FOREGROUND
+            ) ?: return null
+            if (stored.created) {
+                mCreatedIcons.add(stored.icon)
+            }
+            IconImage(stored.icon)
+        } catch (e: Exception) {
+            NoOpLog.w(TAG, "Unable to find a brand icon for an imported entry", e)
+            null
+        }
+    }
+
+    /**
      * Date of the entry in the database format, which keeps Joda-Time instants.
      */
     private fun dateInstantOf(instant: java.time.Instant): DateInstant {
@@ -187,8 +225,10 @@ class ImportEntriesRunnable(
         mCreatedGroups.asReversed().forEach { (group, parent) ->
             database.removeGroupFrom(group, parent)
         }
+        mCreatedIcons.forEach { database.removeCustomIcon(it) }
         mNewEntries.clear()
         mCreatedGroups.clear()
+        mCreatedIcons.clear()
     }
 
     companion object {
