@@ -46,9 +46,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/import_entries_intro"
-                android:textSize="16sp" />
+                android:textAppearance="?attr/textAppearanceBodyLarge" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/import_entries_choose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,30 +67,32 @@
                     android:id="@+id/import_entries_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
 
                 <TextView
                     android:id="@+id/import_entries_issues"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textSize="14sp" />
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
 
-                <TextView
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/import_entries_group_label" />
+                    android:hint="@string/import_entries_group_label">
 
-                <EditText
-                    android:id="@+id/import_entries_group_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    android:maxLength="128"
-                    android:singleLine="true" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/import_entries_group_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:maxLength="128"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -98,14 +100,15 @@
                     android:layout_marginTop="16dp"
                     android:orientation="horizontal">
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.Material3.Button.OutlinedButton"
                         android:id="@+id/import_entries_cancel"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/import_entries_cancel" />
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/import_entries_confirm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
