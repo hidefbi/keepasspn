@@ -26,6 +26,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.color.MaterialColors
 import com.keepasspn.R
 import com.keepasspn.activities.IconPickerActivity
 import com.keepasspn.database.ContextualDatabase
@@ -95,13 +96,23 @@ class IconBrandFragment : DatabaseFragment() {
         cardView.visibility = View.GONE
     }
 
+    /** Card background and text color of the current theme, used when a brand color is too dark */
+    private fun themeColors(): Pair<Int?, Int?> {
+        val view = view ?: return Pair(null, null)
+        return Pair(
+            MaterialColors.getColor(view, com.google.android.material.R.attr.colorSurface),
+            MaterialColors.getColor(view, com.google.android.material.R.attr.colorOnSurface)
+        )
+    }
+
     private fun showBrandIcon(icon: BrandIcon) {
         emptyView.visibility = View.GONE
         cardView.visibility = View.VISIBLE
         nameView.text = icon.title
+        val (background, foreground) = themeColors()
         lifecycleScope.launch {
             val bitmap = withContext(Dispatchers.IO) {
-                BrandIconRenderer.toBitmap(icon, PREVIEW_SIZE_PX)
+                BrandIconRenderer.toBitmap(icon, PREVIEW_SIZE_PX, background, foreground)
             }
             imageView.setImageBitmap(bitmap)
         }
@@ -111,9 +122,10 @@ class IconBrandFragment : DatabaseFragment() {
         val icon = brandIcon ?: return
         val database = database ?: return
         cardView.isEnabled = false
+        val (background, foreground) = themeColors()
         lifecycleScope.launch {
             val iconState = withContext(Dispatchers.IO) {
-                createCustomIcon(database, icon)
+                createCustomIcon(database, icon, background, foreground)
             }
             cardView.isEnabled = true
             val customIcon = iconState.iconCustom
@@ -130,10 +142,13 @@ class IconBrandFragment : DatabaseFragment() {
      */
     private fun createCustomIcon(
             database: ContextualDatabase,
-            icon: BrandIcon
+            icon: BrandIcon,
+            background: Int?,
+            foreground: Int?
     ): IconPickerViewModel.IconCustomState {
         val iconState = IconPickerViewModel.IconCustomState(null, true, R.string.error_upload_file)
-        val bitmap = BrandIconRenderer.toBitmap(icon, STORED_SIZE_PX) ?: return iconState
+        val bitmap = BrandIconRenderer.toBitmap(icon, STORED_SIZE_PX, background, foreground)
+            ?: return iconState
         database.buildNewCustomIcon { customIcon, binary ->
             if (customIcon != null) {
                 iconState.iconCustom = customIcon

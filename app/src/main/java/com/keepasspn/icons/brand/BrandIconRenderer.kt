@@ -24,6 +24,7 @@ import android.graphics.Color
 import android.graphics.Matrix
 import android.graphics.Paint
 import android.graphics.Path
+import androidx.core.graphics.ColorUtils
 import androidx.core.graphics.PathParser
 
 object BrandIconRenderer {
@@ -31,20 +32,31 @@ object BrandIconRenderer {
     /** Simple Icons paths use a 24 x 24 viewBox */
     private const val VIEW_BOX = 24f
 
+    /** Below this contrast the brand color is hard to see, so the fallback color is used */
+    private const val MIN_CONTRAST = 3.0
+
     /**
      * Draws the brand path in its brand color on a transparent bitmap.
+     * When a background is given and the brand color is too close to it
+     * (for example a near-black logo on a dark theme), the fallback color is used instead.
      */
-    fun toBitmap(icon: BrandIcon, sizePx: Int): Bitmap? {
+    fun toBitmap(icon: BrandIcon, sizePx: Int, background: Int? = null, fallbackColor: Int? = null): Bitmap? {
         if (sizePx <= 0) return null
         val path: Path = try {
             PathParser.createPathFromPathData(icon.pathData)
         } catch (e: Exception) {
             return null
         }
-        val color = try {
+        val brandColor = try {
             Color.parseColor("#" + icon.hexColor)
         } catch (e: IllegalArgumentException) {
             Color.BLACK
+        }
+        val color = if (background != null && fallbackColor != null
+                && ColorUtils.calculateContrast(brandColor, background) < MIN_CONTRAST) {
+            fallbackColor
+        } else {
+            brandColor
         }
         val bitmap = Bitmap.createBitmap(sizePx, sizePx, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
