@@ -25,6 +25,19 @@ import mozilla.components.lib.publicsuffixlist.PublicSuffixList
 import org.json.JSONObject
 
 /**
+ * Returns the host of a web address, with or without scheme, path, port or user.
+ * For example "https://www.GitHub.com/login" gives "github.com".
+ */
+internal fun hostOf(address: String): String? {
+    var rest = address.trim()
+    if (rest.contains("://")) rest = rest.substringAfter("://")
+    rest = rest.substringBefore('/').substringBefore('?').substringBefore('#')
+    rest = rest.substringAfterLast('@').substringBefore(':')
+    val host = rest.trim().trimEnd('.').lowercase().removePrefix("www.")
+    return host.takeIf { it.isNotEmpty() }
+}
+
+/**
  * Offline brand icons, from the Simple Icons package (CC0 1.0).
  * The data is read from assets/brand_icons.json and loaded once.
  */
@@ -48,8 +61,7 @@ object BrandIconRepository {
      * so "accounts.google.com" is matched as "google.com".
      */
     suspend fun brandIconForWebDomain(context: Context, webDomain: String): BrandIcon? {
-        val host = webDomain.trim().trimEnd('.').lowercase().removePrefix("www.")
-        if (host.isEmpty()) return null
+        val host = hostOf(webDomain) ?: return null
         val registrable = PublicSuffixList(context).getPublicSuffixPlusOne(host).await()
             ?: return null
         return index(context).findForRegistrableDomain(registrable)
