@@ -277,6 +277,8 @@
     <string name="icon_pack_choose_summary">El paquet d’icones que s’utilitza a l’aplicació</string>
     <string name="icon_pack_choose_title">Paquet d’icones</string>
     <string name="icon_section_custom">Personalitzat</string>
+    <string name="icon_section_brand">Marca</string>
+    <string name="icon_brand_none">Cap icona de marca coincideix amb aquest lloc web.</string>
     <string name="template_group_name">Plantilles</string>
     <string name="error_unable_merge_database_kdb">No es pot fusionar d\'una base de dades V1</string>
     <string name="auto_type">Auto-Escriptura</string>

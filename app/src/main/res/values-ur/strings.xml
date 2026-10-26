@@ -88,4 +88,6 @@
     <string name="keyboard_auto_go_confirm_title">کیا خودکار جمع کرانا فعال کریں؟</string>
     <string name="keyboard_auto_go_confirm_message">فعال ہونے پر Magikeyboard بھرنے کے فوراً بعد فارم جمع کر دے گا، کسی اور ٹیپ کے بغیر۔ ایک جعلی لاگ اِن صفحہ اس کا استعمال کر کے آپ کی اسناد جمع کر سکتا ہے۔ صرف اسی صورت میں فعال کریں جب آپ ہر بار بھرنے سے پہلے صفحہ جانچتے ہوں۔</string>
     <string name="keyboard_auto_go_confirm_button">فعال کریں</string>
+    <string name="icon_section_brand">برانڈ</string>
+    <string name="icon_brand_none">اس ویب سائٹ سے مماثل برانڈ آئیکن نہیں ہے۔</string>
 </resources>

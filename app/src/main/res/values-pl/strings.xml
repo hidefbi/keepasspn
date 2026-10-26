@@ -456,6 +456,8 @@
     <string name="error_otp_type">Istniejący typ OTP nie jest rozpoznawany przez ten formularz, a jego walidacja może już nie generować poprawnie tokenu.</string>
     <string name="download_canceled">Anulowano!</string>
     <string name="icon_section_custom">Niestandardowy</string>
+    <string name="icon_section_brand">Marka</string>
+    <string name="icon_brand_none">Brak ikony marki pasującej do tej strony internetowej.</string>
     <string name="icon_section_standard">Standardowy</string>
     <string name="style_brightness_summary">Wybierz jasny lub ciemny motyw</string>
     <string name="style_brightness_title">Jasność motywu</string>

@@ -462,6 +462,8 @@
     <string name="unit_byte">Б</string>
     <string name="download_canceled">Отменено!</string>
     <string name="icon_section_custom">Пользовательские</string>
+    <string name="icon_section_brand">Бренд</string>
+    <string name="icon_brand_none">Для этого сайта нет подходящего значка бренда.</string>
     <string name="icon_section_standard">Стандартные</string>
     <string name="style_brightness_summary">Выбор светлых или тёмных тем</string>
     <string name="style_brightness_title">Яркость темы</string>

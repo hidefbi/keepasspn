@@ -423,6 +423,8 @@
     <string name="keyboard_save_search_info_summary">Forsøg at gemme delte oplysninger, når der foretages et manuelt indtastningsvalg, så det bliver lettere at bruge dem senere</string>
     <string name="error_field_name_already_exists">Feltnavnet findes allerede.</string>
     <string name="icon_section_custom">Brugerdefineret</string>
+    <string name="icon_section_brand">Brand</string>
+    <string name="icon_brand_none">Der findes intet brandikon til denne hjemmeside.</string>
     <string name="icon_section_standard">Standard</string>
     <string name="style_brightness_summary">Vælg lyst eller mørkt tema</string>
     <string name="style_brightness_title">Temalysstyrke</string>

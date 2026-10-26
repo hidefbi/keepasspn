@@ -278,6 +278,8 @@
     <string name="ignore_chars_filter">Ignorer teikn</string>
     <string name="style_brightness_summary">Vel eit lyst eller mørkt tema</string>
     <string name="icon_section_custom">Eigendefinert</string>
+    <string name="icon_section_brand">Merke</string>
+    <string name="icon_brand_none">Ingen merkeikon passar til denne nettstaden.</string>
     <string name="style_brightness_title">Lysstyrke for tema</string>
     <string name="hide_expired_entries_title">Skjul utløpte oppføringar</string>
     <string name="show_entry_colors_title">Oppføringsfargar</string>

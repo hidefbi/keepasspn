@@ -562,6 +562,8 @@
     <string name="word_separator">Separator</string>
     <string name="ignore_chars_filter">Ignoră caracterele</string>
     <string name="icon_section_custom">Personalizat</string>
+    <string name="icon_section_brand">Marcă</string>
+    <string name="icon_brand_none">Nu există o pictogramă de marcă potrivită pentru acest site.</string>
     <string name="custom_fields">Câmpuri personalizate</string>
     <string name="education_add_attachment_title">Adăugați atașament</string>
     <string name="education_setup_OTP_title">Configurați OTP</string>

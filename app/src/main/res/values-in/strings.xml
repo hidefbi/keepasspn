@@ -311,6 +311,8 @@
     <string name="education_add_attachment_title">Tambah lampiran</string>
     <string name="html_text_dev_feature_work_hard">Kami bekerja keras untuk merilis fitur ini segera.</string>
     <string name="icon_section_custom">Kustom</string>
+    <string name="icon_section_brand">Merek</string>
+    <string name="icon_brand_none">Tidak ada ikon merek yang cocok dengan situs web ini.</string>
     <string name="icon_section_standard">Standar</string>
     <string name="style_brightness_summary">Pilih tema terang atau gelap</string>
     <string name="style_brightness_title">Kecerahan tema</string>

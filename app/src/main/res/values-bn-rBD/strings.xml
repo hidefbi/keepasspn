@@ -168,4 +168,6 @@
     <string name="keyboard_auto_go_confirm_title">স্বয়ংক্রিয় জমা চালু করবেন?</string>
     <string name="keyboard_auto_go_confirm_message">চালু থাকলে Magikeyboard পূরণের পরপরই ফর্ম জমা দেবে, আর কোনো ট্যাপের প্রয়োজন হবে না। একটি ভুয়া লগইন পাতা এটি ব্যবহার করে আপনার তথ্য সংগ্রহ করতে পারে। প্রতিবার পূরণের আগে পাতাটি যাচাই করলেই কেবল চালু করুন।</string>
     <string name="keyboard_auto_go_confirm_button">চালু করুন</string>
+    <string name="icon_section_brand">ব্র্যান্ড</string>
+    <string name="icon_brand_none">এই ওয়েবসাইটের সাথে মেলে এমন ব্র্যান্ড আইকন নেই।</string>
 </resources>

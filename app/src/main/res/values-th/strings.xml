@@ -193,6 +193,8 @@
     <string name="style_brightness_title">ลักษณะสว่าง</string>
     <string name="icon_section_standard">มาตรฐาน</string>
     <string name="icon_section_custom">กำหนดเอง</string>
+    <string name="icon_section_brand">แบรนด์</string>
+    <string name="icon_brand_none">ไม่มีไอคอนแบรนด์ที่ตรงกับเว็บไซต์นี้</string>
     <string name="hide_expired_entries_title">ซ่อนรายการที่หมดอายุแล้ว</string>
     <string name="hide_expired_entries_summary">รายการที่หมดอายุแล้วจะไม่แสดง</string>
     <string name="error_move_group_here">คุณไม่สามารถย้ายกลุ่มมาที่นี่ได้</string>

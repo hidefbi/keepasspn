@@ -113,4 +113,6 @@
     <string name="keyboard_auto_go_confirm_title">స్వయంచాలక సమర్పణను ఆన్ చేయాలా?</string>
     <string name="keyboard_auto_go_confirm_message">ఆన్‌లో ఉంటే, నింపిన వెంటనే Magikeyboard మరో ట్యాప్ లేకుండా ఫారమ్‌ను సమర్పిస్తుంది. నకిలీ లాగిన్ పేజీ దీన్ని ఉపయోగించి మీ ఆధారాలను సేకరించవచ్చు. ప్రతిసారి నింపే ముందు పేజీని తనిఖీ చేస్తేనే ఆన్ చేయండి.</string>
     <string name="keyboard_auto_go_confirm_button">ఆన్ చేయి</string>
+    <string name="icon_section_brand">బ్రాండ్</string>
+    <string name="icon_brand_none">ఈ వెబ్‌సైట్‌కు సరిపోయే బ్రాండ్ ఐకాన్ లేదు.</string>
 </resources>

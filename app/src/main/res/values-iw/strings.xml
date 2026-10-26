@@ -503,6 +503,8 @@
     <string name="show_entry_colors_title">צבעי רשומה</string>
     <string name="entropy">אנטרופיה: %1$s ביט</string>
     <string name="icon_section_custom">מותאם אישית</string>
+    <string name="icon_section_brand">מותג</string>
+    <string name="icon_brand_none">אין סמל מותג התואם לאתר הזה.</string>
     <string name="warning_no_encryption_key">להמשיך ללא מפתח הצפנה?</string>
     <string name="permission">הרשאות</string>
     <string name="properties">מאפיינים</string>

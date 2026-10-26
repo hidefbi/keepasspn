@@ -467,6 +467,8 @@
     <string name="style_brightness_summary">Hautatu diseinu argiak edo ilunak</string>
     <string name="icon_section_standard">Estandarra</string>
     <string name="icon_section_custom">Pertsonalizatua</string>
+    <string name="icon_section_brand">Marka</string>
+    <string name="icon_brand_none">Webgune honekin bat datorren markaren ikonorik ez dago.</string>
     <string name="icon_pack_choose_title">Ikono paketea</string>
     <string name="show_entry_colors_title">Sarrerako koloreak</string>
     <string name="show_entry_colors_summary">Erakutsi sarreraren aurreko eta atzeko planoen koloreak</string>

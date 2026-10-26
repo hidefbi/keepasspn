@@ -571,6 +571,8 @@
     <string name="style_brightness_summary">Выбраць светлыя або цёмныя тэмы</string>
     <string name="icon_section_standard">Стандартны</string>
     <string name="icon_section_custom">Карыстальніцкі</string>
+    <string name="icon_section_brand">Брэнд</string>
+    <string name="icon_brand_none">Для гэтага сайта няма адпаведнай іконкі брэнда.</string>
     <string name="icon_pack_choose_title">Пакет значкоў</string>
     <string name="icon_pack_choose_summary">Пакет значкоў, які выкарыстоўваецца ў праграме</string>
     <string name="show_entry_colors_title">Колеры запісаў</string>

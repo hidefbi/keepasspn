@@ -520,4 +520,6 @@ Jotta säilyttäisimme vapautemme, korjaisimme virheitä, lisäisimme ominaisuuk
     <string name="keyboard_auto_go_confirm_title">Otetaanko automaattinen lähetys käyttöön?</string>
     <string name="keyboard_auto_go_confirm_message">Kun tämä on päällä, Magikeyboard lähettää lomakkeen heti täytön jälkeen ilman ylimääräistä napautusta. Väärennetty kirjautumissivu voi käyttää tätä tietojesi keräämiseen. Ota käyttöön vain, jos tarkistat sivun ennen jokaista täyttöä.</string>
     <string name="keyboard_auto_go_confirm_button">Ota käyttöön</string>
+    <string name="icon_section_brand">Brändi</string>
+    <string name="icon_brand_none">Tälle verkkosivustolle ei löydy vastaavaa brändikuvaketta.</string>
 </resources>

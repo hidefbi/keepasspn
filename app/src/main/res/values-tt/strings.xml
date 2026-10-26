@@ -124,4 +124,6 @@
     <string name="keyboard_auto_go_confirm_title">Автоматик җибәрүне кушыйсызмы?</string>
     <string name="keyboard_auto_go_confirm_message">Кушылган вакытта Magikeyboard формаларны тутырганнан соң өстәмә басмыйча җибәрә. Ялган керү битенең сезнең мәгълүматларыгызны җыю өчен файдаланырга мөмкин. Һәр тутыру алдыннан битне тикшерсәгез генә кушыгыз.</string>
     <string name="keyboard_auto_go_confirm_button">Кушу</string>
+    <string name="icon_section_brand">Бренд</string>
+    <string name="icon_brand_none">Бу веб-сайт өчен туры килгән бренд сурәте юк.</string>
 </resources>

@@ -384,4 +384,6 @@
     <string name="keyboard_auto_go_confirm_title">ਆਟੋ ਸਬਮਿਟ ਚਾਲੂ ਕਰੀਏ?</string>
     <string name="keyboard_auto_go_confirm_message">ਚਾਲੂ ਹੋਣ \'ਤੇ Magikeyboard ਭਰਨ ਤੋਂ ਤੁਰੰਤ ਬਾਅਦ ਫਾਰਮ ਸਬਮਿਟ ਕਰ ਦੇਵੇਗਾ, ਹੋਰ ਟੈਪ ਕੀਤੇ ਬਿਨਾਂ। ਇੱਕ ਨਕਲੀ ਲੌਗਇਨ ਪੰਨਾ ਇਸਦੀ ਵਰਤੋਂ ਕਰਕੇ ਤੁਹਾਡੀਆਂ ਪਛਾਣ-ਜਾਣਕਾਰੀਆਂ ਇਕੱਠੀਆਂ ਕਰ ਸਕਦਾ ਹੈ। ਹਰ ਭਰਨ ਤੋਂ ਪਹਿਲਾਂ ਪੰਨਾ ਜਾਂਚਣ \'ਤੇ ਹੀ ਚਾਲੂ ਕਰੋ।</string>
     <string name="keyboard_auto_go_confirm_button">ਚਾਲੂ ਕਰੋ</string>
+    <string name="icon_section_brand">ਬ੍ਰਾਂਡ</string>
+    <string name="icon_brand_none">ਇਸ ਵੈੱਬਸਾਈਟ ਨਾਲ ਮੇਲ ਖਾਂਦਾ ਬ੍ਰਾਂਡ ਆਈਕਨ ਨਹੀਂ ਹੈ।</string>
 </resources>

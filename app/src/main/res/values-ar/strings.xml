@@ -491,6 +491,8 @@
     <string name="download_complete">مكتمل!</string>
     <string name="unit_byte">B</string>
     <string name="icon_section_custom">مخصّص</string>
+    <string name="icon_section_brand">العلامات التجارية</string>
+    <string name="icon_brand_none">لا توجد أيقونة علامة تجارية مطابقة لهذا الموقع.</string>
     <string name="keyboard_previous_fill_in_summary">العودة تلقائيًا إلى لوحة المفاتيح السابقة بعد تنفيذ \"إجراء المفتاح التلقائي\"</string>
     <string name="download_attachment">ثبِّت %1$s</string>
     <string name="html_about_privacy">لا يتم جمع أي بيانات للمستخدم، لا يتصل هذا التطبيق بأي خادم، و يعمل محليًا فقط، و يحترم خصوصية المستخدمين احترامًا كاملًا.</string>

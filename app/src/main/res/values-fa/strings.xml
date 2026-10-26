@@ -383,4 +383,6 @@
     <string name="keyboard_auto_go_confirm_title">آیا ارسال خودکار فعال شود؟</string>
     <string name="keyboard_auto_go_confirm_message">با فعال بودن این گزینه، Magikeyboard بلافاصله پس از پرکردن، فرم را بدون یک ضربه دیگر ارسال می‌کند. یک صفحه ورود جعلی ممکن است از این برای جمع‌آوری اطلاعات شما استفاده کند. فقط در صورتی فعالش کنید که قبل از هر پرکردن صفحه را بررسی کنید.</string>
     <string name="keyboard_auto_go_confirm_button">فعال کردن</string>
+    <string name="icon_section_brand">برند</string>
+    <string name="icon_brand_none">نماد برندی با این وب‌سایت مطابقت ندارد.</string>
 </resources>

@@ -435,4 +435,6 @@
     <string name="keyboard_auto_go_confirm_title">സ്വയം സമർപ്പിക്കൽ ഓണാക്കണോ?</string>
     <string name="keyboard_auto_go_confirm_message">ഓണാക്കിയാൽ, പൂരിപ്പിച്ചതിനുശേഷം Magikeyboard മറ്റൊരു ടാപ്പില്ലാതെ ഫോം സമർപ്പിക്കും. വ്യാജ ലോഗിൻ പേജിന് ഇത് ഉപയോഗിച്ച് നിങ്ങളുടെ വിവരങ്ങൾ ശേഖരിക്കാനാകും. ഓരോ പൂരിപ്പിക്കലിനും മുമ്പ് പേജ് പരിശോധിക്കുന്നെങ്കിൽ മാത്രം ഓണാക്കുക.</string>
     <string name="keyboard_auto_go_confirm_button">ഓണാക്കുക</string>
+    <string name="icon_section_brand">ബ്രാൻഡ്</string>
+    <string name="icon_brand_none">ഈ വെബ്‌സൈറ്റുമായി യോജിക്കുന്ന ബ്രാൻഡ് ഐക്കൺ ഇല്ല.</string>
 </resources>

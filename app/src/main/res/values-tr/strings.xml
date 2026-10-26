@@ -457,6 +457,8 @@
     <string name="error_otp_type">Var olan OTP türü bu form tarafından tanınmıyor ve doğrulaması artık belirteci doğru şekilde oluşturmayabilir.</string>
     <string name="download_canceled">İptal edildi!</string>
     <string name="icon_section_custom">Özel</string>
+    <string name="icon_section_brand">Marka</string>
+    <string name="icon_brand_none">Bu web sitesiyle eşleşen bir marka simgesi yok.</string>
     <string name="icon_section_standard">Standart</string>
     <string name="style_brightness_summary">Açık veya koyu temaları seçin</string>
     <string name="style_brightness_title">Tema parlaklığı</string>

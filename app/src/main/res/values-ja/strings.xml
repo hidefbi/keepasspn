@@ -453,6 +453,8 @@
     <string name="download_canceled">キャンセルしました！</string>
     <string name="error_otp_type">既存の OTP の種類がこのフォームでは認識されていないため、フォームの検証によってトークンが正しく生成されなくなる可能性があります。</string>
     <string name="icon_section_custom">カスタム</string>
+    <string name="icon_section_brand">ブランド</string>
+    <string name="icon_brand_none">このウェブサイトに一致するブランドアイコンはありません。</string>
     <string name="icon_section_standard">標準</string>
     <string name="style_brightness_summary">ライト / ダークテーマを選択します</string>
     <string name="style_brightness_title">テーマの明るさ</string>

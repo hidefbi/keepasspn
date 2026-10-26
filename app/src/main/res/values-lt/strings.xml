@@ -610,6 +610,8 @@
     <string name="style_brightness_summary">Pasirinkti šviesias arba tamsias temas</string>
     <string name="icon_section_standard">Standartinis</string>
     <string name="icon_section_custom">Tinkintas</string>
+    <string name="icon_section_brand">Prekės ženklas</string>
+    <string name="icon_brand_none">Šiai svetainei netinkamos prekės ženklo piktogramos nėra.</string>
     <string name="icon_pack_choose_title">Piktogramų paketas</string>
     <string name="icon_pack_choose_summary">Piktogramų paketas naudojamas programoje</string>
     <string name="show_entry_colors_title">Įrašo spalvos</string>

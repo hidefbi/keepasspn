@@ -642,6 +642,8 @@
     <string name="style_brightness_summary">Välj ett ljust eller mörkt tema</string>
     <string name="icon_section_standard">Standard</string>
     <string name="icon_section_custom">Anpassat</string>
+    <string name="icon_section_brand">Varumärke</string>
+    <string name="icon_brand_none">Ingen varumärkesikon matchar den här webbplatsen.</string>
     <string name="show_entry_colors_title">Postfärger</string>
     <string name="show_entry_colors_summary">Visar förgrunds- och bakgrundsfärger för en post</string>
     <string name="hide_templates_title">Dölj mallar</string>

@@ -425,6 +425,8 @@
     <string name="show_uuid_summary">Mostra o UUID ligado a uma entrada ou grupo</string>
     <string name="show_uuid_title">Mostrar UUID</string>
     <string name="icon_section_custom">Personalizado</string>
+    <string name="icon_section_brand">Marca</string>
+    <string name="icon_brand_none">Nenhum ícone de marca corresponde a este site.</string>
     <string name="icon_section_standard">Predefinido</string>
     <string name="style_brightness_summary">Escolha temas claros ou escuros</string>
     <string name="style_brightness_title">Brilho do tema</string>

@@ -450,6 +450,8 @@
     <string name="error_otp_type">Наявний тип OTP не розпізнано цією формою, тому після підтвердження токен може генеруватися неправильно.</string>
     <string name="download_canceled">Скасовано!</string>
     <string name="icon_section_custom">Власні</string>
+    <string name="icon_section_brand">Бренд</string>
+    <string name="icon_brand_none">Для цього веб-сайту немає відповідного значка бренду.</string>
     <string name="icon_section_standard">Стандартні</string>
     <string name="style_brightness_summary">Вибрати світлу або темну тему</string>
     <string name="style_brightness_title">Яскравість теми</string>

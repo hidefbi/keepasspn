@@ -302,6 +302,8 @@
     <string name="style_brightness_summary">Vali heleda või tumeda kujunduse vahel</string>
     <string name="icon_section_standard">Standardne</string>
     <string name="icon_section_custom">Sinu valitud</string>
+    <string name="icon_section_brand">Bränd</string>
+    <string name="icon_brand_none">Sellele veebisaidile ei vasta ükski brändi ikoon.</string>
     <string name="icon_pack_choose_title">Ikoonikomplekt</string>
     <string name="icon_pack_choose_summary">Vali rakenduses kasutatav ikoonikomplekt</string>
     <string name="hide_templates_title">Peida mallid</string>

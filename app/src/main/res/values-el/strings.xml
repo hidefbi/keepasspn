@@ -462,6 +462,8 @@
     <string name="error_otp_type">Ο υπάρχων τύπος OTP δεν αναγνωρίζεται από αυτήν τη φόρμα, η επικύρωσή του ενδέχεται να μην δημιουργεί πλέον σωστά το token.</string>
     <string name="download_canceled">Ακυρώθηκε!</string>
     <string name="icon_section_custom">Προσαρμοσμένο</string>
+    <string name="icon_section_brand">Μάρκα</string>
+    <string name="icon_brand_none">Δεν υπάρχει εικονίδιο μάρκας για αυτόν τον ιστότοπο.</string>
     <string name="icon_section_standard">Κανονικό</string>
     <string name="style_brightness_summary">Επιλέξτε φωτεινά ή σκοτεινά θέματα</string>
     <string name="style_brightness_title">Φωτεινότητα θέματος</string>

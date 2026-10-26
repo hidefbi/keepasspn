@@ -468,6 +468,8 @@
     <string name="error_otp_type">Le type OTP existant n\'est pas reconnu par ce formulaire, et sa validation peut ne plus générer correctement le jeton.</string>
     <string name="download_canceled">Annulé !</string>
     <string name="icon_section_custom">Customisé</string>
+    <string name="icon_section_brand">Marque</string>
+    <string name="icon_brand_none">Aucune icône de marque ne correspond à ce site web.</string>
     <string name="icon_section_standard">Standard</string>
     <string name="style_brightness_summary">Sélectionnez des thèmes clairs ou foncés</string>
     <string name="style_brightness_title">Luminosité de thème</string>

@@ -446,4 +446,6 @@ Da bismo sačuvali našu slobodu, ispravljali greške, dodavali funkcije i održ
     <string name="keyboard_auto_go_confirm_title">Uključiti automatsko slanje?</string>
     <string name="keyboard_auto_go_confirm_message">Kada je uključeno, Magikeyboard šalje obrazac odmah posle popunjavanja, bez dodatnog dodira. Lažna stranica za prijavu mogla bi to iskoristiti da prikupi vaše podatke. Uključite samo ako proverite stranicu pre svakog popunjavanja.</string>
     <string name="keyboard_auto_go_confirm_button">Uključi</string>
+    <string name="icon_section_brand">Brend</string>
+    <string name="icon_brand_none">Za ovaj veb-sajt nema odgovarajuće ikone brenda.</string>
 </resources>

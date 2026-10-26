@@ -238,6 +238,8 @@
     <string name="style_brightness_summary">Избор между светла и тъмна тема</string>
     <string name="icon_section_standard">Стандартен</string>
     <string name="icon_section_custom">Потребителски</string>
+    <string name="icon_section_brand">Марка</string>
+    <string name="icon_brand_none">Няма икона на марка за този уебсайт.</string>
     <string name="custom_fields">Потребителски полета</string>
     <string name="back_to_previous_keyboard">Превключва предната клавиатура</string>
     <string name="enable_auto_save_database_title">Автоматично запазване на хранилището</string>

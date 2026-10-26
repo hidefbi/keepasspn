@@ -239,4 +239,6 @@
     <string name="keyboard_auto_go_confirm_title">स्वचालित सबमिट चालू करें?</string>
     <string name="keyboard_auto_go_confirm_message">चालू होने पर Magikeyboard भरने के तुरंत बाद फ़ॉर्म सबमिट कर देगा, बिना एक और टैप के। कोई नकली लॉगिन पेज इसका उपयोग करके आपके क्रेडेंशियल जमा कर सकता है। इसे तभी चालू करें जब आप हर बार भरने से पहले पेज की जाँच करते हों।</string>
     <string name="keyboard_auto_go_confirm_button">चालू करें</string>
+    <string name="icon_section_brand">ब्रांड</string>
+    <string name="icon_brand_none">इस वेबसाइट से मेल खाता कोई ब्रांड आइकन नहीं है।</string>
 </resources>

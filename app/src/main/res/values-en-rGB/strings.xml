@@ -409,4 +409,6 @@ To keep our freedom, fix bugs, add features and keep the project active, we welc
     <string name="keyboard_auto_go_confirm_title">Turn on automatic submit?</string>
     <string name="keyboard_auto_go_confirm_message">With this on, Magikeyboard submits the form right after filling, without another tap. A fake login page could use this to collect your credentials. Turn it on only if you check the page before every fill.</string>
     <string name="keyboard_auto_go_confirm_button">Turn on</string>
+    <string name="icon_section_brand">Brand</string>
+    <string name="icon_brand_none">No brand icon matches this website.</string>
 </resources>

@@ -99,4 +99,6 @@
     <string name="keyboard_auto_go_confirm_title">स्वयंचलित सबमिट चालू करायचे?</string>
     <string name="keyboard_auto_go_confirm_message">चालू असताना Magikeyboard भरल्यानंतर लगेच फॉर्म सबमिट करेल, पुन्हा टॅप न करता. बनावट लॉगिन पेज याचा वापर करून तुमची माहिती गोळा करू शकते. प्रत्येक भरण्यापूर्वी पेज तपासत असाल तरच चालू करा.</string>
     <string name="keyboard_auto_go_confirm_button">चालू करा</string>
+    <string name="icon_section_brand">ब्रँड</string>
+    <string name="icon_brand_none">या वेबसाइटशी जुळणारे ब्रँड आयकॉन नाही.</string>
 </resources>

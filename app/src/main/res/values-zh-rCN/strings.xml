@@ -461,6 +461,8 @@
     <string name="error_otp_type">现有的 OTP 类型未被此表单所识别，并且其验证可能不再正确生成令牌。</string>
     <string name="download_canceled">已取消！</string>
     <string name="icon_section_custom">自定义</string>
+    <string name="icon_section_brand">品牌</string>
+    <string name="icon_brand_none">没有与此网站匹配的品牌图标。</string>
     <string name="icon_section_standard">标准</string>
     <string name="style_brightness_summary">选择浅色或深色主题</string>
     <string name="style_brightness_title">主题亮度</string>

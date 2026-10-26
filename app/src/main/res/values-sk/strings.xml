@@ -586,6 +586,8 @@
     <string name="consider_chars_filter">Zvážiť znaky</string>
     <string name="word_separator">Oddelovač</string>
     <string name="icon_section_custom">Vlastná</string>
+    <string name="icon_section_brand">Značka</string>
+    <string name="icon_brand_none">Pre túto webovú stránku nie je k dispozícii žiadna ikona značky.</string>
     <string name="icon_pack_choose_summary">Balík ikon používaný v aplikácii</string>
     <string name="show_entry_colors_title">Vstupné farby</string>
     <string name="master_key_settings_summary">Zmena, obnova</string>

@@ -110,4 +110,6 @@ Kanggo njaga kebebasan kita, mbenerake bug, nambah fitur, lan njaga proyek tetep
     <string name="keyboard_auto_go_confirm_title">Ngaktifake kiriman otomatis?</string>
     <string name="keyboard_auto_go_confirm_message">Yen diaktifake, Magikeyboard bakal ngirim formulir sawise diisi, tanpa ketuk maneh. Kaca login palsu bisa nggunakake iki kanggo ngumpulake kredensial sampeyan. Aktifake mung yen sampeyan mriksa kaca sadurunge saben ngisi.</string>
     <string name="keyboard_auto_go_confirm_button">Aktifake</string>
+    <string name="icon_section_brand">Merek</string>
+    <string name="icon_brand_none">Ora ana ikon merek sing cocog karo situs web iki.</string>
 </resources>

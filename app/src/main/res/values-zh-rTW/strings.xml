@@ -283,6 +283,8 @@
     <string name="icon_pack_choose_summary">應用程式使用的圖示包</string>
     <string name="icon_pack_choose_title">圖示包</string>
     <string name="icon_section_custom">自定義</string>
+    <string name="icon_section_brand">品牌</string>
+    <string name="icon_brand_none">沒有與此網站相符的品牌圖示。</string>
     <string name="icon_section_standard">標準</string>
     <string name="id_card">身份證</string>
     <string name="import_app_properties_summary">選擇要匯入應用程式設定的文件</string>

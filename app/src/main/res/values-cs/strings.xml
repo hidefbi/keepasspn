@@ -463,6 +463,8 @@
     <string name="error_otp_type">Nemohu rozpoznat existující typ OTP v této formě a jeho validace patrně nebude generovat správný token.</string>
     <string name="download_canceled">Zrušeno!</string>
     <string name="icon_section_custom">Vlastní</string>
+    <string name="icon_section_brand">Značka</string>
+    <string name="icon_brand_none">Pro tento web není k dispozici žádná ikona značky.</string>
     <string name="icon_section_standard">Standardní</string>
     <string name="style_brightness_summary">Vybrat světlé či tmavé motivy</string>
     <string name="style_brightness_title">Jas motivu</string>

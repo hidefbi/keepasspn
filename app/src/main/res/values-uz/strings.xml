@@ -138,4 +138,6 @@ Erkinligimizni saqlash, xatolarni tuzatish, yangi imkoniyatlar qo\'shish va loyi
     <string name="keyboard_auto_go_confirm_title">Avtomatik yuborishni yoqasizmi?</string>
     <string name="keyboard_auto_go_confirm_message">Yoqilganda Magikeyboard to‘ldirilgandan so‘ng shaklni boshqa bosmasdan yuboradi. Soxta kirish sahifasi buni maʼlumotlaringizni yig‘ish uchun ishlatishi mumkin. Faqat har safar to‘ldirishdan oldin sahifani tekshirsangizgina yoqing.</string>
     <string name="keyboard_auto_go_confirm_button">Yoqish</string>
+    <string name="icon_section_brand">Brend</string>
+    <string name="icon_brand_none">Ushbu veb-saytga mos brend belgisi yo‘q.</string>
 </resources>

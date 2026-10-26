@@ -608,6 +608,8 @@
     </string-array>
     <string name="icon_section_standard">Tiêu chuẩn</string>
     <string name="icon_section_custom">Tùy chỉnh</string>
+    <string name="icon_section_brand">Thương hiệu</string>
+    <string name="icon_brand_none">Không có biểu tượng thương hiệu nào khớp với trang web này.</string>
     <string name="icon_pack_choose_title">Gói biểu tượng</string>
     <string name="icon_pack_choose_summary">Gói biểu tượng được sử dụng trong ứng dụng</string>
     <string name="show_entry_colors_title">Màu đề mục</string>

@@ -215,4 +215,6 @@ Por konservi nian liberecon, ripari erarojn, aldoni funkciojn kaj konservi la pr
     <string name="keyboard_auto_go_confirm_title">Ĉu ŝalti aŭtomatan sendon?</string>
     <string name="keyboard_auto_go_confirm_message">Kiam ĝi estas ŝaltita, Magikeyboard sendas la formularon tuj post plenigo, sen alia tuŝo. Falsa ensaluta paĝo povus uzi tion por kolekti viajn akreditaĵojn. Ŝaltu nur se vi kontrolas la paĝon antaŭ ĉiu plenigo.</string>
     <string name="keyboard_auto_go_confirm_button">Ŝalti</string>
+    <string name="icon_section_brand">Marko</string>
+    <string name="icon_brand_none">Neniu markoikono kongruas kun ĉi tiu retejo.</string>
 </resources>

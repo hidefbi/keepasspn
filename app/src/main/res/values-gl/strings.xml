@@ -580,6 +580,8 @@
     <string name="education_entry_edit_summary">Edite a entrada cos campos personalizados. Os conxuntos de datos poden ser referenciados en entradas diferentes.</string>
     <string name="consider_chars_filter">Considerar caracteres</string>
     <string name="icon_section_custom">Personalizado</string>
+    <string name="icon_section_brand">Marca</string>
+    <string name="icon_brand_none">Ningún icono de marca coincide con este sitio web.</string>
     <string name="icon_pack_choose_summary">Cambiar o paquete de iconos da app</string>
     <string name="html_text_dev_feature_encourage">está a incentivar os programadores a crear &lt;strong&gt;novas funcionalidades&lt;/strong&gt; e a &lt;strong&gt;corrixir erros&lt;/strong&gt; reportados.</string>
     <string name="merge_success">A fusión completouse correctamente</string>

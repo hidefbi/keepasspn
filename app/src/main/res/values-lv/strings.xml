@@ -372,4 +372,6 @@ Lai saglabātu mūsu brīvību, labotu kļūdas, pievienotu funkcijas un uzturē
     <string name="keyboard_auto_go_confirm_title">Ieslēgt automātisko nosūtīšanu?</string>
     <string name="keyboard_auto_go_confirm_message">Kad tas ir ieslēgts, Magikeyboard nosūta veidlapu uzreiz pēc aizpildīšanas, bez papildu pieskāriena. Viltots pieteikšanās lapa to var izmantot, lai savāktu jūsu datus. Ieslēdziet tikai tad, ja pirms katras aizpildīšanas pārbaudāt lapu.</string>
     <string name="keyboard_auto_go_confirm_button">Ieslēgt</string>
+    <string name="icon_section_brand">Zīmols</string>
+    <string name="icon_brand_none">Šai vietnei nav atbilstošas zīmola ikonas.</string>
 </resources>

@@ -122,4 +122,6 @@
     <string name="keyboard_auto_go_confirm_title">အလိုအလျောက်ပို့ခြင်းကို ဖွင့်မလား?</string>
     <string name="keyboard_auto_go_confirm_message">ဖွင့်ထားလျှင် Magikeyboard သည် ဖြည့်ပြီးချက်ချင်း ဖောင်ကို နောက်တစ်ကြိမ်ထပ်နှိပ်စရာမလိုဘဲ ပို့ပေးမည်။ အတု လော့ဂ်အင်စာမျက်နှာက သင့်အချက်အလက်များ စုဆောင်းရန် ဤအရာကို အသုံးပြုနိုင်သည်။ ဖြည့်မည့်အခါတိုင်း စာမျက်နှာကို စစ်ဆေးမှသာ ဖွင့်ပါ။</string>
     <string name="keyboard_auto_go_confirm_button">ဖွင့်မည်</string>
+    <string name="icon_section_brand">ဘရန်ဒ်</string>
+    <string name="icon_brand_none">ဤဝဘ်ဆိုဒ်နှင့် ကိုက်ညီသော ဘရန်းအိုင်ကွန် မရှိပါ။</string>
 </resources>

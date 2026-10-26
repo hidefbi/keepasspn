@@ -563,6 +563,8 @@
     <string name="style_brightness_summary">Açıq və ya tünd temaları seç</string>
     <string name="icon_section_standard">Standart</string>
     <string name="icon_section_custom">Özəl</string>
+    <string name="icon_section_brand">Brend</string>
+    <string name="icon_brand_none">Bu veb sayt üçün uyğun brend nişanı yoxdur.</string>
     <string name="icon_pack_choose_title">İkona paketi</string>
     <string name="icon_pack_choose_summary">Tətbiqdə istifadı edilən ikona paketi</string>
     <string name="show_entry_colors_title">Şifrə rəngləri</string>

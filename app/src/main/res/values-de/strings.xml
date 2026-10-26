@@ -474,6 +474,8 @@
     <string name="autofill_inline_suggestions_title">Ausfüllvorschläge</string>
     <string name="error_word_reserved">Dieses Wort ist reserviert und kann nicht verwendet werden.</string>
     <string name="icon_section_custom">Benutzerdefiniert</string>
+    <string name="icon_section_brand">Marke</string>
+    <string name="icon_brand_none">Für diese Website gibt es kein passendes Markensymbol.</string>
     <string name="icon_section_standard">Standard</string>
     <string name="style_brightness_summary">Helles oder dunkles Design wählen</string>
     <string name="style_brightness_title">Designhelligkeit</string>
