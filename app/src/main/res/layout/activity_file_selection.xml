@@ -153,7 +153,7 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.5" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/create_database_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
                 style="@style/KeePassPNStyle.Button.Secondary"
                 android:text="@string/create_keepass_file"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/open_database_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
