@@ -101,4 +101,8 @@
     <string name="keyboard_auto_go_confirm_button">चालू करा</string>
     <string name="icon_section_brand">ब्रँड</string>
     <string name="icon_brand_none">या वेबसाइटशी जुळणारे ब्रँड आयकॉन नाही.</string>
+    <string name="icon_upload_description">सानुकूल आयकॉन अपलोड करा</string>
+    <string name="icon_upload_info_title">आयकॉन अपलोड करा</string>
+    <string name="icon_upload_info_message">या डिव्हाइसवरून एक प्रतिमा निवडा. Android ला ती वाचता आली पाहिजे (PNG, JPEG, WebP आणि बहुतेक सामान्य फॉरमॅट), आणि आकार 5 MB पर्यंत असावा. प्रतिमा 64 पिक्सेल रुंदीपर्यंत लहान करून डेटाबेसमध्ये जतन केली जाईल. डेटाबेसमध्ये आधीच असलेली प्रतिमा नाकारली जाईल. सानुकूल चिन्हे फक्त त्यांना समर्थन देणाऱ्या डेटाबेससाठी उपलब्ध आहेत.</string>
+    <string name="icon_upload_info_button">प्रतिमा निवडा</string>
 </resources>

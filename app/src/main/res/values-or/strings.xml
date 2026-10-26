@@ -92,4 +92,8 @@
     <string name="keyboard_auto_go_confirm_button">ଚାଲୁ କରନ୍ତୁ</string>
     <string name="icon_section_brand">ବ୍ରାଣ୍ଡ</string>
     <string name="icon_brand_none">ଏହି ୱେବସାଇଟ ସହ ମେଳ ଖାଉଥିବା ବ୍ରାଣ୍ଡ ଆଇକନ୍ ନାହିଁ।</string>
+    <string name="icon_upload_description">କଷ୍ଟମ୍ ଆଇକନ୍ ଅପଲୋଡ୍ କରନ୍ତୁ</string>
+    <string name="icon_upload_info_title">ଆଇକନ୍ ଅପଲୋଡ୍ କରନ୍ତୁ</string>
+    <string name="icon_upload_info_message">ଏହି ଡିଭାଇସ୍‌ରୁ ଏକ ଛବି ବାଛନ୍ତୁ। Android ଏହାକୁ ପଢ଼ିପାରିବା ଉଚିତ (PNG, JPEG, WebP ଏବଂ ଅଧିକାଂଶ ସାଧାରଣ ଫର୍ମାଟ୍), ଏବଂ ଏହାର ଆକାର 5 MB ପର୍ଯ୍ୟନ୍ତ ହେବା ଉଚିତ। ଛବିକୁ 64 ପିକ୍ସେଲ ଚଉଡ଼ାକୁ ଛୋଟ କରାଯାଇ ଡାଟାବେସରେ ସଞ୍ଚୟ ହେବ। ଡାଟାବେସରେ ପୂର୍ବରୁ ଥିବା ଛବି ପ୍ରତ୍ୟାଖ୍ୟାନ ହେବ। କଷ୍ଟମ୍ ଆଇକନ୍ ଏହାକୁ ସମର୍ଥନ କରୁଥିବା ଡାଟାବେସ୍‌ରେ କେବଳ ଉପଲବ୍ଧ।</string>
+    <string name="icon_upload_info_button">ଛବି ବାଛନ୍ତୁ</string>
 </resources>

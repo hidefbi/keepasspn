@@ -448,4 +448,8 @@ Da bismo sačuvali našu slobodu, ispravljali greške, dodavali funkcije i održ
     <string name="keyboard_auto_go_confirm_button">Uključi</string>
     <string name="icon_section_brand">Brend</string>
     <string name="icon_brand_none">Za ovaj veb-sajt nema odgovarajuće ikone brenda.</string>
+    <string name="icon_upload_description">Pošalji prilagođenu ikonu</string>
+    <string name="icon_upload_info_title">Pošalji ikonu</string>
+    <string name="icon_upload_info_message">Izaberite sliku sa ovog uređaja. Android mora moći da je pročita (PNG, JPEG, WebP i većina uobičajenih formata), a veličina mora biti do 5 MB. Slika se smanjuje na širinu od 64 piksela i čuva u bazi. Slika koja je već u bazi se odbija. Prilagođene ikone su dostupne samo za baze koje ih podržavaju.</string>
+    <string name="icon_upload_info_button">Izaberi sliku</string>
 </resources>

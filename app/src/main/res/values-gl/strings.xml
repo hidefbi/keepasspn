@@ -831,4 +831,8 @@ Para manter a nosa liberdade, corrixir erros, engadir funcións e manter o proxe
     <string name="keyboard_auto_go_confirm_title">Activar o envío automático?</string>
     <string name="keyboard_auto_go_confirm_message">Con esta opción activada, Magikeyboard envía o formulario xusto despois de enchelo, sen tocar nada máis. Unha páxina de inicio de sesión falsa podería aproveitalo para obter as túas credenciais. Actívao só se revisas a páxina antes de cada enchido.</string>
     <string name="keyboard_auto_go_confirm_button">Activar</string>
+    <string name="icon_upload_description">Envía unha icona personalizada</string>
+    <string name="icon_upload_info_title">Envía unha icona</string>
+    <string name="icon_upload_info_message">Escolla unha imaxe deste dispositivo. Android debe poder lela (PNG, JPEG, WebP e a maioría dos formatos habituais), e non pode superar os 5 MB. A imaxe redúcese a 64 píxeles de ancho e gárdase na base de datos. Unha imaxe que xa está na base de datos recházase. As iconas personalizadas só están dispoñibles para as bases de datos que as admiten.</string>
+    <string name="icon_upload_info_button">Escolle unha imaxe</string>
 </resources>

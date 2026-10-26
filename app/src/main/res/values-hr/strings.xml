@@ -771,4 +771,8 @@ Kako bismo očuvali slobodu, ispravljali greške, dodavali značajke i održaval
     <string name="keyboard_auto_go_confirm_title">Uključiti automatsko slanje?</string>
     <string name="keyboard_auto_go_confirm_message">Kad je uključeno, Magikeyboard šalje obrazac odmah nakon popunjavanja, bez dodatnog dodira. Lažna stranica za prijavu mogla bi to iskoristiti za prikupljanje vaših podataka. Uključite samo ako provjeravate stranicu prije svakog popunjavanja.</string>
     <string name="keyboard_auto_go_confirm_button">Uključi</string>
+    <string name="icon_upload_description">Učitaj prilagođenu ikonu</string>
+    <string name="icon_upload_info_title">Učitaj ikonu</string>
+    <string name="icon_upload_info_message">Odaberite sliku s ovog uređaja. Android je mora moći pročitati (PNG, JPEG, WebP i većina uobičajenih formata), a može biti najviše 5 MB. Slika se smanjuje na širinu od 64 piksela i sprema u bazu podataka. Slika koja je već u bazi se odbija. Prilagođene ikone dostupne su samo za baze koje ih podržavaju.</string>
+    <string name="icon_upload_info_button">Odaberi sliku</string>
 </resources>

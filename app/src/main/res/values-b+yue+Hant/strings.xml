@@ -220,4 +220,8 @@
     <string name="keyboard_auto_go_confirm_button">開啟</string>
     <string name="icon_section_brand">品牌</string>
     <string name="icon_brand_none">呢個網站冇對應嘅品牌圖示。</string>
+    <string name="icon_upload_description">上載自訂圖示</string>
+    <string name="icon_upload_info_title">上載圖示</string>
+    <string name="icon_upload_info_message">從呢部裝置揀一張圖片。Android 要讀得到（PNG、JPEG、WebP 同多數常見格式），檔案不可超過 5 MB。圖片會縮成闊 64 像素並儲存喺資料庫。資料庫已有嘅圖片會被拒絕。自訂圖示只適用於支援嘅資料庫。</string>
+    <string name="icon_upload_info_button">揀選圖片</string>
 </resources>

@@ -813,4 +813,8 @@ Meie vabaduse säilitamiseks, vigade parandamiseks, uute funktsioonide lisamisek
     <string name="keyboard_auto_go_confirm_title">Kas lülitada automaatne esitamine sisse?</string>
     <string name="keyboard_auto_go_confirm_message">Sisselülitatuna saadab Magikeyboard vormi kohe pärast täitmist, ilma täiendava puudutuseta. Võltsitud sisselogimisleht võib seda kasutada teie andmete kogumiseks. Lülitage sisse ainult siis, kui kontrollite lehte enne iga täitmist.</string>
     <string name="keyboard_auto_go_confirm_button">Lülita sisse</string>
+    <string name="icon_upload_description">Laadi üles kohandatud ikoon</string>
+    <string name="icon_upload_info_title">Laadi ikoon üles</string>
+    <string name="icon_upload_info_message">Valige pildifail sellest seadmest. Android peab selle lugema suutma (PNG, JPEG, WebP ja enamik tavalisi vorminguid) ja see peab olema kuni 5 MB. Pilt vähendatakse 64 pikslit laiuseks ja salvestatakse andmebaasi. Andmebaasis juba olev pilt lükatakse tagasi. Kohandatud ikoonid on saadaval ainult andmebaasidele, mis neid toetavad.</string>
+    <string name="icon_upload_info_button">Vali pilt</string>
 </resources>

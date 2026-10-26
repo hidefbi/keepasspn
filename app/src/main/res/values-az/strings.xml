@@ -726,4 +726,8 @@ Azadlığımızı qorumaq, səhvləri düzəltmək, yeni funksiyalar əlavə etm
     <string name="keyboard_auto_go_confirm_title">Avtomatik göndərmə aktivləşdirilsin?</string>
     <string name="keyboard_auto_go_confirm_message">Aktiv olduqda Magikeyboard doldurmadan dərhal sonra formanı göndərəcək, əlavə toxunuş tələb olunmayacaq. Saxta giriş səhifəsi bunu məlumatlarınızı toplamaq üçün istifadə edə bilər. Yalnız hər doldurmadan əvvəl səhifəni yoxladığınız halda aktivləşdirin.</string>
     <string name="keyboard_auto_go_confirm_button">Aktivləşdir</string>
+    <string name="icon_upload_description">Fərdi ikon yüklə</string>
+    <string name="icon_upload_info_title">İkon yüklə</string>
+    <string name="icon_upload_info_message">Bu cihazdan şəkil seçin. Android onu oxuya bilməlidir (PNG, JPEG, WebP və ən çox yayılmış formatlar), həcmi 5 MB-dan çox olmamalıdır. Şəkil 64 piksel enində kiçildilir və verilənlər bazasında saxlanılır. Verilənlər bazasında artıq olan şəkil qəbul edilmir. Fərdi ikonlar yalnız bunları dəstəkləyən verilənlər bazaları üçün mövcuddur.</string>
+    <string name="icon_upload_info_button">Şəkil seç</string>
 </resources>

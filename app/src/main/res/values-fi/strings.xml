@@ -522,4 +522,8 @@ Jotta säilyttäisimme vapautemme, korjaisimme virheitä, lisäisimme ominaisuuk
     <string name="keyboard_auto_go_confirm_button">Ota käyttöön</string>
     <string name="icon_section_brand">Brändi</string>
     <string name="icon_brand_none">Tälle verkkosivustolle ei löydy vastaavaa brändikuvaketta.</string>
+    <string name="icon_upload_description">Lataa oma kuvake</string>
+    <string name="icon_upload_info_title">Lataa kuvake</string>
+    <string name="icon_upload_info_message">Valitse kuva tältä laitteelta. Androidin on voitava lukea se (PNG, JPEG, WebP ja useimmat yleiset muodot), ja sen koko saa olla enintään 5 Mt. Kuva pienennetään 64 pikselin leveyteen ja tallennetaan tietokantaan. Kuva, joka on jo tietokannassa, hylätään. Omia kuvakkeita voi käyttää vain tietokannoissa, jotka tukevat niitä.</string>
+    <string name="icon_upload_info_button">Valitse kuva</string>
 </resources>

@@ -434,4 +434,8 @@
     <string name="keyboard_auto_go_confirm_button">켜기</string>
     <string name="icon_section_brand">브랜드</string>
     <string name="icon_brand_none">이 웹사이트와 일치하는 브랜드 아이콘이 없습니다.</string>
+    <string name="icon_upload_description">사용자 지정 아이콘 업로드</string>
+    <string name="icon_upload_info_title">아이콘 업로드</string>
+    <string name="icon_upload_info_message">이 기기에서 이미지를 선택하세요. Android가 읽을 수 있어야 하며(PNG, JPEG, WebP 등 일반적인 형식), 크기는 5MB 이하여야 합니다. 이미지는 너비 64픽셀로 줄여져 데이터베이스에 저장됩니다. 데이터베이스에 이미 있는 이미지는 거부됩니다. 사용자 지정 아이콘은 이를 지원하는 데이터베이스에서만 사용할 수 있습니다.</string>
+    <string name="icon_upload_info_button">이미지 선택</string>
 </resources>

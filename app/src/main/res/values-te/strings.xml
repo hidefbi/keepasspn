@@ -115,4 +115,8 @@
     <string name="keyboard_auto_go_confirm_button">ఆన్ చేయి</string>
     <string name="icon_section_brand">బ్రాండ్</string>
     <string name="icon_brand_none">ఈ వెబ్‌సైట్‌కు సరిపోయే బ్రాండ్ ఐకాన్ లేదు.</string>
+    <string name="icon_upload_description">కస్టమ్ ఐకాన్ అప్‌లోడ్ చేయండి</string>
+    <string name="icon_upload_info_title">ఐకాన్ అప్‌లోడ్ చేయండి</string>
+    <string name="icon_upload_info_message">ఈ పరికరం నుండి ఒక చిత్రాన్ని ఎంచుకోండి. Android దానిని చదవగలగాలి (PNG, JPEG, WebP మరియు చాలా సాధారణ ఫార్మాట్లు), పరిమాణం 5 MB వరకు మాత్రమే ఉండాలి. చిత్రాన్ని 64 పిక్సెల్ వెడల్పుకు తగ్గించి డేటాబేస్‌లో భద్రపరుస్తారు. డేటాబేస్‌లో ఇప్పటికే ఉన్న చిత్రం తిరస్కరించబడుతుంది. కస్టమ్ ఐకాన్‌లు వాటికి మద్దతిచ్చే డేటాబేస్‌లకు మాత్రమే అందుబాటులో ఉన్నాయి.</string>
+    <string name="icon_upload_info_button">చిత్రాన్ని ఎంచుకోండి</string>
 </resources>

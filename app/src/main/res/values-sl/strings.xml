@@ -144,4 +144,8 @@ Da bi ohranili svobodo, odpravljali napake, dodajali funkcije in ohranjali proje
     <string name="keyboard_auto_go_confirm_button">Vklopi</string>
     <string name="icon_section_brand">Blagovna znamka</string>
     <string name="icon_brand_none">Za to spletno mesto ni ustrezne ikone blagovne znamke.</string>
+    <string name="icon_upload_description">Naloži ikono po meri</string>
+    <string name="icon_upload_info_title">Naloži ikono</string>
+    <string name="icon_upload_info_message">Izberite sliko iz te naprave. Android jo mora znati prebrati (PNG, JPEG, WebP in večina pogostih formatov), velikost pa je lahko največ 5 MB. Slika se zmanjša na širino 64 slikovnih pik in shrani v podatkovno bazo. Slika, ki je že v bazi, se zavrne. Ikone po meri so na voljo samo za podatkovne baze, ki jih podpirajo.</string>
+    <string name="icon_upload_info_button">Izberi sliko</string>
 </resources>

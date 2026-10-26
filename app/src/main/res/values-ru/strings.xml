@@ -855,4 +855,8 @@
     <string name="keyboard_auto_go_confirm_title">Включить автоматическую отправку?</string>
     <string name="keyboard_auto_go_confirm_message">Когда опция включена, Magikeyboard отправляет форму сразу после заполнения, без дополнительного нажатия. Поддельная страница входа может использовать это, чтобы собрать ваши данные. Включайте, только если проверяете страницу перед каждым заполнением.</string>
     <string name="keyboard_auto_go_confirm_button">Включить</string>
+    <string name="icon_upload_description">Загрузить свой значок</string>
+    <string name="icon_upload_info_title">Загрузить значок</string>
+    <string name="icon_upload_info_message">Выберите изображение на этом устройстве. Android должен уметь его читать (PNG, JPEG, WebP и большинство распространённых форматов), размер — не более 5 МБ. Изображение уменьшается до ширины 64 пикселя и сохраняется в базе данных. Изображение, которое уже есть в базе, отклоняется. Пользовательские значки доступны только для баз, которые их поддерживают.</string>
+    <string name="icon_upload_info_button">Выбрать изображение</string>
 </resources>

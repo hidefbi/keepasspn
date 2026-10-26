@@ -829,4 +829,8 @@
     <string name="keyboard_auto_go_confirm_title">هل تريد تفعيل الإرسال التلقائي؟</string>
     <string name="keyboard_auto_go_confirm_message">عند التفعيل، ستُرسل لوحة Magikeyboard النموذج مباشرةً بعد التعبئة دون نقرة أخرى. قد تستغل صفحة تسجيل دخول مزيفة ذلك لجمع بيانات اعتمادك. فعّله فقط إذا تحققت من الصفحة قبل كل تعبئة.</string>
     <string name="keyboard_auto_go_confirm_button">تفعيل</string>
+    <string name="icon_upload_description">رفع أيقونة مخصصة</string>
+    <string name="icon_upload_info_title">رفع أيقونة</string>
+    <string name="icon_upload_info_message">اختر صورة من هذا الجهاز. يجب أن يتمكن Android من قراءتها (PNG وJPEG وWebP وأغلب الصيغ الشائعة)، ويجب ألا يتجاوز حجمها 5 ميغابايت. تُصغَّر الصورة إلى عرض 64 بكسل وتُحفظ في قاعدة البيانات. تُرفض الصورة إذا كانت موجودة في قاعدة البيانات بالفعل. الأيقونات المخصصة متاحة فقط لقواعد البيانات التي تدعمها.</string>
+    <string name="icon_upload_info_button">اختيار صورة</string>
 </resources>

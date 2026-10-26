@@ -841,4 +841,8 @@ Pentru a ne menține libertatea, a repara erori, a adăuga funcționalități ș
     <string name="keyboard_auto_go_confirm_title">Activați trimiterea automată?</string>
     <string name="keyboard_auto_go_confirm_message">Când este activată, Magikeyboard trimite formularul imediat după completare, fără o atingere suplimentară. O pagină de autentificare falsă ar putea folosi asta pentru a colecta datele de autentificare. Activați doar dacă verificați pagina înainte de fiecare completare.</string>
     <string name="keyboard_auto_go_confirm_button">Activează</string>
+    <string name="icon_upload_description">Încarcă o pictogramă personalizată</string>
+    <string name="icon_upload_info_title">Încarcă o pictogramă</string>
+    <string name="icon_upload_info_message">Alegeți o imagine de pe acest dispozitiv. Android trebuie să o poată citi (PNG, JPEG, WebP și majoritatea formatelor uzuale), iar dimensiunea ei trebuie să fie de cel mult 5 MB. Imaginea se reduce la o lățime de 64 de pixeli și se salvează în baza de date. O imagine care există deja în baza de date este refuzată. Pictogramele personalizate sunt disponibile doar pentru bazele de date care le acceptă.</string>
+    <string name="icon_upload_info_button">Alege imaginea</string>
 </resources>

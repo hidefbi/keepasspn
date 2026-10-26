@@ -437,4 +437,8 @@
     <string name="keyboard_auto_go_confirm_button">ഓണാക്കുക</string>
     <string name="icon_section_brand">ബ്രാൻഡ്</string>
     <string name="icon_brand_none">ഈ വെബ്‌സൈറ്റുമായി യോജിക്കുന്ന ബ്രാൻഡ് ഐക്കൺ ഇല്ല.</string>
+    <string name="icon_upload_description">ഇഷ്ടാനുസൃത ഐക്കൺ അപ്‌ലോഡ് ചെയ്യുക</string>
+    <string name="icon_upload_info_title">ഐക്കൺ അപ്‌ലോഡ് ചെയ്യുക</string>
+    <string name="icon_upload_info_message">ഈ ഉപകരണത്തിൽ നിന്ന് ഒരു ചിത്രം തിരഞ്ഞെടുക്കുക. Android-ന് ഇത് വായിക്കാൻ കഴിയണം (PNG, JPEG, WebP, സാധാരണ ഫോർമാറ്റുകൾ), വലുപ്പം 5 MB വരെ മാത്രമേ പാടുള്ളൂ. ചിത്രം 64 പിക്സൽ വീതിയിലേക്ക് ചെറുതാക്കി ഡാറ്റാബേസിൽ സംരക്ഷിക്കും. ഡാറ്റാബേസിൽ ഇതിനകം ഉള്ള ചിത്രം സ്വീകരിക്കില്ല. ഇഷ്ടാനുസൃത ഐക്കണുകൾ അവ പിന്തുണയ്ക്കുന്ന ഡാറ്റാബേസുകൾക്ക് മാത്രമേ ലഭ്യമാകൂ.</string>
+    <string name="icon_upload_info_button">ചിത്രം തിരഞ്ഞെടുക്കുക</string>
 </resources>

@@ -241,4 +241,8 @@
     <string name="keyboard_auto_go_confirm_button">चालू करें</string>
     <string name="icon_section_brand">ब्रांड</string>
     <string name="icon_brand_none">इस वेबसाइट से मेल खाता कोई ब्रांड आइकन नहीं है।</string>
+    <string name="icon_upload_description">कस्टम आइकन अपलोड करें</string>
+    <string name="icon_upload_info_title">आइकन अपलोड करें</string>
+    <string name="icon_upload_info_message">इस डिवाइस से एक छवि चुनें। Android को इसे पढ़ने में सक्षम होना चाहिए (PNG, JPEG, WebP और ज़्यादातर आम फ़ॉर्मेट), और इसका आकार 5 MB तक होना चाहिए। छवि को 64 पिक्सल चौड़ा किया जाएगा और डेटाबेस में सहेजा जाएगा। डेटाबेस में पहले से मौजूद छवि स्वीकार नहीं की जाएगी। कस्टम आइकन केवल उन डेटाबेस के लिए उपलब्ध हैं जो इन्हें सपोर्ट करते हैं।</string>
+    <string name="icon_upload_info_button">छवि चुनें</string>
 </resources>

@@ -359,4 +359,8 @@ Upang mapanatili ang aming kalayaan, ayusin ang mga bug, magdagdag ng mga featur
     <string name="keyboard_auto_go_confirm_button">I-on</string>
     <string name="icon_section_brand">Brand</string>
     <string name="icon_brand_none">Walang icon ng brand na tugma sa website na ito.</string>
+    <string name="icon_upload_description">Mag-upload ng custom na icon</string>
+    <string name="icon_upload_info_title">Mag-upload ng icon</string>
+    <string name="icon_upload_info_message">Pumili ng larawan mula sa device na ito. Dapat itong mabasa ng Android (PNG, JPEG, WebP at karamihang karaniwang format), at hanggang 5 MB lang ang laki. Liliitin ang larawan sa lapad na 64 pixel at ise-save sa database. Tatanggihan ang larawang nasa database na. Available lang ang custom na icon para sa mga database na sumusuporta nito.</string>
+    <string name="icon_upload_info_button">Pumili ng larawan</string>
 </resources>

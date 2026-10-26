@@ -831,4 +831,8 @@
     <string name="keyboard_auto_go_confirm_title">Да се включи ли автоматичното изпращане?</string>
     <string name="keyboard_auto_go_confirm_message">При включване Magikeyboard изпраща формата веднага след попълването, без допълнително докосване. Фалшива страница за вход може да използва това, за да събере данните ви. Включвайте само ако проверявате страницата преди всяко попълване.</string>
     <string name="keyboard_auto_go_confirm_button">Включи</string>
+    <string name="icon_upload_description">Качване на собствена икона</string>
+    <string name="icon_upload_info_title">Качване на икона</string>
+    <string name="icon_upload_info_message">Изберете изображение от това устройство. Android трябва да може да го прочете (PNG, JPEG, WebP и повечето често срещани формати), а размерът му трябва да е до 5 MB. Изображението се намалява до ширина 64 пиксела и се запазва в базата данни. Изображение, което вече е в базата, се отхвърля. Собствените икони са достъпни само за бази, които ги поддържат.</string>
+    <string name="icon_upload_info_button">Избор на изображение</string>
 </resources>

@@ -29,6 +29,7 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.FragmentActivity
@@ -41,7 +42,6 @@ import com.keepasspn.R
 import com.keepasspn.activities.dialogs.IconEditDialogFragment
 import com.keepasspn.activities.fragments.IconPickerFragment
 import com.keepasspn.activities.helpers.ExternalFileHelper
-import com.keepasspn.activities.helpers.setOpenDocumentClickListener
 import com.keepasspn.activities.legacy.DatabaseLockActivity
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.element.icon.IconImage
@@ -208,7 +208,11 @@ class IconPickerActivity : DatabaseLockActivity() {
         super.onDatabaseRetrieved(database)
 
         if (database.allowCustomIcons) {
-            uploadButton.setOpenDocumentClickListener(mExternalFileHelper)
+            uploadButton.setOnClickListener { showUploadInfo(false) }
+            uploadButton.setOnLongClickListener {
+                showUploadInfo(true)
+                true
+            }
         } else {
             uploadButton.visibility = View.GONE
         }
@@ -337,6 +341,20 @@ class IconPickerActivity : DatabaseLockActivity() {
                 }
             }
         }
+    }
+
+    /**
+     * Explains the limits of an uploaded icon before the file chooser opens.
+     */
+    private fun showUploadInfo(longClick: Boolean) {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.icon_upload_info_title)
+            .setMessage(R.string.icon_upload_info_message)
+            .setPositiveButton(R.string.icon_upload_info_button) { _, _ ->
+                mExternalFileHelper?.openDocument(longClick)
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
     }
 
     private fun updateCustomIcon(iconImageCustom: IconImageCustom) {

@@ -475,4 +475,8 @@
     <string name="keyboard_auto_go_confirm_button">Укључи</string>
     <string name="icon_section_brand">Бренд</string>
     <string name="icon_brand_none">Ниједна икона бренда не одговара овом веб-сајту.</string>
+    <string name="icon_upload_description">Пошаљи прилагођену икону</string>
+    <string name="icon_upload_info_title">Пошаљи икону</string>
+    <string name="icon_upload_info_message">Изаберите слику са овог уређаја. Android мора моћи да је прочита (PNG, JPEG, WebP и већина уобичајених формата), а величина мора бити до 5 MB. Слика се смањује на ширину од 64 пиксела и чува у бази података. Слика која је већ у бази се одбија. Прилагођене иконе доступне су само за базе које их подржавају.</string>
+    <string name="icon_upload_info_button">Изабери слику</string>
 </resources>

@@ -796,4 +796,8 @@
     <string name="keyboard_auto_go_confirm_title">Уключыць аўтаматычнае адпраўленне?</string>
     <string name="keyboard_auto_go_confirm_message">Пасля ўключэння Magikeyboard адпраўляе форму адразу пасля запаўнення, без дадатковага націску. Фальшывая старонка ўваходу можа выкарыстаць гэта, каб сабраць вашы дадзеныя. Уключайце, толькі калі правяраеце старонку перад кожным запаўненнем.</string>
     <string name="keyboard_auto_go_confirm_button">Уключыць</string>
+    <string name="icon_upload_description">Запампаваць уласны значок</string>
+    <string name="icon_upload_info_title">Запампаваць значок</string>
+    <string name="icon_upload_info_message">Выберыце малюнак з гэтай прылады. Android павінен мець магчымасць яго прачытаць (PNG, JPEG, WebP і большасць распаўсюджаных фарматаў), памер — не больш за 5 МБ. Малюнак памяншаецца да шырыні 64 пікселі і захоўваецца ў базе даных. Малюнак, які ўжо ёсць у базе, не прымаецца. Уласныя значкі даступны толькі для баз, якія іх падтрымліваюць.</string>
+    <string name="icon_upload_info_button">Выбраць малюнак</string>
 </resources>

@@ -845,4 +845,8 @@ Aby zachować naszą wolność, naprawiać błędy, dodawać funkcje i utrzymywa
     <string name="keyboard_auto_go_confirm_title">Włączyć automatyczne wysyłanie?</string>
     <string name="keyboard_auto_go_confirm_message">Po włączeniu Magikeyboard wysyła formularz zaraz po wypełnieniu, bez kolejnego dotknięcia. Fałszywa strona logowania może to wykorzystać, aby zebrać Twoje dane. Włącz tylko wtedy, gdy sprawdzasz stronę przed każdym wypełnieniem.</string>
     <string name="keyboard_auto_go_confirm_button">Włącz</string>
+    <string name="icon_upload_description">Wyślij własną ikonę</string>
+    <string name="icon_upload_info_title">Wyślij ikonę</string>
+    <string name="icon_upload_info_message">Wybierz obraz z tego urządzenia. Android musi umieć go odczytać (PNG, JPEG, WebP i większość popularnych formatów), a jego rozmiar nie może przekraczać 5 MB. Obraz zostanie zmniejszony do szerokości 64 pikseli i zapisany w bazie danych. Obraz, który już jest w bazie, zostanie odrzucony. Własne ikony są dostępne tylko dla baz danych, które je obsługują.</string>
+    <string name="icon_upload_info_button">Wybierz obraz</string>
 </resources>

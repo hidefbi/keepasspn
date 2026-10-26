@@ -140,4 +140,8 @@ Erkinligimizni saqlash, xatolarni tuzatish, yangi imkoniyatlar qo\'shish va loyi
     <string name="keyboard_auto_go_confirm_button">Yoqish</string>
     <string name="icon_section_brand">Brend</string>
     <string name="icon_brand_none">Ushbu veb-saytga mos brend belgisi yo‘q.</string>
+    <string name="icon_upload_description">Maxsus belgi yuklash</string>
+    <string name="icon_upload_info_title">Belgi yuklash</string>
+    <string name="icon_upload_info_message">Ushbu qurilmadan rasm tanlang. Android uni o‘qiy olishi kerak (PNG, JPEG, WebP va eng keng tarqalgan formatlar), hajmi 5 MB dan oshmasligi kerak. Rasm 64 piksel kenglikka kichraytiriladi va ma’lumotlar bazasida saqlanadi. Ma’lumotlar bazasida allaqachon bor rasm qabul qilinmaydi. Maxsus belgilar faqat ularni qo‘llab-quvvatlaydigan ma’lumotlar bazalari uchun mavjud.</string>
+    <string name="icon_upload_info_button">Rasm tanlash</string>
 </resources>

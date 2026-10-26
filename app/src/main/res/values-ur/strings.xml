@@ -90,4 +90,8 @@
     <string name="keyboard_auto_go_confirm_button">فعال کریں</string>
     <string name="icon_section_brand">برانڈ</string>
     <string name="icon_brand_none">اس ویب سائٹ سے مماثل برانڈ آئیکن نہیں ہے۔</string>
+    <string name="icon_upload_description">حسبِ ضرورت آئیکن اپ لوڈ کریں</string>
+    <string name="icon_upload_info_title">آئیکن اپ لوڈ کریں</string>
+    <string name="icon_upload_info_message">اس ڈیوائس سے ایک تصویر منتخب کریں۔ Android کو اسے پڑھنے کے قابل ہونا چاہیے (PNG، JPEG، WebP اور زیادہ تر عام فارمیٹ)، اور اس کا سائز 5 MB تک ہونا چاہیے۔ تصویر کو 64 پکسل چوڑائی تک چھوٹا کر کے ڈیٹا بیس میں محفوظ کیا جائے گا۔ ڈیٹا بیس میں پہلے سے موجود تصویر قبول نہیں ہوگی۔ حسبِ ضرورت آئیکن صرف ان ڈیٹا بیس کے لیے دستیاب ہیں جو انہیں سپورٹ کرتے ہیں۔</string>
+    <string name="icon_upload_info_button">تصویر منتخب کریں</string>
 </resources>

@@ -796,4 +796,8 @@
     <string name="keyboard_auto_go_confirm_title">தானியங்கி சமர்ப்பிப்பை இயக்கவா?</string>
     <string name="keyboard_auto_go_confirm_message">இயக்கப்பட்டிருக்கும்போது, நிரப்பிய உடனே Magikeyboard படிவத்தை சமர்ப்பிக்கும், கூடுதல் தட்டல் தேவையில்லை. போலி உள்நுழைவுப் பக்கம் இதைப் பயன்படுத்தி உங்கள் சான்றுகளைச் சேகரிக்கலாம். ஒவ்வொரு முறை நிரப்பும் முன்பும் பக்கத்தைச் சரிபார்த்தால் மட்டும் இயக்கவும்.</string>
     <string name="keyboard_auto_go_confirm_button">இயக்கு</string>
+    <string name="icon_upload_description">தனிப்பயன் ஐகானைப் பதிவேற்று</string>
+    <string name="icon_upload_info_title">ஐகானைப் பதிவேற்று</string>
+    <string name="icon_upload_info_message">இந்தச் சாதனத்தில் இருந்து ஒரு படத்தைத் தேர்ந்தெடுக்கவும். Android அதைப் படிக்க முடிய வேண்டும் (PNG, JPEG, WebP மற்றும் பெரும்பாலான பொதுவான வடிவங்கள்), அளவு 5 MB வரை இருக்க வேண்டும். படம் 64 பிக்சல் அகலத்திற்குச் சுருக்கப்பட்டு தரவுத்தளத்தில் சேமிக்கப்படும். தரவுத்தளத்தில் ஏற்கெனவே உள்ள படம் ஏற்கப்படாது. தனிப்பயன் ஐகான்கள் அவற்றை ஆதரிக்கும் தரவுத்தளங்களுக்கு மட்டுமே கிடைக்கும்.</string>
+    <string name="icon_upload_info_button">படத்தைத் தேர்ந்தெடு</string>
 </resources>

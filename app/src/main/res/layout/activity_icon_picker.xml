@@ -55,7 +55,7 @@
             style="@style/KeePassPNStyle.Fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/validate"
+            android:contentDescription="@string/icon_upload_description"
             android:src="@drawable/ic_file_upload_white_24dp"
             app:fabCustomSize="@dimen/button_small_size"
             app:layout_constraintBottom_toTopOf="@+id/screenshot_mode_banner"

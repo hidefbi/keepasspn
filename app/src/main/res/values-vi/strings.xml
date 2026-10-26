@@ -836,4 +836,8 @@
     <string name="keyboard_auto_go_confirm_title">Bật tự động gửi?</string>
     <string name="keyboard_auto_go_confirm_message">Khi bật, Magikeyboard sẽ gửi biểu mẫu ngay sau khi điền, không cần chạm thêm. Một trang đăng nhập giả mạo có thể lợi dụng điều này để thu thập thông tin đăng nhập của bạn. Chỉ bật khi bạn kiểm tra trang trước mỗi lần điền.</string>
     <string name="keyboard_auto_go_confirm_button">Bật</string>
+    <string name="icon_upload_description">Tải lên biểu tượng tùy chỉnh</string>
+    <string name="icon_upload_info_title">Tải lên biểu tượng</string>
+    <string name="icon_upload_info_message">Chọn một ảnh từ thiết bị này. Android phải đọc được ảnh (PNG, JPEG, WebP và hầu hết các định dạng phổ biến), và dung lượng tối đa là 5 MB. Ảnh sẽ được thu nhỏ còn rộng 64 pixel và lưu vào cơ sở dữ liệu. Ảnh đã có sẵn trong cơ sở dữ liệu sẽ bị từ chối. Biểu tượng tùy chỉnh chỉ dùng được với cơ sở dữ liệu hỗ trợ chúng.</string>
+    <string name="icon_upload_info_button">Chọn ảnh</string>
 </resources>

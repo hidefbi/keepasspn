@@ -126,4 +126,8 @@
     <string name="keyboard_auto_go_confirm_button">Кушу</string>
     <string name="icon_section_brand">Бренд</string>
     <string name="icon_brand_none">Бу веб-сайт өчен туры килгән бренд сурәте юк.</string>
+    <string name="icon_upload_description">Үз иконкасын йөкләү</string>
+    <string name="icon_upload_info_title">Иконка йөкләү</string>
+    <string name="icon_upload_info_message">Бу җайланмадан рәсем сайлагыз. Android аны укый алырга тиеш (PNG, JPEG, WebP һәм киң таралган форматларның күбесе), күләме 5 MB-тан артмаска тиеш. Рәсем 64 пиксель киңлеккә кысылып, мәгълүмат базасында саклана. Мәгълүмат базасында инде булган рәсем кабул ителми. Үз белешмәләре бары шуларны яклаган базалар өчен генә бар.</string>
+    <string name="icon_upload_info_button">Рәсем сайлау</string>
 </resources>

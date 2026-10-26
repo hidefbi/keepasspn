@@ -846,4 +846,8 @@ Uygulama kullanıcı verilerini toplamaz, hiçbir sunucuya bağlanmaz, yalnızca
     <string name="keyboard_auto_go_confirm_title">Otomatik gönderme açılsın mı?</string>
     <string name="keyboard_auto_go_confirm_message">Açıkken Magikeyboard, doldurduktan hemen sonra formu başka bir dokunuş olmadan gönderir. Sahte bir giriş sayfası bunu kimlik bilgilerinizi toplamak için kullanabilir. Yalnızca her doldurmadan önce sayfayı kontrol ediyorsanız açın.</string>
     <string name="keyboard_auto_go_confirm_button">Aç</string>
+    <string name="icon_upload_description">Özel simge yükle</string>
+    <string name="icon_upload_info_title">Simge yükle</string>
+    <string name="icon_upload_info_message">Bu cihazdan bir görüntü seçin. Android bu görüntüyü okuyabilmelidir (PNG, JPEG, WebP ve yaygın biçimlerin çoğu) ve boyutu en fazla 5 MB olmalıdır. Görüntü 64 piksel genişliğe küçültülür ve veritabanına kaydedilir. Veritabanında zaten bulunan bir görüntü reddedilir. Özel simgeler yalnızca bunları destekleyen veritabanlarında kullanılabilir.</string>
+    <string name="icon_upload_info_button">Görüntü seç</string>
 </resources>

@@ -849,4 +849,8 @@ Szabadságunk megőrzése, a hibák javítása, új funkciók hozzáadása és a
     <string name="keyboard_auto_go_confirm_title">Automatikus küldés bekapcsolása?</string>
     <string name="keyboard_auto_go_confirm_message">Bekapcsolt állapotban a Magikeyboard a kitöltés után azonnal elküldi az űrlapot, újabb koppintás nélkül. Egy hamis bejelentkező oldal ezzel gyűjthetne be az adataidat. Csak akkor kapcsold be, ha minden kitöltés előtt ellenőrzöd az oldalt.</string>
     <string name="keyboard_auto_go_confirm_button">Bekapcsolás</string>
+    <string name="icon_upload_description">Egyéni ikon feltöltése</string>
+    <string name="icon_upload_info_title">Ikon feltöltése</string>
+    <string name="icon_upload_info_message">Válasszon egy képet ezen az eszközön. Az Androidnak tudnia kell olvasni (PNG, JPEG, WebP és a legtöbb elterjedt formátum), a mérete legfeljebb 5 MB lehet. A kép 64 pixel széles lesz, és az adatbázisba kerül. Az adatbázisban már szereplő képet a rendszer elutasítja. Egyéni ikonok csak olyan adatbázisokhoz érhetők el, amelyek támogatják őket.</string>
+    <string name="icon_upload_info_button">Kép kiválasztása</string>
 </resources>

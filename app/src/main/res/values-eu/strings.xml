@@ -750,4 +750,8 @@ Gure askatasuna mantentzeko, akatsak konpontzeko, funtzio berriak gehitzeko eta 
     <string name="keyboard_auto_go_confirm_title">Gaitu bidalketa automatikoa?</string>
     <string name="keyboard_auto_go_confirm_message">Aktibatuta dagoenean, Magikeyboard-ek formularioa bidaltzen du betetzen amaitu bezain pronto, beste sakatze bat behar izan gabe. Saioa hasteko orri faltsu batek hori erabil dezake zure kredentzialak biltzeko. Gaitu soilik orria kontrolatzen baduzu betetze bakoitza baino lehen.</string>
     <string name="keyboard_auto_go_confirm_button">Gaitu</string>
+    <string name="icon_upload_description">Igo ikono pertsonalizatua</string>
+    <string name="icon_upload_info_title">Igo ikono bat</string>
+    <string name="icon_upload_info_message">Aukeratu irudi bat gailu honetatik. Android-ek irakurri ahal izan behar du (PNG, JPEG, WebP eta ohiko formatu gehienak), eta 5 MB-ra arteko tamainakoa izan behar du. Irudia 64 pixeleko zabalerara txikitzen da eta datu-basean gordetzen da. Datu-basean dagoeneko dagoen irudia baztertzen da. Ikono pertsonalizatuak datu-base hauetan bakarrik daude erabilgarri.</string>
+    <string name="icon_upload_info_button">Aukeratu irudia</string>
 </resources>

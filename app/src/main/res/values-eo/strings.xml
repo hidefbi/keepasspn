@@ -217,4 +217,8 @@ Por konservi nian liberecon, ripari erarojn, aldoni funkciojn kaj konservi la pr
     <string name="keyboard_auto_go_confirm_button">Ŝalti</string>
     <string name="icon_section_brand">Marko</string>
     <string name="icon_brand_none">Neniu markoikono kongruas kun ĉi tiu retejo.</string>
+    <string name="icon_upload_description">Alŝuti propran piktogramon</string>
+    <string name="icon_upload_info_title">Alŝuti piktogramon</string>
+    <string name="icon_upload_info_message">Elektu bildon el ĉi tiu aparato. Android devas povi legi ĝin (PNG, JPEG, WebP kaj plej multaj oftaj formatoj), kaj ĝia grandeco devas esti ĝis 5 MB. La bildo estas malgrandigita al larĝo de 64 pikseloj kaj konservita en la datumbazo. Bildo, kiu jam estas en la datumbazo, estas rifuzata. Propraj piktogramoj estas haveblaj nur por datumbazoj, kiuj ilin subtenas.</string>
+    <string name="icon_upload_info_button">Elekti bildon</string>
 </resources>

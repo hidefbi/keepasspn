@@ -411,4 +411,8 @@ To keep our freedom, fix bugs, add features and keep the project active, we welc
     <string name="keyboard_auto_go_confirm_button">Turn on</string>
     <string name="icon_section_brand">Brand</string>
     <string name="icon_brand_none">No brand icon matches this website.</string>
+    <string name="icon_upload_description">Upload a custom icon</string>
+    <string name="icon_upload_info_title">Upload an icon</string>
+    <string name="icon_upload_info_message">Choose an image from this device. Android must be able to read it (PNG, JPEG, WebP and most common formats), and it must be 5 MB or smaller. The image is resized to 64 pixels wide and stored in the database. An image that is already in the database is refused. Custom icons are only available for databases that support them.</string>
+    <string name="icon_upload_info_button">Choose image</string>
 </resources>

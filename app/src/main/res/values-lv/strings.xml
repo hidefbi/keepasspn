@@ -374,4 +374,8 @@ Lai saglabātu mūsu brīvību, labotu kļūdas, pievienotu funkcijas un uzturē
     <string name="keyboard_auto_go_confirm_button">Ieslēgt</string>
     <string name="icon_section_brand">Zīmols</string>
     <string name="icon_brand_none">Šai vietnei nav atbilstošas zīmola ikonas.</string>
+    <string name="icon_upload_description">Augšupielādēt pielāgotu ikonu</string>
+    <string name="icon_upload_info_title">Augšupielādēt ikonu</string>
+    <string name="icon_upload_info_message">Izvēlieties attēlu no šīs ierīces. Android to spēj nolasīt (PNG, JPEG, WebP un lielākā daļa parasto formātu), un izmērs nedrīkst pārsniegt 5 MB. Attēls tiek samazināts līdz 64 pikseļu platumam un saglabāts datubāzē. Attēls, kas jau ir datubāzē, tiek noraidīts. Pielāgotās ikonas ir pieejamas tikai datubāzēm, kas tās atbalsta.</string>
+    <string name="icon_upload_info_button">Izvēlēties attēlu</string>
 </resources>

@@ -124,4 +124,8 @@
     <string name="keyboard_auto_go_confirm_button">ဖွင့်မည်</string>
     <string name="icon_section_brand">ဘရန်ဒ်</string>
     <string name="icon_brand_none">ဤဝဘ်ဆိုဒ်နှင့် ကိုက်ညီသော ဘရန်းအိုင်ကွန် မရှိပါ။</string>
+    <string name="icon_upload_description">စိတ်ကြိုက်အိုင်ကွန် တင်ရန်</string>
+    <string name="icon_upload_info_title">အိုင်ကွန် တင်ရန်</string>
+    <string name="icon_upload_info_message">ဤစက်ပစ္စည်းမှ ပုံတစ်ပုံကို ရွေးပါ။ Android က ဖတ်နိုင်ရမည် (PNG၊ JPEG၊ WebP နှင့် အများဆုံး သုံးသော format များ)၊ အရွယ်အစားမှာ 5 MB အထိသာ ရှိရမည်။ ပုံကို အကျယ် 64 ပစ်ဆယ်သို့ ချုံ့ပြီး ဒေတာဘေ့စ်တွင် သိမ်းမည်။ ဒေတာဘေ့စ်တွင် ရှိပြီးသား ပုံကို လက်မခံပါ။ စိတ်ကြိုက် အိုင်ကွန်များကို ထိုသို့ပံ့ပိုးသော ဒေတာဘေ့စ်များတွင်သာ သုံးနိုင်သည်။</string>
+    <string name="icon_upload_info_button">ပုံရွေးရန်</string>
 </resources>

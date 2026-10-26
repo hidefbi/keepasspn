@@ -783,4 +783,8 @@ Për të ruajtur lirinë tonë, për të rregulluar gabimet, për të shtuar fun
     <string name="keyboard_auto_go_confirm_title">Të aktivizohet dërgimi automatik?</string>
     <string name="keyboard_auto_go_confirm_message">Kur është aktive, Magikeyboard e dërgon formularin menjëherë pas plotësimit, pa një prekje tjetër. Një faqe e rreme hyrjeje mund ta përdorë këtë për të mbledhur kredencialet tuaja. Aktivizojeni vetëm nëse e kontrolloni faqen para çdo plotësimi.</string>
     <string name="keyboard_auto_go_confirm_button">Aktivizo</string>
+    <string name="icon_upload_description">Ngarko një ikonë të personalizuar</string>
+    <string name="icon_upload_info_title">Ngarko një ikonë</string>
+    <string name="icon_upload_info_message">Zgjidh një imazh nga kjo pajisje. Android duhet ta lexojë (PNG, JPEG, WebP dhe shumicën e formateve të zakonshme), dhe madhësia duhet të jetë deri në 5 MB. Imazhi zvogëlohet në gjerësi 64 piksel dhe ruhet në bazën e të dhënave. Një imazh që tashmë është në bazë refuzohet. Ikonat e personalizuara janë të disponueshme vetëm për bazat që i mbështesin.</string>
+    <string name="icon_upload_info_button">Zgjidh imazhin</string>
 </resources>

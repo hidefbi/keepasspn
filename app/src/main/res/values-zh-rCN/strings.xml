@@ -854,4 +854,8 @@
     <string name="keyboard_auto_go_confirm_title">要开启自动提交吗？</string>
     <string name="keyboard_auto_go_confirm_message">开启后，魔法键盘会在填充后直接提交表单，无需再点击。伪造的登录页面可能利用这一点获取你的凭据。只有在每次填充前都确认页面可信时才建议开启。</string>
     <string name="keyboard_auto_go_confirm_button">开启</string>
+    <string name="icon_upload_description">上传自定义图标</string>
+    <string name="icon_upload_info_title">上传图标</string>
+    <string name="icon_upload_info_message">从本设备选择一张图片。Android 需要能读取该图片（PNG、JPEG、WebP 等常见格式），大小不超过 5 MB。图片会缩小为宽 64 像素后保存到数据库中。数据库中已有的图片会被拒绝。只有支持自定义图标的数据库才能使用此功能。</string>
+    <string name="icon_upload_info_button">选择图片</string>
 </resources>

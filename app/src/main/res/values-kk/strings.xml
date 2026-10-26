@@ -89,4 +89,8 @@
     <string name="keyboard_auto_go_confirm_button">Қосу</string>
     <string name="icon_section_brand">Брэнд</string>
     <string name="icon_brand_none">Бұл веб-сайтқа сәйкес брэнд белгішесі жоқ.</string>
+    <string name="icon_upload_description">Теңшелетін белгішені жүктеу</string>
+    <string name="icon_upload_info_title">Белгішені жүктеу</string>
+    <string name="icon_upload_info_message">Осы құрылғыдан сурет таңдаңыз. Android оны оқи алуы керек (PNG, JPEG, WebP және жиі кездесетін басқа форматтар), өлшемі 5 MB-тан аспауы керек. Сурет ені 64 пиксельге дейін кішірейтіліп, деректер қорында сақталады. Деректер қорында бар сурет қабылданбайды. Теңшелетін белгішелер тек оларды қолдайтын деректер қорлары үшін қолжетімді.</string>
+    <string name="icon_upload_info_button">Суретті таңдау</string>
 </resources>

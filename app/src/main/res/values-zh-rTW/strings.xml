@@ -835,4 +835,8 @@
     <string name="keyboard_auto_go_confirm_title">要開啟自動提交嗎？</string>
     <string name="keyboard_auto_go_confirm_message">開啟後，魔法鍵盤會在填入後直接提交表單，無需再點擊。偽造的登入頁面可能利用這一點取得你的憑證。只有在每次填入前都確認頁面可信時才建議開啟。</string>
     <string name="keyboard_auto_go_confirm_button">開啟</string>
+    <string name="icon_upload_description">上傳自訂圖示</string>
+    <string name="icon_upload_info_title">上傳圖示</string>
+    <string name="icon_upload_info_message">從這部裝置選擇一張圖片。Android 必須能讀取（PNG、JPEG、WebP 等常見格式），檔案大小不超過 5 MB。圖片會縮小為寬 64 像素後儲存到資料庫。資料庫中已有的圖片會被拒絕。只有支援自訂圖示的資料庫才能使用此功能。</string>
+    <string name="icon_upload_info_button">選擇圖片</string>
 </resources>

@@ -385,4 +385,8 @@
     <string name="keyboard_auto_go_confirm_button">فعال کردن</string>
     <string name="icon_section_brand">برند</string>
     <string name="icon_brand_none">نماد برندی با این وب‌سایت مطابقت ندارد.</string>
+    <string name="icon_upload_description">بارگذاری نماد سفارشی</string>
+    <string name="icon_upload_info_title">بارگذاری نماد</string>
+    <string name="icon_upload_info_message">یک تصویر از این دستگاه انتخاب کنید. اندروید باید بتواند آن را بخواند (PNG، JPEG، WebP و بیشتر قالب‌های رایج)، و حجم آن حداکثر ۵ مگابایت باشد. تصویر به عرض ۶۴ پیکسل کوچک و در پایگاه داده ذخیره می‌شود. تصویری که از قبل در پایگاه داده است پذیرفته نمی‌شود. نمادهای سفارشی فقط برای پایگاه‌های داده‌ای که از آن‌ها پشتیبانی می‌کنند در دسترس است.</string>
+    <string name="icon_upload_info_button">انتخاب تصویر</string>
 </resources>

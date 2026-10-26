@@ -386,4 +386,8 @@
     <string name="keyboard_auto_go_confirm_button">ਚਾਲੂ ਕਰੋ</string>
     <string name="icon_section_brand">ਬ੍ਰਾਂਡ</string>
     <string name="icon_brand_none">ਇਸ ਵੈੱਬਸਾਈਟ ਨਾਲ ਮੇਲ ਖਾਂਦਾ ਬ੍ਰਾਂਡ ਆਈਕਨ ਨਹੀਂ ਹੈ।</string>
+    <string name="icon_upload_description">ਕਸਟਮ ਆਈਕਨ ਅੱਪਲੋਡ ਕਰੋ</string>
+    <string name="icon_upload_info_title">ਆਈਕਨ ਅੱਪਲੋਡ ਕਰੋ</string>
+    <string name="icon_upload_info_message">ਇਸ ਡਿਵਾਈਸ ਤੋਂ ਇੱਕ ਤਸਵੀਰ ਚੁਣੋ। Android ਨੂੰ ਇਹ ਪੜ੍ਹ ਸਕਣੀ ਚਾਹੀਦੀ ਹੈ (PNG, JPEG, WebP ਅਤੇ ਜ਼ਿਆਦਾਤਰ ਆਮ ਫਾਰਮੈਟ), ਅਤੇ ਇਸਦਾ ਆਕਾਰ 5 MB ਤੱਕ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ। ਤਸਵੀਰ ਨੂੰ 64 ਪਿਕਸਲ ਚੌੜਾਈ ਤੱਕ ਛੋਟਾ ਕਰਕੇ ਡੇਟਾਬੇਸ ਵਿੱਚ ਸੰਭਾਲਿਆ ਜਾਵੇਗਾ। ਡੇਟਾਬੇਸ ਵਿੱਚ ਪਹਿਲਾਂ ਤੋਂ ਮੌਜੂਦ ਤਸਵੀਰ ਰੱਦ ਕੀਤੀ ਜਾਵੇਗੀ। ਕਸਟਮ ਆਈਕਨ ਸਿਰਫ਼ ਉਹਨਾਂ ਡੇਟਾਬੇਸਾਂ ਲਈ ਉਪਲਬਧ ਹਨ ਜੋ ਇਹਨਾਂ ਦਾ ਸਮਰਥਨ ਕਰਦੇ ਹਨ।</string>
+    <string name="icon_upload_info_button">ਤਸਵੀਰ ਚੁਣੋ</string>
 </resources>

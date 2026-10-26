@@ -825,4 +825,8 @@ För att bevara vår frihet, rätta buggar, lägga till funktioner och hålla pr
     <string name="keyboard_auto_go_confirm_title">Aktivera automatisk skickning?</string>
     <string name="keyboard_auto_go_confirm_message">När den är aktiverad skickar Magikeyboard formuläret direkt efter ifyllningen, utan ett extra tryck. En falsk inloggningssida kan använda detta för att samla in dina uppgifter. Aktivera bara om du kontrollerar sidan före varje ifyllning.</string>
     <string name="keyboard_auto_go_confirm_button">Aktivera</string>
+    <string name="icon_upload_description">Ladda upp egen ikon</string>
+    <string name="icon_upload_info_title">Ladda upp en ikon</string>
+    <string name="icon_upload_info_message">Välj en bild från den här enheten. Android måste kunna läsa den (PNG, JPEG, WebP och de flesta vanliga format), och den får vara högst 5 MB. Bilden förminskas till 64 pixlar i bredd och sparas i databasen. En bild som redan finns i databasen avvisas. Egna ikoner finns bara för databaser som stöder dem.</string>
+    <string name="icon_upload_info_button">Välj bild</string>
 </resources>

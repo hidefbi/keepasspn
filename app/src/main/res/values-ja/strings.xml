@@ -846,4 +846,8 @@
     <string name="keyboard_auto_go_confirm_title">自動送信を有効にしますか？</string>
     <string name="keyboard_auto_go_confirm_message">有効にすると、Magikeyboard は入力後にもう一度タップしなくてもフォームを送信します。偽のログインページがこれを悪用して認証情報を盗むおそれがあります。入力のたびにページを確認できる場合にのみ有効にしてください。</string>
     <string name="keyboard_auto_go_confirm_button">有効にする</string>
+    <string name="icon_upload_description">カスタムアイコンをアップロード</string>
+    <string name="icon_upload_info_title">アイコンをアップロード</string>
+    <string name="icon_upload_info_message">この端末から画像を選びます。Android で読み込める形式（PNG、JPEG、WebP など一般的な形式）で、5 MB 以下である必要があります。画像は幅 64 ピクセルに縮小されてデータベースに保存されます。データベースに既にある画像は受け付けられません。カスタムアイコンは、対応しているデータベースでのみ使えます。</string>
+    <string name="icon_upload_info_button">画像を選択</string>
 </resources>

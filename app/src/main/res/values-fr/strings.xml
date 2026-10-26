@@ -853,4 +853,8 @@ Pour préserver notre liberté, corriger les bugs, ajouter des fonctionnalités 
     <string name="keyboard_auto_go_confirm_title">Activer la soumission automatique ?</string>
     <string name="keyboard_auto_go_confirm_message">Avec cette option, Magikeyboard soumet le formulaire juste après le remplissage, sans appui supplémentaire. Une fausse page de connexion pourrait en profiter pour récupérer vos identifiants. Ne l\'activez que si vous vérifiez la page avant chaque remplissage.</string>
     <string name="keyboard_auto_go_confirm_button">Activer</string>
+    <string name="icon_upload_description">Importer une icône personnalisée</string>
+    <string name="icon_upload_info_title">Importer une icône</string>
+    <string name="icon_upload_info_message">Choisissez une image sur cet appareil. Android doit pouvoir la lire (PNG, JPEG, WebP et la plupart des formats courants), et elle doit faire 5 Mo au maximum. L’image est réduite à 64 pixels de large et enregistrée dans la base de données. Une image déjà présente dans la base est refusée. Les icônes personnalisées ne sont disponibles que pour les bases qui les prennent en charge.</string>
+    <string name="icon_upload_info_button">Choisir une image</string>
 </resources>

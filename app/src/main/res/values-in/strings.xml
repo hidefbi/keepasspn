@@ -830,4 +830,8 @@ Untuk menjaga kebebasan kami, memperbaiki bug, menambah fitur, dan menjaga proye
     <string name="keyboard_auto_go_confirm_title">Aktifkan kirim otomatis?</string>
     <string name="keyboard_auto_go_confirm_message">Saat aktif, Magikeyboard mengirim formulir tepat setelah mengisi, tanpa ketukan lain. Halaman login palsu dapat memanfaatkannya untuk mengumpulkan kredensial Anda. Aktifkan hanya jika Anda memeriksa halaman sebelum setiap pengisian.</string>
     <string name="keyboard_auto_go_confirm_button">Aktifkan</string>
+    <string name="icon_upload_description">Unggah ikon kustom</string>
+    <string name="icon_upload_info_title">Unggah ikon</string>
+    <string name="icon_upload_info_message">Pilih gambar dari perangkat ini. Android harus dapat membacanya (PNG, JPEG, WebP, dan sebagian besar format umum), dan ukurannya maksimal 5 MB. Gambar akan diperkecil menjadi lebar 64 piksel dan disimpan di basis data. Gambar yang sudah ada di basis data akan ditolak. Ikon kustom hanya tersedia untuk basis data yang mendukungnya.</string>
+    <string name="icon_upload_info_button">Pilih gambar</string>
 </resources>

@@ -387,4 +387,8 @@ For å halde fridomen vår, rette feil, leggje til funksjonar og halde prosjekte
     <string name="keyboard_auto_go_confirm_title">Slå på automatisk sending?</string>
     <string name="keyboard_auto_go_confirm_message">Når dette er på, sender Magikeyboard skjemaet like etter utfylling, utan eit ekstra trykk. Ei falsk innloggingsside kan bruke dette til å samle inn innloggingsopplysningane dine. Slå det berre på om du sjekkar sida før kvar utfylling.</string>
     <string name="keyboard_auto_go_confirm_button">Slå på</string>
+    <string name="icon_upload_description">Last opp eit eige ikon</string>
+    <string name="icon_upload_info_title">Last opp eit ikon</string>
+    <string name="icon_upload_info_message">Vel eit bilete frå denne eininga. Android må kunne lese det (PNG, JPEG, WebP og dei fleste vanlege format), og det kan vere på høgst 5 MB. Biletet blir skalert ned til 64 pikslar i breidd og lagra i databasen. Eit bilete som allereie finst i databasen, blir avvist. Eigne ikon er berre tilgjengelege for databasar som støttar dei.</string>
+    <string name="icon_upload_info_button">Vel bilete</string>
 </resources>

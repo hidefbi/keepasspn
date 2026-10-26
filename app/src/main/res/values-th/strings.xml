@@ -796,4 +796,8 @@
     <string name="keyboard_auto_go_confirm_title">เปิดการส่งอัตโนมัติไหม?</string>
     <string name="keyboard_auto_go_confirm_message">เมื่อเปิดไว้ Magikeyboard จะส่งแบบฟอร์มทันทีหลังกรอกเสร็จ โดยไม่ต้องแตะอีกครั้ง หน้าเข้าสู่ระบบปลอมอาจใช้สิ่งนี้เพื่อรวบรวมข้อมูลเข้าสู่ระบบของคุณได้ เปิดเฉพาะเมื่อคุณตรวจสอบหน้านั้นก่อนกรอกทุกครั้ง</string>
     <string name="keyboard_auto_go_confirm_button">เปิด</string>
+    <string name="icon_upload_description">อัปโหลดไอคอนแบบกำหนดเอง</string>
+    <string name="icon_upload_info_title">อัปโหลดไอคอน</string>
+    <string name="icon_upload_info_message">เลือกรูปภาพจากอุปกรณ์นี้ Android ต้องอ่านรูปนั้นได้ (PNG, JPEG, WebP และรูปแบบทั่วไปส่วนใหญ่) และขนาดต้องไม่เกิน 5 MB รูปจะถูกย่อให้กว้าง 64 พิกเซลแล้วบันทึกลงฐานข้อมูล รูปที่มีอยู่ในฐานข้อมูลแล้วจะถูกปฏิเสธ ไอคอนแบบกำหนดเองใช้ได้เฉพาะฐานข้อมูลที่รองรับเท่านั้น</string>
+    <string name="icon_upload_info_button">เลือกรูปภาพ</string>
 </resources>

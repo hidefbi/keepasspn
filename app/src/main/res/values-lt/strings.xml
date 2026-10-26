@@ -794,4 +794,8 @@ Siekdami išsaugoti laisvę, taisyti klaidas, pridėti funkcijų ir palaikyti pr
     <string name="keyboard_auto_go_confirm_title">Įjungti automatinį siuntimą?</string>
     <string name="keyboard_auto_go_confirm_message">Įjungus, Magikeyboard formą išsiunčia iškart po užpildymo, be papildomo palietimo. Netikras prisijungimo puslapis gali tai panaudoti jūsų duomenims rinkti. Įjunkite tik tada, jei prieš kiekvieną užpildymą patikrinate puslapį.</string>
     <string name="keyboard_auto_go_confirm_button">Įjungti</string>
+    <string name="icon_upload_description">Įkelti pasirinktinę piktogramą</string>
+    <string name="icon_upload_info_title">Įkelti piktogramą</string>
+    <string name="icon_upload_info_message">Pasirinkite vaizdą iš šio įrenginio. Android turi galėti jį perskaityti (PNG, JPEG, WebP ir dauguma įprastų formatų), o dydis – ne didesnis kaip 5 MB. Vaizdas sumažinamas iki 64 pikselių pločio ir įrašomas į duomenų bazę. Vaizdas, jau esantis duomenų bazėje, atmetamas. Pasirinktinės piktogramos pasiekiamos tik duomenų bazėms, kurios jas palaiko.</string>
+    <string name="icon_upload_info_button">Pasirinkti vaizdą</string>
 </resources>

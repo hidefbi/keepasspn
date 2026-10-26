@@ -853,4 +853,8 @@ Um unsere Freiheit zu bewahren, Fehler zu beheben, neue Funktionen hinzuzufügen
     <string name="keyboard_auto_go_confirm_title">Automatisches Absenden aktivieren?</string>
     <string name="keyboard_auto_go_confirm_message">Mit dieser Option sendet die Magikeyboard das Formular direkt nach dem Ausfüllen ab, ohne weiteres Tippen. Eine gefälschte Anmeldeseite könnte das nutzen, um Ihre Zugangsdaten abzugreifen. Aktivieren Sie die Option nur, wenn Sie die Seite vor jedem Ausfüllen prüfen.</string>
     <string name="keyboard_auto_go_confirm_button">Aktivieren</string>
+    <string name="icon_upload_description">Eigenes Symbol hochladen</string>
+    <string name="icon_upload_info_title">Symbol hochladen</string>
+    <string name="icon_upload_info_message">Wählen Sie ein Bild von diesem Gerät. Android muss es lesen können (PNG, JPEG, WebP und die meisten gängigen Formate), und es darf höchstens 5 MB groß sein. Das Bild wird auf 64 Pixel Breite verkleinert und in der Datenbank gespeichert. Ein Bild, das bereits in der Datenbank liegt, wird abgelehnt. Eigene Symbole gibt es nur für Datenbanken, die sie unterstützen.</string>
+    <string name="icon_upload_info_button">Bild auswählen</string>
 </resources>

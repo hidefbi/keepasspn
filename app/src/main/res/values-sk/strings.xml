@@ -847,4 +847,8 @@ Aby sme zachovali slobodu, opravovali chyby, pridávali funkcie a udržali proje
     <string name="keyboard_auto_go_confirm_title">Zapnúť automatické odosielanie?</string>
     <string name="keyboard_auto_go_confirm_message">Po zapnutí Magikeyboard odošle formulár hneď po vyplnení, bez ďalšieho klepnutia. Falošná prihlasovacia stránka to môže využiť na získanie vašich údajov. Zapnite len vtedy, keď stránku pred každým vyplnením skontrolujete.</string>
     <string name="keyboard_auto_go_confirm_button">Zapnúť</string>
+    <string name="icon_upload_description">Nahrať vlastnú ikonu</string>
+    <string name="icon_upload_info_title">Nahrať ikonu</string>
+    <string name="icon_upload_info_message">Vyberte obrázok z tohto zariadenia. Android ho musí vedieť načítať (PNG, JPEG, WebP a väčšina bežných formátov) a môže mať najviac 5 MB. Obrázok sa zmenší na šírku 64 pixelov a uloží do databázy. Obrázok, ktorý už v databáze je, sa odmietne. Vlastné ikony sú k dispozícii len pre databázy, ktoré ich podporujú.</string>
+    <string name="icon_upload_info_button">Vybrať obrázok</string>
 </resources>
