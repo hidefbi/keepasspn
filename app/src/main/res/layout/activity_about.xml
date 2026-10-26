@@ -169,7 +169,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:textSize="14sp"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:text="@string/donation_text"/>
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
