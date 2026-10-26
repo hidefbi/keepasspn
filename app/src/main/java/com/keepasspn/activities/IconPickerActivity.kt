@@ -44,6 +44,7 @@ import com.keepasspn.activities.fragments.IconPickerFragment
 import com.keepasspn.activities.helpers.ExternalFileHelper
 import com.keepasspn.activities.legacy.DatabaseLockActivity
 import com.keepasspn.database.ContextualDatabase
+import com.keepasspn.icons.brand.hostOf
 import com.keepasspn.database.element.icon.IconImage
 import com.keepasspn.database.element.icon.IconImageCustom
 import com.keepasspn.settings.PreferencesUtil
@@ -407,8 +408,10 @@ class IconPickerActivity : DatabaseLockActivity() {
                 Intent(context, IconPickerActivity::class.java).apply {
                         if (previousIcon != null)
                             putExtra(EXTRA_ICON, previousIcon)
-                        if (webDomain != null)
-                            putExtra(EXTRA_WEB_DOMAIN, webDomain)
+                        // Only the host is sent: the path and query may hold private values
+                        hostOf(webDomain.orEmpty())?.let { host ->
+                            putExtra(EXTRA_WEB_DOMAIN, host)
+                        }
                     }
             )
         }

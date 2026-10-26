@@ -462,6 +462,13 @@ abstract class TemplateAbstractView<
         }
     }
 
+    /**
+     * Web address of the entry, read on its own so that the other fields are not copied
+     */
+    fun getUrl(): String {
+        return getUrlFromView().orEmpty()
+    }
+
     protected open fun populateEntryInfoWithViews(
         templateFieldNotEmpty: Boolean,
         retrieveDefaultValues: Boolean
