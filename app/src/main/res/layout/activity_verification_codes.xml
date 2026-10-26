@@ -65,7 +65,7 @@
             android:text="@string/verification_codes_empty"
             style="@style/KeePassPNStyle.Text.Tiny" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/verification_codes_import"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
