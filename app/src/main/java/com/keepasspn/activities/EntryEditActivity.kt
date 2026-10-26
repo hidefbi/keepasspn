@@ -364,6 +364,7 @@ class EntryEditActivity : DatabaseLockActivity() {
                                 IconPickerActivity.launch(
                                     context = this@EntryEditActivity,
                                     previousIcon = event.icon,
+                                    webDomain = event.webDomain,
                                     resultLauncher = mIconSelectionActivityResultLauncher
                                 )
                             }

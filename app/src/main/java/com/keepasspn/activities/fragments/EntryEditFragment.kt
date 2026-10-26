@@ -129,7 +129,10 @@ class EntryEditFragment: DatabaseFragment() {
 
         templateView.apply {
             setOnIconClickListener {
-                mEntryEditViewModel.requestIconSelection(templateView.getIcon())
+                mEntryEditViewModel.requestIconSelection(
+                    templateView.getIcon(),
+                    templateView.getEntryInfo().url
+                )
             }
             setOnBackgroundColorClickListener {
                 mEntryEditViewModel.requestBackgroundColorSelection(templateView.getBackgroundColor())

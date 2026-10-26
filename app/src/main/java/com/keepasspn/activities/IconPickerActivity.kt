@@ -368,6 +368,7 @@ class IconPickerActivity : DatabaseLockActivity() {
 
         private const val ICON_PICKER_FRAGMENT_TAG = "ICON_PICKER_FRAGMENT_TAG"
         private const val EXTRA_ICON = "EXTRA_ICON"
+        const val EXTRA_WEB_DOMAIN = "EXTRA_WEB_DOMAIN"
         private const val MAX_ICON_SIZE = 5242880
 
         fun registerIconSelectionForResult(context: FragmentActivity,
@@ -381,12 +382,15 @@ class IconPickerActivity : DatabaseLockActivity() {
 
         fun launch(context: FragmentActivity,
                    previousIcon: IconImage?,
-                   resultLauncher: ActivityResultLauncher<Intent>) {
+                   resultLauncher: ActivityResultLauncher<Intent>,
+                   webDomain: String? = null) {
             // Create an instance to return the picker icon
             resultLauncher.launch(
                 Intent(context, IconPickerActivity::class.java).apply {
                         if (previousIcon != null)
                             putExtra(EXTRA_ICON, previousIcon)
+                        if (webDomain != null)
+                            putExtra(EXTRA_WEB_DOMAIN, webDomain)
                     }
             )
         }

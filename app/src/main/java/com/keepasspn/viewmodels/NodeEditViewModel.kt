@@ -21,9 +21,9 @@ abstract class NodeEditViewModel : ViewModel() {
 
     private var mColorRequest: ColorRequest = ColorRequest.BACKGROUND
 
-    fun requestIconSelection(oldIconImage: IconImage) {
+    fun requestIconSelection(oldIconImage: IconImage, webDomain: String? = null) {
         viewModelScope.launch {
-            _nodeEditEvents.emit(NodeEditEvent.RequestIconSelection(oldIconImage))
+            _nodeEditEvents.emit(NodeEditEvent.RequestIconSelection(oldIconImage, webDomain))
         }
     }
 
@@ -81,6 +81,7 @@ abstract class NodeEditViewModel : ViewModel() {
     sealed class NodeEditEvent {
         data class RequestIconSelection(
             val icon: IconImage,
+            val webDomain: String? = null,
         ) : NodeEditEvent()
 
         data class OnIconSelected(

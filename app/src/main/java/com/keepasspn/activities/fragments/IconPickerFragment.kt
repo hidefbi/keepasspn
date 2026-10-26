@@ -58,11 +58,12 @@ class IconPickerFragment : DatabaseFragment() {
 
     override fun onDatabaseRetrieved(database: ContextualDatabase) {
         iconPickerPagerAdapter = IconPickerPagerAdapter(this,
-            if (database.allowCustomIcons) 2 else 1)
+            if (database.allowCustomIcons) 3 else 1)
         viewPager.adapter = iconPickerPagerAdapter
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = when (position) {
                 1 -> getString(R.string.icon_section_custom)
+                2 -> getString(R.string.icon_section_brand)
                 else -> getString(R.string.icon_section_standard)
             }
         }.attach()

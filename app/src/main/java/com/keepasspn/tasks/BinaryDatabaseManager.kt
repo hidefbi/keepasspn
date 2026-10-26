@@ -97,6 +97,27 @@ object BinaryDatabaseManager {
         }
     }
 
+    /**
+     * Store an already drawn bitmap (for example a brand icon) as PNG in the binary cache.
+     */
+    fun storeBitmapInBinaryFile(database: ContextualDatabase,
+                                bitmap: Bitmap,
+                                binaryData: BinaryData) {
+        try {
+            val byteArrayOutputStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream)
+            val bitmapData: ByteArray = byteArrayOutputStream.toByteArray()
+            uploadToDatabase(
+                    database.binaryCache,
+                    ByteArrayInputStream(bitmapData),
+                    bitmapData.size.toLong(),
+                    binaryData
+            )
+        } catch (e: Exception) {
+            NoOpLog.e(TAG, "Unable to store bitmap in binary", e)
+        }
+    }
+
     fun resizeBitmapAndStoreDataInBinaryFile(contentResolver: ContentResolver,
                                              database: ContextualDatabase,
                                              bitmapUri: Uri?,
