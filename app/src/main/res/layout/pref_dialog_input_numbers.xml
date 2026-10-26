@@ -75,7 +75,8 @@
 			android:layout_height="wrap_content"
 			tools:text="MiB" />
 
-		<Button
+		<com.google.android.material.button.MaterialButton
+			style="@style/Widget.Material3.Button.OutlinedButton"
 			android:id="@+id/explanation_button"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
