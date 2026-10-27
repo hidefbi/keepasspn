@@ -25,7 +25,7 @@ android {
         targetSdk = 36
         // TODO: bump this version scheme with every release you make;
         // it must always increase for Play Store / F-Droid updates to install.
-        versionCode = 3
+        versionCode = 4
         versionName = "1.0.2"
         multiDexEnabled = true
 
