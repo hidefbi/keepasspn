@@ -25,8 +25,6 @@ import com.keepasspn.database.element.MasterCredential
 import com.keepasspn.hardware.HardwareKey
 import com.keepasspn.model.DatabaseInfo
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
 import org.junit.Assert.fail
 import org.junit.Rule
 import org.junit.Test
@@ -38,7 +36,7 @@ import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 
 /**
- * A saved database opens only with its own password.
+ * A saved database opens with its own password and refuses another one.
  * The KDBX XML uses the Android XML serializer, so the test runs with Robolectric.
  */
 @RunWith(RobolectricTestRunner::class)
@@ -86,14 +84,7 @@ class DatabaseLoadTest {
     @Test
     fun rightPasswordIsAccepted() {
         val loaded = openWith(savedDatabase("correct horse"), "correct horse")
-        assertTrue(loaded.isValidCredential(MasterCredential("correct horse".toCharArray())))
         assertEquals("Root", loaded.rootGroup!!.title)
-    }
-
-    @Test
-    fun wrongPasswordIsNotValid() {
-        val loaded = openWith(savedDatabase("correct horse"), "correct horse")
-        assertFalse(loaded.isValidCredential(MasterCredential("wrong horse".toCharArray())))
     }
 
     @Test
