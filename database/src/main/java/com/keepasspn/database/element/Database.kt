@@ -892,23 +892,20 @@ open class Database {
     val tagPoolWithoutHistory: Tags
         get() = mDatabaseKDBX?.getTagPoolWithoutHistory() ?: Tags()
 
+    private val attachments = DatabaseAttachments(
+        kdb = { mDatabaseKDB },
+        kdbx = { mDatabaseKDBX },
+        compressionForNewEntry = { compressionForNewEntry() }
+    )
+
     val attachmentPool: AttachmentPool
-        get() = mDatabaseKDB?.attachmentPool ?: mDatabaseKDBX?.attachmentPool ?: AttachmentPool()
+        get() = attachments.attachmentPool
 
     val allowMultipleAttachments: Boolean
-        get() {
-            if (mDatabaseKDB != null)
-                return false
-            if (mDatabaseKDBX != null)
-                return true
-            return false
-        }
+        get() = attachments.allowMultipleAttachments
 
     fun buildNewBinaryAttachment(): BinaryData? {
-        return mDatabaseKDB?.buildNewBinaryAttachment()
-                ?: mDatabaseKDBX?.buildNewBinaryAttachment( false,
-                        compressionForNewEntry(),
-                        false)
+        return attachments.buildNewBinaryAttachment()
     }
 
     /**
@@ -916,21 +913,19 @@ open class Database {
      * @param clearCache Clear the cache if true
      */
     fun removeBinaryIfNotUsed(binaryData: BinaryData, clearCache: Boolean = false) {
-        // No need in KDB database because unique attachment by entry
-        // Don't clear to fix upload multiple times
-        mDatabaseKDBX?.removeUnlinkedAttachment(binaryData, clearCache)
+        attachments.removeBinaryIfNotUsed(binaryData, clearCache)
     }
+
     /**
      * Remove the binary data of an [Attachment] from the binary pool if not used
      * @param clearCache Clear the cache if true
      */
     fun removeAttachmentIfNotUsed(attachment: Attachment, clearCache: Boolean = false) {
-        removeBinaryIfNotUsed(attachment.binaryData, clearCache)
+        attachments.removeAttachmentIfNotUsed(attachment, clearCache)
     }
 
     fun removeUnlinkedAttachments() {
-        // No check in database KDB because unique attachment by entry
-        mDatabaseKDBX?.removeUnlinkedAttachments(true)
+        attachments.removeUnlinkedAttachments()
     }
 
     open fun clearIndexesAndBinaries(filesDirectory: File?) {
