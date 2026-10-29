@@ -454,73 +454,51 @@ open class Database {
     val allowConfigurableRecycleBin: Boolean
         get() = mDatabaseKDBX != null
 
+    private val recycleBinSettings = DatabaseRecycleBin(
+        kdb = { mDatabaseKDB },
+        kdbx = { mDatabaseKDBX },
+        ensureRecycleBinExists = { title -> ensureRecycleBinExists(title) },
+        getGroupById = { id -> getGroupById(id) }
+    )
+
     val isRecycleBinEnabled: Boolean
-        // Backup is always enabled in KDB database
-        get() = mDatabaseKDB != null || mDatabaseKDBX?.isRecycleBinEnabled ?: false
+        get() = recycleBinSettings.isRecycleBinEnabled
 
     fun enableRecycleBin(enable: Boolean, recyclerBinTitle: String) {
-        mDatabaseKDBX?.isRecycleBinEnabled = enable
-        if (enable) {
-            ensureRecycleBinExists(recyclerBinTitle)
-        } else {
-            mDatabaseKDBX?.removeRecycleBin()
-        }
-        mDatabaseKDBX?.recycleBinChanged = DateInstant()
+        recycleBinSettings.enableRecycleBin(enable, recyclerBinTitle)
     }
 
     val recycleBin: Group?
-        get() {
-            mDatabaseKDB?.backupGroup?.let {
-                return getGroupById(it.nodeId) ?: Group(it)
-            }
-            mDatabaseKDBX?.recycleBin?.let {
-                return getGroupById(it.nodeId) ?: Group(it)
-            }
-            return null
-        }
+        get() = recycleBinSettings.recycleBin
 
     fun setRecycleBin(group: Group?) {
-        // Only the kdbx recycle bin can be changed
-        if (group != null) {
-            mDatabaseKDBX?.recycleBinUUID = group.nodeIdKDBX.id
-        } else {
-            mDatabaseKDBX?.removeRecycleBin()
-        }
-        mDatabaseKDBX?.recycleBinChanged = DateInstant()
+        recycleBinSettings.setRecycleBin(group)
     }
+
+    private val templatesSettings = DatabaseTemplates(
+        kdbx = { mDatabaseKDBX }
+    )
 
     /**
      * Determine if a configurable templates group is available or not for this version of database
      * @return true if a configurable templates group available
      */
     val allowTemplatesGroup: Boolean
-        get() = mDatabaseKDBX != null
+        get() = templatesSettings.allowTemplatesGroup
 
     // Maybe another templates method with KDBX5
     val isTemplatesEnabled: Boolean
-        get() = mDatabaseKDBX?.isTemplatesGroupEnabled() ?: false
+        get() = templatesSettings.isTemplatesEnabled
 
     fun enableTemplates(enable: Boolean, templatesGroupName: String) {
-        mDatabaseKDBX?.enableTemplatesGroup(enable, templatesGroupName)
-        mDatabaseKDBX?.entryTemplatesGroupChanged = DateInstant()
+        templatesSettings.enableTemplates(enable, templatesGroupName)
     }
 
     val templatesGroup: Group?
-        get() {
-            mDatabaseKDBX?.getTemplatesGroup()?.let {
-                return Group(it)
-            }
-            return null
-        }
+        get() = templatesSettings.templatesGroup
 
     fun setTemplatesGroup(group: Group?) {
-        // Only the kdbx templates group can be changed
-        if (group != null) {
-            mDatabaseKDBX?.entryTemplatesGroup = group.nodeIdKDBX.id
-        } else {
-            mDatabaseKDBX?.removeTemplatesGroup()
-        }
-        mDatabaseKDBX?.entryTemplatesGroupChanged = DateInstant()
+        templatesSettings.setTemplatesGroup(group)
     }
 
     val groupNamesNotAllowed: List<String>
