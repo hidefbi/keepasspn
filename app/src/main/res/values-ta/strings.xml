@@ -664,6 +664,8 @@
     <string name="pin_validity_never">ஒருபோதும் வேண்டாம்</string>
     <string name="pin_manage_title">PIN களை நிர்வகி</string>
     <string name="pin_manage_summary">ஒரு தரவுத்தளத்தின் PIN ஐ மாற்று அல்லது முடக்கு</string>
+    <string name="pin_offer_setup_title">திறந்த பிறகு PIN அமைப்பை வழங்கவும்</string>
+    <string name="pin_offer_setup_summary">முதன்மை கடவுச்சொல்லால் வெற்றிகரமாகத் திறந்த பிறகு, PIN இல்லாத தரவுத்தளங்களுக்கு விரைவு PIN அமைக்க வழங்கப்படும். இந்த விருப்பத்தை மீண்டும் இயக்கினால், முன்பு மறுத்த தரவுத்தளங்களுக்கு மீண்டும் வழங்கப்படும்.</string>
     <string name="pin_manage_empty">எந்த தரவுத்தளத்திலும் PIN இல்லை</string>
     <string name="pin_manage_action_change">PIN ஐ மாற்று</string>
     <string name="pin_manage_action_disable">PIN ஐ முடக்கு</string>

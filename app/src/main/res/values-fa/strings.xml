@@ -314,6 +314,8 @@
     <string name="pin_validity_never">هرگز</string>
     <string name="pin_manage_title">مدیریت PIN‌ها</string>
     <string name="pin_manage_summary">تغییر یا غیرفعال کردن PIN یک پایگاه داده</string>
+    <string name="pin_offer_setup_title">پیشنهاد تنظیم PIN پس از باز کردن قفل</string>
+    <string name="pin_offer_setup_summary">پس از باز کردن موفق قفل با کلمه عبور اصلی، برای پایگاه‌های داده‌ای که PIN ندارند تنظیم یک PIN سریع پیشنهاد می‌شود. با روشن کردن دوباره این گزینه، پیشنهاد برای پایگاه‌های داده‌ای که قبلا رد کرده‌اند دوباره نمایش داده می‌شود.</string>
     <string name="pin_manage_empty">هیچ پایگاه داده‌ای PIN ندارد</string>
     <string name="pin_manage_action_change">تغییر PIN</string>
     <string name="pin_manage_action_disable">غیرفعال کردن PIN</string>

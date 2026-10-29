@@ -20,6 +20,8 @@
     <string name="pin_validity_never">Ешқашан</string>
     <string name="pin_manage_title">PIN кодтарын басқару</string>
     <string name="pin_manage_summary">Дерекқордың PIN кодын өзгерту немесе өшіру</string>
+    <string name="pin_offer_setup_title">Ашудан кейін PIN орнатуды ұсыну</string>
+    <string name="pin_offer_setup_summary">Негізгі құпия сөзбен сәтті ашқаннан кейін PIN-і жоқ деректер қорлары үшін жылдам PIN орнатуды ұсынады. Бұл опцияны қайта қоссаңыз, бұрын бас тартқан деректер қорларына ұсыныс қайта көрсетіледі.</string>
     <string name="pin_manage_empty">Ешбір дерекқорда PIN коды жоқ</string>
     <string name="pin_manage_action_change">PIN кодын өзгерту</string>
     <string name="pin_manage_action_disable">PIN кодын өшіру</string>

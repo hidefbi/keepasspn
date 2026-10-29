@@ -694,6 +694,8 @@
     <string name="pin_validity_never">לעולם לא</string>
     <string name="pin_manage_title">ניהול קודי PIN</string>
     <string name="pin_manage_summary">שינוי או השבתה של קוד ה-PIN של מסד נתונים</string>
+    <string name="pin_offer_setup_title">הצע הגדרת PIN לאחר ביטול הנעילה</string>
+    <string name="pin_offer_setup_summary">לאחר ביטול נעילה מוצלח עם הסיסמה הראשית, יוצע להגדיר PIN מהיר למסדי נתונים שאין להם. הפעלה מחדש של האפשרות תציג את ההצעה שוב למסדי נתונים שנדחתה בהם בעבר.</string>
     <string name="pin_manage_empty">אף מסד נתונים אינו בעל קוד PIN</string>
     <string name="pin_manage_action_change">שינוי PIN</string>
     <string name="pin_manage_action_disable">השבתת PIN</string>

@@ -704,6 +704,8 @@
     <string name="pin_validity_never">Không bao giờ</string>
     <string name="pin_manage_title">Quản lý PIN</string>
     <string name="pin_manage_summary">Đổi hoặc tắt PIN của một cơ sở dữ liệu</string>
+    <string name="pin_offer_setup_title">Đề nghị thiết lập PIN sau khi mở khóa</string>
+    <string name="pin_offer_setup_summary">Sau khi mở khóa thành công bằng mật khẩu chính, đề nghị thiết lập PIN nhanh cho các cơ sở dữ liệu chưa có PIN. Khi bật lại tùy chọn này, đề nghị sẽ hiện lại cho các cơ sở dữ liệu đã từ chối trước đó.</string>
     <string name="pin_manage_empty">Không có cơ sở dữ liệu nào có PIN</string>
     <string name="pin_manage_action_change">Đổi PIN</string>
     <string name="pin_manage_action_disable">Tắt PIN</string>

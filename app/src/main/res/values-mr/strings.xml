@@ -32,6 +32,8 @@
     <string name="pin_validity_never">कधीही नाही</string>
     <string name="pin_manage_title">PIN व्यवस्थापित करा</string>
     <string name="pin_manage_summary">डेटाबेसचा PIN बदला किंवा बंद करा</string>
+    <string name="pin_offer_setup_title">अनलॉक केल्यानंतर PIN सेटअपची सूचना द्या</string>
+    <string name="pin_offer_setup_summary">मुख्य पासवर्डने यशस्वीरीत्या अनलॉक केल्यानंतर, PIN नसलेल्या डेटाबेससाठी जलद PIN सेट करण्याची सूचना द्या. हा पर्याय पुन्हा चालू केल्यास आधी नाकारलेल्या डेटाबेससाठी सूचना पुन्हा दिसेल.</string>
     <string name="pin_manage_empty">कोणत्याही डेटाबेसचा PIN नाही</string>
     <string name="pin_manage_action_change">PIN बदला</string>
     <string name="pin_manage_action_disable">PIN बंद करा</string>

@@ -725,6 +725,8 @@
     <string name="pin_validity_never">Nooit</string>
     <string name="pin_manage_title">Pincodes beheren</string>
     <string name="pin_manage_summary">De pincode van een database wijzigen of uitschakelen</string>
+    <string name="pin_offer_setup_title">PIN-instelling aanbieden na ontgrendelen</string>
+    <string name="pin_offer_setup_summary">Na een geslaagde ontgrendeling met het hoofdwachtwoord wordt aangeboden een snelle PIN in te stellen voor databases zonder PIN. Als je deze optie weer inschakelt, wordt het opnieuw aangeboden voor databases die je eerder hebt geweigerd.</string>
     <string name="pin_manage_empty">Geen enkele database heeft een pincode</string>
     <string name="pin_manage_action_change">Pincode wijzigen</string>
     <string name="pin_manage_action_disable">Pincode uitschakelen</string>

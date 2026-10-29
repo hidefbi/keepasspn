@@ -170,6 +170,8 @@
     <string name="pin_validity_never">कभी नहीं</string>
     <string name="pin_manage_title">PIN प्रबंधित करें</string>
     <string name="pin_manage_summary">किसी डेटाबेस का PIN बदलें या बंद करें</string>
+    <string name="pin_offer_setup_title">अनलॉक के बाद PIN सेटअप का सुझाव दें</string>
+    <string name="pin_offer_setup_summary">मुख्य पासवर्ड से सफल अनलॉक के बाद, बिना PIN वाले डेटाबेस के लिए तेज़ PIN सेट करने का सुझाव दिया जाएगा। यह विकल्प दोबारा चालू करने पर पहले अस्वीकार किए गए डेटाबेस के लिए फिर से सुझाव दिखेगा।</string>
     <string name="pin_manage_empty">किसी भी डेटाबेस में PIN नहीं है</string>
     <string name="pin_manage_action_change">PIN बदलें</string>
     <string name="pin_manage_action_disable">PIN बंद करें</string>

@@ -21,6 +21,8 @@
     <string name="pin_validity_never">کبھی نہیں</string>
     <string name="pin_manage_title">PIN کا انتظام کریں</string>
     <string name="pin_manage_summary">کسی ڈیٹا بیس کا PIN تبدیل کریں یا غیر فعال کریں</string>
+    <string name="pin_offer_setup_title">انلاک کرنے کے بعد PIN سیٹ اپ کی پیشکش کریں</string>
+    <string name="pin_offer_setup_summary">ماسٹر پاس ورڈ سے کامیاب انلاک کے بعد، جن ڈیٹا بیسز میں PIN نہیں ہے ان کے لیے فوری PIN سیٹ کرنے کی پیشکش کی جائے گی۔ یہ آپشن دوبارہ آن کرنے پر پہلے مسترد کیے گئے ڈیٹا بیسز کو پیشکش دوبارہ دکھائی جائے گی۔</string>
     <string name="pin_manage_empty">کسی ڈیٹا بیس کا PIN نہیں ہے</string>
     <string name="pin_manage_action_change">PIN تبدیل کریں</string>
     <string name="pin_manage_action_disable">PIN غیر فعال کریں</string>

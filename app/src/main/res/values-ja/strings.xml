@@ -714,6 +714,8 @@
     <string name="pin_validity_never">無期限</string>
     <string name="pin_manage_title">PINの管理</string>
     <string name="pin_manage_summary">データベースのPINを変更または無効にします</string>
+    <string name="pin_offer_setup_title">ロック解除後に PIN の設定を提案</string>
+    <string name="pin_offer_setup_summary">マスターパスワードでの解除に成功したら、PIN が未設定のデータベースに簡単な PIN の設定を提案します。この設定を再びオンにすると、以前に断ったデータベースにも再度提案します。</string>
     <string name="pin_manage_empty">PINが設定されているデータベースはありません</string>
     <string name="pin_manage_action_change">PINを変更</string>
     <string name="pin_manage_action_disable">PINを無効にする</string>

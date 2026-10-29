@@ -652,6 +652,8 @@
     <string name="pin_validity_never">Kurrë</string>
     <string name="pin_manage_title">Menaxho PIN-et</string>
     <string name="pin_manage_summary">Ndrysho ose çaktivizo PIN-in e një baze të dhënash</string>
+    <string name="pin_offer_setup_title">Ofro konfigurimin e PIN-it pas zhbllokimit</string>
+    <string name="pin_offer_setup_summary">Pas zhbllokimit të suksesshëm me fjalëkalimin kryesor, ofro vendosjen e një PIN-i të shpejtë për bazat e të dhënave që nuk e kanë. Kur ky opsion riaktivizohet, ofrimi shfaqet përsëri për bazat për të cilat është refuzuar më parë.</string>
     <string name="pin_manage_empty">Asnjë bazë e të dhënave nuk ka PIN</string>
     <string name="pin_manage_action_change">Ndrysho PIN-in</string>
     <string name="pin_manage_action_disable">Çaktivizo PIN-in</string>

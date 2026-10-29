@@ -366,6 +366,8 @@
     <string name="pin_validity_never">ഒരിക്കലുമില്ല</string>
     <string name="pin_manage_title">PIN-കൾ നിയന്ത്രിക്കുക</string>
     <string name="pin_manage_summary">ഒരു ഡാറ്റാബേസിന്റെ PIN മാറ്റുക അല്ലെങ്കിൽ പ്രവർത്തനരഹിതമാക്കുക</string>
+    <string name="pin_offer_setup_title">അൺലോക്ക് ചെയ്ത ശേഷം PIN സജ്ജീകരണം നിർദേശിക്കുക</string>
+    <string name="pin_offer_setup_summary">മാസ്റ്റർ പാസ്‌വേഡ് ഉപയോഗിച്ച് വിജയകരമായി അൺലോക്ക് ചെയ്ത ശേഷം, PIN ഇല്ലാത്ത ഡാറ്റാബേസുകൾക്ക് വേഗത്തിലുള്ള PIN സജ്ജീകരിക്കാൻ നിർദേശിക്കും. ഈ ഓപ്ഷൻ വീണ്ടും ഓണാക്കുമ്പോൾ മുൻപ് നിരസിച്ച ഡാറ്റാബേസുകൾക്ക് വീണ്ടും നിർദേശം കാണിക്കും.</string>
     <string name="pin_manage_empty">ഒരു ഡാറ്റാബേസിനും PIN ഇല്ല</string>
     <string name="pin_manage_action_change">PIN മാറ്റുക</string>
     <string name="pin_manage_action_disable">PIN പ്രവർത്തനരഹിതമാക്കുക</string>

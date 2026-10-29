@@ -53,6 +53,8 @@
     <string name="pin_validity_never">ဘယ်တော့မှ</string>
     <string name="pin_manage_title">PIN များကို စီမံရန်</string>
     <string name="pin_manage_summary">ဒေတာဘေ့စ်တစ်ခု၏ PIN ကို ပြောင်းရန် သို့မဟုတ် ပိတ်ရန်</string>
+    <string name="pin_offer_setup_title">ဖွင့်ပြီးနောက် PIN သတ်မှတ်ရန် အကြံပြုပါ</string>
+    <string name="pin_offer_setup_summary">မာစတာစကားဝှက်ဖြင့် အောင်မြင်စွာဖွင့်ပြီးနောက်၊ PIN မရှိသော ဒေတာဘေ့စ်များအတွက် အမြန် PIN သတ်မှတ်ရန် အကြံပြုပါမည်။ ဤရွေးချယ်ချက်ကို ပြန်ဖွင့်လျှင် ယခင်ငြင်းပယ်ခဲ့သော ဒေတာဘေ့စ်များအတွက် ထပ်မံအကြံပြုပါမည်။</string>
     <string name="pin_manage_empty">ဒေတာဘေ့စ်တစ်ခုမှ PIN မရှိပါ</string>
     <string name="pin_manage_action_change">PIN ပြောင်းရန်</string>
     <string name="pin_manage_action_disable">PIN ပိတ်ရန်</string>

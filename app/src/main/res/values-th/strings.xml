@@ -664,6 +664,8 @@
     <string name="pin_validity_never">ไม่มีกำหนด</string>
     <string name="pin_manage_title">จัดการ PIN</string>
     <string name="pin_manage_summary">เปลี่ยนหรือปิดใช้งาน PIN ของฐานข้อมูล</string>
+    <string name="pin_offer_setup_title">เสนอการตั้งค่า PIN หลังปลดล็อก</string>
+    <string name="pin_offer_setup_summary">หลังปลดล็อกด้วยรหัสผ่านหลักสำเร็จ ระบบจะเสนอให้ตั้ง PIN แบบเร็วสำหรับฐานข้อมูลที่ยังไม่มี PIN เมื่อเปิดตัวเลือกนี้อีกครั้ง ฐานข้อมูลที่เคยปฏิเสธจะได้รับข้อเสนอนี้อีกครั้ง</string>
     <string name="pin_manage_empty">ไม่มีฐานข้อมูลใดที่มี PIN</string>
     <string name="pin_manage_action_change">เปลี่ยน PIN</string>
     <string name="pin_manage_action_disable">ปิดใช้งาน PIN</string>

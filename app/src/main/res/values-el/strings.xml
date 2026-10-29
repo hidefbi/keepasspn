@@ -644,6 +644,8 @@
     <string name="pin_validity_never">Ποτέ</string>
     <string name="pin_manage_title">Διαχείριση PIN</string>
     <string name="pin_manage_summary">Αλλαγή ή απενεργοποίηση του PIN μιας βάσης δεδομένων</string>
+    <string name="pin_offer_setup_title">Πρόταση ρύθμισης PIN μετά το ξεκλείδωμα</string>
+    <string name="pin_offer_setup_summary">Μετά από επιτυχημένο ξεκλείδωμα με τον κύριο κωδικό, προτείνεται ο ορισμός γρήγορου PIN για βάσεις δεδομένων χωρίς PIN. Αν ενεργοποιήσετε ξανά αυτή την επιλογή, η πρόταση θα εμφανιστεί ξανά για τις βάσεις που είχατε απορρίψει.</string>
     <string name="pin_manage_empty">Καμία βάση δεδομένων δεν έχει PIN</string>
     <string name="pin_manage_action_change">Αλλαγή PIN</string>
     <string name="pin_manage_action_disable">Απενεργοποίηση PIN</string>

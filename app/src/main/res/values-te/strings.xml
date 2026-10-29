@@ -46,6 +46,8 @@
     <string name="pin_validity_never">ఎప్పటికీ వద్దు</string>
     <string name="pin_manage_title">PIN లను నిర్వహించండి</string>
     <string name="pin_manage_summary">డేటాబేస్ PIN ను మార్చండి లేదా నిలిపివేయండి</string>
+    <string name="pin_offer_setup_title">అన్‌లాక్ చేసిన తర్వాత PIN సెటప్‌ను సూచించండి</string>
+    <string name="pin_offer_setup_summary">మాస్టర్ పాస్‌వర్డ్‌తో విజయవంతంగా అన్‌లాక్ చేసిన తర్వాత, PIN లేని డేటాబేస్‌లకు త్వరిత PIN సెట్ చేయమని సూచిస్తుంది. ఈ ఎంపికను మళ్లీ ఆన్ చేస్తే, ముందు తిరస్కరించిన డేటాబేస్‌లకు మళ్లీ సూచన చూపబడుతుంది.</string>
     <string name="pin_manage_empty">ఏ డేటాబేస్‌కూ PIN లేదు</string>
     <string name="pin_manage_action_change">PIN ను మార్చండి</string>
     <string name="pin_manage_action_disable">PIN ను నిలిపివేయండి</string>

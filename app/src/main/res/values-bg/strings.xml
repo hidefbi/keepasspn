@@ -699,6 +699,8 @@
     <string name="pin_validity_never">Никога</string>
     <string name="pin_manage_title">Управление на PIN кодове</string>
     <string name="pin_manage_summary">Промяна или деактивиране на PIN кода на база данни</string>
+    <string name="pin_offer_setup_title">Предлагане на PIN след отключване</string>
+    <string name="pin_offer_setup_summary">След успешно отключване с главната парола да се предлага задаване на бърз PIN за базите без PIN. При повторно включване предложението отново се показва за базите, от които е отказано.</string>
     <string name="pin_manage_empty">Никоя база данни няма PIN код</string>
     <string name="pin_manage_action_change">Промяна на PIN кода</string>
     <string name="pin_manage_action_disable">Деактивиране на PIN кода</string>

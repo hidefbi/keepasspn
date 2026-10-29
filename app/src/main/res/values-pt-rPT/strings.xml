@@ -712,6 +712,8 @@
     <string name="pin_validity_never">Nunca</string>
     <string name="pin_manage_title">Gerir PINs</string>
     <string name="pin_manage_summary">Alterar ou desativar o PIN de uma base de dados</string>
+    <string name="pin_offer_setup_title">Oferecer configuração de PIN após desbloquear</string>
+    <string name="pin_offer_setup_summary">Após desbloquear com a palavra-passe mestra, oferecer a configuração de um PIN rápido para as bases de dados que não o têm. Ao reativar esta opção, a oferta volta a aparecer nas bases de dados que recusou antes.</string>
     <string name="pin_manage_empty">Nenhuma base de dados tem PIN</string>
     <string name="pin_manage_action_change">Alterar PIN</string>
     <string name="pin_manage_action_disable">Desativar PIN</string>

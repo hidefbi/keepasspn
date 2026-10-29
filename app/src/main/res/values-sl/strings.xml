@@ -73,6 +73,8 @@
     <string name="pin_validity_never">Nikoli</string>
     <string name="pin_manage_title">Upravljanje PIN-ov</string>
     <string name="pin_manage_summary">Spremeni ali onemogoči PIN baze</string>
+    <string name="pin_offer_setup_title">Ponudi nastavitev PIN-a po odklepu</string>
+    <string name="pin_offer_setup_summary">Po uspešnem odklepu z glavnim geslom ponudi nastavitev hitrega PIN-a za baze podatkov, ki ga nimajo. Ko to možnost znova vklopite, se ponudba znova prikaže bazam, pri katerih ste jo prej zavrnili.</string>
     <string name="pin_manage_empty">Nobena baza nima PIN-a</string>
     <string name="pin_manage_action_change">Spremeni PIN</string>
     <string name="pin_manage_action_disable">Onemogoči PIN</string>

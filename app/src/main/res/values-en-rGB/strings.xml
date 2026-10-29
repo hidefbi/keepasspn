@@ -340,6 +340,8 @@
     <string name="pin_validity_never">Never</string>
     <string name="pin_manage_title">Manage PINs</string>
     <string name="pin_manage_summary">Change or disable the PIN of a database</string>
+    <string name="pin_offer_setup_title">Offer PIN setup after unlock</string>
+    <string name="pin_offer_setup_summary">After a master password unlock, offer to set a quick PIN for databases that have none. Turning this back on offers it again to databases you declined before.</string>
     <string name="pin_manage_empty">No database has a PIN</string>
     <string name="pin_manage_action_change">Change PIN</string>
     <string name="pin_manage_action_disable">Disable PIN</string>

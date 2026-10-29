@@ -713,6 +713,8 @@
     <string name="pin_validity_never">Nigdy</string>
     <string name="pin_manage_title">Zarządzaj kodami PIN</string>
     <string name="pin_manage_summary">Zmień lub wyłącz kod PIN bazy danych</string>
+    <string name="pin_offer_setup_title">Proponuj konfigurację PIN po odblokowaniu</string>
+    <string name="pin_offer_setup_summary">Po udanym odblokowaniu hasłem głównym proponuj ustawienie szybkiego PIN-u dla baz danych, które go nie mają. Ponowne włączenie tej opcji ponownie wyświetli propozycję dla baz, dla których wcześniej ją odrzucono.</string>
     <string name="pin_manage_empty">Żadna baza danych nie ma kodu PIN</string>
     <string name="pin_manage_action_change">Zmień kod PIN</string>
     <string name="pin_manage_action_disable">Wyłącz kod PIN</string>

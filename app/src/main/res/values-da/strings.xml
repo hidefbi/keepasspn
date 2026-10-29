@@ -636,6 +636,8 @@
     <string name="pin_validity_never">Aldrig</string>
     <string name="pin_manage_title">Administrer PIN-koder</string>
     <string name="pin_manage_summary">Skift eller deaktiver PIN-koden for en database</string>
+    <string name="pin_offer_setup_title">Tilbyd PIN-opsætning efter oplåsning</string>
+    <string name="pin_offer_setup_summary">Efter en vellykket oplåsning med hovedadgangskoden tilbydes det at oprette en hurtig PIN for databaser uden PIN. Når indstillingen slås til igen, tilbydes det igen for databaser, hvor det tidligere blev afvist.</string>
     <string name="pin_manage_empty">Ingen database har en PIN-kode</string>
     <string name="pin_manage_action_change">Skift PIN-kode</string>
     <string name="pin_manage_action_disable">Deaktiver PIN-kode</string>

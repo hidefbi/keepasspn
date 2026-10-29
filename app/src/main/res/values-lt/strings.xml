@@ -662,6 +662,8 @@
     <string name="pin_validity_never">Niekada</string>
     <string name="pin_manage_title">Tvarkyti PIN kodus</string>
     <string name="pin_manage_summary">Keisti arba išjungti duomenų bazės PIN kodą</string>
+    <string name="pin_offer_setup_title">Siūlyti nustatyti PIN po atrakinimo</string>
+    <string name="pin_offer_setup_summary">Po sėkmingo atrakinimo pagrindiniu slaptažodžiu siūlyti nustatyti greitą PIN kodą duomenų bazėms, neturinčioms PIN kodo. Vėl įjungus šią parinktį, pasiūlymas bus rodomas duomenų bazėms, kurioms jis anksčiau buvo atmestas.</string>
     <string name="pin_manage_empty">Nė vienai duomenų bazei nenustatytas PIN kodas</string>
     <string name="pin_manage_action_change">Keisti PIN kodą</string>
     <string name="pin_manage_action_disable">Išjungti PIN kodą</string>

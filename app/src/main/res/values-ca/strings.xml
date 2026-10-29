@@ -651,6 +651,8 @@
     <string name="pin_validity_never">Mai</string>
     <string name="pin_manage_title">Gestiona els PINs</string>
     <string name="pin_manage_summary">Canvia o desactiva el PIN d\'una base de dades</string>
+    <string name="pin_offer_setup_title">Ofereix configurar un PIN després de desbloquejar</string>
+    <string name="pin_offer_setup_summary">Després de desbloquejar amb la contrasenya mestra, ofereix configurar un PIN ràpid per a les bases de dades que no en tenen. En tornar-ho a activar, s\'ofereix de nou a les bases de dades que ho havien rebutjat.</string>
     <string name="pin_manage_empty">Cap base de dades té PIN</string>
     <string name="pin_manage_action_change">Canvia el PIN</string>
     <string name="pin_manage_action_disable">Desactiva el PIN</string>

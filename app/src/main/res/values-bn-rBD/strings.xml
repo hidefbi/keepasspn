@@ -99,6 +99,8 @@
     <string name="pin_validity_never">কখনোই না</string>
     <string name="pin_manage_title">PIN পরিচালনা</string>
     <string name="pin_manage_summary">কোনো ডেটাবেসের PIN পরিবর্তন বা নিষ্ক্রিয় করুন</string>
+    <string name="pin_offer_setup_title">আনলকের পর PIN সেটআপের প্রস্তাব</string>
+    <string name="pin_offer_setup_summary">মূল পাসওয়ার্ড দিয়ে সফলভাবে আনলক করার পর যেসব ডাটাবেসে PIN নেই, সেগুলোর জন্য দ্রুত PIN সেট করার প্রস্তাব দেখানো হবে। এটি আবার চালু করলে আগে প্রত্যাখ্যাত ডাটাবেসেও প্রস্তাব দেখানো হবে।</string>
     <string name="pin_manage_empty">কোনো ডেটাবেসে PIN নেই</string>
     <string name="pin_manage_action_change">PIN পরিবর্তন করুন</string>
     <string name="pin_manage_action_disable">PIN নিষ্ক্রিয় করুন</string>

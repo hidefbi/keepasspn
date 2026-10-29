@@ -681,6 +681,8 @@
     <string name="pin_validity_never">Mitte kunagi</string>
     <string name="pin_manage_title">Halda PIN-koode</string>
     <string name="pin_manage_summary">Muuda või keela andmebaasi PIN-kood</string>
+    <string name="pin_offer_setup_title">Paku pärast avamist PIN-koodi seadistamist</string>
+    <string name="pin_offer_setup_summary">Pärast edukat avamist peamise parooliga pakutakse PIN-koodi kiire seadistamine andmebaasidele, millel seda pole. Selle valiku uuesti sisselülitamisel pakutakse seadistust uuesti andmebaasidele, millest keeldusid varem.</string>
     <string name="pin_manage_empty">Ühelgi andmebaasil pole PIN-koodi</string>
     <string name="pin_manage_action_change">Muuda PIN-koodi</string>
     <string name="pin_manage_action_disable">Keela PIN-kood</string>

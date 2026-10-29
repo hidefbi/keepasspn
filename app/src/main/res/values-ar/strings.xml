@@ -697,6 +697,8 @@
     <string name="pin_validity_never">أبدًا</string>
     <string name="pin_manage_title">إدارة رموز PIN</string>
     <string name="pin_manage_summary">تغيير رمز PIN لقاعدة بيانات أو تعطيله</string>
+    <string name="pin_offer_setup_title">عرض إعداد PIN بعد فتح القفل</string>
+    <string name="pin_offer_setup_summary">بعد فتح قاعدة البيانات بكلمة المرور الرئيسية، اعرض إعداد PIN سريع للقواعد التي لا تملك PIN. عند تفعيل هذا الخيار مرة أخرى، يُعرض الإعداد على القواعد التي رفضته سابقا.</string>
     <string name="pin_manage_empty">لا توجد قاعدة بيانات بها رمز PIN</string>
     <string name="pin_manage_action_change">تغيير رمز PIN</string>
     <string name="pin_manage_action_disable">تعطيل رمز PIN</string>

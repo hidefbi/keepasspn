@@ -726,6 +726,8 @@
     <string name="pin_validity_never">Mai</string>
     <string name="pin_manage_title">Gestisci PIN</string>
     <string name="pin_manage_summary">Modifica o disattiva il PIN di un database</string>
+    <string name="pin_offer_setup_title">Proponi la configurazione del PIN dopo lo sblocco</string>
+    <string name="pin_offer_setup_summary">Dopo uno sblocco riuscito con la password principale, proponi di impostare un PIN rapido per i database che non ne hanno uno. Riattivando questa opzione, la proposta torna per i database che avevi rifiutato.</string>
     <string name="pin_manage_empty">Nessun database ha un PIN</string>
     <string name="pin_manage_action_change">Modifica PIN</string>
     <string name="pin_manage_action_disable">Disattiva PIN</string>

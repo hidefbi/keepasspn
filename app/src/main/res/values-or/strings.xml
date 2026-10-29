@@ -23,6 +23,8 @@
     <string name="pin_validity_never">କଦାପି ନୁହେଁ</string>
     <string name="pin_manage_title">PIN ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="pin_manage_summary">ଗୋଟିଏ ଡାଟାବେସ୍‌ର PIN ବଦଳାନ୍ତୁ କିମ୍ବା ଅକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="pin_offer_setup_title">ଅନଲକ୍ ପରେ PIN ସେଟଅପ୍ ପ୍ରସ୍ତାବ ଦିଅନ୍ତୁ</string>
+    <string name="pin_offer_setup_summary">ମୂଳ ପାସୱାର୍ଡ ଦ୍ୱାରା ସଫଳ ଅନଲକ୍ ପରେ, PIN ନଥିବା ଡାଟାବେସ୍ ପାଇଁ ଦ୍ରୁତ PIN ସେଟ୍ କରିବାର ପ୍ରସ୍ତାବ ଦିଆଯିବ। ଏହି ବିକଳ୍ପ ପୁନର୍ବାର ଚାଲୁ କଲେ ପୂର୍ବରୁ ପ୍ରତ୍ୟାଖ୍ୟାନ ହୋଇଥିବା ଡାଟାବେସ୍ ପାଇଁ ପ୍ରସ୍ତାବ ପୁଣି ଦେଖାଯିବ।</string>
     <string name="pin_manage_empty">କୌଣସି ଡାଟାବେସ୍‌ରେ PIN ନାହିଁ</string>
     <string name="pin_manage_action_change">PIN ବଦଳାନ୍ତୁ</string>
     <string name="pin_manage_action_disable">PIN ଅକ୍ଷମ କରନ୍ତୁ</string>

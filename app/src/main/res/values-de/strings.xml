@@ -721,6 +721,8 @@
     <string name="pin_validity_never">Nie</string>
     <string name="pin_manage_title">PINs verwalten</string>
     <string name="pin_manage_summary">PIN einer Datenbank ändern oder deaktivieren</string>
+    <string name="pin_offer_setup_title">PIN-Einrichtung nach dem Entsperren anbieten</string>
+    <string name="pin_offer_setup_summary">Nach dem Entsperren mit dem Hauptpasswort wird für Datenbanken ohne PIN angeboten, eine schnelle PIN festzulegen. Wenn du diese Option wieder einschaltest, wird das Angebot erneut für Datenbanken gezeigt, die es zuvor abgelehnt haben.</string>
     <string name="pin_manage_empty">Keine Datenbank hat eine PIN</string>
     <string name="pin_manage_action_change">PIN ändern</string>
     <string name="pin_manage_action_disable">PIN deaktivieren</string>

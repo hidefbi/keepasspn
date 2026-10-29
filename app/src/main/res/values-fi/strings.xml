@@ -451,6 +451,8 @@
     <string name="pin_validity_never">Ei koskaan</string>
     <string name="pin_manage_title">Hallinnoi PIN-koodeja</string>
     <string name="pin_manage_summary">Vaihda tai poista tietokannan PIN-koodi</string>
+    <string name="pin_offer_setup_title">Tarjoa PIN-koodin asetus lukituksen avaamisen jälkeen</string>
+    <string name="pin_offer_setup_summary">Pääsalasanalla onnistuneen avaamisen jälkeen tarjotaan pikaisen PIN-koodin asettamista tietokannoille, joissa sitä ei ole. Kun asetuksen kytkee takaisin päälle, tarjous näytetään uudelleen tietokannoille, joista se on aiemmin hylätty.</string>
     <string name="pin_manage_empty">Yhdelläkään tietokannalla ei ole PIN-koodia</string>
     <string name="pin_manage_action_change">Vaihda PIN-koodi</string>
     <string name="pin_manage_action_disable">Poista PIN-koodi</string>

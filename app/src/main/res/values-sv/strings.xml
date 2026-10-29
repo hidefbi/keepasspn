@@ -693,6 +693,8 @@
     <string name="pin_validity_never">Aldrig</string>
     <string name="pin_manage_title">Hantera PIN-koder</string>
     <string name="pin_manage_summary">Ändra eller inaktivera PIN-koden för en databas</string>
+    <string name="pin_offer_setup_title">Erbjud PIN-konfiguration efter upplåsning</string>
+    <string name="pin_offer_setup_summary">Efter en lyckad upplåsning med huvudlösenordet erbjuds du att skapa en snabb PIN-kod för databaser som saknar en. Om du slår på alternativet igen visas erbjudandet på nytt för databaser där du tidigare tackade nej.</string>
     <string name="pin_manage_empty">Ingen databas har en PIN-kod</string>
     <string name="pin_manage_action_change">Ändra PIN-kod</string>
     <string name="pin_manage_action_disable">Inaktivera PIN-kod</string>

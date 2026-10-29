@@ -146,6 +146,8 @@
     <string name="pin_validity_never">Neniam</string>
     <string name="pin_manage_title">Administri PIN-ojn</string>
     <string name="pin_manage_summary">Ŝanĝi aŭ malŝalti la PIN de datumbazo</string>
+    <string name="pin_offer_setup_title">Proponi agordi PIN post malŝlosado</string>
+    <string name="pin_offer_setup_summary">Post sukcesa malŝlosado per la ĉefa pasvorto, proponi agordi rapidan PIN por datumbazoj, kiuj ne havas ĝin. Re-ŝalto de ĉi tiu opcio denove proponas ĝin al datumbazoj, kiujn vi antaŭe rifuzis.</string>
     <string name="pin_manage_empty">Neniu datumbazo havas PIN-on</string>
     <string name="pin_manage_action_change">Ŝanĝi PIN</string>
     <string name="pin_manage_action_disable">Malŝalti PIN</string>

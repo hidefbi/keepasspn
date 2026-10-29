@@ -724,6 +724,8 @@
     <string name="pin_validity_never">Nikdy</string>
     <string name="pin_manage_title">Správa PINů</string>
     <string name="pin_manage_summary">Změnit nebo zakázat PIN databáze</string>
+    <string name="pin_offer_setup_title">Nabídnout nastavení PIN po odemknutí</string>
+    <string name="pin_offer_setup_summary">Po úspěšném odemknutí hlavním heslem nabídnout nastavení rychlého PINu u databází, které jej nemají. Opětovné zapnutí nabídne nastavení znovu databázím, u kterých byla nabídka dříve odmítnuta.</string>
     <string name="pin_manage_empty">Žádná databáze nemá PIN</string>
     <string name="pin_manage_action_change">Změnit PIN</string>
     <string name="pin_manage_action_disable">Zakázat PIN</string>

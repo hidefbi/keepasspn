@@ -723,6 +723,8 @@
     <string name="pin_validity_never">Никогда</string>
     <string name="pin_manage_title">Управление PIN-кодами</string>
     <string name="pin_manage_summary">Изменение или отключение PIN-кода базы данных</string>
+    <string name="pin_offer_setup_title">Предлагать настройку PIN после разблокировки</string>
+    <string name="pin_offer_setup_summary">После успешной разблокировки главным паролем предлагать задать быстрый PIN для баз без PIN. Если включить эту настройку снова, предложение появится для баз, от которых вы отказались раньше.</string>
     <string name="pin_manage_empty">Ни у одной базы данных нет PIN-кода</string>
     <string name="pin_manage_action_change">Изменить PIN-код</string>
     <string name="pin_manage_action_disable">Отключить PIN-код</string>

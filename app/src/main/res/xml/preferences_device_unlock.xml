@@ -70,6 +70,11 @@
             android:entryValues="@array/pin_validity_values"
             android:defaultValue="@string/pin_validity_default"
             android:persistent="true"/>
+        <SwitchPreferenceCompat
+            android:key="@string/pin_offer_setup_key"
+            android:title="@string/pin_offer_setup_title"
+            android:summary="@string/pin_offer_setup_summary"
+            android:defaultValue="true"/>
         <Preference
             android:key="@string/pin_manage_key"
             android:title="@string/pin_manage_title"

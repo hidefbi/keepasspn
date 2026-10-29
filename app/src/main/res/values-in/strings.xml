@@ -698,6 +698,8 @@
     <string name="pin_validity_never">Tidak pernah</string>
     <string name="pin_manage_title">Kelola PIN</string>
     <string name="pin_manage_summary">Ubah atau nonaktifkan PIN database</string>
+    <string name="pin_offer_setup_title">Tawarkan pengaturan PIN setelah membuka kunci</string>
+    <string name="pin_offer_setup_summary">Setelah berhasil membuka kunci dengan kata sandi utama, tawarkan pengaturan PIN cepat untuk database yang belum memilikinya. Mengaktifkan kembali opsi ini akan menawarkannya lagi untuk database yang sebelumnya ditolak.</string>
     <string name="pin_manage_empty">Tidak ada database yang memiliki PIN</string>
     <string name="pin_manage_action_change">Ubah PIN</string>
     <string name="pin_manage_action_disable">Nonaktifkan PIN</string>

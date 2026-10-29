@@ -714,6 +714,8 @@
     <string name="pin_validity_never">Asla</string>
     <string name="pin_manage_title">PIN\'leri yönet</string>
     <string name="pin_manage_summary">Bir veritabanının PIN\'ini değiştir veya devre dışı bırak</string>
+    <string name="pin_offer_setup_title">Kilidi açtıktan sonra PIN kurulumunu öner</string>
+    <string name="pin_offer_setup_summary">Ana parolayla başarılı bir kilit açmadan sonra PIN\'i olmayan veritabanları için hızlı bir PIN ayarlamayı öner. Bu seçeneği yeniden açmak, daha önce reddedilen veritabanlarına teklifi yeniden sunar.</string>
     <string name="pin_manage_empty">Hiçbir veritabanında PIN yok</string>
     <string name="pin_manage_action_change">PIN\'i değiştir</string>
     <string name="pin_manage_action_disable">PIN\'i devre dışı bırak</string>

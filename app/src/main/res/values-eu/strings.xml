@@ -629,6 +629,8 @@
     <string name="pin_validity_never">Inoiz ez</string>
     <string name="pin_manage_title">Kudeatu PIN kodeak</string>
     <string name="pin_manage_summary">Aldatu edo desaktibatu datu-base baten PIN kodea</string>
+    <string name="pin_offer_setup_title">Eskaini PIN-a ezartzea desblokeatu ondoren</string>
+    <string name="pin_offer_setup_summary">Pasahitz nagusiarekin ondo desblokeatu ondoren, PIN azkarra ezartzea eskaintzen da PINik ez duten datu-baseentzat. Aukera hau berriro aktibatzean, lehen baztertu zenituzten datu-baseei berriro eskainiko zaie.</string>
     <string name="pin_manage_empty">Datu-baseek ez dute PIN kodea</string>
     <string name="pin_manage_action_change">Aldatu PIN kodea</string>
     <string name="pin_manage_action_disable">Desaktibatu PIN kodea</string>

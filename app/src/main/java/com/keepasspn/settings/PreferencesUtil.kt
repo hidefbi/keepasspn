@@ -643,6 +643,12 @@ object PreferencesUtil {
         return value?.takeIf { PinPolicy.isSupportedValidity(it) } ?: PinPolicy.VALIDITY_NEVER_DAYS
     }
 
+    /** Whether to offer a PIN after a master password unlock of a database that has none. */
+    fun offerPinSetupAfterUnlock(context: Context): Boolean {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        return prefs.getBoolean(context.getString(R.string.pin_offer_setup_key), true)
+    }
+
     fun allowCopyProtectedFields(context: Context): Boolean {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         return prefs.getBoolean(context.getString(R.string.allow_copy_password_key),
@@ -985,6 +991,7 @@ object PreferencesUtil {
                 context.getString(R.string.temp_device_unlock_timeout_key) -> editor.putString(name, value.toLong().toString())
 
                 context.getString(R.string.pin_validity_key) -> editor.putString(name, value)
+                context.getString(R.string.pin_offer_setup_key) -> editor.putBoolean(name, value.toBoolean())
                 context.getString(R.string.magic_keyboard_key) -> editor.putBoolean(name, value.toBoolean())
                 context.getString(R.string.clipboard_timeout_key) -> editor.putString(name, value.toLong().toString())
                 context.getString(R.string.keyboard_notification_entry_key) -> editor.putBoolean(name, value.toBoolean())

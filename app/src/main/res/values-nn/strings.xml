@@ -306,6 +306,8 @@
     <string name="pin_validity_never">Aldri</string>
     <string name="pin_manage_title">Handsam PIN-kodar</string>
     <string name="pin_manage_summary">Endre eller deaktiver PIN-koden for ein database</string>
+    <string name="pin_offer_setup_title">Tilby PIN-oppsett etter opplåsing</string>
+    <string name="pin_offer_setup_summary">Etter vellykka opplåsing med hovudpassordet blir det tilbode å setje ein rask PIN for databasar som ikkje har ein. Når alternativet blir slått på att, blir det tilbode på nytt for databasar der du tidlegare sa nei.</string>
     <string name="pin_manage_empty">Ingen database har ein PIN-kode</string>
     <string name="pin_manage_action_change">Endre PIN-kode</string>
     <string name="pin_manage_action_disable">Deaktiver PIN-kode</string>

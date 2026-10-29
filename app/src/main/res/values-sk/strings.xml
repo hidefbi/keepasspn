@@ -715,6 +715,8 @@
     <string name="pin_validity_never">Nikdy</string>
     <string name="pin_manage_title">Správa PIN kódov</string>
     <string name="pin_manage_summary">Zmena alebo vypnutie PIN kódu databázy</string>
+    <string name="pin_offer_setup_title">Ponúknuť nastavenie PIN po odomknutí</string>
+    <string name="pin_offer_setup_summary">Po úspešnom odomknutí hlavným heslom ponúknuť nastavenie rýchleho PIN-u pre databázy, ktoré ho nemajú. Opätovné zapnutie tejto možnosti znovu ponúkne nastavenie databázam, pri ktorých bola ponuka predtým odmietnutá.</string>
     <string name="pin_manage_empty">Žiadna databáza nemá PIN kód</string>
     <string name="pin_manage_action_change">Zmeniť PIN kód</string>
     <string name="pin_manage_action_disable">Vypnúť PIN kód</string>

@@ -717,6 +717,8 @@
     <string name="pin_validity_never">Soha</string>
     <string name="pin_manage_title">PIN-kódok kezelése</string>
     <string name="pin_manage_summary">Adatbázis PIN-kódjának módosítása vagy letiltása</string>
+    <string name="pin_offer_setup_title">PIN-beállítás felajánlása feloldás után</string>
+    <string name="pin_offer_setup_summary">A főjelszóval sikeres feloldás után PIN-kód beállítását ajánlja fel az olyan adatbázisokhoz, amelyeknek nincs PIN-kódjuk. Az opció újbóli bekapcsolásakor a korábban elutasított adatbázisoknál ismét megjelenik az ajánlat.</string>
     <string name="pin_manage_empty">Egyetlen adatbázishoz sincs PIN-kód beállítva</string>
     <string name="pin_manage_action_change">PIN-kód módosítása</string>
     <string name="pin_manage_action_disable">PIN-kód letiltása</string>

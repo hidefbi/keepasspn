@@ -288,6 +288,8 @@
     <string name="pin_validity_never">Hindi kailanman</string>
     <string name="pin_manage_title">Pamahalaan ang mga PIN</string>
     <string name="pin_manage_summary">Palitan o i-disable ang PIN ng isang database</string>
+    <string name="pin_offer_setup_title">Mag-alok ng PIN setup pagkatapos i-unlock</string>
+    <string name="pin_offer_setup_summary">Pagkatapos mag-unlock gamit ang master password, mag-aalok na magtakda ng mabilis na PIN para sa mga database na wala pa nito. Kapag muling in-on ang opsyong ito, muling ialok ang PIN sa mga database na dati nang tinanggihan.</string>
     <string name="pin_manage_empty">Walang database na may PIN</string>
     <string name="pin_manage_action_change">Palitan ang PIN</string>
     <string name="pin_manage_action_disable">I-disable ang PIN</string>

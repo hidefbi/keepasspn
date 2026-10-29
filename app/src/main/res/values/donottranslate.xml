@@ -92,6 +92,7 @@
     <string name="pin_validity_key" translatable="false">pin_validity_key</string>
     <string name="pin_validity_default" translatable="false">0</string>
     <string name="pin_manage_key" translatable="false">pin_manage_key</string>
+    <string name="pin_offer_setup_key" translatable="false">pin_offer_setup_key</string>
     <string name="pin_unlock_category_key" translatable="false">pin_unlock_category_key</string>
     <string name="allow_copy_password_key" translatable="false">allow_copy_password_key</string>
     <bool name="allow_copy_password_default" translatable="false">false</bool>

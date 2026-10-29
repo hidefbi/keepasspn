@@ -315,6 +315,8 @@
     <string name="pin_validity_never">ਕਦੇ ਨਹੀਂ</string>
     <string name="pin_manage_title">PIN ਪ੍ਰਬੰਧਿਤ ਕਰੋ</string>
     <string name="pin_manage_summary">ਕਿਸੇ ਡੇਟਾਬੇਸ ਦਾ PIN ਬਦਲੋ ਜਾਂ ਬੰਦ ਕਰੋ</string>
+    <string name="pin_offer_setup_title">ਅਨਲਾਕ ਤੋਂ ਬਾਅਦ PIN ਸੈੱਟਅੱਪ ਦੀ ਪੇਸ਼ਕਸ਼ ਕਰੋ</string>
+    <string name="pin_offer_setup_summary">ਮੁੱਖ ਪਾਸਵਰਡ ਨਾਲ ਸਫਲ ਅਨਲਾਕ ਤੋਂ ਬਾਅਦ, ਜਿਨ੍ਹਾਂ ਡੇਟਾਬੇਸ ਵਿੱਚ PIN ਨਹੀਂ ਹੈ ਉਨ੍ਹਾਂ ਲਈ ਤੇਜ਼ PIN ਸੈੱਟ ਕਰਨ ਦੀ ਪੇਸ਼ਕਸ਼ ਕੀਤੀ ਜਾਵੇਗੀ। ਇਹ ਵਿਕਲਪ ਮੁੜ ਚਾਲੂ ਕਰਨ ਨਾਲ ਪਹਿਲਾਂ ਰੱਦ ਕੀਤੇ ਡੇਟਾਬੇਸ ਲਈ ਮੁੜ ਪੇਸ਼ਕਸ਼ ਹੋਵੇਗੀ।</string>
     <string name="pin_manage_empty">ਕਿਸੇ ਵੀ ਡੇਟਾਬੇਸ ਦਾ PIN ਨਹੀਂ ਹੈ</string>
     <string name="pin_manage_action_change">PIN ਬਦਲੋ</string>
     <string name="pin_manage_action_disable">PIN ਬੰਦ ਕਰੋ</string>

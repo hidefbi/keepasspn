@@ -49,6 +49,8 @@
     <string name="pin_validity_never">Никогаш</string>
     <string name="pin_manage_title">Управување со PIN-кодови</string>
     <string name="pin_manage_summary">Промена или оневозможување на PIN-кодот за база</string>
+    <string name="pin_offer_setup_title">Понуди поставување PIN по отклучување</string>
+    <string name="pin_offer_setup_summary">По успешно отклучување со главната лозинка, понудете брз PIN за базите без PIN. Повторното вклучување ја враќа понудата за базите за кои претходно била одбиена.</string>
     <string name="pin_manage_empty">Ниту една база нема PIN-код</string>
     <string name="pin_manage_action_change">Промени PIN-код</string>
     <string name="pin_manage_action_disable">Оневозможи PIN-код</string>

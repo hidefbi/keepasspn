@@ -703,6 +703,8 @@
     <string name="pin_validity_never">永不</string>
     <string name="pin_manage_title">管理 PIN</string>
     <string name="pin_manage_summary">變更或停用資料庫的 PIN</string>
+    <string name="pin_offer_setup_title">解鎖後提示設定 PIN</string>
+    <string name="pin_offer_setup_summary">使用主密碼成功解鎖後，對尚未設定 PIN 的資料庫提示設定快速 PIN。重新開啟此選項時，之前拒絕過的資料庫會再次收到提示。</string>
     <string name="pin_manage_empty">沒有任何資料庫設定 PIN</string>
     <string name="pin_manage_action_change">變更 PIN</string>
     <string name="pin_manage_action_disable">停用 PIN</string>

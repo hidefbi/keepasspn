@@ -363,6 +363,8 @@
     <string name="pin_validity_never">만료 안 함</string>
     <string name="pin_manage_title">PIN 관리</string>
     <string name="pin_manage_summary">데이터베이스의 PIN을 변경하거나 해제합니다</string>
+    <string name="pin_offer_setup_title">잠금 해제 후 PIN 설정 제안</string>
+    <string name="pin_offer_setup_summary">마스터 비밀번호로 잠금을 성공적으로 해제하면 PIN이 없는 데이터베이스에 빠른 PIN 설정을 제안합니다. 이 옵션을 다시 켜면 이전에 거절했던 데이터베이스에도 다시 제안합니다.</string>
     <string name="pin_manage_empty">PIN이 설정된 데이터베이스가 없습니다</string>
     <string name="pin_manage_action_change">PIN 변경</string>
     <string name="pin_manage_action_disable">PIN 해제</string>

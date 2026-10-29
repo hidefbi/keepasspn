@@ -721,6 +721,8 @@
     <string name="pin_validity_never">Jamais</string>
     <string name="pin_manage_title">Gérer les codes PIN</string>
     <string name="pin_manage_summary">Modifier ou désactiver le code PIN d\'une base de données</string>
+    <string name="pin_offer_setup_title">Proposer la configuration du PIN après déverrouillage</string>
+    <string name="pin_offer_setup_summary">Après un déverrouillage réussi avec le mot de passe principal, proposer de définir un PIN rapide pour les bases qui n\'en ont pas. Réactiver cette option propose de nouveau la configuration aux bases pour lesquelles elle a été refusée.</string>
     <string name="pin_manage_empty">Aucune base de données n\'a de code PIN</string>
     <string name="pin_manage_action_change">Modifier le code PIN</string>
     <string name="pin_manage_action_disable">Désactiver le code PIN</string>

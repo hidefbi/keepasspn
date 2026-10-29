@@ -41,6 +41,8 @@
     <string name="pin_validity_never">Ora tau</string>
     <string name="pin_manage_title">Kelola PIN</string>
     <string name="pin_manage_summary">Ganti utawa pateni PIN saka database</string>
+    <string name="pin_offer_setup_title">Tawaraké nyetel PIN sawisé mbukak kunci</string>
+    <string name="pin_offer_setup_summary">Sawisé mbukak kunci kanthi sandi utama kanthi sukses, tawaraké nyetel PIN cepet kanggo database sing durung duwé. Yen opsi iki diaktifké maneh, tawaran bakal ditampilké maneh kanggo database sing wis ditolak.</string>
     <string name="pin_manage_empty">Ora ana database sing duwe PIN</string>
     <string name="pin_manage_action_change">Ganti PIN</string>
     <string name="pin_manage_action_disable">Pateni PIN</string>

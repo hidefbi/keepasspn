@@ -404,6 +404,8 @@
     <string name="pin_validity_never">Никад</string>
     <string name="pin_manage_title">Управљај PIN-овима</string>
     <string name="pin_manage_summary">Промените или онемогућите PIN базе података</string>
+    <string name="pin_offer_setup_title">Понуди подешавање PIN-а након откључавања</string>
+    <string name="pin_offer_setup_summary">Након успешног откључавања главном лозинком, понуди постављање брзог PIN-а базама које га немају. Поновно укључивање ове опције поново нуди PIN базама за које је раније одбијено.</string>
     <string name="pin_manage_empty">Ниједна база нема PIN</string>
     <string name="pin_manage_action_change">Промени PIN</string>
     <string name="pin_manage_action_disable">Онемогући PIN</string>

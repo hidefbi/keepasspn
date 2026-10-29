@@ -57,6 +57,8 @@
     <string name="pin_validity_never">Беркайчан да</string>
     <string name="pin_manage_title">PIN-ларны идарә итү</string>
     <string name="pin_manage_summary">Мәгълүмат базасы PIN-ын үзгәртү яки сүндерү</string>
+    <string name="pin_offer_setup_title">Ачканнан соң PIN кую турында тәкъдим итү</string>
+    <string name="pin_offer_setup_summary">Төп серсүз белән уңышлы ачканнан соң, PIN-ы булмаган базалар өчен тиз PIN куюны тәкъдим итә. Бу вариантны яңадан кабызсагыз, элек баш тартылган базаларга тәкъдим яңадан күрсәтеләчәк.</string>
     <string name="pin_manage_empty">Бер мәгълүмат базасында да PIN юк</string>
     <string name="pin_manage_action_change">PIN-ны үзгәртү</string>
     <string name="pin_manage_action_disable">PIN-ны сүндерү</string>

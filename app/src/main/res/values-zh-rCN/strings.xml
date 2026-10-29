@@ -722,6 +722,8 @@
     <string name="pin_validity_never">永不</string>
     <string name="pin_manage_title">管理 PIN</string>
     <string name="pin_manage_summary">更改或禁用数据库的 PIN</string>
+    <string name="pin_offer_setup_title">解锁后提示设置 PIN</string>
+    <string name="pin_offer_setup_summary">使用主密码成功解锁后，对尚未设置 PIN 的数据库提示设置快速 PIN。重新开启此选项时，之前拒绝过的数据库会再次收到提示。</string>
     <string name="pin_manage_empty">没有数据库设置了 PIN</string>
     <string name="pin_manage_action_change">更改 PIN</string>
     <string name="pin_manage_action_disable">禁用 PIN</string>

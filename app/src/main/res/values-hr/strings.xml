@@ -639,6 +639,8 @@
     <string name="pin_validity_never">Nikad</string>
     <string name="pin_manage_title">Upravljaj PIN-ovima</string>
     <string name="pin_manage_summary">Promijeni ili onemogući PIN baze podataka</string>
+    <string name="pin_offer_setup_title">Ponudi postavljanje PIN-a nakon otključavanja</string>
+    <string name="pin_offer_setup_summary">Nakon uspješnog otključavanja glavnom lozinkom, ponudi postavljanje brzog PIN-a bazama podataka koje ga nemaju. Ponovno uključivanje ove opcije ponovno nudi postavljanje bazama koje su ranije odbile.</string>
     <string name="pin_manage_empty">Nijedna baza podataka nema PIN</string>
     <string name="pin_manage_action_change">Promijeni PIN</string>
     <string name="pin_manage_action_disable">Onemogući PIN</string>

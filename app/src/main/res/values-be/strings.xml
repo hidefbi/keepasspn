@@ -664,6 +664,8 @@
     <string name="pin_validity_never">Ніколі</string>
     <string name="pin_manage_title">Кіраванне PIN-кодамі</string>
     <string name="pin_manage_summary">Змяніць або выключыць PIN-код базы даных</string>
+    <string name="pin_offer_setup_title">Прапаноўваць устанавіць PIN пасля разблакіроўкі</string>
+    <string name="pin_offer_setup_summary">Пасля паспяховай разблакіроўкі галоўным паролем прапаноўваць задаць хуткі PIN для баз без PIN. Калі ўключыць гэты параметр зноў, прапановы зноў з\'явяцца для баз, дзе раней адмовіліся.</string>
     <string name="pin_manage_empty">Ніводная база даных не мае PIN-кода</string>
     <string name="pin_manage_action_change">Змяніць PIN-код</string>
     <string name="pin_manage_action_disable">Выключыць PIN-код</string>

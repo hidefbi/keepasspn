@@ -293,6 +293,8 @@
     <string name="pin_validity_never">Nekad</string>
     <string name="pin_manage_title">Pārvaldīt PIN kodus</string>
     <string name="pin_manage_summary">Mainīt vai atspējot datubāzes PIN kodu</string>
+    <string name="pin_offer_setup_title">Piedāvāt iestatīt PIN pēc atbloķēšanas</string>
+    <string name="pin_offer_setup_summary">Pēc veiksmīgas atbloķēšanas ar galveno paroli piedāvāt iestatīt ātru PIN kodu datubāzēm, kurām tāda nav. Atkārtoti ieslēdzot šo opciju, piedāvājums atkal tiks rādīts datubāzēm, kurām tas iepriekš tika noraidīts.</string>
     <string name="pin_manage_empty">Neviena datubāze nav ar PIN kodu</string>
     <string name="pin_manage_action_change">Mainīt PIN kodu</string>
     <string name="pin_manage_action_disable">Atspējot PIN kodu</string>

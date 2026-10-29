@@ -699,6 +699,8 @@
     <string name="pin_validity_never">Nunca</string>
     <string name="pin_manage_title">Xestionar PIN</string>
     <string name="pin_manage_summary">Cambiar ou desactivar o PIN dunha base de datos</string>
+    <string name="pin_offer_setup_title">Ofrecer configurar un PIN tras desbloquear</string>
+    <string name="pin_offer_setup_summary">Tras desbloquear co contrasinal mestre, ofrecer configurar un PIN rápido para as bases de datos que non o teñen. Ao volver activar esta opción, ofrécese de novo ás bases de datos que o rexeitaron antes.</string>
     <string name="pin_manage_empty">Ningunha base de datos ten PIN</string>
     <string name="pin_manage_action_change">Cambiar PIN</string>
     <string name="pin_manage_action_disable">Desactivar PIN</string>

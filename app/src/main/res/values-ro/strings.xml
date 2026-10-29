@@ -709,6 +709,8 @@
     <string name="pin_validity_never">Niciodată</string>
     <string name="pin_manage_title">Gestionați PIN-urile</string>
     <string name="pin_manage_summary">Modificați sau dezactivați PIN-ul unei baze de date</string>
+    <string name="pin_offer_setup_title">Oferă configurarea PIN-ului după deblocare</string>
+    <string name="pin_offer_setup_summary">După deblocarea reușită cu parola principală, oferă configurarea unui PIN rapid pentru bazele de date care nu au unul. Reactivarea acestei opțiuni oferă din nou configurarea bazelor pentru care a fost refuzată anterior.</string>
     <string name="pin_manage_empty">Nicio bază de date nu are PIN</string>
     <string name="pin_manage_action_change">Modificați PIN-ul</string>
     <string name="pin_manage_action_disable">Dezactivați PIN-ul</string>

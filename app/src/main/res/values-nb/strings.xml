@@ -707,6 +707,8 @@
     <string name="pin_validity_never">Aldri</string>
     <string name="pin_manage_title">Administrer PIN-koder</string>
     <string name="pin_manage_summary">Endre eller deaktiver PIN-koden for en database</string>
+    <string name="pin_offer_setup_title">Tilby PIN-oppsett etter opplåsing</string>
+    <string name="pin_offer_setup_summary">Etter vellykket opplåsing med hovedpassordet tilbys det å sette en rask PIN for databaser som ikke har en. Når alternativet slås på igjen, tilbys det på nytt for databaser der du tidligere sa nei.</string>
     <string name="pin_manage_empty">Ingen database har en PIN-kode</string>
     <string name="pin_manage_action_change">Endre PIN-kode</string>
     <string name="pin_manage_action_disable">Deaktiver PIN-kode</string>
