@@ -1014,18 +1014,21 @@ open class Database {
         nodes.removeGroupFrom(group, parent)
     }
 
+    private val nodeActions = DatabaseNodeActions(
+        nodes = nodes,
+        kdb = { mDatabaseKDB },
+        kdbx = { mDatabaseKDBX },
+        recycleBin = { recycleBin },
+        ensureRecycleBinExists = { title -> ensureRecycleBinExists(title) }
+    )
+
     /**
      * @return A duplicate entry with the same values, a new random UUID and a new parent
      * @param entryToCopy
      * @param newParent
      */
     fun copyEntryTo(entryToCopy: Entry, newParent: Group): Entry {
-        val entryCopied = Entry(entryToCopy, copyHistory = false)
-        entryCopied.nodeId = mDatabaseKDB?.newEntryId() ?: mDatabaseKDBX?.newEntryId() ?: NodeIdUUID()
-        entryCopied.parent = newParent
-        entryCopied.title += " (~)"
-        addEntryTo(entryCopied, newParent)
-        return entryCopied
+        return nodeActions.copyEntryTo(entryToCopy, newParent)
     }
 
     /**
@@ -1034,71 +1037,23 @@ open class Database {
      * @param newParent
      */
     fun copyGroupTo(groupToCopy: Group, newParent: Group): Group {
-        val groupCopied = Group(groupToCopy)
-        val newId = mDatabaseKDB?.newGroupId() ?: mDatabaseKDBX?.newGroupId() ?: NodeIdUUID()
-        when (newId) {
-            is NodeIdInt -> groupCopied.setNodeId(newId)
-            is NodeIdUUID -> groupCopied.setNodeId(newId)
-        }
-        groupCopied.parent = newParent
-        groupCopied.title += " (~)"
-        addGroupTo(groupCopied, newParent)
-
-        // Copy entries
-        groupToCopy.getChildEntries().forEach {
-            copyEntryTo(it, groupCopied)
-        }
-
-        // Copy sub-groups
-        groupToCopy.getChildGroups().forEach {
-            copyGroupTo(it, groupCopied)
-        }
-
-        return groupCopied
+        return nodeActions.copyGroupTo(groupToCopy, newParent)
     }
 
     fun moveEntryTo(entryToMove: Entry, newParent: Group) {
-        entryToMove.parent?.let {
-            removeEntryFrom(entryToMove, it)
-        }
-        addEntryTo(entryToMove, newParent)
+        nodeActions.moveEntryTo(entryToMove, newParent)
     }
 
     fun moveGroupTo(groupToMove: Group, newParent: Group) {
-        groupToMove.parent?.let {
-            removeGroupFrom(groupToMove, it)
-        }
-        addGroupTo(groupToMove, newParent)
+        nodeActions.moveGroupTo(groupToMove, newParent)
     }
 
     fun deleteEntry(entry: Entry) {
-        entry.entryKDBX?.id?.let { entryId ->
-            mDatabaseKDBX?.addDeletedObject(entryId)
-        }
-        entry.parent?.let {
-            removeEntryFrom(entry, it)
-        }
+        nodeActions.deleteEntry(entry)
     }
 
     fun deleteGroup(group: Group) {
-        group.doForEachChildAndForIt(
-                object : NodeHandler<Entry>() {
-                    override fun operate(node: Entry): Boolean {
-                        deleteEntry(node)
-                        return true
-                    }
-                },
-                object : NodeHandler<Group>() {
-                    override fun operate(node: Group): Boolean {
-                        node.groupKDBX?.id?.let { groupId ->
-                            mDatabaseKDBX?.addDeletedObject(groupId)
-                        }
-                        node.parent?.let {
-                            removeGroupFrom(node, it)
-                        }
-                        return true
-                    }
-                })
+        nodeActions.deleteGroup(group)
     }
 
     fun ensureRecycleBinExists(recyclerBinTitle: String) {
@@ -1107,63 +1062,27 @@ open class Database {
     }
 
     fun canRecycle(entry: Entry): Boolean {
-        var canRecycle: Boolean? = null
-        entry.entryKDB?.let {
-            canRecycle = mDatabaseKDB?.canRecycle(it)
-        }
-        entry.entryKDBX?.let {
-            canRecycle = mDatabaseKDBX?.canRecycle(it)
-        }
-        return canRecycle ?: false
+        return nodeActions.canRecycle(entry)
     }
 
     fun canRecycle(group: Group): Boolean {
-        var canRecycle: Boolean? = null
-        group.groupKDB?.let {
-            canRecycle = mDatabaseKDB?.canRecycle(it)
-        }
-        group.groupKDBX?.let {
-            canRecycle = mDatabaseKDBX?.canRecycle(it)
-        }
-        return canRecycle ?: false
+        return nodeActions.canRecycle(group)
     }
 
     fun recycle(entry: Entry, recyclerBinTitle: String) {
-        ensureRecycleBinExists(recyclerBinTitle)
-        entry.parent?.let { parent ->
-            removeEntryFrom(entry, parent)
-        }
-        recycleBin?.let {
-            addEntryTo(entry, it)
-        }
-        entry.afterAssignNewParent()
+        nodeActions.recycle(entry, recyclerBinTitle)
     }
 
     fun recycle(group: Group, recyclerBinTitle: String) {
-        ensureRecycleBinExists(recyclerBinTitle)
-        group.parent?.let { parent ->
-            removeGroupFrom(group, parent)
-        }
-        recycleBin?.let {
-            addGroupTo(group, it)
-        }
-        group.afterAssignNewParent()
+        nodeActions.recycle(group, recyclerBinTitle)
     }
 
     fun undoRecycle(entry: Entry, parent: Group) {
-        recycleBin?.let {
-            removeEntryFrom(entry, it)
-        }
-        addEntryTo(entry, parent)
-        entry.afterAssignNewParent()
+        nodeActions.undoRecycle(entry, parent)
     }
 
     fun undoRecycle(group: Group, parent: Group) {
-        recycleBin?.let {
-            removeGroupFrom(group, it)
-        }
-        addGroupTo(group, parent)
-        group.afterAssignNewParent()
+        nodeActions.undoRecycle(group, parent)
     }
 
     fun startManageEntry(entry: Entry?) {
