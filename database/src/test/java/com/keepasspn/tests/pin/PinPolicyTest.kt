@@ -73,6 +73,18 @@ class PinPolicyTest {
     }
 
     @Test
+    fun withoutPinRetryUntilThirdWrongMasterPassword() {
+        assertEquals(MasterFailureOutcome.Retry(2), PinPolicy.onMasterFailureWithoutPin(1))
+        assertEquals(MasterFailureOutcome.Retry(1), PinPolicy.onMasterFailureWithoutPin(2))
+        assertEquals(MasterFailureOutcome.DeleteDatabase, PinPolicy.onMasterFailureWithoutPin(3))
+    }
+
+    @Test
+    fun withoutPinStaysDeletedAboveTheLimit() {
+        assertEquals(MasterFailureOutcome.DeleteDatabase, PinPolicy.onMasterFailureWithoutPin(4))
+    }
+
+    @Test
     fun totalFailuresBeforeDatabaseDeletionIsFive() {
         // 3 wrong PINs, then 2 wrong master passwords
         assertEquals(3, PinPolicy.MAX_PIN_FAILURES)

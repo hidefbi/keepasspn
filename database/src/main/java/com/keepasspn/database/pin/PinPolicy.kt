@@ -30,11 +30,14 @@ package com.keepasspn.database.pin
  *  - Three wrong PINs in a row delete the PIN and force the master password.
  *  - After that PIN deletion, two wrong master passwords delete the database
  *    from the app (it must be imported again).
+ *  - Without a PIN, three wrong master passwords in a row delete the database
+ *    from the app (it must be imported again).
  */
 object PinPolicy {
 
     const val MAX_PIN_FAILURES = 3
     const val MAX_MASTER_FAILURES_AFTER_PIN_WIPE = 2
+    const val MAX_MASTER_FAILURES_WITHOUT_PIN = 3
 
     /** Stored value meaning "the PIN never expires". */
     const val VALIDITY_NEVER_DAYS = 0
@@ -88,5 +91,16 @@ object PinPolicy {
             MasterFailureOutcome.DeleteDatabase
         } else {
             MasterFailureOutcome.Retry(MAX_MASTER_FAILURES_AFTER_PIN_WIPE - failedMasterAttempts)
+        }
+
+    /**
+     * For a database without a PIN.
+     * [failedMasterAttempts] counts wrong master passwords in a row, including the latest one.
+     */
+    fun onMasterFailureWithoutPin(failedMasterAttempts: Int): MasterFailureOutcome =
+        if (failedMasterAttempts >= MAX_MASTER_FAILURES_WITHOUT_PIN) {
+            MasterFailureOutcome.DeleteDatabase
+        } else {
+            MasterFailureOutcome.Retry(MAX_MASTER_FAILURES_WITHOUT_PIN - failedMasterAttempts)
         }
 }
