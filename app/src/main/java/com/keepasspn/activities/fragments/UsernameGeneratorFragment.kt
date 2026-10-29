@@ -35,7 +35,6 @@ import com.google.android.material.slider.Slider
 import com.keepasspn.R
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.password.UsernameGenerator
-import com.keepasspn.settings.PreferencesUtil
 import com.keepasspn.timeout.timeoutCopyToClipboard
 import com.keepasspn.viewmodels.KeyGeneratorViewModel
 import kotlinx.coroutines.launch
@@ -70,14 +69,13 @@ class UsernameGeneratorFragment : DatabaseFragment() {
         uppercaseCheck = view.findViewById(R.id.uppercase_filter)
         digitsCheck = view.findViewById(R.id.digits_filter)
 
+        // A username is not a protected field, so the copy button is always available
         context?.let { context ->
-            usernameCopyView?.visibility = if (PreferencesUtil.allowCopyProtectedFields(context))
-                View.VISIBLE else View.GONE
             usernameCopyView?.setOnClickListener {
                 context.timeoutCopyToClipboard(
                     label = getString(R.string.entry_user_name),
                     value = usernameView.text.toString(),
-                    sensitive = true
+                    sensitive = false
                 )
             }
         }
