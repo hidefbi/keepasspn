@@ -104,6 +104,11 @@ class UsernameGeneratorFragment : DatabaseFragment() {
                         generateUsername()
                     }
                 }
+                launch {
+                    mKeyGeneratorViewModel.usernameGeneratedValidated.collect {
+                        mKeyGeneratorViewModel.setKeyGenerated(usernameView.text.toString().toCharArray())
+                    }
+                }
             }
         }
 

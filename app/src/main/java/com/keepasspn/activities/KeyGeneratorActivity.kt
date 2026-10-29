@@ -32,6 +32,7 @@ class KeyGeneratorActivity : DatabaseLockActivity() {
     private lateinit var validationButton: View
     private var lockView: View? = null
     private var isStandalone: Boolean = false
+    private var isUsernameOnly: Boolean = false
 
     override fun manageDatabaseInfo(): Boolean = true
 
@@ -43,6 +44,7 @@ class KeyGeneratorActivity : DatabaseLockActivity() {
         setContentView(R.layout.activity_key_generator)
 
         isStandalone = intent.getBooleanExtra(STANDALONE_EXTRA, false)
+        isUsernameOnly = intent.getBooleanExtra(USERNAME_ONLY_EXTRA, false)
 
         toolbar = findViewById(R.id.toolbar)
         toolbar.title = " "
@@ -68,7 +70,8 @@ class KeyGeneratorActivity : DatabaseLockActivity() {
             replace(R.id.key_generator_fragment, KeyGeneratorFragment.getInstance(
                     // Default selection tab
                     KeyGeneratorFragment.KeyGeneratorTab.PASSWORD,
-                    isStandalone
+                    isStandalone,
+                    isUsernameOnly
                 ), KEY_GENERATED_FRAGMENT_TAG
             )
         }
@@ -133,6 +136,7 @@ class KeyGeneratorActivity : DatabaseLockActivity() {
         private const val KEY_GENERATED = "KEY_GENERATED"
         private const val KEY_GENERATED_FRAGMENT_TAG = "KEY_GENERATED_FRAGMENT_TAG"
         private const val STANDALONE_EXTRA = "STANDALONE_EXTRA"
+        private const val USERNAME_ONLY_EXTRA = "USERNAME_ONLY_EXTRA"
 
         fun registerForGeneratedKeyResult(
             activity: FragmentActivity,
@@ -166,6 +170,21 @@ class KeyGeneratorActivity : DatabaseLockActivity() {
             context.startActivity(
                 Intent(context, KeyGeneratorActivity::class.java).apply {
                     putExtra(STANDALONE_EXTRA, true)
+                }
+            )
+        }
+
+        /**
+         * Open the generator for a username field of an entry. Only the username tab is shown
+         * and the generated value is returned to the caller.
+         */
+        fun launchForUsername(
+            context: FragmentActivity,
+            resultLauncher: ActivityResultLauncher<Intent>
+        ) {
+            resultLauncher.launch(
+                Intent(context, KeyGeneratorActivity::class.java).apply {
+                    putExtra(USERNAME_ONLY_EXTRA, true)
                 }
             )
         }

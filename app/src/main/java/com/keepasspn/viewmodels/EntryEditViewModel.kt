@@ -61,6 +61,7 @@ class EntryEditViewModel: NodeEditViewModel() {
         private set
 
     var passwordField: Field? = null
+    var usernameField: Field? = null
 
     // To show dialog only one time
     var backPressedAlreadyApproved = false
@@ -247,6 +248,19 @@ class EntryEditViewModel: NodeEditViewModel() {
         }
     }
 
+    fun requestUsernameSelection(usernameField: Field) {
+        this.usernameField = usernameField
+        viewModelScope.launch {
+            _entryEditEvents.emit(EntryEditEvent.RequestUsernameSelection)
+        }
+    }
+
+    fun selectUsername(usernameField: Field) {
+        viewModelScope.launch {
+            _entryEditEvents.emit(EntryEditEvent.OnUsernameSelected(usernameField))
+        }
+    }
+
     fun requestChangeFieldProtection(fieldProtection: FieldProtection) {
         viewModelScope.launch {
             _entryEditEvents.emit(EntryEditEvent.OnChangeFieldProtectionRequested(fieldProtection))
@@ -368,6 +382,12 @@ class EntryEditViewModel: NodeEditViewModel() {
         object RequestPasswordSelection : EntryEditEvent()
 
         data class OnPasswordSelected(
+            val field: Field
+        ) : EntryEditEvent()
+
+        object RequestUsernameSelection : EntryEditEvent()
+
+        data class OnUsernameSelected(
             val field: Field
         ) : EntryEditEvent()
 

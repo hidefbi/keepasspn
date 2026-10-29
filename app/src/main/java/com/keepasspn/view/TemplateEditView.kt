@@ -53,6 +53,11 @@ class TemplateEditView @JvmOverloads constructor(
         this.mOnPasswordGenerationActionClickListener = listener
     }
 
+    private var mOnUsernameGenerationActionClickListener: ((Field) -> Unit)? = null
+    fun setOnUsernameGenerationActionClickListener(listener: ((Field) -> Unit)?) {
+        this.mOnUsernameGenerationActionClickListener = listener
+    }
+
     private var mOnDateInstantClickListener: ((DateInstant) -> Unit)? = null
     fun setOnDateInstantClickListener(listener: ((DateInstant) -> Unit)?) {
         this.mOnDateInstantClickListener = listener
@@ -206,6 +211,11 @@ class TemplateEditView @JvmOverloads constructor(
                     mOnPasswordGenerationActionClickListener?.invoke(field)
                 }, R.drawable.ic_random_white_24dp)
             }
+            if (templateAttribute.label.equals(TemplateField.LABEL_USERNAME, true)) {
+                setOnActionClickListener({
+                    mOnUsernameGenerationActionClickListener?.invoke(field)
+                }, R.drawable.ic_random_white_24dp)
+            }
         }
     }
 
@@ -247,6 +257,19 @@ class TemplateEditView @JvmOverloads constructor(
         return Field(
             name = TemplateField.LABEL_PASSWORD,
             value = ProtectedString(true, passwordView?.value)
+        )
+    }
+
+    fun setUsernameField(usernameField: Field) {
+        val usernameView: TextEditFieldView? = templateContainerView.findViewWithTag(FIELD_USERNAME_TAG)
+        usernameView?.value = usernameField.protectedValue.charArrayValue
+    }
+
+    fun getUsernameField(): Field {
+        val usernameView: TextEditFieldView? = templateContainerView.findViewWithTag(FIELD_USERNAME_TAG)
+        return Field(
+            name = TemplateField.LABEL_USERNAME,
+            value = ProtectedString(false, usernameView?.value)
         )
     }
 

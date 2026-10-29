@@ -55,7 +55,10 @@ class KeyGeneratorFragment : DatabaseFragment() {
     }
 
     private val tabs: List<KeyGeneratorTab>
-        get() = KeyGeneratorTab.getTabs(arguments?.getBoolean(STANDALONE_ARG, false) ?: false)
+        get() = KeyGeneratorTab.getTabs(
+            standalone = arguments?.getBoolean(STANDALONE_ARG, false) ?: false,
+            usernameOnly = arguments?.getBoolean(USERNAME_ONLY_ARG, false) ?: false
+        )
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -117,8 +120,9 @@ class KeyGeneratorFragment : DatabaseFragment() {
                                 mKeyGeneratorViewModel.validatePassphraseGenerated()
                             }
 
-                            // A username is never sent back to an entry, so there is nothing to validate
-                            KeyGeneratorTab.USERNAME -> {}
+                            KeyGeneratorTab.USERNAME -> {
+                                mKeyGeneratorViewModel.validateUsernameGenerated()
+                            }
                         }
                     }
                 }
@@ -142,14 +146,16 @@ class KeyGeneratorFragment : DatabaseFragment() {
 
         companion object {
             /**
-             * Tabs offered when a key is picked for an entry (PASSWORD and PASSPHRASE only).
-             * The standalone page from the add menu also offers USERNAME.
+             * Tabs offered for the current use:
+             * - a username field of an entry: USERNAME only
+             * - the standalone page from the add menu: all tabs
+             * - a password field of an entry: PASSWORD and PASSPHRASE
              */
-            fun getTabs(standalone: Boolean): List<KeyGeneratorTab> {
-                return if (standalone) {
-                    values().toList()
-                } else {
-                    listOf(PASSWORD, PASSPHRASE)
+            fun getTabs(standalone: Boolean, usernameOnly: Boolean): List<KeyGeneratorTab> {
+                return when {
+                    usernameOnly -> listOf(USERNAME)
+                    standalone -> values().toList()
+                    else -> listOf(PASSWORD, PASSPHRASE)
                 }
             }
         }
@@ -159,12 +165,18 @@ class KeyGeneratorFragment : DatabaseFragment() {
 
         private const val PASSWORD_TAB_ARG = "PASSWORD_TAB_ARG"
         private const val STANDALONE_ARG = "STANDALONE_ARG"
+        private const val USERNAME_ONLY_ARG = "USERNAME_ONLY_ARG"
 
-        fun getInstance(keyGeneratorTab: KeyGeneratorTab, standalone: Boolean = false): KeyGeneratorFragment {
+        fun getInstance(
+            keyGeneratorTab: KeyGeneratorTab,
+            standalone: Boolean = false,
+            usernameOnly: Boolean = false
+        ): KeyGeneratorFragment {
             val fragment = KeyGeneratorFragment()
             fragment.arguments = Bundle().apply {
                 putInt(PASSWORD_TAB_ARG, keyGeneratorTab.ordinal)
                 putBoolean(STANDALONE_ARG, standalone)
+                putBoolean(USERNAME_ONLY_ARG, usernameOnly)
             }
             return fragment
         }

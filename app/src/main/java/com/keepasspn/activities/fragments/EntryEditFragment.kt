@@ -149,6 +149,9 @@ class EntryEditFragment: DatabaseFragment() {
             setOnPasswordGenerationActionClickListener { field ->
                 mEntryEditViewModel.requestPasswordSelection(field)
             }
+            setOnUsernameGenerationActionClickListener { field ->
+                mEntryEditViewModel.requestUsernameSelection(field)
+            }
             setOnDateInstantClickListener { dateInstant ->
                 mEntryEditViewModel.requestDateTimeSelection(dateInstant)
             }
@@ -201,6 +204,9 @@ class EntryEditFragment: DatabaseFragment() {
                             }
                             is EntryEditViewModel.EntryEditEvent.OnPasswordSelected -> {
                                 templateView.setPasswordField(event.field)
+                            }
+                            is EntryEditViewModel.EntryEditEvent.OnUsernameSelected -> {
+                                templateView.setUsernameField(event.field)
                             }
                             is EntryEditViewModel.EntryEditEvent.OnCustomFieldEdited -> {
                                 val oldField = event.oldField

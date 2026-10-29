@@ -159,6 +159,20 @@ class EntryEditActivity : DatabaseLockActivity() {
         }
     }
 
+    private var mUsernameGeneratorResultLauncher = KeyGeneratorActivity.registerForGeneratedKeyResult(this) { generatedUsername ->
+        generatedUsername?.let {
+            mEntryEditViewModel.usernameField?.let { usernameField ->
+                usernameField.protectedValue = ProtectedString(
+                    usernameField.protectedValue.isProtected,
+                    it.copyOf()
+                )
+                mEntryEditViewModel.selectUsername(usernameField)
+            }
+            it.clear()
+        }
+        mEntryEditViewModel.usernameField = null
+    }
+
     override fun manageDatabaseInfo(): Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -279,6 +293,12 @@ class EntryEditActivity : DatabaseLockActivity() {
                                 KeyGeneratorActivity.launch(
                                     context = this@EntryEditActivity,
                                     resultLauncher = mKeyGeneratorResultLauncher
+                                )
+                            }
+                            is EntryEditViewModel.EntryEditEvent.RequestUsernameSelection -> {
+                                KeyGeneratorActivity.launchForUsername(
+                                    context = this@EntryEditActivity,
+                                    resultLauncher = mUsernameGeneratorResultLauncher
                                 )
                             }
                             is EntryEditViewModel.EntryEditEvent.RequestCustomFieldEdition -> {
