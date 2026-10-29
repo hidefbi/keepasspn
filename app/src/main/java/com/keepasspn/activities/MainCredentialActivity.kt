@@ -101,8 +101,10 @@ import com.keepasspn.view.asError
 import com.keepasspn.view.showActionErrorIfNeeded
 import com.keepasspn.viewmodels.DeviceUnlockViewModel
 import com.keepasspn.viewmodels.MainCredentialViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.FileNotFoundException
 import java.nio.ByteBuffer
 import java.nio.CharBuffer
@@ -805,15 +807,19 @@ class MainCredentialActivity : DatabaseModeActivity() {
             return
         }
         lifecycleScope.launch {
-            val alreadySet = try {
-                PinCryptoHelper.isPinSet(this@MainCredentialActivity, uri)
-            } catch (e: Exception) {
-                NoOpLog.e(TAG, "Unable to check PIN status", e)
-                true // fail safe: don't prompt if we can't tell
+            val offerWanted = withContext(Dispatchers.IO) {
+                val alreadySet = try {
+                    PinCryptoHelper.isPinSet(this@MainCredentialActivity, uri)
+                } catch (e: Exception) {
+                    NoOpLog.e(TAG, "Unable to check PIN status", e)
+                    true // fail safe: don't prompt if we can't tell
+                }
+                !alreadySet
+                        && PreferencesUtil.offerPinSetupAfterUnlock(applicationContext)
+                        && !PinPolicyStore.isPinOfferDeclined(applicationContext, uri)
             }
-            if (alreadySet || isFinishing || isDestroyed) {
-                passwordBytes.fill(0)
-                lastPasswordAttemptBytes = null
+            if (!offerWanted || isFinishing || isDestroyed) {
+                releasePinSetupPassword(passwordBytes)
                 proceedIntoVault()
                 return@launch
             }
@@ -825,19 +831,35 @@ class MainCredentialActivity : DatabaseModeActivity() {
                     showSetPinDialog(uri, passwordBytes, onDone = ::proceedIntoVault)
                 }
                 .setNegativeButton(android.R.string.cancel) { _, _ ->
-                    passwordBytes.fill(0)
-                    lastPasswordAttemptBytes = null
+                    declinePinSetup(uri, passwordBytes)
                     proceedIntoVault()
                 }
                 .show()
         }
     }
 
+    /** Refusing the offer is remembered for this database only, the switch in settings stays as is. */
+    private fun declinePinSetup(uri: Uri, passwordBytes: ByteArray) {
+        PinPolicyStore.setPinOfferDeclined(applicationContext, uri)
+        releasePinSetupPassword(passwordBytes)
+    }
+
+    private fun releasePinSetupPassword(passwordBytes: ByteArray) {
+        passwordBytes.fill(0)
+        lastPasswordAttemptBytes = null
+    }
+
     @androidx.annotation.RequiresApi(Build.VERSION_CODES.M)
-    private fun showSetPinDialog(uri: Uri, passwordBytes: ByteArray, onDone: () -> Unit) {
+    private fun showSetPinDialog(
+        uri: Uri,
+        passwordBytes: ByteArray,
+        onDone: () -> Unit,
+        errorMessage: Int? = null
+    ) {
         val firstEditText = EditText(this).apply {
             inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_VARIATION_PASSWORD
             hint = getString(R.string.pin_setup_dialog_hint)
+            errorMessage?.let { error = getString(it) }
         }
         val container = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -852,18 +874,14 @@ class MainCredentialActivity : DatabaseModeActivity() {
             .setPositiveButton(R.string.unlock) { _, _ ->
                 val firstPin = firstEditText.text.toString()
                 if (firstPin.length < 6) {
-                    Snackbar.make(coordinatorLayout, R.string.pin_setup_too_short, Snackbar.LENGTH_LONG)
-                        .asError().show()
-                    passwordBytes.fill(0)
-                    lastPasswordAttemptBytes = null
-                    onDone()
+                    // Ask again: a short PIN is a mistake, not a refusal of the offer
+                    showSetPinDialog(uri, passwordBytes, onDone, R.string.pin_setup_too_short)
                     return@setPositiveButton
                 }
                 showConfirmPinDialog(uri, passwordBytes, firstPin.toCharArray(), onDone)
             }
             .setNegativeButton(android.R.string.cancel) { _, _ ->
-                passwordBytes.fill(0)
-                lastPasswordAttemptBytes = null
+                declinePinSetup(uri, passwordBytes)
                 onDone()
             }
             .show()
@@ -883,11 +901,6 @@ class MainCredentialActivity : DatabaseModeActivity() {
             setPadding(padding, padding, padding, padding)
             addView(confirmEditText)
         }
-        fun cleanup() {
-            firstPin.fill('\u0000')
-            passwordBytes.fill(0)
-            lastPasswordAttemptBytes = null
-        }
         AlertDialog.Builder(this)
             .setTitle(R.string.pin_setup_confirm_dialog_title)
             .setView(container)
@@ -895,11 +908,10 @@ class MainCredentialActivity : DatabaseModeActivity() {
             .setPositiveButton(R.string.unlock) { _, _ ->
                 val confirmPin = confirmEditText.text.toString().toCharArray()
                 if (!firstPin.contentEquals(confirmPin)) {
-                    Snackbar.make(coordinatorLayout, R.string.pin_setup_mismatch, Snackbar.LENGTH_LONG)
-                        .asError().show()
                     confirmPin.fill('\u0000')
-                    cleanup()
-                    onDone()
+                    firstPin.fill('\u0000')
+                    // Start again with the first PIN, the password is still needed
+                    showSetPinDialog(uri, passwordBytes, onDone, R.string.pin_setup_mismatch)
                     return@setPositiveButton
                 }
                 lifecycleScope.launch {
@@ -918,13 +930,15 @@ class MainCredentialActivity : DatabaseModeActivity() {
                         ).asError().show()
                     } finally {
                         confirmPin.fill('\u0000')
-                        cleanup()
+                        firstPin.fill('\u0000')
+                        releasePinSetupPassword(passwordBytes)
                         onDone()
                     }
                 }
             }
             .setNegativeButton(android.R.string.cancel) { _, _ ->
-                cleanup()
+                firstPin.fill('\u0000')
+                declinePinSetup(uri, passwordBytes)
                 onDone()
             }
             .show()
