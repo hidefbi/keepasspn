@@ -499,6 +499,14 @@ open class Database {
             return mDatabaseKDB?.groupNamesNotAllowed ?: listOf()
         }
 
+    private val databaseLoader = DatabaseLoader(
+        currentKdb = { mDatabaseKDB },
+        currentKdbx = { mDatabaseKDBX },
+        currentKdfEngine = { kdfEngine },
+        setKdb = { setDatabaseKDB(it) },
+        setKdbx = { setDatabaseKDBX(it) }
+    )
+
     private fun setDatabaseKDB(databaseKDB: DatabaseKDB) {
         this.mDatabaseKDB = databaseKDB
         this.mDatabaseKDBX = null
@@ -529,59 +537,19 @@ open class Database {
         fixDuplicateUUID: Boolean,
         progressTaskUpdater: ProgressTaskUpdater?
     ) {
-        // Check if the file is writable
         this.isReadOnly = readOnly
         this.allowUserVerification = allowUserVerification
 
-        try {
-            kdfEngine?.checkLimits(limits)
-            // Read database stream for the first time
-            readDatabaseStream(databaseStream,
-                    { databaseInputStream ->
-                        val databaseKDB = DatabaseKDB().apply {
-                            binaryCache.cacheDirectory = cacheDirectory
-                            changeDuplicateId = fixDuplicateUUID
-                        }
-                        DatabaseInputKDB(databaseKDB)
-                            .openDatabase(
-                                databaseInputStream,
-                                progressTaskUpdater
-                            ) {
-                                 databaseKDB.deriveMasterKey(
-                                     masterCredential
-                                 )
-                            }
-                        setDatabaseKDB(databaseKDB)
-                    },
-                    { databaseInputStream ->
-                        val databaseKDBX = DatabaseKDBX().apply {
-                            binaryCache.cacheDirectory = cacheDirectory
-                            changeDuplicateId = fixDuplicateUUID
-                        }
-                        DatabaseInputKDBX(databaseKDBX).apply {
-                            setMethodToCheckMemoryForBinary { memoryWanted ->
-                                limits.isMemorySufficientForBinary(memoryWanted)
-                            }
-                            openDatabase(
-                                databaseInputStream,
-                                progressTaskUpdater
-                            ) {
-                                databaseKDBX.deriveMasterKey(
-                                    masterCredential,
-                                    challengeResponseRetriever
-                                )
-                            }
-                        }
-                        setDatabaseKDBX(databaseKDBX)
-                    }
-            )
-            loaded = true
-        } catch (e: Exception) {
-            NoOpLog.e(TAG, "Unable to load the database")
-            if (e is DatabaseInputException)
-                throw e
-            throw DatabaseInputException(e)
-        }
+        databaseLoader.load(
+            databaseStream,
+            masterCredential,
+            challengeResponseRetriever,
+            cacheDirectory,
+            fixDuplicateUUID,
+            limits,
+            progressTaskUpdater
+        )
+        loaded = true
     }
 
     /**
@@ -683,42 +651,8 @@ open class Database {
         limits: Limits,
         progressTaskUpdater: ProgressTaskUpdater?
     ) {
-        try {
-            kdfEngine?.checkLimits(limits)
-            // Retrieve the stream from the old database
-            readDatabaseStream(databaseStream,
-                { databaseInputStream ->
-                    val databaseKDB = DatabaseKDB()
-                    DatabaseInputKDB(databaseKDB)
-                        .openDatabase(databaseInputStream, progressTaskUpdater) {
-                            this@Database.mDatabaseKDB?.let { thisDatabaseKDB ->
-                                databaseKDB.copyMasterKeyFrom(thisDatabaseKDB)
-                            }
-                        }
-                    setDatabaseKDB(databaseKDB)
-                },
-                { databaseInputStream ->
-                    val databaseKDBX = DatabaseKDBX()
-                    DatabaseInputKDBX(databaseKDBX).apply {
-                        setMethodToCheckMemoryForBinary { memoryWanted ->
-                            limits.isMemorySufficientForBinary(memoryWanted)
-                        }
-                        openDatabase(databaseInputStream, progressTaskUpdater) {
-                            this@Database.mDatabaseKDBX?.let { thisDatabaseKDBX ->
-                                databaseKDBX.copyMasterKeyFrom(thisDatabaseKDBX)
-                            }
-                        }
-                    }
-                    setDatabaseKDBX(databaseKDBX)
-                }
-            )
-            loaded = true
-        } catch (e: Exception) {
-            NoOpLog.e(TAG, "Unable to reload the database")
-            if (e is DatabaseException)
-                throw e
-            throw DatabaseInputException(e)
-        }
+        databaseLoader.reload(databaseStream, limits, progressTaskUpdater)
+        loaded = true
     }
 
     @Throws(DatabaseOutputException::class)
