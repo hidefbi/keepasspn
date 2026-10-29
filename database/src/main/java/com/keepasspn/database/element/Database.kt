@@ -957,49 +957,25 @@ open class Database {
                 ?: false
     }
 
+    private val nodes = DatabaseNodes(
+        kdb = { mDatabaseKDB },
+        kdbx = { mDatabaseKDBX }
+    )
+
     fun rootCanContainsEntry(): Boolean {
-        return mDatabaseKDB?.rootCanContainsEntry() ?: mDatabaseKDBX?.rootCanContainsEntry() ?: false
+        return nodes.rootCanContainsEntry()
     }
 
     fun createEntry(): Entry? {
-        mDatabaseKDB?.let { database ->
-            return Entry(database.createEntry()).apply {
-                nodeId = database.newEntryId()
-            }
-        }
-        mDatabaseKDBX?.let { database ->
-            return Entry(database.createEntry()).apply {
-                nodeId = database.newEntryId()
-            }
-        }
-
-        return null
+        return nodes.createEntry()
     }
 
     fun createGroup(): Group? {
-        var group: Group? = null
-        mDatabaseKDB?.let { database ->
-            group = Group(database.createGroup()).apply {
-                setNodeId(database.newGroupId())
-            }
-        }
-        mDatabaseKDBX?.let { database ->
-            group = Group(database.createGroup()).apply {
-                setNodeId(database.newGroupId())
-            }
-        }
-
-        return group
+        return nodes.createGroup()
     }
 
     fun getEntryById(id: EntryId): Entry? {
-        mDatabaseKDB?.getEntryById(id)?.let {
-            return Entry(it)
-        }
-        mDatabaseKDBX?.getEntryById(id)?.let {
-            return Entry(it)
-        }
-        return null
+        return nodes.getEntryById(id)
     }
 
     fun getEntriesByIds(entriesIds: List<EntryId>): List<Entry> {
@@ -1007,19 +983,7 @@ open class Database {
     }
 
     fun getGroupById(groupId: GroupId): Group? {
-        when (groupId) {
-            is NodeIdInt -> {
-                mDatabaseKDB?.getGroupById(groupId)?.let {
-                    return Group(it)
-                }
-            }
-            is NodeIdUUID -> {
-                mDatabaseKDBX?.getGroupById(groupId)?.let {
-                    return Group(it)
-                }
-            }
-        }
-        return null
+        return nodes.getGroupById(groupId)
     }
 
     fun getGroupsByIds(groupsIds: List<GroupId>): List<Group> {
@@ -1027,61 +991,27 @@ open class Database {
     }
 
     fun addEntryTo(entry: Entry, parent: Group) {
-        entry.entryKDB?.let { entryKDB ->
-            mDatabaseKDB?.addEntryTo(entryKDB, parent.groupKDB)
-        }
-        entry.entryKDBX?.let { entryKDBX ->
-            mDatabaseKDBX?.addEntryTo(entryKDBX, parent.groupKDBX)
-        }
-        entry.afterAssignNewParent()
+        nodes.addEntryTo(entry, parent)
     }
 
     fun updateEntry(entry: Entry) {
-        entry.entryKDB?.let { entryKDB ->
-            mDatabaseKDB?.updateEntry(entryKDB)
-        }
-        entry.entryKDBX?.let { entryKDBX ->
-            mDatabaseKDBX?.updateEntry(entryKDBX)
-        }
+        nodes.updateEntry(entry)
     }
 
     fun removeEntryFrom(entry: Entry, parent: Group) {
-        entry.entryKDB?.let { entryKDB ->
-            mDatabaseKDB?.removeEntryFrom(entryKDB, parent.groupKDB)
-        }
-        entry.entryKDBX?.let { entryKDBX ->
-            mDatabaseKDBX?.removeEntryFrom(entryKDBX, parent.groupKDBX)
-        }
-        entry.afterAssignNewParent()
+        nodes.removeEntryFrom(entry, parent)
     }
 
     fun addGroupTo(group: Group, parent: Group) {
-        group.groupKDB?.let { groupKDB ->
-            mDatabaseKDB?.addGroupTo(groupKDB, parent.groupKDB)
-        }
-        group.groupKDBX?.let { groupKDBX ->
-            mDatabaseKDBX?.addGroupTo(groupKDBX, parent.groupKDBX)
-        }
-        group.afterAssignNewParent()
+        nodes.addGroupTo(group, parent)
     }
 
     fun updateGroup(group: Group) {
-        group.groupKDB?.let { entryKDB ->
-            mDatabaseKDB?.updateGroup(entryKDB)
-        }
-        group.groupKDBX?.let { entryKDBX ->
-            mDatabaseKDBX?.updateGroup(entryKDBX)
-        }
+        nodes.updateGroup(group)
     }
 
     fun removeGroupFrom(group: Group, parent: Group) {
-        group.groupKDB?.let { groupKDB ->
-            mDatabaseKDB?.removeGroupFrom(groupKDB, parent.groupKDB)
-        }
-        group.groupKDBX?.let { groupKDBX ->
-            mDatabaseKDBX?.removeGroupFrom(groupKDBX, parent.groupKDBX)
-        }
-        group.afterAssignNewParent()
+        nodes.removeGroupFrom(group, parent)
     }
 
     /**
