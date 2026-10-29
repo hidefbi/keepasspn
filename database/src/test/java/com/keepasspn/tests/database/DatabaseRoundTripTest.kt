@@ -23,6 +23,7 @@ import com.keepasspn.database.crypto.kdf.KdfFactory
 import com.keepasspn.database.crypto.kdf.Limits
 import com.keepasspn.model.DatabaseInfo
 import com.keepasspn.database.element.MasterCredential
+import com.keepasspn.database.exception.DatabaseOutputException
 import com.keepasspn.hardware.HardwareKey
 import com.keepasspn.model.EntryInfo
 import org.junit.Assert.assertArrayEquals
@@ -62,14 +63,19 @@ class DatabaseRoundTripTest {
         }
 
         val output = ByteArrayOutputStream()
-        database.saveData(
-            folder.newFile("cache.kdbx"),
-            { output },
-            { null },
-            MasterCredential("correct horse".toCharArray()),
-            challengeResponseRetriever,
-            limits
-        )
+        try {
+            database.saveData(
+                folder.newFile("cache.kdbx"),
+                { output },
+                { null },
+                MasterCredential("correct horse".toCharArray()),
+                challengeResponseRetriever,
+                limits
+            )
+        } catch (e: DatabaseOutputException) {
+            // The save wraps the real error: show it as the cause of the failure
+            throw AssertionError("Unable to save the test database", e.mThrowable ?: e)
+        }
 
         val loaded = DatabaseInfo()
         loaded.loadData(
