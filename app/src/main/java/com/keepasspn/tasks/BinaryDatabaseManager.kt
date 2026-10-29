@@ -4,6 +4,7 @@ import android.content.ContentResolver
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
+import com.keepasspn.icons.CustomIconImage
 import com.keepasspn.utils.NoOpLog
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.element.binary.BinaryCache
@@ -126,9 +127,9 @@ object BinaryDatabaseManager {
             binaryData?.let {
                 contentResolver.getUriInputStream(bitmapUri)?.use { inputStream ->
                     BitmapFactory.decodeStream(inputStream)?.let { bitmap ->
-                        val bitmapResized = bitmap.resize(DEFAULT_ICON_WIDTH)
+                        val circleBitmap = CustomIconImage.toCircle(bitmap)
                         val byteArrayOutputStream = ByteArrayOutputStream()
-                        bitmapResized?.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream)
+                        circleBitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream)
                         val bitmapData: ByteArray = byteArrayOutputStream.toByteArray()
                         val byteArrayInputStream = ByteArrayInputStream(bitmapData)
                         uploadToDatabase(
@@ -143,26 +144,6 @@ object BinaryDatabaseManager {
         } catch (e: Exception) {
             NoOpLog.e(TAG, "Unable to resize bitmap to store it in binary", e)
         }
-    }
-
-
-    /**
-     * reduces the size of the image
-     * @param maxSize
-     * @return
-     */
-    private fun Bitmap.resize(maxSize: Int): Bitmap? {
-        var width = this.width
-        var height = this.height
-        val bitmapRatio = width.toFloat() / height.toFloat()
-        if (bitmapRatio > 1) {
-            width = maxSize
-            height = (width / bitmapRatio).toInt()
-        } else {
-            height = maxSize
-            width = (height * bitmapRatio).toInt()
-        }
-        return Bitmap.createScaledBitmap(this, width, height, true)
     }
 
     fun loadBitmap(
@@ -217,8 +198,6 @@ object BinaryDatabaseManager {
             }
         }
     }
-
-    private const val DEFAULT_ICON_WIDTH = 64
 
     private val TAG = BinaryDatabaseManager::class.java.name
 }

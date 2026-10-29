@@ -34,13 +34,11 @@ import com.keepasspn.utils.NoOpLog
 import android.widget.ImageView
 import android.widget.RemoteViews
 import androidx.core.content.res.ResourcesCompat
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.graphics.scale
 import androidx.core.widget.ImageViewCompat
 import com.keepasspn.database.element.binary.BinaryCache
-import com.keepasspn.database.element.database.DatabaseVersioned
 import com.keepasspn.database.element.binary.BinaryData
 import com.keepasspn.database.element.icon.IconImageCustom
 import com.keepasspn.database.element.icon.IconImageDraw
@@ -214,52 +212,6 @@ class IconDrawableFactory(
             }
         } catch (e: Exception) {
             NoOpLog.e(ImageView::class.java.name, "Unable to assign icon in image view", e)
-        }
-    }
-
-    /**
-     * Assign a database [icon] to an ImageView drawn inside a round frame.
-     * The frame has [framePaddingPx] of padding around the icon.
-     * A custom icon is cropped to a circle that fills the whole frame,
-     * a built-in icon keeps the usual padding and tint.
-     */
-    fun assignDatabaseIconInFrame(
-        imageView: ImageView,
-        icon: IconImageDraw,
-        framePaddingPx: Int,
-        tintColor: Int = Color.WHITE,
-    ) {
-        try {
-            val context = imageView.context.applicationContext
-            addToCustomCache(context.resources, icon)
-            val superDrawable = getIconSuperDrawable(context,
-                icon,
-                imageView.width,
-                tintColor)
-            val isCustom = !superDrawable.tintable
-                    && icon.getIconImageToDraw().custom.uuid != DatabaseVersioned.UUID_ZERO
-            if (isCustom) {
-                val size = superDrawable.drawable.intrinsicWidth + 2 * framePaddingPx
-                val square = superDrawable.drawable.toBitmap().scale(size, size)
-                imageView.setPadding(0, 0, 0, 0)
-                imageView.setImageDrawable(
-                    RoundedBitmapDrawableFactory.create(context.resources, square).apply {
-                        isCircular = true
-                    }
-                )
-                ImageViewCompat.setImageTintList(imageView, null)
-            } else {
-                imageView.setPadding(framePaddingPx, framePaddingPx, framePaddingPx, framePaddingPx)
-                imageView.setImageDrawable(superDrawable.drawable)
-                if (superDrawable.tintable) {
-                    ImageViewCompat.setImageTintList(imageView,
-                        ColorStateList.valueOf(tintColor))
-                } else {
-                    ImageViewCompat.setImageTintList(imageView, null)
-                }
-            }
-        } catch (e: Exception) {
-            NoOpLog.e(ImageView::class.java.name, "Unable to assign icon in framed image view", e)
         }
     }
 

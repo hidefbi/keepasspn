@@ -341,12 +341,7 @@ class EntryEditFragment: DatabaseFragment() {
     override fun onDatabaseRetrieved(database: ContextualDatabase) {
 
         templateView.populateIconMethod = { imageView, icon ->
-            database.iconDrawableFactory.assignDatabaseIconInFrame(
-                imageView,
-                icon,
-                resources.getDimensionPixelSize(R.dimen.icon_ring_padding),
-                mIconColor
-            )
+            database.iconDrawableFactory.assignDatabaseIcon(imageView, icon, mIconColor)
         }
 
         mAllowMultipleAttachments = database.allowMultipleAttachments == true
