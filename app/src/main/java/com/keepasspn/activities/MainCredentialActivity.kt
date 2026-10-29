@@ -467,12 +467,12 @@ class MainCredentialActivity : DatabaseModeActivity() {
                         mMainCredentialViewModel.onDatabaseRetrieved(database)
                     }
                 } else {
-                    // Wrong master password while the PIN was deleted: count towards removal
+                    // Wrong master password: count towards removal of the database copy
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                         && result.exception is InvalidCredentialsDatabaseException) {
                         mMainCredentialViewModel.databaseFileUri?.let { logicalUri ->
                             lifecycleScope.launch {
-                                handleMasterFailureDuringPinLockout(logicalUri)
+                                handleMasterPasswordFailure(logicalUri)
                             }
                         }
                     }
@@ -621,8 +621,14 @@ class MainCredentialActivity : DatabaseModeActivity() {
     // -------------------------------------------------------------------
 
     @androidx.annotation.RequiresApi(Build.VERSION_CODES.M)
-    private suspend fun handleMasterFailureDuringPinLockout(logicalUri: Uri) {
-        when (val outcome = PinPolicyManager.onMasterPasswordFailure(applicationContext, logicalUri)) {
+    private suspend fun handleMasterPasswordFailure(logicalUri: Uri) {
+        val outcome = PinPolicyManager.onMasterPasswordFailure(applicationContext, logicalUri)
+            ?: run {
+                // With a PIN, the PIN policy decides; without one, wrong master passwords count
+                if (PinCryptoHelper.isPinSet(applicationContext, logicalUri)) return
+                PinPolicyManager.onMasterPasswordFailureWithoutPin(applicationContext, logicalUri)
+            }
+        when (outcome) {
             is PinPolicy.MasterFailureOutcome.Retry -> {
                 Snackbar.make(
                     coordinatorLayout,
@@ -637,7 +643,6 @@ class MainCredentialActivity : DatabaseModeActivity() {
                     .setPositiveButton(android.R.string.ok) { _, _ -> finish() }
                     .show()
             }
-            null -> { /* No PIN lockout active: normal wrong-password handling */ }
         }
     }
 

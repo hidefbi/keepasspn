@@ -25,7 +25,8 @@ import java.security.MessageDigest
 
 /**
  * Small private state for PIN policy: the time of the last app open and, per database,
- * whether the master-password lockout is active after a PIN was deleted.
+ * whether the master-password lockout is active after a PIN was deleted, and how many
+ * wrong master passwords were entered in a row when the database has no PIN.
  *
  * Stored in a private SharedPreferences file. Writes use commit() so the counters
  * are on disk before the next attempt is accepted.
@@ -35,6 +36,7 @@ object PinPolicyStore {
     private const val PREFS_NAME = "pin_policy_state"
     private const val KEY_LAST_OPEN_MILLIS = "last_open_millis"
     private const val KEY_MASTER_LOCKOUT_PREFIX = "master_lockout_"
+    private const val KEY_UNLOCK_FAILURES_PREFIX = "unlock_failures_"
 
     private fun prefs(context: Context) =
         context.applicationContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -74,5 +76,19 @@ object PinPolicyStore {
 
     fun clearMasterLockout(context: Context, databaseUri: Uri) {
         prefs(context).edit().remove(lockoutKey(databaseUri)).commit()
+    }
+
+    /** Counts one wrong master password in a row for a database without a PIN. */
+    fun incrementUnlockFailure(context: Context, databaseUri: Uri): Int {
+        val key = uriKey(KEY_UNLOCK_FAILURES_PREFIX, databaseUri)
+        val count = prefs(context).getInt(key, 0) + 1
+        prefs(context).edit().putInt(key, count).commit()
+        return count
+    }
+
+    fun clearUnlockFailures(context: Context, databaseUri: Uri) {
+        prefs(context).edit()
+            .remove(uriKey(KEY_UNLOCK_FAILURES_PREFIX, databaseUri))
+            .commit()
     }
 }

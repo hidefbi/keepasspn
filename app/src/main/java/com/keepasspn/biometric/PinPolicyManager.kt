@@ -78,9 +78,28 @@ object PinPolicyManager {
         }
     }
 
-    /** A successful master-password unlock ends the lockout. */
+    /**
+     * Counts a wrong master password for a database that has no PIN.
+     * The database copy is removed from the app after too many wrong passwords in a row.
+     */
+    suspend fun onMasterPasswordFailureWithoutPin(
+        context: Context,
+        databaseUri: Uri
+    ): PinPolicy.MasterFailureOutcome = withContext(Dispatchers.IO) {
+        val failures = PinPolicyStore.incrementUnlockFailure(context, databaseUri)
+        when (val outcome = PinPolicy.onMasterFailureWithoutPin(failures)) {
+            is PinPolicy.MasterFailureOutcome.DeleteDatabase -> {
+                purgeDatabase(context, databaseUri)
+                outcome
+            }
+            else -> outcome
+        }
+    }
+
+    /** A successful master-password unlock ends the lockout and the count of wrong passwords. */
     suspend fun onMasterPasswordSuccess(context: Context, databaseUri: Uri) = withContext(Dispatchers.IO) {
         PinPolicyStore.clearMasterLockout(context, databaseUri)
+        PinPolicyStore.clearUnlockFailures(context, databaseUri)
     }
 
     /** Removes the PIN, the history entry, the device unlock entry and the recovery copy. */
@@ -91,5 +110,6 @@ object PinPolicyManager {
         val historyDao = AppDatabase.getDatabase(context).fileDatabaseHistoryDao()
         historyDao.getByDatabaseUri(databaseUri.toString())?.let { historyDao.delete(it) }
         PinPolicyStore.clearMasterLockout(context, databaseUri)
+        PinPolicyStore.clearUnlockFailures(context, databaseUri)
     }
 }
