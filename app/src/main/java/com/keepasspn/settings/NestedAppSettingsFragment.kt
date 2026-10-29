@@ -36,7 +36,6 @@ import com.keepasspn.activities.dialogs.UnavailableFeatureDialogFragment
 import com.keepasspn.activities.stylish.Stylish
 import com.keepasspn.app.database.FileDatabaseHistoryAction
 import com.keepasspn.biometric.DeviceUnlockManager
-import com.keepasspn.biometric.PinPolicyStore
 import com.keepasspn.credentialprovider.autofill.KeeAutofillService.Companion.showAutofillDeviceSettings
 import com.keepasspn.credentialprovider.autofill.isCredentialProviderActivated
 import com.keepasspn.credentialprovider.magikeyboard.MagikeyboardService.Companion.isMagikeyboardActivated
@@ -191,14 +190,6 @@ class NestedAppSettingsFragment : NestedSettingsFragment() {
                 }
                 true
             }
-            // Turning the offer back on asks again the databases that declined it before
-            findPreference<TwoStatePreference>(getString(R.string.pin_offer_setup_key))
-                ?.setOnPreferenceChangeListener { _, newValue ->
-                    if (newValue == true) {
-                        context?.let { PinPolicyStore.clearPinOfferDeclined(it) }
-                    }
-                    true
-                }
         } else {
             pinCategory?.isVisible = false
         }

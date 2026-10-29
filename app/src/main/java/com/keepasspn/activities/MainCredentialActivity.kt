@@ -816,7 +816,6 @@ class MainCredentialActivity : DatabaseModeActivity() {
                 }
                 !alreadySet
                         && PreferencesUtil.offerPinSetupAfterUnlock(applicationContext)
-                        && !PinPolicyStore.isPinOfferDeclined(applicationContext, uri)
             }
             if (!offerWanted || isFinishing || isDestroyed) {
                 releasePinSetupPassword(passwordBytes)
@@ -831,17 +830,11 @@ class MainCredentialActivity : DatabaseModeActivity() {
                     showSetPinDialog(uri, passwordBytes, onDone = ::proceedIntoVault)
                 }
                 .setNegativeButton(android.R.string.cancel) { _, _ ->
-                    declinePinSetup(uri, passwordBytes)
+                    releasePinSetupPassword(passwordBytes)
                     proceedIntoVault()
                 }
                 .show()
         }
-    }
-
-    /** Refusing the offer is remembered for this database only, the switch in settings stays as is. */
-    private fun declinePinSetup(uri: Uri, passwordBytes: ByteArray) {
-        PinPolicyStore.setPinOfferDeclined(applicationContext, uri)
-        releasePinSetupPassword(passwordBytes)
     }
 
     private fun releasePinSetupPassword(passwordBytes: ByteArray) {
@@ -881,7 +874,7 @@ class MainCredentialActivity : DatabaseModeActivity() {
                 showConfirmPinDialog(uri, passwordBytes, firstPin.toCharArray(), onDone)
             }
             .setNegativeButton(android.R.string.cancel) { _, _ ->
-                declinePinSetup(uri, passwordBytes)
+                releasePinSetupPassword(passwordBytes)
                 onDone()
             }
             .show()
@@ -938,7 +931,7 @@ class MainCredentialActivity : DatabaseModeActivity() {
             }
             .setNegativeButton(android.R.string.cancel) { _, _ ->
                 firstPin.fill('\u0000')
-                declinePinSetup(uri, passwordBytes)
+                releasePinSetupPassword(passwordBytes)
                 onDone()
             }
             .show()
