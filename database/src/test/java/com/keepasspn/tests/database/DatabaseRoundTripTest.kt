@@ -19,6 +19,7 @@
  */
 package com.keepasspn.tests.database
 
+import com.keepasspn.database.crypto.kdf.KdfFactory
 import com.keepasspn.database.crypto.kdf.Limits
 import com.keepasspn.model.DatabaseInfo
 import com.keepasspn.database.element.MasterCredential
@@ -47,6 +48,7 @@ class DatabaseRoundTripTest {
     fun entriesAreReadBackAfterSaving() {
         val database = DatabaseInfo()
         database.createData("Test", "Root", null)
+        database.kdfEngine = KdfFactory.defaultKdf
         val root = database.rootGroup!!
         listOf("Mail" to "s3cret", "Bank" to "p4ss").forEach { (title, password) ->
             val entryInfo = EntryInfo().apply {
