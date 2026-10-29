@@ -102,10 +102,7 @@ class DeleteNodesRunnable(
                     }
                 }
             }
-            // else {
-                // Let's not bother recovering from a failure to save a deleted tree. It is too much work.
-                // TODO database.undoDeleteGroupFrom(mGroup, mParent);
-            // }
+            // Failures of a permanent delete are not rolled back: restoring a deleted tree is not supported.
         }
 
         // Return a copy of unchanged nodes as old param
