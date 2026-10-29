@@ -62,6 +62,7 @@
     <string name="hint_conf_pass">Konfirmu pasvorton</string>
     <string name="generate_password">Generi pasvorton</string>
     <string name="generate_credentials">Generi akreditaĵojn</string>
+    <string name="copied_to_clipboard">Kopiita</string>
     <string name="file_browser">Dosiermastrumilo</string>
     <string name="field_name">Kampa nomo</string>
     <string name="error_field_name_already_exists">La kampa nomo jam ekzistas.</string>

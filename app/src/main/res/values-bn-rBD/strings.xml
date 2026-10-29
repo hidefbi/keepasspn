@@ -177,4 +177,5 @@
     <string name="icon_upload_info_message">এই ডিভাইস থেকে একটি ছবি বেছে নিন। Android-কে ছবিটি পড়তে পারতে হবে (PNG, JPEG, WebP এবং বেশিরভাগ সাধারণ ফরম্যাট), আর আকার হতে হবে 5 MB বা তার কম। ছবিটি 64 পিক্সেল প্রস্থে ছোট করে ডেটাবেসে সংরক্ষণ করা হবে। ডেটাবেসে আগে থেকেই থাকা ছবি গ্রহণ করা হবে না। কাস্টম আইকন শুধু সেই ডেটাবেসে পাওয়া যায় যেগুলো তা সমর্থন করে।</string>
     <string name="icon_upload_info_button">ছবি বেছে নিন</string>
     <string name="generate_credentials">শংসাপত্র তৈরি করুন</string>
+    <string name="copied_to_clipboard">কপি করা হয়েছে</string>
 </resources>

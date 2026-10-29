@@ -38,6 +38,7 @@ import com.keepasspn.R
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.password.PasswordGenerator
 import com.keepasspn.settings.PreferencesUtil
+import com.keepasspn.timeout.copyGeneratedValueToClipboard
 import com.keepasspn.timeout.timeoutCopyToClipboard
 import com.keepasspn.utils.clear
 import com.keepasspn.view.PasswordEditView
@@ -107,6 +108,15 @@ class PasswordGeneratorFragment : DatabaseFragment() {
                     label = getString(R.string.password),
                     value = passwordEditView.passwordCharArray,
                     sensitive = true
+                )
+            }
+        }
+
+        if (mKeyGeneratorViewModel.isStandalone) {
+            passwordEditView.setReadOnlyTapAction {
+                context?.copyGeneratedValueToClipboard(
+                    label = getString(R.string.password),
+                    value = passwordEditView.passwordCharArray
                 )
             }
         }

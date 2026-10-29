@@ -97,6 +97,11 @@ class KeyGeneratorViewModel : ViewModel() {
     val requireUsernameGeneration: SharedFlow<Unit> = _requireUsernameGeneration.asSharedFlow()
 
     /**
+     * True when the generator page is opened from the add menu, without an entry to return to.
+     */
+    var isStandalone: Boolean = false
+
+    /**
      * Set the generated key.
      */
     fun setKeyGenerated(value: CharArray?) {

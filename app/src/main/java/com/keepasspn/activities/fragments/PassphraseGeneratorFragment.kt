@@ -36,6 +36,7 @@ import com.keepasspn.R
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.password.PassphraseGenerator
 import com.keepasspn.settings.PreferencesUtil
+import com.keepasspn.timeout.copyGeneratedValueToClipboard
 import com.keepasspn.timeout.timeoutCopyToClipboard
 import com.keepasspn.utils.clear
 import com.keepasspn.view.PasswordEditView
@@ -74,6 +75,15 @@ class PassphraseGeneratorFragment : DatabaseFragment() {
         charactersCountText = view.findViewById(R.id.character_count)
         wordSeparator = view.findViewById(R.id.word_separator)
         wordCaseSpinner = view.findViewById(R.id.word_case)
+
+        if (mKeyGeneratorViewModel.isStandalone) {
+            passwordEditView.setReadOnlyTapAction {
+                context?.copyGeneratedValueToClipboard(
+                    label = getString(R.string.passphrase),
+                    value = passwordEditView.passwordCharArray
+                )
+            }
+        }
 
         minSliderWordCount = resources.getInteger(R.integer.passphrase_generator_word_count_min)
         maxSliderWordCount = resources.getInteger(R.integer.passphrase_generator_word_count_max)

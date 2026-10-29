@@ -173,6 +173,7 @@
     <string name="file_browser">Файлавы мэнэджар</string>
     <string name="generate_password">Стварыць пароль</string>
     <string name="generate_credentials">Стварыць уліковыя даныя</string>
+    <string name="copied_to_clipboard">Скапіявана</string>
     <string name="generate_keyfile">Стварыць файл ключа</string>
     <string name="hint_conf_pass">Пацвердзіць пароль</string>
     <string name="hint_group_name">Назва групы</string>

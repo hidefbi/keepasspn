@@ -177,6 +177,7 @@
     <string name="file_browser">File manager</string>
     <string name="generate_password">Bumuo ng password</string>
     <string name="generate_credentials">Gumawa ng mga credential</string>
+    <string name="copied_to_clipboard">Nakopya</string>
     <string name="hint_conf_pass">Kumpirmahin ang password</string>
     <string name="hint_group_name">Pangalan ng grupo</string>
     <string name="hint_icon_name">Pangalan ng icon</string>

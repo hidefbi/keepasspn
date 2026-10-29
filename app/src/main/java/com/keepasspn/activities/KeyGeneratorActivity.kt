@@ -45,6 +45,7 @@ class KeyGeneratorActivity : DatabaseLockActivity() {
 
         isStandalone = intent.getBooleanExtra(STANDALONE_EXTRA, false)
         isUsernameOnly = intent.getBooleanExtra(USERNAME_ONLY_EXTRA, false)
+        keyGeneratorViewModel.isStandalone = isStandalone
 
         toolbar = findViewById(R.id.toolbar)
         toolbar.title = " "

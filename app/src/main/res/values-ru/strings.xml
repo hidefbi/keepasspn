@@ -66,6 +66,7 @@
     <string name="file_browser">Обзор файлов</string>
     <string name="generate_password">Создание пароля</string>
     <string name="generate_credentials">Создать учётные данные</string>
+    <string name="copied_to_clipboard">Скопировано</string>
     <string name="hint_conf_pass">Подтверждение пароля</string>
     <string name="hint_group_name">Название группы</string>
     <string name="hint_pass">Пароль</string>

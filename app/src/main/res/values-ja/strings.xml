@@ -117,6 +117,7 @@
     <string name="file_browser">ファイル マネージャー</string>
     <string name="generate_password">パスワードを生成</string>
     <string name="generate_credentials">認証情報を生成</string>
+    <string name="copied_to_clipboard">コピーしました</string>
     <string name="hint_conf_pass">パスワードを確認</string>
     <string name="hint_group_name">グループ名</string>
     <string name="hint_pass">パスワード</string>

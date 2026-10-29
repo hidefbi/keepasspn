@@ -68,6 +68,7 @@
     <string name="file_browser">Filbehandler</string>
     <string name="generate_password">Opprett passord</string>
     <string name="generate_credentials">Generer legitimasjon</string>
+    <string name="copied_to_clipboard">Kopiert</string>
     <string name="hint_conf_pass">Bekreft passord</string>
     <string name="hint_group_name">Gruppenavn</string>
     <string name="hint_pass">Passord</string>

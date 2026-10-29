@@ -72,6 +72,7 @@
     <string name="file_browser">Dateimanager</string>
     <string name="generate_password">Passwort generieren</string>
     <string name="generate_credentials">Zugangsdaten generieren</string>
+    <string name="copied_to_clipboard">Kopiert</string>
     <string name="hint_conf_pass">Passwort bestätigen</string>
     <string name="hint_group_name">Name der Gruppe</string>
     <string name="hint_pass">Passwort</string>

@@ -63,6 +63,7 @@
     <string name="file_browser">Failu pārvaldnieks</string>
     <string name="generate_password">Ģenerēt paroli</string>
     <string name="generate_credentials">Ģenerēt pieteikšanās datus</string>
+    <string name="copied_to_clipboard">Nokopēts</string>
     <string name="hint_conf_pass">Apstiprināg paroli</string>
     <string name="hint_group_name">Grupas nosaukums</string>
     <string name="hint_pass">Parole</string>

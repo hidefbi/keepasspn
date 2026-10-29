@@ -27,6 +27,7 @@
     <string name="error_pass_gen_type">จำเป็นต้องเลือกชนิดของรหัสผ่านที่จะสร้างอย่างน้อยหนึ่งอย่าง</string>
     <string name="generate_password">สร้างรหัสผ่าน</string>
     <string name="generate_credentials">สร้างข้อมูลรับรอง</string>
+    <string name="copied_to_clipboard">คัดลอกแล้ว</string>
     <string name="password">รหัสผ่าน</string>
     <string name="hint_conf_pass">ยืนยันรหัสผ่าน</string>
     <string name="contact">ติดต่อ</string>

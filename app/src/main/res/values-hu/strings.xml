@@ -66,6 +66,7 @@
     <string name="file_browser">Fájlkezelő</string>
     <string name="generate_password">Jelszó előállítása</string>
     <string name="generate_credentials">Hitelesítő adatok generálása</string>
+    <string name="copied_to_clipboard">Másolva</string>
     <string name="hint_conf_pass">Jelszó megerősítése</string>
     <string name="hint_group_name">Csoportnév</string>
     <string name="hint_pass">Jelszó</string>

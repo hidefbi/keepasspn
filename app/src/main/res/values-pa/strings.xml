@@ -112,6 +112,7 @@
     <string name="hint_conf_pass">ਪਾਸਵਰਡ ਤਸਦੀਕ ਕਰੋ</string>
     <string name="generate_password">ਪਾਸਵਰਡ ਬਣਾਓ</string>
     <string name="generate_credentials">ਕ੍ਰੈਡੈਂਸ਼ੀਅਲ ਬਣਾਓ</string>
+    <string name="copied_to_clipboard">ਕਾਪੀ ਕੀਤਾ ਗਿਆ</string>
     <string name="file_browser">ਫ਼ਾਇਲ ਮੈਨੇਜਰ</string>
     <string name="file_not_found_content">ਫ਼ਾਇਲ ਲੱਭੀ ਨਹੀਂ ਜਾ ਸਕੀ। ਆਪਣੇ ਫ਼ਾਇਲ ਬਰਾਊਜ਼ਰ ਤੋਂ ਮੁੜ ਖੋਲ੍ਹ ਕੇ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="field_name">ਖ਼ੇਤਰ ਦਾ ਨਾਂ</string>

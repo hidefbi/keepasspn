@@ -63,6 +63,7 @@
     <string name="file_browser">Gestor de fitxers</string>
     <string name="generate_password">Genera contrasenya</string>
     <string name="generate_credentials">Genera credencials</string>
+    <string name="copied_to_clipboard">Copiat</string>
     <string name="hint_conf_pass">Confirma contrasenya</string>
     <string name="hint_group_name">Nom del grup</string>
     <string name="hint_pass">Contrasenya</string>

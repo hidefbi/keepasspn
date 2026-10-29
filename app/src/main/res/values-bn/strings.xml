@@ -152,6 +152,7 @@
     <string name="file_not_found_content">ফাইল খুঁজে পাই নি. আপনার ফাইল ব্রাউজার থেকে এটি পুনরায় খোলার চেষ্টা করুন।</string>
     <string name="generate_password">পাসওয়ার্ড জেনারেট</string>
     <string name="generate_credentials">শংসাপত্র তৈরি করুন</string>
+    <string name="copied_to_clipboard">কপি করা হয়েছে</string>
     <string name="hint_conf_pass">পাসওয়ার্ড নিশ্চিত করুন</string>
     <string name="invalid_credentials">শংসাপত্র পড়া যায়নি.</string>
     <string name="invalid_algorithm">ভুল অ্যালগরিদম।</string>

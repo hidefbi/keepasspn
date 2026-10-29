@@ -60,6 +60,7 @@
     <string name="file_browser">Filbehandlar</string>
     <string name="generate_password">Lag passord</string>
     <string name="generate_credentials">Generer innloggingsdata</string>
+    <string name="copied_to_clipboard">Kopiert</string>
     <string name="hint_conf_pass">Bekreft passord</string>
     <string name="hint_group_name">Gruppenamn</string>
     <string name="password">Passord</string>

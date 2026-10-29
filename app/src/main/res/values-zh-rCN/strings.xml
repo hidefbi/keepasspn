@@ -61,6 +61,7 @@
     <string name="file_browser">文件管理器</string>
     <string name="generate_password">生成密码</string>
     <string name="generate_credentials">生成凭据</string>
+    <string name="copied_to_clipboard">已复制</string>
     <string name="hint_conf_pass">确认密码</string>
     <string name="hint_group_name">分组名</string>
     <string name="password">密码</string>

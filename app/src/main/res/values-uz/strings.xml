@@ -147,4 +147,5 @@ Erkinligimizni saqlash, xatolarni tuzatish, yangi imkoniyatlar qo\'shish va loyi
     <string name="icon_upload_info_message">Ushbu qurilmadan rasm tanlang. Android uni o‘qiy olishi kerak (PNG, JPEG, WebP va eng keng tarqalgan formatlar), hajmi 5 MB dan oshmasligi kerak. Rasm 64 piksel kenglikka kichraytiriladi va ma’lumotlar bazasida saqlanadi. Ma’lumotlar bazasida allaqachon bor rasm qabul qilinmaydi. Maxsus belgilar faqat ularni qo‘llab-quvvatlaydigan ma’lumotlar bazalari uchun mavjud.</string>
     <string name="icon_upload_info_button">Rasm tanlash</string>
     <string name="generate_credentials">Ma\'lumotlarni yaratish</string>
+    <string name="copied_to_clipboard">Nusxalandi</string>
 </resources>

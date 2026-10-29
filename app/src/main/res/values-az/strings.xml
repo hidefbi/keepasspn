@@ -92,6 +92,7 @@
     <string name="error_hardware_key_unsupported">Aparat-təchizat açarı dəstəklənmir.</string>
     <string name="generate_password">Şifrə yarat</string>
     <string name="generate_credentials">Məlumatları yarat</string>
+    <string name="copied_to_clipboard">Kopyalandı</string>
     <string name="password">Şifrə</string>
     <string name="file_browser">Fayl meneceri</string>
     <string name="hint_pass">Şifrə</string>

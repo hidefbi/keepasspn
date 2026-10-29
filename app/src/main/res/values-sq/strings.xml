@@ -163,6 +163,7 @@
     <string name="file_browser">Përgjegjës kartelash</string>
     <string name="generate_password">Prodho fjalëkalim</string>
     <string name="generate_credentials">Gjenero kredencialet</string>
+    <string name="copied_to_clipboard">U kopjua</string>
     <string name="hint_conf_pass">Ripohoni fjalëkalimin</string>
     <string name="hint_group_name">Emër grupi</string>
     <string name="hint_icon_name">Emër ikone</string>

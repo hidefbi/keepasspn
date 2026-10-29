@@ -65,6 +65,7 @@
     <string name="file_browser">Tiedostoselain</string>
     <string name="generate_password">Generoi salasana</string>
     <string name="generate_credentials">Luo tunnistetiedot</string>
+    <string name="copied_to_clipboard">Kopioitu</string>
     <string name="hint_conf_pass">Vahvista salasana</string>
     <string name="hint_group_name">Ryhmän nimi</string>
     <string name="hint_pass">Salasana</string>

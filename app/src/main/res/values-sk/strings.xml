@@ -62,6 +62,7 @@
     <string name="file_browser">Správca súborov</string>
     <string name="generate_password">Generovať heslo</string>
     <string name="generate_credentials">Vygenerovať prihlasovacie údaje</string>
+    <string name="copied_to_clipboard">Skopírované</string>
     <string name="hint_conf_pass">Potvrdiť heslo</string>
     <string name="hint_group_name">Názov skupiny</string>
     <string name="password">Heslo</string>

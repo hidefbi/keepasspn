@@ -69,6 +69,7 @@
     <string name="file_browser">Dosya yöneticisi</string>
     <string name="generate_password">Parola üret</string>
     <string name="generate_credentials">Kimlik bilgileri oluştur</string>
+    <string name="copied_to_clipboard">Kopyalandı</string>
     <string name="hint_conf_pass">Parolayı onayla</string>
     <string name="hint_group_name">Grup adı</string>
     <string name="hint_pass">Parola</string>

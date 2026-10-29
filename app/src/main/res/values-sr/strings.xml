@@ -217,6 +217,7 @@
     <string name="file_browser">Управљач датотекама</string>
     <string name="generate_password">Генериши лозинку</string>
     <string name="generate_credentials">Генериши акредитиве</string>
+    <string name="copied_to_clipboard">Копирано</string>
     <string name="hint_group_name">Назив групе</string>
     <string name="hint_icon_name">Име иконе</string>
     <string name="passphrase">Дугачка лозинка</string>

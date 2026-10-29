@@ -65,6 +65,7 @@
     <string name="file_browser">Filhanterare</string>
     <string name="generate_password">Generera lösenord</string>
     <string name="generate_credentials">Generera inloggningsuppgifter</string>
+    <string name="copied_to_clipboard">Kopierat</string>
     <string name="hint_conf_pass">Bekräfta lösenord</string>
     <string name="hint_group_name">Gruppnamn</string>
     <string name="hint_pass">Lösenord</string>

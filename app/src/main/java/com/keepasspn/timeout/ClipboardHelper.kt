@@ -118,6 +118,19 @@ fun Context.timeoutCopyToClipboard(
 }
 
 /**
+ * Copy a value generated on the standalone generator page.
+ * Follows the clipboard trust setting and the clipboard timeout, then shows a short confirmation.
+ * @return false when nothing was copied
+ */
+fun Context.copyGeneratedValueToClipboard(label: String, value: CharArray?): Boolean {
+    if (value == null || value.isEmpty()) return false
+    if (!PreferencesUtil.allowCopyProtectedFields(this)) return false
+    timeoutCopyToClipboard(label, value, sensitive = true)
+    Toast.makeText(this, R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show()
+    return true
+}
+
+/**
  * Copy value to clipboard.
  * @param label The label of the clipboard entry.
  * @param value The value to copy.

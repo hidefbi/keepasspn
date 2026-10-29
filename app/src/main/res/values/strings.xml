@@ -200,6 +200,7 @@
     <string name="file_browser">File manager</string>
     <string name="generate_password">Generate password</string>
     <string name="generate_credentials">Generate credentials</string>
+    <string name="copied_to_clipboard">Copied</string>
     <string name="generate_keyfile">Generate keyfile</string>
     <string name="hint_conf_pass">Confirm password</string>
     <string name="hint_group_name">Group name</string>

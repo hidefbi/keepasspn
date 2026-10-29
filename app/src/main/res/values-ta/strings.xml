@@ -149,6 +149,7 @@
     <string name="file_not_found_content">கோப்பை கண்டுபிடிக்க முடியவில்லை</string>
     <string name="generate_password">கடவுச்சொல்லை உருவாக்குங்கள்</string>
     <string name="generate_credentials">நற்சான்றுகளை உருவாக்கு</string>
+    <string name="copied_to_clipboard">நகலெடுக்கப்பட்டது</string>
     <string name="hint_conf_pass">கடவுச்சொல்லை உறுதிப்படுத்தவும்</string>
     <string name="menu_change_key_settings">மாச்டர் விசையை மாற்றவும்</string>
     <string name="menu_save_database">தரவைச் சேமிக்கவும்</string>

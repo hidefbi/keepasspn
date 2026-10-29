@@ -227,4 +227,5 @@
     <string name="icon_upload_info_message">從呢部裝置揀一張圖片。Android 要讀得到（PNG、JPEG、WebP 同多數常見格式），檔案不可超過 5 MB。圖片會縮成闊 64 像素並儲存喺資料庫。資料庫已有嘅圖片會被拒絕。自訂圖示只適用於支援嘅資料庫。</string>
     <string name="icon_upload_info_button">揀選圖片</string>
     <string name="generate_credentials">生成憑證</string>
+    <string name="copied_to_clipboard">已複製</string>
 </resources>

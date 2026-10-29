@@ -60,6 +60,7 @@
     <string name="hint_conf_pass">Potvrdi lozinku</string>
     <string name="generate_password">Generiši lozinku</string>
     <string name="generate_credentials">Generiši akreditive</string>
+    <string name="copied_to_clipboard">Kopirano</string>
     <string name="file_browser">Upravljač datotekama</string>
     <string name="file_not_found_content">Nije moguće pronaći datoteku. Pokušajte ponovo da je otvorite iz svog pregledača datoteka.</string>
     <string name="field_name">Naziv polja</string>

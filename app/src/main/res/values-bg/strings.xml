@@ -212,6 +212,7 @@
     <string name="file_browser">Управление на файлове</string>
     <string name="generate_password">Създаване на парола</string>
     <string name="generate_credentials">Генериране на идентификационни данни</string>
+    <string name="copied_to_clipboard">Копирано</string>
     <string name="filter">Филтър</string>
     <string name="sort_db">Естествен ред</string>
     <string name="sort_recycle_bin_bottom">Кошчето е най-долу</string>

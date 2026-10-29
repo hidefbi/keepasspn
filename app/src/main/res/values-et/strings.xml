@@ -140,6 +140,7 @@
     <string name="file_browser">Failihaldur</string>
     <string name="generate_password">Loo salasõna</string>
     <string name="generate_credentials">Genereeri mandaadid</string>
+    <string name="copied_to_clipboard">Kopeeritud</string>
     <string name="hint_conf_pass">Kinnita salasõna</string>
     <string name="error_empty_key">Võti ei tohi olla tühi.</string>
     <string name="error_invalid_OTP">Vigane OTP salasõna.</string>

@@ -130,6 +130,23 @@ class PasswordEditView @JvmOverloads constructor(context: Context,
         }
     }
 
+    /**
+     * Make the text read-only and run an action when it is tapped. Pass null to make it editable again.
+     */
+    fun setReadOnlyTapAction(onTap: (() -> Unit)?) {
+        if (onTap == null) {
+            passwordText.setOnClickListener(null)
+            passwordText.isFocusable = true
+            passwordText.isFocusableInTouchMode = true
+            passwordText.isCursorVisible = true
+        } else {
+            passwordText.isFocusable = false
+            passwordText.isFocusableInTouchMode = false
+            passwordText.isCursorVisible = false
+            passwordText.setOnClickListener { onTap() }
+        }
+    }
+
     fun addTextChangedListener(textWatcher: TextWatcher) {
         mPasswordTextWatchers.add(textWatcher)
     }
