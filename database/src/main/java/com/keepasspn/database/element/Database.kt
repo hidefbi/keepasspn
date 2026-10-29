@@ -39,11 +39,7 @@ import com.keepasspn.database.element.template.TemplateEngine
 import com.keepasspn.database.exception.DatabaseException
 import com.keepasspn.database.exception.DatabaseInputException
 import com.keepasspn.database.exception.DatabaseOutputException
-import com.keepasspn.database.exception.FileNotFoundDatabaseException
 import com.keepasspn.database.exception.MergeDatabaseKDBException
-import com.keepasspn.database.exception.SignatureDatabaseException
-import com.keepasspn.database.file.DatabaseHeaderKDB
-import com.keepasspn.database.file.DatabaseHeaderKDBX
 import com.keepasspn.database.file.DatabaseHeaderKDBX.Companion.FILE_VERSION_40
 import com.keepasspn.database.file.input.DatabaseInputKDB
 import com.keepasspn.database.file.input.DatabaseInputKDBX
@@ -56,10 +52,7 @@ import com.keepasspn.utils.SingletonHolder
 import com.keepasspn.utils.StringUtil.toFormattedColorInt
 import com.keepasspn.utils.StringUtil.toFormattedColorString
 import com.keepasspn.utils.readAllBytes
-import com.keepasspn.utils.readBytes4ToUInt
-import java.io.BufferedInputStream
 import java.io.File
-import java.io.FileNotFoundException
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
@@ -725,44 +718,6 @@ open class Database {
             if (e is DatabaseException)
                 throw e
             throw DatabaseInputException(e)
-        }
-    }
-
-    @Throws(Exception::class)
-    private fun readDatabaseStream(
-        databaseStream: InputStream,
-        openDatabaseKDB: (InputStream) -> Unit,
-        openDatabaseKDBX: (InputStream) -> Unit
-    ) {
-        try {
-            // Load Data by InputStream
-            BufferedInputStream(databaseStream).use { databaseInputStream ->
-
-                // We'll end up reading 8 bytes to identify the header. Might as well use two extra.
-                databaseInputStream.mark(10)
-
-                // Get the file directory to save the attachments
-                val sig1 = databaseInputStream.readBytes4ToUInt()
-                val sig2 = databaseInputStream.readBytes4ToUInt()
-
-                // Return to the start
-                databaseInputStream.reset()
-
-                when {
-                    // Header of database KDB
-                    DatabaseHeaderKDB.matchesHeader(sig1, sig2) -> openDatabaseKDB(
-                        databaseInputStream
-                    )
-                    // Header of database KDBX
-                    DatabaseHeaderKDBX.matchesHeader(sig1, sig2) -> openDatabaseKDBX(
-                        databaseInputStream
-                    )
-                    // Header not recognized
-                    else -> throw SignatureDatabaseException()
-                }
-            }
-        } catch (_ : FileNotFoundException) {
-            throw FileNotFoundDatabaseException()
         }
     }
 
