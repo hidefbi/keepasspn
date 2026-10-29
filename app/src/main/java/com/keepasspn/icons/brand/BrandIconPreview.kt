@@ -37,8 +37,15 @@ class BrandIconPreview(context: Context) {
     private val appContext = context.applicationContext
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
-    /** Bitmap per web address, null when no brand matches that address */
-    private val bitmaps = HashMap<String, Bitmap?>()
+    /**
+     * Bitmap per web address, null when no brand matches that address.
+     * Least recently used addresses are dropped, so long lists do not keep every bitmap.
+     */
+    private val bitmaps = object : LinkedHashMap<String, Bitmap?>(16, 0.75f, true) {
+        override fun removeEldestEntry(eldest: MutableMap.MutableEntry<String, Bitmap?>): Boolean {
+            return size > MAX_CACHED_ADDRESSES
+        }
+    }
     private val pending = HashSet<String>()
 
     /** Bitmap already drawn for [webDomain], or null while it loads or when no brand matches */
@@ -69,5 +76,6 @@ class BrandIconPreview(context: Context) {
 
     companion object {
         private const val PREVIEW_SIZE_PX = 96
+        private const val MAX_CACHED_ADDRESSES = 256
     }
 }
