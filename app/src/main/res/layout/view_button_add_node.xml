@@ -40,7 +40,7 @@
             android:layout_height="@dimen/button_small_size"
             android:layout_marginRight="@dimen/image_button_margin"
             android:layout_marginEnd="@dimen/image_button_margin"
-            app:icon="@drawable/ic_password_white_24dp"
+            app:icon="@drawable/ic_credentials_white_24dp"
             android:contentDescription="@string/generate_credentials"
             style="@style/KeePassPNStyle.Fab.Menu"
             android:text="@string/generate_credentials" />
