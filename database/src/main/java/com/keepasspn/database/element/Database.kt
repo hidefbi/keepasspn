@@ -31,8 +31,6 @@ import com.keepasspn.database.element.database.DatabaseKDB
 import com.keepasspn.database.element.database.DatabaseKDBX
 import com.keepasspn.database.element.icon.IconImageCustom
 import com.keepasspn.database.element.icon.IconImageStandard
-import com.keepasspn.database.element.icon.IconImageStandard.Companion.NUMBER_STANDARD_ICONS
-import com.keepasspn.database.element.icon.IconsManager
 import com.keepasspn.database.element.node.NodeHandler
 import com.keepasspn.database.element.node.NodeIdInt
 import com.keepasspn.database.element.node.NodeIdUUID
@@ -103,57 +101,56 @@ open class Database {
             return mDatabaseKDB?.binaryCache ?: mDatabaseKDBX?.binaryCache ?: BinaryCache()
         }
 
-    private val iconsManager: IconsManager
-        get() {
-            return mDatabaseKDB?.iconsManager ?: mDatabaseKDBX?.iconsManager
-            ?: IconsManager(NUMBER_STANDARD_ICONS)
-        }
+    private val icons = DatabaseIcons(
+        kdb = { mDatabaseKDB },
+        kdbx = { mDatabaseKDBX },
+        binaryCache = { binaryCache }
+    )
 
     fun doForEachStandardIcons(action: (IconImageStandard) -> Unit) {
-        return iconsManager.doForEachStandardIcon(action)
+        icons.doForEachStandardIcons(action)
     }
 
     fun getStandardIcon(iconId: Int): IconImageStandard {
-        return iconsManager.getIcon(iconId)
+        return icons.getStandardIcon(iconId)
     }
 
     val allowCustomIcons: Boolean
         get() = mDatabaseKDBX != null
 
     fun doForEachCustomIcons(action: (IconImageCustom, BinaryData) -> Unit) {
-        return iconsManager.doForEachCustomIcon(action)
+        icons.doForEachCustomIcons(action)
     }
 
     fun getCustomIcon(iconId: UUID): IconImageCustom? {
-        return iconsManager.getIcon(iconId)
+        return icons.getCustomIcon(iconId)
     }
 
     fun buildNewCustomIcon(result: (IconImageCustom?, BinaryData?) -> Unit) {
-        mDatabaseKDBX?.buildNewCustomIcon(null, result)
+        icons.buildNewCustomIcon(result)
     }
 
     /**
      * Same as [buildNewCustomIcon], with the icon given a [name]
      */
     fun buildNewCustomIcon(name: String, result: (IconImageCustom?, BinaryData?) -> Unit) {
-        mDatabaseKDBX?.addCustomIcon(null, name, null, false, result)
+        icons.buildNewCustomIcon(name, result)
     }
 
     fun isCustomIconBinaryDuplicate(binaryData: BinaryData): Boolean {
-        return mDatabaseKDBX?.isCustomIconBinaryDuplicate(binaryData) ?: false
+        return icons.isCustomIconBinaryDuplicate(binaryData)
     }
 
     fun getBinaryForCustomIcon(iconId: UUID): BinaryData? {
-        return iconsManager.getBinaryForCustomIcon(iconId)
+        return icons.getBinaryForCustomIcon(iconId)
     }
 
     open fun removeCustomIcon(customIcon: IconImageCustom) {
-        iconsManager.removeCustomIcon(customIcon.uuid, binaryCache)
-        mDatabaseKDBX?.addDeletedObject(customIcon.uuid)
+        icons.removeCustomIcon(customIcon)
     }
 
     fun updateCustomIcon(customIcon: IconImageCustom) {
-        iconsManager.getIcon(customIcon.uuid)?.updateWith(customIcon)
+        icons.updateCustomIcon(customIcon)
     }
 
     fun getTemplates(templateCreation: Boolean): List<Template> {
