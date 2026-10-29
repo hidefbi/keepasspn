@@ -62,6 +62,7 @@
     <string name="field_name">Název kolonky</string>
     <string name="file_browser">Správce souborů</string>
     <string name="generate_password">Generovat heslo</string>
+    <string name="generate_credentials">Vygenerovat přihlašovací údaje</string>
     <string name="hint_conf_pass">Potvrdit heslo</string>
     <string name="hint_group_name">Název skupiny</string>
     <string name="hint_pass">Heslo</string>

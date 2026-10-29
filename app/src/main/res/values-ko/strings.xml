@@ -67,6 +67,7 @@
     <string name="file_not_found_content">파일을 찾을 수 없습니다. 파일 탐색기에서 열리는지 확인해 주세요.</string>
     <string name="file_browser">파일 관리자</string>
     <string name="generate_password">비밀번호 생성</string>
+    <string name="generate_credentials">자격 증명 생성</string>
     <string name="hint_conf_pass">패스워드 확인</string>
     <string name="hint_group_name">그룹 이름</string>
     <string name="hint_pass">패스워드</string>

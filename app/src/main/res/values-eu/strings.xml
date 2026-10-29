@@ -65,6 +65,7 @@
     <string name="field_name">Eremu-izena</string>
     <string name="file_browser">Fitxategi kudeatzailea</string>
     <string name="generate_password">Sortu pasahitza</string>
+    <string name="generate_credentials">Sortu kredentzialak</string>
     <string name="hint_conf_pass">Berretsi pasahitza</string>
     <string name="hint_group_name">Taldearen izena</string>
     <string name="hint_pass">Pasahitza</string>

@@ -1,5 +1,6 @@
 package com.keepasspn.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -30,6 +31,7 @@ class KeyGeneratorActivity : DatabaseLockActivity() {
     private lateinit var coordinatorLayout: CoordinatorLayout
     private lateinit var validationButton: View
     private var lockView: View? = null
+    private var isStandalone: Boolean = false
 
     override fun manageDatabaseInfo(): Boolean = true
 
@@ -39,6 +41,8 @@ class KeyGeneratorActivity : DatabaseLockActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_key_generator)
+
+        isStandalone = intent.getBooleanExtra(STANDALONE_EXTRA, false)
 
         toolbar = findViewById(R.id.toolbar)
         toolbar.title = " "
@@ -57,11 +61,14 @@ class KeyGeneratorActivity : DatabaseLockActivity() {
         validationButton.setOnClickListener {
             keyGeneratorViewModel.validateKeyGenerated()
         }
+        // Nothing to hand back to an entry when opened on its own
+        validationButton.visibility = if (isStandalone) View.GONE else View.VISIBLE
 
         supportFragmentManager.commit {
             replace(R.id.key_generator_fragment, KeyGeneratorFragment.getInstance(
                     // Default selection tab
-                    KeyGeneratorFragment.KeyGeneratorTab.PASSWORD
+                    KeyGeneratorFragment.KeyGeneratorTab.PASSWORD,
+                    isStandalone
                 ), KEY_GENERATED_FRAGMENT_TAG
             )
         }
@@ -125,6 +132,7 @@ class KeyGeneratorActivity : DatabaseLockActivity() {
     companion object {
         private const val KEY_GENERATED = "KEY_GENERATED"
         private const val KEY_GENERATED_FRAGMENT_TAG = "KEY_GENERATED_FRAGMENT_TAG"
+        private const val STANDALONE_EXTRA = "STANDALONE_EXTRA"
 
         fun registerForGeneratedKeyResult(
             activity: FragmentActivity,
@@ -148,6 +156,17 @@ class KeyGeneratorActivity : DatabaseLockActivity() {
             // Create an instance to return the picker icon
             resultLauncher.launch(
                 Intent(context, KeyGeneratorActivity::class.java)
+            )
+        }
+
+        /**
+         * Open the generator on its own, from the add menu. Nothing is returned to the caller.
+         */
+        fun launchStandalone(context: Context) {
+            context.startActivity(
+                Intent(context, KeyGeneratorActivity::class.java).apply {
+                    putExtra(STANDALONE_EXTRA, true)
+                }
             )
         }
     }

@@ -63,6 +63,7 @@
     <string name="error_wrong_length">Voer in het veld \"Lengte\" een positief geheel getal in.</string>
     <string name="file_browser">Bestandsbeheer</string>
     <string name="generate_password">Wachtwoord genereren</string>
+    <string name="generate_credentials">Inloggegevens genereren</string>
     <string name="hint_conf_pass">Wachtwoord bevestigen</string>
     <string name="hint_group_name">Groepsnaam</string>
     <string name="password">Wachtwoord</string>

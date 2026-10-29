@@ -65,6 +65,7 @@
     <string name="file_not_found_content">A fájl nem található</string>
     <string name="file_browser">Fájlkezelő</string>
     <string name="generate_password">Jelszó előállítása</string>
+    <string name="generate_credentials">Hitelesítő adatok generálása</string>
     <string name="hint_conf_pass">Jelszó megerősítése</string>
     <string name="hint_group_name">Csoportnév</string>
     <string name="hint_pass">Jelszó</string>

@@ -64,6 +64,7 @@
     <string name="field_name">Όνομα πεδίου</string>
     <string name="file_browser">Διαχειριστής αρχείων</string>
     <string name="generate_password">Δημιουργία κωδικού πρόσβασης</string>
+    <string name="generate_credentials">Δημιουργία διαπιστευτηρίων</string>
     <string name="hint_conf_pass">Επιβεβαίωση κωδικού</string>
     <string name="hint_group_name">Όνομα ομάδας</string>
     <string name="hint_pass">Κωδικός</string>

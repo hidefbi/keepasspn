@@ -59,6 +59,7 @@
     <string name="error_wrong_length">Bruk eit positivt heiltal i feltet for lengde.</string>
     <string name="file_browser">Filbehandlar</string>
     <string name="generate_password">Lag passord</string>
+    <string name="generate_credentials">Generer innloggingsdata</string>
     <string name="hint_conf_pass">Bekreft passord</string>
     <string name="hint_group_name">Gruppenamn</string>
     <string name="password">Passord</string>

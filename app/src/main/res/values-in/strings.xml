@@ -46,6 +46,7 @@
     <string name="hint_group_name">Nama Grup</string>
     <string name="hint_conf_pass">Konfirmasi Kata Sandi</string>
     <string name="generate_password">Buatkan Kata Sandi</string>
+    <string name="generate_credentials">Buat kredensial</string>
     <string name="file_browser">Pengelola File</string>
     <string name="file_not_found_content">Tidak dapat menemukan file</string>
     <string name="field_name">Nama Bidang</string>

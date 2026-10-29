@@ -43,6 +43,7 @@
     <string name="field_name">Lauko pavadinimas</string>
     <string name="file_browser">Failų naršyklė</string>
     <string name="generate_password">Generuoti slaptažodį</string>
+    <string name="generate_credentials">Generuoti prisijungimo duomenis</string>
     <string name="hint_conf_pass">Patvirtinti slaptažodį</string>
     <string name="hint_group_name">Grupės pavadinimas</string>
     <string name="password">Slaptažodis</string>

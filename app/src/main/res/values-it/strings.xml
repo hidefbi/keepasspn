@@ -66,6 +66,7 @@
     <string name="file_not_found_content">File non trovato</string>
     <string name="file_browser">Gestore file</string>
     <string name="generate_password">Genera password</string>
+    <string name="generate_credentials">Genera credenziali</string>
     <string name="hint_conf_pass">Conferma password</string>
     <string name="hint_group_name">Nome gruppo</string>
     <string name="password">Password</string>

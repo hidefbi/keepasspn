@@ -43,6 +43,7 @@
     <string name="error_pass_match">كلمتا السر غير متطابقتين.</string>
     <string name="field_name">اسم الحقل</string>
     <string name="generate_password">إنشاء كلمة سر</string>
+    <string name="generate_credentials">إنشاء بيانات الاعتماد</string>
     <string name="hint_conf_pass">تأكيد كلمة السر</string>
     <string name="hint_group_name">اسم المجموعة</string>
     <string name="hint_pass">كلمة السر</string>

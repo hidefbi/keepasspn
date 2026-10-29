@@ -80,6 +80,7 @@
     <string name="field_name">Ime polja</string>
     <string name="file_browser">Upravljač datoteka</string>
     <string name="generate_password">Generiraj lozinku</string>
+    <string name="generate_credentials">Generiraj vjerodajnice</string>
     <string name="hint_conf_pass">Potvrdi lozinku</string>
     <string name="hint_group_name">Ime grupe</string>
     <string name="hint_pass">Lozinka</string>

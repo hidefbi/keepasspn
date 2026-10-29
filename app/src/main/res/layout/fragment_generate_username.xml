@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright 2019 Jeremy Jamet / Kunzisoft.
+     
+ This file is part of KeePassPN.
+
+  KeePassPN is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  KeePassPN is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with KeePassPN.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:importantForAutofill="noExcludeDescendants"
+    android:paddingBottom="@dimen/card_view_margin_vertical"
+    tools:targetApi="o">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:background="?attr/colorSurface" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/card_view_margin_horizontal"
+            android:layout_marginEnd="@dimen/card_view_margin_horizontal"
+            android:layout_marginLeft="@dimen/card_view_margin_horizontal"
+            android:layout_marginRight="@dimen/card_view_margin_horizontal"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginBottom="@dimen/card_view_margin_vertical"
+            android:layout_gravity="bottom">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_view_padding">
+
+                <EditText
+                    android:id="@+id/username_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/username_copy_button"
+                    android:layout_toLeftOf="@+id/username_copy_button"
+                    android:hint="@string/entry_user_name"
+                    android:importantForAutofill="no"
+                    android:inputType="textNoSuggestions" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/username_copy_button"
+                    style="@style/KeePassPNStyle.ImageButton.Simple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/username_view"
+                    android:layout_alignBottom="@+id/username_view"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:contentDescription="@string/menu_copy"
+                    android:src="@drawable/ic_content_copy_white_24dp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/card_view_margin_horizontal"
+            android:layout_marginEnd="@dimen/card_view_margin_horizontal"
+            android:layout_marginLeft="@dimen/card_view_margin_horizontal"
+            android:layout_marginRight="@dimen/card_view_margin_horizontal"
+            android:layout_marginTop="@dimen/card_view_margin_vertical"
+            android:layout_marginBottom="@dimen/card_view_margin_vertical"
+            app:cardCornerRadius="4dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_view_padding"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/length" />
+
+                    <TextView
+                        android:id="@+id/username_length_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/slider_username_length"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/length"
+                    android:stepSize="1" />
+
+                <CheckBox
+                    android:id="@+id/lowercase_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/visual_lowercase" />
+
+                <CheckBox
+                    android:id="@+id/uppercase_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visual_uppercase" />
+
+                <CheckBox
+                    android:id="@+id/digits_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/visual_digits" />
+
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
+</LinearLayout>

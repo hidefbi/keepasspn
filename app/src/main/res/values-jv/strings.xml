@@ -118,4 +118,5 @@ Kanggo njaga kebebasan kita, mbenerake bug, nambah fitur, lan njaga proyek tetep
     <string name="icon_upload_info_title">Unggah ikon</string>
     <string name="icon_upload_info_message">Pilih gambar saka piranti iki. Android kudu bisa maca (PNG, JPEG, WebP lan umume format umum), lan ukurane maksimal 5 MB. Gambar bakal dicilikake dadi jembar 64 piksel lan disimpen ing basis data. Gambar sing wis ana ing basis data bakal ditolak. Ikon khusus mung kasedhiya kanggo basis data sing ndhukung.</string>
     <string name="icon_upload_info_button">Pilih gambar</string>
+    <string name="generate_credentials">Gawe kredensial</string>
 </resources>

@@ -25,6 +25,29 @@
 
     <LinearLayout
         android:orientation="horizontal"
+        android:id="@+id/container_add_credentials"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/container_add_entry"
+        android:layout_alignEnd="@+id/container_add_entry"
+        android:layout_alignRight="@+id/container_add_entry"
+        android:layout_marginBottom="-12dp"
+        android:descendantFocusability="blocksDescendants"
+        android:visibility="gone">
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fab_add_credentials"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_small_size"
+            android:layout_marginRight="@dimen/image_button_margin"
+            android:layout_marginEnd="@dimen/image_button_margin"
+            app:icon="@drawable/ic_password_white_24dp"
+            android:contentDescription="@string/generate_credentials"
+            style="@style/KeePassPNStyle.Fab.Menu"
+            android:text="@string/generate_credentials" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:id="@+id/container_add_entry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

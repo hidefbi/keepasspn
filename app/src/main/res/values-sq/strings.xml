@@ -162,6 +162,7 @@
     <string name="corrupted_file">Kartelë e dëmtuar.</string>
     <string name="file_browser">Përgjegjës kartelash</string>
     <string name="generate_password">Prodho fjalëkalim</string>
+    <string name="generate_credentials">Gjenero kredencialet</string>
     <string name="hint_conf_pass">Ripohoni fjalëkalimin</string>
     <string name="hint_group_name">Emër grupi</string>
     <string name="hint_icon_name">Emër ikone</string>

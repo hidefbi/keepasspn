@@ -58,6 +58,7 @@
     <string name="length">നീളം</string>
     <string name="hint_conf_pass">പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക</string>
     <string name="generate_password">പാസ്‌വേഡ് സൃഷ്ടിക്കുക</string>
+    <string name="generate_credentials">ക്രെഡൻഷ്യലുകൾ സൃഷ്ടിക്കുക</string>
     <string name="file_browser">ഫയൽ മാനേജർ</string>
     <string name="field_name">ഫീൽഡ് നാമം</string>
     <string name="error_save_database">ഡാറ്റാബേസ് സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.</string>

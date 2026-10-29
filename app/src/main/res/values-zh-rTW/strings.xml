@@ -258,6 +258,7 @@
     <string name="filter">過濾</string>
     <string name="general">一般</string>
     <string name="generate_password">生成密碼</string>
+    <string name="generate_credentials">產生憑證</string>
     <string name="hide_broken_locations_summary">在最近的資料庫列表中隱藏已損壞的資料庫的連結</string>
     <string name="hide_broken_locations_title">隱藏已損壞的資料庫路徑</string>
     <string name="hide_expired_entries_summary">過期條目將被隱藏</string>

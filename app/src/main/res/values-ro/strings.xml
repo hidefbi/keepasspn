@@ -105,6 +105,7 @@
     <string name="file_not_found_content">Nu s-a putut găsi fișierul</string>
     <string name="file_browser">Manager de fișiere</string>
     <string name="generate_password">Generare parolă</string>
+    <string name="generate_credentials">Generează credențiale</string>
     <string name="hint_conf_pass">Confirmă parola</string>
     <string name="hint_group_name">Numele grupului</string>
     <string name="hint_pass">Parolă</string>

@@ -61,6 +61,7 @@
     <string name="error_wrong_length">Do poľa „Dĺžka“ zadajte celé kladné číslo.</string>
     <string name="file_browser">Správca súborov</string>
     <string name="generate_password">Generovať heslo</string>
+    <string name="generate_credentials">Vygenerovať prihlasovacie údaje</string>
     <string name="hint_conf_pass">Potvrdiť heslo</string>
     <string name="hint_group_name">Názov skupiny</string>
     <string name="password">Heslo</string>

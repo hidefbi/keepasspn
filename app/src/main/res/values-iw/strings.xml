@@ -62,6 +62,7 @@
     <string name="field_name">שם השדה</string>
     <string name="file_browser">מנהל קבצים</string>
     <string name="generate_password">צור סיסמה</string>
+    <string name="generate_credentials">צור פרטי גישה</string>
     <string name="hint_conf_pass">אשר סיסמה</string>
     <string name="hint_group_name">שם קבוצה</string>
     <string name="hint_pass">סיסמה</string>

@@ -46,9 +46,12 @@ class AddNodeButtonView @JvmOverloads constructor(context: Context,
     private lateinit var fabAddEntryView: View
     private lateinit var addGroupView: View
     private lateinit var fabAddGroupView: View
+    private lateinit var addCredentialsView: View
+    private lateinit var fabAddCredentialsView: View
 
     private var addEntryEnable: Boolean = false
     private var addGroupEnable: Boolean = false
+    private var addCredentialsEnable: Boolean = false
 
     private var state: State? = null
     private var allowAction: Boolean = false
@@ -57,6 +60,7 @@ class AddNodeButtonView @JvmOverloads constructor(context: Context,
     private var viewButtonMenuAnimation: AddButtonAnimation? = null
     private var viewMenuAnimationAddEntry: ViewMenuAnimation? = null
     private var viewMenuAnimationAddGroup: ViewMenuAnimation? = null
+    private var viewMenuAnimationAddCredentials: ViewMenuAnimation? = null
     private var animationDuration: Long = 0
 
     val isEnable: Boolean
@@ -77,18 +81,22 @@ class AddNodeButtonView @JvmOverloads constructor(context: Context,
 
         addEntryEnable = true
         addGroupEnable = true
+        addCredentialsEnable = true
 
         addButtonView = findViewById(R.id.add_button)
         addEntryView = findViewById(R.id.container_add_entry)
         fabAddEntryView = findViewById(R.id.fab_add_entry)
         addGroupView = findViewById(R.id.container_add_group)
         fabAddGroupView = findViewById(R.id.fab_add_group)
+        addCredentialsView = findViewById(R.id.container_add_credentials)
+        fabAddCredentialsView = findViewById(R.id.fab_add_credentials)
 
         animationDuration = 300L
 
         viewButtonMenuAnimation = AddButtonAnimation(addButtonView)
         viewMenuAnimationAddEntry = ViewMenuAnimation(addEntryView, 150L, 0L)
         viewMenuAnimationAddGroup = ViewMenuAnimation(addGroupView, 0L, 150L)
+        viewMenuAnimationAddCredentials = ViewMenuAnimation(addCredentialsView, 300L, 0L)
 
         allowAction = true
         state = State.CLOSE
@@ -115,12 +123,15 @@ class AddNodeButtonView @JvmOverloads constructor(context: Context,
         val viewButtonRect = Rect()
         val viewEntryRect = Rect()
         val viewGroupRect = Rect()
+        val viewCredentialsRect = Rect()
         addButtonView?.getGlobalVisibleRect(viewButtonRect)
         addEntryView.getGlobalVisibleRect(viewEntryRect)
         addGroupView.getGlobalVisibleRect(viewGroupRect)
+        addCredentialsView.getGlobalVisibleRect(viewCredentialsRect)
         if (!(viewButtonRect.contains(event.rawX.toInt(), event.rawY.toInt())
                         && viewEntryRect.contains(event.rawX.toInt(), event.rawY.toInt())
-                        && viewGroupRect.contains(event.rawX.toInt(), event.rawY.toInt()))) {
+                        && viewGroupRect.contains(event.rawX.toInt(), event.rawY.toInt())
+                        && viewCredentialsRect.contains(event.rawX.toInt(), event.rawY.toInt()))) {
             closeButtonIfOpen()
         }
         return super.onTouchEvent(event)
@@ -186,8 +197,19 @@ class AddNodeButtonView @JvmOverloads constructor(context: Context,
         disableViewIfNoAddAvailable()
     }
 
+    /**
+     * Enable or not the possibility to open the credentials generator by pressing a button
+     * @param enable true to enable
+     */
+    fun enableAddCredentials(enable: Boolean) {
+        this.addCredentialsEnable = enable
+        if (enable && addCredentialsView.visibility != View.VISIBLE)
+            addCredentialsView.visibility = View.INVISIBLE
+        disableViewIfNoAddAvailable()
+    }
+
     private fun disableViewIfNoAddAvailable() {
-        visibility = if (!addEntryEnable && !addGroupEnable) {
+        visibility = if (!addEntryEnable && !addGroupEnable && !addCredentialsEnable) {
             View.GONE
         } else {
             View.VISIBLE
@@ -212,6 +234,12 @@ class AddNodeButtonView @JvmOverloads constructor(context: Context,
         }
     }
 
+    fun setAddCredentialsClickListener(onClickListener: OnClickListener) {
+        if (addCredentialsEnable) {
+            fabAddCredentialsView.setOnClickListener(onButtonClickListener(onClickListener))
+        }
+    }
+
     private fun startGlobalAnimation() {
         if (allowAction) {
             viewButtonMenuAnimation?.startAnimation()
@@ -221,6 +249,9 @@ class AddNodeButtonView @JvmOverloads constructor(context: Context,
             }
             if (addGroupEnable) {
                 viewMenuAnimationAddGroup?.startAnimation()
+            }
+            if (addCredentialsEnable) {
+                viewMenuAnimationAddCredentials?.startAnimation()
             }
         }
     }

@@ -68,6 +68,7 @@
     <string name="file_not_found_content">Impossible de trouver le fichier</string>
     <string name="file_browser">Gestionnaire de fichiers</string>
     <string name="generate_password">Générer un mot de passe</string>
+    <string name="generate_credentials">Générer des identifiants</string>
     <string name="hint_conf_pass">Confirmer le mot de passe</string>
     <string name="hint_group_name">Nom du groupe</string>
     <string name="hint_pass">Mot de passe</string>

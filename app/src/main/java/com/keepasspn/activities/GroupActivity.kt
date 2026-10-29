@@ -464,6 +464,7 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
                         addNodeButtonView?.closeButtonIfOpen()
                         addNodeButtonView?.enableAddGroup(state.showAddGroupButton)
                         addNodeButtonView?.enableAddEntry(state.showAddGroupButton)
+                        addNodeButtonView?.enableAddCredentials(state.showAddGroupButton)
                         if (state.showAddNodeButton)
                             addNodeButtonView?.showButton()
                         else
@@ -791,6 +792,9 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
         // Add listeners to the add buttons
         addNodeButtonView?.setAddGroupClickListener {
             launchDialogForGroupCreation()
+        }
+        addNodeButtonView?.setAddCredentialsClickListener {
+            KeyGeneratorActivity.launchStandalone(this@GroupActivity)
         }
         addNodeButtonView?.setAddEntryClickListener {
             mDatabase?.let { database ->

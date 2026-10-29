@@ -60,6 +60,7 @@
     <string name="error_wrong_length">У полі «Довжина» введіть додатне ціле число.</string>
     <string name="file_browser">Файловий менеджер</string>
     <string name="generate_password">Згенерувати пароль</string>
+    <string name="generate_credentials">Створити облікові дані</string>
     <string name="hint_conf_pass">Підтвердити пароль</string>
     <string name="hint_group_name">Назва групи</string>
     <string name="password">Пароль</string>

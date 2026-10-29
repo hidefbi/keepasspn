@@ -106,6 +106,7 @@
     <string name="hint_group_name">نام گروه</string>
     <string name="hint_conf_pass">تایید رمز عبور</string>
     <string name="generate_password">تولید رمز عبور</string>
+    <string name="generate_credentials">ایجاد اطلاعات ورود</string>
     <string name="file_browser">مدیر پرونده</string>
     <string name="file_not_found_content">نمی توانست پرونده را پیدا کند. سعی کنید آن را از مرورگر فایل خود بازگشایی کنید.</string>
     <string name="field_name">نام زمینه</string>

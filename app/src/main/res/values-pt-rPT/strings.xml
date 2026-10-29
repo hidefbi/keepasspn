@@ -65,6 +65,7 @@
     <string name="file_not_found_content">Não foi possível encontrar o ficheiro</string>
     <string name="file_browser">Gestor de ficheiros</string>
     <string name="generate_password">Gerar palavra-passe</string>
+    <string name="generate_credentials">Gerar credenciais</string>
     <string name="hint_conf_pass">Confirmar a palavra-passe</string>
     <string name="hint_group_name">Nome do grupo</string>
     <string name="hint_pass">Palavra-passe</string>

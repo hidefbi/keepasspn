@@ -71,6 +71,7 @@
     <string name="file_not_found_content">Datei nicht gefunden</string>
     <string name="file_browser">Dateimanager</string>
     <string name="generate_password">Passwort generieren</string>
+    <string name="generate_credentials">Zugangsdaten generieren</string>
     <string name="hint_conf_pass">Passwort bestätigen</string>
     <string name="hint_group_name">Name der Gruppe</string>
     <string name="hint_pass">Passwort</string>

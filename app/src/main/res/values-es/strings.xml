@@ -62,6 +62,7 @@
     <string name="error_wrong_length">Introduzca un número entero positivo en el campo \"Longitud\".</string>
     <string name="file_browser">Explorador de archivos</string>
     <string name="generate_password">Generar contraseña</string>
+    <string name="generate_credentials">Generar credenciales</string>
     <string name="hint_conf_pass">Confirmar contraseña</string>
     <string name="hint_group_name">Nombre del grupo</string>
     <string name="password">Contraseña</string>

@@ -84,6 +84,12 @@ class KeyGeneratorViewModel : ViewModel() {
      */
     val requirePassphraseGeneration: SharedFlow<Unit> = _requirePassphraseGeneration.asSharedFlow()
 
+    private val _requireUsernameGeneration = MutableSharedFlow<Unit>()
+    /**
+     * SharedFlow triggered when a username generation is required.
+     */
+    val requireUsernameGeneration: SharedFlow<Unit> = _requireUsernameGeneration.asSharedFlow()
+
     /**
      * Set the generated key.
      */
@@ -142,6 +148,15 @@ class KeyGeneratorViewModel : ViewModel() {
     fun requirePassphraseGeneration() {
         viewModelScope.launch {
             _requirePassphraseGeneration.emit(Unit)
+        }
+    }
+
+    /**
+     * Require a username generation.
+     */
+    fun requireUsernameGeneration() {
+        viewModelScope.launch {
+            _requireUsernameGeneration.emit(Unit)
         }
     }
 

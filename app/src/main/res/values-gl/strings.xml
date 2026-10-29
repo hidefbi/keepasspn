@@ -214,6 +214,7 @@
     <string name="error_empty_key">A clave non pode estar baleira.</string>
     <string name="file_browser">Xestor de ficheiros</string>
     <string name="generate_password">Xerar contrasinal</string>
+    <string name="generate_credentials">Xerar credenciais</string>
     <string name="invalid_credentials">Non foi posíbel ler as credenciais.</string>
     <string name="invalid_db_sig">Non foi posíbel recoñecer o formato da base de datos.</string>
     <string name="length">Lonxitude</string>

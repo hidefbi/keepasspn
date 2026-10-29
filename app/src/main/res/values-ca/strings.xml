@@ -62,6 +62,7 @@
     <string name="error_wrong_length">Inseriu un enter positiu al camp «Longitud».</string>
     <string name="file_browser">Gestor de fitxers</string>
     <string name="generate_password">Genera contrasenya</string>
+    <string name="generate_credentials">Genera credencials</string>
     <string name="hint_conf_pass">Confirma contrasenya</string>
     <string name="hint_group_name">Nom del grup</string>
     <string name="hint_pass">Contrasenya</string>

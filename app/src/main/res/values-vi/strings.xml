@@ -188,6 +188,7 @@
     <string name="corrupted_file">Tệp bị hỏng.</string>
     <string name="file_browser">Trình quản lý tệp</string>
     <string name="generate_password">Tạo mật khẩu</string>
+    <string name="generate_credentials">Tạo thông tin xác thực</string>
     <string name="hint_conf_pass">Xác nhận mật khẩu</string>
     <string name="hint_group_name">Tên nhóm</string>
     <string name="hint_icon_name">Tên biểu tượng</string>

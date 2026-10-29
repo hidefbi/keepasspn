@@ -50,9 +50,12 @@ class KeyGeneratorFragment : DatabaseFragment() {
         ViewPager2.OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)
-            mSelectedTab = KeyGeneratorTab.getKeyGeneratorTabByPosition(position)
+            mSelectedTab = tabs.getOrElse(position) { KeyGeneratorTab.PASSWORD }
         }
     }
+
+    private val tabs: List<KeyGeneratorTab>
+        get() = KeyGeneratorTab.getTabs(arguments?.getBoolean(STANDALONE_ARG, false) ?: false)
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -65,12 +68,12 @@ class KeyGeneratorFragment : DatabaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        keyGeneratorPagerAdapter = KeyGeneratorPagerAdapter(this, )
+        keyGeneratorPagerAdapter = KeyGeneratorPagerAdapter(this, tabs)
         viewPager = view.findViewById(R.id.tabs_view_pager)
         tabLayout = view.findViewById(R.id.tabs_layout)
         viewPager.adapter = keyGeneratorPagerAdapter
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = getString(KeyGeneratorTab.getKeyGeneratorTabByPosition(position).stringId)
+            tab.text = getString(tabs[position].stringId)
         }.attach()
         viewPager.registerOnPageChangeCallback(mOnPageChangeCallback)
 
@@ -78,7 +81,8 @@ class KeyGeneratorFragment : DatabaseFragment() {
 
         arguments?.apply {
             if (containsKey(PASSWORD_TAB_ARG)) {
-                viewPager.currentItem = getInt(PASSWORD_TAB_ARG)
+                val requested = KeyGeneratorTab.values()[getInt(PASSWORD_TAB_ARG)]
+                viewPager.currentItem = tabs.indexOf(requested).coerceAtLeast(0)
             }
             remove(PASSWORD_TAB_ARG)
         }
@@ -95,6 +99,10 @@ class KeyGeneratorFragment : DatabaseFragment() {
                             KeyGeneratorTab.PASSPHRASE -> {
                                 mKeyGeneratorViewModel.requirePassphraseGeneration()
                             }
+
+                            KeyGeneratorTab.USERNAME -> {
+                                mKeyGeneratorViewModel.requireUsernameGeneration()
+                            }
                         }
                     }
                 }
@@ -108,6 +116,9 @@ class KeyGeneratorFragment : DatabaseFragment() {
                             KeyGeneratorTab.PASSPHRASE -> {
                                 mKeyGeneratorViewModel.validatePassphraseGenerated()
                             }
+
+                            // A username is never sent back to an entry, so there is nothing to validate
+                            KeyGeneratorTab.USERNAME -> {}
                         }
                     }
                 }
@@ -125,13 +136,20 @@ class KeyGeneratorFragment : DatabaseFragment() {
     }
 
     enum class KeyGeneratorTab(@StringRes val stringId: Int) {
-        PASSWORD(R.string.password), PASSPHRASE(R.string.passphrase);
+        PASSWORD(R.string.password),
+        PASSPHRASE(R.string.passphrase),
+        USERNAME(R.string.entry_user_name);
 
         companion object {
-            fun getKeyGeneratorTabByPosition(position: Int): KeyGeneratorTab {
-                return when (position) {
-                    0 -> PASSWORD
-                    else -> PASSPHRASE
+            /**
+             * Tabs offered when a key is picked for an entry (PASSWORD and PASSPHRASE only).
+             * The standalone page from the add menu also offers USERNAME.
+             */
+            fun getTabs(standalone: Boolean): List<KeyGeneratorTab> {
+                return if (standalone) {
+                    values().toList()
+                } else {
+                    listOf(PASSWORD, PASSPHRASE)
                 }
             }
         }
@@ -140,11 +158,13 @@ class KeyGeneratorFragment : DatabaseFragment() {
     companion object {
 
         private const val PASSWORD_TAB_ARG = "PASSWORD_TAB_ARG"
+        private const val STANDALONE_ARG = "STANDALONE_ARG"
 
-        fun getInstance(keyGeneratorTab: KeyGeneratorTab): KeyGeneratorFragment {
+        fun getInstance(keyGeneratorTab: KeyGeneratorTab, standalone: Boolean = false): KeyGeneratorFragment {
             val fragment = KeyGeneratorFragment()
             fragment.arguments = Bundle().apply {
                 putInt(PASSWORD_TAB_ARG, keyGeneratorTab.ordinal)
+                putBoolean(STANDALONE_ARG, standalone)
             }
             return fragment
         }
