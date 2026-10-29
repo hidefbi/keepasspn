@@ -29,14 +29,20 @@ import com.keepasspn.model.EntryInfo
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
 import org.junit.Rule
+import org.junit.runner.RunWith
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 
 /**
  * A database written to KDBX and read back keeps its entries and their passwords.
+ * The KDBX XML uses the Android XML serializer, so the test runs with Robolectric.
  */
+@RunWith(RobolectricTestRunner::class)
+@Config(sdk = [34])
 class DatabaseRoundTripTest {
 
     @get:Rule
