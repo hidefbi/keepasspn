@@ -906,27 +906,13 @@ open class Database {
         attachments.removeUnlinkedAttachments()
     }
 
+    private val caches = DatabaseCaches(
+        kdb = { mDatabaseKDB },
+        kdbx = { mDatabaseKDBX }
+    )
+
     open fun clearIndexesAndBinaries(filesDirectory: File?) {
-        this.mDatabaseKDB?.clearIndexes()
-        this.mDatabaseKDBX?.clearIndexes()
-
-        this.mDatabaseKDB?.clearIconsCache()
-        this.mDatabaseKDBX?.clearIconsCache()
-
-        this.mDatabaseKDB?.clearAttachmentsCache()
-        this.mDatabaseKDBX?.clearAttachmentsCache()
-
-        this.mDatabaseKDB?.clearBinaries()
-        this.mDatabaseKDBX?.clearBinaries()
-
-        // delete all the files in the temp dir if allowed
-        try {
-            filesDirectory?.let { directory ->
-                cleanDirectory(directory)
-            }
-        } catch (e: Exception) {
-            NoOpLog.e(TAG, "Unable to clear the directory cache.", e)
-        }
+        caches.clearIndexesAndBinaries(filesDirectory)
     }
 
     open fun clearAndClose(filesDirectory: File? = null) {
@@ -936,17 +922,6 @@ open class Database {
         this.mDatabaseKDB = null
         this.mDatabaseKDBX = null
         this.loaded = false
-    }
-
-    private fun cleanDirectory(directory: File) {
-        directory.listFiles()?.let { files ->
-            for (file in files) {
-                if (file.isDirectory) {
-                    cleanDirectory(file)
-                }
-                file.delete()
-            }
-        }
     }
 
     fun isValidCredential(masterCredential: MasterCredential): Boolean {
