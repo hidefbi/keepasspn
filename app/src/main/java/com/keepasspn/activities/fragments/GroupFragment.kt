@@ -34,16 +34,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE
 import androidx.recyclerview.widget.ItemTouchHelper
-import android.graphics.Canvas
+import androidx.recyclerview.widget.SimpleItemAnimator
+import android.view.MotionEvent
+import android.view.ViewConfiguration
+import kotlin.math.abs
 import android.graphics.Color
 import android.graphics.Paint
-import kotlin.math.roundToInt
 import com.keepasspn.R
 import com.keepasspn.adapters.NodesAdapter
 import com.keepasspn.credentialprovider.EntrySelectionHelper.retrieveSpecialMode
 import com.keepasspn.credentialprovider.SpecialMode
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.element.SortNodeEnum
+import com.keepasspn.model.GroupInfo
 import com.keepasspn.model.SearchGroupInfo
 import com.keepasspn.activities.dialogs.NodeActionsPopup
 import com.keepasspn.model.SortedNodeInfo
@@ -59,6 +62,12 @@ class GroupFragment : DatabaseFragment() {
     private var mNodeTouchHelper: ItemTouchHelper? = null
     private val mNodeTouchCallback = NodeTouchCallback()
     private var mNodeActionsPopup: NodeActionsPopup? = null
+    private var mLongPressNode: SortedNodeInfo? = null
+    private var mLongPressActive = false
+    private var mDragging = false
+    private var mTouchDownX = 0f
+    private var mTouchDownY = 0f
+    private val mTouchSlop: Int by lazy { ViewConfiguration.get(requireContext()).scaledTouchSlop }
 
     private val mGroupViewModel: GroupViewModel by activityViewModels()
 
@@ -81,86 +90,6 @@ class GroupFragment : DatabaseFragment() {
     }
 
     /**
-     * Drags a group by its handle to change its position among the sibling groups.
-     */
-    private inner class NodeTouchCallback : ItemTouchHelper.SimpleCallback(0, 0) {
-
-        private var mDragStartPosition = RecyclerView.NO_POSITION
-        private var mDragDistance = 0f
-        // Long press opens the node actions sheet, dragging starts only from the drag handle
-        override fun isLongPressDragEnabled(): Boolean = false
-
-        override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
-            val adapter = mAdapter ?: return 0
-            val position = viewHolder.adapterPosition
-            if (position == RecyclerView.NO_POSITION || !adapter.isGroupAt(position)) return 0
-            val dragDirections = if (adapter.isGroupReorderAllowed()) {
-                ItemTouchHelper.UP or ItemTouchHelper.DOWN
-            } else {
-                0
-            }
-            return makeMovementFlags(dragDirections, 0)
-        }
-
-        override fun onMove(
-            recyclerView: RecyclerView,
-            viewHolder: RecyclerView.ViewHolder,
-            target: RecyclerView.ViewHolder
-        ): Boolean {
-            // The list is not reordered while dragging, the new position is applied on drop
-            return false
-        }
-
-        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-            // Swipe is disabled, nodes are removed only through the confirmation dialog
-        }
-
-        override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
-            super.onSelectedChanged(viewHolder, actionState)
-            if (actionState == ItemTouchHelper.ACTION_STATE_DRAG && viewHolder != null) {
-                mDragStartPosition = viewHolder.adapterPosition
-                mDragDistance = 0f
-            }
-        }
-
-        override fun onChildDraw(
-            canvas: Canvas,
-            recyclerView: RecyclerView,
-            viewHolder: RecyclerView.ViewHolder,
-            dX: Float,
-            dY: Float,
-            actionState: Int,
-            isCurrentlyActive: Boolean
-        ) {
-            if (actionState == ItemTouchHelper.ACTION_STATE_DRAG) {
-                mDragDistance = dY
-            }
-            super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-        }
-
-        override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
-            super.clearView(recyclerView, viewHolder)
-            val startPosition = mDragStartPosition
-            val distance = mDragDistance
-            mDragStartPosition = RecyclerView.NO_POSITION
-            mDragDistance = 0f
-            val adapter = mAdapter ?: return
-            if (startPosition == RecyclerView.NO_POSITION || !adapter.isGroupAt(startPosition)) return
-            val rowHeight = viewHolder.itemView.height
-            if (rowHeight <= 0) return
-            val rows = (distance / rowHeight).roundToInt()
-            if (rows == 0) return
-            val node = adapter.nodeAt(startPosition)
-            val currentIndex = adapter.groupIndexOf(node)
-            if (currentIndex < 0) return
-            val targetIndex = (currentIndex + rows).coerceIn(0, adapter.groupCount() - 1)
-            if (targetIndex != currentIndex) {
-                mGroupViewModel.onReorderGroup(node, targetIndex)
-            }
-        }
-    }
-
-    /**
      * Show the actions of [node] next to its row, after a long press.
      */
     fun showNodeActions(
@@ -174,6 +103,8 @@ class GroupFragment : DatabaseFragment() {
         val holder = recyclerView.findViewHolderForAdapterPosition(position)
             ?: return
         adapter.setPressedNode(node)
+        mLongPressNode = node
+        mLongPressActive = true
         holder.itemView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
         val popup = mNodeActionsPopup ?: NodeActionsPopup(holder.itemView.context).also {
             mNodeActionsPopup = it
@@ -183,8 +114,144 @@ class GroupFragment : DatabaseFragment() {
             title = title,
             actions = actions,
             onAction = { action -> mGroupViewModel.onNodeAction(action) },
-            onDismiss = { adapter.setPressedNode(null) }
+            onDismiss = { if (!mDragging) adapter.setPressedNode(null) }
         )
+    }
+
+    /**
+     * Drags a node among the nodes of its kind. The rows make room while the dragged row moves
+     * and the new order is saved when the row is released.
+     */
+    private inner class NodeTouchCallback : ItemTouchHelper.SimpleCallback(0, 0) {
+
+        private var mDragStartPosition = RecyclerView.NO_POSITION
+
+        // Long press opens the actions popup, the drag starts when the finger moves
+        override fun isLongPressDragEnabled(): Boolean = false
+
+        override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
+            val adapter = mAdapter ?: return 0
+            val position = viewHolder.adapterPosition
+            if (position == RecyclerView.NO_POSITION) return 0
+            return if (canReorder(adapter.nodeAt(position))) {
+                makeMovementFlags(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0)
+            } else {
+                0
+            }
+        }
+
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean {
+            val adapter = mAdapter ?: return false
+            val from = viewHolder.adapterPosition
+            val to = target.adapterPosition
+            if (from == RecyclerView.NO_POSITION || to == RecyclerView.NO_POSITION) return false
+            val other = adapter.nodeAt(to)
+            // Only neighbours of the same kind are swapped, pinned nodes are never passed
+            if (!adapter.sameKind(adapter.nodeAt(from), other) || !mGroupViewModel.isMovable(other)) {
+                return false
+            }
+            adapter.moveDisplayed(from, to)
+            return true
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            // Swipe is disabled, nodes are removed only through the confirmation dialog
+        }
+
+        override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
+            super.onSelectedChanged(viewHolder, actionState)
+            if (actionState == ItemTouchHelper.ACTION_STATE_DRAG && viewHolder != null) {
+                mDragStartPosition = viewHolder.adapterPosition
+                mAdapter?.beginDisplayOrder()
+            }
+        }
+
+        override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
+            super.clearView(recyclerView, viewHolder)
+            mDragging = false
+            val adapter = mAdapter ?: return
+            val startPosition = mDragStartPosition
+            mDragStartPosition = RecyclerView.NO_POSITION
+            val finalPosition = viewHolder.adapterPosition
+            if (startPosition == RecyclerView.NO_POSITION
+                || finalPosition == RecyclerView.NO_POSITION
+                || finalPosition == startPosition) {
+                adapter.cancelDisplayOrder()
+            } else {
+                val node = adapter.nodeAt(finalPosition)
+                val listedIndex = adapter.listedIndexAt(finalPosition)
+                adapter.commitDisplayOrder()
+                mGroupViewModel.onReorderNode(node, listedIndex)
+            }
+            adapter.setPressedNode(null)
+        }
+    }
+
+    /**
+     * Whether the node can be dragged to another position right now.
+     */
+    private fun canReorder(node: SortedNodeInfo): Boolean {
+        val adapter = mAdapter ?: return false
+        val allowed = if (node is GroupInfo && !TotpSummary.isSummary(node)) {
+            adapter.isGroupReorderAllowed()
+        } else {
+            adapter.isNodeReorderAllowed()
+        }
+        return allowed && mGroupViewModel.isMovable(node)
+    }
+
+    /**
+     * Watches the touch stream after a long press. Once the popup is open, a move beyond the
+     * touch slop closes it and starts dragging the row under the finger.
+     */
+    private val mLongPressTouchListener = object : RecyclerView.OnItemTouchListener {
+        override fun onInterceptTouchEvent(recyclerView: RecyclerView, event: MotionEvent): Boolean {
+            when (event.actionMasked) {
+                MotionEvent.ACTION_DOWN -> {
+                    mLongPressActive = false
+                    mTouchDownX = event.x
+                    mTouchDownY = event.y
+                }
+                MotionEvent.ACTION_MOVE -> {
+                    val moved = abs(event.x - mTouchDownX) > mTouchSlop
+                            || abs(event.y - mTouchDownY) > mTouchSlop
+                    if (mLongPressActive && moved) {
+                        mLongPressActive = false
+                        startDragAfterLongPress(recyclerView)
+                    }
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    mLongPressActive = false
+                }
+            }
+            return false
+        }
+
+        override fun onTouchEvent(recyclerView: RecyclerView, event: MotionEvent) {}
+
+        override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
+    }
+
+    private fun startDragAfterLongPress(recyclerView: RecyclerView) {
+        val node = mLongPressNode ?: return
+        val adapter = mAdapter ?: return
+        mLongPressNode = null
+        val canDrag = canReorder(node)
+        // The highlight stays on the row while it is dragged
+        mDragging = canDrag
+        mNodeActionsPopup?.dismiss()
+        if (!canDrag) return
+        val holder = recyclerView.findViewHolderForAdapterPosition(adapter.positionOf(node))
+        if (holder == null) {
+            mDragging = false
+            adapter.setPressedNode(null)
+            return
+        }
+        mNodeTouchHelper?.startDrag(holder)
     }
 
     override fun onDatabaseRetrieved(database: ContextualDatabase) {
@@ -238,6 +305,8 @@ class GroupFragment : DatabaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mNodesRecyclerView = view.findViewById(R.id.nodes_list)
+        mNodesRecyclerView?.addOnItemTouchListener(mLongPressTouchListener)
+        (mNodesRecyclerView?.itemAnimator as? SimpleItemAnimator)?.moveDuration = MOVE_ANIMATION_DURATION_MS
 
         mLayoutManager = LinearLayoutManager(context)
         mNodesRecyclerView?.apply {
@@ -324,6 +393,9 @@ class GroupFragment : DatabaseFragment() {
     }
 
     companion object {
+        // Short moves keep the rows responsive while a dragged row makes room
+        private const val MOVE_ANIMATION_DURATION_MS = 150L
+
         private val TAG = GroupFragment::class.java.name
     }
 }

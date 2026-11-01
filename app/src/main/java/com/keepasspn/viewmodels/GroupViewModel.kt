@@ -462,7 +462,26 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
     }
 
     /**
-     * Long press on a node shows its actions in a bottom sheet.
+     * Whether a node can take part in a manual reorder. The TOTP Summary folder and its
+     * codes, and the 2FA import group, keep their place.
+     */
+    fun isMovable(node: SortedNodeInfo): Boolean {
+        if (mainGroup?.nodeId == TotpSummary.NODE_ID) return false
+        return !TotpSummary.isSummary(node) && !isImportGroupNode(node)
+    }
+
+    /**
+     * Reorder a node among the listed nodes of its kind, saved by the reorder task.
+     */
+    fun onReorderNode(node: SortedNodeInfo, targetIndex: Int) {
+        if (!isMovable(node)) return
+        viewModelScope.launch {
+            _viewEvent.emit(GroupEvent.ReorderNode(node, targetIndex))
+        }
+    }
+
+    /**
+     * Long press on a node shows its actions in a popup.
      * @param reorderAllowed true when the database is sorted by its own (manual) order
      */
     fun onNodeLongClick(node: SortedNodeInfo, reorderAllowed: Boolean) {

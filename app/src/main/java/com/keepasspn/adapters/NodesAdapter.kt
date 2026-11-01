@@ -97,6 +97,9 @@ class NodesAdapter(
     var showAllOtpCodes: Boolean = false
 
     private var mPressedNodeId: NodeId<*>? = null
+    // Order shown while a row is dragged; null means the sorted list is shown
+    private var mDisplayOrder: MutableList<SortedNodeInfo>? = null
+    private var mDisplayMoved = false
     private var mActionNodesList = mutableListOf<SortedNodeInfo>()
     private var mActionNodeIds = mutableSetOf<NodeId<*>>()
     private var mNodeClickCallback: NodeClickCallback? = null
@@ -119,7 +122,7 @@ class NodesAdapter(
      * @return true if the list is empty
      */
     val isEmpty: Boolean
-        get() = mNodeSortedList.size() <= 0
+        get() = displayedSize() <= 0
 
     init {
         this.mIconDefaultDimension = context.resources.getDimension(R.dimen.list_icon_size_default)
@@ -189,6 +192,8 @@ class NodesAdapter(
         mOldVirtualGroup = mVirtualGroup
         mVirtualGroup = isSearch
         assignPreferences()
+        mDisplayOrder = null
+        mDisplayMoved = false
         mNodeSortedList.replaceAll(nodes)
     }
 
@@ -228,8 +233,8 @@ class NodesAdapter(
     }
 
     fun notifyNodeChanged(node: SortedNodeInfo) {
-        for (i in 0 until mNodeSortedList.size()) {
-            if (mNodeSortedList.get(i).nodeId == node.nodeId) {
+        for (i in 0 until displayedSize()) {
+            if (displayedAt(i).nodeId == node.nodeId) {
                 notifyItemChanged(i)
                 break
             }
@@ -285,7 +290,7 @@ class NodesAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when (mNodeSortedList.get(position)) {
+        return when (displayedAt(position)) {
             is GroupInfo -> NodeType.GROUP.ordinal
             else -> NodeType.ENTRY.ordinal
         }
@@ -325,8 +330,8 @@ class NodesAdapter(
 
     /** Refreshes the entries with [url] once their brand has been looked up */
     private fun notifyEntriesWithUrl(url: String) {
-        for (position in 0 until mNodeSortedList.size()) {
-            val node = mNodeSortedList.get(position)
+        for (position in 0 until displayedSize()) {
+            val node = displayedAt(position)
             if (node is EntryInfo && node.url == url) {
                 notifyItemChanged(position)
             }
@@ -334,7 +339,7 @@ class NodesAdapter(
     }
 
     override fun onBindViewHolder(holder: NodeViewHolder, position: Int) {
-        val node = mNodeSortedList.get(position)
+        val node = displayedAt(position)
 
         // Node selection
         val isSelected = mActionNodeIds.contains(node.nodeId)
@@ -537,6 +542,81 @@ class NodesAdapter(
         return sortNode == SortNodeEnum.DB
     }
 
+    private fun displayedSize(): Int {
+        return mDisplayOrder?.size ?: mNodeSortedList.size()
+    }
+
+    private fun displayedAt(position: Int): SortedNodeInfo {
+        return mDisplayOrder?.get(position) ?: mNodeSortedList.get(position)
+    }
+
+    /**
+     * Start showing a drag order: rows are moved in it without touching the database order.
+     */
+    fun beginDisplayOrder() {
+        if (mDisplayOrder == null) {
+            mDisplayOrder = ArrayList<SortedNodeInfo>(mNodeSortedList.size()).also { order ->
+                for (position in 0 until mNodeSortedList.size()) {
+                    order.add(mNodeSortedList.get(position))
+                }
+            }
+            mDisplayMoved = false
+        }
+    }
+
+    /**
+     * Move a row to another position of the drag order.
+     */
+    fun moveDisplayed(fromPosition: Int, toPosition: Int) {
+        val order = mDisplayOrder ?: return
+        if (fromPosition == toPosition) return
+        order.add(toPosition, order.removeAt(fromPosition))
+        mDisplayMoved = true
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    /**
+     * Keep the drag order until the database list is rebuilt with the saved order.
+     */
+    fun commitDisplayOrder() {
+        // The order is replaced by rebuildList once the reorder is saved
+    }
+
+    /**
+     * Drop the drag order and show the sorted list again.
+     */
+    fun cancelDisplayOrder() {
+        if (mDisplayOrder == null) return
+        val moved = mDisplayMoved
+        mDisplayOrder = null
+        mDisplayMoved = false
+        if (moved) notifyDataSetChanged()
+    }
+
+    /**
+     * Index of the node at [position] among the listed nodes of the same kind (groups or entries).
+     */
+    fun listedIndexAt(position: Int): Int {
+        val kind = kindOf(displayedAt(position))
+        var index = 0
+        for (other in 0 until position) {
+            if (kindOf(displayedAt(other)) == kind) index++
+        }
+        return index
+    }
+
+    fun sameKind(node: SortedNodeInfo, other: SortedNodeInfo): Boolean {
+        return kindOf(node) == kindOf(other)
+    }
+
+    private fun kindOf(node: SortedNodeInfo): Int {
+        return when {
+            node is GroupInfo && !TotpSummary.isSummary(node) -> KIND_GROUP
+            node is GroupInfo -> KIND_SPECIAL_GROUP
+            else -> KIND_ENTRY
+        }
+    }
+
     /**
      * Darken the row of [node] while its actions are shown, or restore it when [node] is null.
      */
@@ -556,19 +636,19 @@ class NodesAdapter(
     }
 
     private fun positionOfNodeId(nodeId: NodeId<*>): Int {
-        for (position in 0 until mNodeSortedList.size()) {
-            if (mNodeSortedList.get(position).nodeId == nodeId) return position
+        for (position in 0 until displayedSize()) {
+            if (displayedAt(position).nodeId == nodeId) return position
         }
         return -1
     }
 
     fun isGroupAt(position: Int): Boolean {
-        return position >= 0 && position < mNodeSortedList.size()
-                && mNodeSortedList.get(position).let { it is GroupInfo && !TotpSummary.isSummary(it) }
+        return position >= 0 && position < displayedSize()
+                && displayedAt(position).let { it is GroupInfo && !TotpSummary.isSummary(it) }
     }
 
     fun nodeAt(position: Int): SortedNodeInfo {
-        return mNodeSortedList.get(position)
+        return displayedAt(position)
     }
 
     /**
@@ -576,8 +656,8 @@ class NodesAdapter(
      */
     fun groupCount(): Int {
         var count = 0
-        for (position in 0 until mNodeSortedList.size()) {
-            val item = mNodeSortedList.get(position)
+        for (position in 0 until displayedSize()) {
+            val item = displayedAt(position)
             if (item is GroupInfo && !TotpSummary.isSummary(item)) count++
         }
         return count
@@ -588,8 +668,8 @@ class NodesAdapter(
      */
     fun groupIndexOf(node: SortedNodeInfo): Int {
         var index = 0
-        for (position in 0 until mNodeSortedList.size()) {
-            val item = mNodeSortedList.get(position)
+        for (position in 0 until displayedSize()) {
+            val item = displayedAt(position)
             if (item is GroupInfo && !TotpSummary.isSummary(item)) {
                 if (item.nodeId == node.nodeId) return index
                 index++
@@ -630,7 +710,7 @@ class NodesAdapter(
     }
 
     override fun getItemCount(): Int {
-        return mNodeSortedList.size()
+        return displayedSize()
     }
 
     /**
@@ -673,5 +753,8 @@ class NodesAdapter(
         private val TAG = NodesAdapter::class.java.name
         private const val MENU_MOVE_UP = 1
         private const val MENU_MOVE_DOWN = 2
+        private const val KIND_GROUP = 0
+        private const val KIND_ENTRY = 1
+        private const val KIND_SPECIAL_GROUP = 2
     }
 }
