@@ -22,6 +22,7 @@ package com.keepasspn.activities.fragments
 import android.os.Bundle
 import com.keepasspn.otp.TotpSummary
 import com.keepasspn.utils.NoOpLog
+import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,6 +45,7 @@ import com.keepasspn.credentialprovider.SpecialMode
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.element.SortNodeEnum
 import com.keepasspn.model.SearchGroupInfo
+import com.keepasspn.activities.dialogs.NodeActionsPopup
 import com.keepasspn.model.SortedNodeInfo
 import com.keepasspn.viewmodels.GroupViewModel
 import kotlinx.coroutines.launch
@@ -56,6 +58,7 @@ class GroupFragment : DatabaseFragment() {
     private var mAdapter: NodesAdapter? = null
     private var mNodeTouchHelper: ItemTouchHelper? = null
     private val mNodeTouchCallback = NodeTouchCallback()
+    private var mNodeActionsPopup: NodeActionsPopup? = null
 
     private val mGroupViewModel: GroupViewModel by activityViewModels()
 
@@ -155,6 +158,33 @@ class GroupFragment : DatabaseFragment() {
                 mGroupViewModel.onReorderGroup(node, targetIndex)
             }
         }
+    }
+
+    /**
+     * Show the actions of [node] next to its row, after a long press.
+     */
+    fun showNodeActions(
+        node: SortedNodeInfo,
+        title: String,
+        actions: NodeActionsPopup.Actions
+    ) {
+        val adapter = mAdapter ?: return
+        val recyclerView = mNodesRecyclerView ?: return
+        val position = adapter.positionOf(node)
+        val holder = recyclerView.findViewHolderForAdapterPosition(position)
+            ?: return
+        adapter.setPressedNode(node)
+        holder.itemView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
+        val popup = mNodeActionsPopup ?: NodeActionsPopup(holder.itemView.context).also {
+            mNodeActionsPopup = it
+        }
+        popup.show(
+            anchor = holder.itemView,
+            title = title,
+            actions = actions,
+            onAction = { action -> mGroupViewModel.onNodeAction(action) },
+            onDismiss = { adapter.setPressedNode(null) }
+        )
     }
 
     override fun onDatabaseRetrieved(database: ContextualDatabase) {
@@ -287,6 +317,7 @@ class GroupFragment : DatabaseFragment() {
     }
 
     override fun onPause() {
+        mNodeActionsPopup?.dismiss()
 
         mNodesRecyclerView?.removeOnScrollListener(mRecycleViewScrollListener)
         super.onPause()

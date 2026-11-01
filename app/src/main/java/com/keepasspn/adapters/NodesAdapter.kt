@@ -96,6 +96,7 @@ class NodesAdapter(
     // The TOTP Summary folder shows the codes themselves, not hidden ones
     var showAllOtpCodes: Boolean = false
 
+    private var mPressedNodeId: NodeId<*>? = null
     private var mActionNodesList = mutableListOf<SortedNodeInfo>()
     private var mActionNodeIds = mutableSetOf<NodeId<*>>()
     private var mNodeClickCallback: NodeClickCallback? = null
@@ -338,6 +339,8 @@ class NodesAdapter(
         // Node selection
         val isSelected = mActionNodeIds.contains(node.nodeId)
         holder.container.isSelected = isSelected
+        holder.pressOverlay?.visibility =
+            if (node.nodeId == mPressedNodeId) View.VISIBLE else View.GONE
 
         // Assign text
         holder.text.apply {
@@ -534,6 +537,31 @@ class NodesAdapter(
         return sortNode == SortNodeEnum.DB
     }
 
+    /**
+     * Darken the row of [node] while its actions are shown, or restore it when [node] is null.
+     */
+    fun setPressedNode(node: SortedNodeInfo?) {
+        val previous = mPressedNodeId?.let { positionOfNodeId(it) } ?: -1
+        mPressedNodeId = node?.nodeId
+        val current = node?.let { positionOfNodeId(it.nodeId) } ?: -1
+        if (previous >= 0) notifyItemChanged(previous)
+        if (current >= 0 && current != previous) notifyItemChanged(current)
+    }
+
+    /**
+     * Position of [node] in the list, or -1 if it is not listed.
+     */
+    fun positionOf(node: SortedNodeInfo): Int {
+        return positionOfNodeId(node.nodeId)
+    }
+
+    private fun positionOfNodeId(nodeId: NodeId<*>): Int {
+        for (position in 0 until mNodeSortedList.size()) {
+            if (mNodeSortedList.get(position).nodeId == nodeId) return position
+        }
+        return -1
+    }
+
     fun isGroupAt(position: Int): Boolean {
         return position >= 0 && position < mNodeSortedList.size()
                 && mNodeSortedList.get(position).let { it is GroupInfo && !TotpSummary.isSummary(it) }
@@ -638,6 +666,7 @@ class NodesAdapter(
         var attachmentIcon: ImageView? = itemView.findViewById(R.id.node_attachment_icon)
         var passkeyIcon: ImageView? = itemView.findViewById(R.id.node_passkey_icon)
         var dragHandle: View? = itemView.findViewById(R.id.node_drag_handle)
+        var pressOverlay: View? = itemView.findViewById(R.id.node_press_overlay)
     }
 
     companion object {

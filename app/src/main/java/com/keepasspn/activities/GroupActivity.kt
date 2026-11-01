@@ -19,7 +19,7 @@
 package com.keepasspn.activities
 
 import com.keepasspn.activities.dialogs.MoveDestinationDialog
-import com.keepasspn.activities.dialogs.NodeActionsBottomSheet
+import com.keepasspn.activities.dialogs.NodeActionsPopup
 import com.keepasspn.database.element.Group
 import com.keepasspn.model.toNodes
 import android.app.Activity
@@ -134,7 +134,7 @@ import org.joda.time.LocalDateTime
 import java.util.EnumSet
 
 
-class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
+class GroupActivity : DatabaseLockActivity() {
 
     // Views
     private var header: ViewGroup? = null
@@ -881,13 +881,18 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
                 } == true
         // Moving is not allowed inside the recycle bin or in a read-only database
         val canMove = mSpecialMode == SpecialMode.DEFAULT && !canRestore && database?.isReadOnly == false
-        NodeActionsBottomSheet.getInstance(
+        val groupFragment = supportFragmentManager.findFragmentByTag(GROUP_FRAGMENT_TAG) as? GroupFragment
+            ?: return
+        groupFragment.showNodeActions(
+            node = event.node,
             title = (event.node as? NodeInfo)?.title.orEmpty(),
-            canMoveUp = event.canMoveUp,
-            canMoveDown = event.canMoveDown,
-            canRestore = canRestore,
-            canMove = canMove
-        ).show(supportFragmentManager, NodeActionsBottomSheet.TAG)
+            actions = NodeActionsPopup.Actions(
+                canMove = canMove,
+                canMoveUp = event.canMoveUp,
+                canMoveDown = event.canMoveDown,
+                canRestore = canRestore
+            )
+        )
     }
 
     private fun onDuplicateNodesRequested(nodes: Nodes) {
@@ -1314,10 +1319,6 @@ class GroupActivity : DatabaseLockActivity(), NodeActionsBottomSheet.Listener {
     private fun requestSort() {
         SortDialogFragment.getInstance()
             .show(supportFragmentManager, "sortDialog")
-    }
-
-    override fun onNodeActionSelected(action: GroupViewModel.NodeAction) {
-        mGroupViewModel.onNodeAction(action)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

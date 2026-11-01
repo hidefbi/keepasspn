@@ -169,4 +169,18 @@
             tools:text="Database / Group A / Group B" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/node_press_overlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#26000000"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAccessibility="no"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/node_container"
+        app:layout_constraintEnd_toEndOf="@+id/node_container"
+        app:layout_constraintStart_toStartOf="@+id/node_container"
+        app:layout_constraintTop_toTopOf="@+id/node_container" />
 </androidx.constraintlayout.widget.ConstraintLayout>
