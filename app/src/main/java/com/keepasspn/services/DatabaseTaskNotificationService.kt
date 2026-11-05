@@ -461,8 +461,11 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
                                 removeIntentData(intent)
                                 updateSavingActionRunning(isSavingAction, increment = false)
                                 TimeoutHelper.releaseTemporarilyDisableTimeout()
-                                // Stop service after save if user remove task
-                                if (save && mTaskRemovedRequested) {
+                                // A selection asked for a lock while this task was running
+                                if (TimeoutHelper.consumeLockAfterTaskRequest()) {
+                                    stopService()
+                                } else if (save && mTaskRemovedRequested) {
+                                    // Stop service after save if user remove task
                                     stopService()
                                 } else if (TimeoutHelper.checkTimeAndLockIfTimeout(this@DatabaseTaskNotificationService)) {
                                     if (!database.loaded) {

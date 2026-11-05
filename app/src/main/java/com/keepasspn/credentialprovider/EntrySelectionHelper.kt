@@ -37,7 +37,9 @@ import com.keepasspn.database.element.EntryId
 import com.keepasspn.model.EntryInfo
 import com.keepasspn.model.RegisterInfo
 import com.keepasspn.model.SearchInfo
+import com.keepasspn.timeout.TimeoutHelper
 import com.keepasspn.utils.LOCK_ACTION
+import com.keepasspn.utils.closeDatabase
 import com.keepasspn.utils.getEnum
 import com.keepasspn.utils.getEnumExtra
 import com.keepasspn.utils.getParcelableCompat
@@ -71,10 +73,23 @@ object EntrySelectionHelper {
             Activity.RESULT_CANCELED ->
                 this.setResult(resultCode)
         }
-        this.finish()
-
         if (lockDatabase) {
-            // Close the database
+            this.lockDatabaseAfterSelection()
+        }
+        this.finish()
+    }
+
+    /**
+     * Close the database right after a selection. A broadcast alone can be ignored while a
+     * database task runs, so the database is closed directly when idle, and otherwise closed
+     * when the running task releases the lock.
+     */
+    private fun Activity.lockDatabaseAfterSelection() {
+        if (TimeoutHelper.temporarilyDisableLock) {
+            TimeoutHelper.requestLockAfterTask()
+        } else {
+            closeDatabase(ContextualDatabase.getInstance())
+            // Let the database service and the lock receivers release their state
             this.sendBroadcast(Intent(LOCK_ACTION))
         }
     }

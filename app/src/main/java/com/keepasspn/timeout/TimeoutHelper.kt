@@ -40,6 +40,7 @@ object TimeoutHelper {
     private var lastAppTimeoutRecord: Long? = null
     var temporarilyDisableLock = false
         private set
+    private var lockAfterTaskRequested = false
 
     private fun getLockPendingIntent(context: Context): PendingIntent {
         return PendingIntent.getBroadcast(context.applicationContext,
@@ -180,5 +181,21 @@ object TimeoutHelper {
      */
     fun releaseTemporarilyDisableTimeout() {
         temporarilyDisableLock = false
+    }
+
+    /**
+     * Ask to lock the database as soon as the running database task is finished
+     */
+    fun requestLockAfterTask() {
+        lockAfterTaskRequested = true
+    }
+
+    /**
+     * Return true once if a lock was requested during a database task, and reset the request
+     */
+    fun consumeLockAfterTaskRequest(): Boolean {
+        val requested = lockAfterTaskRequested
+        lockAfterTaskRequested = false
+        return requested
     }
 }
