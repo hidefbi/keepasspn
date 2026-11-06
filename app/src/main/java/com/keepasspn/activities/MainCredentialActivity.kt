@@ -59,6 +59,7 @@ import com.keepasspn.biometric.PinPolicyManager
 import com.keepasspn.biometric.PinPolicyStore
 import com.keepasspn.biometric.PinWipedException
 import com.keepasspn.biometric.WrongPinException
+import com.keepasspn.utils.KeyboardUtil.showKeyboard
 import android.text.InputType
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -766,12 +767,11 @@ class MainCredentialActivity : DatabaseModeActivity() {
         }
         dialog.window?.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
         dialog.show()
-        // Focus the PIN field and open the keyboard as soon as the dialog appears
-        pinEditText.post {
+        // Wait until the dialog window has focus, otherwise some devices ignore the keyboard request
+        pinEditText.postDelayed({
             pinEditText.requestFocus()
-            (getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager)
-                .showSoftInput(pinEditText, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
-        }
+            pinEditText.showKeyboard()
+        }, 100L)
     }
 
     @androidx.annotation.RequiresApi(Build.VERSION_CODES.M)

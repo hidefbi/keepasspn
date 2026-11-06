@@ -32,6 +32,7 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.keepasspn.R
+import com.keepasspn.utils.KeyboardUtil.showKeyboard
 import kotlinx.coroutines.launch
 
 /**
@@ -122,11 +123,10 @@ object PinVerificationDialog {
         }
         dialog.window?.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
         dialog.show()
-        // Focus the PIN field and open the keyboard as soon as the dialog appears
-        edit.post {
+        // Wait until the dialog window has focus, otherwise some devices ignore the keyboard request
+        edit.postDelayed({
             edit.requestFocus()
-            (activity.getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager)
-                .showSoftInput(edit, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
-        }
+            edit.showKeyboard()
+        }, 100L)
     }
 }
