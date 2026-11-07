@@ -759,7 +759,7 @@ abstract class TemplateAbstractView<
         if (value.isNullOrEmpty()) return
         try {
             val fieldView: TEntryFieldView? = findViewWithTag(fieldTag)
-            if (fieldView != null && fieldView.value.isNullOrEmpty()) {
+            if (fieldView != null && fieldView.value.isEmpty()) {
                 fieldView.value = value.toCharArray()
             }
         } catch (e: Exception) {
