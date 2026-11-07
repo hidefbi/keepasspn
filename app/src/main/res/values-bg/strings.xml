@@ -759,6 +759,7 @@
     <string name="import_otp_scan_menu">Сканиране на кодове</string>
     <string name="import_otp_prompt_title">Сканиране на еднократен код?</string>
     <string name="import_otp_prompt_message">Сканирането се извършва изцяло на вашето устройство. Можете да импортирате няколко акаунта от други приложения за удостоверяване наведнъж. Никакви данни не се изпращат по мрежата и никакви изображения не се запазват.</string>
+    <string name="otp_scan_prompt_message">Отворете камерата и сканирайте QR код. Скенерът се затваря веднага след като прочете кода и попълва формата. Всичко остава на вашето устройство.</string>
     <string name="import_otp_prompt_start">Сканиране</string>
     <string name="import_otp_prompt_cancel">Отказ</string>
     <string name="import_otp_result_title">Намерени акаунти: %1$d</string>

@@ -773,6 +773,7 @@ Aby zachować naszą wolność, naprawiać błędy, dodawać funkcje i utrzymywa
     <string name="import_otp_scan_menu">Skanuj kody</string>
     <string name="import_otp_prompt_title">Zeskanować kod jednorazowy?</string>
     <string name="import_otp_prompt_message">Skanowanie odbywa się wyłącznie na Twoim urządzeniu. Możesz jednocześnie zaimportować wiele kont z innych aplikacji uwierzytelniających. Żadne dane nie są wysyłane przez sieć i żadne obrazy nie są zapisywane.</string>
+    <string name="otp_scan_prompt_message">Otwórz aparat i zeskanuj kod QR. Skaner zamknie się, gdy tylko odczyta kod, i wypełni ten formularz. Wszystko zostaje na Twoim urządzeniu.</string>
     <string name="import_otp_prompt_start">Skanuj</string>
     <string name="import_otp_prompt_cancel">Anuluj</string>
     <string name="import_otp_result_title">Znaleziono kont: %1$d</string>

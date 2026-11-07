@@ -785,6 +785,7 @@ Om onze vrijheid te behouden, bugs te verhelpen, functies toe te voegen en het p
     <string name="import_otp_scan_menu">Codes scannen</string>
     <string name="import_otp_prompt_title">Een eenmalige code scannen?</string>
     <string name="import_otp_prompt_message">Het scannen gebeurt volledig op je apparaat. Je kunt meerdere accounts uit andere authenticatie-apps tegelijk importeren. Er worden geen gegevens via het netwerk verzonden en er worden geen afbeeldingen opgeslagen.</string>
+    <string name="otp_scan_prompt_message">Open de camera en scan een QR-code. De scanner sluit zodra de code is gelezen en vult dit formulier in. Alles blijft op je apparaat.</string>
     <string name="import_otp_prompt_start">Scannen</string>
     <string name="import_otp_prompt_cancel">Annuleren</string>
     <string name="import_otp_result_title">%1$d account gevonden</string>

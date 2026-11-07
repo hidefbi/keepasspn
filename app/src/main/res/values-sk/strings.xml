@@ -775,6 +775,7 @@ Aby sme zachovali slobodu, opravovali chyby, pridávali funkcie a udržali proje
     <string name="import_otp_scan_menu">Skenovať kódy</string>
     <string name="import_otp_prompt_title">Naskenovať jednorazový kód?</string>
     <string name="import_otp_prompt_message">Skenovanie prebieha výhradne vo vašom zariadení. Z iných overovacích aplikácií môžete naraz importovať viacero účtov. Žiadne údaje sa neodosielajú cez sieť a žiadne obrázky sa neukladajú.</string>
+    <string name="otp_scan_prompt_message">Otvorte fotoaparát a naskenujte QR kód. Skener sa po načítaní kódu hneď zavrie a vyplní tento formulár. Všetko zostáva vo vašom zariadení.</string>
     <string name="import_otp_prompt_start">Skenovať</string>
     <string name="import_otp_prompt_cancel">Zrušiť</string>
     <string name="import_otp_result_title">Nájdený %1$d účet</string>

@@ -774,6 +774,7 @@ Uygulama kullanıcı verilerini toplamaz, hiçbir sunucuya bağlanmaz, yalnızca
     <string name="import_otp_scan_menu">Kodları tara</string>
     <string name="import_otp_prompt_title">Tek kullanımlık kod taransın mı?</string>
     <string name="import_otp_prompt_message">Tarama tamamen cihazınızda yapılır. Diğer kimlik doğrulama uygulamalarındaki birden fazla hesabı bir seferde içe aktarabilirsiniz. Ağ üzerinden hiçbir veri gönderilmez ve hiçbir görüntü kaydedilmez.</string>
+    <string name="otp_scan_prompt_message">Kamerayı açıp bir QR kodu tarayın. Tarayıcı kodu okuyunca kapanır ve bu formu doldurur. Her şey cihazınızda kalır.</string>
     <string name="import_otp_prompt_start">Tara</string>
     <string name="import_otp_prompt_cancel">İptal</string>
     <string name="import_otp_result_title">%1$d hesap bulundu</string>

@@ -774,6 +774,7 @@
     <string name="import_otp_scan_menu">コードをスキャン</string>
     <string name="import_otp_prompt_title">ワンタイムコードをスキャンしますか？</string>
     <string name="import_otp_prompt_message">スキャンはすべて端末内で行われます。他の認証アプリのアカウントをまとめてインポートできます。ネットワークへのデータ送信はなく、画像も保存されません。</string>
+    <string name="otp_scan_prompt_message">カメラを開いて QR コードをスキャンします。コードを読み取ると自動的に閉じ、このフォームに入力されます。すべてお使いの端末内で処理されます。</string>
     <string name="import_otp_prompt_start">スキャン</string>
     <string name="import_otp_prompt_cancel">キャンセル</string>
     <string name="import_otp_result_title">%1$d 件のアカウントが見つかりました</string>

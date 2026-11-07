@@ -763,6 +763,7 @@
     <string name="import_otp_scan_menu">掃描驗證碼</string>
     <string name="import_otp_prompt_title">掃描一次性驗證碼？</string>
     <string name="import_otp_prompt_message">掃描完全在您的裝置上進行。您可以一次匯入來自其他驗證器應用程式的多個帳戶。不會透過網路傳送任何資料，也不會儲存任何圖片。</string>
+    <string name="otp_scan_prompt_message">開啟相機掃描 QR Code。讀取到條碼後掃描器會立即關閉，並自動填入此表單。所有資料都只保留在你的裝置上。</string>
     <string name="import_otp_prompt_start">掃描</string>
     <string name="import_otp_prompt_cancel">取消</string>
     <string name="import_otp_result_title">已找到 %1$d 個帳戶</string>

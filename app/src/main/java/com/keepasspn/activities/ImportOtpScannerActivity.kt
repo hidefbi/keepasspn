@@ -111,9 +111,9 @@ class ImportOtpScannerActivity : DatabaseLockActivity(), SurfaceHolder.Callback 
     private var resumed = false
     private var permissionAsked = false
 
-    // Set when a single code is wanted for an entry, the code is returned instead of imported
-    private val pickOneAccount: Boolean by lazy {
-        intent.getBooleanExtra(EXTRA_PICK_ONE_ACCOUNT, false)
+    // Entry mode: one code is read, handed back to the caller and the camera closes
+    private val singleCode: Boolean by lazy {
+        intent.getBooleanExtra(EXTRA_SINGLE_CODE, false)
     }
 
     override fun manageDatabaseInfo(): Boolean = true
@@ -138,6 +138,7 @@ class ImportOtpScannerActivity : DatabaseLockActivity(), SurfaceHolder.Callback 
         statusView = findViewById(R.id.import_otp_status)
         doneButton = findViewById(R.id.import_otp_done)
         doneButton.setOnClickListener { showResult() }
+        if (singleCode) doneButton.visibility = View.GONE
         surfaceView.holder.addCallback(this)
 
         updateStatus()
@@ -388,23 +389,36 @@ class ImportOtpScannerActivity : DatabaseLockActivity(), SurfaceHolder.Callback 
      */
     private fun handleScannedText(rawText: String) {
         val text = rawText.trim()
+        var picked: OtpModel? = null
         synchronized(lock) {
             if (!scannedTexts.add(text)) return // Same code already read
-            if (GoogleAuthenticatorMigration.isMigrationUri(text)) {
+            // Migration exports hold many accounts, the entry scanner only takes one code
+            if (!singleCode && GoogleAuthenticatorMigration.isMigrationUri(text)) {
                 addMigrationBatch(text)
             } else {
                 val model = OtpEntryFields.parseOTPUri(text)?.otpModel
-                if (model != null) {
+                if (model == null) {
+                    statusNote = R.string.import_otp_status_invalid
+                } else if (singleCode) {
+                    // Only the first valid code counts
+                    if (!resultShown) {
+                        resultShown = true
+                        picked = model
+                    }
+                } else {
                     singleAccounts.add(model)
                     statusNote = null
-                } else {
-                    statusNote = R.string.import_otp_status_invalid
                 }
             }
         }
+        val code = picked
         mainHandler.post {
             // The activity may have been destroyed while this message was queued
             if (isFinishing || isDestroyed) return@post
+            if (code != null) {
+                returnScanned(code)
+                return@post
+            }
             updateStatus()
             if (isMigrationComplete()) showResult()
         }
@@ -484,36 +498,15 @@ class ImportOtpScannerActivity : DatabaseLockActivity(), SurfaceHolder.Callback 
         if (skipped > 0) {
             Toast.makeText(this, getString(R.string.import_otp_preview_skipped, skipped), Toast.LENGTH_LONG).show()
         }
-        if (pickOneAccount) {
-            showPickDialog(accounts)
-        } else {
-            showResultDialog(accounts, BooleanArray(accounts.size) { true })
-        }
-    }
-
-    private fun showPickDialog(accounts: List<OtpModel>) {
-        val labels: Array<CharSequence> = accounts.map { accountLabel(it) }.toTypedArray()
-        var selected = 0
-        AlertDialog.Builder(this)
-            .setTitle(getString(R.string.import_otp_result_title, accounts.size))
-            .setSingleChoiceItems(labels, selected) { _, which ->
-                selected = which
-            }
-            .setNegativeButton(android.R.string.cancel) { _, _ -> finish() }
-            .setPositiveButton(android.R.string.ok) { _, _ -> returnPicked(accounts, selected) }
-            .setOnCancelListener { finish() }
-            .show()
+        showResultDialog(accounts, BooleanArray(accounts.size) { true })
     }
 
     /**
-     * Hand the chosen code back to the caller, the others are dropped here.
+     * Entry mode: hand the code back to the caller right away and close the camera.
      */
-    private fun returnPicked(accounts: List<OtpModel>, index: Int) {
-        accounts.forEachIndexed { position, otpModel ->
-            if (position != index) otpModel.clear()
-        }
-        handedOver = true
-        setResult(RESULT_OK, Intent().putExtra(EXTRA_SCANNED_OTP, accounts[index]))
+    private fun returnScanned(otpModel: OtpModel) {
+        stopCamera()
+        setResult(RESULT_OK, Intent().putExtra(EXTRA_SCANNED_OTP, otpModel))
         finish()
     }
 
@@ -557,7 +550,7 @@ class ImportOtpScannerActivity : DatabaseLockActivity(), SurfaceHolder.Callback 
         private const val REQUEST_CAMERA = 1
         private const val MAX_FRAME_WIDTH = 1280
 
-        const val EXTRA_PICK_ONE_ACCOUNT = "com.keepasspn.EXTRA_PICK_ONE_ACCOUNT"
+        const val EXTRA_SINGLE_CODE = "com.keepasspn.EXTRA_SINGLE_CODE"
         const val EXTRA_SCANNED_OTP = "com.keepasspn.EXTRA_SCANNED_OTP"
     }
 }

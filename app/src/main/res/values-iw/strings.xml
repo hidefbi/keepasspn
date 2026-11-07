@@ -754,6 +754,7 @@
     <string name="import_otp_scan_menu">סרוק קודים</string>
     <string name="import_otp_prompt_title">לסרוק קוד חד-פעמי?</string>
     <string name="import_otp_prompt_message">הסריקה מתבצעת במכשיר שלך בלבד. ניתן לייבא כמה חשבונות מאפליקציות אימות אחרות בבת אחת. שום נתונים לא נשלחים ברשת, ושום תמונות לא נשמרות.</string>
+    <string name="otp_scan_prompt_message">פתח את המצלמה וסרוק קוד QR. הסורק ייסגר מיד לאחר קריאת הקוד וימלא את הטופס. הכול נשאר במכשיר שלך.</string>
     <string name="import_otp_prompt_start">סרוק</string>
     <string name="import_otp_prompt_cancel">ביטול</string>
     <string name="import_otp_result_title">נמצא חשבון %1$d</string>

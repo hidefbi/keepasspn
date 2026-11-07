@@ -741,6 +741,7 @@ Meie vabaduse säilitamiseks, vigade parandamiseks, uute funktsioonide lisamisek
     <string name="import_otp_scan_menu">Skanni koode</string>
     <string name="import_otp_prompt_title">Skanni ühekordne kood?</string>
     <string name="import_otp_prompt_message">Skannimine toimub ainult sinu seadmes. Võid importida mitu kontot teistest autentimisrakendustest korraga. Võrku ei saadeta andmeid ja pilte ei salvestata.</string>
+    <string name="otp_scan_prompt_message">Ava kaamera ja skanni QR-kood. Skanner sulgub kohe pärast koodi lugemist ja täidab selle vormi. Kõik jääb sinu seadmesse.</string>
     <string name="import_otp_prompt_start">Skanni</string>
     <string name="import_otp_prompt_cancel">Tühista</string>
     <string name="import_otp_result_title">Leitud %1$d konto</string>

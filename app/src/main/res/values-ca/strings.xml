@@ -711,6 +711,7 @@ Per mantenir la nostra llibertat, corregir errors, afegir funcions i mantenir el
     <string name="import_otp_scan_menu">Escaneja codis</string>
     <string name="import_otp_prompt_title">Escanejar un codi d’un sol ús?</string>
     <string name="import_otp_prompt_message">L’escaneig es fa només al dispositiu. Pots importar diversos comptes d’altres aplicacions d’autenticació alhora. No s’envia cap dada per la xarxa i no es desa cap imatge.</string>
+    <string name="otp_scan_prompt_message">Obre la càmera i escaneja un codi QR. El lector es tanca tot just després de llegir el codi i omple aquest formulari. Tot es queda al dispositiu.</string>
     <string name="import_otp_prompt_start">Escaneja</string>
     <string name="import_otp_prompt_cancel">Cancel·la</string>
     <string name="import_otp_result_title">S’ha trobat %1$d compte</string>

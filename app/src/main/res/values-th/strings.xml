@@ -724,6 +724,7 @@
     <string name="import_otp_scan_menu">สแกนรหัส</string>
     <string name="import_otp_prompt_title">สแกนรหัสครั้งเดียวหรือไม่?</string>
     <string name="import_otp_prompt_message">การสแกนทำงานบนอุปกรณ์ของคุณทั้งหมด คุณสามารถนำเข้าหลายบัญชีจากแอปยืนยันตัวตนอื่นพร้อมกันได้ ไม่มีข้อมูลใดถูกส่งผ่านเครือข่าย และไม่มีการบันทึกรูปภาพ</string>
+    <string name="otp_scan_prompt_message">เปิดกล้องแล้วสแกนคิวอาร์โค้ด ตัวสแกนจะปิดทันทีที่อ่านโค้ดได้ และกรอกข้อมูลลงในฟอร์มนี้ ทุกอย่างจะอยู่ในอุปกรณ์ของคุณ</string>
     <string name="import_otp_prompt_start">สแกน</string>
     <string name="import_otp_prompt_cancel">ยกเลิก</string>
     <string name="import_otp_result_title">พบ %1$d บัญชี</string>

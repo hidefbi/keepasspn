@@ -786,6 +786,7 @@ Per mantenere la nostra libertà, correggere i bug, aggiungere funzionalità e m
     <string name="import_otp_scan_menu">Scansiona codici</string>
     <string name="import_otp_prompt_title">Scansionare un codice monouso?</string>
     <string name="import_otp_prompt_message">La scansione avviene interamente sul dispositivo. Puoi importare più account da altre app di autenticazione contemporaneamente. Nessun dato viene inviato in rete e nessuna immagine viene salvata.</string>
+    <string name="otp_scan_prompt_message">Apri la fotocamera e scansiona un codice QR. Lo scanner si chiude appena legge il codice e compila questo modulo. Tutto resta sul tuo dispositivo.</string>
     <string name="import_otp_prompt_start">Scansiona</string>
     <string name="import_otp_prompt_cancel">Annulla</string>
     <string name="import_otp_result_title">Trovato %1$d account</string>

@@ -808,6 +808,7 @@ To keep our freedom, fix bugs, add features and keep the project active, we welc
     <string name="import_otp_scan_menu">Scan codes</string>
     <string name="import_otp_prompt_title">Scan a One-Time Code?</string>
     <string name="import_otp_prompt_message">Scanning happens entirely on your device. You can import multiple accounts from other authenticator apps at once. No data is sent over the network, and no images are saved.</string>
+    <string name="otp_scan_prompt_message">Open the camera to scan a QR code. The scanner closes as soon as it reads the code and fills in this form. Everything stays on your device.</string>
     <string name="import_otp_prompt_start">Scan</string>
     <string name="import_otp_prompt_cancel">Cancel</string>
     <string name="import_otp_result_title">Found %1$d account(s)</string>

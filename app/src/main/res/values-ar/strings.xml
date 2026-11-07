@@ -757,6 +757,7 @@
     <string name="import_otp_scan_menu">مسح الرموز</string>
     <string name="import_otp_prompt_title">مسح رمز لمرة واحدة؟</string>
     <string name="import_otp_prompt_message">يتم المسح بالكامل على جهازك. يمكنك استيراد عدة حسابات من تطبيقات المصادقة الأخرى دفعة واحدة. لا تُرسل أي بيانات عبر الشبكة، ولا تُحفظ أي صور.</string>
+    <string name="otp_scan_prompt_message">افتح الكاميرا لمسح رمز QR. يُغلق الماسح فور قراءة الرمز ويملأ هذا النموذج. كل شيء يبقى على جهازك.</string>
     <string name="import_otp_prompt_start">مسح</string>
     <string name="import_otp_prompt_cancel">إلغاء</string>
     <string name="import_otp_result_title">تم العثور على %1$d حساب</string>

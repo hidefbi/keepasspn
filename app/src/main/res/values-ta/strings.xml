@@ -724,6 +724,7 @@
     <string name="import_otp_scan_menu">குறியீடுகளை ஸ்கேன் செய்</string>
     <string name="import_otp_prompt_title">ஒருமுறை குறியீட்டை ஸ்கேன் செய்யவா?</string>
     <string name="import_otp_prompt_message">ஸ்கேன் முழுவதும் உங்கள் சாதனத்திலேயே நடைபெறும். பிற அங்கீகார பயன்பாடுகளிலிருந்து ஒரே நேரத்தில் பல கணக்குகளை இறக்குமதி செய்யலாம். பிணையத்தில் எந்த தரவும் அனுப்பப்படாது, எந்தப் படமும் சேமிக்கப்படாது.</string>
+    <string name="otp_scan_prompt_message">கேமராவைத் திறந்து QR குறியீட்டை ஸ்கேன் செய்யுங்கள். குறியீட்டைப் படித்தவுடன் ஸ்கேனர் மூடி, இந்தப் படிவத்தை நிரப்பும். அனைத்தும் உங்கள் சாதனத்திலேயே இருக்கும்.</string>
     <string name="import_otp_prompt_start">ஸ்கேன்</string>
     <string name="import_otp_prompt_cancel">ரத்து செய்</string>
     <string name="import_otp_result_title">%1$d கணக்கு கண்டறியப்பட்டது</string>

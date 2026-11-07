@@ -782,6 +782,7 @@
     <string name="import_otp_scan_menu">扫描验证码</string>
     <string name="import_otp_prompt_title">扫描一次性验证码？</string>
     <string name="import_otp_prompt_message">扫描完全在您的设备上进行。您可以一次导入来自其他身份验证应用的多个账户。不会通过网络发送任何数据，也不会保存任何图像。</string>
+    <string name="otp_scan_prompt_message">打开相机扫描二维码。读取到二维码后扫描器会立即关闭，并自动填入此表单。所有数据都只保留在你的设备上。</string>
     <string name="import_otp_prompt_start">扫描</string>
     <string name="import_otp_prompt_cancel">取消</string>
     <string name="import_otp_result_title">已找到 %1$d 个账户</string>

@@ -39,4 +39,16 @@ object ImportOtpPrompt {
             }
             .show()
     }
+
+    /**
+     * Same prompt, used when the scanner is opened from an OTP entry.
+     */
+    fun showForEntry(context: Context, onStart: () -> Unit) {
+        AlertDialog.Builder(context)
+            .setTitle(R.string.import_otp_prompt_title)
+            .setMessage(R.string.otp_scan_prompt_message)
+            .setNegativeButton(R.string.import_otp_prompt_cancel, null)
+            .setPositiveButton(R.string.import_otp_prompt_start) { _, _ -> onStart() }
+            .show()
+    }
 }

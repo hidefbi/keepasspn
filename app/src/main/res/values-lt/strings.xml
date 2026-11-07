@@ -722,6 +722,7 @@ Siekdami išsaugoti laisvę, taisyti klaidas, pridėti funkcijų ir palaikyti pr
     <string name="import_otp_scan_menu">Nuskaityti kodus</string>
     <string name="import_otp_prompt_title">Nuskaityti vienkartinį kodą?</string>
     <string name="import_otp_prompt_message">Nuskaitymas vyksta tik jūsų įrenginyje. Iš kitų autentifikavimo programų galite importuoti kelias paskyras vienu metu. Duomenys tinklu neperduodami, o vaizdai neišsaugomi.</string>
+    <string name="otp_scan_prompt_message">Atidarykite kamerą ir nuskaitykite QR kodą. Skaitytuvas užsidaro, kai tik perskaito kodą, ir užpildo šią formą. Viskas lieka jūsų įrenginyje.</string>
     <string name="import_otp_prompt_start">Nuskaityti</string>
     <string name="import_otp_prompt_cancel">Atšaukti</string>
     <string name="import_otp_result_title">Rasta paskyrų: %1$d</string>

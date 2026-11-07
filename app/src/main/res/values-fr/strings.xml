@@ -781,6 +781,7 @@ Pour préserver notre liberté, corriger les bugs, ajouter des fonctionnalités 
     <string name="import_otp_scan_menu">Scanner les codes</string>
     <string name="import_otp_prompt_title">Scanner un code à usage unique ?</string>
     <string name="import_otp_prompt_message">Le scan se fait uniquement sur votre appareil. Vous pouvez importer plusieurs comptes d’autres applications d’authentification à la fois. Aucune donnée n’est envoyée sur le réseau et aucune image n’est enregistrée.</string>
+    <string name="otp_scan_prompt_message">Ouvrez la caméra pour scanner un code QR. Le scanner se ferme dès que le code est lu et remplit ce formulaire. Tout reste sur votre appareil.</string>
     <string name="import_otp_prompt_start">Scanner</string>
     <string name="import_otp_prompt_cancel">Annuler</string>
     <string name="import_otp_result_title">%1$d compte trouvé</string>

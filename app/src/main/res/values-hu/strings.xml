@@ -777,6 +777,7 @@ Szabadságunk megőrzése, a hibák javítása, új funkciók hozzáadása és a
     <string name="import_otp_scan_menu">Kódok beolvasása</string>
     <string name="import_otp_prompt_title">Egyszer használatos kód beolvasása?</string>
     <string name="import_otp_prompt_message">A beolvasás teljes egészében az eszközén történik. Más hitelesítő alkalmazások fiókjait egyszerre importálhatja. Adat nem kerül továbbításra a hálózaton, és képek nem mentődnek.</string>
+    <string name="otp_scan_prompt_message">Nyissa meg a kamerát, és olvasson be egy QR-kódot. A beolvasó a kód beolvasása után azonnal bezárul, és kitölti ezt az űrlapot. Minden a készülékén marad.</string>
     <string name="import_otp_prompt_start">Beolvasás</string>
     <string name="import_otp_prompt_cancel">Mégse</string>
     <string name="import_otp_result_title">%1$d fiók található</string>

@@ -764,6 +764,7 @@
     <string name="import_otp_scan_menu">Quét mã</string>
     <string name="import_otp_prompt_title">Quét mã dùng một lần?</string>
     <string name="import_otp_prompt_message">Việc quét hoàn toàn diễn ra trên thiết bị của bạn. Bạn có thể nhập nhiều tài khoản từ các ứng dụng xác thực khác cùng lúc. Không có dữ liệu nào được gửi qua mạng và không có hình ảnh nào được lưu.</string>
+    <string name="otp_scan_prompt_message">Mở camera và quét mã QR. Trình quét sẽ đóng ngay khi đọc được mã và điền vào biểu mẫu này. Mọi thứ đều ở lại trên thiết bị của bạn.</string>
     <string name="import_otp_prompt_start">Quét</string>
     <string name="import_otp_prompt_cancel">Hủy</string>
     <string name="import_otp_result_title">Đã tìm thấy %1$d tài khoản</string>

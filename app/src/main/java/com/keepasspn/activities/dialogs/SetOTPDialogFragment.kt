@@ -41,6 +41,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.textfield.TextInputLayout
 import com.keepasspn.R
+import com.keepasspn.activities.ImportOtpPrompt
 import com.keepasspn.activities.ImportOtpScannerActivity
 import com.keepasspn.model.OtpModel
 import com.keepasspn.otp.OtpElement
@@ -266,10 +267,14 @@ class SetOTPDialogFragment : DatabaseDialogFragment() {
             }
 
             root?.findViewById<View>(R.id.otp_scan)?.setOnClickListener {
-                mOtpScanLauncher?.launch(
-                    Intent(activity, ImportOtpScannerActivity::class.java)
-                        .putExtra(ImportOtpScannerActivity.EXTRA_PICK_ONE_ACCOUNT, true)
-                )
+                activity?.let { context ->
+                    ImportOtpPrompt.showForEntry(context) {
+                        mOtpScanLauncher?.launch(
+                            Intent(context, ImportOtpScannerActivity::class.java)
+                                .putExtra(ImportOtpScannerActivity.EXTRA_SINGLE_CODE, true)
+                        )
+                    }
+                }
             }
 
             return builder.create()

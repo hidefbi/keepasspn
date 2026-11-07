@@ -758,6 +758,7 @@ Untuk menjaga kebebasan kami, memperbaiki bug, menambah fitur, dan menjaga proye
     <string name="import_otp_scan_menu">Pindai kode</string>
     <string name="import_otp_prompt_title">Pindai kode sekali pakai?</string>
     <string name="import_otp_prompt_message">Pemindaian sepenuhnya dilakukan di perangkat Anda. Anda dapat mengimpor beberapa akun dari aplikasi autentikator lain sekaligus. Tidak ada data yang dikirim melalui jaringan dan tidak ada gambar yang disimpan.</string>
+    <string name="otp_scan_prompt_message">Buka kamera untuk memindai kode QR. Pemindai akan tertutup begitu kode terbaca dan mengisi formulir ini. Semua tetap di perangkat Anda.</string>
     <string name="import_otp_prompt_start">Pindai</string>
     <string name="import_otp_prompt_cancel">Batal</string>
     <string name="import_otp_result_title">%1$d akun ditemukan</string>

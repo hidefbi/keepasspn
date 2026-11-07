@@ -769,6 +769,7 @@ Pentru a ne menține libertatea, a repara erori, a adăuga funcționalități ș
     <string name="import_otp_scan_menu">Scanează coduri</string>
     <string name="import_otp_prompt_title">Scanezi un cod de unică folosință?</string>
     <string name="import_otp_prompt_message">Scanarea se face exclusiv pe dispozitivul tău. Poți importa mai multe conturi din alte aplicații de autentificare deodată. Nu se trimit date prin rețea și nu se salvează imagini.</string>
+    <string name="otp_scan_prompt_message">Deschideți camera și scanați un cod QR. Scanerul se închide imediat ce citește codul și completează acest formular. Totul rămâne pe dispozitivul dvs.</string>
     <string name="import_otp_prompt_start">Scanează</string>
     <string name="import_otp_prompt_cancel">Anulează</string>
     <string name="import_otp_result_title">S-a găsit %1$d cont</string>

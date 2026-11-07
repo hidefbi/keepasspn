@@ -763,6 +763,7 @@
     <string name="import_otp_scan_menu">Сканувати коди</string>
     <string name="import_otp_prompt_title">Сканувати одноразовий код?</string>
     <string name="import_otp_prompt_message">Сканування відбувається лише на вашому пристрої. Можна імпортувати кілька облікових записів з інших застосунків-автентифікаторів одразу. Дані мережею не надсилаються, зображення не зберігаються.</string>
+    <string name="otp_scan_prompt_message">Відкрийте камеру та відскануйте QR-код. Сканер закриється одразу після зчитування коду і заповнить цю форму. Усе залишається на вашому пристрої.</string>
     <string name="import_otp_prompt_start">Сканувати</string>
     <string name="import_otp_prompt_cancel">Скасувати</string>
     <string name="import_otp_result_title">Знайдено облікових записів: %1$d</string>

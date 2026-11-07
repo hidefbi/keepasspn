@@ -699,6 +699,7 @@ Kako bismo očuvali slobodu, ispravljali greške, dodavali značajke i održaval
     <string name="import_otp_scan_menu">Skeniraj kodove</string>
     <string name="import_otp_prompt_title">Skenirati jednokratni kod?</string>
     <string name="import_otp_prompt_message">Skeniranje se odvija isključivo na vašem uređaju. Odjednom možete uvesti više računa iz drugih aplikacija za autentifikaciju. Nikakvi podaci se ne šalju mrežom i nijedna slika se ne sprema.</string>
+    <string name="otp_scan_prompt_message">Otvorite kameru i skenirajte QR kôd. Skener se zatvara čim pročita kôd i ispunjava ovaj obrazac. Sve ostaje na vašem uređaju.</string>
     <string name="import_otp_prompt_start">Skeniraj</string>
     <string name="import_otp_prompt_cancel">Odustani</string>
     <string name="import_otp_result_title">Pronađen %1$d račun</string>

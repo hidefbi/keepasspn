@@ -678,6 +678,7 @@ Gure askatasuna mantentzeko, akatsak konpontzeko, funtzio berriak gehitzeko eta 
     <string name="import_otp_scan_menu">Eskaneatu kodeak</string>
     <string name="import_otp_prompt_title">Behin erabiltzeko kode bat eskaneatu?</string>
     <string name="import_otp_prompt_message">Eskaneatzea gailuan bakarrik egiten da. Beste autentifikazio-aplikazio batzuetako kontu asko batera inportatu ditzakezu. Ez da daturik bidaltzen sarera, eta ez da irudirik gordetzen.</string>
+    <string name="otp_scan_prompt_message">Ireki kamera eta eskaneatu QR kode bat. Eskanerra itxi egiten da kodea irakurri bezain laster, eta inprimaki hau betetzen du. Dena gailuan geratzen da.</string>
     <string name="import_otp_prompt_start">Eskaneatu</string>
     <string name="import_otp_prompt_cancel">Utzi</string>
     <string name="import_otp_result_title">%1$d kontu aurkitu da</string>

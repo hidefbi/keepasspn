@@ -654,6 +654,7 @@ Azadlığımızı qorumaq, səhvləri düzəltmək, yeni funksiyalar əlavə etm
     <string name="import_otp_scan_menu">Kodları skan et</string>
     <string name="import_otp_prompt_title">Birdəfəlik kod skan edilsin?</string>
     <string name="import_otp_prompt_message">Skan cihazınızda tamamilə həyata keçirilir. Digər autentifikasiya tətbiqlərindən eyni anda bir neçə hesab idxal edə bilərsiniz. Şəbəkəyə heç bir məlumat göndərilmir və heç bir şəkil saxlanılmır.</string>
+    <string name="otp_scan_prompt_message">Kameranı açıb QR kodu skan edin. Kod oxunan kimi skaner bağlanır və bu formu doldurur. Hər şey cihazınızda qalır.</string>
     <string name="import_otp_prompt_start">Skan et</string>
     <string name="import_otp_prompt_cancel">Ləğv et</string>
     <string name="import_otp_result_title">%1$d hesab tapıldı</string>

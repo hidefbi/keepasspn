@@ -753,6 +753,7 @@ För att bevara vår frihet, rätta buggar, lägga till funktioner och hålla pr
     <string name="import_otp_scan_menu">Skanna koder</string>
     <string name="import_otp_prompt_title">Skanna en engångskod?</string>
     <string name="import_otp_prompt_message">Skanningen sker helt på din enhet. Du kan importera flera konton från andra autentiseringsappar samtidigt. Inga data skickas över nätverket och inga bilder sparas.</string>
+    <string name="otp_scan_prompt_message">Öppna kameran och skanna en QR-kod. Skannern stängs så snart koden är läst och fyller i det här formuläret. Allt stannar på din enhet.</string>
     <string name="import_otp_prompt_start">Skanna</string>
     <string name="import_otp_prompt_cancel">Avbryt</string>
     <string name="import_otp_result_title">Hittade %1$d konto</string>

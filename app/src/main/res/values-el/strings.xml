@@ -704,6 +704,7 @@
     <string name="import_otp_scan_menu">Σάρωση κωδικών</string>
     <string name="import_otp_prompt_title">Σάρωση κωδικού μίας χρήσης;</string>
     <string name="import_otp_prompt_message">Η σάρωση γίνεται αποκλειστικά στη συσκευή σας. Μπορείτε να εισαγάγετε πολλούς λογαριασμούς από άλλες εφαρμογές ταυτοποίησης ταυτόχρονα. Δεν αποστέλλονται δεδομένα μέσω δικτύου και δεν αποθηκεύονται εικόνες.</string>
+    <string name="otp_scan_prompt_message">Άνοιξε την κάμερα και σκάναρε έναν κωδικό QR. Ο σαρωτής κλείνει μόλις διαβαστεί ο κωδικός και συμπληρώνει τη φόρμα. Όλα μένουν στη συσκευή σας.</string>
     <string name="import_otp_prompt_start">Σάρωση</string>
     <string name="import_otp_prompt_cancel">Ακύρωση</string>
     <string name="import_otp_result_title">Βρέθηκε %1$d λογαριασμός</string>
