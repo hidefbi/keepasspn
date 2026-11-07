@@ -463,7 +463,6 @@
     <string name="import_app_properties_title">App-Einstellungen importieren</string>
     <string name="error_start_database_action">Beim Ausführen einer Aktion in der Datenbank ist ein Fehler aufgetreten.</string>
     <string name="error_otp_type">Der vorhandene OTP-Typ wird von diesem Formular nicht erkannt und seine Validierung kann Token möglicherweise nicht mehr korrekt erzeugen.</string>
-    <string name="content_description_otp_information">Informationen zu Einmalpasswörtern</string>
     <string name="warning_database_revoked">Auf die Datei kann nicht zugegriffen werden. Bitte die Datenbank schließen und von ihrem Speicherort aus erneut öffnen.</string>
     <string name="error_export_app_properties">Fehler beim Exportieren der App-Einstellungen.</string>
     <string name="success_export_app_properties">App-Einstellungen exportiert</string>

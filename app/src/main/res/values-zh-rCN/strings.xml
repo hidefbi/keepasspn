@@ -470,7 +470,6 @@
     <string name="style_brightness_title">主题亮度</string>
     <string name="error_upload_file">上传文件数据时出错。</string>
     <string name="error_file_to_big">您尝试上传的文件太大。</string>
-    <string name="content_description_otp_information">一次性密码信息</string>
     <string name="error_remove_file">移除文件数据时出错。</string>
     <string name="error_duplicate_file">文件数据已存在。</string>
     <string name="properties">属性</string>

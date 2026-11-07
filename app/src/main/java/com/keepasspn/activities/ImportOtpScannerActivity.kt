@@ -21,6 +21,7 @@ package com.keepasspn.activities
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.content.Intent
 import android.hardware.Camera
 import android.os.Bundle
 import android.os.Handler
@@ -109,6 +110,11 @@ class ImportOtpScannerActivity : DatabaseLockActivity(), SurfaceHolder.Callback 
     private var surfaceReady = false
     private var resumed = false
     private var permissionAsked = false
+
+    // Set when a single code is wanted for an entry, the code is returned instead of imported
+    private val pickOneAccount: Boolean by lazy {
+        intent.getBooleanExtra(EXTRA_PICK_ONE_ACCOUNT, false)
+    }
 
     override fun manageDatabaseInfo(): Boolean = true
 
@@ -478,7 +484,37 @@ class ImportOtpScannerActivity : DatabaseLockActivity(), SurfaceHolder.Callback 
         if (skipped > 0) {
             Toast.makeText(this, getString(R.string.import_otp_preview_skipped, skipped), Toast.LENGTH_LONG).show()
         }
-        showResultDialog(accounts, BooleanArray(accounts.size) { true })
+        if (pickOneAccount) {
+            showPickDialog(accounts)
+        } else {
+            showResultDialog(accounts, BooleanArray(accounts.size) { true })
+        }
+    }
+
+    private fun showPickDialog(accounts: List<OtpModel>) {
+        val labels: Array<CharSequence> = accounts.map { accountLabel(it) }.toTypedArray()
+        var selected = 0
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.import_otp_result_title, accounts.size))
+            .setSingleChoiceItems(labels, selected) { _, which ->
+                selected = which
+            }
+            .setNegativeButton(android.R.string.cancel) { _, _ -> finish() }
+            .setPositiveButton(android.R.string.ok) { _, _ -> returnPicked(accounts, selected) }
+            .setOnCancelListener { finish() }
+            .show()
+    }
+
+    /**
+     * Hand the chosen code back to the caller, the others are dropped here.
+     */
+    private fun returnPicked(accounts: List<OtpModel>, index: Int) {
+        accounts.forEachIndexed { position, otpModel ->
+            if (position != index) otpModel.clear()
+        }
+        handedOver = true
+        setResult(RESULT_OK, Intent().putExtra(EXTRA_SCANNED_OTP, accounts[index]))
+        finish()
     }
 
     private fun showResultDialog(accounts: List<OtpModel>, checked: BooleanArray) {
@@ -520,5 +556,8 @@ class ImportOtpScannerActivity : DatabaseLockActivity(), SurfaceHolder.Callback 
     companion object {
         private const val REQUEST_CAMERA = 1
         private const val MAX_FRAME_WIDTH = 1280
+
+        const val EXTRA_PICK_ONE_ACCOUNT = "com.keepasspn.EXTRA_PICK_ONE_ACCOUNT"
+        const val EXTRA_SCANNED_OTP = "com.keepasspn.EXTRA_SCANNED_OTP"
     }
 }

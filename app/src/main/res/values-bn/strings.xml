@@ -86,7 +86,6 @@
     <string name="content_description_add_item">আইটেম যোগ করুন</string>
     <string name="content_description_file_information">ফাইল তথ্য</string>
     <string name="content_description_credentials_information">শংসাপত্রের তথ্য</string>
-    <string name="content_description_otp_information">এককালীন পাসওয়ার্ড তথ্য</string>
     <string name="content_description_password_checkbox">পাসওয়ার্ড চেকবক্স</string>
     <string name="content_description_keyfile_checkbox">কীফাইল চেকবক্স</string>
     <string name="content_description_repeat_toggle_password_visibility">টগল পাসওয়ার্ড দৃশ্যমানতা পুনরাবৃত্তি করুন</string>

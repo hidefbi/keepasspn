@@ -103,7 +103,6 @@
     <string name="content_description_keyboard_close_fields">關閉欄位</string>
     <string name="content_description_keyfile_checkbox">密鑰檔案核取方塊</string>
     <string name="content_description_node_children">子節點</string>
-    <string name="content_description_otp_information">一次性密碼訊息</string>
     <string name="content_description_password_checkbox">密碼核取方塊</string>
     <string name="content_description_password_length">密碼長度</string>
     <string name="content_description_remove_field">刪除欄位</string>

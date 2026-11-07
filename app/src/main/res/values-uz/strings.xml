@@ -23,7 +23,6 @@
     <string name="content_description_add_node">Tugun qo\'shish</string>
     <string name="content_description_add_item">Element qo\'shish</string>
     <string name="content_description_file_information">Faly haqida ma\'lumot</string>
-    <string name="content_description_otp_information">Bir martalik parol haqida ma\'lumot</string>
     <string name="content_description_password_checkbox">Parolni belgilash katagi</string>
     <string name="contact">Aloqa</string>
     <string name="encryption">Shifrlash</string>

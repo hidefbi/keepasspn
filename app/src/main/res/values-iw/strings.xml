@@ -143,7 +143,6 @@
     <string name="error_word_reserved">מילה זו שמורה ולא ניתן להשתמש בה.</string>
     <string name="error_remove_file">אירעה שגיאה בעת הסרת נתוני הקובץ.</string>
     <string name="error_file_to_big">הקובץ שאתה מנסה להעלות גדול מדי.</string>
-    <string name="content_description_otp_information">פרטי סיסמה חד־פעמית</string>
     <string name="error_otp_type">סוג הסיסמה החד־פעמית (OTP) הקיים אינו מזוהה על ידי טופס זה, ייתכן שהאימות שלו לא ייצור עוד את האסימון כראוי.</string>
     <string name="hint_icon_name">שם סמל</string>
     <string name="html_about_privacy">&lt;strong&gt;אין אחזור של נתוני משתמש&lt;/strong&gt;, יישום זה אינו מתחבר לשום שרת, פועל באופן מקומי בלבד ומכבד באופן מלא את פרטיות המשתמשים.</string>

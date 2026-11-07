@@ -479,7 +479,6 @@
     <string name="error_duplicate_file">Les données du fichier existent déjà.</string>
     <string name="error_upload_file">Une erreur est survenue lors du téléversement des données du fichier.</string>
     <string name="error_file_to_big">Le fichier que vous essayez de téléverser est trop volumineux.</string>
-    <string name="content_description_otp_information">Information sur le mot de passe à usage unique</string>
     <string name="properties">Propriétés</string>
     <string name="error_export_app_properties">Erreur lors de l\'exportation des paramètres de l\'application.</string>
     <string name="success_export_app_properties">Paramètres exportés de l\'application</string>

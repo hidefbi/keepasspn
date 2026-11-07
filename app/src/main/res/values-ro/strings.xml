@@ -384,7 +384,6 @@
     <string name="template">Șablon</string>
     <string name="version">Versiune</string>
     <string name="error_word_reserved">Acest cuvânt este rezervat și nu poate fi folosit.</string>
-    <string name="content_description_otp_information">Informații despre parola de unică folosință</string>
     <string name="template_group_name">Șabloane</string>
     <string name="content_description_credentials_information">Informații despre credențiale</string>
     <string name="id_card">Carte de identitate</string>

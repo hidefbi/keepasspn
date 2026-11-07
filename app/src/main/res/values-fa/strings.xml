@@ -277,7 +277,6 @@
     <string name="number">عدد</string>
     <string name="holder">صاحب</string>
     <string name="template_group_name">الگو ها</string>
-    <string name="content_description_otp_information">اطلاعات رمز یکبار مصرف</string>
     <string name="content_description_credentials_information">اطلاعات اعتبار نامه</string>
     <string name="info">اطلاعات</string>
     <string name="content_description_database_color">رنگ دیتابیس</string>

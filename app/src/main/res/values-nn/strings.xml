@@ -116,7 +116,6 @@
     <string name="bank">Bank</string>
     <string name="content_description_database_color">Databasefarge</string>
     <string name="content_description_entry_background_color">Bakgrunnsfarge for oppføringer</string>
-    <string name="content_description_otp_information">Info om eingangspassord</string>
     <string name="number">Kortnummer</string>
     <string name="card_verification_value">CVV-kode</string>
     <string name="template_group_name">Malar</string>

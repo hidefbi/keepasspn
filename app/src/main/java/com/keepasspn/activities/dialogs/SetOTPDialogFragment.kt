@@ -20,7 +20,9 @@
 package com.keepasspn.activities.dialogs
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -33,10 +35,13 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.textfield.TextInputLayout
 import com.keepasspn.R
+import com.keepasspn.activities.ImportOtpScannerActivity
 import com.keepasspn.model.OtpModel
 import com.keepasspn.otp.OtpElement
 import com.keepasspn.otp.OtpElement.Companion.MAX_HOTP_COUNTER
@@ -49,8 +54,8 @@ import com.keepasspn.otp.OtpElement.Companion.MIN_TOTP_PERIOD
 import com.keepasspn.otp.OtpTokenType
 import com.keepasspn.otp.OtpType
 import com.keepasspn.otp.TokenCalculator
-import com.keepasspn.utils.UriUtil.openUrl
 import com.keepasspn.utils.getParcelableCompat
+import com.keepasspn.utils.getParcelableExtraCompat
 import com.keepasspn.viewmodels.EntryEditViewModel
 import java.util.Locale
 
@@ -104,8 +109,26 @@ class SetOTPDialogFragment : DatabaseDialogFragment() {
     private var mPeriodWellFormed = false
     private var mDigitsWellFormed = false
 
+    // Receives the code picked by the scanner
+    private var mOtpScanLauncher: ActivityResultLauncher<Intent>? = null
+    // The entry already had a one-time password when the dialog opened
+    private var mHadOtp = false
+    // The fields were filled from a scanned code
+    private var mFromScan = false
+
     override fun overrideTimeoutTouchAndFocusEvents(): Boolean {
         return true
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mOtpScanLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                result.data?.getParcelableExtraCompat<OtpModel>(ImportOtpScannerActivity.EXTRA_SCANNED_OTP)?.let {
+                    applyScannedOtp(it)
+                }
+            }
+        }
     }
 
     override fun onDetach() {
@@ -118,6 +141,8 @@ class SetOTPDialogFragment : DatabaseDialogFragment() {
 
         // Retrieve OTP model from instance state
         if (savedInstanceState != null) {
+            mHadOtp = savedInstanceState.getBoolean(KEY_HAD_OTP, false)
+            mFromScan = savedInstanceState.getBoolean(KEY_FROM_SCAN, false)
             if (savedInstanceState.containsKey(KEY_OTP)) {
                 savedInstanceState.getParcelableCompat<OtpModel>(KEY_OTP)?.let { otpModel ->
                     mOtpElement.clear()
@@ -129,6 +154,7 @@ class SetOTPDialogFragment : DatabaseDialogFragment() {
             arguments?.apply {
                 if (containsKey(KEY_OTP)) {
                     getParcelableCompat<OtpModel>(KEY_OTP)?.let { otpModel ->
+                        mHadOtp = true
                         mOtpElement.clear()
                         mOtpElement = OtpElement(otpModel)
                     }
@@ -239,8 +265,11 @@ class SetOTPDialogFragment : DatabaseDialogFragment() {
                         }
             }
 
-            root?.findViewById<View>(R.id.otp_information)?.setOnClickListener {
-                activity.openUrl(R.string.otp_explanation_url)
+            root?.findViewById<View>(R.id.otp_scan)?.setOnClickListener {
+                mOtpScanLauncher?.launch(
+                    Intent(activity, ImportOtpScannerActivity::class.java)
+                        .putExtra(ImportOtpScannerActivity.EXTRA_PICK_ONE_ACCOUNT, true)
+                )
             }
 
             return builder.create()
@@ -255,10 +284,39 @@ class SetOTPDialogFragment : DatabaseDialogFragment() {
                     && mCounterWellFormed
                     && mPeriodWellFormed
                     && mDigitsWellFormed) {
-                entryEditViewModel.createOtp(mOtpElement)
-                dismiss()
+                if (mHadOtp) {
+                    confirmOtpReplacement()
+                } else {
+                    saveOtp()
+                }
             }
         }
+    }
+
+    private fun confirmOtpReplacement() {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.warning_overwrite_data_title)
+            .setMessage(R.string.warning_overwrite_data_description)
+            .setPositiveButton(android.R.string.ok) { _, _ -> saveOtp() }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
+    private fun saveOtp() {
+        entryEditViewModel.createOtp(mOtpElement, mFromScan)
+        dismiss()
+    }
+
+    /**
+     * Show the code picked by the scanner, the user still checks it before saving
+     */
+    private fun applyScannedOtp(otpModel: OtpModel) {
+        mFromScan = true
+        mOtpElement.clear()
+        mOtpElement = OtpElement(otpModel)
+        upgradeType()
+        upgradeTokenType()
+        upgradeParameters()
     }
 
     private fun attachListeners() {
@@ -455,11 +513,15 @@ class SetOTPDialogFragment : DatabaseDialogFragment() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putParcelable(KEY_OTP, mOtpElement.otpModel)
+        outState.putBoolean(KEY_HAD_OTP, mHadOtp)
+        outState.putBoolean(KEY_FROM_SCAN, mFromScan)
     }
 
     companion object {
 
         private const val KEY_OTP = "KEY_OTP"
+        private const val KEY_HAD_OTP = "KEY_HAD_OTP"
+        private const val KEY_FROM_SCAN = "KEY_FROM_SCAN"
 
         fun build(otpModel: OtpModel? = null): SetOTPDialogFragment {
             return SetOTPDialogFragment().apply {

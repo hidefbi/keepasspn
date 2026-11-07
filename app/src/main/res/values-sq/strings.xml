@@ -77,7 +77,6 @@
     <string name="content_description_add_item">Shtoni objekt</string>
     <string name="content_description_file_information">Hollësi kartele</string>
     <string name="content_description_credentials_information">Hollësi kredencialesh</string>
-    <string name="content_description_otp_information">Hollësi fjalëkalimi për një herë</string>
     <string name="content_description_password_checkbox">Kutizë fjalëkalimi</string>
     <string name="content_description_entry_icon">Ikonë zëri</string>
     <string name="content_description_database_color">Ngjyrë baze të dhënash</string>

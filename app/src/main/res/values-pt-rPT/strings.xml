@@ -421,7 +421,6 @@
     <string name="menu_reload_database">Recarregar dados</string>
     <string name="error_field_name_already_exists">O nome do campo já existe.</string>
     <string name="error_registration_read_only">Não é permitido guardar um novo item numa base de dados só de leitura.</string>
-    <string name="content_description_otp_information">Informação de palavra-passe de uso único</string>
     <string name="show_otp_token_summary">Mostra os tokens OTP na lista de entradas</string>
     <string name="show_otp_token_title">Mostrar token OTP</string>
     <string name="show_uuid_summary">Mostra o UUID ligado a uma entrada ou grupo</string>

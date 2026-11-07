@@ -53,7 +53,6 @@
     <string name="unit_gibibyte">GiB</string>
     <string name="unit_mebibyte">MiB</string>
     <string name="unit_byte">B</string>
-    <string name="content_description_otp_information">Информације о једнократној лозинци</string>
     <string name="entry_expires">Истиче</string>
     <string name="public_key">Јавни кључ</string>
     <string name="membership">Чланство</string>

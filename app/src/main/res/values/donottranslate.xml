@@ -42,7 +42,6 @@
     <string name="issues_url" translatable="false">https://github.com/hidefbi/keepasspn/issues</string>
     <!-- Feature documentation links on the project wiki. -->
     <string name="credentials_explanation_url" translatable="false">https://github.com/hidefbi/keepasspn/wiki/Credentials</string>
-    <string name="otp_explanation_url" translatable="false">https://github.com/hidefbi/keepasspn/wiki/OTP</string>
     <string name="device_unlock_explanation_url" translatable="false">https://github.com/hidefbi/keepasspn/wiki/Device-Unlocking</string>
     <string name="user_verification_explanation_url" translatable="false">https://github.com/hidefbi/keepasspn/wiki/User-Verification</string>
     <string name="file_manager_explanation_url" translatable="false">https://github.com/hidefbi/keepasspn/wiki/File-Manager-and-Sync</string>

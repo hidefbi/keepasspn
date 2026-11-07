@@ -69,6 +69,10 @@ class EntryEditViewModel: NodeEditViewModel() {
     // Useful to not relaunch a current action
     private var actionLocked: Boolean = false
 
+    // Set once a one-time password is added or replaced while editing this entry
+    var otpChangedInSession: Boolean = false
+        private set
+
     private var mInitialEntryInfo: EntryInfo? = null
 
     private var mPreviousTemplateTags = Tags()
@@ -309,9 +313,10 @@ class EntryEditViewModel: NodeEditViewModel() {
         }
     }
 
-    fun createOtp(otpElement: OtpElement) {
+    fun createOtp(otpElement: OtpElement, fromScan: Boolean = false) {
+        otpChangedInSession = true
         viewModelScope.launch {
-            _entryEditEvents.emit(EntryEditEvent.OnOtpCreated(otpElement))
+            _entryEditEvents.emit(EntryEditEvent.OnOtpCreated(otpElement, fromScan))
         }
     }
 
@@ -409,7 +414,8 @@ class EntryEditViewModel: NodeEditViewModel() {
         object RequestSetupOTP : EntryEditEvent()
 
         data class OnOtpCreated(
-            val otpElement: OtpElement
+            val otpElement: OtpElement,
+            val fromScan: Boolean = false
         ) : EntryEditEvent()
 
         data class CreateEntry(

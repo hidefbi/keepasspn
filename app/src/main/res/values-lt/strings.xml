@@ -203,7 +203,6 @@
     <string name="error_upload_file">Įkeliant failo duomenis įvyko klaida.</string>
     <string name="content_description_entry_background_color">Įrašo fono spalva</string>
     <string name="error_string_type">Šis tekstas neatitinka prašomo elemento.</string>
-    <string name="content_description_otp_information">Vienkartinio slaptažodžio info</string>
     <string name="error_file_to_big">Failas, kurį bandote įkelti, yra per didelis.</string>
     <string name="error_otp_type">Ši forma neatpažįsta esamo OTP tipo, jos patvirtinimas gali nebegeneruoti teisingo žetono.</string>
     <string name="html_about_privacy">&lt;strong&gt;Jokie naudotojo duomenys nerenkami&lt;/strong&gt;, ši programa neprisijungia prie jokio serverio, veikia tik vietoje ir visiškai nepažeidžia naudotojų privatumo.</string>

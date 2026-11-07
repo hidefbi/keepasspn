@@ -328,7 +328,6 @@
     <string name="show_uuid_title">Zobraziť UUID</string>
     <string name="hide_expired_entries_title">Skryť záznamy s vypršanou platnosťou</string>
     <string name="content_description_entry_icon">Ikona záznamu</string>
-    <string name="content_description_otp_information">Informácie o jednorazovom hesle</string>
     <string name="content_description_password_checkbox">Zaškrtávacie políčko hesla</string>
     <string name="validate">Skontrolovať</string>
     <string name="content_description_remove_field">Vymazať pole</string>

@@ -360,7 +360,6 @@
     <string name="error_duplicate_file">بيانات الملف موجودة بالفعل.</string>
     <string name="error_remove_file">حدث خطأ أثناء إزالة بيانات الملف.</string>
     <string name="error_start_database_action">حدث خطأ أثناء تنفيذ إجراء على قاعدة البيانات.</string>
-    <string name="content_description_otp_information">معلومات كلمة السر لمرة واحدة</string>
     <string name="membership">العضوية</string>
     <string name="name">الاسم</string>
     <string name="email">البريد الإلكتروني</string>

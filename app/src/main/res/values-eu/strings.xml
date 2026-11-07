@@ -128,7 +128,6 @@
     <string name="content_description_node_children">Nodo umea</string>
     <string name="content_description_add_node">Gehitu nodoa</string>
     <string name="allow">Baimendu</string>
-    <string name="content_description_otp_information">Erabilpen bakarreko pasahitzaren (OTP) informazioa</string>
     <string name="content_description_database_color">Datu-basearen kolorea</string>
     <string name="content_description_repeat_toggle_password_visibility">Errepikatu pasahitzaren kommutazio ikusgarritasuna</string>
     <string name="content_description_entry_icon">Sartu ikonoa</string>

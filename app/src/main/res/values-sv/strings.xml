@@ -382,7 +382,6 @@
     <string name="account">Konto</string>
     <string name="membership">Medlemskap</string>
     <string name="error_move_group_here">Du kan inte flytta en grupp hit.</string>
-    <string name="content_description_otp_information">Engångslösenordsinformation</string>
     <string name="html_about_privacy">&lt;strong&gt;Inga användardata samlas in.&lt;/strong&gt; Appen ansluter inte till någon server, fungerar endast lokalt och respekterar användarnas integritet fullt ut.</string>
     <string name="cryptocurrency">Kryptovalutaplånbok</string>
     <string name="version">Version</string>

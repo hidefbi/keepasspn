@@ -108,7 +108,6 @@
     <string name="error_create_database_file">इस पासवर्ड और कीफ़ाइल के साथ डेटाबेस बनाने में असमर्थ।</string>
     <string name="template_group_name">प्रारूप</string>
     <string name="discard_changes">परिवर्तनों को निरस्त करें\?</string>
-    <string name="content_description_otp_information">वन-टाइम पासवर्ड की जानकारी</string>
     <string name="personal_identification_number">PIN</string>
     <string name="name">नाम</string>
     <string name="error_word_reserved">यह शब्द आरक्षित है और इसका उपयोग नहीं किया जा सकता है।</string>

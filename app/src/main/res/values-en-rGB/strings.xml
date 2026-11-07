@@ -48,7 +48,6 @@
     <string name="info">Info</string>
     <string name="clipboard_error_title">Clipboard error</string>
     <string name="clipboard_timeout_summary">Duration of storage in the clipboard (if supported by your device)</string>
-    <string name="content_description_otp_information">One-time password info</string>
     <string name="content_description_keyfile_checkbox">Keyfile checkbox</string>
     <string name="content_description_entry_icon">Entry icon</string>
     <string name="navigation_drawer_close">Navigation drawer close</string>

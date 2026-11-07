@@ -377,7 +377,6 @@
     <string name="permission">இசைவு</string>
     <string name="database_data_compression_title">தரவு சுருக்க</string>
     <string name="info">தகவல்</string>
-    <string name="content_description_otp_information">ஒரு முறை கடவுச்சொல் செய்தி</string>
     <string name="content_description_hardware_key_checkbox">வன்பொருள் விசை தேர்வுப்பெட்டி</string>
     <string name="content_description_repeat_toggle_password_visibility">கடவுச்சொல் தெரிவுநிலையை மாற்றவும்</string>
     <string name="waiting_challenge_request">அறைகூவல் கோரிக்கைக்காக காத்திருக்கிறது…</string>

@@ -747,6 +747,26 @@ abstract class TemplateAbstractView<
         notReferencedFieldsContainerView.addView(view)
     }
 
+    /**
+     * Fill the title and the username with the values of a scanned code, only where they are empty
+     */
+    fun fillEmptyEntryFields(title: String?, username: String?) {
+        fillEntryFieldIfEmpty(FIELD_TITLE_TAG, title)
+        fillEntryFieldIfEmpty(FIELD_USERNAME_TAG, username)
+    }
+
+    private fun fillEntryFieldIfEmpty(fieldTag: String, value: String?) {
+        if (value.isNullOrEmpty()) return
+        try {
+            val fieldView: TEntryFieldView? = findViewWithTag(fieldTag)
+            if (fieldView != null && fieldView.value.isNullOrEmpty()) {
+                fieldView.value = value.toCharArray()
+            }
+        } catch (e: Exception) {
+            NoOpLog.e(TAG, "Unable to fill entry field", e)
+        }
+    }
+
     fun putOtpElement(otpElement: OtpElement) {
         val otpField = OtpEntryFields.buildOtpField(otpElement,
             mEntryInfo?.title, mEntryInfo?.username)

@@ -420,7 +420,6 @@
     <string name="card_verification_value">CVV</string>
     <string name="number">Nummer</string>
     <string name="holder">Innehaver</string>
-    <string name="content_description_otp_information">Éngangspassordsinfo</string>
     <string name="template_group_name">Maler</string>
     <string name="content_description_credentials_information">Påloggingsinformasjon</string>
     <string name="templates_group_enable_summary">Bruk dynamiske maler for å fylle inn feltene for en oppføring</string>

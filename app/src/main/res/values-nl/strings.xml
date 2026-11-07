@@ -475,7 +475,6 @@
     <string name="error_duplicate_file">De bestandsgegevens bestaan al.</string>
     <string name="error_upload_file">Er is een fout opgetreden bij het uploaden van de bestandsgegevens.</string>
     <string name="error_file_to_big">Het te uploaden bestand is te groot.</string>
-    <string name="content_description_otp_information">Eenmalig wachtwoord-informatie</string>
     <string name="properties">Eigenschappen</string>
     <string name="error_export_app_properties">Fout bij het exporteren van app-instellingen.</string>
     <string name="success_export_app_properties">App-instellingen geëxporteerd</string>

@@ -472,7 +472,6 @@
     <string name="style_brightness_title">Jas motivu</string>
     <string name="error_upload_file">Během nahrávání souboru došlo k chybě.</string>
     <string name="error_file_to_big">Soubor, který se pokoušíte nahrát, je příliš velký.</string>
-    <string name="content_description_otp_information">Info o jednorázovém heslu</string>
     <string name="properties">Vlastnosti</string>
     <string name="error_export_app_properties">Během exportu nastavení aplikace došlo k chybě.</string>
     <string name="success_export_app_properties">Nastavení aplikace byla exportována</string>

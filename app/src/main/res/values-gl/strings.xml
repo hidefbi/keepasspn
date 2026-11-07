@@ -73,7 +73,6 @@
     <string name="number">Número</string>
     <string name="email">Email</string>
     <string name="error_load_database_KDF_memory">Non foi posíbel carregar a clave. Tente diminuír o \"Uso de memoria\" do KDF.</string>
-    <string name="content_description_otp_information">Información de contrasinal de uso único</string>
     <string name="content_description_update_from_list">Actualizar</string>
     <string name="content_description_remove_from_list">Remover</string>
     <string name="content_description_keyboard_close_fields">Pechar campos</string>

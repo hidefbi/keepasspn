@@ -25,7 +25,6 @@
     <string name="content_description_add_item">Дадаць элемент</string>
     <string name="content_description_file_information">Інфармацыя пра файл</string>
     <string name="content_description_credentials_information">Інфармацыя пра ўліковыя дадзеныя</string>
-    <string name="content_description_otp_information">Інфармацыя пра аднаразовы пароль</string>
     <string name="brackets">Дужкі</string>
     <string name="content_description_node_children">Даччыныя вузлы</string>
     <string name="content_description_password_checkbox">Сцяжок пароля</string>

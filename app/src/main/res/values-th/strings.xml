@@ -51,7 +51,6 @@
     <string name="content_description_add_item">เพิ่มรายการ</string>
     <string name="content_description_file_information">ข้อมูลไฟล์</string>
     <string name="content_description_credentials_information">ข้อมูลประจำตัว</string>
-    <string name="content_description_otp_information">ข้อมูลรหัสแบบใช้ครั้งเดียว</string>
     <string name="content_description_password_checkbox">ช่องทำเครื่องหมายรหัสผ่าน</string>
     <string name="content_description_hardware_key_checkbox">ช่องทำเครื่องหมายกุญแจฮาร์ดแวร์</string>
     <string name="content_description_entry_icon">ไอคอนรายการ</string>

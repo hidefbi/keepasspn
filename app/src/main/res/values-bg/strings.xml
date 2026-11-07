@@ -137,7 +137,6 @@
     <string name="saving_database">Запазване на хранилището…</string>
     <string name="command_execution">Изпълнение на команда…</string>
     <string name="content_description_keyboard_close_fields">Затваряне на полета</string>
-    <string name="content_description_otp_information">Информация за еднократна парола</string>
     <string name="content_description_repeat_toggle_password_visibility">Превключвател на видимостта на парола на поле за повтаряне на парола</string>
     <string name="content_description_entry_icon">Пиктограма на запис</string>
     <string name="inherited">Наследено</string>

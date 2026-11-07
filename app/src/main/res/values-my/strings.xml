@@ -23,7 +23,6 @@
     <string name="clipboard_timeout_summary">ကလစ်ဘုတ်ရှိ သိုလှောင်မှုကြာချိန် (သင့်ဖုန်းမှပံ့ပိုးပေးလျှင်)</string>
     <string name="brackets">ကွင်းစကွင်းပိတ်များ</string>
     <string name="content_description_add_item">အိုင်တမ်ထည့်မည်</string>
-    <string name="content_description_otp_information">တစ်ခါသုံး password အချက်အလက်</string>
     <string name="content_description_keyfile_checkbox">Keyfile စစ်ဆေးရန်</string>
     <string name="content_description_repeat_toggle_password_visibility">password မြင်နိုင်စွမ်းအား ထပ်တလဲလဲ ပြရန်</string>
     <string name="content_description_entry_icon">ပစ္စည်း အိုင်ကွန်</string>

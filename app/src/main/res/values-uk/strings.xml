@@ -459,7 +459,6 @@
     <string name="style_brightness_title">Яскравість теми</string>
     <string name="error_upload_file">Під час завантаження даних файлу сталася помилка.</string>
     <string name="error_file_to_big">Файл, який ви намагаєтеся завантажити, завеликий.</string>
-    <string name="content_description_otp_information">Відомості про одноразовий пароль</string>
     <string name="error_remove_file">Під час видалення даних файлу сталася помилка.</string>
     <string name="error_duplicate_file">Такі дані файлу вже існують.</string>
     <string name="properties">Властивості</string>

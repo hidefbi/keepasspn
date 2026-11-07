@@ -25,6 +25,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
@@ -43,6 +44,7 @@ import com.keepasspn.database.element.Attachment
 import com.keepasspn.database.element.Field
 import com.keepasspn.model.EntryAttachmentState
 import com.keepasspn.model.EntryInfo
+import com.keepasspn.model.OtpModel
 import com.keepasspn.model.FieldProtection
 import com.keepasspn.model.PasskeyEntryFields
 import com.keepasspn.model.PasskeyEntryFields.isPasskey
@@ -249,10 +251,16 @@ class EntryEditFragment: DatabaseFragment() {
                             is EntryEditViewModel.EntryEditEvent.RequestSetupOTP -> {
                                 // Retrieve the current otpElement if exists
                                 // and open the dialog to set up the OTP
-                                SetOTPDialogFragment.build(templateView.getEntryInfo().otpModel)
+                                SetOTPDialogFragment.build(currentOtpModel())
                                     .show(parentFragmentManager, "addOTPDialog")
                             }
                             is EntryEditViewModel.EntryEditEvent.OnOtpCreated -> {
+                                if (event.fromScan) {
+                                    // The default issuer and name of an otpauth:// url are not real values
+                                    val issuer = event.otpElement.issuer.takeIf { it != OtpModel().issuer }
+                                    val account = event.otpElement.name.takeIf { it != OtpModel().name }
+                                    templateView.fillEmptyEntryFields(title = issuer, username = account)
+                                }
                                 // Update the otp field with otpauth:// url
                                 templateView.putOtpElement(event.otpElement)
                                 tagsCompletionView.addObjectSync(OtpEntryFields.OTP_TAG)
@@ -322,6 +330,10 @@ class EntryEditFragment: DatabaseFragment() {
                 }
                 launch {
                     mEntryEditViewModel.onEntryValidationRequested.collect {
+                        if (!hasOtpIdentifier()) {
+                            Toast.makeText(requireContext(), R.string.error_no_name, Toast.LENGTH_LONG).show()
+                            return@collect
+                        }
                         // Delete temp attachment if not completely downloaded
                         mAttachmentsViewModel.removeTempAttachmentsNotCompleted(
                             database = mDatabase,
@@ -391,6 +403,29 @@ class EntryEditFragment: DatabaseFragment() {
         entryInfo.tags = tagsCompletionView.getTags()
         entryInfo.attachments = mAttachmentsViewModel.getAttachments().toMutableList()
         return entryInfo
+    }
+
+    /**
+     * The one-time password currently in the fields, the saved model may be older than the fields
+     */
+    private fun currentOtpModel(): OtpModel? {
+        val entryInfo = templateView.getEntryInfo()
+        val otpUri = entryInfo.customFields
+            .firstOrNull { it.isOTP() }
+            ?.protectedValue?.charArrayValue
+            ?.let { String(it) }
+        return otpUri?.let { OtpEntryFields.parseOTPUri(it)?.otpModel } ?: entryInfo.otpModel
+    }
+
+    /**
+     * An entry with a one-time password added or changed here needs a title or a username
+     */
+    private fun hasOtpIdentifier(): Boolean {
+        if (!mEntryEditViewModel.otpChangedInSession) return true
+        val entryInfo = retrieveEntryInfo()
+        // The one-time password was removed again
+        if (entryInfo.customFields.none { it.isOTP() }) return true
+        return entryInfo.title.isNotBlank() || entryInfo.username.isNotBlank()
     }
 
     private fun updateFieldProtection(fieldProtection: FieldProtection) {

@@ -455,7 +455,6 @@
     <string name="error_duplicate_file">Fildataene findes allerede.</string>
     <string name="error_upload_file">Der opstod en fejl under overførsel af fildataene.</string>
     <string name="error_file_to_big">Filen, du prøver at overføre, er for stor.</string>
-    <string name="content_description_otp_information">Oplysninger om engangsadgangskode</string>
     <string name="device_unlock_prompt_extract_credential_message">Udtræk databases legitimationsoplysninger med enheds oplåsningdata</string>
     <string name="device_unlock_prompt_store_credential_message">Du skal stadig huske din boks primære legitimationsoplysning, hvis du bruger oplåsningsgenkendelse på enheden.</string>
     <string name="warning_database_revoked">Adgang til filen tilbagekaldt af filhåndteringsprogrammet, luk databasen og genåbn den fra dens placering.</string>

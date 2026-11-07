@@ -326,7 +326,6 @@
     <string name="error_duplicate_file">Data berkas sudah ada.</string>
     <string name="error_upload_file">Timbul galat saat mengunggah data berkas.</string>
     <string name="error_file_to_big">File yang Anda unggah terlalu besar.</string>
-    <string name="content_description_otp_information">Info sandi satu kali</string>
     <string name="education_select_database_title">Buka basis data yang sudah ada</string>
     <string name="enable_auto_save_database_title">Simpan otomatis basis data</string>
     <string name="education_new_node_title">Tambah item ke basis data Anda</string>

@@ -439,7 +439,6 @@
     <string name="number">Szám</string>
     <string name="holder">Tulajdonos</string>
     <string name="template_group_name">Sablonok</string>
-    <string name="content_description_otp_information">Egyszer használatos jelszó adatai</string>
     <string name="content_description_entry_background_color">Bejegyzés háttérszíne</string>
     <string name="success_import_app_properties">Alkalmazásbeállítások importálva</string>
     <string name="error_export_app_properties">Hiba történt az alkalmazásbeállítások exportálása során.</string>

@@ -251,7 +251,6 @@
     <string name="select_database_file">Otvorite postojeći trezor</string>
     <string name="remember_database_locations_summary">Prati gde se čuvaju baze podataka</string>
     <string name="hide_broken_locations_summary">Sakrijte pokvarene veze na listi nedavnih baza podataka</string>
-    <string name="content_description_otp_information">Informacije o jednokratnoj lozinci</string>
     <string name="error_upload_file">Došlo je do greške pri otpremanju podataka datoteke.</string>
     <string name="hint_icon_name">Ime ikone</string>
     <string name="no_results">Nema rezultata pretrage</string>

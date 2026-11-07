@@ -41,7 +41,6 @@
     <string name="allow">Payagan</string>
     <string name="clipboard_timeout">Timeout ng clipboard</string>
     <string name="clipboard_timeout_summary">Oras ng storage sa clipboard (kapag sinusuportahan ng iyong device)</string>
-    <string name="content_description_otp_information">Info ng one-time password</string>
     <string name="content_description_node_children">Children ng node</string>
     <string name="content_description_add_node">Magdagdag ng node</string>
     <string name="content_description_file_information">Info ng file</string>

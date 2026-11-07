@@ -152,7 +152,6 @@
     <string name="date_of_issue">발행일자</string>
     <string name="error_move_group_here">그룹을 여기로 옮길 수 없습니다.</string>
     <string name="error_copy_group_here">그룹을 여기로 복사할 수 없습니다.</string>
-    <string name="content_description_otp_information">일회용 암호 정보</string>
     <string name="security">보안</string>
     <string name="content_description_entry_icon">항목 아이콘</string>
     <string name="content_description_add_item">아이템 추가</string>

@@ -40,18 +40,19 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/otp_information"
+                app:layout_constraintEnd_toStartOf="@+id/otp_scan"
                 android:text="@string/entry_setup_otp"
                 style="@style/KeePassPNStyle.Title"/>
-            <ImageView
-                android:id="@+id/otp_information"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageButton
+                android:id="@+id/otp_scan"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/ic_info_white_24dp"
+                android:src="@drawable/ic_qr_scan_white_24dp"
                 style="@style/KeePassPNStyle.ImageButton.Simple"
-                android:contentDescription="@string/content_description_otp_information"/>
+                android:contentDescription="@string/import_otp_scan_menu"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView

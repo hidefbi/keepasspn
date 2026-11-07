@@ -466,7 +466,6 @@
     <string name="unit_mebibyte">MiB</string>
     <string name="unit_kibibyte">KiB</string>
     <string name="unit_byte">B</string>
-    <string name="content_description_otp_information">Info password usa e getta</string>
     <string name="icon_section_custom">Personalizzato</string>
     <string name="icon_section_brand">Marchio</string>
     <string name="icon_brand_none">Nessuna icona di marchio corrisponde a questo sito web.</string>

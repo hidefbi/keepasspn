@@ -285,7 +285,6 @@
     <string name="custom_data">Mukautettu tieto</string>
     <string name="current_group">Nykyinen ryhmä</string>
     <string name="warning_database_notification_permission">Ilmoituslupa antaa sinun näyttää tietokannan tilan ja lukita sen helposti saatavilla olevalla painikkeella.\n\nJos et aktivoi tätä lupaa, taustalla oleva avoin tietokanta ei ole näkyvissä, jos etualalla on toinen sovellus.</string>
-    <string name="content_description_otp_information">Kertakäyttösalasanan tiedot</string>
     <string name="content_description_credentials_information">Tunnustiedot</string>
     <string name="error_driver_required">Kohteelle %1$s tarvitaan ajuri.</string>
     <string name="case_sensitive">Merkkikokoriippuvainen</string>

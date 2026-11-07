@@ -20,7 +20,6 @@
     <string name="content_description_add_node">新增節點</string>
     <string name="content_description_add_item">新增項目</string>
     <string name="content_description_credentials_information">憑證資訊</string>
-    <string name="content_description_otp_information">一次性密碼資訊</string>
     <string name="content_description_password_checkbox">密碼核取方塊</string>
     <string name="content_description_keyfile_checkbox">密鑰檔案核取方塊</string>
     <string name="content_description_hardware_key_checkbox">硬件密鑰方塊</string>

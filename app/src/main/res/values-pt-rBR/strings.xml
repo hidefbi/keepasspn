@@ -441,7 +441,6 @@
     <string name="holder">Titular</string>
     <string name="debit_credit_card">Cartão de débito / crédito</string>
     <string name="template_group_name">Modelos</string>
-    <string name="content_description_otp_information">Informação de senha de uso único</string>
     <string name="properties">Propriedades</string>
     <string name="credential_before_click_device_unlock_button">Digite a senha e clique neste botão.</string>
     <string name="device_unlock_not_recognized">Não foi possível reconhecer a impressão de desbloqueio</string>
