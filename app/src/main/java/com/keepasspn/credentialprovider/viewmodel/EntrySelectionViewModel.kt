@@ -32,13 +32,11 @@ import java.io.IOException
 class EntrySelectionViewModel(application: Application): CredentialLauncherViewModel(application) {
 
     private var searchShareForMagikeyboard: Boolean = false
-    private var mLockDatabaseAfterSelection: Boolean = false
     private val mUiState = MutableStateFlow<UIState>(UIState.Loading)
     val uiState: StateFlow<UIState> = mUiState.asStateFlow()
 
     fun initialize() {
         searchShareForMagikeyboard = getApplication<Application>().isKeyboardActivatedInSettings()
-        mLockDatabaseAfterSelection = false // TODO Close database after selection
     }
 
     override fun launchActionIfNeeded(
@@ -214,7 +212,7 @@ class EntrySelectionViewModel(application: Application): CredentialLauncherViewM
     private fun populateKeyboard(entryInfoList: List<EntryInfo>) {
         // Automatically populate keyboard
         mUiState.value = UIState.PopulateKeyboard(entryInfoList)
-        setResult(Intent(), lockDatabase = mLockDatabaseAfterSelection)
+        setResult(Intent())
     }
 
     override fun manageSelectionResult(

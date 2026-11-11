@@ -80,11 +80,11 @@ object EntrySelectionHelper {
     }
 
     /**
-     * Close the database right after a selection. A broadcast alone can be ignored while a
-     * database task runs, so the database is closed directly when idle, and otherwise closed
-     * when the running task releases the lock.
+     * Close the database right after a selection or a keyboard fill. A broadcast alone can be
+     * ignored while a database task runs, so the database is closed directly when idle, and
+     * otherwise closed when the running task releases the lock.
      */
-    private fun Activity.lockDatabaseAfterSelection() {
+    fun Context.lockDatabaseAfterSelection() {
         if (TimeoutHelper.temporarilyDisableLock) {
             TimeoutHelper.requestLockAfterTask()
         } else {

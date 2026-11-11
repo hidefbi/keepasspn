@@ -58,6 +58,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.keepasspn.R
 import com.keepasspn.adapters.KeyboardEntriesAdapter
 import com.keepasspn.adapters.KeyboardFieldsAdapter
+import com.keepasspn.credentialprovider.EntrySelectionHelper
 import com.keepasspn.credentialprovider.EntrySelectionHelper.buildIcon
 import com.keepasspn.credentialprovider.TypeMode
 import com.keepasspn.credentialprovider.activity.EntrySelectionLauncherActivity
@@ -460,6 +461,8 @@ class MagikeyboardService : InputMethodService(),
                 }
                 val otpFieldExists = entryInfoKey?.containsOtpToken() ?: false
                 actionGoAutomatically(!otpFieldExists)
+                // Without an OTP field the password is the last field of the entry
+                if (!otpFieldExists) lockDatabaseAfterFill()
             }
             KEY_OTP -> {
                 getEntryInfo()?.let { entryInfo ->
@@ -468,6 +471,7 @@ class MagikeyboardService : InputMethodService(),
                     }
                 }
                 actionGoAutomatically()
+                lockDatabaseAfterFill()
             }
             KEY_OTP_ALT -> {
                 getEntryInfo()?.let { entryInfo ->
@@ -548,6 +552,17 @@ class MagikeyboardService : InputMethodService(),
 
     private fun launchEntrySelection(searchInfo: SearchInfo?) {
         EntrySelectionLauncherActivity.launch(this, searchInfo)
+    }
+
+    /**
+     * Close the database once an entry is filled, when the autofill close setting is on
+     */
+    private fun lockDatabaseAfterFill() {
+        if (PreferencesUtil.isAutofillCloseDatabaseEnable(this)) {
+            removeSearchInfo()
+            removeEntryInfo()
+            with(EntrySelectionHelper) { lockDatabaseAfterSelection() }
+        }
     }
 
     private fun actionTabAutomatically() {
