@@ -92,6 +92,6 @@ class AuthenticatorAttestationResponse(
 
     companion object {
         // Authenticator Attestation Global Unique Identifier
-        private val AAGUID: ByteArray = UUID.fromString("eaecdef2-1c31-5634-8639-f1cbd9c00a08").asBytes()
+        private val AAGUID: ByteArray = UUID.fromString("8d098c11-0852-4ce5-a9fc-1e036a34437f").asBytes()
     }
 }
