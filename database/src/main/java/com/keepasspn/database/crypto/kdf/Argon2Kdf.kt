@@ -116,7 +116,24 @@ class Argon2Kdf(private val type: Type) : KdfEngine() {
         if (iterations !in MIN_ITERATIONS..MAX_ITERATIONS)
             throw KDFIterationDatabaseException()
 
+        // A file can not ask for more work than the phone should spend before unlocking
+        val memoryMiB = (memory + MIB - 1u) / MIB
+        if (iterations * memoryMiB > MAX_WORK_MIB)
+            throw KDFIterationDatabaseException()
+
         return ValidatedParams(parallelism, memory, iterations)
+    }
+
+    // Iterations allowed for a memory size, so iterations times memory stays in the work budget
+    private fun maxIterationsFor(memory: ULong): ULong {
+        val memoryMiB = ((memory + MIB - 1u) / MIB).coerceAtLeast(1u)
+        return (MAX_WORK_MIB / memoryMiB).coerceIn(MIN_ITERATIONS, MAX_ITERATIONS)
+    }
+
+    // Memory allowed for an iteration count, the reverse of maxIterationsFor
+    private fun maxMemoryFor(iterations: ULong): ULong {
+        val memoryMiB = MAX_WORK_MIB / iterations.coerceAtLeast(1u)
+        return (memoryMiB * MIB).coerceIn(MIN_MEMORY, MAX_MEMORY)
     }
 
     override fun randomize() {
@@ -143,7 +160,12 @@ class Argon2Kdf(private val type: Type) : KdfEngine() {
 
     override val minKeyRounds: ULong = MIN_ITERATIONS
 
-    override val maxKeyRounds: ULong = MAX_ITERATIONS
+    // Depends on the memory, so the settings screen shows what the file would accept
+    override val maxKeyRounds: ULong
+        get() = maxIterationsFor(
+            (parameters.getUInt64(PARAM_MEMORY) ?: DEFAULT_MEMORY)
+                .coerceIn(MIN_MEMORY, MAX_MEMORY)
+        )
 
     override fun getMemoryUsage(): ULong {
         return (parameters.getUInt64(PARAM_MEMORY) ?: defaultMemoryUsage)
@@ -162,7 +184,11 @@ class Argon2Kdf(private val type: Type) : KdfEngine() {
 
     override val minMemoryUsage: ULong = MIN_MEMORY
 
-    override val maxMemoryUsage: ULong = MAX_MEMORY
+    override val maxMemoryUsage: ULong
+        get() = maxMemoryFor(
+            (parameters.getUInt64(PARAM_ITERATIONS) ?: DEFAULT_ITERATIONS)
+                .coerceIn(MIN_ITERATIONS, MAX_ITERATIONS)
+        )
 
     override fun getParallelism(): Long {
         return (parameters.getUInt32(PARAM_PARALLELISM)?.toLong() ?: defaultParallelism)
@@ -247,7 +273,10 @@ class Argon2Kdf(private val type: Type) : KdfEngine() {
 
         private val DEFAULT_ITERATIONS: ULong = 3u
         private val MIN_ITERATIONS: ULong = 1u
-        private val MAX_ITERATIONS: ULong = UInt.MAX_VALUE.toULong() // Do not exceed the maximum UInt value
+        private val MAX_ITERATIONS: ULong = 10_000u
+        // Iterations times memory in MiB, about a minute of work on a mid range phone
+        private val MAX_WORK_MIB: ULong = 8192u
+        private val MIB: ULong = 1024u * 1024u
 
         private val DEFAULT_MEMORY: ULong = (MEMORY_BLOCK_SIZE * 1024u * 16u).toULong() // 16 MiB
         private val MIN_MEMORY: ULong = (MEMORY_BLOCK_SIZE * 8u).toULong() // 8 MiB

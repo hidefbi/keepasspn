@@ -95,8 +95,8 @@ class AesKdf : KdfEngine() {
 
     override val minKeyRounds: ULong = 1u
 
-    // The native key loop counts in 32 bits, so larger values are refused
-    override val maxKeyRounds: ULong = UInt.MAX_VALUE.toULong()
+    // The native loop counts in 32 bits. Keep the cap low so a file can't stall the unlock for minutes
+    override val maxKeyRounds: ULong = MAX_ROUNDS
 
     override fun toString(): String {
         return "AES"
@@ -123,6 +123,7 @@ class AesKdf : KdfEngine() {
                         0xEA.toByte()))
 
         const val PARAM_ROUNDS = "R" // UInt64
+        private val MAX_ROUNDS: ULong = 50_000_000u
         const val PARAM_SEED = "S" // Byte array
     }
 }

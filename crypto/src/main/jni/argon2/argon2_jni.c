@@ -21,6 +21,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <unistd.h>
 #include <jni.h>
 
 #include "argon2.h"
@@ -134,8 +135,14 @@ JNICALL Java_com_keepasspn_encrypt_argon2_NativeArgon2KeyTransformer_nTransformK
     context.adlen = adLen;
     context.t_cost = (uint32_t) iterations;
     context.m_cost = (uint32_t) memory;
+    // Lanes decide the hash, threads only decide how many run at once.
+    // Never start more threads than the device has cores.
+    long cores = sysconf(_SC_NPROCESSORS_ONLN);
+    if (cores < 1) {
+        cores = 1;
+    }
     context.lanes = (uint32_t) parallelism;
-    context.threads = (uint32_t) parallelism;
+    context.threads = (uint32_t) (parallelism < cores ? parallelism : cores);
     context.allocate_cbk = NULL;
     context.free_cbk = NULL;
     context.flags = ARGON2_DEFAULT_FLAGS;

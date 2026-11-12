@@ -88,7 +88,7 @@ class KdfClampingTest {
         assertEquals(aesKdf.maxKeyRounds, aesKdf.getKeyRounds())
 
         aesKdf.setKeyRounds(5_000_000_000uL) // Above 32 bits
-        assertEquals(UInt.MAX_VALUE.toULong(), aesKdf.getKeyRounds())
+        assertEquals(50_000_000uL, aesKdf.getKeyRounds())
 
         aesKdf.setKeyRounds(0uL) // Below min
         assertEquals(aesKdf.minKeyRounds, aesKdf.getKeyRounds())
