@@ -276,7 +276,7 @@ class Argon2Kdf(private val type: Type) : KdfEngine() {
         private val MAX_ITERATIONS: ULong = 10_000u
         // Iterations times memory in MiB, about a minute of work on a mid range phone
         private val MAX_WORK_MIB: ULong = 8192u
-        private val MIB: ULong = 1024u * 1024u
+        private val MIB: ULong = 1024uL * 1024uL
 
         private val DEFAULT_MEMORY: ULong = (MEMORY_BLOCK_SIZE * 1024u * 16u).toULong() // 16 MiB
         private val MIN_MEMORY: ULong = (MEMORY_BLOCK_SIZE * 8u).toULong() // 8 MiB
