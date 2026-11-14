@@ -27,6 +27,9 @@ interface CipherDatabaseDao {
     @Query("SELECT * FROM cipher_database WHERE database_uri = :databaseUriString")
     fun getByDatabaseUri(databaseUriString: String): CipherDatabaseEntity?
 
+    @Query("SELECT * FROM cipher_database")
+    fun getAll(): List<CipherDatabaseEntity>
+
     @Insert
     fun add(vararg fileDatabaseHistory: CipherDatabaseEntity)
 

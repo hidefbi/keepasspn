@@ -29,6 +29,7 @@ import android.util.Base64
 import com.keepasspn.utils.NoOpLog
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
+import com.keepasspn.biometric.DeviceUnlockManager
 import com.keepasspn.database.element.binary.BinaryData.Companion.BASE64_FLAG
 import com.keepasspn.model.CipherEncryptDatabase
 import com.keepasspn.services.DeviceUnlockNotificationService
@@ -223,6 +224,7 @@ class CipherDatabaseAction(context: Context) {
                 // The only case to create service (not needed to get an info)
                 serviceActionTask(true) {
                     mBinder?.addOrUpdateCipherDatabase(cipherDatabaseEntity)
+                    deleteLegacyKeyIfUnused()
                     cipherDatabaseResultListener?.invoke() ?: run {
                         mDatabaseListeners.forEach { listener ->
                             listener.onCipherDatabaseAddedOrUpdated(cipherEncryptDatabase)
@@ -241,6 +243,7 @@ class CipherDatabaseAction(context: Context) {
                             cipherDatabaseDao.update(cipherDatabaseEntity)
                         }
                     }
+                    deleteLegacyKeyIfUnused()
                     cipherDatabaseResultListener?.invoke() ?: run {
                         mDatabaseListeners.forEach { listener ->
                             listener.onCipherDatabaseAddedOrUpdated(cipherEncryptDatabase)
@@ -256,6 +259,7 @@ class CipherDatabaseAction(context: Context) {
         if (useTempDao) {
             serviceActionTask {
                 mBinder?.deleteByDatabaseUri(databaseUri)
+                deleteLegacyKeyIfUnused()
                 cipherDatabaseResultListener?.invoke() ?: run {
                     mDatabaseListeners.forEach { listener ->
                         listener.onCipherDatabaseDeleted(databaseUri)
@@ -267,6 +271,7 @@ class CipherDatabaseAction(context: Context) {
                 withContext(Dispatchers.IO) {
                     cipherDatabaseDao.deleteByDatabaseUri(databaseUri.toString())
                 }
+                deleteLegacyKeyIfUnused()
                 cipherDatabaseResultListener?.invoke() ?: run {
                     mDatabaseListeners.forEach { listener ->
                         listener.onCipherDatabaseDeleted(databaseUri)
@@ -275,6 +280,28 @@ class CipherDatabaseAction(context: Context) {
             }
         }
         reloadPreferences()
+    }
+
+    /**
+     * Credentials saved before the switch to GCM still need the legacy key to be read.
+     * Once none of them is left, the legacy key is removed.
+     */
+    private fun deleteLegacyKeyIfUnused() {
+        if (useTempDao) {
+            mBinder?.getAllCipherDatabases()?.let { entities ->
+                deleteLegacyKeyIfNoLegacyEntity(entities)
+            }
+        } else {
+            CoroutineScope(Dispatchers.IO).launch {
+                deleteLegacyKeyIfNoLegacyEntity(cipherDatabaseDao.getAll())
+            }
+        }
+    }
+
+    private fun deleteLegacyKeyIfNoLegacyEntity(entities: List<CipherDatabaseEntity>) {
+        if (entities.none { DeviceUnlockManager.isLegacyCipherParameters(it.specParameters) }) {
+            DeviceUnlockManager.deleteLegacyKeyInKeystore()
+        }
     }
 
     fun deleteAll() {

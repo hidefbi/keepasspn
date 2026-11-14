@@ -32,6 +32,9 @@ class DeviceUnlockNotificationService : NotificationService() {
             cipherDatabaseRetrieve?.replaceContent(cipherDatabaseEntity)
                     ?: mTempCipherDao.add(cipherDatabaseEntity)
         }
+        fun getAllCipherDatabases(): List<CipherDatabaseEntity> {
+            return mTempCipherDao.toList()
+        }
         fun deleteByDatabaseUri(databaseUri: Uri) {
             mTempCipherDao.firstOrNull { it.databaseUri == databaseUri.toString() }?.let {
                 mTempCipherDao.remove(it)

@@ -27,6 +27,7 @@ import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyPermanentlyInvalidatedException
 import android.security.keystore.KeyProperties
 import android.security.keystore.UserNotAuthenticatedException
+import android.util.Base64
 import com.keepasspn.utils.NoOpLog
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -40,9 +41,13 @@ import com.keepasspn.app.database.CipherDatabaseAction
 import com.keepasspn.settings.PreferencesUtil
 import java.security.KeyStore
 import java.security.UnrecoverableKeyException
+import java.security.spec.AlgorithmParameterSpec
+import javax.crypto.AEADBadTagException
+import javax.crypto.BadPaddingException
 import javax.crypto.Cipher
 import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
+import javax.crypto.spec.GCMParameterSpec
 import javax.crypto.spec.IvParameterSpec
 
 @RequiresApi(api = Build.VERSION_CODES.M)
@@ -50,7 +55,6 @@ class DeviceUnlockManager(private var appContext: Context) {
 
     private var keyStore: KeyStore? = null
     private var keyGenerator: KeyGenerator? = null
-    private var cipher: Cipher? = null
 
     private var biometricUnlockEnable = isBiometricUnlockEnable(appContext)
     private var deviceCredentialUnlockEnable = isDeviceCredentialUnlockEnable(appContext)
@@ -64,19 +68,11 @@ class DeviceUnlockManager(private var appContext: Context) {
                         DEVICE_UNLOCK_KEY_ALGORITHM,
                         DEVICE_UNLOCK_KEYSTORE
                     )
-                    this.cipher = Cipher.getInstance(
-                        DEVICE_UNLOCK_KEY_ALGORITHM + "/"
-                                + DEVICE_UNLOCK_BLOCKS_MODES + "/"
-                                + DEVICE_UNLOCK_ENCRYPTION_PADDING
-                    )
                     if (keyStore == null) {
                         throw SecurityException("Unable to initialize the keystore")
                     }
                     if (keyGenerator == null) {
                         throw SecurityException("Unable to initialize the key generator")
-                    }
-                    if (cipher == null) {
-                        throw SecurityException("Unable to initialize the cipher")
                     }
                 } catch (e: Exception) {
                     NoOpLog.e(TAG, "Unable to initialize the device unlock manager", e)
@@ -88,70 +84,73 @@ class DeviceUnlockManager(private var appContext: Context) {
         }
     }
 
-    @Synchronized private fun getSecretKey(): SecretKey? {
+    /**
+     * Get the key stored under [alias]. A new key is only created for the GCM alias,
+     * the legacy CBC key is never recreated.
+     */
+    @Synchronized private fun getSecretKey(alias: String, create: Boolean): SecretKey? {
+        val keyStore = keyStore ?: return null
         try {
-            // Create new key if needed
-            keyStore?.let { keyStore ->
-                keyStore.load(null)
+            keyStore.load(null)
+            if (create && !keyStore.containsAlias(alias)) {
                 try {
-                    if (!keyStore.containsAlias(DEVICE_UNLOCK_KEYSTORE_KEY)) {
-                        // Set the alias of the entry in Android KeyStore where the key will appear
-                        // and the constraints (purposes) in the constructor of the Builder
-                        keyGenerator?.init(
-                                KeyGenParameterSpec.Builder(
-                                    DEVICE_UNLOCK_KEYSTORE_KEY,
-                                    KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT)
-                                    .setBlockModes(DEVICE_UNLOCK_BLOCKS_MODES)
-                                    .setEncryptionPaddings(DEVICE_UNLOCK_ENCRYPTION_PADDING)
-                                    .apply {
-                                        if (biometricUnlockEnable || deviceCredentialUnlockEnable) {
-                                            // Authenticate with biometric or device credential
-                                            // to authorize every use of the key
-                                            setUserAuthenticationRequired(true)
-                                        }
-                                        if (isDeviceCredentialBiometricOperation(deviceCredentialUnlockEnable)) {
-                                            // Authent with device credential on Android R+
-                                            // define a validity duration to fix "At least one biometric must be enrolled"
-                                            // if no biometric enrolled
-                                            setUserAuthenticationParameters(
-                                                0,
-                                                KeyProperties.AUTH_DEVICE_CREDENTIAL
-                                            )
-                                        } else if (deviceCredentialUnlockEnable) {
-                                            // Authent with device credential on Legacy Android M-Q
-                                            // duration required for PIN/Pattern on older APIs.
-                                            // LIMITATION (accepted): on API 23-29 the platform only offers
-                                            // time-based authorization for device credentials, so after a
-                                            // successful PIN/pattern/password unlock this app-private key
-                                            // stays usable for 5 seconds. Per-use authorization (-1) is not
-                                            // available with the keyguard flow used here. Any app-level
-                                            // attacker able to run code in this process already has the
-                                            // unlocked database, so the window adds no new exposure beyond
-                                            // the process. See SECURITY_HARDENING.md.
-                                            @Suppress("DEPRECATION")
-                                            setUserAuthenticationValidityDurationSeconds(5)
-                                        }
-                                        // To store in the security chip
-                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
-                                            && appContext.packageManager.hasSystemFeature(
-                                                PackageManager.FEATURE_STRONGBOX_KEYSTORE)) {
-                                            setIsStrongBoxBacked(true)
-                                        }
-                                    }
-                                    .build())
-                        keyGenerator?.generateKey()
-                    }
+                    keyGenerator?.init(
+                        KeyGenParameterSpec.Builder(
+                            alias,
+                            KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT)
+                            .setBlockModes(DEVICE_UNLOCK_BLOCK_MODE)
+                            .setEncryptionPaddings(DEVICE_UNLOCK_ENCRYPTION_PADDING)
+                            .apply {
+                                if (biometricUnlockEnable || deviceCredentialUnlockEnable) {
+                                    // Authenticate with biometric or device credential
+                                    // to authorize every use of the key
+                                    setUserAuthenticationRequired(true)
+                                }
+                                if (isDeviceCredentialBiometricOperation(deviceCredentialUnlockEnable)) {
+                                    // Authent with device credential on Android R+
+                                    // define a validity duration to fix "At least one biometric must be enrolled"
+                                    // if no biometric enrolled
+                                    setUserAuthenticationParameters(
+                                        0,
+                                        KeyProperties.AUTH_DEVICE_CREDENTIAL
+                                    )
+                                } else if (deviceCredentialUnlockEnable) {
+                                    // Authent with device credential on Legacy Android M-Q
+                                    // duration required for PIN/Pattern on older APIs.
+                                    // LIMITATION (accepted): on API 23-29 the platform only offers
+                                    // time-based authorization for device credentials, so after a
+                                    // successful PIN/pattern/password unlock this app-private key
+                                    // stays usable for 5 seconds. Per-use authorization (-1) is not
+                                    // available with the keyguard flow used here. Any app-level
+                                    // attacker able to run code in this process already has the
+                                    // unlocked database, so the window adds no new exposure beyond
+                                    // the process. See SECURITY_HARDENING.md.
+                                    @Suppress("DEPRECATION")
+                                    setUserAuthenticationValidityDurationSeconds(5)
+                                }
+                                // To store in the security chip
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
+                                    && appContext.packageManager.hasSystemFeature(
+                                        PackageManager.FEATURE_STRONGBOX_KEYSTORE)) {
+                                    setIsStrongBoxBacked(true)
+                                }
+                            }
+                            .build())
+                    keyGenerator?.generateKey()
                 } catch (e: Exception) {
                     NoOpLog.e(TAG, "Unable to create a key in keystore", e)
                     throw e
                 }
-                return keyStore.getKey(DEVICE_UNLOCK_KEYSTORE_KEY, null) as SecretKey?
             }
+            val secretKey = keyStore.getKey(alias, null) as SecretKey?
+            if (secretKey == null && !create) {
+                throw UnrecoverableKeyException("Device unlock key not found")
+            }
+            return secretKey
         } catch (e: Exception) {
             NoOpLog.e(TAG, "Unable to retrieve the key in keystore", e)
             throw e
         }
-        return null
     }
 
     @Synchronized fun initEncryptData(
@@ -165,33 +164,32 @@ class DeviceUnlockManager(private var appContext: Context) {
         actionIfCypherInit: (cryptoPrompt: DeviceUnlockCryptoPrompt) -> Unit
     ) {
         try {
-            getSecretKey()?.let { secretKey ->
-                cipher?.let { cipher ->
-                    try {
-                        cipher.init(Cipher.ENCRYPT_MODE, secretKey)
-                    } catch (e: Exception) {
-                        if (isUserNotAuthenticatedException(deviceCredentialUnlockEnable, e)) {
-                            // Show the prompt without initialized cipher device credential legacy
-                            NoOpLog.i(TAG, "User not authenticated, will initialize cipher after prompt")
-                        } else {
-                            throw e
-                        }
+            getSecretKey(DEVICE_UNLOCK_KEYSTORE_KEY, create = true)?.let { secretKey ->
+                val cipher = Cipher.getInstance(DEVICE_UNLOCK_TRANSFORMATION)
+                try {
+                    cipher.init(Cipher.ENCRYPT_MODE, secretKey)
+                } catch (e: Exception) {
+                    if (isUserNotAuthenticatedException(deviceCredentialUnlockEnable, e)) {
+                        // Show the prompt without initialized cipher device credential legacy
+                        NoOpLog.i(TAG, "User not authenticated, will initialize cipher after prompt")
+                    } else {
+                        throw e
                     }
-                    actionIfCypherInit.invoke(
-                        DeviceUnlockCryptoPrompt(
-                            type = DeviceUnlockCryptoPromptType.CREDENTIAL_ENCRYPTION,
-                            cipher = cipher,
-                            titleId = R.string.device_unlock_prompt_store_credential_title,
-                            descriptionId = R.string.device_unlock_prompt_store_credential_message,
-                            isDeviceCredentialOperation = isDeviceCredentialOperation(
-                                deviceCredentialUnlockEnable
-                            ),
-                            isBiometricOperation = isBiometricOperation(
-                                biometricUnlockEnable, deviceCredentialUnlockEnable
-                            )
+                }
+                actionIfCypherInit.invoke(
+                    DeviceUnlockCryptoPrompt(
+                        type = DeviceUnlockCryptoPromptType.CREDENTIAL_ENCRYPTION,
+                        cipher = cipher,
+                        titleId = R.string.device_unlock_prompt_store_credential_title,
+                        descriptionId = R.string.device_unlock_prompt_store_credential_message,
+                        isDeviceCredentialOperation = isDeviceCredentialOperation(
+                            deviceCredentialUnlockEnable
+                        ),
+                        isBiometricOperation = isBiometricOperation(
+                            biometricUnlockEnable, deviceCredentialUnlockEnable
                         )
                     )
-                }
+                )
             }
         } catch (unrecoverableKeyException: UnrecoverableKeyException) {
             NoOpLog.e(TAG, "Unable to initialize encrypt data", unrecoverableKeyException)
@@ -215,17 +213,20 @@ class DeviceUnlockManager(private var appContext: Context) {
         cipher: Cipher?,
         handleEncryptedResult: (encryptedValue: ByteArray, ivSpec: ByteArray) -> Unit
     ) {
+        if (cipher == null) {
+            return
+        }
         try {
             if (isDeviceCredentialOperation(deviceCredentialUnlockEnable)) {
-                getSecretKey()?.let { secretKey ->
-                    cipher?.init(Cipher.ENCRYPT_MODE, secretKey)
+                getSecretKey(DEVICE_UNLOCK_KEYSTORE_KEY, create = true)?.let { secretKey ->
+                    cipher.init(Cipher.ENCRYPT_MODE, secretKey)
                 }
             }
-            val encrypted = cipher?.doFinal(value) ?: byteArrayOf()
-            // passes updated iv spec on to callback so this can be stored for decryption
-            cipher?.parameters?.getParameterSpec(IvParameterSpec::class.java)?.let{ spec ->
-                handleEncryptedResult.invoke(encrypted, spec.iv)
-            }
+            val encrypted = cipher.doFinal(value)
+            // GCM nonce is generated by the keystore, it is kept next to the ciphertext
+            val gcmSpec = cipher.parameters?.getParameterSpec(GCMParameterSpec::class.java)
+                ?: throw IllegalStateException("Missing GCM parameters")
+            handleEncryptedResult.invoke(encrypted, gcmSpec.iv)
         } catch (e: Exception) {
             NoOpLog.e(TAG, "Unable to encrypt data", e)
             throw e
@@ -245,39 +246,38 @@ class DeviceUnlockManager(private var appContext: Context) {
         actionIfCypherInit: (cryptoPrompt: DeviceUnlockCryptoPrompt) -> Unit
     ) {
         try {
-            // important to restore spec here that was used for decryption
-            val spec = IvParameterSpec(ivSpecValue)
-            getSecretKey()?.let { secretKey ->
-                cipher?.let { cipher ->
-                    try {
-                        cipher.init(Cipher.DECRYPT_MODE, secretKey, spec)
-                    } catch (e: Exception) {
-                        if (isUserNotAuthenticatedException(deviceCredentialUnlockEnable, e)) {
-                            NoOpLog.i(TAG, "User not authenticated, will initialize cipher after prompt")
-                        } else {
-                            throw e
-                        }
+            // important to restore spec here that was used for encryption
+            val alias = keyAliasFor(ivSpecValue)
+            getSecretKey(alias, create = false)?.let { secretKey ->
+                val cipher = Cipher.getInstance(transformationFor(ivSpecValue))
+                try {
+                    cipher.init(Cipher.DECRYPT_MODE, secretKey, decryptParameterSpec(ivSpecValue))
+                } catch (e: Exception) {
+                    if (isUserNotAuthenticatedException(deviceCredentialUnlockEnable, e)) {
+                        NoOpLog.i(TAG, "User not authenticated, will initialize cipher after prompt")
+                    } else {
+                        throw e
                     }
-                    actionIfCypherInit.invoke(
-                        DeviceUnlockCryptoPrompt(
-                            type = DeviceUnlockCryptoPromptType.CREDENTIAL_DECRYPTION,
-                            cipher = cipher,
-                            titleId = R.string.device_unlock_prompt_extract_credential_title,
-                            descriptionId = R.string.device_unlock_prompt_extract_credential_message,
-                            isDeviceCredentialOperation = isDeviceCredentialOperation(
-                                deviceCredentialUnlockEnable
-                            ),
-                            isBiometricOperation = isBiometricOperation(
-                                biometricUnlockEnable, deviceCredentialUnlockEnable
-                            )
+                }
+                actionIfCypherInit.invoke(
+                    DeviceUnlockCryptoPrompt(
+                        type = DeviceUnlockCryptoPromptType.CREDENTIAL_DECRYPTION,
+                        cipher = cipher,
+                        titleId = R.string.device_unlock_prompt_extract_credential_title,
+                        descriptionId = R.string.device_unlock_prompt_extract_credential_message,
+                        isDeviceCredentialOperation = isDeviceCredentialOperation(
+                            deviceCredentialUnlockEnable
+                        ),
+                        isBiometricOperation = isBiometricOperation(
+                            biometricUnlockEnable, deviceCredentialUnlockEnable
                         )
                     )
-                }
+                )
             }
         } catch (unrecoverableKeyException: UnrecoverableKeyException) {
             NoOpLog.e(TAG, "Unable to initialize decrypt data", unrecoverableKeyException)
             if (firstLaunch) {
-                deleteKeystoreKey()
+                deleteKeystoreKeys(keyAliasFor(ivSpecValue))
                 initDecryptData(ivSpecValue, false, actionIfCypherInit)
             } else {
                 throw unrecoverableKeyException
@@ -297,25 +297,21 @@ class DeviceUnlockManager(private var appContext: Context) {
     }
 
     /**
-     * [ivSpecValue] is only used for legacy device credential
+     * [ivSpecValue] is the IV (GCM nonce or legacy CBC IV) stored next to the encrypted value
      */
     @Synchronized fun decryptData(
         encryptedValue: ByteArray,
         cipher: Cipher?,
-        ivSpecValue: ByteArray? = null,
+        ivSpecValue: ByteArray,
         handleDecryptedResult: (decryptedValue: ByteArray) -> Unit
     ) {
         try {
             if (isDeviceCredentialOperation(deviceCredentialUnlockEnable)) {
-                getSecretKey()?.let { secretKey ->
-                    if (ivSpecValue != null) {
-                        cipher?.init(Cipher.DECRYPT_MODE, secretKey, IvParameterSpec(ivSpecValue))
-                    } else {
-                        cipher?.init(Cipher.DECRYPT_MODE, secretKey)
-                    }
+                getSecretKey(keyAliasFor(ivSpecValue), create = false)?.let { secretKey ->
+                    cipher?.init(Cipher.DECRYPT_MODE, secretKey, decryptParameterSpec(ivSpecValue))
                 }
             }
-            // actual decryption here
+            // actual decryption here, GCM also checks the authentication tag
             cipher?.doFinal(encryptedValue)?.let { decrypted ->
                 handleDecryptedResult.invoke(decrypted)
             }
@@ -325,25 +321,83 @@ class DeviceUnlockManager(private var appContext: Context) {
         }
     }
 
-    @Synchronized fun deleteKeystoreKey() {
-        try {
-            keyStore?.load(null)
-            keyStore?.deleteEntry(DEVICE_UNLOCK_KEYSTORE_KEY)
-        } catch (e: Exception) {
-            NoOpLog.e(TAG, "Unable to delete entry key in keystore", e)
-            throw e
-        }
-    }
-
     companion object {
 
         private val TAG = DeviceUnlockManager::class.java.name
 
         private const val DEVICE_UNLOCK_KEYSTORE = "AndroidKeyStore"
-        private const val DEVICE_UNLOCK_KEYSTORE_KEY = "com.keepasspn.biometric.key"
+        // Key used for every new credential
+        private const val DEVICE_UNLOCK_KEYSTORE_KEY = "com.keepasspn.biometric.gcm.key"
+        // Key used by credentials stored before the switch to GCM, only to read them
+        private const val DEVICE_UNLOCK_KEYSTORE_KEY_LEGACY = "com.keepasspn.biometric.key"
         private const val DEVICE_UNLOCK_KEY_ALGORITHM = KeyProperties.KEY_ALGORITHM_AES
-        private const val DEVICE_UNLOCK_BLOCKS_MODES = KeyProperties.BLOCK_MODE_CBC
-        private const val DEVICE_UNLOCK_ENCRYPTION_PADDING = KeyProperties.ENCRYPTION_PADDING_PKCS7
+        private const val DEVICE_UNLOCK_BLOCK_MODE = KeyProperties.BLOCK_MODE_GCM
+        private const val DEVICE_UNLOCK_ENCRYPTION_PADDING = KeyProperties.ENCRYPTION_PADDING_NONE
+        private const val DEVICE_UNLOCK_TRANSFORMATION = "AES/GCM/NoPadding"
+        private const val LEGACY_TRANSFORMATION = "AES/CBC/PKCS7Padding"
+        private const val GCM_TAG_LENGTH_BITS = 128
+        private const val GCM_IV_LENGTH_BYTES = 12
+        private const val LEGACY_IV_LENGTH_BYTES = 16
+
+        private fun isLegacyIv(ivSpecValue: ByteArray): Boolean {
+            return ivSpecValue.size == LEGACY_IV_LENGTH_BYTES
+        }
+
+        private fun keyAliasFor(ivSpecValue: ByteArray): String {
+            return if (isLegacyIv(ivSpecValue)) {
+                DEVICE_UNLOCK_KEYSTORE_KEY_LEGACY
+            } else {
+                DEVICE_UNLOCK_KEYSTORE_KEY
+            }
+        }
+
+        private fun transformationFor(ivSpecValue: ByteArray): String {
+            return if (isLegacyIv(ivSpecValue)) {
+                LEGACY_TRANSFORMATION
+            } else {
+                DEVICE_UNLOCK_TRANSFORMATION
+            }
+        }
+
+        private fun decryptParameterSpec(ivSpecValue: ByteArray): AlgorithmParameterSpec {
+            return if (isLegacyIv(ivSpecValue)) {
+                IvParameterSpec(ivSpecValue)
+            } else {
+                require(ivSpecValue.size == GCM_IV_LENGTH_BYTES) { "Unexpected IV length" }
+                GCMParameterSpec(GCM_TAG_LENGTH_BITS, ivSpecValue)
+            }
+        }
+
+        /**
+         * True if the IV stored in the database (Base64) belongs to a credential
+         * encrypted with the legacy CBC key
+         */
+        fun isLegacyCipherParameters(specParametersBase64: String): Boolean {
+            return try {
+                Base64.decode(specParametersBase64, Base64.DEFAULT).size == LEGACY_IV_LENGTH_BYTES
+            } catch (e: IllegalArgumentException) {
+                false
+            }
+        }
+
+        private fun deleteKeystoreKeys(vararg aliases: String) {
+            val keyStore = KeyStore.getInstance(DEVICE_UNLOCK_KEYSTORE)
+            keyStore.load(null)
+            aliases.forEach { alias ->
+                keyStore.deleteEntry(alias)
+            }
+        }
+
+        /**
+         * Remove the legacy CBC key, call it only when no legacy credential is left
+         */
+        fun deleteLegacyKeyInKeystore() {
+            try {
+                deleteKeystoreKeys(DEVICE_UNLOCK_KEYSTORE_KEY_LEGACY)
+            } catch (e: Exception) {
+                NoOpLog.e(TAG, "Unable to delete legacy key in keystore", e)
+            }
+        }
 
         @RequiresApi(api = Build.VERSION_CODES.M)
         fun canAuthenticate(context: Context): Int {
@@ -413,20 +467,9 @@ class DeviceUnlockManager(private var appContext: Context) {
             }
         }
 
-        /**
-         * Remove entry key in keystore
-         */
-        fun deleteEntryKeyInKeystoreForBiometric(
-            appContext: Context
-        ) {
-            DeviceUnlockManager(appContext).apply {
-                deleteKeystoreKey()
-            }
-        }
-
         fun deleteAllEntryKeysInKeystoreForBiometric(appContext: Context) {
             try {
-                deleteEntryKeyInKeystoreForBiometric(appContext)
+                deleteKeystoreKeys(DEVICE_UNLOCK_KEYSTORE_KEY, DEVICE_UNLOCK_KEYSTORE_KEY_LEGACY)
             } catch (e: Exception) {
                 Toast.makeText(appContext,
                     deviceUnlockError(e, appContext),
@@ -441,7 +484,10 @@ class DeviceUnlockManager(private var appContext: Context) {
 fun deviceUnlockError(error: Throwable, context: Context): String {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
         && (error is UnrecoverableKeyException
-                || error is KeyPermanentlyInvalidatedException)) {
+                || error is KeyPermanentlyInvalidatedException
+                // Wrong or altered encrypted data
+                || error is AEADBadTagException
+                || error is BadPaddingException)) {
         context.getString(R.string.device_unlock_invalid_key)
     } else
         error.cause?.localizedMessage
