@@ -19,6 +19,7 @@
  */
 package com.keepasspn.settings
 
+import com.keepasspn.utils.toCharArrayCopy
 import android.content.Context
 import android.net.Uri
 import android.os.Build
@@ -129,9 +130,9 @@ object PinManagementDialogs {
                 newLayout.error = null
                 confirmLayout.error = null
 
-                val oldPin = oldEdit.text.toString().toCharArray()
-                val newPin = newEdit.text.toString().toCharArray()
-                val confirmPin = confirmEdit.text.toString().toCharArray()
+                val oldPin = oldEdit.text.toCharArrayCopy()
+                val newPin = newEdit.text.toCharArrayCopy()
+                val confirmPin = confirmEdit.text.toCharArrayCopy()
                 try {
                     when {
                         newPin.size < PIN_MIN_LENGTH -> {

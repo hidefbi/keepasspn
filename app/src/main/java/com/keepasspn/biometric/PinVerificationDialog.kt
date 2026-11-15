@@ -33,6 +33,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.keepasspn.R
 import com.keepasspn.utils.KeyboardUtil.showKeyboard
+import com.keepasspn.utils.toCharArrayCopy
 import kotlinx.coroutines.launch
 
 /**
@@ -92,7 +93,7 @@ object PinVerificationDialog {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                 if (busy || finished) return@setOnClickListener
                 layout.error = null
-                val pin = edit.text.toString().toCharArray()
+                val pin = edit.text.toCharArrayCopy()
                 setBusy(true)
                 activity.lifecycleScope.launch {
                     try {

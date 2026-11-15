@@ -97,6 +97,8 @@ import com.keepasspn.utils.MenuUtil
 import com.keepasspn.utils.UriUtil.getUri
 import com.keepasspn.utils.getParcelableCompat
 import com.keepasspn.utils.getParcelableExtraCompat
+import com.keepasspn.utils.clear
+import com.keepasspn.utils.toCharArrayCopy
 import com.keepasspn.view.MainCredentialView
 import com.keepasspn.view.asError
 import com.keepasspn.view.showActionErrorIfNeeded
@@ -727,7 +729,7 @@ class MainCredentialActivity : DatabaseModeActivity() {
             .create()
         dialog.setOnShowListener {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                val pin = pinEditText.text.toString().toCharArray()
+                val pin = pinEditText.text.toCharArrayCopy()
                 lifecycleScope.launch {
                     try {
                         val passwordBytes = PinCryptoHelper.unlockWithPin(
@@ -870,13 +872,14 @@ class MainCredentialActivity : DatabaseModeActivity() {
             .setView(container)
             .setCancelable(false)
             .setPositiveButton(R.string.unlock) { _, _ ->
-                val firstPin = firstEditText.text.toString()
-                if (firstPin.length < 6) {
+                val firstPin = firstEditText.text.toCharArrayCopy()
+                if (firstPin.size < 6) {
                     // Ask again: a short PIN is a mistake, not a refusal of the offer
+                    firstPin.clear()
                     showSetPinDialog(uri, passwordBytes, onDone, R.string.pin_setup_too_short)
                     return@setPositiveButton
                 }
-                showConfirmPinDialog(uri, passwordBytes, firstPin.toCharArray(), onDone)
+                showConfirmPinDialog(uri, passwordBytes, firstPin, onDone)
             }
             .setNegativeButton(android.R.string.cancel) { _, _ ->
                 releasePinSetupPassword(passwordBytes)
@@ -904,7 +907,7 @@ class MainCredentialActivity : DatabaseModeActivity() {
             .setView(container)
             .setCancelable(false)
             .setPositiveButton(R.string.unlock) { _, _ ->
-                val confirmPin = confirmEditText.text.toString().toCharArray()
+                val confirmPin = confirmEditText.text.toCharArrayCopy()
                 if (!firstPin.contentEquals(confirmPin)) {
                     confirmPin.fill('\u0000')
                     firstPin.fill('\u0000')
@@ -1122,6 +1125,15 @@ class MainCredentialActivity : DatabaseModeActivity() {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        // The typed master password is not kept on screen once the app is in the background.
+        // A rotation is not a background, so the text is kept for it.
+        if (!isChangingConfigurations && ::mainCredentialView.isInitialized) {
+            mainCredentialView.populatePasswordTextView(null)
+        }
     }
 
     override fun onDestroy() {
