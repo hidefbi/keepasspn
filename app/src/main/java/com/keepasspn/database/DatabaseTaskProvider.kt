@@ -30,6 +30,7 @@ import android.content.IntentFilter
 import android.content.ServiceConnection
 import android.net.Uri
 import android.os.Bundle
+import android.os.Parcelable
 import android.os.IBinder
 import com.keepasspn.utils.NoOpLog
 import android.widget.Toast
@@ -764,16 +765,28 @@ class DatabaseTaskProvider(
         private val TAG = DatabaseTaskProvider::class.java.name
 
         fun Context.startDatabaseService(bundle: Bundle? = null, actionTask: String) {
+            val secretTokens = mutableListOf<String>()
             try {
                 val intentDatabaseTask = Intent(
                     applicationContext,
                     DatabaseTaskNotificationService::class.java
                 )
-                if (bundle != null)
-                    intentDatabaseTask.putExtras(bundle)
+                if (bundle != null) {
+                    // Secrets stay in memory, the Intent only receives their tokens
+                    val taskBundle = Bundle(bundle)
+                    TaskSecrets.SECRET_KEYS.forEach { key ->
+                        val secret = bundle.get(key) as? Parcelable ?: return@forEach
+                        val token = TaskSecrets.put(secret)
+                        secretTokens.add(token)
+                        taskBundle.remove(key)
+                        taskBundle.putString(TaskSecrets.tokenKey(key), token)
+                    }
+                    intentDatabaseTask.putExtras(taskBundle)
+                }
                 intentDatabaseTask.action = actionTask
                 startService(intentDatabaseTask)
             } catch (e: Exception) {
+                secretTokens.forEach { TaskSecrets.discard(it) }
                 NoOpLog.e(TAG, "Unable to perform database action", e)
                 Toast.makeText(this, R.string.error_start_database_action, Toast.LENGTH_LONG).show()
             }

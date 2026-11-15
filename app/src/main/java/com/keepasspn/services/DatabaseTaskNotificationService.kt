@@ -39,6 +39,9 @@ import com.keepasspn.credentialprovider.activity.HardwareKeyActivity
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.MainCredential
 import com.keepasspn.database.ProgressMessage
+import com.keepasspn.database.TaskSecrets
+import com.keepasspn.database.hasSecretExtra
+import com.keepasspn.database.takeSecretExtra
 import com.keepasspn.database.action.BenchmarkKdfRunnable
 import com.keepasspn.database.action.CreateDatabaseRunnable
 import com.keepasspn.database.action.LoadDatabaseRunnable
@@ -633,6 +636,8 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
 
         intent?.removeExtra(DATABASE_URI_KEY)
         intent?.removeExtra(MAIN_CREDENTIAL_KEY)
+        intent?.removeExtra(TaskSecrets.tokenKey(MAIN_CREDENTIAL_KEY))
+        intent?.removeExtra(TaskSecrets.tokenKey(ENTRY_KEY))
         intent?.removeExtra(READ_ONLY_KEY)
         intent?.removeExtra(USER_VERIFICATION_KEY)
         intent?.removeExtra(CIPHER_DATABASE_KEY)
@@ -774,12 +779,15 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         database: ContextualDatabase
     ): ActionRunnable? {
         if (intent.hasExtra(DATABASE_URI_KEY)
-            && intent.hasExtra(MAIN_CREDENTIAL_KEY)
+            && intent.hasSecretExtra(MAIN_CREDENTIAL_KEY)
         ) {
             val databaseUri: Uri? = intent.getParcelableExtraCompat(DATABASE_URI_KEY)
             val mainCredential: MainCredential =
-                intent.getParcelableExtraCompat(MAIN_CREDENTIAL_KEY) ?: MainCredential()
-            if (databaseUri == null) return null
+                intent.takeSecretExtra<MainCredential>(MAIN_CREDENTIAL_KEY) ?: return null
+            if (databaseUri == null) {
+                mainCredential.clear()
+                return null
+            }
             return CreateDatabaseRunnable(
                 context = this,
                 mDatabase = database,
@@ -832,7 +840,7 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         database: ContextualDatabase
     ): ActionRunnable? {
         if (intent.hasExtra(DATABASE_URI_KEY)
-            && intent.hasExtra(MAIN_CREDENTIAL_KEY)
+            && intent.hasSecretExtra(MAIN_CREDENTIAL_KEY)
             && intent.hasExtra(READ_ONLY_KEY)
             && intent.hasExtra(USER_VERIFICATION_KEY)
             && intent.hasExtra(CIPHER_DATABASE_KEY)
@@ -840,12 +848,15 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         ) {
             val databaseUri: Uri? = intent.getParcelableExtraCompat(DATABASE_URI_KEY)
             val mainCredential: MainCredential =
-                intent.getParcelableExtraCompat(MAIN_CREDENTIAL_KEY) ?: MainCredential()
+                intent.takeSecretExtra<MainCredential>(MAIN_CREDENTIAL_KEY) ?: return null
             val readOnly: Boolean = intent.getBooleanExtra(READ_ONLY_KEY, true)
             val allowUserVerification: Boolean = intent.getBooleanExtra(USER_VERIFICATION_KEY, true)
             val cipherEncryptDatabase: CipherEncryptDatabase? =
                 intent.getParcelableExtraCompat(CIPHER_DATABASE_KEY)
-            if (databaseUri == null) return null
+            if (databaseUri == null) {
+                mainCredential.clear()
+                return null
+            }
             return LoadDatabaseRunnable(
                 context = this,
                 mDatabase = database,
@@ -1133,12 +1144,12 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         intent: Intent,
         database: ContextualDatabase,
     ): ActionRunnable? {
-        return if (intent.hasExtra(ENTRY_KEY)
+        return if (intent.hasSecretExtra(ENTRY_KEY)
             && intent.hasExtra(PARENT_ID_KEY)
             && intent.hasExtra(SAVE_DATABASE_KEY)
         ) {
             val parentId: GroupId? = intent.getParcelableExtraCompat(PARENT_ID_KEY)
-            val newEntry: EntryInfo? = intent.getParcelableExtraCompat(ENTRY_KEY)
+            val newEntry: EntryInfo? = intent.takeSecretExtra<EntryInfo>(ENTRY_KEY)
             if (parentId == null || newEntry == null) return null
             val saveDatabase = intent.getBooleanExtra(SAVE_DATABASE_KEY, false)
             AddEntryRunnable(
@@ -1160,10 +1171,10 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         intent: Intent,
         database: ContextualDatabase,
     ): ActionRunnable? {
-        return if (intent.hasExtra(ENTRY_KEY)
+        return if (intent.hasSecretExtra(ENTRY_KEY)
             && intent.hasExtra(SAVE_DATABASE_KEY)
         ) {
-            val newEntry: EntryInfo = intent.getParcelableExtraCompat(ENTRY_KEY) ?: return null
+            val newEntry: EntryInfo = intent.takeSecretExtra<EntryInfo>(ENTRY_KEY) ?: return null
             val saveDatabase = intent.getBooleanExtra(SAVE_DATABASE_KEY, false)
              UpdateEntryRunnable(
                  context = this,

@@ -33,6 +33,7 @@ import androidx.core.content.ContextCompat
 import com.keepasspn.R
 import com.keepasspn.app.AppLifecycleObserver
 import com.keepasspn.database.ContextualDatabase
+import com.keepasspn.database.TaskSecrets
 import com.keepasspn.credentialprovider.magikeyboard.MagikeyboardService
 import com.keepasspn.services.KeyboardEntryNotificationService
 import com.keepasspn.settings.PreferencesUtil
@@ -167,6 +168,8 @@ fun Context.closeDatabase(database: ContextualDatabase?) {
     }
     // Clear data
     database?.clearAndClose(this.getBinaryDir())
+    // Forget the credential and entries not yet sent to the database service
+    TaskSecrets.clear()
 
     // Release not useful URI permission
     applicationContext.releaseAllUnnecessaryPermissionUris()
