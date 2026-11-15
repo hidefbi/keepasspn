@@ -21,22 +21,17 @@ package com.keepasspn.database
 
 import android.content.Intent
 import android.os.Parcelable
-
 import com.keepasspn.services.DatabaseTaskNotificationService
 import java.util.UUID
 
 /**
- * Keeps the secrets of a database task (master credential, entry being saved) in memory.
- *
- * An Intent is copied through the system process and its Parcel is never wiped,
- * so these values never go into an Intent. The Intent only carries a random token.
- * A token can be taken once. Everything not taken yet is dropped when the database is locked.
+ * Secrets of database tasks, kept in memory. Intents only carry tokens.
  */
 object TaskSecrets {
 
     private const val TOKEN_SUFFIX = "_TOKEN"
 
-    // Keys of a task bundle that must not travel in an Intent
+    // never put these in an Intent
     val SECRET_KEYS = listOf(
         DatabaseTaskNotificationService.MAIN_CREDENTIAL_KEY,
         DatabaseTaskNotificationService.ENTRY_KEY
@@ -45,16 +40,10 @@ object TaskSecrets {
     private val lock = Any()
     private val secrets = HashMap<String, Parcelable>()
 
-    /**
-     * Key of the Intent extra that holds the token of [key]
-     */
     fun tokenKey(key: String): String {
         return key + TOKEN_SUFFIX
     }
 
-    /**
-     * Keep [secret] in memory, returns the token to put in the Intent
-     */
     fun put(secret: Parcelable): String {
         val token = UUID.randomUUID().toString()
         synchronized(lock) {
@@ -63,9 +52,7 @@ object TaskSecrets {
         return token
     }
 
-    /**
-     * Remove the secret behind [token] and return it, null if there is none
-     */
+    // a token works once
     fun take(token: String?): Parcelable? {
         if (token == null) return null
         return synchronized(lock) {
@@ -73,16 +60,11 @@ object TaskSecrets {
         }
     }
 
-    /**
-     * Forget a secret that was never used, its content is wiped
-     */
     fun discard(token: String) {
         take(token)?.let { wipe(it) }
     }
 
-    /**
-     * Called when the database is locked, nothing is kept after that
-     */
+    // on lock
     fun clear() {
         synchronized(lock) {
             secrets.values.forEach { wipe(it) }
@@ -97,16 +79,10 @@ object TaskSecrets {
     }
 }
 
-/**
- * True if the Intent carries a token for [key]
- */
 fun Intent.hasSecretExtra(key: String): Boolean {
     return hasExtra(TaskSecrets.tokenKey(key))
 }
 
-/**
- * Take the secret of [key] from the token of this Intent, null if there is none
- */
 inline fun <reified T : Parcelable> Intent.takeSecretExtra(key: String): T? {
     return (TaskSecrets.take(getStringExtra(TaskSecrets.tokenKey(key))) as? T)
 }

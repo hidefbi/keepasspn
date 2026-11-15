@@ -168,7 +168,7 @@ fun Context.closeDatabase(database: ContextualDatabase?) {
     }
     // Clear data
     database?.clearAndClose(this.getBinaryDir())
-    // Forget the credential and entries not yet sent to the database service
+    // drop secrets not taken yet
     TaskSecrets.clear()
 
     // Release not useful URI permission

@@ -1129,8 +1129,7 @@ class MainCredentialActivity : DatabaseModeActivity() {
 
     override fun onStop() {
         super.onStop()
-        // The typed master password is not kept on screen once the app is in the background.
-        // A rotation is not a background, so the text is kept for it.
+        // no typed password left on screen in background, rotation keeps it
         if (!isChangingConfigurations && ::mainCredentialView.isInitialized) {
             mainCredentialView.populatePasswordTextView(null)
         }

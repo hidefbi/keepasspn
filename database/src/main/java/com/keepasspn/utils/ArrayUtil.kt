@@ -45,8 +45,7 @@ fun ByteArray.clear() {
 }
 
 /**
- * Copy the characters of a text (an EditText or an AutofillValue for example) into a new
- * CharArray. Unlike toString(), no immutable String is created, so the copy can be wiped.
+ * Copy the characters of a text into a new CharArray, without a String.
  */
 fun CharSequence.toCharArrayCopy(): CharArray {
     val chars = CharArray(length)

@@ -772,7 +772,7 @@ class DatabaseTaskProvider(
                     DatabaseTaskNotificationService::class.java
                 )
                 if (bundle != null) {
-                    // Secrets stay in memory, the Intent only receives their tokens
+                    // the Intent gets tokens, not the secrets
                     val taskBundle = Bundle(bundle)
                     TaskSecrets.SECRET_KEYS.forEach { key ->
                         val secret = bundle.get(key) as? Parcelable ?: return@forEach

@@ -108,7 +108,7 @@ data class MasterCredential(
         var passwordPart: ByteArray? = null
         var keyFilePart: ByteArray? = null
         var hardwarePart: ByteArray? = null
-        // Partial keys are wiped even when the hardware key or the key file fails
+        // wipe the parts even if the hardware key fails
         try {
             passwordPart = password?.let { retrievePasswordKey(it, encoding) }
             keyFilePart = keyFileData?.let { retrieveKeyFileDecodedKey(it, true) }
