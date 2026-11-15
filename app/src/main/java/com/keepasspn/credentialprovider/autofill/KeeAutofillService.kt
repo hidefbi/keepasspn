@@ -63,6 +63,7 @@ import com.keepasspn.settings.AutofillSettingsActivity
 import com.keepasspn.settings.PreferencesUtil
 import com.keepasspn.utils.AppUtil
 import com.keepasspn.utils.AppUtil.randomRequestCode
+import com.keepasspn.utils.toCharArrayCopy
 import org.joda.time.DateTime
 import org.joda.time.Instant
 
@@ -448,13 +449,13 @@ class KeeAutofillService : AutofillService() {
                     val registerInfo = RegisterInfo(
                         searchInfo = searchInfo,
                         username = parseResult.usernameValue?.textValue?.toString(),
-                        password = parseResult.passwordValue?.textValue?.toString()?.toCharArray(),
+                        password = parseResult.passwordValue?.textValue?.toCharArrayCopy(),
                         expiration = expiration?.let { DateInstant(Instant(it)) },
-                        creditCard = parseResult.creditCardNumber?.textValue?.toString()?.let { cardNumber ->
+                        creditCard = parseResult.creditCardNumber?.textValue?.let { cardNumber ->
                             CreditCard(
                                 cardholder = parseResult.creditCardHolder?.textValue?.toString(),
-                                number = cardNumber.toCharArray(),
-                                cvv = parseResult.cardVerificationValue?.textValue?.toString()?.toCharArray()
+                                number = cardNumber.toCharArrayCopy(),
+                                cvv = parseResult.cardVerificationValue?.textValue?.toCharArrayCopy()
                             )
                         }
                     )

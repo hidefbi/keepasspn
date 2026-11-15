@@ -125,8 +125,8 @@ object Signature {
             }
         } finally {
             // Securely wipe the input and any temporary buffers from memory
-            privateKeyPem.fill('0')
-            tempBuffer?.fill('0')
+            privateKeyPem.fill('\u0000')
+            tempBuffer?.fill('\u0000')
         }
     }
 
@@ -165,7 +165,7 @@ object Signature {
             privateKeyInPem
         } else {
             val trimmed = privateKeyInPem.copyOfRange(start, end)
-            privateKeyInPem.fill('0') // Wipe the untrimmed original
+            privateKeyInPem.fill('\u0000') // Wipe the untrimmed original
             trimmed
         }
     }

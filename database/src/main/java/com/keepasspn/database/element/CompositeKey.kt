@@ -19,18 +19,19 @@ data class CompositeKey(
         transformSeed: ByteArray?,
         challengeResponseRetriever: (HardwareKey, ByteArray?) -> ByteArray
     ): ByteArray {
-        val hardwareKeyData = hardwareKey?.let {
-            MasterCredential.retrieveHardwareKey(challengeResponseRetriever.invoke(it, transformSeed))
+        var hardwarePart: ByteArray? = null
+        try {
+            hardwarePart = hardwareKey?.let {
+                MasterCredential.retrieveHardwareKey(challengeResponseRetriever.invoke(it, transformSeed))
+            }
+            return MasterCredential.composedKeyToMasterKey(
+                passwordData = passwordData,
+                keyFileData = keyFileData,
+                hardwareKeyData = hardwarePart
+            )
+        } finally {
+            hardwarePart?.clear()
         }
-
-        val masterKey = MasterCredential.composedKeyToMasterKey(
-            passwordData = passwordData,
-            keyFileData = keyFileData,
-            hardwareKeyData = hardwareKeyData
-        )
-
-        hardwareKeyData?.clear()
-        return masterKey
     }
 
     override fun equals(other: Any?): Boolean {

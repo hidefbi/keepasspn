@@ -45,6 +45,18 @@ fun ByteArray.clear() {
 }
 
 /**
+ * Copy the characters of a text (an EditText or an AutofillValue for example) into a new
+ * CharArray. Unlike toString(), no immutable String is created, so the copy can be wiped.
+ */
+fun CharSequence.toCharArrayCopy(): CharArray {
+    val chars = CharArray(length)
+    for (index in chars.indices) {
+        chars[index] = this[index]
+    }
+    return chars
+}
+
+/**
  * Extension function to check if a CharArray contains a string, ignoring case.
  */
 fun CharArray.contains(string: String, ignoreCase: Boolean = false): Boolean {

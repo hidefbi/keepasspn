@@ -41,6 +41,7 @@ import com.keepasspn.hardware.HardwareKey
 import com.keepasspn.model.CredentialStorage
 import com.keepasspn.utils.KeyboardUtil.showKeyboard
 import com.keepasspn.utils.clear
+import com.keepasspn.utils.toCharArrayCopy
 
 class MainCredentialView @JvmOverloads constructor(context: Context,
                                                    attrs: AttributeSet? = null,
@@ -189,9 +190,7 @@ class MainCredentialView @JvmOverloads constructor(context: Context,
     fun getMainCredential(): MainCredential {
         return MainCredential().apply {
             this.password = if (checkboxPasswordView.isChecked) {
-                val charArray = CharArray(passwordTextView.length())
-                passwordTextView.text.getChars(0, passwordTextView.length(), charArray, 0)
-                charArray
+                passwordTextView.text.toCharArrayCopy()
             } else null
             this.keyFileUri = if (checkboxKeyFileView.isChecked)
                 keyFileSelectionView.uri else null

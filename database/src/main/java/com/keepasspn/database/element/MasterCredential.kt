@@ -105,23 +105,26 @@ data class MasterCredential(
         transformSeed: ByteArray?,
         challengeResponseRetriever: (HardwareKey, ByteArray?) -> ByteArray,
     ): ByteArray {
-        val passwordData = password?.let { retrievePasswordKey(it, encoding) }
-        val keyFileData = keyFileData?.let { retrieveKeyFileDecodedKey(it, true) }
-        val hardwareKeyData = hardwareKey?.let {
-            retrieveHardwareKey(challengeResponseRetriever.invoke(it, transformSeed))
+        var passwordPart: ByteArray? = null
+        var keyFilePart: ByteArray? = null
+        var hardwarePart: ByteArray? = null
+        // Partial keys are wiped even when the hardware key or the key file fails
+        try {
+            passwordPart = password?.let { retrievePasswordKey(it, encoding) }
+            keyFilePart = keyFileData?.let { retrieveKeyFileDecodedKey(it, true) }
+            hardwarePart = hardwareKey?.let {
+                retrieveHardwareKey(challengeResponseRetriever.invoke(it, transformSeed))
+            }
+            return composedKeyToMasterKey(
+                passwordData = passwordPart,
+                keyFileData = keyFilePart,
+                hardwareKeyData = hardwarePart
+            )
+        } finally {
+            passwordPart?.clear()
+            keyFilePart?.clear()
+            hardwarePart?.clear()
         }
-
-        val masterKey = composedKeyToMasterKey(
-            passwordData = passwordData,
-            keyFileData = keyFileData,
-            hardwareKeyData = hardwareKeyData
-        )
-
-        passwordData?.clear()
-        keyFileData?.clear()
-        hardwareKeyData?.clear()
-
-        return masterKey
     }
 
     override fun equals(other: Any?): Boolean {
