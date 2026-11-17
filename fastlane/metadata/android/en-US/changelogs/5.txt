@@ -1,0 +1,6 @@
+Scan a single OTP code straight from an entry, with a short prompt first.
+Passkeys created in KeePassPN now show the right app name.
+The keyboard suggestion bar locks the database after filling, when that setting is on.
+Device unlock uses AES-GCM now. Credentials saved before still work.
+Refuse KDF settings that would take too long, for example from a crafted file.
+Smaller fixes around how passwords are kept in memory.
