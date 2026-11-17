@@ -20,8 +20,11 @@
 package com.keepasspn.database
 
 import android.content.Intent
+import android.os.Parcel
 import android.os.Parcelable
+import com.keepasspn.model.RegisterInfo
 import com.keepasspn.services.DatabaseTaskNotificationService
+import com.keepasspn.utils.readParcelableCompat
 import java.util.UUID
 
 /**
@@ -60,6 +63,27 @@ object TaskSecrets {
         }
     }
 
+    // reads a copy, the token stays valid until lock
+    fun <T : Parcelable> peek(token: String?, clazz: Class<T>): T? {
+        if (token == null) return null
+        val secret = synchronized(lock) {
+            secrets[token]
+        } ?: return null
+        if (!clazz.isInstance(secret)) return null
+        return copyOf(secret, clazz)
+    }
+
+    private fun <T : Parcelable> copyOf(secret: Parcelable, clazz: Class<T>): T? {
+        val parcel = Parcel.obtain()
+        try {
+            parcel.writeParcelable(secret, 0)
+            parcel.setDataPosition(0)
+            return parcel.readParcelableCompat(clazz)
+        } finally {
+            parcel.recycle()
+        }
+    }
+
     fun discard(token: String) {
         take(token)?.let { wipe(it) }
     }
@@ -74,6 +98,9 @@ object TaskSecrets {
 
     private fun wipe(secret: Parcelable) {
         if (secret is MainCredential) {
+            secret.clear()
+        }
+        if (secret is RegisterInfo) {
             secret.clear()
         }
     }

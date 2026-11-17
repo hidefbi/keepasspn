@@ -33,6 +33,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.IconCompat
 import com.keepasspn.R
 import com.keepasspn.database.ContextualDatabase
+import com.keepasspn.database.TaskSecrets
 import com.keepasspn.database.element.EntryId
 import com.keepasspn.model.EntryInfo
 import com.keepasspn.model.RegisterInfo
@@ -197,9 +198,10 @@ object EntrySelectionHelper {
         return this
     }
 
+    // Bundles end up in a PendingIntent, which the system keeps, so only a token goes in
     fun Bundle.addRegisterInfo(registerInfo: RegisterInfo?): Bundle {
         registerInfo?.let {
-            putParcelable(KEY_REGISTER_INFO, it)
+            putString(TaskSecrets.tokenKey(KEY_REGISTER_INFO), TaskSecrets.put(it))
         }
         return this
     }
@@ -209,7 +211,10 @@ object EntrySelectionHelper {
     }
 
     fun Bundle.getRegisterInfo(): RegisterInfo? {
-        return getParcelableCompat(KEY_REGISTER_INFO)
+        return TaskSecrets.peek(
+            getString(TaskSecrets.tokenKey(KEY_REGISTER_INFO)),
+            RegisterInfo::class.java
+        )
     }
 
     fun Intent.removeInfo() {
