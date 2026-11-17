@@ -47,7 +47,8 @@ fun ByteArray.clear() {
 /**
  * Copy the characters of a text into a new CharArray, without a String.
  */
-fun CharSequence.toCharArrayCopy(): CharArray {
+fun CharSequence?.toCharArrayCopy(): CharArray {
+    if (this == null) return CharArray(0)
     val chars = CharArray(length)
     for (index in chars.indices) {
         chars[index] = this[index]
