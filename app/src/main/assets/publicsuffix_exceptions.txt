@@ -1,0 +1,10 @@
+city.kawasaki.jp
+city.kitakyushu.jp
+city.kobe.jp
+city.nagoya.jp
+city.sapporo.jp
+city.sendai.jp
+city.yokohama.jp
+teams.algorithmia.com
+test.algorithmia.com
+www.ck

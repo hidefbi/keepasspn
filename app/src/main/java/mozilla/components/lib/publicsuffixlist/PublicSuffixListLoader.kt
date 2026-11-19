@@ -5,44 +5,15 @@
 package mozilla.components.lib.publicsuffixlist
 
 import android.content.Context
-import java.io.BufferedInputStream
-import java.io.IOException
 
-private const val PUBLIC_SUFFIX_LIST_FILE = "publicsuffixes"
+private const val PUBLIC_SUFFIX_RULES_FILE = "publicsuffix_rules.txt"
+private const val PUBLIC_SUFFIX_EXCEPTIONS_FILE = "publicsuffix_exceptions.txt"
 
 internal object PublicSuffixListLoader {
-    fun load(context: Context): PublicSuffixListData = context.assets.open(
-        PUBLIC_SUFFIX_LIST_FILE
-    ).buffered().use { stream ->
-        val publicSuffixSize = stream.readInt()
-        val publicSuffixBytes = stream.readFully(publicSuffixSize)
+    fun load(context: Context): PublicSuffixListData {
+        val publicSuffixBytes = context.assets.open(PUBLIC_SUFFIX_RULES_FILE).use { it.readBytes() }
+        val exceptionBytes = context.assets.open(PUBLIC_SUFFIX_EXCEPTIONS_FILE).use { it.readBytes() }
 
-        val exceptionSize = stream.readInt()
-        val exceptionBytes = stream.readFully(exceptionSize)
-
-        PublicSuffixListData(publicSuffixBytes, exceptionBytes)
+        return PublicSuffixListData(publicSuffixBytes, exceptionBytes)
     }
-}
-
-@Suppress("MagicNumber")
-private fun BufferedInputStream.readInt(): Int {
-    return (read() and 0xff shl 24
-        or (read() and 0xff shl 16)
-        or (read() and 0xff shl 8)
-        or (read() and 0xff))
-}
-
-private fun BufferedInputStream.readFully(size: Int): ByteArray {
-    val bytes = ByteArray(size)
-
-    var offset = 0
-    while (offset < size) {
-        val read = read(bytes, offset, size - offset)
-        if (read == -1) {
-            throw IOException("Unexpected end of stream")
-        }
-        offset += read
-    }
-
-    return bytes
 }
