@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.ksp)
+    id("org.cyclonedx.bom") version "3.5.1"
 }
 
 ksp {
