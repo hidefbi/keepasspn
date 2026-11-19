@@ -2,6 +2,8 @@
 
 KeePassPN is a KeePass app for Android. It opens and edits KDBX databases. It's a fork of [KeePassDX](https://github.com/Kunzisoft/KeePassDX), so the database handling and autofill work the same way. Your database stays wherever you keep it, on the device or in a folder from a document provider.
 
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="300" alt="Password list">
+
 ## PIN unlock
 
 Unlock once with your master password, then the app can offer a PIN (at least 6 digits) for next time.
