@@ -53,6 +53,10 @@ android {
         includeInBundle = false
     }
 
+    vcsInfo {
+        include = false
+    }
+
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
