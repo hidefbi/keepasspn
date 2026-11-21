@@ -327,7 +327,7 @@
     <string name="entry_add_field">Sahə (bölmə) əlavə et</string>
     <string name="content_description_remove_field">Sahəni (bölməni) sil</string>
     <string name="content_description_keyboard_close_fields">Sahələri (bölmələri) bağla</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft&lt;strong&gt;açıq mənbəlidir və&lt;/strong&gt;və&lt;strong&gt;ondan heç bir reklam yoxdur&lt;/strong&gt;.\n&lt;strong&gt;GPLv3&lt;/strong&gt;lisenziyasına sahibdir, hər hansısa bir qarantiyası yoxdur.</string>
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi&lt;strong&gt;açıq mənbəlidir və&lt;/strong&gt;və&lt;strong&gt;ondan heç bir reklam yoxdur&lt;/strong&gt;.\n&lt;strong&gt;GPLv3&lt;/strong&gt;lisenziyasına sahibdir, hər hansısa bir qarantiyası yoxdur.</string>
     <string name="inherited">İdxal et</string>
     <string name="auto_type">Avtomatik yazma</string>
     <string name="auto_type_sequence">Avtomatik yazma sırası</string>

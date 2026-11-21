@@ -1,6 +1,6 @@
 # KeePassPN
 
-KeePassPN is a KeePass app for Android. It opens and edits KDBX databases. It's a fork of [KeePassDX](https://github.com/Kunzisoft/KeePassDX), so the database handling and autofill work the same way. Your database stays wherever you keep it, on the device or in a folder from a document provider.
+KeePassPN is a KeePass app for Android. It opens and edits KDBX databases. Your database stays wherever you keep it, on the device or in a folder from a document provider.
 
 <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="300" alt="Password list">
 
@@ -78,7 +78,7 @@ Logos belong to their owners. Check the brand's guidelines before you use one an
 - *Check for updates* just opens the releases page in your browser.
 - Passkeys are only offered to browsers and apps on the privileged allow lists. A custom list on the device is checked first, then Google's and the community list. Native apps that call Credential Manager directly are refused, since checking them would need internet. See `SECURITY_HARDENING.md` for the reasoning.
 
-## Features from KeePassDX
+## Features
 
 - Opening KDBX databases from local storage or a document provider.
 - The Android Autofill service.
@@ -94,5 +94,5 @@ Logos belong to their owners. Check the brand's guidelines before you use one an
 ## Project information
 
 - Source: https://github.com/hidefbi/keepasspn
-- Upstream: KeePassDX by Kunzisoft (GPL-3.0), itself a fork of KeePassDroid by bpellin
+- Maintainer: hidefbi
 - License: GPL-3.0-or-later. See [LICENSE](LICENSE).

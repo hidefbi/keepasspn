@@ -151,7 +151,7 @@
     <string name="minus">Mai puțin</string>
     <string name="never">Niciodată</string>
     <string name="no_results">Nu există rezultate de căutare</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft este &lt;strong&gt;open source&lt;/strong&gt; și &lt;strong&gt;fără reclame&lt;/strong&gt;. \nEste furnizat ca atare, sub licență &lt;strong&gt;GPLv3&lt;/strong&gt;, fără nicio garanție.</string>
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi este &lt;strong&gt;open source&lt;/strong&gt; și &lt;strong&gt;fără reclame&lt;/strong&gt;. \nEste furnizat ca atare, sub licență &lt;strong&gt;GPLv3&lt;/strong&gt;, fără nicio garanție.</string>
     <string name="html_about_contribution">Pentru a ne &lt;strong&gt;păstra libertatea&lt;/strong&gt;, &lt;strong&gt;pentru a remedia erori&lt;/strong&gt;, &lt;strong&gt;pentru a adăuga funcții&lt;/strong&gt; și &lt;strong&gt;pentru a fi mereu activi&lt;/strong&gt;, ne bazăm pe &lt;strong&gt;contribuția&lt;/strong&gt; ta.</string>
     <string name="about">Despre</string>
     <string name="no_url_handler">Instalează un browser web pentru a deschide această adresă URL.</string>

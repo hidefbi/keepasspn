@@ -36,7 +36,7 @@
     <string name="decrypting_db">Розшифрування вмісту бази даних…</string>
     <string name="default_checkbox">Використовувати як типову базу даних</string>
     <string name="digits">Цифри</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft — це застосунок з &lt;strong&gt;відкритим вихідним кодом&lt;/strong&gt; та &lt;strong&gt;без реклами&lt;/strong&gt;. \nВона надається «як є», на умовах ліцензії &lt;strong&gt;GPLv3&lt;/strong&gt;, без жодних гарантій.</string>
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi — це застосунок з &lt;strong&gt;відкритим вихідним кодом&lt;/strong&gt; та &lt;strong&gt;без реклами&lt;/strong&gt;. \nВона надається «як є», на умовах ліцензії &lt;strong&gt;GPLv3&lt;/strong&gt;, без жодних гарантій.</string>
     <string name="select_database_file">Відкрити наявне сховище</string>
     <string name="entry_accessed">Останній доступ</string>
     <string name="entry_cancel">Скасувати</string>

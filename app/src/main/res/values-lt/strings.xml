@@ -189,7 +189,7 @@
     <string name="name">Vardas</string>
     <string name="error_field_name_already_exists">Įrašo pavadinimas jau egzistuoja.</string>
     <string name="key_derivation_function">Rakto išvedimo funkcija</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft yra &lt;strong&gt;atviro kodo&lt;/strong&gt; ir &lt;strong&gt;be reklamų&lt;/strong&gt;.
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi yra &lt;strong&gt;atviro kodo&lt;/strong&gt; ir &lt;strong&gt;be reklamų&lt;/strong&gt;.
 \nJis teikiamas toks, koks yra, pagal &lt;strong&gt;GPLv3&lt;/strong&gt; licenciją, be jokių garantijų.</string>
     <string name="private_key">Privatus raktas</string>
     <string name="date_of_issue">Išdavimo data</string>

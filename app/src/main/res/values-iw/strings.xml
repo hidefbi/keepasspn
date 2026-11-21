@@ -196,7 +196,7 @@
     <string name="content_description_nav_header">כותרת ניווט</string>
     <string name="navigation_drawer_open">פתיחת מגירת ניווט</string>
     <string name="navigation_drawer_close">סגירת מגירת ניווט</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft הוא יישום &lt;strong&gt;קוד פתוח&lt;/strong&gt; ו&lt;strong&gt;בלי פרסום&lt;/strong&gt;.
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi הוא יישום &lt;strong&gt;קוד פתוח&lt;/strong&gt; ו&lt;strong&gt;בלי פרסום&lt;/strong&gt;.
 \nהוא ניתן כפי שהוא, תחת רישיון &lt;strong&gt;GPLv3&lt;/strong&gt;, ללא כל אחריות.</string>
     <string name="html_about_contribution">בכדי &lt;strong&gt;לשמור על החופש שלנו&lt;/strong&gt;, &lt;strong&gt;לתקן באגים&lt;/strong&gt;, &lt;strong&gt;להוסיף תכונות&lt;/strong&gt; &lt;strong&gt;ולהיות תמיד פעילים&lt;/strong&gt;, אנו סומכים על &lt;strong&gt;תרומתך&lt;/strong&gt;.</string>
     <string name="searchable">ניתן לחיפוש</string>

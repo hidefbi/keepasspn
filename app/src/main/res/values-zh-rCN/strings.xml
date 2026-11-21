@@ -36,7 +36,7 @@
     <string name="decrypting_db">正在解密数据库内容…</string>
     <string name="default_checkbox">设为默认数据库</string>
     <string name="digits">数字</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft 是一个&lt;strong&gt;不含广告&lt;/strong&gt;的&lt;strong&gt;开源软件&lt;/strong&gt;。\n它是以 &lt;strong&gt;GPLv3&lt;/strong&gt; 许可证依原样提供，不含任何形式的担保。</string>
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi 是一个&lt;strong&gt;不含广告&lt;/strong&gt;的&lt;strong&gt;开源软件&lt;/strong&gt;。\n它是以 &lt;strong&gt;GPLv3&lt;/strong&gt; 许可证依原样提供，不含任何形式的担保。</string>
     <string name="select_database_file">打开现有密码库</string>
     <string name="entry_accessed">访问时间</string>
     <string name="entry_cancel">取消</string>

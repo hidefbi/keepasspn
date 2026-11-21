@@ -55,7 +55,7 @@
     <string name="decrypting_db">Расшыфроўка змесціва базы дадзеных…</string>
     <string name="default_checkbox">Выкарыстоўваць як базу дадзеных па змаўчанні</string>
     <string name="digits">Лічбы</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft з\'яўляецца &lt;strong&gt;праграмай з адкрытым зыходным кодам&lt;/strong&gt; і &lt;strong&gt;без рэкламы&lt;/strong&gt;. \nПрадастаўляецца «як ёсць», па ліцэнзіі &lt;strong&gt;GPLv3&lt;/strong&gt;, без якіх-небудзь гарантый.</string>
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi з\'яўляецца &lt;strong&gt;праграмай з адкрытым зыходным кодам&lt;/strong&gt; і &lt;strong&gt;без рэкламы&lt;/strong&gt;. \nПрадастаўляецца «як ёсць», па ліцэнзіі &lt;strong&gt;GPLv3&lt;/strong&gt;, без якіх-небудзь гарантый.</string>
     <string name="html_about_privacy">&lt;strong&gt;Карыстальніцкія дадзеныя не атрымліваюцца&lt;/strong&gt;, гэтая праграма не падключаецца да сервераў, працуе толькі лакальна і цалкам паважае прыватнасць карыстальнікаў.</string>
     <string name="html_about_contribution">Каб &lt;strong&gt;захаваць нашу свабоду&lt;/strong&gt;, &lt;strong&gt;выпраўляць памылкі&lt;/strong&gt;, &lt;strong&gt;дадаваць функцыі&lt;/strong&gt; і &lt;strong&gt;заўсёды быць актыўнымі&lt;/strong&gt;, мы разлічваем на ваш &lt;strong&gt;уклад&lt;/strong&gt;.</string>
     <string name="entry_accessed">Доступ</string>

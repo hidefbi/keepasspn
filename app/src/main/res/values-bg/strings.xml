@@ -204,7 +204,7 @@
     <string name="menu_appearance_settings_summary">Теми, цветове, икони, шрифтове, атрибути</string>
     <string name="download_initialization">Подготвяне…</string>
     <string name="content_description_entry_background_color">Цвят на фона на запис</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft е приложение с &lt;strong&gt;отворен код&lt;/strong&gt; и &lt;strong&gt;без реклами&lt;/strong&gt;. \nРазпространява се под лиценза &lt;strong&gt;GPLv3&lt;/strong&gt; без каквато и да е гаранция.</string>
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi е приложение с &lt;strong&gt;отворен код&lt;/strong&gt; и &lt;strong&gt;без реклами&lt;/strong&gt;. \nРазпространява се под лиценза &lt;strong&gt;GPLv3&lt;/strong&gt; без каквато и да е гаранция.</string>
     <string name="menu_device_unlock_settings_summary">Биометрия, отключване на устройството</string>
     <string name="menu_security_settings_summary">Шифроване, функция за извличане на ключ</string>
     <string name="menu_master_key_settings">Настройки на главната парола</string>

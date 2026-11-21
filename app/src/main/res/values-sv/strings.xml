@@ -38,7 +38,7 @@
     <string name="decrypting_db">Dekrypterar databasinnehållet…</string>
     <string name="default_checkbox">Använd som standarddatabas</string>
     <string name="digits">Siffror</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft är &lt;strong&gt;programvara med öppen källkod&lt;/strong&gt; och &lt;strong&gt;reklamfri&lt;/strong&gt;. \nDen tillhandahålls i befintligt skick enligt &lt;strong&gt;GPLv3-licensen&lt;/strong&gt; och utan garantier.</string>
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi är &lt;strong&gt;programvara med öppen källkod&lt;/strong&gt; och &lt;strong&gt;reklamfri&lt;/strong&gt;. \nDen tillhandahålls i befintligt skick enligt &lt;strong&gt;GPLv3-licensen&lt;/strong&gt; och utan garantier.</string>
     <string name="select_database_file">Öppna befintligt valv</string>
     <string name="entry_accessed">Senast åtkommen</string>
     <string name="entry_cancel">Avbryt</string>

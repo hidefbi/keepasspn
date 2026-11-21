@@ -414,7 +414,7 @@
     <string name="waiting_challenge_request">Po pritet për kërkesë sfide…</string>
     <string name="waiting_challenge_response">Po pritet për përgjigje sfide…</string>
     <string name="html_about_privacy">&lt;strong&gt;S’merren hollësi përdoruesi&lt;/strong&gt;, ky aplikacion s’lidhet me ndonjë shërbyes, funksionon vetëm lokalisht dhe respekton plotësisht privatësinë e përdoruesve.</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft është &lt;strong&gt;me burim të hapët&lt;/strong&gt; dhe &lt;strong&gt;pa reklama&lt;/strong&gt;. \nJepet siç është, nën licencën &lt;strong&gt;GPLv3&lt;/strong&gt;, pa ndonjë garanci.</string>
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi është &lt;strong&gt;me burim të hapët&lt;/strong&gt; dhe &lt;strong&gt;pa reklama&lt;/strong&gt;. \nJepet siç është, nën licencën &lt;strong&gt;GPLv3&lt;/strong&gt;, pa ndonjë garanci.</string>
     <string name="hardware_key">Kyç hardware</string>
     <string name="place_of_issue">Vend i problemit</string>
     <string name="error_word_reserved">Kjo fjalë është e rezervuar dhe s’mund të përdoret.</string>

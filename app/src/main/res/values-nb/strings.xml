@@ -39,7 +39,7 @@
     <string name="decrypting_db">Dekrypterer databaseinnhold…</string>
     <string name="default_checkbox">Bruk dette som forvalgt database</string>
     <string name="digits">Siffer</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft er &lt;strong&gt;fri programvare&lt;/strong&gt;, og &lt;strong&gt;reklamefritt&lt;/strong&gt;. \nDet tilbys som det er, i henhold til &lt;strong&gt;GPL versjon 3 eller senere&lt;/strong&gt;, uten noen garantier.</string>
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi er &lt;strong&gt;fri programvare&lt;/strong&gt;, og &lt;strong&gt;reklamefritt&lt;/strong&gt;. \nDet tilbys som det er, i henhold til &lt;strong&gt;GPL versjon 3 eller senere&lt;/strong&gt;, uten noen garantier.</string>
     <string name="entry_accessed">Brukt</string>
     <string name="entry_cancel">Avbryt</string>
     <string name="entry_notes">Kommentarer</string>

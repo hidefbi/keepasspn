@@ -111,7 +111,7 @@
     </string-array>
     <string name="encryption">Šifrēšana</string>
     <string name="allow">Atļaut</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft — &lt;strong&gt;atvērtā pirmkoda&lt;/strong&gt; lietotne &lt;strong&gt;bez reklāmām&lt;/strong&gt;.\nTā tiek izplatīta tāda, kāda tā ir, saskaņā ar &lt;strong&gt;GPLv3&lt;/strong&gt; licenci bez jebkādām garantijām.</string>
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi — &lt;strong&gt;atvērtā pirmkoda&lt;/strong&gt; lietotne &lt;strong&gt;bez reklāmām&lt;/strong&gt;.\nTā tiek izplatīta tāda, kāda tā ir, saskaņā ar &lt;strong&gt;GPLv3&lt;/strong&gt; licenci bez jebkādām garantijām.</string>
     <string name="menu_copy">Kopēt</string>
     <string name="education_lock_title">Bloķēt datubāzi</string>
     <string name="character_count">Rakstzīmju skaits: %1$d</string>

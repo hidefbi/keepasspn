@@ -37,7 +37,7 @@
     <string name="decrypting_db">Puretaan tietokannan sisältöä…</string>
     <string name="default_checkbox">Käytä tätä oletustietokantana</string>
     <string name="digits">Numerot</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft on &lt;strong&gt;avointa lähdekoodia&lt;/strong&gt; ja &lt;strong&gt;mainokseton&lt;/strong&gt;.
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi on &lt;strong&gt;avointa lähdekoodia&lt;/strong&gt; ja &lt;strong&gt;mainokseton&lt;/strong&gt;.
 \nSe tarjotaan sellaisenaan &lt;strong&gt;GPLv3&lt;/strong&gt; lisenssillä ja ilman takuuta.</string>
     <string name="select_database_file">Avaa olemassaoleva holvi</string>
     <string name="entry_accessed">Käytetty</string>

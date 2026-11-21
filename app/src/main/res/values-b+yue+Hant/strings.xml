@@ -38,7 +38,7 @@
     <string name="discard">放棄</string>
     <string name="default_checkbox">用作預設資料庫</string>
     <string name="digits">數字</string>
-    <string name="html_about_licence">KeePassPN © %1$d Kunzisoft 係 &lt;strong&gt;開源&lt;/strong&gt; 同 &lt;strong&gt;無廣告&lt;/strong&gt; 嘅。\n佢係按 &lt;strong&gt;GPLv3&lt;/strong&gt; 授權提供，並唔包含任何保證。</string>
+    <string name="html_about_licence">KeePassPN © %1$d hidefbi 係 &lt;strong&gt;開源&lt;/strong&gt; 同 &lt;strong&gt;無廣告&lt;/strong&gt; 嘅。\n佢係按 &lt;strong&gt;GPLv3&lt;/strong&gt; 授權提供，並唔包含任何保證。</string>
     <string name="html_about_privacy">&lt;strong&gt;唔收集用戶資料。&lt;/strong&gt;，呢個應用程式唔會連接任何伺服器，只會喺裝置上運作，完全尊重用戶私穩。</string>
     <string name="html_about_contribution">為咗&lt;strong&gt;保持我哋嘅自由&lt;/strong&gt;、&lt;strong&gt;修復漏洞&lt;/strong&gt;、&lt;strong&gt;增加功能&lt;/strong&gt;同埋&lt;strong&gt;保持活躍&lt;/strong&gt;，我哋依賴你嘅&lt;strong&gt;貢獻&lt;/strong&gt;。</string>
     <string name="entry_expires">失效時間</string>
