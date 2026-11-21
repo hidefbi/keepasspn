@@ -1,5 +1,5 @@
 /*
- * Copyright 2026 Jeremy Jamet / Kunzisoft.
+ * Copyright 2026 hidefbi.
  *
  * This file is part of KeePassPN.
  *

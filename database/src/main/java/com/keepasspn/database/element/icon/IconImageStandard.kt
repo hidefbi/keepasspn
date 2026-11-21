@@ -1,5 +1,6 @@
 /*
  * Copyright 2019 Brian Pellin, Jeremy Jamet / Kunzisoft.
+ * Modified by hidefbi, 2026.
  *     
  * This file is part of KeePassPN.
  *

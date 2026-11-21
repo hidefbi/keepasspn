@@ -1,5 +1,6 @@
 /*
  * Copyright 2025 Cali-95 modified by Jeremy Jamet / Kunzisoft
+ * Modified by hidefbi, 2026.
  *
  * This file is part of KeePassPN.
  *

@@ -1,6 +1,7 @@
 /**
  * Created by J-Jamet on 13/04/2026.
  * Copyright (c) 2026 Jeremy Jamet / Kunzisoft. All rights reserved.
+ * Modified by hidefbi, 2026.
  *
  * This file is part of KeePassPN.
  *
