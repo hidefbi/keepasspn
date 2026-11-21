@@ -34,6 +34,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.keepasspn.R
 import com.keepasspn.utils.KeyboardUtil.showKeyboard
 import com.keepasspn.utils.toCharArrayCopy
+import com.keepasspn.utils.wipe
 import kotlinx.coroutines.launch
 
 /**
@@ -99,7 +100,7 @@ object PinVerificationDialog {
                     try {
                         // The PIN array is wiped by unlockWithPin
                         val password = PinCryptoHelper.unlockWithPin(activity, databaseUri, pin)
-                        password.fill(0)
+                        password.wipe()
                         finished = true
                         dialog.dismiss()
                         onVerified()

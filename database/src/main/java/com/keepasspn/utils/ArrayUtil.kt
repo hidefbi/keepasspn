@@ -45,6 +45,42 @@ fun ByteArray.clear() {
 }
 
 /**
+ * Overwrite a secret CharArray with null characters, as soon as it is no longer needed.
+ */
+fun CharArray.wipe() {
+    this.fill(charNull)
+}
+
+/**
+ * Overwrite a secret ByteArray with zeros, as soon as it is no longer needed.
+ */
+fun ByteArray.wipe() {
+    this.fill(0)
+}
+
+/**
+ * Run [block] with this CharArray, then wipe it. The array is wiped even if [block] throws.
+ */
+inline fun <T> CharArray.useAndWipe(block: (CharArray) -> T): T {
+    try {
+        return block(this)
+    } finally {
+        wipe()
+    }
+}
+
+/**
+ * Run [block] with this ByteArray, then wipe it. The array is wiped even if [block] throws.
+ */
+inline fun <T> ByteArray.useAndWipe(block: (ByteArray) -> T): T {
+    try {
+        return block(this)
+    } finally {
+        wipe()
+    }
+}
+
+/**
  * Copy the characters of a text into a new CharArray, without a String.
  */
 fun CharSequence?.toCharArrayCopy(): CharArray {

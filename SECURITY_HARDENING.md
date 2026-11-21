@@ -62,6 +62,12 @@ because the session key does not survive a restart. Changing their format is the
 `BinaryData` parcels now carry the digest as a byte array (item 10). This only affects
 in-process state.
 
+### Secret buffers
+Passwords and PINs are kept in `CharArray` or `ByteArray` and wiped with `wipe()`, or with
+`useAndWipe { }` when one block is the only user of the buffer. The wipes sit in `finally`
+blocks, so an exception does not skip them. A Kotlin `String` cannot be wiped, so keep secrets
+out of strings where possible. Not every buffer in the app has been moved to these helpers yet.
+
 ## Verification status
 
 - Pure JVM checks (run with Kotlin 2.0.21): NIST SP 800-38A AES-CBC vector, AES-GCM stream

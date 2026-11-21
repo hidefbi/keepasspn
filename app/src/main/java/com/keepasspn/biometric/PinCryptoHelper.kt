@@ -33,6 +33,7 @@ import com.keepasspn.app.database.PinDatabaseEntity
 import com.keepasspn.database.pin.PinEnvelope
 import com.keepasspn.database.pin.PinPolicy
 import com.keepasspn.utils.NoOpLog
+import com.keepasspn.utils.wipe
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -177,7 +178,7 @@ object PinCryptoHelper {
         val buffer = Charsets.UTF_8.encode(CharBuffer.wrap(pin))
         val bytes = ByteArray(buffer.remaining())
         buffer.get(bytes)
-        if (buffer.hasArray()) buffer.array().fill(0)
+        if (buffer.hasArray()) buffer.array().wipe()
         return bytes
     }
 
@@ -210,7 +211,7 @@ object PinCryptoHelper {
                 KeyProperties.KEY_ALGORITHM_AES
             )
         } finally {
-            keyBytes.fill(0)
+            keyBytes.wipe()
         }
     }
 
@@ -289,11 +290,11 @@ object PinCryptoHelper {
                 try {
                     encryptAndStore(context, databaseUri.toString(), pinBytes, password)
                 } finally {
-                    pinBytes.fill(0)
+                    pinBytes.wipe()
                 }
             }
         } finally {
-            pin.fill('\u0000')
+            pin.wipe()
         }
     }
 
@@ -328,11 +329,11 @@ object PinCryptoHelper {
                 } catch (e: BadPaddingException) {
                     recordFailure(context, uri)
                 } finally {
-                    pinBytes.fill(0)
+                    pinBytes.wipe()
                 }
             }
         } finally {
-            pin.fill('\u0000')
+            pin.wipe()
         }
     }
 
@@ -426,7 +427,7 @@ object PinCryptoHelper {
         try {
             setPin(context, databaseUri, newPin, password)
         } finally {
-            password.fill(0)
+            password.wipe()
         }
     }
 

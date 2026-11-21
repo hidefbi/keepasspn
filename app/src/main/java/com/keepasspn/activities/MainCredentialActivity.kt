@@ -99,6 +99,7 @@ import com.keepasspn.utils.getParcelableCompat
 import com.keepasspn.utils.getParcelableExtraCompat
 import com.keepasspn.utils.clear
 import com.keepasspn.utils.toCharArrayCopy
+import com.keepasspn.utils.wipe
 import com.keepasspn.view.MainCredentialView
 import com.keepasspn.view.asError
 import com.keepasspn.view.showActionErrorIfNeeded
@@ -480,7 +481,7 @@ class MainCredentialActivity : DatabaseModeActivity() {
                         }
                     }
                     // Wrong credentials: don't hold onto the attempted password bytes.
-                    lastPasswordAttemptBytes?.fill(0)
+                    lastPasswordAttemptBytes?.wipe()
                     lastPasswordAttemptBytes = null
                     mainCredentialView.requestPasswordFocus()
                     // Manage special exceptions
@@ -762,7 +763,7 @@ class MainCredentialActivity : DatabaseModeActivity() {
                         ).asError().show()
                         dialog.dismiss()
                     } finally {
-                        pin.fill('\u0000')
+                        pin.wipe()
                     }
                 }
             }
@@ -845,7 +846,7 @@ class MainCredentialActivity : DatabaseModeActivity() {
     }
 
     private fun releasePinSetupPassword(passwordBytes: ByteArray) {
-        passwordBytes.fill(0)
+        passwordBytes.wipe()
         lastPasswordAttemptBytes = null
     }
 
@@ -909,8 +910,8 @@ class MainCredentialActivity : DatabaseModeActivity() {
             .setPositiveButton(R.string.unlock) { _, _ ->
                 val confirmPin = confirmEditText.text.toCharArrayCopy()
                 if (!firstPin.contentEquals(confirmPin)) {
-                    confirmPin.fill('\u0000')
-                    firstPin.fill('\u0000')
+                    confirmPin.wipe()
+                    firstPin.wipe()
                     // Start again with the first PIN, the password is still needed
                     showSetPinDialog(uri, passwordBytes, onDone, R.string.pin_setup_mismatch)
                     return@setPositiveButton
@@ -930,15 +931,15 @@ class MainCredentialActivity : DatabaseModeActivity() {
                             Snackbar.LENGTH_LONG
                         ).asError().show()
                     } finally {
-                        confirmPin.fill('\u0000')
-                        firstPin.fill('\u0000')
+                        confirmPin.wipe()
+                        firstPin.wipe()
                         releasePinSetupPassword(passwordBytes)
                         onDone()
                     }
                 }
             }
             .setNegativeButton(android.R.string.cancel) { _, _ ->
-                firstPin.fill('\u0000')
+                firstPin.wipe()
                 releasePinSetupPassword(passwordBytes)
                 onDone()
             }
@@ -1144,7 +1145,7 @@ class MainCredentialActivity : DatabaseModeActivity() {
         // sitting in memory longer than necessary if the activity is torn
         // down mid-flow (e.g. user backgrounds the app during the "enable
         // PIN?" prompt).
-        lastPasswordAttemptBytes?.fill(0)
+        lastPasswordAttemptBytes?.wipe()
         lastPasswordAttemptBytes = null
     }
 

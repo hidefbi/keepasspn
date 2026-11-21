@@ -26,6 +26,7 @@ import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
 import com.keepasspn.utils.NoOpLog
+import com.keepasspn.utils.useAndWipe
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.credentials.CreatePublicKeyCredentialRequest
@@ -285,12 +286,12 @@ object PasskeyHelper {
             return null
         val eval = prfInputs.evalByCredential?.get(credentialId) ?: prfInputs.eval
         return if (eval != null && secret != null) {
-            val prfSecretBytes = Base64Helper.b64DecodeFromCharArray(secret)
-            val results = AuthenticationExtensionsPRFValues(
-                first = computePrfValue(prfSecretBytes, eval.first),
-                second = eval.second?.let { computePrfValue(prfSecretBytes, it) }
-            )
-            prfSecretBytes.fill(0)
+            val results = Base64Helper.b64DecodeFromCharArray(secret).useAndWipe { prfSecretBytes ->
+                AuthenticationExtensionsPRFValues(
+                    first = computePrfValue(prfSecretBytes, eval.first),
+                    second = eval.second?.let { computePrfValue(prfSecretBytes, it) }
+                )
+            }
             AuthenticationExtensionsPRFOutputs(
                 // https://www.w3.org/TR/webauthn-3/#dictdef-authenticationextensionsprfoutputs
                 // For registration, enabled is always true and results can be present

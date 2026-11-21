@@ -20,6 +20,7 @@
 package com.keepasspn.settings
 
 import com.keepasspn.utils.toCharArrayCopy
+import com.keepasspn.utils.wipe
 import android.content.Context
 import android.net.Uri
 import android.os.Build
@@ -158,9 +159,9 @@ object PinManagementDialogs {
                                 } catch (e: Exception) {
                                     Toast.makeText(context, deviceUnlockError(e, context), Toast.LENGTH_LONG).show()
                                 } finally {
-                                    oldPin.fill('\u0000')
-                                    newPin.fill('\u0000')
-                                    confirmPin.fill('\u0000')
+                                    oldPin.wipe()
+                                    newPin.wipe()
+                                    confirmPin.wipe()
                                 }
                             }
                             return@setOnClickListener
@@ -169,9 +170,9 @@ object PinManagementDialogs {
                 } finally {
                     // Covers the validation branches, which return before the coroutine
                     if (newLayout.error != null || confirmLayout.error != null) {
-                        oldPin.fill('\u0000')
-                        newPin.fill('\u0000')
-                        confirmPin.fill('\u0000')
+                        oldPin.wipe()
+                        newPin.wipe()
+                        confirmPin.wipe()
                     }
                 }
             }
