@@ -1,4 +1,5 @@
 KeePassPN
+ * Change: the about screen credits hidefbi as the maintainer
  * Feature: Brand icons for entries: the icon picker has a Brand tab with the logo of the brand that matches the web address of the entry; the logos are stored in the app, so nothing is downloaded, and choosing one saves it as a custom icon of the database
  * Change: text styles and buttons of the import, settings dialogs, about, entry and icon screens now use the Material 3 components
  * Security: the AES key derivation loop no longer cuts the number of rounds to 32 bits, and the AES rounds and Argon2 parallelism are limited to the values the code supports
@@ -19,6 +20,6 @@ KeePassPN
  * Feature: PIN unlock management in Settings > Device unlock (change PIN with the old PIN, disable PIN)
  * Feature: PIN validity of 7, 14, 30, 60 days or never
  * Change: three wrong PINs delete the PIN; two further wrong master passwords delete the database from the app
- * Feature: "Verify before copying" controls copy verification; user verification uses the database PIN, then the device credential, then the first four characters of the master password
+ * Feature: "Verify before copying" controls copy verification; user verification uses the database PIN, then the device credential, then the master password
  * Security: PIN wrap format v2 (Argon2id 64 MiB / 3 / 1, AAD bound to database URI and header)
  * Fix: a stale original no longer overwrites offline edits kept in the private recovery copy
