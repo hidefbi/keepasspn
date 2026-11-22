@@ -81,7 +81,8 @@ data class MainCredential(
 
     fun toMasterCredential(contentResolver: ContentResolver): MasterCredential {
         return MasterCredential(
-            this.password,
+            // Own copy, so clearing the master credential does not wipe this one
+            this.password?.copyOf(),
             this.keyFileUri?.let {
                 getKeyFileData(contentResolver, it)
             },

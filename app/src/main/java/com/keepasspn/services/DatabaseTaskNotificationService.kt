@@ -920,8 +920,8 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         if (intent.hasExtra(DATABASE_URI_KEY)) {
             databaseToMergeUri = intent.getParcelableExtraCompat(DATABASE_URI_KEY)
         }
-        if (intent.hasExtra(MAIN_CREDENTIAL_KEY)) {
-            databaseToMergeMainCredential = intent.getParcelableExtraCompat(MAIN_CREDENTIAL_KEY)
+        if (intent.hasSecretExtra(MAIN_CREDENTIAL_KEY)) {
+            databaseToMergeMainCredential = intent.takeSecretExtra<MainCredential>(MAIN_CREDENTIAL_KEY)
         }
         val saveDatabase = intent.getBooleanExtra(SAVE_DATABASE_KEY, false)
         return MergeDatabaseRunnable(
@@ -971,14 +971,17 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         database: ContextualDatabase
     ): ActionRunnable? {
         return if (intent.hasExtra(DATABASE_URI_KEY)
-            && intent.hasExtra(MAIN_CREDENTIAL_KEY)
+            && intent.hasSecretExtra(MAIN_CREDENTIAL_KEY)
         ) {
             val databaseUri: Uri = intent.getParcelableExtraCompat(DATABASE_URI_KEY) ?: return null
+            // No empty fallback here, an empty credential would save the database with an empty key
+            val mainCredential: MainCredential = intent.takeSecretExtra<MainCredential>(MAIN_CREDENTIAL_KEY)
+                ?: return null
             SaveDatabaseRunnable(
                 context = this,
                 database = database,
                 save = true,
-                mainCredential = intent.getParcelableExtraCompat(MAIN_CREDENTIAL_KEY) ?: MainCredential(),
+                mainCredential = mainCredential,
                 challengeResponseRetriever = { hardwareKey, seed ->
                     retrieveResponseFromChallenge(hardwareKey, seed)
                 },
@@ -986,6 +989,7 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
             ).apply {
                 afterSaveDatabase = {
                     eraseCredentials(databaseUri)
+                    mainCredential.clear()
                 }
             }
         } else {

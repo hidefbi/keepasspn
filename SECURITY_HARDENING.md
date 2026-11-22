@@ -68,6 +68,10 @@ Passwords and PINs are kept in `CharArray` or `ByteArray` and wiped with `wipe()
 blocks, so an exception does not skip them. A Kotlin `String` cannot be wiped, so keep secrets
 out of strings where possible. Not every buffer in the app has been moved to these helpers yet.
 
+Task secrets go through `TaskSecrets`, the Intent only has a token. Read them with
+`hasSecretExtra` / `takeSecretExtra`. A plain `hasExtra` is always false for them, and the task
+just gets dropped with no message. That is what broke the master password change.
+
 ### Build and supply chain
 - Gradle wrapper 8.14.7, pinned by `distributionSha256Sum`.
 - `gradle/verification-metadata.xml` holds the SHA-256 of every artifact the build resolves.
@@ -120,3 +124,5 @@ out of strings where possible. Not every buffer in the app has been moved to the
     the PRF output must be the same both times. (Covers the change in `PasskeyHelper`.)
 12. Install the signed release APK over the previous version. The database must still open, an
     existing PIN must still unlock, and Android must accept the update (same signing key).
+13. Change the master password, lock the database and unlock it with the new password. It must
+    open. The old password must not open it any more.
