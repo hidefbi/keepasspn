@@ -26,8 +26,8 @@ android {
         targetSdk = 36
         // TODO: bump this version scheme with every release you make;
         // it must always increase for Play Store / F-Droid updates to install.
-        versionCode = 5
-        versionName = "1.0.4"
+        versionCode = 6
+        versionName = "1.0.5"
         multiDexEnabled = true
 
         testApplicationId = "io.github.hidefbi.keepasspn.tests"
