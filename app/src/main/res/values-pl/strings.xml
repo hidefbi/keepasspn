@@ -853,4 +853,8 @@ Aby zachować naszą wolność, naprawiać błędy, dodawać funkcje i utrzymywa
     <string name="icon_upload_info_title">Wyślij ikonę</string>
     <string name="icon_upload_info_message">Wybierz obraz z tego urządzenia. Android musi umieć go odczytać (PNG, JPEG, WebP i większość popularnych formatów), a jego rozmiar nie może przekraczać 5 MB. Obraz zostanie zmniejszony do szerokości 64 pikseli i zapisany w bazie danych. Obraz, który już jest w bazie, zostanie odrzucony. Własne ikony są dostępne tylko dla baz danych, które je obsługują.</string>
     <string name="icon_upload_info_button">Wybierz obraz</string>
+    <string name="autofill_locked_no_suggestions_title">Brak podpowiedzi, gdy zablokowane</string>
+    <string name="autofill_locked_no_suggestions_summary">Dopóki baza jest zablokowana, nic nie jest pokazywane, nawet dla zapisanych stron</string>
+    <string name="autofill_saved_sites_locked_title">Podpowiadaj zapisane strony, gdy zablokowane</string>
+    <string name="autofill_saved_sites_locked_summary">Gdy baza jest zablokowana, prośba o odblokowanie pokazuje się tylko dla stron i aplikacji z zapisanymi wpisami</string>
 </resources>

@@ -862,4 +862,8 @@
     <string name="icon_upload_info_title">上传图标</string>
     <string name="icon_upload_info_message">从本设备选择一张图片。Android 需要能读取该图片（PNG、JPEG、WebP 等常见格式），大小不超过 5 MB。图片会缩小为宽 64 像素后保存到数据库中。数据库中已有的图片会被拒绝。只有支持自定义图标的数据库才能使用此功能。</string>
     <string name="icon_upload_info_button">选择图片</string>
+    <string name="autofill_locked_no_suggestions_title">锁定时不显示建议</string>
+    <string name="autofill_locked_no_suggestions_summary">数据库锁定时不显示任何建议，包括已保存的网站</string>
+    <string name="autofill_saved_sites_locked_title">锁定时提示已保存的网站</string>
+    <string name="autofill_saved_sites_locked_summary">锁定时，仅对有已保存条目的网站和应用显示解锁提示</string>
 </resources>

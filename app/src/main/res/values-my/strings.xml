@@ -131,4 +131,8 @@
     <string name="icon_upload_info_button">ပုံရွေးရန်</string>
     <string name="generate_credentials">အထောက်အထားများ ဖန်တီးရန်</string>
     <string name="copied_to_clipboard">ကူးယူပြီး</string>
+    <string name="autofill_locked_no_suggestions_title">လော့ခ်ချထားစဉ် အကြံပြုချက်မပြ</string>
+    <string name="autofill_locked_no_suggestions_summary">ဒေတာဘေ့စ် လော့ခ်ချထားစဉ် သိမ်းထားသောဆိုက်များအတွက်တောင် ဘာမျှမပြပါ</string>
+    <string name="autofill_saved_sites_locked_title">လော့ခ်ချထားစဉ် သိမ်းထားသောဆိုက်များကို အကြံပြုရန်</string>
+    <string name="autofill_saved_sites_locked_summary">လော့ခ်ချထားစဉ် သိမ်းထားသော အချက်အလက်ရှိသည့် ဆိုက်နှင့် အက်ပ်များအတွက်သာ ဖွင့်ရန် တောင်းဆိုချက်ပြပါမည်</string>
 </resources>

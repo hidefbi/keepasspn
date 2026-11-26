@@ -857,4 +857,8 @@ Szabadságunk megőrzése, a hibák javítása, új funkciók hozzáadása és a
     <string name="icon_upload_info_title">Ikon feltöltése</string>
     <string name="icon_upload_info_message">Válasszon egy képet ezen az eszközön. Az Androidnak tudnia kell olvasni (PNG, JPEG, WebP és a legtöbb elterjedt formátum), a mérete legfeljebb 5 MB lehet. A kép 64 pixel széles lesz, és az adatbázisba kerül. Az adatbázisban már szereplő képet a rendszer elutasítja. Egyéni ikonok csak olyan adatbázisokhoz érhetők el, amelyek támogatják őket.</string>
     <string name="icon_upload_info_button">Kép kiválasztása</string>
+    <string name="autofill_locked_no_suggestions_title">Zárolt állapotban nincs javaslat</string>
+    <string name="autofill_locked_no_suggestions_summary">Amíg az adatbázis zárolva van, semmi nem jelenik meg, a mentett oldalak esetén sem</string>
+    <string name="autofill_saved_sites_locked_title">Mentett oldalak javaslata zárolt állapotban</string>
+    <string name="autofill_saved_sites_locked_summary">Zárolt állapotban a feloldó kérés csak olyan oldalaknál és alkalmazásoknál jelenik meg, amelyekhez van mentett bejegyzés</string>
 </resources>

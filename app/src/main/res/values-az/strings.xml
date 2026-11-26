@@ -734,4 +734,8 @@ Azadlığımızı qorumaq, səhvləri düzəltmək, yeni funksiyalar əlavə etm
     <string name="icon_upload_info_title">İkon yüklə</string>
     <string name="icon_upload_info_message">Bu cihazdan şəkil seçin. Android onu oxuya bilməlidir (PNG, JPEG, WebP və ən çox yayılmış formatlar), həcmi 5 MB-dan çox olmamalıdır. Şəkil 64 piksel enində kiçildilir və verilənlər bazasında saxlanılır. Verilənlər bazasında artıq olan şəkil qəbul edilmir. Fərdi ikonlar yalnız bunları dəstəkləyən verilənlər bazaları üçün mövcuddur.</string>
     <string name="icon_upload_info_button">Şəkil seç</string>
+    <string name="autofill_locked_no_suggestions_title">Kilidli vəziyyətdə təklif yoxdur</string>
+    <string name="autofill_locked_no_suggestions_summary">Verilənlər bazası kilidli olanda, hətta saxlanmış saytlar üçün də heç nə göstərilmir</string>
+    <string name="autofill_saved_sites_locked_title">Kilidli vəziyyətdə saxlanmış saytları təklif et</string>
+    <string name="autofill_saved_sites_locked_summary">Kilidli vəziyyətdə yalnız saxlanmış girişi olan sayt və tətbiqlər üçün açma sorğusu göstərilir</string>
 </resources>

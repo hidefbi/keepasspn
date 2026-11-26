@@ -455,4 +455,8 @@ Da bismo sačuvali našu slobodu, ispravljali greške, dodavali funkcije i održ
     <string name="icon_upload_info_title">Pošalji ikonu</string>
     <string name="icon_upload_info_message">Izaberite sliku sa ovog uređaja. Android mora moći da je pročita (PNG, JPEG, WebP i većina uobičajenih formata), a veličina mora biti do 5 MB. Slika se smanjuje na širinu od 64 piksela i čuva u bazi. Slika koja je već u bazi se odbija. Prilagođene ikone su dostupne samo za baze koje ih podržavaju.</string>
     <string name="icon_upload_info_button">Izaberi sliku</string>
+    <string name="autofill_locked_no_suggestions_title">Bez predloga kada je zaključano</string>
+    <string name="autofill_locked_no_suggestions_summary">Dok je baza zaključana, ništa se ne prikazuje, čak ni za sačuvane sajtove</string>
+    <string name="autofill_saved_sites_locked_title">Predloži sačuvane sajtove kada je zaključano</string>
+    <string name="autofill_saved_sites_locked_summary">Dok je zaključano, traka za otključavanje se prikazuje samo za sajtove i aplikacije sa sačuvanim unosima</string>
 </resources>

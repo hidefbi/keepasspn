@@ -394,4 +394,8 @@
     <string name="icon_upload_info_title">ਆਈਕਨ ਅੱਪਲੋਡ ਕਰੋ</string>
     <string name="icon_upload_info_message">ਇਸ ਡਿਵਾਈਸ ਤੋਂ ਇੱਕ ਤਸਵੀਰ ਚੁਣੋ। Android ਨੂੰ ਇਹ ਪੜ੍ਹ ਸਕਣੀ ਚਾਹੀਦੀ ਹੈ (PNG, JPEG, WebP ਅਤੇ ਜ਼ਿਆਦਾਤਰ ਆਮ ਫਾਰਮੈਟ), ਅਤੇ ਇਸਦਾ ਆਕਾਰ 5 MB ਤੱਕ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ। ਤਸਵੀਰ ਨੂੰ 64 ਪਿਕਸਲ ਚੌੜਾਈ ਤੱਕ ਛੋਟਾ ਕਰਕੇ ਡੇਟਾਬੇਸ ਵਿੱਚ ਸੰਭਾਲਿਆ ਜਾਵੇਗਾ। ਡੇਟਾਬੇਸ ਵਿੱਚ ਪਹਿਲਾਂ ਤੋਂ ਮੌਜੂਦ ਤਸਵੀਰ ਰੱਦ ਕੀਤੀ ਜਾਵੇਗੀ। ਕਸਟਮ ਆਈਕਨ ਸਿਰਫ਼ ਉਹਨਾਂ ਡੇਟਾਬੇਸਾਂ ਲਈ ਉਪਲਬਧ ਹਨ ਜੋ ਇਹਨਾਂ ਦਾ ਸਮਰਥਨ ਕਰਦੇ ਹਨ।</string>
     <string name="icon_upload_info_button">ਤਸਵੀਰ ਚੁਣੋ</string>
+    <string name="autofill_locked_no_suggestions_title">ਲਾਕ ਹੋਣ ਤੇ ਕੋਈ ਸੁਝਾਅ ਨਹੀਂ</string>
+    <string name="autofill_locked_no_suggestions_summary">ਡੇਟਾਬੇਸ ਲਾਕ ਹੋਣ ਤੱਕ ਸੇਵ ਕੀਤੀਆਂ ਸਾਈਟਾਂ ਲਈ ਵੀ ਕੁਝ ਨਹੀਂ ਦਿਖਾਇਆ ਜਾਵੇਗਾ</string>
+    <string name="autofill_saved_sites_locked_title">ਲਾਕ ਹੋਣ ਤੇ ਸੇਵ ਕੀਤੀਆਂ ਸਾਈਟਾਂ ਦੇ ਸੁਝਾਅ</string>
+    <string name="autofill_saved_sites_locked_summary">ਲਾਕ ਹੋਣ ਤੇ ਸਿਰਫ਼ ਉਹਨਾਂ ਸਾਈਟਾਂ ਅਤੇ ਐਪਾਂ ਲਈ ਅਨਲਾਕ ਸੰਕੇਤ ਦਿਖੇਗਾ ਜਿਨ੍ਹਾਂ ਦੀਆਂ ਐਂਟਰੀਆਂ ਸੇਵ ਹਨ</string>
 </resources>

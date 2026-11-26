@@ -849,4 +849,8 @@ Pentru a ne menține libertatea, a repara erori, a adăuga funcționalități ș
     <string name="icon_upload_info_title">Încarcă o pictogramă</string>
     <string name="icon_upload_info_message">Alegeți o imagine de pe acest dispozitiv. Android trebuie să o poată citi (PNG, JPEG, WebP și majoritatea formatelor uzuale), iar dimensiunea ei trebuie să fie de cel mult 5 MB. Imaginea se reduce la o lățime de 64 de pixeli și se salvează în baza de date. O imagine care există deja în baza de date este refuzată. Pictogramele personalizate sunt disponibile doar pentru bazele de date care le acceptă.</string>
     <string name="icon_upload_info_button">Alege imaginea</string>
+    <string name="autofill_locked_no_suggestions_title">Fără sugestii când e blocat</string>
+    <string name="autofill_locked_no_suggestions_summary">Cât timp baza de date e blocată nu se afișează nimic, nici pentru site-urile salvate</string>
+    <string name="autofill_saved_sites_locked_title">Sugerează site-urile salvate când e blocat</string>
+    <string name="autofill_saved_sites_locked_summary">Când e blocat, cererea de deblocare apare doar pentru site-urile și aplicațiile cu intrări salvate</string>
 </resources>

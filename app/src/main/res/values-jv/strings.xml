@@ -120,4 +120,8 @@ Kanggo njaga kebebasan kita, mbenerake bug, nambah fitur, lan njaga proyek tetep
     <string name="icon_upload_info_button">Pilih gambar</string>
     <string name="generate_credentials">Gawe kredensial</string>
     <string name="copied_to_clipboard">Disalin</string>
+    <string name="autofill_locked_no_suggestions_title">Ora ana saran nalika dikunci</string>
+    <string name="autofill_locked_no_suggestions_summary">Nalika database dikunci, ora ana sing ditampilake, senajan kanggo situs sing wis disimpen</string>
+    <string name="autofill_saved_sites_locked_title">Saranake situs sing wis disimpen nalika dikunci</string>
+    <string name="autofill_saved_sites_locked_summary">Nalika dikunci, mung situs lan aplikasi sing duwe entri disimpen sing bakal ditampilake pitakon mbukak</string>
 </resources>

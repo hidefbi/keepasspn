@@ -776,4 +776,8 @@ For at bevare vores frihed, rette fejl, tilføje funktioner og holde projektet a
     <string name="icon_upload_info_title">Upload et ikon</string>
     <string name="icon_upload_info_message">Vælg et billede fra denne enhed. Android skal kunne læse det (PNG, JPEG, WebP og de fleste almindelige formater), og det må højst fylde 5 MB. Billedet skaleres til 64 pixels bredde og gemmes i databasen. Et billede, der allerede findes i databasen, afvises. Egne ikoner er kun tilgængelige for databaser, der understøtter dem.</string>
     <string name="icon_upload_info_button">Vælg billede</string>
+    <string name="autofill_locked_no_suggestions_title">Ingen forslag når låst</string>
+    <string name="autofill_locked_no_suggestions_summary">Mens databasen er låst vises intet, heller ikke for gemte websteder</string>
+    <string name="autofill_saved_sites_locked_title">Foreslå gemte websteder når låst</string>
+    <string name="autofill_saved_sites_locked_summary">Når låst vises kun en oplåsningsprompt for websteder og apps med gemte poster</string>
 </resources>

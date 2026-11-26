@@ -97,4 +97,8 @@
     <string name="icon_upload_info_button">Суретті таңдау</string>
     <string name="generate_credentials">Тіркелгі деректерін жасау</string>
     <string name="copied_to_clipboard">Көшірілді</string>
+    <string name="autofill_locked_no_suggestions_title">Құлыпталған кезде ұсыныс жоқ</string>
+    <string name="autofill_locked_no_suggestions_summary">Деректер базасы құлыптаулы болғанда, тіпті сақталған сайттар үшін де ештеңе көрсетілмейді</string>
+    <string name="autofill_saved_sites_locked_title">Құлыптаулы кезде сақталған сайттарды ұсыну</string>
+    <string name="autofill_saved_sites_locked_summary">Құлыптаулы кезде ашу сұрауы тек сақталған жазбалары бар сайттар мен қолданбаларда көрсетіледі</string>
 </resources>

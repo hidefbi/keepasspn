@@ -854,4 +854,8 @@
     <string name="icon_upload_info_title">アイコンをアップロード</string>
     <string name="icon_upload_info_message">この端末から画像を選びます。Android で読み込める形式（PNG、JPEG、WebP など一般的な形式）で、5 MB 以下である必要があります。画像は幅 64 ピクセルに縮小されてデータベースに保存されます。データベースに既にある画像は受け付けられません。カスタムアイコンは、対応しているデータベースでのみ使えます。</string>
     <string name="icon_upload_info_button">画像を選択</string>
+    <string name="autofill_locked_no_suggestions_title">ロック中は候補を表示しない</string>
+    <string name="autofill_locked_no_suggestions_summary">データベースがロックされている間は、保存済みのサイトでも何も表示しません</string>
+    <string name="autofill_saved_sites_locked_title">ロック中も保存済みのサイトを候補に表示</string>
+    <string name="autofill_saved_sites_locked_summary">ロック中は、保存済みのエントリがあるサイトやアプリにだけロック解除の案内を表示します</string>
 </resources>

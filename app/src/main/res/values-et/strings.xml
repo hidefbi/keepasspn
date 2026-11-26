@@ -821,4 +821,8 @@ Meie vabaduse säilitamiseks, vigade parandamiseks, uute funktsioonide lisamisek
     <string name="icon_upload_info_title">Laadi ikoon üles</string>
     <string name="icon_upload_info_message">Valige pildifail sellest seadmest. Android peab selle lugema suutma (PNG, JPEG, WebP ja enamik tavalisi vorminguid) ja see peab olema kuni 5 MB. Pilt vähendatakse 64 pikslit laiuseks ja salvestatakse andmebaasi. Andmebaasis juba olev pilt lükatakse tagasi. Kohandatud ikoonid on saadaval ainult andmebaasidele, mis neid toetavad.</string>
     <string name="icon_upload_info_button">Vali pilt</string>
+    <string name="autofill_locked_no_suggestions_title">Lukus olekul ei näidata soovitusi</string>
+    <string name="autofill_locked_no_suggestions_summary">Kui andmebaas on lukus, ei näidata midagi, isegi salvestatud saitide puhul mitte</string>
+    <string name="autofill_saved_sites_locked_title">Lukus olekul paku salvestatud saite</string>
+    <string name="autofill_saved_sites_locked_summary">Lukus olekul näidatakse lahtilukustamise palvet ainult saitidele ja rakendustele, millel on salvestatud kirjed</string>
 </resources>

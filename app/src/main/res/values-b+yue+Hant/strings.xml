@@ -227,4 +227,8 @@
     <string name="icon_upload_info_button">揀選圖片</string>
     <string name="generate_credentials">生成憑證</string>
     <string name="copied_to_clipboard">已複製</string>
+    <string name="autofill_locked_no_suggestions_title">鎖定時唔顯示建議</string>
+    <string name="autofill_locked_no_suggestions_summary">資料庫鎖定時唔會顯示任何建議，已儲存嘅網站都一樣</string>
+    <string name="autofill_saved_sites_locked_title">鎖定時提示已儲存嘅網站</string>
+    <string name="autofill_saved_sites_locked_summary">鎖定時，只對有已儲存條目嘅網站同應用顯示解鎖提示</string>
 </resources>

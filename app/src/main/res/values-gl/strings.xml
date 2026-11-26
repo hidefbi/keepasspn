@@ -839,4 +839,8 @@ Para manter a nosa liberdade, corrixir erros, engadir funcións e manter o proxe
     <string name="icon_upload_info_title">Envía unha icona</string>
     <string name="icon_upload_info_message">Escolla unha imaxe deste dispositivo. Android debe poder lela (PNG, JPEG, WebP e a maioría dos formatos habituais), e non pode superar os 5 MB. A imaxe redúcese a 64 píxeles de ancho e gárdase na base de datos. Unha imaxe que xa está na base de datos recházase. As iconas personalizadas só están dispoñibles para as bases de datos que as admiten.</string>
     <string name="icon_upload_info_button">Escolle unha imaxe</string>
+    <string name="autofill_locked_no_suggestions_title">Sen suxestións cando está bloqueado</string>
+    <string name="autofill_locked_no_suggestions_summary">Mentres a base de datos está bloqueada non se mostra nada, nin para os sitios gardados</string>
+    <string name="autofill_saved_sites_locked_title">Suxerir sitios gardados cando está bloqueado</string>
+    <string name="autofill_saved_sites_locked_summary">Cando está bloqueado, só se mostra a petición de desbloqueo para sitios e aplicacións con entradas gardadas</string>
 </resources>

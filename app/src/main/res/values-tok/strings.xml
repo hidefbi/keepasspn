@@ -37,4 +37,8 @@
     <string name="keyboard_auto_go_confirm_title">Turn on automatic submit?</string>
     <string name="keyboard_auto_go_confirm_message">With this on, Magikeyboard submits the form right after filling, without another tap. A fake login page could use this to collect your credentials. Turn it on only if you check the page before every fill.</string>
     <string name="keyboard_auto_go_confirm_button">Turn on</string>
+    <string name="autofill_locked_no_suggestions_title">o pana ala tawa lukin pini</string>
+    <string name="autofill_locked_no_suggestions_summary">tenpo ni ilo li lukin, ale ala li lon lipu sona</string>
+    <string name="autofill_saved_sites_locked_title">o pana e lipu sona tawa lukin pini</string>
+    <string name="autofill_saved_sites_locked_summary">tenpo lukin la, ilo li sona e ma pi lipu sona taso</string>
 </resources>

@@ -98,4 +98,8 @@
     <string name="icon_upload_info_button">تصویر منتخب کریں</string>
     <string name="generate_credentials">اسناد تخلیق کریں</string>
     <string name="copied_to_clipboard">کاپی ہو گیا</string>
+    <string name="autofill_locked_no_suggestions_title">لاک ہونے پر کوئی تجویز نہیں</string>
+    <string name="autofill_locked_no_suggestions_summary">ڈیٹا بیس لاک ہونے کے دوران محفوظ سائٹس کے لیے بھی کچھ نہیں دکھایا جائے گا</string>
+    <string name="autofill_saved_sites_locked_title">لاک ہونے پر محفوظ سائٹس کی تجویز</string>
+    <string name="autofill_saved_sites_locked_summary">لاک ہونے پر صرف انہی سائٹس اور ایپس کے لیے ان لاک پرامپٹ دکھایا جائے گا جن کی محفوظ اندراجات ہیں</string>
 </resources>

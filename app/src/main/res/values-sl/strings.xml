@@ -151,4 +151,8 @@ Da bi ohranili svobodo, odpravljali napake, dodajali funkcije in ohranjali proje
     <string name="icon_upload_info_button">Izberi sliko</string>
     <string name="generate_credentials">Ustvari poverilnice</string>
     <string name="copied_to_clipboard">Kopirano</string>
+    <string name="autofill_locked_no_suggestions_title">Brez predlogov, ko je zaklenjeno</string>
+    <string name="autofill_locked_no_suggestions_summary">Dokler je baza zaklenjena, se nič ne prikaže, tudi ne za shranjena spletna mesta</string>
+    <string name="autofill_saved_sites_locked_title">Ob zaklenjenosti predlagaj shranjena spletna mesta</string>
+    <string name="autofill_saved_sites_locked_summary">Ob zaklenjenosti se poziv za odklepanje prikaže le za spletna mesta in aplikacije s shranjenimi vnosi</string>
 </resources>

@@ -225,4 +225,8 @@ Por konservi nian liberecon, ripari erarojn, aldoni funkciojn kaj konservi la pr
     <string name="icon_upload_info_title">Alŝuti piktogramon</string>
     <string name="icon_upload_info_message">Elektu bildon el ĉi tiu aparato. Android devas povi legi ĝin (PNG, JPEG, WebP kaj plej multaj oftaj formatoj), kaj ĝia grandeco devas esti ĝis 5 MB. La bildo estas malgrandigita al larĝo de 64 pikseloj kaj konservita en la datumbazo. Bildo, kiu jam estas en la datumbazo, estas rifuzata. Propraj piktogramoj estas haveblaj nur por datumbazoj, kiuj ilin subtenas.</string>
     <string name="icon_upload_info_button">Elekti bildon</string>
+    <string name="autofill_locked_no_suggestions_title">Neniu sugesto dum ŝlosado</string>
+    <string name="autofill_locked_no_suggestions_summary">Dum la datumbazo estas ŝlosita, nenio montriĝas, eĉ ne por konservitaj retejoj</string>
+    <string name="autofill_saved_sites_locked_title">Sugesti konservitajn retejojn dum ŝlosado</string>
+    <string name="autofill_saved_sites_locked_summary">Dum ŝlosado, la malŝlosa invito montriĝas nur por retejoj kaj aplikaĵoj kun konservitaj enskriboj</string>
 </resources>

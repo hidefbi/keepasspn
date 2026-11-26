@@ -844,4 +844,8 @@
     <string name="icon_upload_info_title">Tải lên biểu tượng</string>
     <string name="icon_upload_info_message">Chọn một ảnh từ thiết bị này. Android phải đọc được ảnh (PNG, JPEG, WebP và hầu hết các định dạng phổ biến), và dung lượng tối đa là 5 MB. Ảnh sẽ được thu nhỏ còn rộng 64 pixel và lưu vào cơ sở dữ liệu. Ảnh đã có sẵn trong cơ sở dữ liệu sẽ bị từ chối. Biểu tượng tùy chỉnh chỉ dùng được với cơ sở dữ liệu hỗ trợ chúng.</string>
     <string name="icon_upload_info_button">Chọn ảnh</string>
+    <string name="autofill_locked_no_suggestions_title">Không gợi ý khi bị khóa</string>
+    <string name="autofill_locked_no_suggestions_summary">Khi cơ sở dữ liệu đang khóa, không hiển thị gì, kể cả với trang đã lưu</string>
+    <string name="autofill_saved_sites_locked_title">Gợi ý trang đã lưu khi bị khóa</string>
+    <string name="autofill_saved_sites_locked_summary">Khi bị khóa, chỉ hiện lời nhắc mở khóa cho trang và ứng dụng có mục đã lưu</string>
 </resources>

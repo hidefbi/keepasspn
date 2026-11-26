@@ -24,6 +24,7 @@ import android.content.Context
 import android.net.Uri
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.MainCredential
+import com.keepasspn.database.SavedSitesIndex
 import com.keepasspn.database.element.MasterCredential
 import com.keepasspn.database.exception.DatabaseException
 import com.keepasspn.database.exception.DatabaseOutputException
@@ -94,6 +95,8 @@ open class SaveDatabaseRunnable(
                 // Indicate data was saved only if it's not a new location
                 if (databaseCopyUri == null) {
                     database.indicateUpToDateData()
+                    // Saved sites follow the entries, so the autofill index is refreshed here
+                    SavedSitesIndex.rebuild(context, database)
                     val logicalUri = database.logicalFileUri ?: database.fileUri
                     val actualUri = database.fileUri
                     if (logicalUri != null && actualUri != null) {

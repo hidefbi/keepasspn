@@ -804,4 +804,8 @@
     <string name="icon_upload_info_title">อัปโหลดไอคอน</string>
     <string name="icon_upload_info_message">เลือกรูปภาพจากอุปกรณ์นี้ Android ต้องอ่านรูปนั้นได้ (PNG, JPEG, WebP และรูปแบบทั่วไปส่วนใหญ่) และขนาดต้องไม่เกิน 5 MB รูปจะถูกย่อให้กว้าง 64 พิกเซลแล้วบันทึกลงฐานข้อมูล รูปที่มีอยู่ในฐานข้อมูลแล้วจะถูกปฏิเสธ ไอคอนแบบกำหนดเองใช้ได้เฉพาะฐานข้อมูลที่รองรับเท่านั้น</string>
     <string name="icon_upload_info_button">เลือกรูปภาพ</string>
+    <string name="autofill_locked_no_suggestions_title">ไม่แนะนำเมื่อถูกล็อก</string>
+    <string name="autofill_locked_no_suggestions_summary">ขณะที่ฐานข้อมูลถูกล็อก จะไม่แสดงอะไรเลย แม้แต่กับเว็บไซต์ที่บันทึกไว้</string>
+    <string name="autofill_saved_sites_locked_title">แนะนำเว็บไซต์ที่บันทึกไว้เมื่อถูกล็อก</string>
+    <string name="autofill_saved_sites_locked_summary">เมื่อถูกล็อก จะแสดงคำขอปลดล็อกเฉพาะเว็บไซต์และแอปที่มีรายการที่บันทึกไว้เท่านั้น</string>
 </resources>

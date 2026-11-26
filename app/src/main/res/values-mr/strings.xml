@@ -109,4 +109,8 @@
     <string name="icon_upload_info_button">प्रतिमा निवडा</string>
     <string name="generate_credentials">क्रेडेन्शियल्स तयार करा</string>
     <string name="copied_to_clipboard">कॉपी केले</string>
+    <string name="autofill_locked_no_suggestions_title">लॉक असताना सूचना नाहीत</string>
+    <string name="autofill_locked_no_suggestions_summary">डेटाबेस लॉक असताना, जतन केलेल्या साइटसाठीसुद्धा काहीही दाखवले जाणार नाही</string>
+    <string name="autofill_saved_sites_locked_title">लॉक असताना जतन केलेल्या साइटच्या सूचना</string>
+    <string name="autofill_saved_sites_locked_summary">लॉक असताना, ज्या साइट व ॲपमध्ये जतन केलेल्या नोंदी आहेत त्यांसाठीच अनलॉक सूचना दिसेल</string>
 </resources>

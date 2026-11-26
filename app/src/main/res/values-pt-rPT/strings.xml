@@ -852,4 +852,8 @@ Para manter a nossa liberdade, corrigir erros, adicionar funcionalidades e mante
     <string name="icon_upload_info_title">Carregar um ícone</string>
     <string name="icon_upload_info_message">Escolha uma imagem deste dispositivo. O Android tem de a conseguir ler (PNG, JPEG, WebP e a maioria dos formatos comuns), e pode ter no máximo 5 MB. A imagem é reduzida para 64 pixels de largura e guardada na base de dados. Uma imagem que já está na base de dados é recusada. Os ícones personalizados só estão disponíveis para bases de dados que os suportem.</string>
     <string name="icon_upload_info_button">Escolher imagem</string>
+    <string name="autofill_locked_no_suggestions_title">Sem sugestões quando bloqueada</string>
+    <string name="autofill_locked_no_suggestions_summary">Enquanto a base de dados estiver bloqueada, nada é apresentado, nem para sites guardados</string>
+    <string name="autofill_saved_sites_locked_title">Sugerir sites guardados quando bloqueada</string>
+    <string name="autofill_saved_sites_locked_summary">Com a base de dados bloqueada, o pedido de desbloqueio só aparece para sites e aplicações com entradas guardadas</string>
 </resources>

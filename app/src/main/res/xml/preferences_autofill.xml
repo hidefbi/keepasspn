@@ -40,6 +40,18 @@
             android:title="@string/autofill_manual_selection_title"
             android:summary="@string/autofill_manual_selection_summary"
             android:defaultValue="@bool/autofill_manual_selection_default"/>
+        <SwitchPreferenceCompat
+            android:key="@string/autofill_locked_no_suggestions_key"
+            android:dependency="@string/autofill_suggestions_key"
+            android:title="@string/autofill_locked_no_suggestions_title"
+            android:summary="@string/autofill_locked_no_suggestions_summary"
+            android:defaultValue="@bool/autofill_locked_no_suggestions_default"/>
+        <SwitchPreferenceCompat
+            android:key="@string/autofill_saved_sites_locked_key"
+            android:dependency="@string/autofill_suggestions_key"
+            android:title="@string/autofill_saved_sites_locked_title"
+            android:summary="@string/autofill_saved_sites_locked_summary"
+            android:defaultValue="@bool/autofill_saved_sites_locked_default"/>
         <Preference
             android:key="@string/autofill_trusted_browsers_key"
             android:dependency="@string/autofill_suggestions_key"

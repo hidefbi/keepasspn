@@ -837,4 +837,8 @@
     <string name="icon_upload_info_title">رفع أيقونة</string>
     <string name="icon_upload_info_message">اختر صورة من هذا الجهاز. يجب أن يتمكن Android من قراءتها (PNG وJPEG وWebP وأغلب الصيغ الشائعة)، ويجب ألا يتجاوز حجمها 5 ميغابايت. تُصغَّر الصورة إلى عرض 64 بكسل وتُحفظ في قاعدة البيانات. تُرفض الصورة إذا كانت موجودة في قاعدة البيانات بالفعل. الأيقونات المخصصة متاحة فقط لقواعد البيانات التي تدعمها.</string>
     <string name="icon_upload_info_button">اختيار صورة</string>
+    <string name="autofill_locked_no_suggestions_title">لا اقتراحات عند القفل</string>
+    <string name="autofill_locked_no_suggestions_summary">لا يظهر أي اقتراح أثناء قفل قاعدة البيانات، حتى للمواقع المحفوظة</string>
+    <string name="autofill_saved_sites_locked_title">اقتراح المواقع المحفوظة عند القفل</string>
+    <string name="autofill_saved_sites_locked_summary">عند القفل، يظهر طلب الفتح فقط للمواقع والتطبيقات التي لها إدخالات محفوظة</string>
 </resources>

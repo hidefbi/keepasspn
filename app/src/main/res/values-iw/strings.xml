@@ -834,4 +834,8 @@
     <string name="icon_upload_info_title">העלאת סמל</string>
     <string name="icon_upload_info_message">בחרו תמונה מהמכשיר הזה. Android צריך להיות מסוגל לקרוא אותה (PNG, JPEG, WebP ורוב הפורמטים הנפוצים), וגודלה עד 5 MB. התמונה מוקטנת לרוחב של 64 פיקסלים ונשמרת במסד הנתונים. תמונה שכבר נמצאת במסד הנתונים נדחית. סמלים מותאמים זמינים רק למסדי נתונים שתומכים בהם.</string>
     <string name="icon_upload_info_button">בחירת תמונה</string>
+    <string name="autofill_locked_no_suggestions_title">ללא הצעות כשהכספת נעולה</string>
+    <string name="autofill_locked_no_suggestions_summary">כל עוד מסד הנתונים נעול לא מוצג דבר, גם לא לאתרים שמורים</string>
+    <string name="autofill_saved_sites_locked_title">הצעת אתרים שמורים כשהכספת נעולה</string>
+    <string name="autofill_saved_sites_locked_summary">כשהמסד נעול, בקשת הפתיחה מוצגת רק לאתרים ולאפליקציות שיש להם רשומות שמורות</string>
 </resources>

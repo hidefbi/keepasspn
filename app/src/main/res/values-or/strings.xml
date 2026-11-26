@@ -100,4 +100,8 @@
     <string name="icon_upload_info_button">ଛବି ବାଛନ୍ତୁ</string>
     <string name="generate_credentials">ପରିଚୟପତ୍ର ସୃଷ୍ଟି କରନ୍ତୁ</string>
     <string name="copied_to_clipboard">କପି ହୋଇଛି</string>
+    <string name="autofill_locked_no_suggestions_title">ଲକ୍ ଥିଲେ କୌଣସି ପରାମର୍ଶ ନାହିଁ</string>
+    <string name="autofill_locked_no_suggestions_summary">ଡାଟାବେସ୍ ଲକ୍ ଥିବାବେଳେ ସଞ୍ଚିତ ସାଇଟ୍ ପାଇଁ ମଧ୍ୟ କିଛି ଦେଖାଯିବ ନାହିଁ</string>
+    <string name="autofill_saved_sites_locked_title">ଲକ୍ ଥିଲେ ସଞ୍ଚିତ ସାଇଟ୍ ପରାମର୍ଶ</string>
+    <string name="autofill_saved_sites_locked_summary">ଲକ୍ ଥିବାବେଳେ ସଞ୍ଚିତ ଏଣ୍ଟ୍ରି ଥିବା ସାଇଟ୍ ଓ ଆପ୍ ପାଇଁ ହିଁ ଅନଲକ୍ ପ୍ରମ୍ପ୍ଟ ଦେଖାଯିବ</string>
 </resources>

@@ -864,4 +864,8 @@ Abychom zachovali svobodu, opravovali chyby, přidávali funkce a udrželi proje
     <string name="icon_upload_info_title">Nahrát ikonu</string>
     <string name="icon_upload_info_message">Vyberte obrázek z tohoto zařízení. Android jej musí umět načíst (PNG, JPEG, WebP a většina běžných formátů) a může mít nejvýše 5 MB. Obrázek se zmenší na šířku 64 pixelů a uloží do databáze. Obrázek, který už v databázi je, se odmítne. Vlastní ikony jsou k dispozici jen pro databáze, které je podporují.</string>
     <string name="icon_upload_info_button">Vybrat obrázek</string>
+    <string name="autofill_locked_no_suggestions_title">Při zamčení žádné návrhy</string>
+    <string name="autofill_locked_no_suggestions_summary">Dokud je databáze zamčená, nic se nezobrazí, ani u uložených webů</string>
+    <string name="autofill_saved_sites_locked_title">Při zamčení nabízet uložené weby</string>
+    <string name="autofill_saved_sites_locked_summary">Při zamčení se výzva k odemknutí zobrazí jen u webů a aplikací, které mají uložené položky</string>
 </resources>

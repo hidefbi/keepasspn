@@ -838,4 +838,8 @@ Untuk menjaga kebebasan kami, memperbaiki bug, menambah fitur, dan menjaga proye
     <string name="icon_upload_info_title">Unggah ikon</string>
     <string name="icon_upload_info_message">Pilih gambar dari perangkat ini. Android harus dapat membacanya (PNG, JPEG, WebP, dan sebagian besar format umum), dan ukurannya maksimal 5 MB. Gambar akan diperkecil menjadi lebar 64 piksel dan disimpan di basis data. Gambar yang sudah ada di basis data akan ditolak. Ikon kustom hanya tersedia untuk basis data yang mendukungnya.</string>
     <string name="icon_upload_info_button">Pilih gambar</string>
+    <string name="autofill_locked_no_suggestions_title">Tanpa saran saat terkunci</string>
+    <string name="autofill_locked_no_suggestions_summary">Selama database terkunci, tidak ada yang ditampilkan, termasuk untuk situs yang tersimpan</string>
+    <string name="autofill_saved_sites_locked_title">Sarankan situs tersimpan saat terkunci</string>
+    <string name="autofill_saved_sites_locked_summary">Saat terkunci, permintaan buka hanya ditampilkan untuk situs dan aplikasi yang punya entri tersimpan</string>
 </resources>

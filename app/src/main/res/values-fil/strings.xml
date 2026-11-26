@@ -366,4 +366,8 @@ Upang mapanatili ang aming kalayaan, ayusin ang mga bug, magdagdag ng mga featur
     <string name="icon_upload_info_title">Mag-upload ng icon</string>
     <string name="icon_upload_info_message">Pumili ng larawan mula sa device na ito. Dapat itong mabasa ng Android (PNG, JPEG, WebP at karamihang karaniwang format), at hanggang 5 MB lang ang laki. Liliitin ang larawan sa lapad na 64 pixel at ise-save sa database. Tatanggihan ang larawang nasa database na. Available lang ang custom na icon para sa mga database na sumusuporta nito.</string>
     <string name="icon_upload_info_button">Pumili ng larawan</string>
+    <string name="autofill_locked_no_suggestions_title">Walang mungkahi kapag naka-lock</string>
+    <string name="autofill_locked_no_suggestions_summary">Habang naka-lock ang database, walang ipinapakita, kahit para sa mga naka-save na site</string>
+    <string name="autofill_saved_sites_locked_title">Magmungkahi ng naka-save na site kapag naka-lock</string>
+    <string name="autofill_saved_sites_locked_summary">Kapag naka-lock, ipinapakita ang unlock prompt para lang sa mga site at app na may naka-save na entry</string>
 </resources>

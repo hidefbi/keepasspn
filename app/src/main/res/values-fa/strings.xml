@@ -392,4 +392,8 @@
     <string name="icon_upload_info_title">بارگذاری نماد</string>
     <string name="icon_upload_info_message">یک تصویر از این دستگاه انتخاب کنید. اندروید باید بتواند آن را بخواند (PNG، JPEG، WebP و بیشتر قالب‌های رایج)، و حجم آن حداکثر ۵ مگابایت باشد. تصویر به عرض ۶۴ پیکسل کوچک و در پایگاه داده ذخیره می‌شود. تصویری که از قبل در پایگاه داده است پذیرفته نمی‌شود. نمادهای سفارشی فقط برای پایگاه‌های داده‌ای که از آن‌ها پشتیبانی می‌کنند در دسترس است.</string>
     <string name="icon_upload_info_button">انتخاب تصویر</string>
+    <string name="autofill_locked_no_suggestions_title">بدون پیشنهاد هنگام قفل بودن</string>
+    <string name="autofill_locked_no_suggestions_summary">تا وقتی پایگاه داده قفل است چیزی نشان داده نمی‌شود، حتی برای سایت‌های ذخیره‌شده</string>
+    <string name="autofill_saved_sites_locked_title">پیشنهاد سایت‌های ذخیره‌شده هنگام قفل بودن</string>
+    <string name="autofill_saved_sites_locked_summary">هنگام قفل بودن، درخواست بازگشایی فقط برای سایت‌ها و برنامه‌هایی نشان داده می‌شود که ورودی ذخیره‌شده دارند</string>
 </resources>

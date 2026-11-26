@@ -482,4 +482,8 @@
     <string name="icon_upload_info_title">Пошаљи икону</string>
     <string name="icon_upload_info_message">Изаберите слику са овог уређаја. Android мора моћи да је прочита (PNG, JPEG, WebP и већина уобичајених формата), а величина мора бити до 5 MB. Слика се смањује на ширину од 64 пиксела и чува у бази података. Слика која је већ у бази се одбија. Прилагођене иконе доступне су само за базе које их подржавају.</string>
     <string name="icon_upload_info_button">Изабери слику</string>
+    <string name="autofill_locked_no_suggestions_title">Без предлога кад је закључано</string>
+    <string name="autofill_locked_no_suggestions_summary">Док је база закључана, ништа се не приказује, чак ни за сачуване сајтове</string>
+    <string name="autofill_saved_sites_locked_title">Предлаже сачуване сајтове кад је закључано</string>
+    <string name="autofill_saved_sites_locked_summary">Кад је закључано, захтев за откључавање приказује се само за сајтове и апликације са сачуваним уносима</string>
 </resources>

@@ -24,6 +24,7 @@ import android.content.Context
 import android.net.Uri
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.MainCredential
+import com.keepasspn.database.SavedSitesIndex
 import com.keepasspn.database.element.MasterCredential
 import com.keepasspn.database.exception.DatabaseInputException
 import com.keepasspn.database.exception.UnknownDatabaseLocationException
@@ -92,6 +93,9 @@ class LoadDatabaseRunnable(
 
     override fun onFinishRun() {
         mMasterCredential?.clear()
+        if (result.isSuccess) {
+            SavedSitesIndex.rebuild(context, mDatabase)
+        }
         afterLoadDatabase?.invoke(result)
     }
 }

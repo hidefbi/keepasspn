@@ -196,6 +196,11 @@ class StructureParser(
                     }
                     result?.passwordId = autofillId
                     result?.passwordValue = node.autofillValue
+                    // Sign up or change password field, still kept to save, but no suggestion
+                    // Value of HintConstants.AUTOFILL_HINT_NEW_PASSWORD, not in android.view.View
+                    if (it.equals("newPassword", true)) {
+                        result?.isNewPasswordForm = true
+                    }
                     NoOpLog.d(TAG, "Autofill password hint")
                     // Comment "return" to check all the tree
                     // return true
@@ -357,6 +362,11 @@ class StructureParser(
                                     NoOpLog.d(TAG, "Autofill OTP token web id: ${node.htmlInfo?.tag} ${node.htmlInfo?.attributes}")
                                     return true
                                 }
+                            }
+                        }
+                        "autocomplete" -> {
+                            if (pairAttribute.second.equals("new-password", true)) {
+                                result?.isNewPasswordForm = true
                             }
                         }
                         "type" -> {
@@ -562,6 +572,9 @@ class StructureParser(
         var creditCardExpirationDayId: AutofillId? = null
         var cardVerificationValueId: AutofillId? = null
         var otpTokenId: AutofillId? = null
+
+        // Set on sign up or change password forms, they are not offered for autofill
+        var isNewPasswordForm: Boolean = false
 
         fun isValid(): Boolean {
             return passwordId != null || creditCardNumberId != null || otpTokenId != null

@@ -182,6 +182,10 @@
     <bool name="autofill_inline_suggestions_default" translatable="false">false</bool>
     <string name="autofill_manual_selection_key" translatable="false">autofill_manual_selection_key</string>
     <bool name="autofill_manual_selection_default" translatable="false">true</bool>
+    <string name="autofill_locked_no_suggestions_key" translatable="false">autofill_locked_no_suggestions_key</string>
+    <bool name="autofill_locked_no_suggestions_default" translatable="false">false</bool>
+    <string name="autofill_saved_sites_locked_key" translatable="false">autofill_saved_sites_locked_key</string>
+    <bool name="autofill_saved_sites_locked_default" translatable="false">true</bool>
     <string name="autofill_trusted_browsers_key" translatable="false">autofill_trusted_browsers_key</string>
     <string name="autofill_copy_totp_key" translatable="false">autofill_copy_totp_key</string>
     <bool name="autofill_copy_totp_default" translatable="false">true</bool>

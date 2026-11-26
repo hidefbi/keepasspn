@@ -843,4 +843,8 @@
     <string name="icon_upload_info_title">上傳圖示</string>
     <string name="icon_upload_info_message">從這部裝置選擇一張圖片。Android 必須能讀取（PNG、JPEG、WebP 等常見格式），檔案大小不超過 5 MB。圖片會縮小為寬 64 像素後儲存到資料庫。資料庫中已有的圖片會被拒絕。只有支援自訂圖示的資料庫才能使用此功能。</string>
     <string name="icon_upload_info_button">選擇圖片</string>
+    <string name="autofill_locked_no_suggestions_title">鎖定時不顯示建議</string>
+    <string name="autofill_locked_no_suggestions_summary">資料庫鎖定時不顯示任何建議，包括已儲存的網站</string>
+    <string name="autofill_saved_sites_locked_title">鎖定時提示已儲存的網站</string>
+    <string name="autofill_saved_sites_locked_summary">鎖定時，僅對有已儲存項目的網站和應用程式顯示解鎖提示</string>
 </resources>

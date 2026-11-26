@@ -54,6 +54,7 @@ import com.keepasspn.credentialprovider.autofill.StructureParser.Companion.APPLI
 import com.keepasspn.credentialprovider.magikeyboard.MagikeyboardService
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.DatabaseTaskProvider
+import com.keepasspn.database.SavedSitesIndex
 import com.keepasspn.database.element.DateInstant
 import com.keepasspn.database.helper.SearchHelper
 import com.keepasspn.model.CreditCard
@@ -66,6 +67,10 @@ import com.keepasspn.utils.AppUtil
 import com.keepasspn.utils.AppUtil.randomRequestCode
 import com.keepasspn.utils.toCharArrayCopy
 import org.joda.time.DateTime
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.joda.time.Instant
 
 
@@ -151,7 +156,7 @@ class KeeAutofillService : AutofillService() {
                     webDomainBlocklist = webDomainBlocklist)
                 ) {
 
-                if (parseResult.isValid()) {
+                if (parseResult.isValid() && !parseResult.isNewPasswordForm) {
                     val inlineSuggestionsRequest =
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
                             && autofillInlineSuggestionsEnabled
@@ -194,22 +199,112 @@ class KeeAutofillService : AutofillService() {
                                 )
                             )
                         },
-                        onItemNotFound = { openedDatabase ->
-                            // Show UI if no search result
-                            showUIForEntrySelection(
-                                parseResult, openedDatabase,
-                                searchInfo, autofillComponent, callback
-                            )
+                        onItemNotFound = { _ ->
+                            // Nothing saved for this site or app, no suggestion, keep the save prompt
+                            callback.onSuccess(buildSaveOnlyResponse(parseResult))
                         },
                         onDatabaseClosed = {
-                            // Show UI if database not open
-                            showUIForEntrySelection(
-                                parseResult, null,
+                            // Database locked, the unlock prompt is only for saved sites and apps
+                            onLockedSuggestion(
+                                parseResult,
                                 searchInfo, autofillComponent, callback
                             )
                         }
                     )
+                } else if (parseResult.isValid()) {
+                    // Sign up or change password form, no suggestion, keep the save prompt
+                    callback.onSuccess(buildSaveOnlyResponse(parseResult))
                 }
+            }
+        }
+    }
+
+    /**
+     * The database is locked: show the unlock prompt only when the site or app has saved entries
+     */
+    private fun onLockedSuggestion(
+        parseResult: StructureParser.Result,
+        searchInfo: SearchInfo,
+        autofillComponent: AutofillComponent,
+        callback: FillCallback
+    ) {
+        if (PreferencesUtil.isAutofillLockedNoSuggestionsEnable(this)
+            || !PreferencesUtil.isAutofillSavedSitesLockedEnable(this)
+        ) {
+            callback.onSuccess(buildSaveOnlyResponse(parseResult))
+            return
+        }
+        CoroutineScope(Dispatchers.IO).launch {
+            val saved = SavedSitesIndex.contains(
+                context = applicationContext,
+                webDomain = parseResult.webDomain,
+                applicationId = parseResult.applicationId
+            )
+            withContext(Dispatchers.Main) {
+                if (saved) {
+                    showUIForEntrySelection(parseResult, null, searchInfo, autofillComponent, callback)
+                } else {
+                    callback.onSuccess(buildSaveOnlyResponse(parseResult))
+                }
+            }
+        }
+    }
+
+    /**
+     * Response without any dataset, only the save prompt when it is enabled.
+     * Null when there is nothing to answer.
+     */
+    private fun buildSaveOnlyResponse(parseResult: StructureParser.Result): FillResponse? {
+        val responseBuilder = FillResponse.Builder()
+        addSaveInfo(responseBuilder, parseResult)
+        return try {
+            responseBuilder.build()
+        } catch (e: Exception) {
+            NoOpLog.d(TAG, "Nothing to answer to the autofill request")
+            null
+        }
+    }
+
+    /**
+     * Tell the autofill framework the interest to save credentials
+     */
+    private fun addSaveInfo(
+        responseBuilder: FillResponse.Builder,
+        parseResult: StructureParser.Result
+    ) {
+        if (askToSaveData) {
+            var types: Int = SaveInfo.SAVE_DATA_TYPE_GENERIC
+            val requiredIds = mutableListOf<AutofillId>()
+            val optionalIds = mutableListOf<AutofillId>()
+
+            // Only if at least a password
+            parseResult.passwordId?.let { passwordInfo ->
+                parseResult.usernameId?.let { usernameInfo ->
+                    types = types or SaveInfo.SAVE_DATA_TYPE_USERNAME
+                    requiredIds.add(usernameInfo)
+                }
+                types = types or SaveInfo.SAVE_DATA_TYPE_PASSWORD
+                requiredIds.add(passwordInfo)
+            }
+            // or a credit card form
+            if (requiredIds.isEmpty()) {
+                parseResult.creditCardNumberId?.let { numberId ->
+                    types = types or SaveInfo.SAVE_DATA_TYPE_CREDIT_CARD
+                    requiredIds.add(numberId)
+                    NoOpLog.d(TAG, "Asking to save credit card number")
+                }
+                parseResult.creditCardExpirationDateId?.let { id -> optionalIds.add(id) }
+                parseResult.creditCardExpirationYearId?.let { id -> optionalIds.add(id) }
+                parseResult.creditCardExpirationMonthId?.let { id -> optionalIds.add(id) }
+                parseResult.creditCardHolderId?.let { id -> optionalIds.add(id) }
+                parseResult.cardVerificationValueId?.let { id -> optionalIds.add(id) }
+            }
+            if (requiredIds.isNotEmpty()) {
+                val builder = SaveInfo.Builder(types, requiredIds.toTypedArray())
+                if (optionalIds.isNotEmpty()) {
+                    builder.setOptionalIds(optionalIds.toTypedArray())
+                }
+                responseBuilder.setSaveInfo(builder.build())
             }
         }
     }
@@ -280,42 +375,7 @@ class KeeAutofillService : AutofillService() {
                         }
                     }
 
-                    // Tell the autofill framework the interest to save credentials
-                    if (askToSaveData) {
-                        var types: Int = SaveInfo.SAVE_DATA_TYPE_GENERIC
-                        val requiredIds = mutableListOf<AutofillId>()
-                        val optionalIds = mutableListOf<AutofillId>()
-
-                        // Only if at least a password
-                        parseResult.passwordId?.let { passwordInfo ->
-                            parseResult.usernameId?.let { usernameInfo ->
-                                types = types or SaveInfo.SAVE_DATA_TYPE_USERNAME
-                                requiredIds.add(usernameInfo)
-                            }
-                            types = types or SaveInfo.SAVE_DATA_TYPE_PASSWORD
-                            requiredIds.add(passwordInfo)
-                        }
-                        // or a credit card form
-                        if (requiredIds.isEmpty()) {
-                            parseResult.creditCardNumberId?.let { numberId ->
-                                types = types or SaveInfo.SAVE_DATA_TYPE_CREDIT_CARD
-                                requiredIds.add(numberId)
-                                NoOpLog.d(TAG, "Asking to save credit card number")
-                            }
-                            parseResult.creditCardExpirationDateId?.let { id -> optionalIds.add(id) }
-                            parseResult.creditCardExpirationYearId?.let { id -> optionalIds.add(id) }
-                            parseResult.creditCardExpirationMonthId?.let { id -> optionalIds.add(id) }
-                            parseResult.creditCardHolderId?.let { id -> optionalIds.add(id) }
-                            parseResult.cardVerificationValueId?.let { id -> optionalIds.add(id) }
-                        }
-                        if (requiredIds.isNotEmpty()) {
-                            val builder = SaveInfo.Builder(types, requiredIds.toTypedArray())
-                            if (optionalIds.isNotEmpty()) {
-                                builder.setOptionalIds(optionalIds.toTypedArray())
-                            }
-                            responseBuilder.setSaveInfo(builder.build())
-                        }
-                    }
+                    addSaveInfo(responseBuilder, parseResult)
 
                     // Build inline presentation
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R

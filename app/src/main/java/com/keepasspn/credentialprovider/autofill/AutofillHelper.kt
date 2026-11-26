@@ -571,8 +571,8 @@ object AutofillHelper {
             }
         }
 
-        // Add a new dataset for manual selection
-        if (PreferencesUtil.isAutofillManualSelectionEnable(context)) {
+        // Add a new dataset for manual selection, only when there is an entry to suggest
+        if (entriesInfo.isNotEmpty() && PreferencesUtil.isAutofillManualSelectionEnable(context)) {
             val searchInfo = SearchInfo().apply {
                 applicationId = parseResult.applicationId
                 webDomain = parseResult.webDomain

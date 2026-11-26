@@ -147,4 +147,8 @@ Erkinligimizni saqlash, xatolarni tuzatish, yangi imkoniyatlar qo\'shish va loyi
     <string name="icon_upload_info_button">Rasm tanlash</string>
     <string name="generate_credentials">Ma\'lumotlarni yaratish</string>
     <string name="copied_to_clipboard">Nusxalandi</string>
+    <string name="autofill_locked_no_suggestions_title">Qulflanganda takliflar yoʻq</string>
+    <string name="autofill_locked_no_suggestions_summary">Maʼlumotlar bazasi qulflangan paytda saqlangan saytlar uchun ham hech narsa koʻrsatilmaydi</string>
+    <string name="autofill_saved_sites_locked_title">Qulflanganda saqlangan saytlarni taklif qilish</string>
+    <string name="autofill_saved_sites_locked_summary">Qulflanganda faqat saqlangan yozuvlari bor saytlar va ilovalar uchun ochish soʻrovi koʻrsatiladi</string>
 </resources>

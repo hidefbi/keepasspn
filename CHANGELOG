@@ -1,4 +1,7 @@
 KeePassPN
+ * Fix: autofill suggests only sites and apps with saved entries, other login pages get nothing
+ * Feature: while the database is locked, the unlock prompt shows only for saved sites and apps; two switches in Form filling (no suggestions when locked, saved sites when locked)
+ * Change: sign up and change password forms get no suggestion, the save prompt stays
  * Fix: changing the master password works again, the new password was not saved
  * Change: the about screen credits hidefbi as the maintainer
  * Feature: Brand icons for entries: the icon picker has a Brand tab with the logo of the brand that matches the web address of the entry; the logos are stored in the app, so nothing is downloaded, and choosing one saves it as a custom icon of the database

@@ -863,4 +863,8 @@
     <string name="icon_upload_info_title">Загрузить значок</string>
     <string name="icon_upload_info_message">Выберите изображение на этом устройстве. Android должен уметь его читать (PNG, JPEG, WebP и большинство распространённых форматов), размер — не более 5 МБ. Изображение уменьшается до ширины 64 пикселя и сохраняется в базе данных. Изображение, которое уже есть в базе, отклоняется. Пользовательские значки доступны только для баз, которые их поддерживают.</string>
     <string name="icon_upload_info_button">Выбрать изображение</string>
+    <string name="autofill_locked_no_suggestions_title">Без подсказок, когда заблокировано</string>
+    <string name="autofill_locked_no_suggestions_summary">Пока база заблокирована, ничего не показывается, даже для сохранённых сайтов</string>
+    <string name="autofill_saved_sites_locked_title">Подсказывать сохранённые сайты, когда заблокировано</string>
+    <string name="autofill_saved_sites_locked_summary">Когда база заблокирована, запрос на разблокировку показывается только для сайтов и приложений с сохранёнными записями</string>
 </resources>

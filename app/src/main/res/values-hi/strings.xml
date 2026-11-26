@@ -248,4 +248,8 @@
     <string name="icon_upload_info_button">छवि चुनें</string>
     <string name="generate_credentials">क्रेडेंशियल जनरेट करें</string>
     <string name="copied_to_clipboard">कॉपी किया गया</string>
+    <string name="autofill_locked_no_suggestions_title">लॉक होने पर कोई सुझाव नहीं</string>
+    <string name="autofill_locked_no_suggestions_summary">डेटाबेस लॉक रहने पर कुछ भी नहीं दिखाया जाएगा, सेव की गई साइटों के लिए भी नहीं</string>
+    <string name="autofill_saved_sites_locked_title">लॉक होने पर सेव की गई साइटों के सुझाव</string>
+    <string name="autofill_saved_sites_locked_summary">लॉक रहने पर केवल उन साइटों और ऐप्स के लिए अनलॉक संकेत दिखेगा जिनकी प्रविष्टियाँ सेव हैं</string>
 </resources>

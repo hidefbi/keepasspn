@@ -861,4 +861,8 @@ Pour préserver notre liberté, corriger les bugs, ajouter des fonctionnalités 
     <string name="icon_upload_info_title">Importer une icône</string>
     <string name="icon_upload_info_message">Choisissez une image sur cet appareil. Android doit pouvoir la lire (PNG, JPEG, WebP et la plupart des formats courants), et elle doit faire 5 Mo au maximum. L’image est réduite à 64 pixels de large et enregistrée dans la base de données. Une image déjà présente dans la base est refusée. Les icônes personnalisées ne sont disponibles que pour les bases qui les prennent en charge.</string>
     <string name="icon_upload_info_button">Choisir une image</string>
+    <string name="autofill_locked_no_suggestions_title">Aucune suggestion si verrouillé</string>
+    <string name="autofill_locked_no_suggestions_summary">Tant que la base est verrouillée, rien ne s’affiche, même pour les sites enregistrés</string>
+    <string name="autofill_saved_sites_locked_title">Suggérer les sites enregistrés si verrouillé</string>
+    <string name="autofill_saved_sites_locked_summary">Si verrouillé, la demande de déverrouillage n’apparaît que pour les sites et applis ayant des entrées enregistrées</string>
 </resources>

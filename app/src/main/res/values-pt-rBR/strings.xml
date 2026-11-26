@@ -863,4 +863,8 @@ Para manter a nossa liberdade, corrigir bugs, adicionar funcionalidades e manter
     <string name="icon_upload_info_title">Enviar um ícone</string>
     <string name="icon_upload_info_message">Escolha uma imagem deste dispositivo. O Android precisa conseguir lê-la (PNG, JPEG, WebP e a maioria dos formatos comuns), e ela pode ter no máximo 5 MB. A imagem é reduzida para 64 pixels de largura e salva no banco de dados. Uma imagem que já está no banco é recusada. Ícones personalizados só estão disponíveis para bancos que os suportam.</string>
     <string name="icon_upload_info_button">Escolher imagem</string>
+    <string name="autofill_locked_no_suggestions_title">Sem sugestões quando bloqueado</string>
+    <string name="autofill_locked_no_suggestions_summary">Enquanto o banco de dados estiver bloqueado, nada é mostrado, nem para sites salvos</string>
+    <string name="autofill_saved_sites_locked_title">Sugerir sites salvos quando bloqueado</string>
+    <string name="autofill_saved_sites_locked_summary">Com o banco bloqueado, o pedido de desbloqueio só aparece para sites e apps com entradas salvas</string>
 </resources>

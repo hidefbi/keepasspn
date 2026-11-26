@@ -791,4 +791,8 @@ Per mantenir la nostra llibertat, corregir errors, afegir funcions i mantenir el
     <string name="icon_upload_info_title">Puja una icona</string>
     <string name="icon_upload_info_message">Trieu una imatge d’aquest dispositiu. Android l’ha de poder llegir (PNG, JPEG, WebP i la majoria de formats habituals), i la mida ha de ser de 5 MB com a màxim. La imatge es redueix a 64 píxels d’amplada i es desa a la base de dades. Una imatge que ja és a la base de dades es rebutja. Les icones personalitzades només estan disponibles en bases de dades que les admetin.</string>
     <string name="icon_upload_info_button">Tria una imatge</string>
+    <string name="autofill_locked_no_suggestions_title">Cap suggeriment quan està bloquejat</string>
+    <string name="autofill_locked_no_suggestions_summary">Mentre la base de dades està bloquejada no es mostra res, ni tan sols per als llocs desats</string>
+    <string name="autofill_saved_sites_locked_title">Suggerir llocs desats quan està bloquejat</string>
+    <string name="autofill_saved_sites_locked_summary">Quan està bloquejat, només es mostra la petició de desbloqueig per a llocs i aplicacions amb entrades desades</string>
 </resources>

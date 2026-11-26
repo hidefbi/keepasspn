@@ -529,4 +529,8 @@ Jotta säilyttäisimme vapautemme, korjaisimme virheitä, lisäisimme ominaisuuk
     <string name="icon_upload_info_title">Lataa kuvake</string>
     <string name="icon_upload_info_message">Valitse kuva tältä laitteelta. Androidin on voitava lukea se (PNG, JPEG, WebP ja useimmat yleiset muodot), ja sen koko saa olla enintään 5 Mt. Kuva pienennetään 64 pikselin leveyteen ja tallennetaan tietokantaan. Kuva, joka on jo tietokannassa, hylätään. Omia kuvakkeita voi käyttää vain tietokannoissa, jotka tukevat niitä.</string>
     <string name="icon_upload_info_button">Valitse kuva</string>
+    <string name="autofill_locked_no_suggestions_title">Ei ehdotuksia lukittuna</string>
+    <string name="autofill_locked_no_suggestions_summary">Kun tietokanta on lukittu, mitään ei näytetä, ei edes tallennetuille sivustoille</string>
+    <string name="autofill_saved_sites_locked_title">Ehdota tallennettuja sivustoja lukittuna</string>
+    <string name="autofill_saved_sites_locked_summary">Lukittuna avauspyyntö näytetään vain sivustoille ja sovelluksille, joilla on tallennettuja merkintöjä</string>
 </resources>

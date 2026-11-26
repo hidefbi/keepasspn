@@ -865,4 +865,8 @@ Om onze vrijheid te behouden, bugs te verhelpen, functies toe te voegen en het p
     <string name="icon_upload_info_title">Pictogram uploaden</string>
     <string name="icon_upload_info_message">Kies een afbeelding van dit apparaat. Android moet deze kunnen lezen (PNG, JPEG, WebP en de meeste gangbare formaten), en het bestand mag maximaal 5 MB zijn. De afbeelding wordt verkleind tot 64 pixels breed en opgeslagen in de database. Een afbeelding die al in de database staat, wordt geweigerd. Eigen pictogrammen zijn alleen beschikbaar voor databases die ze ondersteunen.</string>
     <string name="icon_upload_info_button">Afbeelding kiezen</string>
+    <string name="autofill_locked_no_suggestions_title">Geen suggesties bij vergrendeling</string>
+    <string name="autofill_locked_no_suggestions_summary">Zolang de database vergrendeld is, wordt niets getoond, ook niet voor opgeslagen sites</string>
+    <string name="autofill_saved_sites_locked_title">Opgeslagen sites voorstellen bij vergrendeling</string>
+    <string name="autofill_saved_sites_locked_summary">Bij vergrendeling verschijnt de ontgrendelprompt alleen voor sites en apps met opgeslagen items</string>
 </resources>

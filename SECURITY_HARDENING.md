@@ -42,6 +42,13 @@ The app declares the `CAMERA` permission for this. It still declares no `INTERNE
 Web domains from WebViews and custom views inside non-browser apps are ignored. Matching
 then falls back to the application package, which is the existing behavior for apps.
 
+### Autofill suggestions
+Suggestions show only when there is something to fill: an open database with a matching entry,
+or, while locked, a site or app in the saved sites index. The index keeps HMAC-SHA256 values of
+the registrable domain or the package name, keyed with a non-exportable Keystore key, so the
+stored set does not show the sites. It is rebuilt after each load and save, recycle bin entries
+are not counted. Sign up and change password forms get no suggestion, the save prompt stays.
+
 ### Legacy device-credential window (item 6)
 On Android 6.0 to 10 (API 23–29), the keyguard-based flow only offers time-based
 authorization for device credentials. The key therefore remains usable for 5 seconds after
@@ -126,3 +133,8 @@ just gets dropped with no message. That is what broke the master password change
     existing PIN must still unlock, and Android must accept the update (same signing key).
 13. Change the master password, lock the database and unlock it with the new password. It must
     open. The old password must not open it any more.
+14. Open a login page of a site with no saved entry, database open or locked: no suggestion in
+    the keyboard strip. Submit a login, the save prompt must still come.
+15. Lock the database and open a saved site: the unlock prompt shows. Open a site that is not
+    saved: nothing shows. With "No suggestions when locked" on, nothing shows while locked.
+16. The same as 14 and 15 for an app with a saved entry (its AndroidApp field).

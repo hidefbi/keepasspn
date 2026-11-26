@@ -123,4 +123,8 @@
     <string name="icon_upload_info_button">చిత్రాన్ని ఎంచుకోండి</string>
     <string name="generate_credentials">ఆధారాలను రూపొందించండి</string>
     <string name="copied_to_clipboard">కాపీ చేయబడింది</string>
+    <string name="autofill_locked_no_suggestions_title">లాక్ అయినప్పుడు సూచనలు లేవు</string>
+    <string name="autofill_locked_no_suggestions_summary">డేటాబేస్ లాక్‌లో ఉన్నంతవరకు, సేవ్ చేసిన సైట్‌లకు కూడా ఏమీ చూపబడదు</string>
+    <string name="autofill_saved_sites_locked_title">లాక్ అయినప్పుడు సేవ్ చేసిన సైట్‌లను సూచించు</string>
+    <string name="autofill_saved_sites_locked_summary">లాక్‌లో ఉన్నప్పుడు, సేవ్ చేసిన ఎంట్రీలు ఉన్న సైట్‌లు, యాప్‌లకు మాత్రమే అన్‌లాక్ ప్రాంప్ట్ చూపబడుతుంది</string>
 </resources>

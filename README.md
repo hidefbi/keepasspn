@@ -41,6 +41,9 @@ The copy never leaves the app, and Android backup is turned off.
 - Trusted browsers live under *Settings > Form filling > Trusted browsers*. The built-in ones are checked by signature. You can add more from your installed apps. Trusted browsers need Android 9 or later.
 - A trust is tied to the browser's signature, so after a signing key change you have to trust it again.
 - Other apps never get a website from autofill, so one app can't use another site's login.
+- Suggestions only show for a site or app that has saved entries. Other login pages get nothing, the save prompt still works.
+- Locked database: the unlock prompt shows only for saved sites and apps. Two switches under *Settings > Form filling* change it: *No suggestions when locked* hides everything while locked, and *Suggest saved sites when locked* is on by default.
+- To know the saved sites while the database is locked, the app keeps keyed hashes of them. The key stays in the Android Keystore, the sites are not stored in clear.
 - Optional: *Copy TOTP after autofill* copies the current code when the entry has one. It's under *Settings > Form filling*.
 
 ## One-time codes (2FA)

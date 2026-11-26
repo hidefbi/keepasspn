@@ -445,4 +445,8 @@
     <string name="icon_upload_info_title">ഐക്കൺ അപ്‌ലോഡ് ചെയ്യുക</string>
     <string name="icon_upload_info_message">ഈ ഉപകരണത്തിൽ നിന്ന് ഒരു ചിത്രം തിരഞ്ഞെടുക്കുക. Android-ന് ഇത് വായിക്കാൻ കഴിയണം (PNG, JPEG, WebP, സാധാരണ ഫോർമാറ്റുകൾ), വലുപ്പം 5 MB വരെ മാത്രമേ പാടുള്ളൂ. ചിത്രം 64 പിക്സൽ വീതിയിലേക്ക് ചെറുതാക്കി ഡാറ്റാബേസിൽ സംരക്ഷിക്കും. ഡാറ്റാബേസിൽ ഇതിനകം ഉള്ള ചിത്രം സ്വീകരിക്കില്ല. ഇഷ്ടാനുസൃത ഐക്കണുകൾ അവ പിന്തുണയ്ക്കുന്ന ഡാറ്റാബേസുകൾക്ക് മാത്രമേ ലഭ്യമാകൂ.</string>
     <string name="icon_upload_info_button">ചിത്രം തിരഞ്ഞെടുക്കുക</string>
+    <string name="autofill_locked_no_suggestions_title">ലോക്ക് ആയിരിക്കുമ്പോൾ നിർദ്ദേശങ്ങളില്ല</string>
+    <string name="autofill_locked_no_suggestions_summary">ഡാറ്റാബേസ് ലോക്ക് ആയിരിക്കുമ്പോൾ സേവ് ചെയ്ത സൈറ്റുകൾക്കുപോലും ഒന്നും കാണിക്കില്ല</string>
+    <string name="autofill_saved_sites_locked_title">ലോക്ക് ആയിരിക്കുമ്പോൾ സേവ് ചെയ്ത സൈറ്റുകൾ നിർദ്ദേശിക്കുക</string>
+    <string name="autofill_saved_sites_locked_summary">ലോക്ക് ആയിരിക്കുമ്പോൾ സേവ് ചെയ്ത എൻട്രികളുള്ള സൈറ്റുകൾക്കും ആപ്പുകൾക്കും മാത്രം അൺലോക്ക് നിർദ്ദേശം കാണിക്കും</string>
 </resources>

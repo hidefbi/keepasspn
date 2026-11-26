@@ -52,6 +52,15 @@ class AutofillSettingsFragment : PreferenceFragmentCompat() {
             autofillAskSaveDataPreference?.isVisible = false
         }
 
+        // The two locked database options exclude each other, the saved sites one is off then
+        val lockedNoSuggestionsPreference: TwoStatePreference? = findPreference(getString(R.string.autofill_locked_no_suggestions_key))
+        val lockedSavedSitesPreference: TwoStatePreference? = findPreference(getString(R.string.autofill_saved_sites_locked_key))
+        lockedSavedSitesPreference?.isEnabled = lockedNoSuggestionsPreference?.isChecked != true
+        lockedNoSuggestionsPreference?.setOnPreferenceChangeListener { _, newValue ->
+            lockedSavedSitesPreference?.isEnabled = newValue != true
+            true
+        }
+
         findPreference<Preference>(getString(R.string.autofill_trusted_browsers_key))?.setOnPreferenceClickListener {
             showTrustedBrowsersDialog()
             true

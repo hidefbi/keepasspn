@@ -421,4 +421,8 @@
     <string name="icon_upload_info_title">আইকন আপলোড করুন</string>
     <string name="icon_upload_info_message">এই ডিভাইস থেকে একটি ছবি বেছে নিন। Android-কে ছবিটি পড়তে পারতে হবে (PNG, JPEG, WebP এবং বেশিরভাগ সাধারণ ফরম্যাট), আর আকার হতে হবে 5 MB বা তার কম। ছবিটি 64 পিক্সেল প্রস্থে ছোট করে ডেটাবেসে সংরক্ষণ করা হবে। ডেটাবেসে আগে থেকেই থাকা ছবি গ্রহণ করা হবে না। কাস্টম আইকন শুধু সেই ডেটাবেসে পাওয়া যায় যেগুলো তা সমর্থন করে।</string>
     <string name="icon_upload_info_button">ছবি বেছে নিন</string>
+    <string name="autofill_locked_no_suggestions_title">লক থাকলে কোনো পরামর্শ নয়</string>
+    <string name="autofill_locked_no_suggestions_summary">ডাটাবেস লক থাকলে কিছুই দেখানো হবে না, এমনকি সংরক্ষিত সাইটের জন্যও না</string>
+    <string name="autofill_saved_sites_locked_title">লক থাকলে সংরক্ষিত সাইটের পরামর্শ</string>
+    <string name="autofill_saved_sites_locked_summary">লক থাকলে শুধু যেসব সাইট বা অ্যাপের সংরক্ষিত এন্ট্রি আছে, সেখানেই আনলক অনুরোধ দেখানো হবে</string>
 </resources>

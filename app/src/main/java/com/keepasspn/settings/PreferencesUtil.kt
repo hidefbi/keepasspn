@@ -841,6 +841,18 @@ object PreferencesUtil {
             context.resources.getBoolean(R.bool.autofill_copy_totp_default))
     }
 
+    fun isAutofillLockedNoSuggestionsEnable(context: Context): Boolean {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        return prefs.getBoolean(context.getString(R.string.autofill_locked_no_suggestions_key),
+            context.resources.getBoolean(R.bool.autofill_locked_no_suggestions_default))
+    }
+
+    fun isAutofillSavedSitesLockedEnable(context: Context): Boolean {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        return prefs.getBoolean(context.getString(R.string.autofill_saved_sites_locked_key),
+            context.resources.getBoolean(R.bool.autofill_saved_sites_locked_default))
+    }
+
     fun isAutofillManualSelectionEnable(context: Context): Boolean {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         return prefs.getBoolean(context.getString(R.string.autofill_manual_selection_key),
@@ -1016,6 +1028,8 @@ object PreferencesUtil {
                 context.getString(R.string.autofill_suggestions_key) -> editor.putBoolean(name, value.toBoolean())
                 context.getString(R.string.autofill_inline_suggestions_key) -> editor.putBoolean(name, value.toBoolean())
                 context.getString(R.string.autofill_manual_selection_key) -> editor.putBoolean(name, value.toBoolean())
+                context.getString(R.string.autofill_locked_no_suggestions_key) -> editor.putBoolean(name, value.toBoolean())
+                context.getString(R.string.autofill_saved_sites_locked_key) -> editor.putBoolean(name, value.toBoolean())
                 context.getString(R.string.autofill_share_magikeyboard_key) -> editor.putBoolean(name, value.toBoolean())
                 context.getString(R.string.autofill_save_search_info_key) -> editor.putBoolean(name, value.toBoolean())
                 context.getString(R.string.autofill_ask_to_save_data_key) -> editor.putBoolean(name, value.toBoolean())

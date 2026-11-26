@@ -382,4 +382,8 @@ Lai saglabātu mūsu brīvību, labotu kļūdas, pievienotu funkcijas un uzturē
     <string name="icon_upload_info_title">Augšupielādēt ikonu</string>
     <string name="icon_upload_info_message">Izvēlieties attēlu no šīs ierīces. Android to spēj nolasīt (PNG, JPEG, WebP un lielākā daļa parasto formātu), un izmērs nedrīkst pārsniegt 5 MB. Attēls tiek samazināts līdz 64 pikseļu platumam un saglabāts datubāzē. Attēls, kas jau ir datubāzē, tiek noraidīts. Pielāgotās ikonas ir pieejamas tikai datubāzēm, kas tās atbalsta.</string>
     <string name="icon_upload_info_button">Izvēlēties attēlu</string>
+    <string name="autofill_locked_no_suggestions_title">Bloķēta — bez ieteikumiem</string>
+    <string name="autofill_locked_no_suggestions_summary">Kamēr datubāze ir bloķēta, nekas netiek rādīts, arī saglabātajām vietnēm ne</string>
+    <string name="autofill_saved_sites_locked_title">Bloķētā stāvoklī ieteikt saglabātās vietnes</string>
+    <string name="autofill_saved_sites_locked_summary">Bloķētā stāvoklī atbloķēšanas uzvedne tiek rādīta tikai vietnēm un lietotnēm ar saglabātiem ierakstiem</string>
 </resources>

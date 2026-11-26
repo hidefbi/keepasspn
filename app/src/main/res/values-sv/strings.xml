@@ -833,4 +833,8 @@ För att bevara vår frihet, rätta buggar, lägga till funktioner och hålla pr
     <string name="icon_upload_info_title">Ladda upp en ikon</string>
     <string name="icon_upload_info_message">Välj en bild från den här enheten. Android måste kunna läsa den (PNG, JPEG, WebP och de flesta vanliga format), och den får vara högst 5 MB. Bilden förminskas till 64 pixlar i bredd och sparas i databasen. En bild som redan finns i databasen avvisas. Egna ikoner finns bara för databaser som stöder dem.</string>
     <string name="icon_upload_info_button">Välj bild</string>
+    <string name="autofill_locked_no_suggestions_title">Inga förslag när låst</string>
+    <string name="autofill_locked_no_suggestions_summary">Medan databasen är låst visas inget, inte ens för sparade webbplatser</string>
+    <string name="autofill_saved_sites_locked_title">Föreslå sparade webbplatser när låst</string>
+    <string name="autofill_saved_sites_locked_summary">När den är låst visas upplåsningsfrågan bara för webbplatser och appar med sparade poster</string>
 </resources>

@@ -839,4 +839,8 @@
     <string name="icon_upload_info_title">Качване на икона</string>
     <string name="icon_upload_info_message">Изберете изображение от това устройство. Android трябва да може да го прочете (PNG, JPEG, WebP и повечето често срещани формати), а размерът му трябва да е до 5 MB. Изображението се намалява до ширина 64 пиксела и се запазва в базата данни. Изображение, което вече е в базата, се отхвърля. Собствените икони са достъпни само за бази, които ги поддържат.</string>
     <string name="icon_upload_info_button">Избор на изображение</string>
+    <string name="autofill_locked_no_suggestions_title">Без предложения при заключване</string>
+    <string name="autofill_locked_no_suggestions_summary">Докато базата е заключена, нищо не се показва, дори за запазени сайтове</string>
+    <string name="autofill_saved_sites_locked_title">Предлагане на запазени сайтове при заключване</string>
+    <string name="autofill_saved_sites_locked_summary">При заключване се показва подканата за отключване само за сайтове и приложения със запазени записи</string>
 </resources>

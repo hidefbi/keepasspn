@@ -804,4 +804,8 @@
     <string name="icon_upload_info_title">ஐகானைப் பதிவேற்று</string>
     <string name="icon_upload_info_message">இந்தச் சாதனத்தில் இருந்து ஒரு படத்தைத் தேர்ந்தெடுக்கவும். Android அதைப் படிக்க முடிய வேண்டும் (PNG, JPEG, WebP மற்றும் பெரும்பாலான பொதுவான வடிவங்கள்), அளவு 5 MB வரை இருக்க வேண்டும். படம் 64 பிக்சல் அகலத்திற்குச் சுருக்கப்பட்டு தரவுத்தளத்தில் சேமிக்கப்படும். தரவுத்தளத்தில் ஏற்கெனவே உள்ள படம் ஏற்கப்படாது. தனிப்பயன் ஐகான்கள் அவற்றை ஆதரிக்கும் தரவுத்தளங்களுக்கு மட்டுமே கிடைக்கும்.</string>
     <string name="icon_upload_info_button">படத்தைத் தேர்ந்தெடு</string>
+    <string name="autofill_locked_no_suggestions_title">பூட்டியிருக்கும்போது பரிந்துரைகள் இல்லை</string>
+    <string name="autofill_locked_no_suggestions_summary">தரவுத்தளம் பூட்டியிருக்கும்போது, சேமித்த தளங்களுக்கும் எதுவும் காட்டப்படாது</string>
+    <string name="autofill_saved_sites_locked_title">பூட்டியிருக்கும்போது சேமித்த தளங்களைப் பரிந்துரை</string>
+    <string name="autofill_saved_sites_locked_summary">பூட்டியிருக்கும்போது, சேமித்த பதிவுகள் உள்ள தளங்கள் மற்றும் ஆப்களுக்கு மட்டுமே திறப்புக் கோரிக்கை காட்டப்படும்</string>
 </resources>

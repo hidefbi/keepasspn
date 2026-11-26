@@ -866,4 +866,8 @@ Per mantenere la nostra libertà, correggere i bug, aggiungere funzionalità e m
     <string name="icon_upload_info_title">Carica un’icona</string>
     <string name="icon_upload_info_message">Scegli un’immagine da questo dispositivo. Android deve poterla leggere (PNG, JPEG, WebP e la maggior parte dei formati comuni) e deve pesare al massimo 5 MB. L’immagine viene ridotta a 64 pixel di larghezza e salvata nel database. Un’immagine già presente nel database viene rifiutata. Le icone personalizzate sono disponibili solo per i database che le supportano.</string>
     <string name="icon_upload_info_button">Scegli immagine</string>
+    <string name="autofill_locked_no_suggestions_title">Nessun suggerimento se bloccato</string>
+    <string name="autofill_locked_no_suggestions_summary">Finché il database è bloccato non appare nulla, nemmeno per i siti salvati</string>
+    <string name="autofill_saved_sites_locked_title">Suggerisci i siti salvati se bloccato</string>
+    <string name="autofill_saved_sites_locked_summary">Se bloccato, la richiesta di sblocco appare solo per siti e app con voci salvate</string>
 </resources>

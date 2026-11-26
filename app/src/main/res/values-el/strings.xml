@@ -784,4 +784,8 @@
     <string name="icon_upload_info_title">Μεταφόρτωση εικονιδίου</string>
     <string name="icon_upload_info_message">Επιλέξτε μια εικόνα από αυτή τη συσκευή. Το Android πρέπει να μπορεί να τη διαβάσει (PNG, JPEG, WebP και οι περισσότερες συνηθισμένες μορφές), και το μέγεθός της να είναι έως 5 MB. Η εικόνα σμικρύνεται σε πλάτος 64 pixel και αποθηκεύεται στη βάση δεδομένων. Εικόνα που υπάρχει ήδη στη βάση απορρίπτεται. Τα προσαρμοσμένα εικονίδια είναι διαθέσιμα μόνο για βάσεις που τα υποστηρίζουν.</string>
     <string name="icon_upload_info_button">Επιλογή εικόνας</string>
+    <string name="autofill_locked_no_suggestions_title">Χωρίς προτάσεις όταν είναι κλειδωμένο</string>
+    <string name="autofill_locked_no_suggestions_summary">Όσο η βάση είναι κλειδωμένη δεν εμφανίζεται τίποτα, ούτε για αποθηκευμένους ιστότοπους</string>
+    <string name="autofill_saved_sites_locked_title">Πρόταση αποθηκευμένων ιστοτόπων όταν είναι κλειδωμένο</string>
+    <string name="autofill_saved_sites_locked_summary">Όταν είναι κλειδωμένο, η πρόταση ξεκλειδώματος εμφανίζεται μόνο για ιστοτόπους και εφαρμογές με αποθηκευμένες καταχωρίσεις</string>
 </resources>

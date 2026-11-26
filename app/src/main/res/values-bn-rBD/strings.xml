@@ -178,4 +178,8 @@
     <string name="icon_upload_info_button">ছবি বেছে নিন</string>
     <string name="generate_credentials">শংসাপত্র তৈরি করুন</string>
     <string name="copied_to_clipboard">কপি করা হয়েছে</string>
+    <string name="autofill_locked_no_suggestions_title">লক থাকলে কোনো পরামর্শ নয়</string>
+    <string name="autofill_locked_no_suggestions_summary">ডাটাবেস লক থাকলে কিছুই দেখানো হবে না, এমনকি সংরক্ষিত সাইটের জন্যও না</string>
+    <string name="autofill_saved_sites_locked_title">লক থাকলে সংরক্ষিত সাইটের পরামর্শ</string>
+    <string name="autofill_saved_sites_locked_summary">লক থাকলে শুধু যেসব সাইট বা অ্যাপের সংরক্ষিত এন্ট্রি আছে, সেখানেই আনলক অনুরোধ দেখানো হবে</string>
 </resources>

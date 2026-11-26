@@ -802,4 +802,8 @@ Siekdami išsaugoti laisvę, taisyti klaidas, pridėti funkcijų ir palaikyti pr
     <string name="icon_upload_info_title">Įkelti piktogramą</string>
     <string name="icon_upload_info_message">Pasirinkite vaizdą iš šio įrenginio. Android turi galėti jį perskaityti (PNG, JPEG, WebP ir dauguma įprastų formatų), o dydis – ne didesnis kaip 5 MB. Vaizdas sumažinamas iki 64 pikselių pločio ir įrašomas į duomenų bazę. Vaizdas, jau esantis duomenų bazėje, atmetamas. Pasirinktinės piktogramos pasiekiamos tik duomenų bazėms, kurios jas palaiko.</string>
     <string name="icon_upload_info_button">Pasirinkti vaizdą</string>
+    <string name="autofill_locked_no_suggestions_title">Jei užrakinta, pasiūlymų nerodyti</string>
+    <string name="autofill_locked_no_suggestions_summary">Kol duomenų bazė užrakinta, nieko nerodoma, net išsaugotoms svetainėms</string>
+    <string name="autofill_saved_sites_locked_title">Užrakinus siūlyti išsaugotas svetaines</string>
+    <string name="autofill_saved_sites_locked_summary">Kai užrakinta, atrakinimo užklausa rodoma tik svetainėms ir programoms, turinčioms išsaugotų įrašų</string>
 </resources>

@@ -758,4 +758,8 @@ Gure askatasuna mantentzeko, akatsak konpontzeko, funtzio berriak gehitzeko eta 
     <string name="icon_upload_info_title">Igo ikono bat</string>
     <string name="icon_upload_info_message">Aukeratu irudi bat gailu honetatik. Android-ek irakurri ahal izan behar du (PNG, JPEG, WebP eta ohiko formatu gehienak), eta 5 MB-ra arteko tamainakoa izan behar du. Irudia 64 pixeleko zabalerara txikitzen da eta datu-basean gordetzen da. Datu-basean dagoeneko dagoen irudia baztertzen da. Ikono pertsonalizatuak datu-base hauetan bakarrik daude erabilgarri.</string>
     <string name="icon_upload_info_button">Aukeratu irudia</string>
+    <string name="autofill_locked_no_suggestions_title">Blokeatuta dagoenean iradokizunik ez</string>
+    <string name="autofill_locked_no_suggestions_summary">Datu-basea blokeatuta dagoen bitartean ez da ezer erakusten, gordetako webguneentzat ere ez</string>
+    <string name="autofill_saved_sites_locked_title">Blokeatuta dagoenean gordetako webguneak iradoki</string>
+    <string name="autofill_saved_sites_locked_summary">Blokeatuta dagoenean desblokeatzeko eskaera gordetako sarrerak dituzten webguneei eta aplikazioei bakarrik erakusten zaie</string>
 </resources>

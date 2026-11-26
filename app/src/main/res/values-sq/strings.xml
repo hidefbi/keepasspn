@@ -791,4 +791,8 @@ Për të ruajtur lirinë tonë, për të rregulluar gabimet, për të shtuar fun
     <string name="icon_upload_info_title">Ngarko një ikonë</string>
     <string name="icon_upload_info_message">Zgjidh një imazh nga kjo pajisje. Android duhet ta lexojë (PNG, JPEG, WebP dhe shumicën e formateve të zakonshme), dhe madhësia duhet të jetë deri në 5 MB. Imazhi zvogëlohet në gjerësi 64 piksel dhe ruhet në bazën e të dhënave. Një imazh që tashmë është në bazë refuzohet. Ikonat e personalizuara janë të disponueshme vetëm për bazat që i mbështesin.</string>
     <string name="icon_upload_info_button">Zgjidh imazhin</string>
+    <string name="autofill_locked_no_suggestions_title">Pa sugjerime kur është i kyçur</string>
+    <string name="autofill_locked_no_suggestions_summary">Ndërsa baza e të dhënave është e kyçur, asgjë nuk shfaqet, as për faqet e ruajtura</string>
+    <string name="autofill_saved_sites_locked_title">Sugjero faqet e ruajtura kur është i kyçur</string>
+    <string name="autofill_saved_sites_locked_summary">Kur është i kyçur, kërkesa për shkyçje shfaqet vetëm për faqet dhe aplikacionet me hyrje të ruajtura</string>
 </resources>

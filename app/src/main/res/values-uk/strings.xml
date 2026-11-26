@@ -843,4 +843,8 @@
     <string name="icon_upload_info_title">Завантажити значок</string>
     <string name="icon_upload_info_message">Виберіть зображення з цього пристрою. Android має вміти його прочитати (PNG, JPEG, WebP та більшість поширених форматів), а розмір має бути не більше 5 МБ. Зображення зменшується до ширини 64 пікселі й зберігається в базі даних. Зображення, яке вже є в базі, відхиляється. Власні значки доступні лише для баз, які їх підтримують.</string>
     <string name="icon_upload_info_button">Вибрати зображення</string>
+    <string name="autofill_locked_no_suggestions_title">Без підказок, коли заблоковано</string>
+    <string name="autofill_locked_no_suggestions_summary">Поки база заблокована, нічого не показується, навіть для збережених сайтів</string>
+    <string name="autofill_saved_sites_locked_title">Пропонувати збережені сайти, коли заблоковано</string>
+    <string name="autofill_saved_sites_locked_summary">Коли база заблокована, запит на розблокування показується лише для сайтів і застосунків зі збереженими записами</string>
 </resources>

@@ -847,4 +847,8 @@ For å bevare friheten vår, rette feil, legge til funksjoner og holde prosjekte
     <string name="icon_upload_info_title">Last opp et ikon</string>
     <string name="icon_upload_info_message">Velg et bilde fra denne enheten. Android må kunne lese det (PNG, JPEG, WebP og de fleste vanlige formater), og det kan være på høyst 5 MB. Bildet skaleres til 64 piksler i bredde og lagres i databasen. Et bilde som allerede finnes i databasen, blir avvist. Egne ikoner er bare tilgjengelige for databaser som støtter dem.</string>
     <string name="icon_upload_info_button">Velg bilde</string>
+    <string name="autofill_locked_no_suggestions_title">Ingen forslag når låst</string>
+    <string name="autofill_locked_no_suggestions_summary">Mens databasen er låst vises ingenting, heller ikke for lagrede nettsteder</string>
+    <string name="autofill_saved_sites_locked_title">Foreslå lagrede nettsteder når låst</string>
+    <string name="autofill_saved_sites_locked_summary">Når låst vises opplåsingsforespørselen bare for nettsteder og apper med lagrede oppføringer</string>
 </resources>

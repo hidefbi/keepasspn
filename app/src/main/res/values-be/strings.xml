@@ -804,4 +804,8 @@
     <string name="icon_upload_info_title">Запампаваць значок</string>
     <string name="icon_upload_info_message">Выберыце малюнак з гэтай прылады. Android павінен мець магчымасць яго прачытаць (PNG, JPEG, WebP і большасць распаўсюджаных фарматаў), памер — не больш за 5 МБ. Малюнак памяншаецца да шырыні 64 пікселі і захоўваецца ў базе даных. Малюнак, які ўжо ёсць у базе, не прымаецца. Уласныя значкі даступны толькі для баз, якія іх падтрымліваюць.</string>
     <string name="icon_upload_info_button">Выбраць малюнак</string>
+    <string name="autofill_locked_no_suggestions_title">Без прапаноў пры блакіроўцы</string>
+    <string name="autofill_locked_no_suggestions_summary">Пакуль база заблакіравана, нічога не паказваецца, нават для захаваных сайтаў</string>
+    <string name="autofill_saved_sites_locked_title">Прапаноўваць захаваныя сайты пры блакіроўцы</string>
+    <string name="autofill_saved_sites_locked_summary">Пры блакіроўцы паказ запыту разблакіроўкі толькі для сайтаў і праграм, якія маюць захаваныя запісы</string>
 </resources>

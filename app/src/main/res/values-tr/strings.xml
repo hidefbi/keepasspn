@@ -854,4 +854,8 @@ Uygulama kullanıcı verilerini toplamaz, hiçbir sunucuya bağlanmaz, yalnızca
     <string name="icon_upload_info_title">Simge yükle</string>
     <string name="icon_upload_info_message">Bu cihazdan bir görüntü seçin. Android bu görüntüyü okuyabilmelidir (PNG, JPEG, WebP ve yaygın biçimlerin çoğu) ve boyutu en fazla 5 MB olmalıdır. Görüntü 64 piksel genişliğe küçültülür ve veritabanına kaydedilir. Veritabanında zaten bulunan bir görüntü reddedilir. Özel simgeler yalnızca bunları destekleyen veritabanlarında kullanılabilir.</string>
     <string name="icon_upload_info_button">Görüntü seç</string>
+    <string name="autofill_locked_no_suggestions_title">Kilitliyken öneri gösterme</string>
+    <string name="autofill_locked_no_suggestions_summary">Veritabanı kilitliyken kayıtlı siteler için bile hiçbir şey gösterilmez</string>
+    <string name="autofill_saved_sites_locked_title">Kilitliyken kayıtlı siteleri öner</string>
+    <string name="autofill_saved_sites_locked_summary">Kilitliyken kilit açma istemi yalnızca kayıtlı girişi olan site ve uygulamalarda gösterilir</string>
 </resources>

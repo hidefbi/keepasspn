@@ -134,4 +134,8 @@
     <string name="icon_upload_info_button">Рәсем сайлау</string>
     <string name="generate_credentials">Керемтәләр ясау</string>
     <string name="copied_to_clipboard">Күчерелде</string>
+    <string name="autofill_locked_no_suggestions_title">Бикләнгәндә киңәшләр юк</string>
+    <string name="autofill_locked_no_suggestions_summary">Мәгълүмат базасы бикләнгән вакытта, сакланган сайтлар өчен дә берни күрсәтелми</string>
+    <string name="autofill_saved_sites_locked_title">Бикләнгәндә сакланган сайтларны тәкъдим итү</string>
+    <string name="autofill_saved_sites_locked_summary">Бикләнгәндә ачу сорауы гына сакланган язмалары булган сайт һәм кушымталар өчен күрсәтелә</string>
 </resources>
