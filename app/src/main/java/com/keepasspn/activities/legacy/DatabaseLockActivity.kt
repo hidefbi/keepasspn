@@ -267,6 +267,12 @@ abstract class DatabaseLockActivity : DatabaseModeActivity() {
         mDatabaseViewModel.createEntry(parentId, entryInfo, mAutoSaveEnable)
     }
 
+    fun addPgpEntry(
+        entryInfo: EntryInfo
+    ) {
+        mDatabaseViewModel.addPgpEntry(entryInfo, mAutoSaveEnable)
+    }
+
     fun updateEntry(
         entryInfo: EntryInfo
     ) {

@@ -56,6 +56,7 @@ import com.keepasspn.database.action.history.DeleteEntryHistoryDatabaseRunnable
 import com.keepasspn.database.action.history.RestoreEntryHistoryDatabaseRunnable
 import com.keepasspn.database.action.node.ActionNodesValues
 import com.keepasspn.database.action.node.AddEntryRunnable
+import com.keepasspn.database.action.node.AddPgpEntryRunnable
 import com.keepasspn.database.action.node.AddGroupRunnable
 import com.keepasspn.database.action.node.ImportEntriesRunnable
 import com.keepasspn.database.action.node.AddOtpEntriesRunnable
@@ -369,6 +370,7 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
             ACTION_DATABASE_UPDATE_GROUP_TASK -> buildDatabaseUpdateGroupActionTask(intent, database)
             ACTION_DATABASE_TOUCH_GROUP_TASK -> buildDatabaseTouchGroupActionTask(intent, database)
             ACTION_DATABASE_CREATE_ENTRY_TASK -> buildDatabaseCreateEntryActionTask(intent, database)
+            ACTION_DATABASE_ADD_PGP_ENTRY_TASK -> buildDatabaseAddPgpEntryActionTask(intent, database)
             ACTION_DATABASE_IMPORT_OTP_TASK -> buildDatabaseImportOtpActionTask(intent, database)
             ACTION_DATABASE_IMPORT_ENTRIES_TASK -> buildDatabaseImportEntriesActionTask(intent, database)
             ACTION_DATABASE_UPDATE_ENTRY_TASK -> buildDatabaseUpdateEntryActionTask(intent, database)
@@ -1145,6 +1147,29 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         }
     }
 
+    private fun buildDatabaseAddPgpEntryActionTask(
+        intent: Intent,
+        database: ContextualDatabase,
+    ): ActionRunnable? {
+        return if (intent.hasSecretExtra(ENTRY_KEY)
+            && intent.hasExtra(SAVE_DATABASE_KEY)
+        ) {
+            val newEntry: EntryInfo = intent.takeSecretExtra<EntryInfo>(ENTRY_KEY) ?: return null
+            val saveDatabase = intent.getBooleanExtra(SAVE_DATABASE_KEY, false)
+            AddPgpEntryRunnable(
+                context = this,
+                database = database,
+                newEntry = newEntry,
+                save = !database.isReadOnly && saveDatabase,
+                afterActionNodesFinish = AfterActionNodesRunnable()
+            ) { hardwareKey, seed ->
+                retrieveResponseFromChallenge(hardwareKey, seed)
+            }
+        } else {
+            null
+        }
+    }
+
     private fun buildDatabaseCreateEntryActionTask(
         intent: Intent,
         database: ContextualDatabase,
@@ -1634,6 +1659,7 @@ open class DatabaseTaskNotificationService : LockNotificationService(), Progress
         const val ACTION_DATABASE_UPDATE_GROUP_TASK = "ACTION_DATABASE_UPDATE_GROUP_TASK"
         const val ACTION_DATABASE_TOUCH_GROUP_TASK = "ACTION_DATABASE_TOUCH_GROUP_TASK"
         const val ACTION_DATABASE_CREATE_ENTRY_TASK = "ACTION_DATABASE_CREATE_ENTRY_TASK"
+        const val ACTION_DATABASE_ADD_PGP_ENTRY_TASK = "ACTION_DATABASE_ADD_PGP_ENTRY_TASK"
         const val ACTION_DATABASE_IMPORT_OTP_TASK = "ACTION_DATABASE_IMPORT_OTP_TASK"
         const val OTP_MODELS_KEY = "OTP_MODELS_KEY"
         const val ACTION_DATABASE_IMPORT_ENTRIES_TASK = "ACTION_DATABASE_IMPORT_ENTRIES_TASK"

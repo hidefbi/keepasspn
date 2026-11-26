@@ -466,6 +466,7 @@ class GroupActivity : DatabaseLockActivity() {
                         addNodeButtonView?.enableAddGroup(state.showAddGroupButton)
                         addNodeButtonView?.enableAddEntry(state.showAddGroupButton)
                         addNodeButtonView?.enableAddCredentials(state.showAddGroupButton)
+                        addNodeButtonView?.enableAddPgp(state.showAddGroupButton)
                         if (state.showAddNodeButton)
                             addNodeButtonView?.showButton()
                         else
@@ -796,6 +797,9 @@ class GroupActivity : DatabaseLockActivity() {
         }
         addNodeButtonView?.setAddCredentialsClickListener {
             KeyGeneratorActivity.launchStandalone(this@GroupActivity)
+        }
+        addNodeButtonView?.setAddPgpClickListener {
+            startActivity(Intent(this@GroupActivity, PgpActivity::class.java))
         }
         addNodeButtonView?.setAddEntryClickListener {
             mDatabase?.let { database ->

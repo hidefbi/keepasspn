@@ -81,11 +81,26 @@ Logos belong to their owners. Check the brand's guidelines before you use one an
 - *Check for updates* just opens the releases page in your browser.
 - Passkeys are only offered to browsers and apps on the privileged allow lists. A custom list on the device is checked first, then Google's and the community list. Native apps that call Credential Manager directly are refused, since checking them would need internet. See `SECURITY_HARDENING.md` for the reasoning.
 
+## PGP
+
+Tap the **+** button on the database screen and choose **PGP**. From there you can:
+
+- generate a key (Curve25519 by default, or RSA 3072 or 4096), or import someone's public key
+- encrypt and decrypt text, or files up to 50 MB
+- sign text or files, and verify a signature
+
+Text boxes take up to 1 MB. Files are read and written in pieces, so a progress bar shows the work and you can cancel it. Encrypt and sign have one box, decrypt has its own box below. **Clear** empties the text boxes, files and result on the page, and **Clear PGP cache** in the menu removes every file the PGP screen made. Leaving the screen clears the cache too. Nothing is saved unless you save it.
+
+Keys are saved as entries in a folder called **PGP Safe**. The folder is made the first time you generate or import a key, and it sits right under TOTP Summary. You can move it like any other folder. Keys go with your backups like everything else. The private key and its passphrase are protected fields. Signing and decrypting ask for user verification first, and the passphrase is needed each time.
+
+Messages and keys follow the OpenPGP standard, so gpg and other OpenPGP tools can read what the app makes, and the app can read theirs. Keys made here are version 4, which works with most tools. Newer key formats aren't created.
+
 ## Features
 
 - Opening KDBX databases from local storage or a document provider.
 - The Android Autofill service.
 - Passkey provider support for Credential Manager.
+- PGP: generate keys, encrypt, decrypt, sign and verify text or files up to 50 MB. Works with gpg.
 
 ## Building
 

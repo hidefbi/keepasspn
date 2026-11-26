@@ -26,6 +26,30 @@
 
     <LinearLayout
         android:orientation="horizontal"
+        android:id="@+id/container_add_pgp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/container_add_credentials"
+        android:layout_alignEnd="@+id/container_add_credentials"
+        android:layout_alignRight="@+id/container_add_credentials"
+        android:layout_marginBottom="-12dp"
+        android:descendantFocusability="blocksDescendants"
+        android:visibility="gone">
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fab_add_pgp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_small_size"
+            android:layout_marginRight="@dimen/image_button_margin"
+            android:layout_marginEnd="@dimen/image_button_margin"
+            app:icon="@drawable/ic_pgp_studio_white_24dp"
+            android:contentDescription="@string/pgp_title"
+            style="@style/KeePassPNStyle.Fab.Menu"
+            android:text="@string/pgp_title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:id="@+id/container_add_credentials"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

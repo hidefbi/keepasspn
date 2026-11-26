@@ -41,5 +41,6 @@ enum class UserVerificationActionType {
     EDIT_GROUP,
     EDIT_DATABASE_SETTING,
     MERGE_FROM_DATABASE,
-    SAVE_DATABASE_COPY_TO
+    SAVE_DATABASE_COPY_TO,
+    PGP_USE_KEY
 }

@@ -57,6 +57,7 @@ android {
 dependencies {
     // Crypto
     implementation(libs.bouncycastle.pkix)
+    implementation(libs.bouncycastle.pg)
 
     androidTestImplementation(libs.androidx.test.runner)
 }

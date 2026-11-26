@@ -57,6 +57,34 @@ open class DatabaseInfo: Database() {
     }
 
     /**
+     * Get the info of every entry that holds a PGP public key, outside the recycle bin.
+     * Used by the PGP screen to list the keys of the database.
+     * @return The entries with a PGP key, in traversal order (empty if none).
+     */
+    fun getEntryInfosWithPgpKey(publicKeyFieldName: String): List<EntryInfo> {
+        val entryInfos = mutableListOf<EntryInfo>()
+        rootGroup?.doForEachChildAndForIt(
+            object : NodeHandler<Entry>() {
+                override fun operate(node: Entry): Boolean {
+                    if (!isInRecycleBin(node.parent)) {
+                        val entryInfo = getEntryInfoFrom(node, raw = true)
+                        if (entryInfo.customFields.any { it.name == publicKeyFieldName }) {
+                            entryInfos.add(entryInfo)
+                        }
+                    }
+                    return true
+                }
+            },
+            object : NodeHandler<Group>() {
+                override fun operate(node: Group): Boolean {
+                    return true
+                }
+            }
+        )
+        return entryInfos
+    }
+
+    /**
      * Get the info of every entry that has a one-time password, from all groups.
      * Used by the verification codes list, which aggregates TOTP across the whole database.
      * @return The entries with an OTP, in traversal order (empty if none).

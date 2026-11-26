@@ -255,6 +255,16 @@ class DatabaseViewModel(application: Application): AndroidViewModel(application)
         )
     }
 
+    fun addPgpEntry(
+        newEntry: EntryInfo,
+        save: Boolean
+    ) {
+        mDatabaseTaskProvider.startDatabaseAddPgpEntry(
+            newEntry = newEntry,
+            save = save
+        )
+    }
+
     fun updateEntry(
         updateEntry: EntryInfo,
         save: Boolean

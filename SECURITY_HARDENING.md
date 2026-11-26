@@ -79,6 +79,25 @@ Task secrets go through `TaskSecrets`, the Intent only has a token. Read them wi
 `hasSecretExtra` / `takeSecretExtra`. A plain `hasExtra` is always false for them, and the task
 just gets dropped with no message. That is what broke the master password change.
 
+### PGP keys
+Keys live in the database as entries, in the PGP Safe folder. The armored secret key and its passphrase are protected
+custom fields, and the public key is a plain field. Nothing is written to disk outside the
+database, and the keys go with its backups.
+
+- Default key is version 4 with Curve25519, and messages use AES-256 with the integrity packet
+  (SEIPD v1). Those are what gpg and most OpenPGP tools read without fuss. Version 6 keys and
+  AEAD are not created, to keep compatibility wide. RSA 3072 and 4096 are offered for older tools.
+- Signing and decrypting ask for user verification before the key is used.
+- Files and results are streamed through `cacheDir/pgp`, which is app-private. Limits are 50 MiB for
+  files and for decrypted output, and 1 MB for typed text. Decrypted output over the limit is refused and
+  the partial file is deleted.
+- The PGP cache is removed on exit, on a fresh start of the screen and by Clear PGP cache. Clear on the
+  page removes the files of that page only. Removal is a plain delete, flash storage does not give a
+  reliable overwrite, so the files are not wiped securely.
+- Keys are generated on the device with SecureRandom. There is no key server, and the app has no
+  internet permission, so public keys have to be imported by hand.
+- The OpenPGP library is BouncyCastle bcpg. It is the main size cost of the feature.
+
 ### Build and supply chain
 - Gradle wrapper 8.14.7, pinned by `distributionSha256Sum`.
 - `gradle/verification-metadata.xml` holds the SHA-256 of every artifact the build resolves.
@@ -138,3 +157,18 @@ just gets dropped with no message. That is what broke the master password change
 15. Lock the database and open a saved site: the unlock prompt shows. Open a site that is not
     saved: nothing shows. With "No suggestions when locked" on, nothing shows while locked.
 16. The same as 14 and 15 for an app with a saved entry (its AndroidApp field).
+17. Open PGP from the + button on the database screen. Generate a key with a passphrase, then check
+    the key shows in the list with its fingerprint.
+18. Encrypt a text to the key and decrypt it again. A wrong passphrase must show an error and no text.
+19. Encrypt and decrypt a file of about 50 MB. A file over 50 MB must be refused, and so must decrypted output
+    over 50 MB. Cancel a long run: the progress stops and no output file is left.
+20. Sign a text and verify it. Change one character and verify again: it must show a bad signature.
+21. gpg interop, both ways: encrypt to the app's public key and decrypt with gpg; encrypt with gpg
+    to the exported public key and decrypt in the app. Same for a signature and its verification.
+22. With "Verify before editing" on, sign and decrypt must ask for verification first.
+23. The first key creates PGP Safe under TOTP Summary. A second key goes into the same folder. Move
+    PGP Safe somewhere else, make another key: it still goes into PGP Safe.
+24. Delete PGP Safe: its keys go to the recycle bin and leave the PGP page. Making a key then creates
+    a new PGP Safe.
+25. Type more than 1 MB of text: it must be refused. Clear empties the boxes and result. Clear PGP cache
+    and leaving the screen leave no file in the app's cache under pgp/.

@@ -169,6 +169,9 @@
             android:name="com.keepasspn.activities.VerificationCodesActivity"
             android:configChanges="keyboardHidden" />
         <activity
+            android:name="com.keepasspn.activities.PgpActivity"
+            android:configChanges="keyboardHidden" />
+        <activity
             android:name="com.keepasspn.activities.ImportEntriesActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity

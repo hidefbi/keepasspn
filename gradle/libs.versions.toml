@@ -59,6 +59,7 @@ nbvcxz = { group = "me.gosimple", name = "nbvcxz", version.ref = "nbvcxz" }
 androidx-credentials = { group = "androidx.credentials", name = "credentials", version.ref = "credentials" }
 zxing-core = { group = "com.google.zxing", name = "core", version.ref = "zxing" }
 bouncycastle-pkix = { group = "org.bouncycastle", name = "bcpkix-jdk18on", version.ref = "bouncycastle" }
+bouncycastle-pg = { group = "org.bouncycastle", name = "bcpg-jdk18on", version.ref = "bouncycastle" }
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "android-test" }
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "android-test" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
