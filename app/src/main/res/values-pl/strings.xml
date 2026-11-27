@@ -914,5 +914,7 @@ Aby zachować naszą wolność, naprawiać błędy, dodawać funkcje i utrzymywa
     <string name="pgp_error_wrong_passphrase">Błędne hasło</string>
     <string name="pgp_error_no_matching_key">Brak pasującego klucza do tej wiadomości</string>
     <string name="pgp_error_invalid">Dane są nieprawidłowe</string>
+    <string name="pgp_key_too_large">Klucz lub podpis jest za duży</string>
+    <string name="pgp_error_no_integrity">Ta wiadomość nie ma kontroli integralności, więc została odrzucona</string>
     <string name="pgp_saved">Zapisano</string>
 </resources>

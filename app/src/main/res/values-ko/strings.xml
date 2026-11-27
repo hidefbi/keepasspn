@@ -502,5 +502,7 @@
     <string name="pgp_error_wrong_passphrase">암호가 잘못되었습니다</string>
     <string name="pgp_error_no_matching_key">이 메시지에 맞는 키가 없습니다</string>
     <string name="pgp_error_invalid">데이터가 올바르지 않습니다</string>
+    <string name="pgp_key_too_large">키 또는 서명이 너무 큽니다</string>
+    <string name="pgp_error_no_integrity">이 메시지는 무결성 검사가 없어 거부되었습니다</string>
     <string name="pgp_saved">저장됨</string>
 </resources>

@@ -450,6 +450,10 @@ class PgpActivity : DatabaseLockActivity() {
 
     private fun importPublicKey(armored: String) {
         if (mDatabase == null) return
+        if (armored.length > PgpCore.MAX_KEY_CHARS) {
+            Toast.makeText(this, R.string.pgp_key_too_large, Toast.LENGTH_LONG).show()
+            return
+        }
         try {
             val info = PgpCore.inspect(armored)
             val userId = info.userIds.firstOrNull() ?: info.fingerprint
@@ -463,7 +467,11 @@ class PgpActivity : DatabaseLockActivity() {
             addPgpEntry(entryInfo)
             Toast.makeText(this, R.string.pgp_key_imported, Toast.LENGTH_SHORT).show()
         } catch (e: PgpCore.PgpError) {
-            showPgpError(e)
+            if (e.reason == PgpCore.Reason.TOO_LARGE) {
+                Toast.makeText(this, R.string.pgp_key_too_large, Toast.LENGTH_LONG).show()
+            } else {
+                showPgpError(e)
+            }
         }
     }
 
@@ -624,7 +632,13 @@ class PgpActivity : DatabaseLockActivity() {
             .setTitle(R.string.pgp_signature_title)
             .setView(signatureEdit)
             .setPositiveButton(android.R.string.ok) { _, _ ->
-                verifyInput(input, signatureEdit.text.toString().trim())
+                val signature = signatureEdit.text.toString().trim()
+                if (signature.length > PgpCore.MAX_SIGNATURE_CHARS) {
+                    discardInput(input)
+                    Toast.makeText(this, R.string.pgp_key_too_large, Toast.LENGTH_LONG).show()
+                } else {
+                    verifyInput(input, signature)
+                }
             }
             .setNegativeButton(android.R.string.cancel, null)
             .show()
@@ -887,6 +901,7 @@ class PgpActivity : DatabaseLockActivity() {
             PgpCore.Reason.WRONG_PASSPHRASE -> R.string.pgp_error_wrong_passphrase
             PgpCore.Reason.NO_MATCHING_KEY -> R.string.pgp_error_no_matching_key
             PgpCore.Reason.INVALID_DATA -> R.string.pgp_error_invalid
+            PgpCore.Reason.NO_INTEGRITY -> R.string.pgp_error_no_integrity
             PgpCore.Reason.TOO_LARGE -> R.string.pgp_file_too_large
             PgpCore.Reason.CANCELLED -> R.string.error_cancel_by_user
         }

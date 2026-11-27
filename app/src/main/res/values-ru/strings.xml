@@ -924,5 +924,7 @@
     <string name="pgp_error_wrong_passphrase">Неверная парольная фраза</string>
     <string name="pgp_error_no_matching_key">Для этого сообщения нет подходящего ключа</string>
     <string name="pgp_error_invalid">Данные недействительны</string>
+    <string name="pgp_key_too_large">Ключ или подпись слишком большие</string>
+    <string name="pgp_error_no_integrity">В этом сообщении нет проверки целостности, поэтому оно отклонено</string>
     <string name="pgp_saved">Сохранено</string>
 </resources>

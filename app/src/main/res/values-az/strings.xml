@@ -795,5 +795,7 @@ Azadlığımızı qorumaq, səhvləri düzəltmək, yeni funksiyalar əlavə etm
     <string name="pgp_error_wrong_passphrase">Parol ifrası yanlışdır</string>
     <string name="pgp_error_no_matching_key">Bu mesaj üçün uyğun açar yoxdur</string>
     <string name="pgp_error_invalid">Məlumat etibarsızdır</string>
+    <string name="pgp_key_too_large">Açar və ya imza çox böyükdür</string>
+    <string name="pgp_error_no_integrity">Bu mesajda bütövlük yoxlanışı yoxdur, ona görə rədd edildi</string>
     <string name="pgp_saved">Saxlanıldı</string>
 </resources>

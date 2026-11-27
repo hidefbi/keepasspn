@@ -87,6 +87,14 @@ object PgpCore {
     /** Largest text typed into a box. */
     const val MAX_TEXT_BYTES = 1024 * 1024
 
+    /** Armored keys and signatures are checked for length before the parser sees them. */
+    const val MAX_KEY_CHARS = 2 * 1024 * 1024
+    const val MAX_SIGNATURE_CHARS = 64 * 1024
+
+    private const val MAX_COMPRESSION_LAYERS = 2
+    private const val MAX_SUBKEYS = 32
+    private const val MAX_USER_IDS = 64
+
     init {
         Security.removeProvider(BouncyCastleProvider.PROVIDER_NAME)
         Security.addProvider(BouncyCastleProvider())
@@ -99,6 +107,7 @@ object PgpCore {
         WRONG_PASSPHRASE,
         NO_MATCHING_KEY,
         INVALID_DATA,
+        NO_INTEGRITY,
         TOO_LARGE,
         CANCELLED
     }
@@ -259,13 +268,15 @@ object PgpCore {
             for (encrypted in list) {
                 val pubEncrypted = encrypted as? PGPPublicKeyEncryptedData ?: continue
                 val secretKey = secretRing.getSecretKey(pubEncrypted.keyID) ?: continue
+                // Without an MDC or AEAD tag nothing checks the plain data, so it is not read at all
+                if (!pubEncrypted.isIntegrityProtected) throw PgpError(Reason.NO_INTEGRITY)
                 val privateKey = extractPrivateKey(secretKey, passphrase)
                 val clear = pubEncrypted.getDataStream(
                     JcePublicKeyDataDecryptorFactoryBuilder().setProvider(PROVIDER).build(privateKey)
                 )
                 writeLiteral(clear, sink, control)
                 // The integrity check runs once the whole stream has been read
-                if (pubEncrypted.isIntegrityProtected && !pubEncrypted.verify()) {
+                if (!pubEncrypted.verify()) {
                     throw PgpError(Reason.INVALID_DATA)
                 }
                 return
@@ -316,6 +327,7 @@ object PgpCore {
                 PGPUtil.getDecoderStream(ByteArrayInputStream(signatureArmored.toByteArray(Charsets.UTF_8))),
                 JcaKeyFingerprintCalculator()
             )
+            checkLength(signatureArmored, MAX_SIGNATURE_CHARS)
             val signature = when (val found = factory.nextObject()) {
                 is PGPSignatureList -> if (found.isEmpty) null else found[0]
                 is PGPSignature -> found
@@ -438,7 +450,9 @@ object PgpCore {
 
     private fun writeLiteral(stream: InputStream, sink: OutputStream, control: Control) {
         var message = PGPObjectFactory(stream, JcaKeyFingerprintCalculator()).nextObject()
+        var layers = 0
         while (message is PGPCompressedData) {
+            if (++layers > MAX_COMPRESSION_LAYERS) throw PgpError(Reason.INVALID_DATA)
             message = PGPObjectFactory(message.dataStream, JcaKeyFingerprintCalculator()).nextObject()
         }
         val literal = message as? PGPLiteralData ?: throw PgpError(Reason.INVALID_DATA)
@@ -446,14 +460,26 @@ object PgpCore {
     }
 
     private fun readPublicRings(armored: String): List<PGPPublicKeyRing> {
+        checkLength(armored, MAX_KEY_CHARS)
         val collection = PGPPublicKeyRingCollection(
             PGPUtil.getDecoderStream(ByteArrayInputStream(armored.toByteArray(Charsets.UTF_8))),
             JcaKeyFingerprintCalculator()
         )
-        return collection.keyRings.asSequence().toList()
+        val rings = collection.keyRings.asSequence().toList()
+        rings.forEach { ring ->
+            val subkeys = ring.publicKeys.asSequence().count()
+            val userIds = ring.publicKey.userIDs.asSequence().count()
+            if (subkeys > MAX_SUBKEYS || userIds > MAX_USER_IDS) throw PgpError(Reason.INVALID_DATA)
+        }
+        return rings
+    }
+
+    private fun checkLength(text: String, maxChars: Int) {
+        if (text.length > maxChars) throw PgpError(Reason.TOO_LARGE)
     }
 
     private fun readSecretRing(armored: String): PGPSecretKeyRing {
+        checkLength(armored, MAX_KEY_CHARS)
         val collection = PGPSecretKeyRingCollection(
             PGPUtil.getDecoderStream(ByteArrayInputStream(armored.toByteArray(Charsets.UTF_8))),
             JcaKeyFingerprintCalculator()

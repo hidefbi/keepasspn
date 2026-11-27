@@ -852,5 +852,7 @@ Per mantenir la nostra llibertat, corregir errors, afegir funcions i mantenir el
     <string name="pgp_error_wrong_passphrase">Contrasenya incorrecta</string>
     <string name="pgp_error_no_matching_key">No hi ha cap clau per a aquest missatge</string>
     <string name="pgp_error_invalid">Les dades no són vàlides</string>
+    <string name="pgp_key_too_large">La clau o la signatura és massa gran</string>
+    <string name="pgp_error_no_integrity">Aquest missatge no té comprovació d\'integritat, així que s\'ha rebutjat</string>
     <string name="pgp_saved">Desat</string>
 </resources>

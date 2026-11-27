@@ -170,5 +170,7 @@
     <string name="pgp_error_wrong_passphrase">चुकीचा पासफ्रेज</string>
     <string name="pgp_error_no_matching_key">या संदेशासाठी जुळणारी की नाही</string>
     <string name="pgp_error_invalid">डेटा वैध नाही</string>
+    <string name="pgp_key_too_large">की किंवा स्वाक्षरी खूप मोठी आहे</string>
+    <string name="pgp_error_no_integrity">या संदेशात अखंडता तपासणी नाही, म्हणून तो नाकारला</string>
     <string name="pgp_saved">जतन केले</string>
 </resources>

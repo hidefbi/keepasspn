@@ -837,5 +837,7 @@ For at bevare vores frihed, rette fejl, tilføje funktioner og holde projektet a
     <string name="pgp_error_wrong_passphrase">Forkert adgangskode</string>
     <string name="pgp_error_no_matching_key">Ingen matchende nøgle til denne besked</string>
     <string name="pgp_error_invalid">Data er ikke gyldige</string>
+    <string name="pgp_key_too_large">Nøglen eller signaturen er for stor</string>
+    <string name="pgp_error_no_integrity">Beskeden har ingen integritetstjek, så den blev afvist</string>
     <string name="pgp_saved">Gemt</string>
 </resources>

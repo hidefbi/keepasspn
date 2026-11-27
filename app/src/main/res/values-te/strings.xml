@@ -184,5 +184,7 @@
     <string name="pgp_error_wrong_passphrase">తప్పు పాస్‌ఫ్రేజ్</string>
     <string name="pgp_error_no_matching_key">ఈ సందేశానికి సరిపోలే కీ లేదు</string>
     <string name="pgp_error_invalid">డేటా చెల్లదు</string>
+    <string name="pgp_key_too_large">కీ లేదా సంతకం చాలా పెద్దది</string>
+    <string name="pgp_error_no_integrity">ఈ సందేశానికి సమగ్రత తనిఖీ లేదు, కాబట్టి తిరస్కరించబడింది</string>
     <string name="pgp_saved">సేవ్ చేయబడింది</string>
 </resources>

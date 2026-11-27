@@ -915,5 +915,7 @@
     <string name="pgp_error_wrong_passphrase">パスフレーズが違います</string>
     <string name="pgp_error_no_matching_key">このメッセージに一致する鍵がありません</string>
     <string name="pgp_error_invalid">データが正しくありません</string>
+    <string name="pgp_key_too_large">鍵または署名が大きすぎます</string>
+    <string name="pgp_error_no_integrity">このメッセージには整合性チェックがないため拒否しました</string>
     <string name="pgp_saved">保存しました</string>
 </resources>

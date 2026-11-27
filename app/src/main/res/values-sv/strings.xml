@@ -894,5 +894,7 @@ För att bevara vår frihet, rätta buggar, lägga till funktioner och hålla pr
     <string name="pgp_error_wrong_passphrase">Fel lösenfras</string>
     <string name="pgp_error_no_matching_key">Ingen nyckel matchar det här meddelandet</string>
     <string name="pgp_error_invalid">Datan är inte giltig</string>
+    <string name="pgp_key_too_large">Nyckeln eller signaturen är för stor</string>
+    <string name="pgp_error_no_integrity">Meddelandet saknar integritetskontroll och har därför avvisats</string>
     <string name="pgp_saved">Sparad</string>
 </resources>

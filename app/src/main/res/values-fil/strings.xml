@@ -427,5 +427,7 @@ Upang mapanatili ang aming kalayaan, ayusin ang mga bug, magdagdag ng mga featur
     <string name="pgp_error_wrong_passphrase">Maling passphrase</string>
     <string name="pgp_error_no_matching_key">Walang tugmang key para sa mensaheng ito</string>
     <string name="pgp_error_invalid">Hindi wasto ang data</string>
+    <string name="pgp_key_too_large">Masyadong malaki ang key o signature</string>
+    <string name="pgp_error_no_integrity">Walang integrity check ang mensaheng ito, kaya tinanggihan</string>
     <string name="pgp_saved">Na-save</string>
 </resources>

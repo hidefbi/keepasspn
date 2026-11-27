@@ -443,5 +443,7 @@ Lai saglabātu mūsu brīvību, labotu kļūdas, pievienotu funkcijas un uzturē
     <string name="pgp_error_wrong_passphrase">Nepareiza paroles frāze</string>
     <string name="pgp_error_no_matching_key">Šim ziņojumam nav atbilstošas atslēgas</string>
     <string name="pgp_error_invalid">Dati nav derīgi</string>
+    <string name="pgp_key_too_large">Atslēga vai paraksts ir pārāk liels</string>
+    <string name="pgp_error_no_integrity">Ziņojumam nav integritātes pārbaudes, tāpēc tas tika noraidīts</string>
     <string name="pgp_saved">Saglabāts</string>
 </resources>

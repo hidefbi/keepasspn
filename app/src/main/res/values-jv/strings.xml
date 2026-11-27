@@ -181,5 +181,7 @@ Kanggo njaga kebebasan kita, mbenerake bug, nambah fitur, lan njaga proyek tetep
     <string name="pgp_error_wrong_passphrase">Frasa sandi salah</string>
     <string name="pgp_error_no_matching_key">Ora ana kunci sing cocog kanggo pesen iki</string>
     <string name="pgp_error_invalid">Data ora sah</string>
+    <string name="pgp_key_too_large">Kunci utawa tandha tangan kegedhen</string>
+    <string name="pgp_error_no_integrity">Pesen iki ora ana pemeriksaan integritas, mula ditolak</string>
     <string name="pgp_saved">Disimpen</string>
 </resources>

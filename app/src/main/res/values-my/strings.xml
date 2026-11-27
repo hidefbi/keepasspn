@@ -192,5 +192,7 @@
     <string name="pgp_error_wrong_passphrase">လျှို့ဝှက်စကားစု မှားနေသည်</string>
     <string name="pgp_error_no_matching_key">ဤစာတိုနှင့် ကိုက်ညီသော ကီး မရှိပါ</string>
     <string name="pgp_error_invalid">ဒေတာ မမှန်ကန်ပါ</string>
+    <string name="pgp_key_too_large">သော့သို့မဟုတ် လက်မှတ် ကြီးလွန်းသည်</string>
+    <string name="pgp_error_no_integrity">ဤမက်ဆေ့ဂျ်တွင် ခိုင်မာမှုစစ်ဆေးချက် မရှိသောကြောင့် ပယ်ချလိုက်သည်</string>
     <string name="pgp_saved">သိမ်းပြီးပါပြီ</string>
 </resources>

@@ -905,5 +905,7 @@
     <string name="pgp_error_wrong_passphrase">Sai mật khẩu</string>
     <string name="pgp_error_no_matching_key">Không có khóa nào khớp với thông điệp này</string>
     <string name="pgp_error_invalid">Dữ liệu không hợp lệ</string>
+    <string name="pgp_key_too_large">Khóa hoặc chữ ký quá lớn</string>
+    <string name="pgp_error_no_integrity">Tin nhắn này không có kiểm tra toàn vẹn nên đã bị từ chối</string>
     <string name="pgp_saved">Đã lưu</string>
 </resources>

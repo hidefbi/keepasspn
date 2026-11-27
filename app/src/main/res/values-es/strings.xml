@@ -902,5 +902,7 @@ Para mantener nuestra libertad, corregir errores, añadir funciones y mantener e
     <string name="pgp_error_wrong_passphrase">Frase de contraseña incorrecta</string>
     <string name="pgp_error_no_matching_key">No hay ninguna clave para este mensaje</string>
     <string name="pgp_error_invalid">Los datos no son válidos</string>
+    <string name="pgp_key_too_large">La clave o la firma es demasiado grande</string>
+    <string name="pgp_error_no_integrity">Este mensaje no tiene comprobación de integridad, así que se ha rechazado</string>
     <string name="pgp_saved">Guardado</string>
 </resources>

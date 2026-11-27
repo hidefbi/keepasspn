@@ -915,5 +915,7 @@ Uygulama kullanıcı verilerini toplamaz, hiçbir sunucuya bağlanmaz, yalnızca
     <string name="pgp_error_wrong_passphrase">Yanlış parola</string>
     <string name="pgp_error_no_matching_key">Bu ileti için eşleşen anahtar yok</string>
     <string name="pgp_error_invalid">Veriler geçerli değil</string>
+    <string name="pgp_key_too_large">Anahtar veya imza çok büyük</string>
+    <string name="pgp_error_no_integrity">Bu iletinin bütünlük denetimi yok, bu yüzden reddedildi</string>
     <string name="pgp_saved">Kaydedildi</string>
 </resources>

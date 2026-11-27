@@ -455,5 +455,7 @@
     <string name="pgp_error_wrong_passphrase">ਗਲਤ ਪਾਸਫ੍ਰੇਜ਼</string>
     <string name="pgp_error_no_matching_key">ਇਸ ਸੁਨੇਹੇ ਲਈ ਕੋਈ ਮੇਲ ਖਾਂਦੀ ਕੁੰਜੀ ਨਹੀਂ</string>
     <string name="pgp_error_invalid">ਡੇਟਾ ਵੈਧ ਨਹੀਂ ਹੈ</string>
+    <string name="pgp_key_too_large">ਕੁੰਜੀ ਜਾਂ ਦਸਤਖ਼ਤ ਬਹੁਤ ਵੱਡਾ ਹੈ</string>
+    <string name="pgp_error_no_integrity">ਇਸ ਸੁਨੇਹੇ ਵਿੱਚ ਇਕਸਾਰਤਾ ਜਾਂਚ ਨਹੀਂ, ਇਸ ਲਈ ਇਹ ਰੱਦ ਕੀਤਾ ਗਿਆ</string>
     <string name="pgp_saved">ਸੰਭਾਲਿਆ ਗਿਆ</string>
 </resources>

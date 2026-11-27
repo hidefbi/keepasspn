@@ -840,5 +840,7 @@ Kako bismo očuvali slobodu, ispravljali greške, dodavali značajke i održaval
     <string name="pgp_error_wrong_passphrase">Pogrešna lozinka</string>
     <string name="pgp_error_no_matching_key">Nema odgovarajućeg ključa za ovu poruku</string>
     <string name="pgp_error_invalid">Podaci nisu valjani</string>
+    <string name="pgp_key_too_large">Ključ ili potpis je prevelik</string>
+    <string name="pgp_error_no_integrity">Ova poruka nema provjeru integriteta, pa je odbijena</string>
     <string name="pgp_saved">Spremljeno</string>
 </resources>

@@ -845,5 +845,7 @@
     <string name="pgp_error_wrong_passphrase">Λανθασμένη φράση πρόσβασης</string>
     <string name="pgp_error_no_matching_key">Δεν υπάρχει αντίστοιχο κλειδί για αυτό το μήνυμα</string>
     <string name="pgp_error_invalid">Τα δεδομένα δεν είναι έγκυρα</string>
+    <string name="pgp_key_too_large">Το κλειδί ή η υπογραφή είναι πολύ μεγάλα</string>
+    <string name="pgp_error_no_integrity">Το μήνυμα δεν έχει έλεγχο ακεραιότητας και απορρίφθηκε</string>
     <string name="pgp_saved">Αποθηκεύτηκε</string>
 </resources>

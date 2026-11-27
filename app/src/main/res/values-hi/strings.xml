@@ -309,5 +309,7 @@
     <string name="pgp_error_wrong_passphrase">गलत पासफ़्रेज़</string>
     <string name="pgp_error_no_matching_key">इस संदेश के लिए कोई मेल खाती कुंजी नहीं है</string>
     <string name="pgp_error_invalid">डेटा मान्य नहीं है</string>
+    <string name="pgp_key_too_large">कुंजी या हस्ताक्षर बहुत बड़ा है</string>
+    <string name="pgp_error_no_integrity">इस संदेश में अखंडता जाँच नहीं है, इसलिए इसे अस्वीकार किया गया</string>
     <string name="pgp_saved">सहेजा गया</string>
 </resources>

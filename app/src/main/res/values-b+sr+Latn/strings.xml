@@ -516,5 +516,7 @@ Da bismo sačuvali našu slobodu, ispravljali greške, dodavali funkcije i održ
     <string name="pgp_error_wrong_passphrase">Pogrešna lozinka</string>
     <string name="pgp_error_no_matching_key">Nema odgovarajućeg ključa za ovu poruku</string>
     <string name="pgp_error_invalid">Podaci nisu ispravni</string>
+    <string name="pgp_key_too_large">Ključ ili potpis je prevelik</string>
+    <string name="pgp_error_no_integrity">Ova poruka nema proveru integriteta, pa je odbijena</string>
     <string name="pgp_saved">Sačuvano</string>
 </resources>

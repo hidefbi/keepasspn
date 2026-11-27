@@ -923,5 +923,7 @@
     <string name="pgp_error_wrong_passphrase">口令错误</string>
     <string name="pgp_error_no_matching_key">没有与此消息匹配的密钥</string>
     <string name="pgp_error_invalid">数据无效</string>
+    <string name="pgp_key_too_large">密钥或签名太大</string>
+    <string name="pgp_error_no_integrity">此消息没有完整性校验，已拒绝</string>
     <string name="pgp_saved">已保存</string>
 </resources>

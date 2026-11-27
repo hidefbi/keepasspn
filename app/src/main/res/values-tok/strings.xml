@@ -98,5 +98,7 @@
     <string name="pgp_error_wrong_passphrase">nimi pi lawa li ike</string>
     <string name="pgp_error_no_matching_key">ilo lawa ala li sama e toki ni</string>
     <string name="pgp_error_invalid">sona li ike</string>
+    <string name="pgp_key_too_large">ilo open anu sitelen li suli ju</string>
+    <string name="pgp_error_no_integrity">sitelen ni li awen ala e pona, mi weka e ona</string>
     <string name="pgp_saved">awen</string>
 </resources>

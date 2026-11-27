@@ -482,5 +482,7 @@
     <string name="pgp_error_wrong_passphrase">ভুল পাসফ্রেজ</string>
     <string name="pgp_error_no_matching_key">এই বার্তার সাথে মেলে এমন কোনো কী নেই</string>
     <string name="pgp_error_invalid">ডেটা বৈধ নয়</string>
+    <string name="pgp_key_too_large">কী বা স্বাক্ষর খুব বড়</string>
+    <string name="pgp_error_no_integrity">এই বার্তায় অখণ্ডতা যাচাই নেই, তাই এটি প্রত্যাখ্যান করা হয়েছে</string>
     <string name="pgp_saved">সংরক্ষিত</string>
 </resources>

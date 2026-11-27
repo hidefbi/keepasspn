@@ -899,5 +899,7 @@ Untuk menjaga kebebasan kami, memperbaiki bug, menambah fitur, dan menjaga proye
     <string name="pgp_error_wrong_passphrase">Frasa sandi salah</string>
     <string name="pgp_error_no_matching_key">Tidak ada kunci yang cocok untuk pesan ini</string>
     <string name="pgp_error_invalid">Data tidak valid</string>
+    <string name="pgp_key_too_large">Kunci atau tanda tangan terlalu besar</string>
+    <string name="pgp_error_no_integrity">Pesan ini tidak punya pemeriksaan integritas, jadi ditolak</string>
     <string name="pgp_saved">Tersimpan</string>
 </resources>

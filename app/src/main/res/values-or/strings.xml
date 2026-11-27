@@ -161,5 +161,7 @@
     <string name="pgp_error_wrong_passphrase">ଭୁଲ୍ ପାସଫ୍ରେଜ୍</string>
     <string name="pgp_error_no_matching_key">ଏହି ବାର୍ତ୍ତା ସହ ମେଳ ଖାଉଥିବା କୀ ନାହିଁ</string>
     <string name="pgp_error_invalid">ଡାଟା ବୈଧ ନୁହେଁ</string>
+    <string name="pgp_key_too_large">କୀ କିମ୍ବା ସ୍ୱାକ୍ଷର ବହୁତ ବଡ଼</string>
+    <string name="pgp_error_no_integrity">ଏହି ବାର୍ତ୍ତାରେ ଅଖଣ୍ଡତା ଯାଞ୍ଚ ନାହିଁ, ତେଣୁ ଏହା ପ୍ରତ୍ୟାଖ୍ୟାନ ହେଲା</string>
     <string name="pgp_saved">ସେଭ୍ ହୋଇଛି</string>
 </resources>

@@ -918,5 +918,7 @@ Szabadságunk megőrzése, a hibák javítása, új funkciók hozzáadása és a
     <string name="pgp_error_wrong_passphrase">Hibás jelmondat</string>
     <string name="pgp_error_no_matching_key">Ehhez az üzenethez nincs megfelelő kulcs</string>
     <string name="pgp_error_invalid">Az adatok nem érvényesek</string>
+    <string name="pgp_key_too_large">A kulcs vagy az aláírás túl nagy</string>
+    <string name="pgp_error_no_integrity">Az üzenetben nincs integritásellenőrzés, ezért elutasítottuk</string>
     <string name="pgp_saved">Mentve</string>
 </resources>

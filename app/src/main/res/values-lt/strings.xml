@@ -863,5 +863,7 @@ Siekdami išsaugoti laisvę, taisyti klaidas, pridėti funkcijų ir palaikyti pr
     <string name="pgp_error_wrong_passphrase">Neteisinga slaptafrazė</string>
     <string name="pgp_error_no_matching_key">Šiai žinutei nėra tinkamo rakto</string>
     <string name="pgp_error_invalid">Duomenys negalioja</string>
+    <string name="pgp_key_too_large">Raktas arba parašas per didelis</string>
+    <string name="pgp_error_no_integrity">Šis pranešimas neturi vientisumo patikros, todėl jis atmestas</string>
     <string name="pgp_saved">Įrašyta</string>
 </resources>

@@ -195,5 +195,7 @@
     <string name="pgp_error_wrong_passphrase">Дөрес булмаган парол фразасы</string>
     <string name="pgp_error_no_matching_key">Бу хәбәр өчен туры килгән ачкыч юк</string>
     <string name="pgp_error_invalid">Мәгълүмат дөрес түгел</string>
+    <string name="pgp_key_too_large">Ачкыч яки имза бик зур</string>
+    <string name="pgp_error_no_integrity">Бу хәбәрдә тулылыкны тикшерү юк, шуңа кире кагылды</string>
     <string name="pgp_saved">Сакланды</string>
 </resources>

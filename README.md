@@ -89,7 +89,7 @@ Tap the **+** button on the database screen and choose **PGP**. From there you c
 - encrypt and decrypt text, or files up to 50 MB
 - sign text or files, and verify a signature
 
-Text boxes take up to 1 MB. Files are read and written in pieces, so a progress bar shows the work and you can cancel it. Encrypt and sign have one box, decrypt has its own box below. **Clear** empties the text boxes, files and result on the page, and **Clear PGP cache** in the menu removes every file the PGP screen made. Leaving the screen clears the cache too. Nothing is saved unless you save it.
+Text boxes take up to 1 MB. Messages with no integrity check are refused, so only messages with an MDC or AEAD tag can be decrypted. Files are read and written in pieces, so a progress bar shows the work and you can cancel it. Encrypt and sign have one box, decrypt has its own box below. **Clear** empties the text boxes, files and result on the page, and **Clear PGP cache** in the menu removes every file the PGP screen made. Leaving the screen clears the cache too. Nothing is saved unless you save it.
 
 Keys are saved as entries in a folder called **PGP Safe**. The folder is made the first time you generate or import a key, and it sits right under TOTP Summary. You can move it like any other folder. Keys go with your backups like everything else. The private key and its passphrase are protected fields. Signing and decrypting ask for user verification first, and the passphrase is needed each time.
 

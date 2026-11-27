@@ -904,5 +904,7 @@
     <string name="pgp_error_wrong_passphrase">Неправильна парольна фраза</string>
     <string name="pgp_error_no_matching_key">Для цього повідомлення немає відповідного ключа</string>
     <string name="pgp_error_invalid">Дані недійсні</string>
+    <string name="pgp_key_too_large">Ключ або підпис занадто великі</string>
+    <string name="pgp_error_no_integrity">Це повідомлення без перевірки цілісності, тому його відхилено</string>
     <string name="pgp_saved">Збережено</string>
 </resources>

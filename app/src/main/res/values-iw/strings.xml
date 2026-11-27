@@ -895,5 +895,7 @@
     <string name="pgp_error_wrong_passphrase">סיסמת מעבר שגויה</string>
     <string name="pgp_error_no_matching_key">אין מפתח תואם להודעה הזו</string>
     <string name="pgp_error_invalid">הנתונים אינם תקינים</string>
+    <string name="pgp_key_too_large">המפתח או החתימה גדולים מדי</string>
+    <string name="pgp_error_no_integrity">להודעה הזו אין בדיקת שלמות, לכן היא נדחתה</string>
     <string name="pgp_saved">נשמר</string>
 </resources>

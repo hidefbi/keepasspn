@@ -479,5 +479,7 @@ To keep our freedom, fix bugs, add features and keep the project active, we welc
     <string name="pgp_error_wrong_passphrase">Wrong passphrase</string>
     <string name="pgp_error_no_matching_key">No matching key for this message</string>
     <string name="pgp_error_invalid">The data is not valid</string>
+    <string name="pgp_key_too_large">The key or signature is too large</string>
+    <string name="pgp_error_no_integrity">This message has no integrity check, so it was refused</string>
     <string name="pgp_saved">Saved</string>
 </resources>

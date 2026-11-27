@@ -590,5 +590,7 @@ Jotta säilyttäisimme vapautemme, korjaisimme virheitä, lisäisimme ominaisuuk
     <string name="pgp_error_wrong_passphrase">Väärä salasana</string>
     <string name="pgp_error_no_matching_key">Tähän viestiin ei löydy avainta</string>
     <string name="pgp_error_invalid">Tiedot eivät ole kelvollisia</string>
+    <string name="pgp_key_too_large">Avain tai allekirjoitus on liian suuri</string>
+    <string name="pgp_error_no_integrity">Viestillä ei ole eheystarkistusta, joten se hylättiin</string>
     <string name="pgp_saved">Tallennettu</string>
 </resources>

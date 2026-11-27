@@ -910,5 +910,7 @@ Pentru a ne menține libertatea, a repara erori, a adăuga funcționalități ș
     <string name="pgp_error_wrong_passphrase">Parolă greșită</string>
     <string name="pgp_error_no_matching_key">Nicio cheie nu se potrivește cu acest mesaj</string>
     <string name="pgp_error_invalid">Datele nu sunt valide</string>
+    <string name="pgp_key_too_large">Cheia sau semnătura este prea mare</string>
+    <string name="pgp_error_no_integrity">Mesajul nu are verificare de integritate, deci a fost refuzat</string>
     <string name="pgp_saved">Salvat</string>
 </resources>

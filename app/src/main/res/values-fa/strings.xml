@@ -453,5 +453,7 @@
     <string name="pgp_error_wrong_passphrase">گذرواژه نادرست است</string>
     <string name="pgp_error_no_matching_key">کلید مطابقی برای این پیام وجود ندارد</string>
     <string name="pgp_error_invalid">داده‌ها معتبر نیستند</string>
+    <string name="pgp_key_too_large">کلید یا امضا خیلی بزرگ است</string>
+    <string name="pgp_error_no_integrity">این پیام بررسی یکپارچگی ندارد، بنابراین رد شد</string>
     <string name="pgp_saved">ذخیره شد</string>
 </resources>

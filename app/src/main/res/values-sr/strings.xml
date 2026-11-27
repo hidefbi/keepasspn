@@ -543,5 +543,7 @@
     <string name="pgp_error_wrong_passphrase">Погрешна лозинка</string>
     <string name="pgp_error_no_matching_key">Нема одговарајућег кључа за ову поруку</string>
     <string name="pgp_error_invalid">Подаци нису исправни</string>
+    <string name="pgp_key_too_large">Кључ или потпис је превелик</string>
+    <string name="pgp_error_no_integrity">Ова порука нема проверу интегритета, па је одбијена</string>
     <string name="pgp_saved">Сачувано</string>
 </resources>

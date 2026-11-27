@@ -865,5 +865,7 @@
     <string name="pgp_error_wrong_passphrase">Няправільны пароль</string>
     <string name="pgp_error_no_matching_key">Для гэтага паведамлення няма адпаведнага ключа</string>
     <string name="pgp_error_invalid">Даныя несапраўдныя</string>
+    <string name="pgp_key_too_large">Ключ або подпіс занадта вялікі</string>
+    <string name="pgp_error_no_integrity">Гэта паведамленне без праверкі цэласнасці, таму яно адхілена</string>
     <string name="pgp_saved">Захавана</string>
 </resources>

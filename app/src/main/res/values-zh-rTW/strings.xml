@@ -904,5 +904,7 @@
     <string name="pgp_error_wrong_passphrase">通關密語錯誤</string>
     <string name="pgp_error_no_matching_key">沒有符合此訊息的金鑰</string>
     <string name="pgp_error_invalid">資料無效</string>
+    <string name="pgp_key_too_large">金鑰或簽章太大</string>
+    <string name="pgp_error_no_integrity">此訊息沒有完整性檢查，已拒絕</string>
     <string name="pgp_saved">已儲存</string>
 </resources>

@@ -455,5 +455,7 @@ For å halde fridomen vår, rette feil, leggje til funksjonar og halde prosjekte
     <string name="pgp_error_wrong_passphrase">Feil passordfrase</string>
     <string name="pgp_error_no_matching_key">Ingen nøkkel passar til denne meldinga</string>
     <string name="pgp_error_invalid">Dataa er ikkje gyldige</string>
+    <string name="pgp_key_too_large">Nøkkelen eller signaturen er for stor</string>
+    <string name="pgp_error_no_integrity">Meldinga har ingen integritetssjekk, så ho vart avvist</string>
     <string name="pgp_saved">Lagra</string>
 </resources>

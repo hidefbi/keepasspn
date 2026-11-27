@@ -898,5 +898,7 @@
     <string name="pgp_error_wrong_passphrase">عبارة المرور غير صحيحة</string>
     <string name="pgp_error_no_matching_key">لا يوجد مفتاح مطابق لهذه الرسالة</string>
     <string name="pgp_error_invalid">البيانات غير صالحة</string>
+    <string name="pgp_key_too_large">المفتاح أو التوقيع كبير جدا</string>
+    <string name="pgp_error_no_integrity">هذه الرسالة بلا فحص سلامة، لذلك رُفضت</string>
     <string name="pgp_saved">تم الحفظ</string>
 </resources>

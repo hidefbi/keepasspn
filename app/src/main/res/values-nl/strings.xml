@@ -926,5 +926,7 @@ Om onze vrijheid te behouden, bugs te verhelpen, functies toe te voegen en het p
     <string name="pgp_error_wrong_passphrase">Onjuiste wachtwoordzin</string>
     <string name="pgp_error_no_matching_key">Geen passende sleutel voor dit bericht</string>
     <string name="pgp_error_invalid">De gegevens zijn ongeldig</string>
+    <string name="pgp_key_too_large">De sleutel of handtekening is te groot</string>
+    <string name="pgp_error_no_integrity">Dit bericht heeft geen integriteitscontrole, dus het is geweigerd</string>
     <string name="pgp_saved">Opgeslagen</string>
 </resources>

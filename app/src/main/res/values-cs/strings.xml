@@ -925,5 +925,7 @@ Abychom zachovali svobodu, opravovali chyby, přidávali funkce a udrželi proje
     <string name="pgp_error_wrong_passphrase">Špatné heslo</string>
     <string name="pgp_error_no_matching_key">Pro tuto zprávu není žádný odpovídající klíč</string>
     <string name="pgp_error_invalid">Data nejsou platná</string>
+    <string name="pgp_key_too_large">Klíč nebo podpis je příliš velký</string>
+    <string name="pgp_error_no_integrity">Tato zpráva nemá kontrolu integrity, proto byla odmítnuta</string>
     <string name="pgp_saved">Uloženo</string>
 </resources>

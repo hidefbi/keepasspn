@@ -865,5 +865,7 @@
     <string name="pgp_error_wrong_passphrase">รหัสผ่านวลีไม่ถูกต้อง</string>
     <string name="pgp_error_no_matching_key">ไม่มีกุญแจที่ตรงกับข้อความนี้</string>
     <string name="pgp_error_invalid">ข้อมูลไม่ถูกต้อง</string>
+    <string name="pgp_key_too_large">คีย์หรือลายเซ็นใหญ่เกินไป</string>
+    <string name="pgp_error_no_integrity">ข้อความนี้ไม่มีการตรวจสอบความสมบูรณ์ จึงถูกปฏิเสธ</string>
     <string name="pgp_saved">บันทึกแล้ว</string>
 </resources>

@@ -900,5 +900,7 @@ Para manter a nosa liberdade, corrixir erros, engadir funcións e manter o proxe
     <string name="pgp_error_wrong_passphrase">Frase de paso incorrecta</string>
     <string name="pgp_error_no_matching_key">Non hai ningunha chave para esta mensaxe</string>
     <string name="pgp_error_invalid">Os datos non son válidos</string>
+    <string name="pgp_key_too_large">A chave ou a sinatura é demasiado grande</string>
+    <string name="pgp_error_no_integrity">Esta mensaxe non ten comprobación de integridade, polo que foi rexeitada</string>
     <string name="pgp_saved">Gardado</string>
 </resources>

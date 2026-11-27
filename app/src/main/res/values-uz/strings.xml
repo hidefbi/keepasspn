@@ -208,5 +208,7 @@ Erkinligimizni saqlash, xatolarni tuzatish, yangi imkoniyatlar qo\'shish va loyi
     <string name="pgp_error_wrong_passphrase">Noto\'g\'ri parol iborasi</string>
     <string name="pgp_error_no_matching_key">Bu xabarga mos kalit yo\'q</string>
     <string name="pgp_error_invalid">Ma\'lumot yaroqsiz</string>
+    <string name="pgp_key_too_large">Kalit yoki imzo juda katta</string>
+    <string name="pgp_error_no_integrity">Bu xabarda yaxlitlik tekshiruvi yo\'q, shuning uchun rad etildi</string>
     <string name="pgp_saved">Saqlandi</string>
 </resources>

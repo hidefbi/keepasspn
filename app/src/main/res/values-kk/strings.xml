@@ -158,5 +158,7 @@
     <string name="pgp_error_wrong_passphrase">Құпия сөз тіркесі қате</string>
     <string name="pgp_error_no_matching_key">Бұл хабарға сәйкес кілт жоқ</string>
     <string name="pgp_error_invalid">Деректер жарамсыз</string>
+    <string name="pgp_key_too_large">Кілт немесе қолтаңба тым үлкен</string>
+    <string name="pgp_error_no_integrity">Бұл хабарламада тұтастықты тексеру жоқ, сондықтан қабылданбады</string>
     <string name="pgp_saved">Сақталды</string>
 </resources>

@@ -286,5 +286,7 @@ Por konservi nian liberecon, ripari erarojn, aldoni funkciojn kaj konservi la pr
     <string name="pgp_error_wrong_passphrase">Malĝusta pasfrazo</string>
     <string name="pgp_error_no_matching_key">Neniu kongrua ŝlosilo por ĉi tiu mesaĝo</string>
     <string name="pgp_error_invalid">La datumoj ne estas validaj</string>
+    <string name="pgp_key_too_large">La ŝlosilo aŭ subskribo estas tro granda</string>
+    <string name="pgp_error_no_integrity">Ĉi tiu mesaĝo ne havas kontrolon de integreco, do ĝi estis rifuzita</string>
     <string name="pgp_saved">Konservita</string>
 </resources>

@@ -91,12 +91,15 @@ database, and the keys go with its backups.
 - Files and results are streamed through `cacheDir/pgp`, which is app-private. Limits are 50 MiB for
   files and for decrypted output, and 1 MB for typed text. Decrypted output over the limit is refused and
   the partial file is deleted.
+- Messages without an MDC or AEAD tag are refused before any plain data is read. Compression can be
+  nested 2 levels at most. Armored keys are limited to 2 MiB and signatures to 64 KiB, the length is
+  checked before the parser runs.
 - The PGP cache is removed on exit, on a fresh start of the screen and by Clear PGP cache. Clear on the
   page removes the files of that page only. Removal is a plain delete, flash storage does not give a
   reliable overwrite, so the files are not wiped securely.
 - Keys are generated on the device with SecureRandom. There is no key server, and the app has no
   internet permission, so public keys have to be imported by hand.
-- The OpenPGP library is BouncyCastle bcpg. It is the main size cost of the feature.
+- The OpenPGP library is BouncyCastle bcpg 1.87. It is the main size cost of the feature.
 
 ### Build and supply chain
 - Gradle wrapper 8.14.7, pinned by `distributionSha256Sum`.
@@ -172,3 +175,6 @@ database, and the keys go with its backups.
     a new PGP Safe.
 25. Type more than 1 MB of text: it must be refused. Clear empties the boxes and result. Clear PGP cache
     and leaving the screen leave no file in the app's cache under pgp/.
+26. Decrypt a message made with no MDC (old style): it must be refused and no output file is left.
+27. Decrypt a message with three nested compression layers: it must be refused.
+28. Import a key text over 2 MiB, or a signature over 64 KiB: both must be refused with a message.

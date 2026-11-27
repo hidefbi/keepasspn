@@ -900,5 +900,7 @@
     <string name="pgp_error_wrong_passphrase">Грешна парола</string>
     <string name="pgp_error_no_matching_key">Няма съвпадащ ключ за това съобщение</string>
     <string name="pgp_error_invalid">Данните не са валидни</string>
+    <string name="pgp_key_too_large">Ключът или подписът е твърде голям</string>
+    <string name="pgp_error_no_integrity">Съобщението няма проверка за целостта и е отхвърлено</string>
     <string name="pgp_saved">Запазено</string>
 </resources>

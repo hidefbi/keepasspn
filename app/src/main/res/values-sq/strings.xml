@@ -852,5 +852,7 @@ Për të ruajtur lirinë tonë, për të rregulluar gabimet, për të shtuar fun
     <string name="pgp_error_wrong_passphrase">Fjalëkalim i gabuar</string>
     <string name="pgp_error_no_matching_key">Asnjë çelës nuk përputhet me këtë mesazh</string>
     <string name="pgp_error_invalid">Të dhënat nuk janë të vlefshme</string>
+    <string name="pgp_key_too_large">Çelësi ose nënshkrimi është shumë i madh</string>
+    <string name="pgp_error_no_integrity">Ky mesazh nuk ka kontroll integriteti, prandaj u refuzua</string>
     <string name="pgp_saved">U ruajt</string>
 </resources>

@@ -865,5 +865,7 @@
     <string name="pgp_error_wrong_passphrase">தவறான கடவுச்சொற்றொடர்</string>
     <string name="pgp_error_no_matching_key">இந்தச் செய்திக்குப் பொருந்தும் விசை இல்லை</string>
     <string name="pgp_error_invalid">தரவு செல்லுபடியாகாது</string>
+    <string name="pgp_key_too_large">விசை அல்லது கையொப்பம் மிகப் பெரியது</string>
+    <string name="pgp_error_no_integrity">இந்தச் செய்தியில் ஒருமைப்பாட்டுச் சோதனை இல்லை, எனவே நிராகரிக்கப்பட்டது</string>
     <string name="pgp_saved">சேமிக்கப்பட்டது</string>
 </resources>

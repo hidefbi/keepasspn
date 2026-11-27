@@ -882,5 +882,7 @@ Meie vabaduse säilitamiseks, vigade parandamiseks, uute funktsioonide lisamisek
     <string name="pgp_error_wrong_passphrase">Vale paroolifraas</string>
     <string name="pgp_error_no_matching_key">Sellele sõnumile ei vasta ükski võti</string>
     <string name="pgp_error_invalid">Andmed ei ole kehtivad</string>
+    <string name="pgp_key_too_large">Võti või allkiri on liiga suur</string>
+    <string name="pgp_error_no_integrity">Sõnumil puudub terviklikkuse kontroll, seetõttu see lükati tagasi</string>
     <string name="pgp_saved">Salvestatud</string>
 </resources>

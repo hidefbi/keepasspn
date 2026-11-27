@@ -506,5 +506,7 @@
     <string name="pgp_error_wrong_passphrase">തെറ്റായ പാസ്‌ഫ്രെയ്സ്</string>
     <string name="pgp_error_no_matching_key">ഈ സന്ദേശത്തിന് യോജിക്കുന്ന കീ ഇല്ല</string>
     <string name="pgp_error_invalid">ഡാറ്റ സാധുവല്ല</string>
+    <string name="pgp_key_too_large">കീയോ ഒപ്പോ വളരെ വലുതാണ്</string>
+    <string name="pgp_error_no_integrity">ഈ സന്ദേശത്തിന് സമഗ്രത പരിശോധന ഇല്ല, അതിനാൽ നിരസിച്ചു</string>
     <string name="pgp_saved">സേവ് ചെയ്തു</string>
 </resources>

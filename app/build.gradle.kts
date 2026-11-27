@@ -70,6 +70,8 @@ android {
     packaging {
         resources {
             pickFirsts.add("META-INF/versions/9/OSGI-INF/MANIFEST.MF")
+            excludes += "META-INF/LICENSE.md"
+            excludes += "META-INF/NOTICE.md"
         }
     }
 

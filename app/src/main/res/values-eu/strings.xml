@@ -819,5 +819,7 @@ Gure askatasuna mantentzeko, akatsak konpontzeko, funtzio berriak gehitzeko eta 
     <string name="pgp_error_wrong_passphrase">Pasa-esaldi okerra</string>
     <string name="pgp_error_no_matching_key">Mezu honentzako giltzarik ez dago</string>
     <string name="pgp_error_invalid">Datuak ez dira baliozkoak</string>
+    <string name="pgp_key_too_large">Gakoa edo sinadura handiegia da</string>
+    <string name="pgp_error_no_integrity">Mezu honek ez du osotasun-egiaztapenik, beraz baztertu da</string>
     <string name="pgp_saved">Gordeta</string>
 </resources>

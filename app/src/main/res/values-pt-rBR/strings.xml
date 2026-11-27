@@ -924,5 +924,7 @@ Para manter a nossa liberdade, corrigir bugs, adicionar funcionalidades e manter
     <string name="pgp_error_wrong_passphrase">Frase secreta incorreta</string>
     <string name="pgp_error_no_matching_key">Nenhuma chave corresponde a esta mensagem</string>
     <string name="pgp_error_invalid">Os dados não são válidos</string>
+    <string name="pgp_key_too_large">A chave ou a assinatura é grande demais</string>
+    <string name="pgp_error_no_integrity">Esta mensagem não tem verificação de integridade, por isso foi recusada</string>
     <string name="pgp_saved">Salvo</string>
 </resources>

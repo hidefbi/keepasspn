@@ -927,5 +927,7 @@ Per mantenere la nostra libertà, correggere i bug, aggiungere funzionalità e m
     <string name="pgp_error_wrong_passphrase">Passphrase errata</string>
     <string name="pgp_error_no_matching_key">Nessuna chiave corrisponde a questo messaggio</string>
     <string name="pgp_error_invalid">I dati non sono validi</string>
+    <string name="pgp_key_too_large">La chiave o la firma è troppo grande</string>
+    <string name="pgp_error_no_integrity">Questo messaggio non ha un controllo di integrità, quindi è stato rifiutato</string>
     <string name="pgp_saved">Salvato</string>
 </resources>

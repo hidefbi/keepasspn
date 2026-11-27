@@ -159,5 +159,7 @@
     <string name="pgp_error_wrong_passphrase">غلط پاس فریز</string>
     <string name="pgp_error_no_matching_key">اس پیغام کے لیے کوئی مماثل کلید نہیں</string>
     <string name="pgp_error_invalid">ڈیٹا درست نہیں ہے</string>
+    <string name="pgp_key_too_large">کلید یا دستخط بہت بڑا ہے</string>
+    <string name="pgp_error_no_integrity">اس پیغام میں سالمیت کی جانچ نہیں، اس لیے اسے مسترد کر دیا گیا</string>
     <string name="pgp_saved">محفوظ ہو گیا</string>
 </resources>
