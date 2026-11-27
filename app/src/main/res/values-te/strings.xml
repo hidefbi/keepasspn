@@ -167,7 +167,11 @@
     <string name="pgp_user_id_hint">పేరు మరియు ఇమెయిల్, ఉదా. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">పాస్‌ఫ్రేజ్</string>
     <string name="pgp_passphrase_repeat_hint">పాస్‌ఫ్రేజ్‌ను మళ్లీ టైప్ చేయండి</string>
-    <string name="pgp_passphrase_notice">ప్రతి డీక్రిప్ట్ మరియు సైన్‌కు పాస్‌ఫ్రేజ్ అవసరం. ఇది సేవ్ చేయబడదు.</string>
+    <string name="pgp_generate_remember">పాస్‌ఫ్రేజ్ గుర్తుంచుకో</string>
+    <string name="pgp_passphrase_prompt_title">పాస్‌ఫ్రేజ్ నమోదు చేయండి</string>
+    <string name="pgp_error_key_unusable">ఈ కీని ఉపయోగించలేరు. ఇది రద్దు చేయబడి ఉండవచ్చు లేదా గడువు ముగిసి ఉండవచ్చు.</string>
+    <string name="pgp_error_ambiguous_key">ఈ సంతకానికి రెండు కీలు సరిపోతాయి, కాబట్టి తనిఖీ చేయలేము.</string>
+    <string name="pgp_verify_key_unusable">సంతకం దొరికింది, కానీ దాని కీ రద్దు చేయబడింది లేదా గడువు ముగిసింది</string>
     <string name="pgp_key_type_title">కీ రకం</string>
     <string name="pgp_key_type_curve25519">Curve25519 (సిఫార్సు చేయబడింది, అనుకూలం)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

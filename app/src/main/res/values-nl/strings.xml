@@ -909,7 +909,11 @@ Om onze vrijheid te behouden, bugs te verhelpen, functies toe te voegen en het p
     <string name="pgp_user_id_hint">Naam en e-mail, bijv. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Wachtwoordzin</string>
     <string name="pgp_passphrase_repeat_hint">Herhaal de wachtwoordzin</string>
-    <string name="pgp_passphrase_notice">De wachtwoordzin is nodig bij elk ontsleutelen en ondertekenen. Hij wordt niet opgeslagen.</string>
+    <string name="pgp_generate_remember">Wachtwoordzin onthouden</string>
+    <string name="pgp_passphrase_prompt_title">Voer de wachtwoordzin in</string>
+    <string name="pgp_error_key_unusable">Deze sleutel kan niet worden gebruikt. Hij is mogelijk ingetrokken of verlopen.</string>
+    <string name="pgp_error_ambiguous_key">Twee sleutels passen bij deze handtekening, dus die kan niet worden gecontroleerd.</string>
+    <string name="pgp_verify_key_unusable">Handtekening gevonden, maar de sleutel is ingetrokken of verlopen</string>
     <string name="pgp_key_type_title">Sleuteltype</string>
     <string name="pgp_key_type_curve25519">Curve25519 (aanbevolen, compatibel)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

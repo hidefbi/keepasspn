@@ -1,4 +1,5 @@
 KeePassPN
+ * Feature: PGP passphrase can be kept (Remember passphrase, wrapped with the Android Keystore) or asked each time; revoked and expired keys can't encrypt or sign
  * Feature: public keys can be loaded from a file too, armored or binary .gpg, up to 2 MB
  * Fix: PGP refuses messages with no integrity check (no MDC or AEAD tag), nested compression is limited to 2 levels, key and signature text have size limits, BouncyCastle 1.87
  * Feature: PGP screen from the + button: generate or import keys, encrypt, decrypt, sign and verify text (up to 1 MB) or files up to 50 MB with a progress bar, cache cleared on exit, keys are kept as entries in a PGP Safe folder

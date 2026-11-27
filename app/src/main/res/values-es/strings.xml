@@ -885,7 +885,11 @@ Para mantener nuestra libertad, corregir errores, añadir funciones y mantener e
     <string name="pgp_user_id_hint">Nombre y correo, p. ej. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Frase de contraseña</string>
     <string name="pgp_passphrase_repeat_hint">Repite la frase de contraseña</string>
-    <string name="pgp_passphrase_notice">La frase de contraseña hace falta en cada descifrado y firma. No se guarda.</string>
+    <string name="pgp_generate_remember">Recordar contraseña</string>
+    <string name="pgp_passphrase_prompt_title">Introduce la contraseña</string>
+    <string name="pgp_error_key_unusable">Esta clave no se puede usar. Puede que esté revocada o caducada.</string>
+    <string name="pgp_error_ambiguous_key">Dos claves coinciden con esta firma, así que no se puede comprobar.</string>
+    <string name="pgp_verify_key_unusable">Se encontró la firma, pero su clave está revocada o caducada</string>
     <string name="pgp_key_type_title">Tipo de clave</string>
     <string name="pgp_key_type_curve25519">Curve25519 (recomendada, compatible)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

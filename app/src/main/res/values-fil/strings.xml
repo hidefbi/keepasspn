@@ -410,7 +410,11 @@ Upang mapanatili ang aming kalayaan, ayusin ang mga bug, magdagdag ng mga featur
     <string name="pgp_user_id_hint">Pangalan at email, hal. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Passphrase</string>
     <string name="pgp_passphrase_repeat_hint">Ulitin ang passphrase</string>
-    <string name="pgp_passphrase_notice">Kailangan ang passphrase sa bawat decrypt at sign. Hindi ito sine-save.</string>
+    <string name="pgp_generate_remember">Tandaan ang passphrase</string>
+    <string name="pgp_passphrase_prompt_title">Ilagay ang passphrase</string>
+    <string name="pgp_error_key_unusable">Hindi magamit ang key na ito. Maaaring na-revoke o nag-expire na.</string>
+    <string name="pgp_error_ambiguous_key">Dalawang key ang tumutugma sa signature na ito, kaya hindi ito masuri.</string>
+    <string name="pgp_verify_key_unusable">Nakita ang signature, pero na-revoke o nag-expire na ang key nito</string>
     <string name="pgp_key_type_title">Uri ng key</string>
     <string name="pgp_key_type_curve25519">Curve25519 (inirerekomenda, compatible)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

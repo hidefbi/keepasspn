@@ -195,7 +195,11 @@ Da bi ohranili svobodo, odpravljali napake, dodajali funkcije in ohranjali proje
     <string name="pgp_user_id_hint">Ime in e-pošta, npr. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Geslo</string>
     <string name="pgp_passphrase_repeat_hint">Ponovite geslo</string>
-    <string name="pgp_passphrase_notice">Geslo je potrebno pri vsakem dešifriranju in podpisu. Ne shrani se.</string>
+    <string name="pgp_generate_remember">Zapomni si geslo</string>
+    <string name="pgp_passphrase_prompt_title">Vnesite geslo</string>
+    <string name="pgp_error_key_unusable">Tega ključa ni mogoče uporabiti. Morda je preklican ali potekel.</string>
+    <string name="pgp_error_ambiguous_key">Temu podpisu ustrezata dva ključa, zato ga ni mogoče preveriti.</string>
+    <string name="pgp_verify_key_unusable">Podpis je najden, vendar je njegov ključ preklican ali potekel</string>
     <string name="pgp_key_type_title">Vrsta ključa</string>
     <string name="pgp_key_type_curve25519">Curve25519 (priporočeno, združljivo)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

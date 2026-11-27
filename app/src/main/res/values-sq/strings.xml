@@ -835,7 +835,11 @@ Për të ruajtur lirinë tonë, për të rregulluar gabimet, për të shtuar fun
     <string name="pgp_user_id_hint">Emri dhe e-maili, p.sh. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Fjalëkalimi</string>
     <string name="pgp_passphrase_repeat_hint">Përsëritni fjalëkalimin</string>
-    <string name="pgp_passphrase_notice">Fjalëkalimi kërkohet në çdo dekriptim dhe nënshkrim. Nuk ruhet.</string>
+    <string name="pgp_generate_remember">Mbaj mend fjalëkalimin</string>
+    <string name="pgp_passphrase_prompt_title">Shkruaj fjalëkalimin</string>
+    <string name="pgp_error_key_unusable">Ky çelës nuk mund të përdoret. Mund të jetë revokuar ose skaduar.</string>
+    <string name="pgp_error_ambiguous_key">Dy çelësa përputhen me këtë nënshkrim, prandaj nuk mund të kontrollohet.</string>
+    <string name="pgp_verify_key_unusable">Nënshkrimi u gjet, por çelësi i tij është revokuar ose ka skaduar</string>
     <string name="pgp_key_type_title">Lloji i çelësit</string>
     <string name="pgp_key_type_curve25519">Curve25519 (e rekomanduar, e pajtueshme)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

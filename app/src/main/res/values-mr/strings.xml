@@ -153,7 +153,11 @@
     <string name="pgp_user_id_hint">नाव आणि ईमेल, उदा. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">पासफ्रेज</string>
     <string name="pgp_passphrase_repeat_hint">पासफ्रेज पुन्हा टाइप करा</string>
-    <string name="pgp_passphrase_notice">प्रत्येक डिक्रिप्ट आणि साइनसाठी पासफ्रेज लागतो. तो जतन केला जात नाही.</string>
+    <string name="pgp_generate_remember">पासफ्रेज लक्षात ठेवा</string>
+    <string name="pgp_passphrase_prompt_title">पासफ्रेज टाका</string>
+    <string name="pgp_error_key_unusable">ही की वापरता येणार नाही. ती रद्द केलेली किंवा कालबाह्य असू शकते.</string>
+    <string name="pgp_error_ambiguous_key">या स्वाक्षरीशी दोन की जुळतात, त्यामुळे तपासणी करता येत नाही.</string>
+    <string name="pgp_verify_key_unusable">स्वाक्षरी सापडली, पण तिची की रद्द किंवा कालबाह्य झाली आहे</string>
     <string name="pgp_key_type_title">कीचा प्रकार</string>
     <string name="pgp_key_type_curve25519">Curve25519 (शिफारस केलेली, सुसंगत)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

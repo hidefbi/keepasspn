@@ -907,7 +907,11 @@
     <string name="pgp_user_id_hint">Имя и e-mail, например Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Парольная фраза</string>
     <string name="pgp_passphrase_repeat_hint">Повторите парольную фразу</string>
-    <string name="pgp_passphrase_notice">Парольная фраза нужна при каждой расшифровке и подписи. Она не сохраняется.</string>
+    <string name="pgp_generate_remember">Запомнить пароль</string>
+    <string name="pgp_passphrase_prompt_title">Введите пароль</string>
+    <string name="pgp_error_key_unusable">Этот ключ нельзя использовать. Возможно, он отозван или истёк.</string>
+    <string name="pgp_error_ambiguous_key">Этой подписи соответствуют два ключа, поэтому её нельзя проверить.</string>
+    <string name="pgp_verify_key_unusable">Подпись найдена, но её ключ отозван или истёк</string>
     <string name="pgp_key_type_title">Тип ключа</string>
     <string name="pgp_key_type_curve25519">Curve25519 (рекомендуется, совместим)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

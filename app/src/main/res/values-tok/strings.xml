@@ -81,7 +81,11 @@
     <string name="pgp_user_id_hint">nimi, mail: Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">nimi pi lawa</string>
     <string name="pgp_passphrase_repeat_hint">o toki e nimi pi lawa sin</string>
-    <string name="pgp_passphrase_notice">nimi pi lawa li wile lon tenpo ale. ona li awen ala.</string>
+    <string name="pgp_generate_remember">o awen e nimi lawa</string>
+    <string name="pgp_passphrase_prompt_title">o pana e nimi lawa</string>
+    <string name="pgp_error_key_unusable">ilo lawa ni li ken ala kepeken. ilo ni li weka anu li pini.</string>
+    <string name="pgp_error_ambiguous_key">ilo lawa tu li sama tawa lipu ni, mi ken ala lukin e ona.</string>
+    <string name="pgp_verify_key_unusable">lipu sona li lon, taso ilo lawa ni li weka anu li pini.</string>
     <string name="pgp_key_type_title">kulupu ilo lawa</string>
     <string name="pgp_key_type_curve25519">Curve25519 (pona mute, ilo ante li sama)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

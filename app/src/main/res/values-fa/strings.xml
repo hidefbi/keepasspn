@@ -436,7 +436,11 @@
     <string name="pgp_user_id_hint">نام و ایمیل، مثلاً Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">گذرواژه</string>
     <string name="pgp_passphrase_repeat_hint">گذرواژه را دوباره وارد کنید</string>
-    <string name="pgp_passphrase_notice">گذرواژه برای هر رمزگشایی و امضا لازم است. ذخیره نمی‌شود.</string>
+    <string name="pgp_generate_remember">به خاطر سپردن گذرواژه</string>
+    <string name="pgp_passphrase_prompt_title">گذرواژه را وارد کنید</string>
+    <string name="pgp_error_key_unusable">این کلید قابل استفاده نیست. ممکن است باطل یا منقضی شده باشد.</string>
+    <string name="pgp_error_ambiguous_key">دو کلید با این امضا مطابقت دارند، بنابراین نمی‌توان آن را بررسی کرد.</string>
+    <string name="pgp_verify_key_unusable">امضا پیدا شد، اما کلید آن باطل یا منقضی شده است</string>
     <string name="pgp_key_type_title">نوع کلید</string>
     <string name="pgp_key_type_curve25519">Curve25519 (توصیه‌شده، سازگار)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

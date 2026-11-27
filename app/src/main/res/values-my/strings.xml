@@ -175,7 +175,11 @@
     <string name="pgp_user_id_hint">အမည်နှင့် အီးမေးလ်၊ ဥပမာ Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">လျှို့ဝှက်စကားစု</string>
     <string name="pgp_passphrase_repeat_hint">လျှို့ဝှက်စကားစုကို ထပ်ရိုက်ပါ</string>
-    <string name="pgp_passphrase_notice">ကုဒ်ဖြေ၊ လက်မှတ်ထိုးတိုင်း လျှို့ဝှက်စကားစု လိုအပ်သည်။ သိမ်းထားခြင်း မရှိပါ။</string>
+    <string name="pgp_generate_remember">စကားဝှက်ကို မှတ်ထား</string>
+    <string name="pgp_passphrase_prompt_title">စကားဝှက် ထည့်ပါ</string>
+    <string name="pgp_error_key_unusable">ဤသော့ကို အသုံးမပြုနိုင်ပါ။ ပယ်ဖျက်ထားခြင်း သို့မဟုတ် သက်တမ်းကုန်ခြင်း ဖြစ်နိုင်သည်။</string>
+    <string name="pgp_error_ambiguous_key">ဤလက်မှတ်နှင့် သော့နှစ်ခု ကိုက်ညီသောကြောင့် စစ်ဆေး၍ မရပါ။</string>
+    <string name="pgp_verify_key_unusable">လက်မှတ်ကို တွေ့ရသော်လည်း ၎င်း၏သော့ကို ပယ်ဖျက်ထား သို့မဟုတ် သက်တမ်းကုန်နေသည်</string>
     <string name="pgp_key_type_title">ကီးအမျိုးအစား</string>
     <string name="pgp_key_type_curve25519">Curve25519 (အကြံပြု၊ လိုက်ဖက်ညီ)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

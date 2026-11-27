@@ -526,7 +526,11 @@
     <string name="pgp_user_id_hint">Име и имејл, нпр. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Лозинка</string>
     <string name="pgp_passphrase_repeat_hint">Поновите лозинку</string>
-    <string name="pgp_passphrase_notice">Лозинка је потребна за свако дешифровање и потписивање. Не чува се.</string>
+    <string name="pgp_generate_remember">Запамти лозинку</string>
+    <string name="pgp_passphrase_prompt_title">Унесите лозинку</string>
+    <string name="pgp_error_key_unusable">Овај кључ се не може користити. Можда је опозван или истекао.</string>
+    <string name="pgp_error_ambiguous_key">Два кључа одговарају овом потпису, па се не може проверити.</string>
+    <string name="pgp_verify_key_unusable">Потпис је пронађен, али је његов кључ опозван или истекао</string>
     <string name="pgp_key_type_title">Врста кључа</string>
     <string name="pgp_key_type_curve25519">Curve25519 (препоручено, компатибилно)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

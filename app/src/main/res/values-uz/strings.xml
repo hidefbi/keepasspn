@@ -191,7 +191,11 @@ Erkinligimizni saqlash, xatolarni tuzatish, yangi imkoniyatlar qo\'shish va loyi
     <string name="pgp_user_id_hint">Ism va e-pochta, masalan Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Parol iborasi</string>
     <string name="pgp_passphrase_repeat_hint">Parol iborasini qayta kiriting</string>
-    <string name="pgp_passphrase_notice">Parol iborasi har bir deshifrlash va imzolashda kerak. U saqlanmaydi.</string>
+    <string name="pgp_generate_remember">Parolni eslab qolish</string>
+    <string name="pgp_passphrase_prompt_title">Parolni kiriting</string>
+    <string name="pgp_error_key_unusable">Bu kalitdan foydalanib bo‘lmaydi. U bekor qilingan yoki muddati tugagan bo‘lishi mumkin.</string>
+    <string name="pgp_error_ambiguous_key">Bu imzoga ikkita kalit mos keladi, shuning uchun uni tekshirib bo‘lmaydi.</string>
+    <string name="pgp_verify_key_unusable">Imzo topildi, lekin uning kaliti bekor qilingan yoki muddati tugagan</string>
     <string name="pgp_key_type_title">Kalit turi</string>
     <string name="pgp_key_type_curve25519">Curve25519 (tavsiya etiladi, mos)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

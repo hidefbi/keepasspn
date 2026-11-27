@@ -141,7 +141,11 @@
     <string name="pgp_user_id_hint">Аты мен электрондық пошта, мысалы Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Құпия сөз тіркесі</string>
     <string name="pgp_passphrase_repeat_hint">Құпия сөз тіркесін қайталаңыз</string>
-    <string name="pgp_passphrase_notice">Құпия сөз тіркесі әр шифрды ашу мен қол қоюда керек. Ол сақталмайды.</string>
+    <string name="pgp_generate_remember">Құпия сөзді есте сақтау</string>
+    <string name="pgp_passphrase_prompt_title">Құпия сөзді енгізіңіз</string>
+    <string name="pgp_error_key_unusable">Бұл кілтті пайдалану мүмкін емес. Ол жойылған немесе мерзімі өткен болуы мүмкін.</string>
+    <string name="pgp_error_ambiguous_key">Бұл қолтаңбаға екі кілт сәйкес келеді, сондықтан тексеру мүмкін емес.</string>
+    <string name="pgp_verify_key_unusable">Қолтаңба табылды, бірақ оның кілті жойылған немесе мерзімі өткен</string>
     <string name="pgp_key_type_title">Кілт түрі</string>
     <string name="pgp_key_type_curve25519">Curve25519 (ұсынылады, үйлесімді)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

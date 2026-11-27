@@ -882,7 +882,11 @@ Untuk menjaga kebebasan kami, memperbaiki bug, menambah fitur, dan menjaga proye
     <string name="pgp_user_id_hint">Nama dan email, misalnya Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Frasa sandi</string>
     <string name="pgp_passphrase_repeat_hint">Ulangi frasa sandi</string>
-    <string name="pgp_passphrase_notice">Frasa sandi diperlukan setiap kali dekripsi dan tanda tangan. Tidak disimpan.</string>
+    <string name="pgp_generate_remember">Ingat frasa sandi</string>
+    <string name="pgp_passphrase_prompt_title">Masukkan frasa sandi</string>
+    <string name="pgp_error_key_unusable">Kunci ini tidak dapat digunakan. Mungkin telah dicabut atau kedaluwarsa.</string>
+    <string name="pgp_error_ambiguous_key">Dua kunci cocok dengan tanda tangan ini, jadi tidak dapat diperiksa.</string>
+    <string name="pgp_verify_key_unusable">Tanda tangan ditemukan, tetapi kuncinya telah dicabut atau kedaluwarsa</string>
     <string name="pgp_key_type_title">Jenis kunci</string>
     <string name="pgp_key_type_curve25519">Curve25519 (disarankan, kompatibel)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

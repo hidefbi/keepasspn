@@ -802,7 +802,11 @@ Gure askatasuna mantentzeko, akatsak konpontzeko, funtzio berriak gehitzeko eta 
     <string name="pgp_user_id_hint">Izena eta posta, adib. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Pasa-esaldia</string>
     <string name="pgp_passphrase_repeat_hint">Errepikatu pasa-esaldia</string>
-    <string name="pgp_passphrase_notice">Pasa-esaldia behar da desenkriptatzen eta sinatzen den bakoitzean. Ez da gordetzen.</string>
+    <string name="pgp_generate_remember">Gogoratu pasahitza</string>
+    <string name="pgp_passphrase_prompt_title">Idatzi pasahitza</string>
+    <string name="pgp_error_key_unusable">Gako hau ezin da erabili. Baliogabetua edo iraungia egon daiteke.</string>
+    <string name="pgp_error_ambiguous_key">Bi gako bat datoz sinadura honekin, beraz ezin da egiaztatu.</string>
+    <string name="pgp_verify_key_unusable">Sinadura aurkitu da, baina haren gakoa baliogabetua edo iraungia dago</string>
     <string name="pgp_key_type_title">Giltza mota</string>
     <string name="pgp_key_type_curve25519">Curve25519 (gomendatua, bateragarria)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

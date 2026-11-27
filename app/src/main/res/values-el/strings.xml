@@ -828,7 +828,11 @@
     <string name="pgp_user_id_hint">Όνομα και email, π.χ. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Φράση πρόσβασης</string>
     <string name="pgp_passphrase_repeat_hint">Επαναλάβετε τη φράση πρόσβασης</string>
-    <string name="pgp_passphrase_notice">Η φράση πρόσβασης χρειάζεται σε κάθε αποκρυπτογράφηση και υπογραφή. Δεν αποθηκεύεται.</string>
+    <string name="pgp_generate_remember">Απομνημόνευση κωδικού</string>
+    <string name="pgp_passphrase_prompt_title">Εισαγάγετε κωδικό</string>
+    <string name="pgp_error_key_unusable">Αυτό το κλειδί δεν μπορεί να χρησιμοποιηθεί. Μπορεί να έχει ανακληθεί ή να έχει λήξει.</string>
+    <string name="pgp_error_ambiguous_key">Δύο κλειδιά ταιριάζουν με αυτή την υπογραφή, οπότε δεν μπορεί να ελεγχθεί.</string>
+    <string name="pgp_verify_key_unusable">Βρέθηκε υπογραφή, αλλά το κλειδί της έχει ανακληθεί ή έχει λήξει</string>
     <string name="pgp_key_type_title">Τύπος κλειδιού</string>
     <string name="pgp_key_type_curve25519">Curve25519 (προτείνεται, συμβατό)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

@@ -269,7 +269,11 @@ Por konservi nian liberecon, ripari erarojn, aldoni funkciojn kaj konservi la pr
     <string name="pgp_user_id_hint">Nomo kaj retpoŝto, ekz. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Pasfrazo</string>
     <string name="pgp_passphrase_repeat_hint">Ripetu la pasfrazon</string>
-    <string name="pgp_passphrase_notice">La pasfrazo necesas por ĉiu malĉifrado kaj subskribo. Ĝi ne estas konservata.</string>
+    <string name="pgp_generate_remember">Memori pasvorton</string>
+    <string name="pgp_passphrase_prompt_title">Enigu pasvorton</string>
+    <string name="pgp_error_key_unusable">Ĉi tiu ŝlosilo ne povas esti uzata. Ĝi eble estas revokita aŭ ekspirinta.</string>
+    <string name="pgp_error_ambiguous_key">Du ŝlosiloj kongruas kun ĉi tiu subskribo, do ĝi ne povas esti kontrolita.</string>
+    <string name="pgp_verify_key_unusable">Subskribo troviĝis, sed ĝia ŝlosilo estas revokita aŭ ekspirinta</string>
     <string name="pgp_key_type_title">Speco de ŝlosilo</string>
     <string name="pgp_key_type_curve25519">Curve25519 (rekomendita, kongrua)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

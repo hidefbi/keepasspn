@@ -292,7 +292,11 @@
     <string name="pgp_user_id_hint">नाम और ईमेल, जैसे Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">पासफ़्रेज़</string>
     <string name="pgp_passphrase_repeat_hint">पासफ़्रेज़ दोबारा लिखें</string>
-    <string name="pgp_passphrase_notice">हर डिक्रिप्शन और साइन के लिए पासफ़्रेज़ चाहिए। यह सहेजा नहीं जाता।</string>
+    <string name="pgp_generate_remember">पासफ़्रेज़ याद रखें</string>
+    <string name="pgp_passphrase_prompt_title">पासफ़्रेज़ दर्ज करें</string>
+    <string name="pgp_error_key_unusable">यह कुंजी उपयोग नहीं की जा सकती। यह रद्द या समाप्त हो सकती है।</string>
+    <string name="pgp_error_ambiguous_key">इस हस्ताक्षर से दो कुंजियाँ मेल खाती हैं, इसलिए इसकी जाँच नहीं हो सकती।</string>
+    <string name="pgp_verify_key_unusable">हस्ताक्षर मिला, लेकिन उसकी कुंजी रद्द या समाप्त हो चुकी है</string>
     <string name="pgp_key_type_title">कुंजी का प्रकार</string>
     <string name="pgp_key_type_curve25519">Curve25519 (अनुशंसित, संगत)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

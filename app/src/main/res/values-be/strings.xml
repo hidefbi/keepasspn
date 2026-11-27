@@ -848,7 +848,11 @@
     <string name="pgp_user_id_hint">Імя і электронная пошта, напр. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Пароль</string>
     <string name="pgp_passphrase_repeat_hint">Паўтарыце пароль</string>
-    <string name="pgp_passphrase_notice">Пароль патрэбны для кожнага расшыфравання і подпісу. Ён не захоўваецца.</string>
+    <string name="pgp_generate_remember">Запомніць пароль</string>
+    <string name="pgp_passphrase_prompt_title">Увядзіце пароль</string>
+    <string name="pgp_error_key_unusable">Гэты ключ нельга выкарыстаць. Магчыма, ён адкліканы або пратэрміноўваны.</string>
+    <string name="pgp_error_ambiguous_key">Гэтаму подпісу адпавядаюць два ключы, таму праверыць нельга.</string>
+    <string name="pgp_verify_key_unusable">Подпіс знойдзены, але яго ключ адкліканы або пратэрміноўваны</string>
     <string name="pgp_key_type_title">Тып ключа</string>
     <string name="pgp_key_type_curve25519">Curve25519 (рэкамендавана, сумяшчальна)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

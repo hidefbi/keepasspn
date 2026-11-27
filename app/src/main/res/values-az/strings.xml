@@ -778,7 +778,11 @@ Azadlığımızı qorumaq, səhvləri düzəltmək, yeni funksiyalar əlavə etm
     <string name="pgp_user_id_hint">Ad və e-poçt, məs.: Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Parol ifrası</string>
     <string name="pgp_passphrase_repeat_hint">Parol ifrasını təkrar yazın</string>
-    <string name="pgp_passphrase_notice">Parol ifrası hər deşifrə və imzalamada lazımdır. Saxlanılmır.</string>
+    <string name="pgp_generate_remember">Parolu yadda saxla</string>
+    <string name="pgp_passphrase_prompt_title">Parolu daxil edin</string>
+    <string name="pgp_error_key_unusable">Bu açardan istifadə etmək olmur. Ləğv edilmiş və ya müddəti bitmiş ola bilər.</string>
+    <string name="pgp_error_ambiguous_key">İki açar bu imzaya uyğun gəlir, ona görə yoxlamaq olmur.</string>
+    <string name="pgp_verify_key_unusable">İmza tapıldı, amma onun açarı ləğv edilib və ya müddəti bitib</string>
     <string name="pgp_key_type_title">Açar növü</string>
     <string name="pgp_key_type_curve25519">Curve25519 (tövsiyə olunur, uyğun)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

@@ -878,7 +878,11 @@
     <string name="pgp_user_id_hint">שם ודוא"ל, לדוגמה Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">סיסמת מעבר</string>
     <string name="pgp_passphrase_repeat_hint">הקלידו שוב את סיסמת המעבר</string>
-    <string name="pgp_passphrase_notice">סיסמת המעבר נדרשת בכל פענוח וחתימה. היא אינה נשמרת.</string>
+    <string name="pgp_generate_remember">זכור סיסמת מפתח</string>
+    <string name="pgp_passphrase_prompt_title">הזן סיסמת מפתח</string>
+    <string name="pgp_error_key_unusable">לא ניתן להשתמש במפתח הזה. ייתכן שבוטל או פג תוקפו.</string>
+    <string name="pgp_error_ambiguous_key">שני מפתחות תואמים לחתימה הזו, לכן אי אפשר לבדוק אותה.</string>
+    <string name="pgp_verify_key_unusable">נמצאה חתימה, אבל המפתח שלה בוטל או פג תוקפו</string>
     <string name="pgp_key_type_title">סוג מפתח</string>
     <string name="pgp_key_type_curve25519">Curve25519 (מומלץ, תואם)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

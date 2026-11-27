@@ -877,7 +877,11 @@ För att bevara vår frihet, rätta buggar, lägga till funktioner och hålla pr
     <string name="pgp_user_id_hint">Namn och e-post, t.ex. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Lösenfras</string>
     <string name="pgp_passphrase_repeat_hint">Upprepa lösenfrasen</string>
-    <string name="pgp_passphrase_notice">Lösenfrasen behövs vid varje dekryptering och signering. Den sparas inte.</string>
+    <string name="pgp_generate_remember">Kom ihåg lösenfrasen</string>
+    <string name="pgp_passphrase_prompt_title">Ange lösenfrasen</string>
+    <string name="pgp_error_key_unusable">Den här nyckeln kan inte användas. Den kan vara återkallad eller utgången.</string>
+    <string name="pgp_error_ambiguous_key">Två nycklar matchar den här signaturen, så den kan inte kontrolleras.</string>
+    <string name="pgp_verify_key_unusable">Signaturen hittades, men dess nyckel är återkallad eller utgången</string>
     <string name="pgp_key_type_title">Nyckeltyp</string>
     <string name="pgp_key_type_curve25519">Curve25519 (rekommenderas, kompatibel)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

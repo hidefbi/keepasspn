@@ -109,6 +109,8 @@ object PgpCore {
         NO_MATCHING_KEY,
         INVALID_DATA,
         NO_INTEGRITY,
+        KEY_UNUSABLE,
+        AMBIGUOUS_KEY,
         TOO_LARGE,
         CANCELLED
     }
@@ -139,6 +141,7 @@ object PgpCore {
     class VerifyResult(
         val signerFound: Boolean,
         val valid: Boolean,
+        val keyUsable: Boolean,
         val signerFingerprint: String?
     )
 
@@ -186,11 +189,13 @@ object PgpCore {
     /**
      * Reads the first key of an armored public key and tells if it can encrypt.
      */
-    fun inspect(publicArmored: String): KeyInfo {
+    fun inspect(publicArmored: String, now: Date = Date()): KeyInfo {
         try {
             val ring = readPublicRings(publicArmored).firstOrNull() ?: throw PgpError(Reason.INVALID_DATA)
             val userIds = ring.publicKey.userIDs.asSequence().toList()
-            val canEncrypt = ring.publicKeys.asSequence().any { it.isEncryptionKey }
+            val canEncrypt = ring.publicKeys.asSequence().any {
+                it.isEncryptionKey && usable(ring.publicKey, it, now)
+            }
             return KeyInfo(fingerprintOf(ring.publicKey), userIds, canEncrypt)
         } catch (e: PGPException) {
             throw PgpError(Reason.INVALID_DATA, e)
@@ -235,14 +240,19 @@ object PgpCore {
         isText: Boolean,
         length: Long,
         sink: OutputStream,
-        control: Control = Control()
+        control: Control = Control(),
+        now: Date = Date()
     ) {
         if (recipientsArmored.isEmpty()) throw PgpError(Reason.NO_MATCHING_KEY)
         try {
             val recipients = recipientsArmored.map { armored ->
                 val ring = readPublicRings(armored).firstOrNull() ?: throw PgpError(Reason.INVALID_DATA)
-                ring.publicKeys.asSequence().firstOrNull { it.isEncryptionKey }
-                    ?: throw PgpError(Reason.NO_MATCHING_KEY)
+                val subkeys = ring.publicKeys.asSequence().filter { it.isEncryptionKey }.toList()
+                if (subkeys.isEmpty()) throw PgpError(Reason.NO_MATCHING_KEY)
+                // The newest encryption key that is still usable, a revoked or expired key is refused
+                subkeys.filter { usable(ring.publicKey, it, now) }
+                    .maxByOrNull { it.creationTime.time }
+                    ?: throw PgpError(Reason.KEY_UNUSABLE)
             }
             val format = if (isText) PGPLiteralData.UTF8 else PGPLiteralData.BINARY
             val arm = ArmoredOutputStream(sink)
@@ -321,12 +331,14 @@ object PgpCore {
         secretArmored: String,
         passphrase: CharArray,
         source: InputStream,
-        control: Control = Control()
+        control: Control = Control(),
+        now: Date = Date()
     ): String {
         try {
             val ring = readSecretRing(secretArmored)
             val signingKey = ring.secretKeys.asSequence().firstOrNull { it.isSigningKey }
                 ?: throw PgpError(Reason.NO_MATCHING_KEY)
+            if (!usable(ring.publicKey, signingKey.publicKey, now)) throw PgpError(Reason.KEY_UNUSABLE)
             val privateKey = extractPrivateKey(signingKey, passphrase)
             val generator = PGPSignatureGenerator(
                 JcaPGPContentSignerBuilder(signingKey.publicKey.algorithm, HashAlgorithmTags.SHA256).setProvider(PROVIDER)
@@ -347,31 +359,39 @@ object PgpCore {
         publicArmored: List<String>,
         source: InputStream,
         signatureArmored: String,
-        control: Control = Control()
+        control: Control = Control(),
+        now: Date = Date()
     ): VerifyResult {
+        checkLength(signatureArmored, MAX_SIGNATURE_CHARS)
         try {
             val factory = PGPObjectFactory(
                 PGPUtil.getDecoderStream(ByteArrayInputStream(signatureArmored.toByteArray(Charsets.UTF_8))),
                 JcaKeyFingerprintCalculator()
             )
-            checkLength(signatureArmored, MAX_SIGNATURE_CHARS)
             val signature = when (val found = factory.nextObject()) {
                 is PGPSignatureList -> if (found.isEmpty) null else found[0]
                 is PGPSignature -> found
                 else -> null
             } ?: throw PgpError(Reason.INVALID_DATA)
 
-            val signerKey: PGPPublicKey = publicArmored
+            // Every key with this key ID. Two different keys with one ID can't tell who signed.
+            val candidates = publicArmored
                 .flatMap { readPublicRings(it) }
-                .asSequence()
-                .mapNotNull { it.getPublicKey(signature.keyID) }
-                .firstOrNull() ?: return VerifyResult(signerFound = false, valid = false, signerFingerprint = null)
+                .mapNotNull { ring -> ring.getPublicKey(signature.keyID)?.let { ring.publicKey to it } }
+            if (candidates.map { fingerprintOf(it.second) }.toSet().size > 1) {
+                throw PgpError(Reason.AMBIGUOUS_KEY)
+            }
+            val (primary, signerKey) = candidates.firstOrNull()
+                ?: return VerifyResult(signerFound = false, valid = false, keyUsable = false, signerFingerprint = null)
+            val keyUsable = usable(primary, signerKey, now)
 
             signature.init(JcaPGPContentVerifierBuilderProvider().setProvider(PROVIDER), signerKey)
             copy(countingInput(source, control), updater { b, off, len -> signature.update(b, off, len) }, control)
+            val intact = signature.verify()
             return VerifyResult(
                 signerFound = true,
-                valid = signature.verify(),
+                valid = intact && keyUsable,
+                keyUsable = keyUsable,
                 signerFingerprint = fingerprintOf(signerKey)
             )
         } catch (e: PGPException) {
@@ -529,6 +549,31 @@ object PgpCore {
         arm.clearHeaders()
         arm.use { write(it) }
         return out.toString(Charsets.UTF_8.name())
+    }
+
+    /**
+     * A key can be used when nothing revokes it, it has not expired and, for a subkey, the
+     * binding signature from the primary key checks out. When in doubt it is not usable.
+     */
+    private fun usable(primary: PGPPublicKey, key: PGPPublicKey, now: Date): Boolean {
+        if (primary.getSignaturesOfType(PGPSignature.KEY_REVOCATION).hasNext()) return false
+        if (expired(primary, now)) return false
+        if (key.keyID == primary.keyID) return true
+        if (key.getSignaturesOfType(PGPSignature.SUBKEY_REVOCATION).hasNext()) return false
+        if (expired(key, now)) return false
+        return key.getSignaturesOfType(PGPSignature.SUBKEY_BINDING).asSequence().any { binding ->
+            try {
+                binding.init(JcaPGPContentVerifierBuilderProvider().setProvider(PROVIDER), primary)
+                binding.verifyCertification(primary, key)
+            } catch (e: PGPException) {
+                false
+            }
+        }
+    }
+
+    private fun expired(key: PGPPublicKey, now: Date): Boolean {
+        val seconds = key.validSeconds
+        return seconds > 0 && key.creationTime.time + seconds * 1000 <= now.time
     }
 
     private fun fingerprintOf(key: PGPPublicKey): String {

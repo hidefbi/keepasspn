@@ -899,7 +899,11 @@ Aby sme zachovali slobodu, opravovali chyby, pridávali funkcie a udržali proje
     <string name="pgp_user_id_hint">Meno a e-mail, napr. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Heslo</string>
     <string name="pgp_passphrase_repeat_hint">Zopakujte heslo</string>
-    <string name="pgp_passphrase_notice">Heslo treba pri každom dešifrovaní a podpisovaní. Neukladá sa.</string>
+    <string name="pgp_generate_remember">Zapamätať heslo</string>
+    <string name="pgp_passphrase_prompt_title">Zadajte heslo</string>
+    <string name="pgp_error_key_unusable">Tento kľúč sa nedá použiť. Môže byť odvolaný alebo expirovaný.</string>
+    <string name="pgp_error_ambiguous_key">Tomuto podpisu zodpovedajú dva kľúče, takže sa nedá overiť.</string>
+    <string name="pgp_verify_key_unusable">Podpis bol nájdený, ale jeho kľúč je odvolaný alebo expirovaný</string>
     <string name="pgp_key_type_title">Typ kľúča</string>
     <string name="pgp_key_type_curve25519">Curve25519 (odporúčané, kompatibilné)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

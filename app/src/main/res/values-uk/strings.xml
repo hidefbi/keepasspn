@@ -887,7 +887,11 @@
     <string name="pgp_user_id_hint">Ім\'я та е-пошта, напр. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Парольна фраза</string>
     <string name="pgp_passphrase_repeat_hint">Повторіть парольну фразу</string>
-    <string name="pgp_passphrase_notice">Парольна фраза потрібна під час кожного розшифрування та підпису. Вона не зберігається.</string>
+    <string name="pgp_generate_remember">Запам\'ятати пароль</string>
+    <string name="pgp_passphrase_prompt_title">Введіть пароль</string>
+    <string name="pgp_error_key_unusable">Цей ключ не можна використати. Його могли відкликати або термін дії минув.</string>
+    <string name="pgp_error_ambiguous_key">Цьому підпису відповідають два ключі, тому перевірити не можна.</string>
+    <string name="pgp_verify_key_unusable">Підпис знайдено, але його ключ відкликано або термін дії минув</string>
     <string name="pgp_key_type_title">Тип ключа</string>
     <string name="pgp_key_type_curve25519">Curve25519 (рекомендовано, сумісний)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

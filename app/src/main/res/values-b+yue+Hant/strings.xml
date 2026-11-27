@@ -271,7 +271,11 @@
     <string name="pgp_user_id_hint">姓名和電子郵件，例如 Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">通關密語</string>
     <string name="pgp_passphrase_repeat_hint">再次輸入通關密語</string>
-    <string name="pgp_passphrase_notice">每次解密和簽署都需要通關密語，不會儲存。</string>
+    <string name="pgp_generate_remember">記住密碼</string>
+    <string name="pgp_passphrase_prompt_title">輸入密碼</string>
+    <string name="pgp_error_key_unusable">呢條匙用唔到，可能已經撤銷或者過期。</string>
+    <string name="pgp_error_ambiguous_key">有兩條匙對得上呢個簽署，所以冇辦法檢查。</string>
+    <string name="pgp_verify_key_unusable">搵到簽署，但佢嘅匙已經撤銷或者過期</string>
     <string name="pgp_key_type_title">金鑰類型</string>
     <string name="pgp_key_type_curve25519">Curve25519（建議，相容性佳）</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

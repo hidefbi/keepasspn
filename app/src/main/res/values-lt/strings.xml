@@ -846,7 +846,11 @@ Siekdami išsaugoti laisvę, taisyti klaidas, pridėti funkcijų ir palaikyti pr
     <string name="pgp_user_id_hint">Vardas ir el. paštas, pvz., Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Slaptafrazė</string>
     <string name="pgp_passphrase_repeat_hint">Pakartokite slaptafrazę</string>
-    <string name="pgp_passphrase_notice">Slaptafrazė reikalinga kiekvieną kartą iššifruojant ir pasirašant. Ji neįrašoma.</string>
+    <string name="pgp_generate_remember">Įsiminti slaptafrazę</string>
+    <string name="pgp_passphrase_prompt_title">Įveskite slaptafrazę</string>
+    <string name="pgp_error_key_unusable">Šiuo raktu negalima naudotis. Jis gali būti atšauktas arba pasibaigęs.</string>
+    <string name="pgp_error_ambiguous_key">Šiam parašui atitinka du raktai, todėl patikrinti negalima.</string>
+    <string name="pgp_verify_key_unusable">Parašas rastas, bet jo raktas atšauktas arba pasibaigęs</string>
     <string name="pgp_key_type_title">Rakto tipas</string>
     <string name="pgp_key_type_curve25519">Curve25519 (rekomenduojama, suderinama)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

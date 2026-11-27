@@ -898,7 +898,11 @@ Uygulama kullanıcı verilerini toplamaz, hiçbir sunucuya bağlanmaz, yalnızca
     <string name="pgp_user_id_hint">Ad ve e-posta, ör. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Parola</string>
     <string name="pgp_passphrase_repeat_hint">Parolayı tekrar yazın</string>
-    <string name="pgp_passphrase_notice">Parola her şifre çözme ve imzalamada gerekir. Kaydedilmez.</string>
+    <string name="pgp_generate_remember">Parolayı hatırla</string>
+    <string name="pgp_passphrase_prompt_title">Parolayı girin</string>
+    <string name="pgp_error_key_unusable">Bu anahtar kullanılamaz. İptal edilmiş veya süresi dolmuş olabilir.</string>
+    <string name="pgp_error_ambiguous_key">Bu imzayla eşleşen iki anahtar var, bu yüzden doğrulanamaz.</string>
+    <string name="pgp_verify_key_unusable">İmza bulundu, ancak anahtarı iptal edilmiş veya süresi dolmuş</string>
     <string name="pgp_key_type_title">Anahtar türü</string>
     <string name="pgp_key_type_curve25519">Curve25519 (önerilen, uyumlu)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

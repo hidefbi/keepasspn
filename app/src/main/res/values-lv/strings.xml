@@ -426,7 +426,11 @@ Lai saglabātu mūsu brīvību, labotu kļūdas, pievienotu funkcijas un uzturē
     <string name="pgp_user_id_hint">Vārds un e-pasts, piem., Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Paroles fraze</string>
     <string name="pgp_passphrase_repeat_hint">Atkārtojiet paroles frāzi</string>
-    <string name="pgp_passphrase_notice">Paroles frāze ir vajadzīga katrā atšifrēšanā un parakstīšanā. Tā netiek saglabāta.</string>
+    <string name="pgp_generate_remember">Atcerēties paroli</string>
+    <string name="pgp_passphrase_prompt_title">Ievadiet paroli</string>
+    <string name="pgp_error_key_unusable">Šo atslēgu nevar izmantot. Tā var būt atsaukta vai beigusies.</string>
+    <string name="pgp_error_ambiguous_key">Šim parakstam atbilst divas atslēgas, tāpēc to nevar pārbaudīt.</string>
+    <string name="pgp_verify_key_unusable">Paraksts atrasts, bet tā atslēga ir atsaukta vai beigusies</string>
     <string name="pgp_key_type_title">Atslēgas veids</string>
     <string name="pgp_key_type_curve25519">Curve25519 (ieteicams, saderīgs)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

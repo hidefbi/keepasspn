@@ -848,7 +848,11 @@
     <string name="pgp_user_id_hint">ชื่อและอีเมล เช่น Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">รหัสผ่านวลี</string>
     <string name="pgp_passphrase_repeat_hint">พิมพ์รหัสผ่านวลีอีกครั้ง</string>
-    <string name="pgp_passphrase_notice">ต้องใช้รหัสผ่านวลีทุกครั้งที่ถอดรหัสและลงลายเซ็น ไม่มีการบันทึก</string>
+    <string name="pgp_generate_remember">จำรหัสผ่านวลี</string>
+    <string name="pgp_passphrase_prompt_title">กรอกรหัสผ่านวลี</string>
+    <string name="pgp_error_key_unusable">ใช้คีย์นี้ไม่ได้ อาจถูกเพิกถอนหรือหมดอายุแล้ว</string>
+    <string name="pgp_error_ambiguous_key">มีคีย์สองดอกที่ตรงกับลายเซ็นนี้ จึงตรวจสอบไม่ได้</string>
+    <string name="pgp_verify_key_unusable">พบลายเซ็น แต่คีย์ของลายเซ็นถูกเพิกถอนหรือหมดอายุแล้ว</string>
     <string name="pgp_key_type_title">ประเภทกุญแจ</string>
     <string name="pgp_key_type_curve25519">Curve25519 (แนะนำ เข้ากันได้)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

@@ -438,7 +438,11 @@
     <string name="pgp_user_id_hint">ਨਾਮ ਅਤੇ ਈਮੇਲ, ਜਿਵੇਂ Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">ਪਾਸਫ੍ਰੇਜ਼</string>
     <string name="pgp_passphrase_repeat_hint">ਪਾਸਫ੍ਰੇਜ਼ ਦੁਬਾਰਾ ਲਿਖੋ</string>
-    <string name="pgp_passphrase_notice">ਹਰ ਡੀਕ੍ਰਿਪਟ ਅਤੇ ਸਾਈਨ ਲਈ ਪਾਸਫ੍ਰੇਜ਼ ਚਾਹੀਦਾ ਹੈ। ਇਹ ਸੰਭਾਲਿਆ ਨਹੀਂ ਜਾਂਦਾ।</string>
+    <string name="pgp_generate_remember">ਪਾਸਫ਼ਰੇਜ਼ ਯਾਦ ਰੱਖੋ</string>
+    <string name="pgp_passphrase_prompt_title">ਪਾਸਫ਼ਰੇਜ਼ ਦਰਜ ਕਰੋ</string>
+    <string name="pgp_error_key_unusable">ਇਹ ਕੁੰਜੀ ਵਰਤੀ ਨਹੀਂ ਜਾ ਸਕਦੀ। ਇਹ ਰੱਦ ਜਾਂ ਮਿਆਦ ਪੁੱਗੀ ਹੋ ਸਕਦੀ ਹੈ।</string>
+    <string name="pgp_error_ambiguous_key">ਇਸ ਦਸਤਖ਼ਤ ਨਾਲ ਦੋ ਕੁੰਜੀਆਂ ਮੇਲ ਖਾਂਦੀਆਂ ਹਨ, ਇਸ ਲਈ ਜਾਂਚ ਨਹੀਂ ਹੋ ਸਕਦੀ।</string>
+    <string name="pgp_verify_key_unusable">ਦਸਤਖ਼ਤ ਮਿਲਿਆ, ਪਰ ਇਸਦੀ ਕੁੰਜੀ ਰੱਦ ਜਾਂ ਮਿਆਦ ਪੁੱਗੀ ਹੈ</string>
     <string name="pgp_key_type_title">ਕੁੰਜੀ ਦੀ ਕਿਸਮ</string>
     <string name="pgp_key_type_curve25519">Curve25519 (ਸਿਫ਼ਾਰਸ਼ੀ, ਅਨੁਕੂਲ)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

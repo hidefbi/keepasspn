@@ -835,7 +835,11 @@ Per mantenir la nostra llibertat, corregir errors, afegir funcions i mantenir el
     <string name="pgp_user_id_hint">Nom i correu, p. ex. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Contrasenya</string>
     <string name="pgp_passphrase_repeat_hint">Repeteix la contrasenya</string>
-    <string name="pgp_passphrase_notice">Cal la contrasenya en cada desxifratge i signatura. No es desa.</string>
+    <string name="pgp_generate_remember">Recorda la contrasenya</string>
+    <string name="pgp_passphrase_prompt_title">Introdueix la contrasenya</string>
+    <string name="pgp_error_key_unusable">Aquesta clau no es pot utilitzar. Potser està revocada o caducada.</string>
+    <string name="pgp_error_ambiguous_key">Dues claus coincideixen amb aquesta signatura, així que no es pot comprovar.</string>
+    <string name="pgp_verify_key_unusable">S\'ha trobat la signatura, però la seva clau està revocada o caducada</string>
     <string name="pgp_key_type_title">Tipus de clau</string>
     <string name="pgp_key_type_curve25519">Curve25519 (recomanada, compatible)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

@@ -848,7 +848,11 @@
     <string name="pgp_user_id_hint">பெயரும் மின்னஞ்சலும், எ.கா. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">கடவுச்சொற்றொடர்</string>
     <string name="pgp_passphrase_repeat_hint">கடவுச்சொற்றொடரை மீண்டும் உள்ளிடவும்</string>
-    <string name="pgp_passphrase_notice">ஒவ்வொரு மறைவிலக்கு மற்றும் கையொப்பத்துக்கும் கடவுச்சொற்றொடர் தேவை. இது சேமிக்கப்படாது.</string>
+    <string name="pgp_generate_remember">கடவுச்சொல்லை நினைவில் வை</string>
+    <string name="pgp_passphrase_prompt_title">கடவுச்சொல்லை உள்ளிடவும்</string>
+    <string name="pgp_error_key_unusable">இந்த விசையைப் பயன்படுத்த முடியாது. இது ரத்து செய்யப்பட்டதாகவோ காலாவதியானதாகவோ இருக்கலாம்.</string>
+    <string name="pgp_error_ambiguous_key">இந்த கையொப்பத்துடன் இரண்டு விசைகள் பொருந்துகின்றன, எனவே சரிபார்க்க முடியாது.</string>
+    <string name="pgp_verify_key_unusable">கையொப்பம் கிடைத்தது, ஆனால் அதன் விசை ரத்து செய்யப்பட்டது அல்லது காலாவதியானது</string>
     <string name="pgp_key_type_title">விசை வகை</string>
     <string name="pgp_key_type_curve25519">Curve25519 (பரிந்துரைக்கப்பட்டது, இணக்கமானது)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

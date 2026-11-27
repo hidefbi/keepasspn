@@ -897,7 +897,11 @@ Aby zachować naszą wolność, naprawiać błędy, dodawać funkcje i utrzymywa
     <string name="pgp_user_id_hint">Imię i e-mail, np. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Hasło</string>
     <string name="pgp_passphrase_repeat_hint">Powtórz hasło</string>
-    <string name="pgp_passphrase_notice">Hasło jest potrzebne przy każdym odszyfrowaniu i podpisie. Nie jest zapisywane.</string>
+    <string name="pgp_generate_remember">Zapamiętaj hasło</string>
+    <string name="pgp_passphrase_prompt_title">Wpisz hasło</string>
+    <string name="pgp_error_key_unusable">Tego klucza nie można użyć. Mógł zostać odwołany lub wygasł.</string>
+    <string name="pgp_error_ambiguous_key">Dwa klucze pasują do tego podpisu, więc nie można go sprawdzić.</string>
+    <string name="pgp_verify_key_unusable">Podpis znaleziono, ale jego klucz został odwołany lub wygasł</string>
     <string name="pgp_key_type_title">Typ klucza</string>
     <string name="pgp_key_type_curve25519">Curve25519 (zalecany, zgodny)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

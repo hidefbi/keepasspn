@@ -172,7 +172,11 @@
     <string name="pgp_user_id_hint">Име и е-пошта, на пример Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Лозинка</string>
     <string name="pgp_passphrase_repeat_hint">Повторете ја лозинката</string>
-    <string name="pgp_passphrase_notice">Лозинката е потребна при секое дешифрирање и потпишување. Не се зачувува.</string>
+    <string name="pgp_generate_remember">Запомни лозинка</string>
+    <string name="pgp_passphrase_prompt_title">Внесете лозинка</string>
+    <string name="pgp_error_key_unusable">Овој клуч не може да се користи. Можеби е повлечен или истечен.</string>
+    <string name="pgp_error_ambiguous_key">Два клучеви се совпаѓаат со овој потпис, па не може да се провери.</string>
+    <string name="pgp_verify_key_unusable">Потписот е најден, но неговиот клуч е повлечен или истечен</string>
     <string name="pgp_key_type_title">Вид на клуч</string>
     <string name="pgp_key_type_curve25519">Curve25519 (препорачано, компатибилно)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

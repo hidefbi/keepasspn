@@ -865,7 +865,11 @@ Meie vabaduse säilitamiseks, vigade parandamiseks, uute funktsioonide lisamisek
     <string name="pgp_user_id_hint">Nimi ja e-post, nt Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Paroolifraas</string>
     <string name="pgp_passphrase_repeat_hint">Korda paroolifraasi</string>
-    <string name="pgp_passphrase_notice">Paroolifraasi on vaja igal dekrüptimisel ja allkirjastamisel. Seda ei salvestata.</string>
+    <string name="pgp_generate_remember">Jäta salasõna meelde</string>
+    <string name="pgp_passphrase_prompt_title">Sisesta salasõna</string>
+    <string name="pgp_error_key_unusable">Seda võtit ei saa kasutada. See võib olla tühistatud või aegunud.</string>
+    <string name="pgp_error_ambiguous_key">Sellele allkirjale vastavad kaks võtit, seega seda ei saa kontrollida.</string>
+    <string name="pgp_verify_key_unusable">Allkiri leiti, kuid selle võti on tühistatud või aegunud</string>
     <string name="pgp_key_type_title">Võtme tüüp</string>
     <string name="pgp_key_type_curve25519">Curve25519 (soovitatav, ühilduv)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

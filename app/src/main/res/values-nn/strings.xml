@@ -438,7 +438,11 @@ For å halde fridomen vår, rette feil, leggje til funksjonar og halde prosjekte
     <string name="pgp_user_id_hint">Namn og e-post, t.d. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Passordfrase</string>
     <string name="pgp_passphrase_repeat_hint">Gjenta passordfrasen</string>
-    <string name="pgp_passphrase_notice">Passordfrasen trengst for kvar dekryptering og signering. Han blir ikkje lagra.</string>
+    <string name="pgp_generate_remember">Hugs passordfrasen</string>
+    <string name="pgp_passphrase_prompt_title">Skriv inn passordfrasen</string>
+    <string name="pgp_error_key_unusable">Denne nøkkelen kan ikkje brukast. Ho kan vere trekt tilbake eller gått ut.</string>
+    <string name="pgp_error_ambiguous_key">To nøklar passar til denne signaturen, så ho kan ikkje sjekkast.</string>
+    <string name="pgp_verify_key_unusable">Signaturen vart funnen, men nøkkelen er trekt tilbake eller gått ut</string>
     <string name="pgp_key_type_title">Nøkkeltype</string>
     <string name="pgp_key_type_curve25519">Curve25519 (tilrådd, kompatibel)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

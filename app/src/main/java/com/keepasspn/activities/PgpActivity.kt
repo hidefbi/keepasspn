@@ -30,6 +30,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.RadioGroup
@@ -370,6 +371,7 @@ class PgpActivity : DatabaseLockActivity() {
         val passEdit: EditText = view.findViewById(R.id.pgp_generate_passphrase)
         val repeatEdit: EditText = view.findViewById(R.id.pgp_generate_passphrase_repeat)
         val typeGroup: RadioGroup = view.findViewById(R.id.pgp_generate_type)
+        val rememberBox: CheckBox = view.findViewById(R.id.pgp_generate_remember)
         AlertDialog.Builder(this)
             .setTitle(R.string.pgp_generate_title)
             .setView(view)
@@ -397,7 +399,7 @@ class PgpActivity : DatabaseLockActivity() {
                         if (error == null) {
                             // generateKey wipes the passphrase when done
                             dialog.dismiss()
-                            generateKey(userId, passphrase, keyType)
+                            generateKey(userId, passphrase, keyType, rememberBox.isChecked)
                         } else {
                             passphrase.fill('\u0000')
                             Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
@@ -408,7 +410,7 @@ class PgpActivity : DatabaseLockActivity() {
             .show()
     }
 
-    private fun generateKey(userId: String, passphrase: CharArray, keyType: PgpCore.KeyType) {
+    private fun generateKey(userId: String, passphrase: CharArray, keyType: PgpCore.KeyType, remember: Boolean) {
         if (mDatabase == null) {
             passphrase.fill('\u0000')
             return
@@ -424,7 +426,7 @@ class PgpActivity : DatabaseLockActivity() {
                     fingerprint = key.fingerprint,
                     publicArmored = key.publicArmored,
                     secretArmored = key.secretArmored,
-                    passphrase = passphrase
+                    passphrase = if (remember) passphrase else null
                 )
                 addPgpEntry(entryInfo)
                 Toast.makeText(this@PgpActivity, R.string.pgp_key_created, Toast.LENGTH_SHORT).show()
@@ -595,12 +597,14 @@ class PgpActivity : DatabaseLockActivity() {
                 val secret = info?.let { PgpKeyEntries.secretKeyOf(it) }
                 val passphrase = info?.let { PgpKeyEntries.passphraseOf(it) }
                 when {
-                    secret == null || passphrase == null -> {
+                    secret == null -> {
                         passphrase?.fill('\u0000')
                         Toast.makeText(this@PgpActivity, R.string.pgp_error_no_secret, Toast.LENGTH_SHORT).show()
                     }
-                    busy -> passphrase.fill('\u0000')
-                    else -> ready(secret, passphrase)
+                    busy -> passphrase?.fill('\u0000')
+                    passphrase != null -> ready(secret, passphrase)
+                    // Not kept, or the Keystore can't open it here: ask for it
+                    else -> askPassphrase { typed -> ready(secret, typed) }
                 }
             }
         }
@@ -617,6 +621,30 @@ class PgpActivity : DatabaseLockActivity() {
         } else {
             run()
         }
+    }
+
+    /**
+     * Asks for the passphrase of a key that does not keep one. The callback gets it and must wipe it.
+     */
+    private fun askPassphrase(ready: (CharArray) -> Unit) {
+        val editText = EditText(this).apply {
+            hint = getString(R.string.pgp_passphrase_hint)
+            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        }
+        AlertDialog.Builder(this)
+            .setTitle(R.string.pgp_passphrase_prompt_title)
+            .setView(editText)
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                val typed = editText.text.toString().toCharArray()
+                editText.text.clear()
+                if (typed.isEmpty()) {
+                    Toast.makeText(this, R.string.pgp_error_passphrase_empty, Toast.LENGTH_SHORT).show()
+                } else {
+                    ready(typed)
+                }
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
     }
 
     private fun decryptInput(input: Source, secret: String, passphrase: CharArray) {
@@ -706,6 +734,7 @@ class PgpActivity : DatabaseLockActivity() {
                         keyRows.firstOrNull { it.fingerprint == result.signerFingerprint }?.title
                             ?: result.signerFingerprint.orEmpty()
                     )
+                    !result.keyUsable -> getString(R.string.pgp_verify_key_unusable)
                     else -> getString(R.string.pgp_verify_bad)
                 }
             }
@@ -942,6 +971,8 @@ class PgpActivity : DatabaseLockActivity() {
             PgpCore.Reason.NO_MATCHING_KEY -> R.string.pgp_error_no_matching_key
             PgpCore.Reason.INVALID_DATA -> R.string.pgp_error_invalid
             PgpCore.Reason.NO_INTEGRITY -> R.string.pgp_error_no_integrity
+            PgpCore.Reason.KEY_UNUSABLE -> R.string.pgp_error_key_unusable
+            PgpCore.Reason.AMBIGUOUS_KEY -> R.string.pgp_error_ambiguous_key
             PgpCore.Reason.TOO_LARGE -> R.string.pgp_file_too_large
             PgpCore.Reason.CANCELLED -> R.string.error_cancel_by_user
         }

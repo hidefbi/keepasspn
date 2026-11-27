@@ -905,7 +905,11 @@ Um unsere Freiheit zu bewahren, Fehler zu beheben, neue Funktionen hinzuzufügen
     <string name="pgp_user_id_hint">Name und E-Mail, z. B. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Passphrase</string>
     <string name="pgp_passphrase_repeat_hint">Passphrase wiederholen</string>
-    <string name="pgp_passphrase_notice">Die Passphrase wird bei jedem Entschlüsseln und Signieren gebraucht. Sie wird nicht gespeichert.</string>
+    <string name="pgp_generate_remember">Passwort merken</string>
+    <string name="pgp_passphrase_prompt_title">Passwort eingeben</string>
+    <string name="pgp_error_key_unusable">Dieser Schlüssel kann nicht verwendet werden. Er ist eventuell widerrufen oder abgelaufen.</string>
+    <string name="pgp_error_ambiguous_key">Zwei Schlüssel passen zu dieser Signatur, daher kann sie nicht geprüft werden.</string>
+    <string name="pgp_verify_key_unusable">Signatur gefunden, aber ihr Schlüssel ist widerrufen oder abgelaufen</string>
     <string name="pgp_key_type_title">Schlüsseltyp</string>
     <string name="pgp_key_type_curve25519">Curve25519 (empfohlen, kompatibel)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

@@ -893,7 +893,11 @@ Pentru a ne menține libertatea, a repara erori, a adăuga funcționalități ș
     <string name="pgp_user_id_hint">Nume și e-mail, de ex. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Parolă</string>
     <string name="pgp_passphrase_repeat_hint">Repetați parola</string>
-    <string name="pgp_passphrase_notice">Parola este necesară la fiecare decriptare și semnare. Nu se salvează.</string>
+    <string name="pgp_generate_remember">Reține parola</string>
+    <string name="pgp_passphrase_prompt_title">Introdu parola</string>
+    <string name="pgp_error_key_unusable">Această cheie nu poate fi folosită. Poate fi revocată sau expirată.</string>
+    <string name="pgp_error_ambiguous_key">Două chei se potrivesc cu această semnătură, deci nu poate fi verificată.</string>
+    <string name="pgp_verify_key_unusable">Semnătura a fost găsită, dar cheia ei este revocată sau expirată</string>
     <string name="pgp_key_type_title">Tipul cheii</string>
     <string name="pgp_key_type_curve25519">Curve25519 (recomandat, compatibil)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

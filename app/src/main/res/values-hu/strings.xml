@@ -901,7 +901,11 @@ Szabadságunk megőrzése, a hibák javítása, új funkciók hozzáadása és a
     <string name="pgp_user_id_hint">Név és e-mail, pl. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Jelmondat</string>
     <string name="pgp_passphrase_repeat_hint">Jelmondat megismétlése</string>
-    <string name="pgp_passphrase_notice">A jelmondat minden visszafejtésnél és aláírásnál kell. Nem tárolódik.</string>
+    <string name="pgp_generate_remember">Jelszó megjegyzése</string>
+    <string name="pgp_passphrase_prompt_title">Adja meg a jelszót</string>
+    <string name="pgp_error_key_unusable">Ez a kulcs nem használható. Visszavonták vagy lejárt.</string>
+    <string name="pgp_error_ambiguous_key">Két kulcs is illik ehhez az aláíráshoz, ezért nem ellenőrizhető.</string>
+    <string name="pgp_verify_key_unusable">Az aláírás megvan, de a kulcsa visszavonva vagy lejárt</string>
     <string name="pgp_key_type_title">Kulcs típusa</string>
     <string name="pgp_key_type_curve25519">Curve25519 (ajánlott, kompatibilis)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

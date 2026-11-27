@@ -883,7 +883,11 @@
     <string name="pgp_user_id_hint">Име и имейл, напр. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Парола</string>
     <string name="pgp_passphrase_repeat_hint">Повторете паролата</string>
-    <string name="pgp_passphrase_notice">Паролата е нужна при всяко дешифриране и подписване. Не се съхранява.</string>
+    <string name="pgp_generate_remember">Запомняне на паролата</string>
+    <string name="pgp_passphrase_prompt_title">Въведете парола</string>
+    <string name="pgp_error_key_unusable">Този ключ не може да се използва. Може да е отменен или с изтекъл срок.</string>
+    <string name="pgp_error_ambiguous_key">Два ключа отговарят на този подпис, затова не може да се провери.</string>
+    <string name="pgp_verify_key_unusable">Подписът е намерен, но ключът му е отменен или с изтекъл срок</string>
     <string name="pgp_key_type_title">Тип ключ</string>
     <string name="pgp_key_type_curve25519">Curve25519 (препоръчително, съвместимо)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

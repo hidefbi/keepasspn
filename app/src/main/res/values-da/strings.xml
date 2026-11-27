@@ -820,7 +820,11 @@ For at bevare vores frihed, rette fejl, tilføje funktioner og holde projektet a
     <string name="pgp_user_id_hint">Navn og e-mail, fx Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Adgangskode</string>
     <string name="pgp_passphrase_repeat_hint">Gentag adgangskode</string>
-    <string name="pgp_passphrase_notice">Adgangskoden skal bruges ved hver dekryptering og signering. Den gemmes ikke.</string>
+    <string name="pgp_generate_remember">Husk adgangssætning</string>
+    <string name="pgp_passphrase_prompt_title">Indtast adgangssætning</string>
+    <string name="pgp_error_key_unusable">Denne nøgle kan ikke bruges. Den kan være tilbagekaldt eller udløbet.</string>
+    <string name="pgp_error_ambiguous_key">To nøgler passer til denne signatur, så den kan ikke kontrolleres.</string>
+    <string name="pgp_verify_key_unusable">Signaturen blev fundet, men dens nøgle er tilbagekaldt eller udløbet</string>
     <string name="pgp_key_type_title">Nøgletype</string>
     <string name="pgp_key_type_curve25519">Curve25519 (anbefalet, kompatibel)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

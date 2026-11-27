@@ -898,7 +898,11 @@
     <string name="pgp_user_id_hint">名前とメール（例: Ann &lt;ann@example.com&gt;）</string>
     <string name="pgp_passphrase_hint">パスフレーズ</string>
     <string name="pgp_passphrase_repeat_hint">パスフレーズをもう一度入力</string>
-    <string name="pgp_passphrase_notice">復号と署名のたびにパスフレーズが必要です。保存はされません。</string>
+    <string name="pgp_generate_remember">パスフレーズを保存</string>
+    <string name="pgp_passphrase_prompt_title">パスフレーズを入力</string>
+    <string name="pgp_error_key_unusable">この鍵は使用できません。失効しているか、期限切れの可能性があります。</string>
+    <string name="pgp_error_ambiguous_key">この署名に一致する鍵が2つあるため、確認できません。</string>
+    <string name="pgp_verify_key_unusable">署名は見つかりましたが、その鍵は失効または期限切れです</string>
     <string name="pgp_key_type_title">鍵の種類</string>
     <string name="pgp_key_type_curve25519">Curve25519（推奨・互換性あり）</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

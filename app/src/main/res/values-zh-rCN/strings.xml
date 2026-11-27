@@ -906,7 +906,11 @@
     <string name="pgp_user_id_hint">姓名和邮箱，例如 Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">口令</string>
     <string name="pgp_passphrase_repeat_hint">再次输入口令</string>
-    <string name="pgp_passphrase_notice">每次解密和签名都需要口令，不会保存。</string>
+    <string name="pgp_generate_remember">记住口令</string>
+    <string name="pgp_passphrase_prompt_title">输入口令</string>
+    <string name="pgp_error_key_unusable">此密钥无法使用，可能已被撤销或已过期。</string>
+    <string name="pgp_error_ambiguous_key">有两把密钥与此签名匹配，无法检查。</string>
+    <string name="pgp_verify_key_unusable">找到签名，但其密钥已被撤销或已过期</string>
     <string name="pgp_key_type_title">密钥类型</string>
     <string name="pgp_key_type_curve25519">Curve25519（推荐，兼容性好）</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

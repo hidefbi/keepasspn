@@ -573,7 +573,11 @@ Jotta säilyttäisimme vapautemme, korjaisimme virheitä, lisäisimme ominaisuuk
     <string name="pgp_user_id_hint">Nimi ja sähköposti, esim. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Salasana</string>
     <string name="pgp_passphrase_repeat_hint">Toista salasana</string>
-    <string name="pgp_passphrase_notice">Salasanaa tarvitaan joka salauksen purkuun ja allekirjoitukseen. Sitä ei tallenneta.</string>
+    <string name="pgp_generate_remember">Muista salasana</string>
+    <string name="pgp_passphrase_prompt_title">Anna salasana</string>
+    <string name="pgp_error_key_unusable">Tätä avainta ei voi käyttää. Se voi olla peruutettu tai vanhentunut.</string>
+    <string name="pgp_error_ambiguous_key">Kaksi avainta täsmää tähän allekirjoitukseen, joten sitä ei voi tarkistaa.</string>
+    <string name="pgp_verify_key_unusable">Allekirjoitus löytyi, mutta sen avain on peruutettu tai vanhentunut</string>
     <string name="pgp_key_type_title">Avaimen tyyppi</string>
     <string name="pgp_key_type_curve25519">Curve25519 (suositus, yhteensopiva)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

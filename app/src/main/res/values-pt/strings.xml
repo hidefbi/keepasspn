@@ -871,7 +871,11 @@ Para manter a nossa liberdade, corrigir bugs, adicionar funcionalidades e manter
     <string name="pgp_user_id_hint">Nome e e-mail, p. ex. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Frase-passe</string>
     <string name="pgp_passphrase_repeat_hint">Repita a frase-passe</string>
-    <string name="pgp_passphrase_notice">A frase-passe é pedida em cada decifragem e assinatura. Não é guardada.</string>
+    <string name="pgp_generate_remember">Lembrar a senha</string>
+    <string name="pgp_passphrase_prompt_title">Digite a senha</string>
+    <string name="pgp_error_key_unusable">Esta chave não pode ser usada. Pode ter sido revogada ou expirada.</string>
+    <string name="pgp_error_ambiguous_key">Duas chaves correspondem a esta assinatura, então ela não pode ser verificada.</string>
+    <string name="pgp_verify_key_unusable">Assinatura encontrada, mas a chave dela foi revogada ou expirou</string>
     <string name="pgp_key_type_title">Tipo de chave</string>
     <string name="pgp_key_type_curve25519">Curve25519 (recomendada, compatível)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

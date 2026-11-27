@@ -881,7 +881,11 @@
     <string name="pgp_user_id_hint">الاسم والبريد الإلكتروني، مثال: Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">عبارة المرور</string>
     <string name="pgp_passphrase_repeat_hint">أعد كتابة عبارة المرور</string>
-    <string name="pgp_passphrase_notice">عبارة المرور مطلوبة في كل فك تشفير وتوقيع. لا يتم حفظها.</string>
+    <string name="pgp_generate_remember">تذكر كلمة المرور</string>
+    <string name="pgp_passphrase_prompt_title">أدخل كلمة المرور</string>
+    <string name="pgp_error_key_unusable">لا يمكن استخدام هذا المفتاح. ربما أُلغي أو انتهت صلاحيته.</string>
+    <string name="pgp_error_ambiguous_key">يطابق مفتاحان هذا التوقيع، لذلك لا يمكن التحقق منه.</string>
+    <string name="pgp_verify_key_unusable">وُجد التوقيع، لكن مفتاحه ملغى أو منتهي الصلاحية</string>
     <string name="pgp_key_type_title">نوع المفتاح</string>
     <string name="pgp_key_type_curve25519">Curve25519 (موصى به، متوافق)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

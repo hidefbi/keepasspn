@@ -164,7 +164,11 @@ Kanggo njaga kebebasan kita, mbenerake bug, nambah fitur, lan njaga proyek tetep
     <string name="pgp_user_id_hint">Jeneng lan email, contone Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Frasa sandi</string>
     <string name="pgp_passphrase_repeat_hint">Bali ketik frasa sandi</string>
-    <string name="pgp_passphrase_notice">Frasa sandi dibutuhake saben dekripsi lan tandha tangan. Ora disimpen.</string>
+    <string name="pgp_generate_remember">Eling passphrase</string>
+    <string name="pgp_passphrase_prompt_title">Lebokna passphrase</string>
+    <string name="pgp_error_key_unusable">Kunci iki ora bisa dienggo. Bisa wae wis dicabut utawa kadaluwarsa.</string>
+    <string name="pgp_error_ambiguous_key">Rong kunci cocog karo tandha tangan iki, mula ora bisa dipriksa.</string>
+    <string name="pgp_verify_key_unusable">Tandha tangan ditemokake, nanging kuncine wis dicabut utawa kadaluwarsa</string>
     <string name="pgp_key_type_title">Jinis kunci</string>
     <string name="pgp_key_type_curve25519">Curve25519 (disaranake, kompatibel)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

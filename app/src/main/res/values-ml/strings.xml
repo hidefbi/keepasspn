@@ -489,7 +489,11 @@
     <string name="pgp_user_id_hint">പേരും ഇമെയിലും, ഉദാ. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">പാസ്‌ഫ്രെയ്സ്</string>
     <string name="pgp_passphrase_repeat_hint">പാസ്‌ഫ്രെയ്സ് വീണ്ടും ടൈപ്പ് ചെയ്യുക</string>
-    <string name="pgp_passphrase_notice">ഓരോ ഡീക്രിപ്റ്റിനും സൈനിനും പാസ്‌ഫ്രെയ്സ് വേണം. ഇത് സേവ് ചെയ്യില്ല.</string>
+    <string name="pgp_generate_remember">പാസ്‌ഫ്രേസ് ഓർമിക്കുക</string>
+    <string name="pgp_passphrase_prompt_title">പാസ്‌ഫ്രേസ് നൽകുക</string>
+    <string name="pgp_error_key_unusable">ഈ കീ ഉപയോഗിക്കാൻ കഴിയില്ല. ഇത് റദ്ദാക്കിയതോ കാലാവധി കഴിഞ്ഞതോ ആകാം.</string>
+    <string name="pgp_error_ambiguous_key">ഈ ഒപ്പുമായി രണ്ട് കീകൾ യോജിക്കുന്നു, അതിനാൽ പരിശോധിക്കാൻ കഴിയില്ല.</string>
+    <string name="pgp_verify_key_unusable">ഒപ്പ് കണ്ടെത്തി, പക്ഷേ അതിന്റെ കീ റദ്ദാക്കിയതോ കാലാവധി കഴിഞ്ഞതോ ആണ്</string>
     <string name="pgp_key_type_title">കീയുടെ തരം</string>
     <string name="pgp_key_type_curve25519">Curve25519 (ശുപാർശ ചെയ്യുന്നു, അനുയോജ്യം)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

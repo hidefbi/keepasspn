@@ -81,13 +81,14 @@ just gets dropped with no message. That is what broke the master password change
 
 ### PGP keys
 Keys live in the database as entries, in the PGP Safe folder. The armored secret key and its passphrase are protected
-custom fields, and the public key is a plain field. Nothing is written to disk outside the
+custom fields, and the public key is a plain field. A kept passphrase is wrapped with an AES-GCM key from the Android Keystore that does not leave the device (StrongBox when the phone has it). If the Keystore can't open it, the app asks for the passphrase. Nothing is written to disk outside the
 database, and the keys go with its backups.
 
 - Default key is version 4 with Curve25519, and messages use AES-256 with the integrity packet
   (SEIPD v1). Those are what gpg and most OpenPGP tools read without fuss. Version 6 keys and
   AEAD are not created, to keep compatibility wide. RSA 3072 and 4096 are offered for older tools.
 - Signing and decrypting ask for user verification before the key is used.
+- Keys are checked before use. A revoked or expired key, or a subkey whose binding signature does not check out, is refused for encrypt and sign. A signature that matches two different keys by key ID is not checked at all.
 - Files and results are streamed through `cacheDir/pgp`, which is app-private. Limits are 50 MiB for
   files and for decrypted output, and 1 MB for typed text. Decrypted output over the limit is refused and
   the partial file is deleted.
@@ -179,3 +180,6 @@ database, and the keys go with its backups.
 27. Decrypt a message with three nested compression layers: it must be refused.
 28. Import a key text or key file over 2 MiB, or a signature over 64 KiB: all must be refused with a message.
 29. Import a binary .gpg public key file (gpg --export, no --armor): it must work and show the same fingerprint as gpg --show-keys.
+30. Make a key with Remember passphrase on, then sign a text: no passphrase prompt. Make a key with it off: signing asks for the passphrase, and a wrong one shows an error.
+31. Restore a backup with a kept passphrase on another phone (or clear the app data): the app asks for the passphrase and does not fail.
+32. Import a key that was revoked (gpg --gen-revoke, then import the certificate) and try to encrypt to it: it must be refused with the can't be used message. Verify a signature made before the revocation: it must show the key message.

@@ -465,7 +465,11 @@
     <string name="pgp_user_id_hint">নাম ও ইমেইল, যেমন Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">পাসফ্রেজ</string>
     <string name="pgp_passphrase_repeat_hint">পাসফ্রেজ আবার লিখুন</string>
-    <string name="pgp_passphrase_notice">প্রতিটি ডিক্রিপ্ট ও সাইনের সময় পাসফ্রেজ লাগে। এটি সংরক্ষিত হয় না।</string>
+    <string name="pgp_generate_remember">পাসফ্রেজ মনে রাখুন</string>
+    <string name="pgp_passphrase_prompt_title">পাসফ্রেজ লিখুন</string>
+    <string name="pgp_error_key_unusable">এই কী ব্যবহার করা যাবে না। এটি বাতিল বা মেয়াদোত্তীর্ণ হতে পারে।</string>
+    <string name="pgp_error_ambiguous_key">এই স্বাক্ষরের সাথে দুটি কী মিলেছে, তাই যাচাই করা যাবে না।</string>
+    <string name="pgp_verify_key_unusable">স্বাক্ষর পাওয়া গেছে, কিন্তু এর কী বাতিল বা মেয়াদোত্তীর্ণ</string>
     <string name="pgp_key_type_title">কীর ধরন</string>
     <string name="pgp_key_type_curve25519">Curve25519 (প্রস্তাবিত, সামঞ্জস্যপূর্ণ)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

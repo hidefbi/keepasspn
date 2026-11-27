@@ -144,7 +144,11 @@
     <string name="pgp_user_id_hint">ନାମ ଓ ଇମେଲ୍, ଯେପରି Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">ପାସଫ୍ରେଜ୍</string>
     <string name="pgp_passphrase_repeat_hint">ପାସଫ୍ରେଜ୍ ପୁଣି ଟାଇପ୍ କରନ୍ତୁ</string>
-    <string name="pgp_passphrase_notice">ପ୍ରତ୍ୟେକ ଡିକ୍ରିପ୍ଟ ଓ ସାଇନ୍ରେ ପାସଫ୍ରେଜ୍ ଦରକାର। ଏହା ସେଭ୍ ହୁଏ ନାହିଁ।</string>
+    <string name="pgp_generate_remember">ପାସଫ୍ରେଜ ମନେ ରଖନ୍ତୁ</string>
+    <string name="pgp_passphrase_prompt_title">ପାସଫ୍ରେଜ ଲେଖନ୍ତୁ</string>
+    <string name="pgp_error_key_unusable">ଏହି କି ବ୍ୟବହାର କରାଯାଇପାରିବ ନାହିଁ। ଏହା ବାତିଲ୍ କିମ୍ବା ମିଆଦ ଶେଷ ହୋଇଥାଇପାରେ।</string>
+    <string name="pgp_error_ambiguous_key">ଏହି ସ୍ୱାକ୍ଷର ସହିତ ଦୁଇଟି କି ମେଳ ଖାଉଛି, ତେଣୁ ଯାଞ୍ଚ ହୋଇପାରିବ ନାହିଁ।</string>
+    <string name="pgp_verify_key_unusable">ସ୍ୱାକ୍ଷର ମିଳିଛି, କିନ୍ତୁ ଏହାର କି ବାତିଲ୍ କିମ୍ବା ମିଆଦ ଶେଷ ହୋଇଛି</string>
     <string name="pgp_key_type_title">କୀର ପ୍ରକାର</string>
     <string name="pgp_key_type_curve25519">Curve25519 (ସୁପାରିଶ, ସୁସଙ୍ଗତ)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

@@ -910,7 +910,11 @@ Per mantenere la nostra libertà, correggere i bug, aggiungere funzionalità e m
     <string name="pgp_user_id_hint">Nome ed email, es. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Passphrase</string>
     <string name="pgp_passphrase_repeat_hint">Ripeti la passphrase</string>
-    <string name="pgp_passphrase_notice">La passphrase serve a ogni decifratura e firma. Non viene salvata.</string>
+    <string name="pgp_generate_remember">Ricorda la password</string>
+    <string name="pgp_passphrase_prompt_title">Inserisci la password</string>
+    <string name="pgp_error_key_unusable">Questa chiave non può essere usata. Potrebbe essere revocata o scaduta.</string>
+    <string name="pgp_error_ambiguous_key">Due chiavi corrispondono a questa firma, quindi non può essere verificata.</string>
+    <string name="pgp_verify_key_unusable">Firma trovata, ma la sua chiave è revocata o scaduta</string>
     <string name="pgp_key_type_title">Tipo di chiave</string>
     <string name="pgp_key_type_curve25519">Curve25519 (consigliata, compatibile)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

@@ -142,7 +142,11 @@
     <string name="pgp_user_id_hint">نام اور ای میل، جیسے Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">پاس فریز</string>
     <string name="pgp_passphrase_repeat_hint">پاس فریز دوبارہ لکھیں</string>
-    <string name="pgp_passphrase_notice">ہر کھولنے اور دستخط کرنے پر پاس فریز درکار ہے۔ یہ محفوظ نہیں ہوتا۔</string>
+    <string name="pgp_generate_remember">پاس فریز یاد رکھیں</string>
+    <string name="pgp_passphrase_prompt_title">پاس فریز درج کریں</string>
+    <string name="pgp_error_key_unusable">یہ کلید استعمال نہیں ہو سکتی۔ یہ منسوخ یا ختم شدہ ہو سکتی ہے۔</string>
+    <string name="pgp_error_ambiguous_key">اس دستخط سے دو کلیدیں مماثل ہیں، اس لیے اس کی جانچ نہیں ہو سکتی۔</string>
+    <string name="pgp_verify_key_unusable">دستخط مل گیا، لیکن اس کی کلید منسوخ یا ختم شدہ ہے</string>
     <string name="pgp_key_type_title">کلید کی قسم</string>
     <string name="pgp_key_type_curve25519">Curve25519 (تجویز کردہ، ہم آہنگ)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

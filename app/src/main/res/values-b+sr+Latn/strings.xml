@@ -499,7 +499,11 @@ Da bismo sačuvali našu slobodu, ispravljali greške, dodavali funkcije i održ
     <string name="pgp_user_id_hint">Ime i imejl, npr. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Lozinka</string>
     <string name="pgp_passphrase_repeat_hint">Ponovite lozinku</string>
-    <string name="pgp_passphrase_notice">Lozinka je potrebna za svako dešifrovanje i potpisivanje. Ne čuva se.</string>
+    <string name="pgp_generate_remember">Zapamti lozinku</string>
+    <string name="pgp_passphrase_prompt_title">Unesi lozinku</string>
+    <string name="pgp_error_key_unusable">Ovaj ključ se ne može koristiti. Možda je opozvan ili istekao.</string>
+    <string name="pgp_error_ambiguous_key">Dva ključa odgovaraju ovom potpisu, pa se ne može proveriti.</string>
+    <string name="pgp_verify_key_unusable">Potpis je pronađen, ali je njegov ključ opozvan ili istekao</string>
     <string name="pgp_key_type_title">Vrsta ključa</string>
     <string name="pgp_key_type_curve25519">Curve25519 (preporučeno, kompatibilno)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

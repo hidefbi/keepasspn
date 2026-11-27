@@ -918,7 +918,11 @@ To keep our freedom, fix bugs, add features and keep the project active, we welc
     <string name="pgp_user_id_hint">Name and email, e.g. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Passphrase</string>
     <string name="pgp_passphrase_repeat_hint">Repeat passphrase</string>
-    <string name="pgp_passphrase_notice">The passphrase is needed for every decrypt and sign. It is not stored.</string>
+    <string name="pgp_generate_remember">Remember passphrase</string>
+    <string name="pgp_passphrase_prompt_title">Enter passphrase</string>
+    <string name="pgp_error_key_unusable">This key can\'t be used. It may be revoked or expired.</string>
+    <string name="pgp_error_ambiguous_key">Two keys match this signature, so it can\'t be checked.</string>
+    <string name="pgp_verify_key_unusable">Signature found, but its key is revoked or expired</string>
     <string name="pgp_key_type_title">Key type</string>
     <string name="pgp_key_type_curve25519">Curve25519 (recommended, compatible)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

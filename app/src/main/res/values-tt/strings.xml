@@ -178,7 +178,11 @@
     <string name="pgp_user_id_hint">Исем һәм e-почта, мәс. Ann &lt;ann@example.com&gt;</string>
     <string name="pgp_passphrase_hint">Парол фразасы</string>
     <string name="pgp_passphrase_repeat_hint">Парол фразасын кабатлагыз</string>
-    <string name="pgp_passphrase_notice">Парол фразасы һәр шифрны ачканда һәм имза салганда кирәк. Ул саклану түгел.</string>
+    <string name="pgp_generate_remember">Серсүзне искә калдыру</string>
+    <string name="pgp_passphrase_prompt_title">Серсүзне кертегез</string>
+    <string name="pgp_error_key_unusable">Бу ачкычны куллану мөмкин түгел. Ул чакырылган яки вакыты узган булырга мөмкин.</string>
+    <string name="pgp_error_ambiguous_key">Бу имзага ике ачкыч туры килә, шуңа күрә тикшереп булмый.</string>
+    <string name="pgp_verify_key_unusable">Имза табылды, ләкин аның ачкычы чакырылган яки вакыты узган</string>
     <string name="pgp_key_type_title">Ачкыч төре</string>
     <string name="pgp_key_type_curve25519">Curve25519 (тәкъдим ителә, туры килә)</string>
     <string name="pgp_key_type_rsa3072">RSA 3072</string>

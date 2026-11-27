@@ -52,8 +52,11 @@ object PgpKeyEntries {
         secretArmored?.let {
             entryInfo.customFields.add(Field(FIELD_SECRET_KEY, ProtectedString(true, it.toCharArray())))
         }
-        passphrase?.let {
-            entryInfo.customFields.add(Field(FIELD_PASSPHRASE, ProtectedString(true, it.copyOf())))
+        // Kept only when the Keystore can wrap it, otherwise the app asks for it each time
+        passphrase?.let { plain ->
+            PassphraseVault.wrap(plain)?.let { wrapped ->
+                entryInfo.customFields.add(Field(FIELD_PASSPHRASE, ProtectedString(true, wrapped.toCharArray())))
+            }
         }
         return entryInfo
     }
@@ -67,10 +70,12 @@ object PgpKeyEntries {
     }
 
     /**
-     * A copy of the passphrase, the caller wipes it when done.
+     * The passphrase if one is kept and can be opened here, a new copy the caller wipes when done.
+     * Null means the app has to ask for it.
      */
     fun passphraseOf(entryInfo: EntryInfo): CharArray? {
-        return valueOf(entryInfo, FIELD_PASSPHRASE)?.copyOf()
+        val stored = valueOf(entryInfo, FIELD_PASSPHRASE) ?: return null
+        return PassphraseVault.unwrap(stored)
     }
 
     private fun valueOf(entryInfo: EntryInfo, name: String): CharArray? {

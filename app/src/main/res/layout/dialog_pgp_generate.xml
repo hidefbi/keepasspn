@@ -51,12 +51,14 @@
             android:hint="@string/pgp_passphrase_repeat_hint"
             android:inputType="textPassword" />
 
-        <TextView
+        <CheckBox
+            android:id="@+id/pgp_generate_remember"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/pgp_passphrase_notice"
-            style="@style/KeePassPNStyle.Text.Tiny" />
+            android:checked="true"
+            android:text="@string/pgp_generate_remember"
+            style="@style/KeePassPNStyle.Text" />
 
         <TextView
             android:layout_width="wrap_content"
