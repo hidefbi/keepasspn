@@ -1,4 +1,6 @@
 KeePassPN
+ * Security: PGP clears its working buffers after use and keeps fewer copies of the passphrase and result text
+ * Fix: a PGP key that was just made or imported shows in the list at once and is selected
  * Security: PGP decrypt writes to a staging file and only shows the output after the integrity check passes; leaving the PGP screen stops a run and clears its files
  * Feature: PGP passphrase can be kept (Remember passphrase, wrapped with the Android Keystore) or asked each time; revoked and expired keys can't encrypt or sign
  * Feature: public keys can be loaded from a file too, armored or binary .gpg, up to 2 MB

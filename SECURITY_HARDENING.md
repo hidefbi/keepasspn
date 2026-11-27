@@ -102,6 +102,9 @@ database, and the keys go with its backups.
   not count as leaving. Clear on the
   page removes the files of that page only. Removal is a plain delete, flash storage does not give a
   reliable overwrite, so the files are not wiped securely.
+- Byte and char buffers the PGP code owns (copy buffer, decoded result bytes, passphrase chars) are cleared after
+  use. Strings can't be cleared in Java: the clipboard copy, the text box contents and the armored key text are
+  kept in memory as Strings until the garbage collector takes them, so this is best effort only.
 - Keys are generated on the device with SecureRandom. There is no key server, and the app has no
   internet permission, so public keys have to be imported by hand.
 - The OpenPGP library is BouncyCastle bcpg 1.87. It is the main size cost of the feature.

@@ -411,13 +411,18 @@ object PgpCore {
     ) {
         val buffer = ByteArray(BUFFER_SIZE)
         var total = 0L
-        while (true) {
-            if (control.isCancelled()) throw PgpError(Reason.CANCELLED)
-            val read = source.read(buffer)
-            if (read < 0) break
-            total += read
-            if (total > limit) throw PgpError(Reason.TOO_LARGE)
-            sink.write(buffer, 0, read)
+        try {
+            while (true) {
+                if (control.isCancelled()) throw PgpError(Reason.CANCELLED)
+                val read = source.read(buffer)
+                if (read < 0) break
+                total += read
+                if (total > limit) throw PgpError(Reason.TOO_LARGE)
+                sink.write(buffer, 0, read)
+            }
+        } finally {
+            // The buffer holds plain data while it is in use
+            buffer.fill(0)
         }
     }
 

@@ -22,6 +22,7 @@ package com.keepasspn.activities
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
+import android.text.Editable
 import android.text.InputType
 import android.transition.TransitionManager
 import android.view.LayoutInflater
@@ -54,6 +55,8 @@ import com.keepasspn.encrypt.pgp.PgpCore
 import com.keepasspn.model.EntryInfo
 import com.keepasspn.pgp.PgpKeyEntries
 import com.keepasspn.pgp.PgpWorkspace
+import com.keepasspn.services.DatabaseTaskNotificationService
+import com.keepasspn.tasks.ActionRunnable
 import com.keepasspn.timeout.timeoutCopyToClipboard
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -103,6 +106,8 @@ class PgpActivity : DatabaseLockActivity() {
     private var toolsFile: Source? = null
     // A system file picker is open. It stops this screen, which must not drop its files then.
     private var awaitingPicker = false
+    // Fingerprint of the key just added, selected once the list is read again
+    private var pendingSelectFingerprint: String? = null
     private var decryptFile: Source? = null
     private var textFile: File? = null
     private var output: File? = null
@@ -306,6 +311,22 @@ class PgpActivity : DatabaseLockActivity() {
 
     override fun onDatabaseRetrieved(database: ContextualDatabase) {
         super.onDatabaseRetrieved(database)
+        loadKeyRows(database)
+    }
+
+    override fun onDatabaseActionFinished(
+        database: ContextualDatabase,
+        actionTask: String,
+        result: ActionRunnable.Result
+    ) {
+        super.onDatabaseActionFinished(database, actionTask, result)
+        // A key was added (generated or imported), the list has to show it
+        if (actionTask == DatabaseTaskNotificationService.ACTION_DATABASE_ADD_PGP_ENTRY_TASK && result.isSuccess) {
+            loadKeyRows(database)
+        }
+    }
+
+    private fun loadKeyRows(database: ContextualDatabase) {
         keyRows = database.getEntryInfosWithPgpKey(PgpKeyEntries.FIELD_PUBLIC_KEY).mapNotNull { info ->
             val publicArmored = PgpKeyEntries.publicKeyOf(info) ?: return@mapNotNull null
             val canEncrypt = try {
@@ -322,7 +343,9 @@ class PgpActivity : DatabaseLockActivity() {
                 hasSecret = PgpKeyEntries.secretKeyOf(info) != null
             )
         }
-        selectedRow = keyRows.firstOrNull { it.fingerprint == selectedRow?.fingerprint } ?: keyRows.firstOrNull()
+        val wanted = pendingSelectFingerprint ?: selectedRow?.fingerprint
+        pendingSelectFingerprint = null
+        selectedRow = keyRows.firstOrNull { it.fingerprint == wanted } ?: keyRows.firstOrNull()
         renderKeys()
     }
 
@@ -396,6 +419,16 @@ class PgpActivity : DatabaseLockActivity() {
         Toast.makeText(this, R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show()
     }
 
+    /**
+     * Copies the text into a char array. Only clears the field when asked, so a mismatch keeps what was typed.
+     */
+    private fun charsOf(text: Editable, clear: Boolean): CharArray {
+        val chars = CharArray(text.length)
+        text.getChars(0, text.length, chars, 0)
+        if (clear) text.clear()
+        return chars
+    }
+
     private fun showGenerateDialog() {
         val view = LayoutInflater.from(this).inflate(R.layout.dialog_pgp_generate, null)
         val nameEdit: EditText = view.findViewById(R.id.pgp_generate_name)
@@ -413,8 +446,8 @@ class PgpActivity : DatabaseLockActivity() {
                 dialog.setOnShowListener {
                     dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                         val userId = nameEdit.text.toString().trim()
-                        val passphrase = passEdit.text.toString().toCharArray()
-                        val repeatPassphrase = repeatEdit.text.toString().toCharArray()
+                        val passphrase = charsOf(passEdit.text, clear = false)
+                        val repeatPassphrase = charsOf(repeatEdit.text, clear = false)
                         val keyType = when (typeGroup.checkedRadioButtonId) {
                             R.id.pgp_generate_type_rsa3072 -> PgpCore.KeyType.RSA_3072
                             R.id.pgp_generate_type_rsa4096 -> PgpCore.KeyType.RSA_4096
@@ -430,6 +463,8 @@ class PgpActivity : DatabaseLockActivity() {
                         if (error == null) {
                             // generateKey wipes the passphrase when done
                             dialog.dismiss()
+                            passEdit.text.clear()
+                            repeatEdit.text.clear()
                             generateKey(userId, passphrase, keyType, rememberBox.isChecked)
                         } else {
                             passphrase.fill('\u0000')
@@ -459,6 +494,7 @@ class PgpActivity : DatabaseLockActivity() {
                     secretArmored = key.secretArmored,
                     passphrase = if (remember) passphrase else null
                 )
+                pendingSelectFingerprint = key.fingerprint
                 addPgpEntry(entryInfo)
                 Toast.makeText(this@PgpActivity, R.string.pgp_key_created, Toast.LENGTH_SHORT).show()
             } catch (e: PgpCore.PgpError) {
@@ -545,6 +581,7 @@ class PgpActivity : DatabaseLockActivity() {
             secretArmored = null,
             passphrase = null
         )
+        pendingSelectFingerprint = info.fingerprint
         addPgpEntry(entryInfo)
         Toast.makeText(this, R.string.pgp_key_imported, Toast.LENGTH_SHORT).show()
     }
@@ -667,8 +704,7 @@ class PgpActivity : DatabaseLockActivity() {
             .setTitle(R.string.pgp_passphrase_prompt_title)
             .setView(editText)
             .setPositiveButton(android.R.string.ok) { _, _ ->
-                val typed = editText.text.toString().toCharArray()
-                editText.text.clear()
+                val typed = charsOf(editText.text, clear = true)
                 if (typed.isEmpty()) {
                     Toast.makeText(this, R.string.pgp_error_passphrase_empty, Toast.LENGTH_SHORT).show()
                 } else {
@@ -959,7 +995,7 @@ class PgpActivity : DatabaseLockActivity() {
     private fun showOutputPreview() {
         val file = output ?: return
         val size = file.length()
-        val text = if (size <= PgpCore.MAX_TEXT_BYTES) decodeText(file.readBytes()) else null
+        val text = if (size <= PgpCore.MAX_TEXT_BYTES) decodeFile(file) else null
         outputIsText = text != null
         outputView.text = when {
             text != null -> text
@@ -970,6 +1006,16 @@ class PgpActivity : DatabaseLockActivity() {
         outputActions.visibility = View.VISIBLE
         copyOutputButton.isEnabled = outputIsText
         statusView.text = ""
+    }
+
+    /** Reads a result file as text. The bytes are cleared once they are decoded. */
+    private fun decodeFile(file: File): String? {
+        val bytes = file.readBytes()
+        return try {
+            decodeText(bytes)
+        } finally {
+            bytes.fill(0)
+        }
     }
 
     private fun decodeText(bytes: ByteArray): String? {
@@ -987,7 +1033,8 @@ class PgpActivity : DatabaseLockActivity() {
     private fun copyOutput() {
         val file = output ?: return
         if (!outputIsText || file.length() > PgpCore.MAX_TEXT_BYTES) return
-        timeoutCopyToClipboard(getString(R.string.pgp_title), file.readText(Charsets.UTF_8), sensitive = true)
+        val text = decodeFile(file) ?: return
+        timeoutCopyToClipboard(getString(R.string.pgp_title), text, sensitive = true)
         Toast.makeText(this, R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show()
     }
 
