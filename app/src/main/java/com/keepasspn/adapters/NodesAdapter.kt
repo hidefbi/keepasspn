@@ -493,7 +493,10 @@ class NodesAdapter(
         holder.imageIdentifier?.setColorFilter(iconColor)
         holder.icon.apply {
             val brandBitmap = brandBitmapFor(node)
-            if (brandBitmap != null) {
+            if (TotpSummary.isSummary(node)) {
+                clearColorFilter()
+                setImageResource(R.drawable.ic_totp_summary)
+            } else if (brandBitmap != null) {
                 clearColorFilter()
                 setImageBitmap(brandBitmap)
             } else {

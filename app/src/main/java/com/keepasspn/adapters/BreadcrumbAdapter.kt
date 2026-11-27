@@ -34,6 +34,7 @@ import com.keepasspn.R
 import com.keepasspn.database.element.Tag
 import com.keepasspn.icons.IconDrawableFactory
 import com.keepasspn.model.SortedGroupInfo
+import com.keepasspn.otp.TotpSummary
 import com.keepasspn.settings.PreferencesUtil
 import com.keepasspn.view.strikeOut
 import com.keepasspn.view.underline
@@ -113,11 +114,16 @@ class BreadcrumbAdapter(val context: Context)
         }
 
         holder.groupIconView?.let { imageView ->
-            iconDrawableFactory?.assignDatabaseIcon(
-                imageView,
-                node.icon,
-                mIconColor
-            )
+            if (TotpSummary.isSummary(node)) {
+                imageView.clearColorFilter()
+                imageView.setImageResource(R.drawable.ic_totp_summary)
+            } else {
+                iconDrawableFactory?.assignDatabaseIcon(
+                    imageView,
+                    node.icon,
+                    mIconColor
+                )
+            }
         }
 
         holder.groupNumbersView?.apply {
