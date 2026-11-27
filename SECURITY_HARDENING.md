@@ -95,7 +95,11 @@ database, and the keys go with its backups.
 - Messages without an MDC or AEAD tag are refused before any plain data is read. Compression can be
   nested 2 levels at most. Public keys, pasted or loaded from a file, are limited to 2 MiB and signatures to 64 KiB, the length is
   checked before the parser runs. A key file is read in pieces and stops at the same limit.
-- The PGP cache is removed on exit, on a fresh start of the screen and by Clear PGP cache. Clear on the
+- Decrypted data goes to a staging file first. It is moved to the output only after the integrity check of the
+  whole message passes, so unchecked plain data is never shown or saved.
+- The PGP cache is removed on exit, when the screen is left (another app, the lock screen), on a fresh start of the
+  screen and by Clear PGP cache. A run in progress is cancelled when the screen is left. A system file picker does
+  not count as leaving. Clear on the
   page removes the files of that page only. Removal is a plain delete, flash storage does not give a
   reliable overwrite, so the files are not wiped securely.
 - Keys are generated on the device with SecureRandom. There is no key server, and the app has no
@@ -183,3 +187,5 @@ database, and the keys go with its backups.
 30. Make a key with Remember passphrase on, then sign a text: no passphrase prompt. Make a key with it off: signing asks for the passphrase, and a wrong one shows an error.
 31. Restore a backup with a kept passphrase on another phone (or clear the app data): the app asks for the passphrase and does not fail.
 32. Import a key that was revoked (gpg --gen-revoke, then import the certificate) and try to encrypt to it: it must be refused with the can't be used message. Verify a signature made before the revocation: it must show the key message.
+33. Decrypt a message with a changed byte: it must be refused and no output is shown, and no staging or output file is left in cache under pgp/.
+34. Start a long decrypt, then switch to another app: when you come back the run is stopped, the result is gone and the text boxes still hold their text. Pick a file, then go to the picker and back: the file is still there.

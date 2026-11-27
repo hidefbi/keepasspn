@@ -101,6 +101,8 @@ class PgpActivity : DatabaseLockActivity() {
     private var pendingSection = Section.TOOLS
 
     private var toolsFile: Source? = null
+    // A system file picker is open. It stops this screen, which must not drop its files then.
+    private var awaitingPicker = false
     private var decryptFile: Source? = null
     private var textFile: File? = null
     private var output: File? = null
@@ -172,22 +174,31 @@ class PgpActivity : DatabaseLockActivity() {
         )
 
         mExternalFileHelper = ExternalFileHelper(this)
-        mExternalFileHelper.buildOpenDocument { uri -> uri?.let { pickFile(it, pendingSection) } }
+        mExternalFileHelper.buildOpenDocument { uri ->
+            awaitingPicker = false
+            uri?.let { pickFile(it, pendingSection) }
+        }
         mExternalFileHelper.buildCreateDocument("application/octet-stream") { uri ->
+            awaitingPicker = false
             uri?.let { saveOutput(it) }
         }
 
         mImportFileHelper = ExternalFileHelper(this)
-        mImportFileHelper.buildOpenDocument { uri -> uri?.let { importFile(it) } }
+        mImportFileHelper.buildOpenDocument { uri ->
+            awaitingPicker = false
+            uri?.let { importFile(it) }
+        }
 
         findViewById<Button>(R.id.pgp_generate_button).setOnClickListener { showGenerateDialog() }
         findViewById<Button>(R.id.pgp_import_button).setOnClickListener { showImportDialog() }
         findViewById<Button>(R.id.pgp_file_button).setOnClickListener {
             pendingSection = Section.TOOLS
+            awaitingPicker = true
             mExternalFileHelper.openDocument()
         }
         findViewById<Button>(R.id.pgp_decrypt_file_button).setOnClickListener {
             pendingSection = Section.DECRYPT
+            awaitingPicker = true
             mExternalFileHelper.openDocument()
         }
         findViewById<Button>(R.id.pgp_encrypt_button).setOnClickListener { showRecipientsDialog() }
@@ -200,7 +211,10 @@ class PgpActivity : DatabaseLockActivity() {
         clearButton.setOnClickListener { if (!busy) clearPage() }
         copyOutputButton.setOnClickListener { copyOutput() }
         findViewById<Button>(R.id.pgp_output_save).setOnClickListener {
-            if (output != null) mExternalFileHelper.createDocument(outputName)
+            if (output != null) {
+                awaitingPicker = true
+                mExternalFileHelper.createDocument(outputName)
+            }
         }
 
         if (savedInstanceState == null) {
@@ -310,6 +324,23 @@ class PgpActivity : DatabaseLockActivity() {
         }
         selectedRow = keyRows.firstOrNull { it.fingerprint == selectedRow?.fingerprint } ?: keyRows.firstOrNull()
         renderKeys()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // The picker result comes back before this, so a picker that never answered is not left open
+        awaitingPicker = false
+    }
+
+    override fun onStop() {
+        super.onStop()
+        // Leaving the screen (another app, the lock screen) cancels a run and drops the files.
+        // Rotation keeps them, and so does a system picker, which stops the screen too.
+        if (!isChangingConfigurations && !awaitingPicker) {
+            cancelRequested = true
+            releaseFiles()
+            PgpWorkspace.clearAll(this)
+        }
     }
 
     override fun onDestroy() {
@@ -452,6 +483,7 @@ class PgpActivity : DatabaseLockActivity() {
             }
             .setNegativeButton(android.R.string.cancel, null)
             .setNeutralButton(R.string.pgp_import_choose_file) { _, _ ->
+                awaitingPicker = true
                 mImportFileHelper.openDocument()
             }
             .show()
@@ -648,17 +680,21 @@ class PgpActivity : DatabaseLockActivity() {
     }
 
     private fun decryptInput(input: Source, secret: String, passphrase: CharArray) {
+        // Plain data is written to a staging file first. It only becomes the output after decrypt
+        // has checked the integrity of the whole message, so unchecked data is never shown or saved.
+        val staging = PgpWorkspace.newFile(this, "staging")
         val out = PgpWorkspace.newFile(this, "output")
         runWork(
             total = input.file.length(),
-            produced = out,
+            produced = staging,
             work = { control ->
                 try {
                     input.file.inputStream().use { src ->
-                        out.outputStream().use { dst ->
+                        staging.outputStream().use { dst ->
                             PgpCore.decrypt(secret, passphrase, src, dst, control)
                         }
                     }
+                    if (!staging.renameTo(out)) throw IOException("cannot move the output")
                 } finally {
                     passphrase.fill('\u0000')
                     discardInput(input)
@@ -887,6 +923,16 @@ class PgpActivity : DatabaseLockActivity() {
      * Keys stay in the database.
      */
     private fun clearPage() {
+        releaseFiles()
+        inputText.setText("")
+        decryptText.setText("")
+        statusView.text = ""
+    }
+
+    /**
+     * Deletes the picked files, the temp text and the result, and hides them. The text boxes stay.
+     */
+    private fun releaseFiles() {
         toolsFile?.file?.delete()
         toolsFile = null
         decryptFile?.file?.delete()
@@ -896,14 +942,11 @@ class PgpActivity : DatabaseLockActivity() {
         output?.delete()
         output = null
         outputIsText = false
-        inputText.setText("")
-        decryptText.setText("")
         toolsFileName.visibility = View.GONE
         decryptFileName.visibility = View.GONE
         outputView.text = ""
         outputView.visibility = View.GONE
         outputActions.visibility = View.GONE
-        statusView.text = ""
     }
 
     private fun setOutput(file: File, name: String) {
