@@ -860,6 +860,7 @@
     <string name="pgp_key_created">สร้างกุญแจแล้ว</string>
     <string name="pgp_import_title">นำเข้ากุญแจสาธารณะ</string>
     <string name="pgp_import_hint">วางกุญแจสาธารณะในรูปแบบ ASCII</string>
+    <string name="pgp_import_choose_file">เลือกไฟล์คีย์ (ไม่เกิน 2 MB)</string>
     <string name="pgp_key_imported">นำเข้ากุญแจแล้ว</string>
     <string name="pgp_key_copy_public">คัดลอกกุญแจสาธารณะ</string>
     <string name="pgp_error_wrong_passphrase">รหัสผ่านวลีไม่ถูกต้อง</string>

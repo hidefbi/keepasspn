@@ -858,6 +858,7 @@ Siekdami išsaugoti laisvę, taisyti klaidas, pridėti funkcijų ir palaikyti pr
     <string name="pgp_key_created">Raktas sukurtas</string>
     <string name="pgp_import_title">Importuoti viešąjį raktą</string>
     <string name="pgp_import_hint">Įklijuokite viešąjį raktą ASCII formatu</string>
+    <string name="pgp_import_choose_file">Pasirinkti rakto failą (iki 2 MB)</string>
     <string name="pgp_key_imported">Raktas importuotas</string>
     <string name="pgp_key_copy_public">Kopijuoti viešąjį raktą</string>
     <string name="pgp_error_wrong_passphrase">Neteisinga slaptafrazė</string>

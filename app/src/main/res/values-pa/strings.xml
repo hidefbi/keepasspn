@@ -450,6 +450,7 @@
     <string name="pgp_key_created">ਕੁੰਜੀ ਬਣਾਈ ਗਈ</string>
     <string name="pgp_import_title">ਜਨਤਕ ਕੁੰਜੀ ਆਯਾਤ ਕਰੋ</string>
     <string name="pgp_import_hint">ASCII ਫਾਰਮੈਟ ਵਿੱਚ ਜਨਤਕ ਕੁੰਜੀ ਪੇਸਟ ਕਰੋ</string>
+    <string name="pgp_import_choose_file">ਕੁੰਜੀ ਫਾਈਲ ਚੁਣੋ (2 MB ਤੱਕ)</string>
     <string name="pgp_key_imported">ਕੁੰਜੀ ਆਯਾਤ ਹੋ ਗਈ</string>
     <string name="pgp_key_copy_public">ਜਨਤਕ ਕੁੰਜੀ ਕਾਪੀ ਕਰੋ</string>
     <string name="pgp_error_wrong_passphrase">ਗਲਤ ਪਾਸਫ੍ਰੇਜ਼</string>

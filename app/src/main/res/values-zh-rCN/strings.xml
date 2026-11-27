@@ -918,6 +918,7 @@
     <string name="pgp_key_created">密钥已创建</string>
     <string name="pgp_import_title">导入公钥</string>
     <string name="pgp_import_hint">粘贴 ASCII 格式的公钥</string>
+    <string name="pgp_import_choose_file">选择密钥文件（最多 2 MB）</string>
     <string name="pgp_key_imported">密钥已导入</string>
     <string name="pgp_key_copy_public">复制公钥</string>
     <string name="pgp_error_wrong_passphrase">口令错误</string>

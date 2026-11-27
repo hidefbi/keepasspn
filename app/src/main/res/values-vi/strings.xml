@@ -900,6 +900,7 @@
     <string name="pgp_key_created">Đã tạo khóa</string>
     <string name="pgp_import_title">Nhập khóa công khai</string>
     <string name="pgp_import_hint">Dán khóa công khai ở định dạng ASCII</string>
+    <string name="pgp_import_choose_file">Chọn tệp khóa (tối đa 2 MB)</string>
     <string name="pgp_key_imported">Đã nhập khóa</string>
     <string name="pgp_key_copy_public">Sao chép khóa công khai</string>
     <string name="pgp_error_wrong_passphrase">Sai mật khẩu</string>

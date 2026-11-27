@@ -153,6 +153,7 @@
     <string name="pgp_key_created">Кілт жасалды</string>
     <string name="pgp_import_title">Ашық кілтті импорттау</string>
     <string name="pgp_import_hint">ASCII пішіміндегі ашық кілтті қойыңыз</string>
+    <string name="pgp_import_choose_file">Кілт файлын таңдау (2 МБ дейін)</string>
     <string name="pgp_key_imported">Кілт импортталды</string>
     <string name="pgp_key_copy_public">Ашық кілтті көшіру</string>
     <string name="pgp_error_wrong_passphrase">Құпия сөз тіркесі қате</string>

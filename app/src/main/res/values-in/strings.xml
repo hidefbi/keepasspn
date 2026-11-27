@@ -894,6 +894,7 @@ Untuk menjaga kebebasan kami, memperbaiki bug, menambah fitur, dan menjaga proye
     <string name="pgp_key_created">Kunci dibuat</string>
     <string name="pgp_import_title">Impor kunci publik</string>
     <string name="pgp_import_hint">Tempel kunci publik dalam format ASCII</string>
+    <string name="pgp_import_choose_file">Pilih berkas kunci (hingga 2 MB)</string>
     <string name="pgp_key_imported">Kunci diimpor</string>
     <string name="pgp_key_copy_public">Salin kunci publik</string>
     <string name="pgp_error_wrong_passphrase">Frasa sandi salah</string>

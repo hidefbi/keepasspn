@@ -877,6 +877,7 @@ Meie vabaduse säilitamiseks, vigade parandamiseks, uute funktsioonide lisamisek
     <string name="pgp_key_created">Võti loodud</string>
     <string name="pgp_import_title">Impordi avalik võti</string>
     <string name="pgp_import_hint">Kleebi avalik võti ASCII-vormingus</string>
+    <string name="pgp_import_choose_file">Vali võtmefail (kuni 2 MB)</string>
     <string name="pgp_key_imported">Võti imporditud</string>
     <string name="pgp_key_copy_public">Kopeeri avalik võti</string>
     <string name="pgp_error_wrong_passphrase">Vale paroolifraas</string>

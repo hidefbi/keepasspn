@@ -890,6 +890,7 @@
     <string name="pgp_key_created">המפתח נוצר</string>
     <string name="pgp_import_title">ייבוא מפתח ציבורי</string>
     <string name="pgp_import_hint">הדביקו מפתח ציבורי בפורמט ASCII</string>
+    <string name="pgp_import_choose_file">בחר קובץ מפתח (עד 2 MB)</string>
     <string name="pgp_key_imported">המפתח יובא</string>
     <string name="pgp_key_copy_public">העתקת מפתח ציבורי</string>
     <string name="pgp_error_wrong_passphrase">סיסמת מעבר שגויה</string>

@@ -913,6 +913,7 @@ Szabadságunk megőrzése, a hibák javítása, új funkciók hozzáadása és a
     <string name="pgp_key_created">A kulcs létrejött</string>
     <string name="pgp_import_title">Nyilvános kulcs importálása</string>
     <string name="pgp_import_hint">Illessze be a nyilvános kulcsot ASCII formátumban</string>
+    <string name="pgp_import_choose_file">Kulcsfájl kiválasztása (legfeljebb 2 MB)</string>
     <string name="pgp_key_imported">A kulcs importálva</string>
     <string name="pgp_key_copy_public">Nyilvános kulcs másolása</string>
     <string name="pgp_error_wrong_passphrase">Hibás jelmondat</string>

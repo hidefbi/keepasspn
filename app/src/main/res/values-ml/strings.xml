@@ -501,6 +501,7 @@
     <string name="pgp_key_created">കീ ഉണ്ടാക്കി</string>
     <string name="pgp_import_title">പബ്ലിക് കീ ഇമ്പോർട്ട് ചെയ്യുക</string>
     <string name="pgp_import_hint">ASCII ഫോർമാറ്റിലുള്ള പബ്ലിക് കീ ഒട്ടിക്കുക</string>
+    <string name="pgp_import_choose_file">കീ ഫയൽ തിരഞ്ഞെടുക്കുക (2 MB വരെ)</string>
     <string name="pgp_key_imported">കീ ഇമ്പോർട്ട് ചെയ്തു</string>
     <string name="pgp_key_copy_public">പബ്ലിക് കീ പകർത്തുക</string>
     <string name="pgp_error_wrong_passphrase">തെറ്റായ പാസ്‌ഫ്രെയ്സ്</string>

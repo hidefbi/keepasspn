@@ -919,6 +919,7 @@
     <string name="pgp_key_created">Ключ создан</string>
     <string name="pgp_import_title">Импортировать открытый ключ</string>
     <string name="pgp_import_hint">Вставьте открытый ключ в формате ASCII</string>
+    <string name="pgp_import_choose_file">Выбрать файл ключа (до 2 МБ)</string>
     <string name="pgp_key_imported">Ключ импортирован</string>
     <string name="pgp_key_copy_public">Копировать открытый ключ</string>
     <string name="pgp_error_wrong_passphrase">Неверная парольная фраза</string>

@@ -910,6 +910,7 @@ Uygulama kullanıcı verilerini toplamaz, hiçbir sunucuya bağlanmaz, yalnızca
     <string name="pgp_key_created">Anahtar oluşturuldu</string>
     <string name="pgp_import_title">Genel anahtarı içe aktar</string>
     <string name="pgp_import_hint">ASCII biçimindeki genel anahtarı yapıştırın</string>
+    <string name="pgp_import_choose_file">Anahtar dosyası seç (en fazla 2 MB)</string>
     <string name="pgp_key_imported">Anahtar içe aktarıldı</string>
     <string name="pgp_key_copy_public">Genel anahtarı kopyala</string>
     <string name="pgp_error_wrong_passphrase">Yanlış parola</string>

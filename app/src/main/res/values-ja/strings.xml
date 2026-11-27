@@ -910,6 +910,7 @@
     <string name="pgp_key_created">鍵を作成しました</string>
     <string name="pgp_import_title">公開鍵をインポート</string>
     <string name="pgp_import_hint">ASCII 形式の公開鍵を貼り付け</string>
+    <string name="pgp_import_choose_file">鍵ファイルを選択（2 MB まで）</string>
     <string name="pgp_key_imported">鍵をインポートしました</string>
     <string name="pgp_key_copy_public">公開鍵をコピー</string>
     <string name="pgp_error_wrong_passphrase">パスフレーズが違います</string>

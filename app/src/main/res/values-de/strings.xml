@@ -917,6 +917,7 @@ Um unsere Freiheit zu bewahren, Fehler zu beheben, neue Funktionen hinzuzufügen
     <string name="pgp_key_created">Schlüssel erstellt</string>
     <string name="pgp_import_title">Öffentlichen Schlüssel importieren</string>
     <string name="pgp_import_hint">Öffentlichen Schlüssel in ASCII-Form einfügen</string>
+    <string name="pgp_import_choose_file">Schlüsseldatei wählen (bis 2 MB)</string>
     <string name="pgp_key_imported">Schlüssel importiert</string>
     <string name="pgp_key_copy_public">Öffentlichen Schlüssel kopieren</string>
     <string name="pgp_error_wrong_passphrase">Falsche Passphrase</string>

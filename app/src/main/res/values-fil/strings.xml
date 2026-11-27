@@ -422,6 +422,7 @@ Upang mapanatili ang aming kalayaan, ayusin ang mga bug, magdagdag ng mga featur
     <string name="pgp_key_created">Nagawa na ang key</string>
     <string name="pgp_import_title">Mag-import ng public key</string>
     <string name="pgp_import_hint">I-paste ang public key sa ASCII format</string>
+    <string name="pgp_import_choose_file">Pumili ng key file (hanggang 2 MB)</string>
     <string name="pgp_key_imported">Na-import na ang key</string>
     <string name="pgp_key_copy_public">Kopyahin ang public key</string>
     <string name="pgp_error_wrong_passphrase">Maling passphrase</string>

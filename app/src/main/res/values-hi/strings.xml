@@ -304,6 +304,7 @@
     <string name="pgp_key_created">कुंजी बनाई गई</string>
     <string name="pgp_import_title">सार्वजनिक कुंजी आयात करें</string>
     <string name="pgp_import_hint">ASCII फ़ॉर्मेट में सार्वजनिक कुंजी चिपकाएँ</string>
+    <string name="pgp_import_choose_file">कुंजी फ़ाइल चुनें (2 MB तक)</string>
     <string name="pgp_key_imported">कुंजी आयात की गई</string>
     <string name="pgp_key_copy_public">सार्वजनिक कुंजी कॉपी करें</string>
     <string name="pgp_error_wrong_passphrase">गलत पासफ़्रेज़</string>

@@ -154,6 +154,7 @@
     <string name="pgp_key_created">کلید بن گئی</string>
     <string name="pgp_import_title">عوامی کلید درآمد کریں</string>
     <string name="pgp_import_hint">ASCII فارمیٹ میں عوامی کلید چسپاں کریں</string>
+    <string name="pgp_import_choose_file">کلید فائل منتخب کریں (2 MB تک)</string>
     <string name="pgp_key_imported">کلید درآمد ہو گئی</string>
     <string name="pgp_key_copy_public">عوامی کلید کاپی کریں</string>
     <string name="pgp_error_wrong_passphrase">غلط پاس فریز</string>

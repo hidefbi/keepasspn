@@ -477,6 +477,7 @@
     <string name="pgp_key_created">কী তৈরি হয়েছে</string>
     <string name="pgp_import_title">পাবলিক কী আমদানি করুন</string>
     <string name="pgp_import_hint">ASCII আকারে একটি পাবলিক কী পেস্ট করুন</string>
+    <string name="pgp_import_choose_file">কী ফাইল বেছে নিন (২ MB পর্যন্ত)</string>
     <string name="pgp_key_imported">কী আমদানি হয়েছে</string>
     <string name="pgp_key_copy_public">পাবলিক কী কপি করুন</string>
     <string name="pgp_error_wrong_passphrase">ভুল পাসফ্রেজ</string>

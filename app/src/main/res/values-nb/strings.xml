@@ -903,6 +903,7 @@ For å bevare friheten vår, rette feil, legge til funksjoner og holde prosjekte
     <string name="pgp_key_created">Nøkkel laget</string>
     <string name="pgp_import_title">Importer offentlig nøkkel</string>
     <string name="pgp_import_hint">Lim inn en offentlig nøkkel i ASCII-format</string>
+    <string name="pgp_import_choose_file">Velg nøkkelfil (opptil 2 MB)</string>
     <string name="pgp_key_imported">Nøkkel importert</string>
     <string name="pgp_key_copy_public">Kopier offentlig nøkkel</string>
     <string name="pgp_error_wrong_passphrase">Feil passordfrase</string>

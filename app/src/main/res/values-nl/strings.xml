@@ -921,6 +921,7 @@ Om onze vrijheid te behouden, bugs te verhelpen, functies toe te voegen en het p
     <string name="pgp_key_created">Sleutel gemaakt</string>
     <string name="pgp_import_title">Publieke sleutel importeren</string>
     <string name="pgp_import_hint">Plak een publieke sleutel in ASCII-formaat</string>
+    <string name="pgp_import_choose_file">Sleutelbestand kiezen (max. 2 MB)</string>
     <string name="pgp_key_imported">Sleutel geïmporteerd</string>
     <string name="pgp_key_copy_public">Publieke sleutel kopiëren</string>
     <string name="pgp_error_wrong_passphrase">Onjuiste wachtwoordzin</string>

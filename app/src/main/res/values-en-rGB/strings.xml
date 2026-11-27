@@ -474,6 +474,7 @@ To keep our freedom, fix bugs, add features and keep the project active, we welc
     <string name="pgp_key_created">Key created</string>
     <string name="pgp_import_title">Import public key</string>
     <string name="pgp_import_hint">Paste an armored public key</string>
+    <string name="pgp_import_choose_file">Choose key file (up to 2 MB)</string>
     <string name="pgp_key_imported">Key imported</string>
     <string name="pgp_key_copy_public">Copy public key</string>
     <string name="pgp_error_wrong_passphrase">Wrong passphrase</string>

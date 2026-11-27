@@ -190,6 +190,7 @@
     <string name="pgp_key_created">Ачкыч ясалды</string>
     <string name="pgp_import_title">Ачык ачкычны импорт итү</string>
     <string name="pgp_import_hint">ASCII форматындагы ачык ачкычны куегыз</string>
+    <string name="pgp_import_choose_file">Ачкыч файлын сайлау (2 МБ кадәр)</string>
     <string name="pgp_key_imported">Ачкыч импорт ителде</string>
     <string name="pgp_key_copy_public">Ачык ачкычны күчереп алу</string>
     <string name="pgp_error_wrong_passphrase">Дөрес булмаган парол фразасы</string>

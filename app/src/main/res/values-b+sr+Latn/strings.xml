@@ -511,6 +511,7 @@ Da bismo sačuvali našu slobodu, ispravljali greške, dodavali funkcije i održ
     <string name="pgp_key_created">Ključ je napravljen</string>
     <string name="pgp_import_title">Uvezi javni ključ</string>
     <string name="pgp_import_hint">Nalepite javni ključ u ASCII obliku</string>
+    <string name="pgp_import_choose_file">Izaberi datoteku ključa (do 2 MB)</string>
     <string name="pgp_key_imported">Ključ je uvezen</string>
     <string name="pgp_key_copy_public">Kopiraj javni ključ</string>
     <string name="pgp_error_wrong_passphrase">Pogrešna lozinka</string>

@@ -207,6 +207,7 @@ Da bi ohranili svobodo, odpravljali napake, dodajali funkcije in ohranjali proje
     <string name="pgp_key_created">Ključ je ustvarjen</string>
     <string name="pgp_import_title">Uvozi javni ključ</string>
     <string name="pgp_import_hint">Prilepite javni ključ v obliki ASCII</string>
+    <string name="pgp_import_choose_file">Izberi datoteko ključa (do 2 MB)</string>
     <string name="pgp_key_imported">Ključ je uvožen</string>
     <string name="pgp_key_copy_public">Kopiraj javni ključ</string>
     <string name="pgp_error_wrong_passphrase">Napačno geslo</string>

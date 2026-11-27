@@ -847,6 +847,7 @@ Për të ruajtur lirinë tonë, për të rregulluar gabimet, për të shtuar fun
     <string name="pgp_key_created">Çelësi u krijua</string>
     <string name="pgp_import_title">Importo çelës publik</string>
     <string name="pgp_import_hint">Ngjit një çelës publik në format ASCII</string>
+    <string name="pgp_import_choose_file">Zgjidh skedarin e çelësit (deri në 2 MB)</string>
     <string name="pgp_key_imported">Çelësi u importua</string>
     <string name="pgp_key_copy_public">Kopjo çelësin publik</string>
     <string name="pgp_error_wrong_passphrase">Fjalëkalim i gabuar</string>

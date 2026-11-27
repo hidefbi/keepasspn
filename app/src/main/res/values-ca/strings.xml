@@ -847,6 +847,7 @@ Per mantenir la nostra llibertat, corregir errors, afegir funcions i mantenir el
     <string name="pgp_key_created">Clau creada</string>
     <string name="pgp_import_title">Importa una clau pública</string>
     <string name="pgp_import_hint">Enganxa una clau pública en format ASCII</string>
+    <string name="pgp_import_choose_file">Tria el fitxer de clau (fins a 2 MB)</string>
     <string name="pgp_key_imported">Clau importada</string>
     <string name="pgp_key_copy_public">Copia la clau pública</string>
     <string name="pgp_error_wrong_passphrase">Contrasenya incorrecta</string>

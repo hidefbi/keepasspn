@@ -93,6 +93,7 @@
     <string name="pgp_key_created">ilo lawa li pali</string>
     <string name="pgp_import_title">kama jo e ilo lawa pi ale</string>
     <string name="pgp_import_hint">o pana e ilo lawa ASCII</string>
+    <string name="pgp_import_choose_file">o wan e lipu ilo lawa (suli 2 MB)</string>
     <string name="pgp_key_imported">ilo lawa li kama</string>
     <string name="pgp_key_copy_public">o kama e ilo lawa pi ale</string>
     <string name="pgp_error_wrong_passphrase">nimi pi lawa li ike</string>

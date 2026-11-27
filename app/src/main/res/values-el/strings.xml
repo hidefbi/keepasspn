@@ -840,6 +840,7 @@
     <string name="pgp_key_created">Το κλειδί δημιουργήθηκε</string>
     <string name="pgp_import_title">Εισαγωγή δημόσιου κλειδιού</string>
     <string name="pgp_import_hint">Επικολλήστε δημόσιο κλειδί σε μορφή ASCII</string>
+    <string name="pgp_import_choose_file">Επιλογή αρχείου κλειδιού (έως 2 MB)</string>
     <string name="pgp_key_imported">Το κλειδί εισήχθη</string>
     <string name="pgp_key_copy_public">Αντιγραφή δημόσιου κλειδιού</string>
     <string name="pgp_error_wrong_passphrase">Λανθασμένη φράση πρόσβασης</string>

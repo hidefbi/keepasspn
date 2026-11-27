@@ -91,6 +91,7 @@ class PgpActivity : DatabaseLockActivity() {
 
     private val mUserVerificationViewModel: UserVerificationViewModel by viewModels()
     private lateinit var mExternalFileHelper: ExternalFileHelper
+    private lateinit var mImportFileHelper: ExternalFileHelper
 
     private var keyRows: List<KeyRow> = emptyList()
     private var selectedRow: KeyRow? = null
@@ -174,6 +175,9 @@ class PgpActivity : DatabaseLockActivity() {
         mExternalFileHelper.buildCreateDocument("application/octet-stream") { uri ->
             uri?.let { saveOutput(it) }
         }
+
+        mImportFileHelper = ExternalFileHelper(this)
+        mImportFileHelper.buildOpenDocument { uri -> uri?.let { importFile(it) } }
 
         findViewById<Button>(R.id.pgp_generate_button).setOnClickListener { showGenerateDialog() }
         findViewById<Button>(R.id.pgp_import_button).setOnClickListener { showImportDialog() }
@@ -445,6 +449,9 @@ class PgpActivity : DatabaseLockActivity() {
                 importPublicKey(editText.text.toString().trim())
             }
             .setNegativeButton(android.R.string.cancel, null)
+            .setNeutralButton(R.string.pgp_import_choose_file) { _, _ ->
+                mImportFileHelper.openDocument()
+            }
             .show()
     }
 
@@ -455,17 +462,7 @@ class PgpActivity : DatabaseLockActivity() {
             return
         }
         try {
-            val info = PgpCore.inspect(armored)
-            val userId = info.userIds.firstOrNull() ?: info.fingerprint
-            val entryInfo = PgpKeyEntries.newEntry(
-                userId = userId,
-                fingerprint = info.fingerprint,
-                publicArmored = armored,
-                secretArmored = null,
-                passphrase = null
-            )
-            addPgpEntry(entryInfo)
-            Toast.makeText(this, R.string.pgp_key_imported, Toast.LENGTH_SHORT).show()
+            saveImportedKey(armored, PgpCore.inspect(armored))
         } catch (e: PgpCore.PgpError) {
             if (e.reason == PgpCore.Reason.TOO_LARGE) {
                 Toast.makeText(this, R.string.pgp_key_too_large, Toast.LENGTH_LONG).show()
@@ -473,6 +470,49 @@ class PgpActivity : DatabaseLockActivity() {
                 showPgpError(e)
             }
         }
+    }
+
+    /**
+     * Reads the picked key file off the main thread. A file over the limit is refused.
+     */
+    private fun importFile(uri: Uri) {
+        if (mDatabase == null || busy) return
+        runWork(
+            total = PgpCore.MAX_KEY_CHARS.toLong(),
+            produced = null,
+            work = { control ->
+                val src = contentResolver.openInputStream(uri) ?: throw IOException("no input")
+                try {
+                    src.use {
+                        val armored = PgpCore.publicKeyFromFile(PgpCore.countingInput(it, control), control).trim()
+                        armored to PgpCore.inspect(armored)
+                    }
+                } catch (e: PgpCore.PgpError) {
+                    if (e.reason == PgpCore.Reason.TOO_LARGE) null else throw e
+                }
+            },
+            done = { picked ->
+                if (picked == null) {
+                    Toast.makeText(this, R.string.pgp_key_too_large, Toast.LENGTH_LONG).show()
+                } else {
+                    saveImportedKey(picked.first, picked.second)
+                }
+            }
+        )
+    }
+
+    private fun saveImportedKey(armored: String, info: PgpCore.KeyInfo) {
+        if (mDatabase == null) return
+        val userId = info.userIds.firstOrNull() ?: info.fingerprint
+        val entryInfo = PgpKeyEntries.newEntry(
+            userId = userId,
+            fingerprint = info.fingerprint,
+            publicArmored = armored,
+            secretArmored = null,
+            passphrase = null
+        )
+        addPgpEntry(entryInfo)
+        Toast.makeText(this, R.string.pgp_key_imported, Toast.LENGTH_SHORT).show()
     }
 
     private fun showRecipientsDialog() {

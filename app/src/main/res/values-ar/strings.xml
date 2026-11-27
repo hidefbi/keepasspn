@@ -893,6 +893,7 @@
     <string name="pgp_key_created">تم إنشاء المفتاح</string>
     <string name="pgp_import_title">استيراد المفتاح العام</string>
     <string name="pgp_import_hint">الصق مفتاحا عاما بصيغة ASCII مدرّعة</string>
+    <string name="pgp_import_choose_file">اختيار ملف المفتاح (حتى 2 ميغابايت)</string>
     <string name="pgp_key_imported">تم استيراد المفتاح</string>
     <string name="pgp_key_copy_public">نسخ المفتاح العام</string>
     <string name="pgp_error_wrong_passphrase">عبارة المرور غير صحيحة</string>

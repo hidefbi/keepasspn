@@ -814,6 +814,7 @@ Gure askatasuna mantentzeko, akatsak konpontzeko, funtzio berriak gehitzeko eta 
     <string name="pgp_key_created">Giltza sortuta</string>
     <string name="pgp_import_title">Inportatu gako publikoa</string>
     <string name="pgp_import_hint">Itsatsi gako publikoa ASCII formatuan</string>
+    <string name="pgp_import_choose_file">Aukeratu gako-fitxategia (2 MB arte)</string>
     <string name="pgp_key_imported">Giltza inportatuta</string>
     <string name="pgp_key_copy_public">Kopiatu gako publikoa</string>
     <string name="pgp_error_wrong_passphrase">Pasa-esaldi okerra</string>

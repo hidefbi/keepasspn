@@ -497,6 +497,7 @@
     <string name="pgp_key_created">키를 만들었습니다</string>
     <string name="pgp_import_title">공개 키 가져오기</string>
     <string name="pgp_import_hint">ASCII 형식의 공개 키를 붙여 넣으세요</string>
+    <string name="pgp_import_choose_file">키 파일 선택 (최대 2MB)</string>
     <string name="pgp_key_imported">키를 가져왔습니다</string>
     <string name="pgp_key_copy_public">공개 키 복사</string>
     <string name="pgp_error_wrong_passphrase">암호가 잘못되었습니다</string>

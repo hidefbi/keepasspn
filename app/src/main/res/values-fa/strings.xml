@@ -448,6 +448,7 @@
     <string name="pgp_key_created">کلید ساخته شد</string>
     <string name="pgp_import_title">وارد کردن کلید عمومی</string>
     <string name="pgp_import_hint">کلید عمومی در قالب ASCII جایگذاری کنید</string>
+    <string name="pgp_import_choose_file">انتخاب فایل کلید (تا ۲ مگابایت)</string>
     <string name="pgp_key_imported">کلید وارد شد</string>
     <string name="pgp_key_copy_public">کپی کلید عمومی</string>
     <string name="pgp_error_wrong_passphrase">گذرواژه نادرست است</string>

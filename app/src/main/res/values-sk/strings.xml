@@ -911,6 +911,7 @@ Aby sme zachovali slobodu, opravovali chyby, pridávali funkcie a udržali proje
     <string name="pgp_key_created">Kľúč vytvorený</string>
     <string name="pgp_import_title">Importovať verejný kľúč</string>
     <string name="pgp_import_hint">Vložte verejný kľúč v ASCII formáte</string>
+    <string name="pgp_import_choose_file">Vybrať súbor kľúča (až 2 MB)</string>
     <string name="pgp_key_imported">Kľúč importovaný</string>
     <string name="pgp_key_copy_public">Kopírovať verejný kľúč</string>
     <string name="pgp_error_wrong_passphrase">Nesprávne heslo</string>

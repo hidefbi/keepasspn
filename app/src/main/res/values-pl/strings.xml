@@ -909,6 +909,7 @@ Aby zachować naszą wolność, naprawiać błędy, dodawać funkcje i utrzymywa
     <string name="pgp_key_created">Klucz utworzony</string>
     <string name="pgp_import_title">Importuj klucz publiczny</string>
     <string name="pgp_import_hint">Wklej klucz publiczny w formacie ASCII</string>
+    <string name="pgp_import_choose_file">Wybierz plik klucza (do 2 MB)</string>
     <string name="pgp_key_imported">Klucz zaimportowany</string>
     <string name="pgp_key_copy_public">Kopiuj klucz publiczny</string>
     <string name="pgp_error_wrong_passphrase">Błędne hasło</string>

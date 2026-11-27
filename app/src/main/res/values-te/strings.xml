@@ -179,6 +179,7 @@
     <string name="pgp_key_created">కీ సృష్టించబడింది</string>
     <string name="pgp_import_title">పబ్లిక్ కీని దిగుమతి చేయి</string>
     <string name="pgp_import_hint">ASCII ఫార్మాట్‌లో పబ్లిక్ కీని అతికించండి</string>
+    <string name="pgp_import_choose_file">కీ ఫైల్ ఎంచుకోండి (2 MB వరకు)</string>
     <string name="pgp_key_imported">కీ దిగుమతి చేయబడింది</string>
     <string name="pgp_key_copy_public">పబ్లిక్ కీని కాపీ చేయి</string>
     <string name="pgp_error_wrong_passphrase">తప్పు పాస్‌ఫ్రేజ్</string>

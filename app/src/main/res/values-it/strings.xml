@@ -922,6 +922,7 @@ Per mantenere la nostra libertà, correggere i bug, aggiungere funzionalità e m
     <string name="pgp_key_created">Chiave creata</string>
     <string name="pgp_import_title">Importa chiave pubblica</string>
     <string name="pgp_import_hint">Incolla una chiave pubblica in formato ASCII</string>
+    <string name="pgp_import_choose_file">Scegli file della chiave (fino a 2 MB)</string>
     <string name="pgp_key_imported">Chiave importata</string>
     <string name="pgp_key_copy_public">Copia chiave pubblica</string>
     <string name="pgp_error_wrong_passphrase">Passphrase errata</string>

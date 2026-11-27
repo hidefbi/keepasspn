@@ -860,6 +860,7 @@
     <string name="pgp_key_created">விசை உருவாக்கப்பட்டது</string>
     <string name="pgp_import_title">பொது விசையை இறக்குமதி செய்</string>
     <string name="pgp_import_hint">ASCII வடிவில் பொது விசையை ஒட்டுங்கள்</string>
+    <string name="pgp_import_choose_file">விசை கோப்பைத் தேர்ந்தெடுக்கவும் (2 MB வரை)</string>
     <string name="pgp_key_imported">விசை இறக்குமதி செய்யப்பட்டது</string>
     <string name="pgp_key_copy_public">பொது விசையை நகலெடு</string>
     <string name="pgp_error_wrong_passphrase">தவறான கடவுச்சொற்றொடர்</string>

@@ -187,6 +187,7 @@
     <string name="pgp_key_created">ကီးဖန်တီးပြီးပါပြီ</string>
     <string name="pgp_import_title">အများပြည်သူ ကီးကို သွင်းရန်</string>
     <string name="pgp_import_hint">ASCII ပုံစံ အများပြည်သူ ကီးကို ကူးထည့်ပါ</string>
+    <string name="pgp_import_choose_file">သော့ဖိုင် ရွေးရန် (2 MB အထိ)</string>
     <string name="pgp_key_imported">ကီးသွင်းပြီးပါပြီ</string>
     <string name="pgp_key_copy_public">အများပြည်သူ ကီးကို ကူးရန်</string>
     <string name="pgp_error_wrong_passphrase">လျှို့ဝှက်စကားစု မှားနေသည်</string>

@@ -176,6 +176,7 @@ Kanggo njaga kebebasan kita, mbenerake bug, nambah fitur, lan njaga proyek tetep
     <string name="pgp_key_created">Kunci wis digawe</string>
     <string name="pgp_import_title">Impor kunci publik</string>
     <string name="pgp_import_hint">Tempel kunci publik ing format ASCII</string>
+    <string name="pgp_import_choose_file">Pilih berkas kunci (nganti 2 MB)</string>
     <string name="pgp_key_imported">Kunci wis diimpor</string>
     <string name="pgp_key_copy_public">Salin kunci publik</string>
     <string name="pgp_error_wrong_passphrase">Frasa sandi salah</string>

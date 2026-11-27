@@ -165,6 +165,7 @@
     <string name="pgp_key_created">की तयार झाली</string>
     <string name="pgp_import_title">सार्वजनिक की आयात करा</string>
     <string name="pgp_import_hint">ASCII स्वरूपातील सार्वजनिक की पेस्ट करा</string>
+    <string name="pgp_import_choose_file">की फाइल निवडा (2 MB पर्यंत)</string>
     <string name="pgp_key_imported">की आयात झाली</string>
     <string name="pgp_key_copy_public">सार्वजनिक की कॉपी करा</string>
     <string name="pgp_error_wrong_passphrase">चुकीचा पासफ्रेज</string>

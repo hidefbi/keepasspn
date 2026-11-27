@@ -889,6 +889,7 @@ För att bevara vår frihet, rätta buggar, lägga till funktioner och hålla pr
     <string name="pgp_key_created">Nyckel skapad</string>
     <string name="pgp_import_title">Importera publik nyckel</string>
     <string name="pgp_import_hint">Klistra in en publik nyckel i ASCII-format</string>
+    <string name="pgp_import_choose_file">Välj nyckelfil (upp till 2 MB)</string>
     <string name="pgp_key_imported">Nyckel importerad</string>
     <string name="pgp_key_copy_public">Kopiera publik nyckel</string>
     <string name="pgp_error_wrong_passphrase">Fel lösenfras</string>

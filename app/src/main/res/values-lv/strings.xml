@@ -438,6 +438,7 @@ Lai saglabātu mūsu brīvību, labotu kļūdas, pievienotu funkcijas un uzturē
     <string name="pgp_key_created">Atslēga izveidota</string>
     <string name="pgp_import_title">Importēt publisko atslēgu</string>
     <string name="pgp_import_hint">Ielīmējiet publisko atslēgu ASCII formātā</string>
+    <string name="pgp_import_choose_file">Izvēlēties atslēgas failu (līdz 2 MB)</string>
     <string name="pgp_key_imported">Atslēga importēta</string>
     <string name="pgp_key_copy_public">Kopēt publisko atslēgu</string>
     <string name="pgp_error_wrong_passphrase">Nepareiza paroles frāze</string>

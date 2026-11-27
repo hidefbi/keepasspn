@@ -899,6 +899,7 @@
     <string name="pgp_key_created">金鑰已建立</string>
     <string name="pgp_import_title">匯入公開金鑰</string>
     <string name="pgp_import_hint">貼上 ASCII 格式的公開金鑰</string>
+    <string name="pgp_import_choose_file">選擇金鑰檔案（最多 2 MB）</string>
     <string name="pgp_key_imported">金鑰已匯入</string>
     <string name="pgp_key_copy_public">複製公開金鑰</string>
     <string name="pgp_error_wrong_passphrase">通關密語錯誤</string>

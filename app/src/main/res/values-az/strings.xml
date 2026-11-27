@@ -790,6 +790,7 @@ Azadlığımızı qorumaq, səhvləri düzəltmək, yeni funksiyalar əlavə etm
     <string name="pgp_key_created">Açar yaradıldı</string>
     <string name="pgp_import_title">Açıq açarı idxal et</string>
     <string name="pgp_import_hint">Açıq açarı ASCII formatında yapışdırın</string>
+    <string name="pgp_import_choose_file">Açar faylını seçin (2 MB-a qədər)</string>
     <string name="pgp_key_imported">Açar idxal edildi</string>
     <string name="pgp_key_copy_public">Açıq açarı kopyala</string>
     <string name="pgp_error_wrong_passphrase">Parol ifrası yanlışdır</string>

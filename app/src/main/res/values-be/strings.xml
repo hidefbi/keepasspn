@@ -860,6 +860,7 @@
     <string name="pgp_key_created">Ключ створаны</string>
     <string name="pgp_import_title">Імпартаваць публічны ключ</string>
     <string name="pgp_import_hint">Устаўце публічны ключ у фармаце ASCII</string>
+    <string name="pgp_import_choose_file">Выберыце файл ключа (да 2 МБ)</string>
     <string name="pgp_key_imported">Ключ імпартаваны</string>
     <string name="pgp_key_copy_public">Капіяваць публічны ключ</string>
     <string name="pgp_error_wrong_passphrase">Няправільны пароль</string>

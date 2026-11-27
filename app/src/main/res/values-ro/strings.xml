@@ -905,6 +905,7 @@ Pentru a ne menține libertatea, a repara erori, a adăuga funcționalități ș
     <string name="pgp_key_created">Cheie creată</string>
     <string name="pgp_import_title">Importă cheie publică</string>
     <string name="pgp_import_hint">Lipiți o cheie publică în format ASCII</string>
+    <string name="pgp_import_choose_file">Alege fișierul cheii (până la 2 MB)</string>
     <string name="pgp_key_imported">Cheie importată</string>
     <string name="pgp_key_copy_public">Copiază cheia publică</string>
     <string name="pgp_error_wrong_passphrase">Parolă greșită</string>

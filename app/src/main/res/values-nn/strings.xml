@@ -450,6 +450,7 @@ For å halde fridomen vår, rette feil, leggje til funksjonar og halde prosjekte
     <string name="pgp_key_created">Nøkkel laga</string>
     <string name="pgp_import_title">Importer offentleg nøkkel</string>
     <string name="pgp_import_hint">Lim inn ein offentleg nøkkel i ASCII-format</string>
+    <string name="pgp_import_choose_file">Vel nøkkelfil (opp til 2 MB)</string>
     <string name="pgp_key_imported">Nøkkel importert</string>
     <string name="pgp_key_copy_public">Kopier offentleg nøkkel</string>
     <string name="pgp_error_wrong_passphrase">Feil passordfrase</string>

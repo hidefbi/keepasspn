@@ -92,8 +92,8 @@ database, and the keys go with its backups.
   files and for decrypted output, and 1 MB for typed text. Decrypted output over the limit is refused and
   the partial file is deleted.
 - Messages without an MDC or AEAD tag are refused before any plain data is read. Compression can be
-  nested 2 levels at most. Armored keys are limited to 2 MiB and signatures to 64 KiB, the length is
-  checked before the parser runs.
+  nested 2 levels at most. Public keys, pasted or loaded from a file, are limited to 2 MiB and signatures to 64 KiB, the length is
+  checked before the parser runs. A key file is read in pieces and stops at the same limit.
 - The PGP cache is removed on exit, on a fresh start of the screen and by Clear PGP cache. Clear on the
   page removes the files of that page only. Removal is a plain delete, flash storage does not give a
   reliable overwrite, so the files are not wiped securely.
@@ -177,4 +177,5 @@ database, and the keys go with its backups.
     and leaving the screen leave no file in the app's cache under pgp/.
 26. Decrypt a message made with no MDC (old style): it must be refused and no output file is left.
 27. Decrypt a message with three nested compression layers: it must be refused.
-28. Import a key text over 2 MiB, or a signature over 64 KiB: both must be refused with a message.
+28. Import a key text or key file over 2 MiB, or a signature over 64 KiB: all must be refused with a message.
+29. Import a binary .gpg public key file (gpg --export, no --armor): it must work and show the same fingerprint as gpg --show-keys.

@@ -832,6 +832,7 @@ For at bevare vores frihed, rette fejl, tilføje funktioner og holde projektet a
     <string name="pgp_key_created">Nøgle oprettet</string>
     <string name="pgp_import_title">Importér offentlig nøgle</string>
     <string name="pgp_import_hint">Indsæt en offentlig nøgle i ASCII-format</string>
+    <string name="pgp_import_choose_file">Vælg nøglefil (op til 2 MB)</string>
     <string name="pgp_key_imported">Nøgle importeret</string>
     <string name="pgp_key_copy_public">Kopiér offentlig nøgle</string>
     <string name="pgp_error_wrong_passphrase">Forkert adgangskode</string>

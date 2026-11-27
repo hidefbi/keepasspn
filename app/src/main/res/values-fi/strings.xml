@@ -585,6 +585,7 @@ Jotta säilyttäisimme vapautemme, korjaisimme virheitä, lisäisimme ominaisuuk
     <string name="pgp_key_created">Avain luotu</string>
     <string name="pgp_import_title">Tuo julkinen avain</string>
     <string name="pgp_import_hint">Liitä julkinen avain ASCII-muodossa</string>
+    <string name="pgp_import_choose_file">Valitse avaintiedosto (enintään 2 Mt)</string>
     <string name="pgp_key_imported">Avain tuotu</string>
     <string name="pgp_key_copy_public">Kopioi julkinen avain</string>
     <string name="pgp_error_wrong_passphrase">Väärä salasana</string>

@@ -281,6 +281,7 @@ Por konservi nian liberecon, ripari erarojn, aldoni funkciojn kaj konservi la pr
     <string name="pgp_key_created">Ŝlosilo kreita</string>
     <string name="pgp_import_title">Enporti publikan ŝlosilon</string>
     <string name="pgp_import_hint">Algluu publikan ŝlosilon en ASCII-formato</string>
+    <string name="pgp_import_choose_file">Elekti ŝlosilan dosieron (ĝis 2 MB)</string>
     <string name="pgp_key_imported">Ŝlosilo enportita</string>
     <string name="pgp_key_copy_public">Kopii publikan ŝlosilon</string>
     <string name="pgp_error_wrong_passphrase">Malĝusta pasfrazo</string>

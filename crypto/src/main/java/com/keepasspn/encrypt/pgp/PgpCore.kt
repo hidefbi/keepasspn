@@ -60,6 +60,7 @@ import org.bouncycastle.openpgp.operator.jcajce.JcePublicKeyDataDecryptorFactory
 import org.bouncycastle.openpgp.operator.jcajce.JcePublicKeyKeyEncryptionMethodGenerator
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
+import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
 import java.security.KeyPair
@@ -191,6 +192,32 @@ object PgpCore {
             val userIds = ring.publicKey.userIDs.asSequence().toList()
             val canEncrypt = ring.publicKeys.asSequence().any { it.isEncryptionKey }
             return KeyInfo(fingerprintOf(ring.publicKey), userIds, canEncrypt)
+        } catch (e: PGPException) {
+            throw PgpError(Reason.INVALID_DATA, e)
+        } catch (e: IOException) {
+            throw PgpError(Reason.INVALID_DATA, e)
+        }
+    }
+
+    /**
+     * Reads a public key file, armored or binary, and returns it as armored text.
+     * Only the first key is kept. Stops with TOO_LARGE past [MAX_KEY_CHARS] bytes.
+     */
+    fun publicKeyFromFile(source: InputStream, control: Control = Control()): String {
+        val raw = ByteArrayOutputStream()
+        copy(source, raw, control, MAX_KEY_CHARS.toLong())
+        val bytes = raw.toByteArray()
+        // Armored text starts with a dash, a binary OpenPGP packet has the top bit set
+        if (bytes.isEmpty() || (bytes[0].toInt() and 0x80) == 0) {
+            return String(bytes, Charsets.UTF_8)
+        }
+        try {
+            val collection = PGPPublicKeyRingCollection(
+                ByteArrayInputStream(bytes),
+                JcaKeyFingerprintCalculator()
+            )
+            val ring = collection.keyRings.asSequence().firstOrNull() ?: throw PgpError(Reason.INVALID_DATA)
+            return armorPublic(ring)
         } catch (e: PGPException) {
             throw PgpError(Reason.INVALID_DATA, e)
         }

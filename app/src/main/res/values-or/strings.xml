@@ -156,6 +156,7 @@
     <string name="pgp_key_created">କୀ ତିଆରି ହୋଇଛି</string>
     <string name="pgp_import_title">ପବ୍ଲିକ୍ କୀ ଆମଦାନି କରନ୍ତୁ</string>
     <string name="pgp_import_hint">ASCII ଫର୍ମାଟର ପବ୍ଲିକ୍ କୀ ପେଷ୍ଟ କରନ୍ତୁ</string>
+    <string name="pgp_import_choose_file">କି ଫାଇଲ ବାଛନ୍ତୁ (2 MB ପର୍ଯ୍ୟନ୍ତ)</string>
     <string name="pgp_key_imported">କୀ ଆମଦାନି ହୋଇଛି</string>
     <string name="pgp_key_copy_public">ପବ୍ଲିକ୍ କୀ କପି କରନ୍ତୁ</string>
     <string name="pgp_error_wrong_passphrase">ଭୁଲ୍ ପାସଫ୍ରେଜ୍</string>

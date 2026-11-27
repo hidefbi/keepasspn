@@ -203,6 +203,7 @@ Erkinligimizni saqlash, xatolarni tuzatish, yangi imkoniyatlar qo\'shish va loyi
     <string name="pgp_key_created">Kalit yaratildi</string>
     <string name="pgp_import_title">Ochiq kalitni import qilish</string>
     <string name="pgp_import_hint">ASCII formatdagi ochiq kalitni joylang</string>
+    <string name="pgp_import_choose_file">Kalit faylini tanlang (2 MB gacha)</string>
     <string name="pgp_key_imported">Kalit import qilindi</string>
     <string name="pgp_key_copy_public">Ochiq kalitni nusxalash</string>
     <string name="pgp_error_wrong_passphrase">Noto\'g\'ri parol iborasi</string>

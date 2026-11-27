@@ -538,6 +538,7 @@
     <string name="pgp_key_created">Кључ је направљен</string>
     <string name="pgp_import_title">Увези јавни кључ</string>
     <string name="pgp_import_hint">Налепите јавни кључ у ASCII облику</string>
+    <string name="pgp_import_choose_file">Изабери датотеку кључа (до 2 MB)</string>
     <string name="pgp_key_imported">Кључ је увезен</string>
     <string name="pgp_key_copy_public">Копирај јавни кључ</string>
     <string name="pgp_error_wrong_passphrase">Погрешна лозинка</string>
