@@ -870,9 +870,6 @@ Um unsere Freiheit zu bewahren, Fehler zu beheben, neue Funktionen hinzuzufügen
     <string name="pgp_keys_empty">Noch keine PGP-Schlüssel. Erzeuge einen oder importiere einen öffentlichen Schlüssel.</string>
     <string name="pgp_generate">Schlüssel erzeugen</string>
     <string name="pgp_import">Öffentlichen Schlüssel importieren</string>
-    <string name="pgp_section_tools_title">Verschlüsseln, signieren, prüfen</string>
-    <string name="pgp_section_decrypt_title">Nachricht entschlüsseln</string>
-    <string name="pgp_decrypt_input_hint">Zu entschlüsselnde Nachricht</string>
     <string name="pgp_clear_cache">PGP-Cache leeren</string>
     <string name="pgp_cache_cleared">PGP-Dateien und Cache wurden geleert</string>
     <string name="pgp_working">Wird verarbeitet…</string>
@@ -930,4 +927,13 @@ Um unsere Freiheit zu bewahren, Fehler zu beheben, neue Funktionen hinzuzufügen
     <string name="pgp_key_too_large">Schlüssel oder Signatur ist zu groß</string>
     <string name="pgp_error_no_integrity">Diese Nachricht hat keine Integritätsprüfung und wurde abgelehnt</string>
     <string name="pgp_saved">Gespeichert</string>
+    <string name="pgp_key_renew">Schlüssel verlängern</string>
+    <string name="pgp_key_renewed">Schlüssel verlängert, öffentlichen Schlüssel erneut teilen</string>
+    <string name="pgp_import_confirm_title">Fingerabdruck prüfen</string>
+    <string name="pgp_import_confirm_save">Zusätzlich in der Datenbank speichern</string>
+    <string name="pgp_import_confirm_add">Schlüssel hinzufügen</string>
+    <string name="pgp_import_confirm_use">Nur für diese Prüfung verwenden</string>
+    <string name="pgp_verify_session_title">Schlüssel nur für diese Prüfung</string>
+    <string name="pgp_verify_session_empty">Keine zusätzlichen Schlüssel. Hier hinzugefügte Schlüssel werden beim Verlassen der Seite entfernt.</string>
+    <string name="pgp_key_known">Dieser Schlüssel ist bereits vorhanden</string>
 </resources>

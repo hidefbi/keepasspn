@@ -58,6 +58,7 @@ import com.keepasspn.credentialprovider.passkey.data.PublicKeyCredentialRequestO
 import com.keepasspn.credentialprovider.passkey.data.UserVerificationRequirement
 import com.keepasspn.credentialprovider.passkey.util.PassHelper.getOrigin
 import com.keepasspn.credentialprovider.passkey.util.PrivilegedAllowLists
+import mozilla.components.lib.publicsuffixlist.PublicSuffixList
 import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.DatabaseTaskProvider
 import com.keepasspn.database.exception.RegisterInReadOnlyDatabaseException
@@ -71,6 +72,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.IOException
+import java.net.URI
 import java.time.Instant
 
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
@@ -440,6 +442,33 @@ class PasskeyProviderService : CredentialProviderService() {
         }
     }
 
+    /**
+     * The relying party id must not be a public suffix (co.uk, github.io...). For a browser it must also be
+     * the host of its verified web origin, or a parent domain of that host, so a page can't use another
+     * site's id. Allow-listed apps have no web origin here, so only the public suffix rule applies to them.
+     */
+    private suspend fun isRelyingPartyAllowed(rpId: String, callingAppInfo: CallingAppInfo?): Boolean {
+        val appInfo = callingAppInfo ?: return false
+        return withContext(Dispatchers.IO) {
+            try {
+                if (PublicSuffixList(applicationContext).isPublicSuffix(rpId).await()) {
+                    return@withContext false
+                }
+                val origin = PrivilegedAllowLists.getOriginFromPrivilegedAllowLists(appInfo, applicationContext)
+                    ?: return@withContext false
+                if (!origin.startsWith("https://", ignoreCase = true)) {
+                    // Not a web origin, an allow-listed app
+                    return@withContext true
+                }
+                val pageHost = URI(origin).host?.lowercase() ?: return@withContext false
+                val rp = rpId.lowercase()
+                pageHost == rp || pageHost.endsWith(".$rp")
+            } catch (_: Exception) {
+                false
+            }
+        }
+    }
+
     private fun buildPasskeySearchInfo(
         relyingParty: String,
         credentialIds: List<String> = listOf()
@@ -468,6 +497,11 @@ class PasskeyProviderService : CredentialProviderService() {
             try {
                 if (!isPrivilegedCaller(callingAppInfo)) {
                     NoOpLog.w(TAG, "Caller is not a privileged origin, no passkey offered")
+                    callback(passkeyEntries)
+                    return@launch
+                }
+                if (!isRelyingPartyAllowed(relyingPartyId, callingAppInfo)) {
+                    NoOpLog.w(TAG, "Relying party id does not match the caller origin, no passkey offered")
                     callback(passkeyEntries)
                     return@launch
                 }
@@ -631,6 +665,11 @@ class PasskeyProviderService : CredentialProviderService() {
             try {
                 if (!isPrivilegedCaller(request.callingAppInfo)) {
                     NoOpLog.w(TAG, "Caller is not a privileged origin, no passkey created")
+                    callback(createEntries)
+                    return@launch
+                }
+                if (!isRelyingPartyAllowed(relyingPartyId, request.callingAppInfo)) {
+                    NoOpLog.w(TAG, "Relying party id does not match the caller origin, no passkey created")
                     callback(createEntries)
                     return@launch
                 }

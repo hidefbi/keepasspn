@@ -25,13 +25,7 @@ import com.keepasspn.database.ContextualDatabase
 import com.keepasspn.database.search.SearchParameters
 import com.keepasspn.model.EntryInfo
 import com.keepasspn.model.SearchInfo
-import com.keepasspn.settings.PreferencesUtil.searchSubDomains
 import com.keepasspn.timeout.TimeoutHelper
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import mozilla.components.lib.publicsuffixlist.PublicSuffixList
 
 /**
  * Utility object for search-related operations in the app module.
@@ -56,36 +50,9 @@ object SearchHelper {
     }
 
     /**
-     * Get the concrete web domain AKA without sub domain if needed
-     */
-    private fun getConcreteWebDomain(
-        context: Context,
-        webDomain: String?,
-        concreteWebDomain: (searchSubDomains: Boolean, concreteWebDomain: String?) -> Unit
-    ) {
-        val searchSubDomains = searchSubDomains(context)
-        if (webDomain != null) {
-            // Warning, the web domain may contain an IP, if so, do not crop it
-            if (searchSubDomains
-                || Regex(SearchInfo.WEB_IP_REGEX).matches(webDomain)) {
-                concreteWebDomain.invoke(searchSubDomains, webDomain)
-            } else {
-                CoroutineScope(Dispatchers.IO).launch {
-                    val publicSuffixList = PublicSuffixList(context)
-                    val publicSuffix = publicSuffixList
-                        .getPublicSuffixPlusOne(webDomain).await()
-                    withContext(Dispatchers.Main) {
-                        concreteWebDomain.invoke(false, publicSuffix)
-                    }
-                }
-            }
-        } else {
-            concreteWebDomain.invoke(searchSubDomains, null)
-        }
-    }
-
-    /**
-     * Asynchronously creates [SearchParameters] from a [SearchInfo] object.
+     * Creates [SearchParameters] from a [SearchInfo] object.
+     * A web domain is matched with its full host, never with the cropped domain: an entry matches the
+     * same host or a parent domain of the page host, so entries of other subdomains are not offered.
      * @param context The application context.
      * @param callback Callback function that receives the generated [SearchParameters].
      */
@@ -93,39 +60,35 @@ object SearchHelper {
         context: Context,
         callback: (SearchParameters) -> Unit
     ) {
-        getConcreteWebDomain(
-            context,
-            webDomain
-        ) { searchSubDomains, concreteDomain ->
-            var query = this.toString()
-            if (isDomainSearch && concreteDomain != null)
-                query = concreteDomain
-            callback.invoke(
-                SearchParameters().apply {
-                    searchQuery = query
-                    allowEmptyQuery = false
-                    searchInTags = isTagSearch
-                    tagsToSearch = tags
-                    searchInTitles = false
-                    searchInUsernames = false
-                    searchInPasswords = false
-                    searchInAppIds = isAppIdSearch
-                    searchInUrls = isDomainSearch
-                    searchByDomain = true
-                    searchBySubDomain = searchSubDomains
-                    searchInRelyingParty = isPasskeySearch
-                    credentialIds = optionsString()
-                    searchInNotes = false
-                    searchInOTP = isOTPSearch
-                    searchInOther = false
-                    searchInUUIDs = false
-                    searchInCurrentGroup = false
-                    searchInSearchableGroup = true
-                    searchInRecycleBin = false
-                    searchInTemplates = false
-                }
-            )
-        }
+        val domain = webDomain
+        var query = this.toString()
+        if (isDomainSearch && domain != null)
+            query = domain
+        callback.invoke(
+            SearchParameters().apply {
+                searchQuery = query
+                allowEmptyQuery = false
+                searchInTags = isTagSearch
+                tagsToSearch = tags
+                searchInTitles = false
+                searchInUsernames = false
+                searchInPasswords = false
+                searchInAppIds = isAppIdSearch
+                searchInUrls = isDomainSearch
+                searchByDomain = true
+                searchBySubDomain = false
+                searchInRelyingParty = isPasskeySearch
+                credentialIds = optionsString()
+                searchInNotes = false
+                searchInOTP = isOTPSearch
+                searchInOther = false
+                searchInUUIDs = false
+                searchInCurrentGroup = false
+                searchInSearchableGroup = true
+                searchInRecycleBin = false
+                searchInTemplates = false
+            }
+        )
     }
 
     /**

@@ -454,9 +454,6 @@
     <string name="pgp_keys_empty">PGP കീകൾ ഇതുവരെ ഇല്ല. ഒന്ന് ഉണ്ടാക്കുക, അല്ലെങ്കിൽ പബ്ലിക് കീ ഇമ്പോർട്ട് ചെയ്യുക.</string>
     <string name="pgp_generate">കീ ഉണ്ടാക്കുക</string>
     <string name="pgp_import">പബ്ലിക് കീ ഇമ്പോർട്ട് ചെയ്യുക</string>
-    <string name="pgp_section_tools_title">എൻക്രിപ്റ്റ്, ഒപ്പിടുക, പരിശോധിക്കുക</string>
-    <string name="pgp_section_decrypt_title">സന്ദേശം ഡീക്രിപ്റ്റ് ചെയ്യുക</string>
-    <string name="pgp_decrypt_input_hint">ഡീക്രിപ്റ്റ് ചെയ്യേണ്ട സന്ദേശം</string>
     <string name="pgp_clear_cache">PGP കാഷെ മായ്ക്കുക</string>
     <string name="pgp_cache_cleared">PGP ഫയലുകളും കാഷെയും മായ്ച്ചു</string>
     <string name="pgp_working">പ്രോസസ്സ് ചെയ്യുന്നു…</string>
@@ -514,4 +511,13 @@
     <string name="pgp_key_too_large">കീയോ ഒപ്പോ വളരെ വലുതാണ്</string>
     <string name="pgp_error_no_integrity">ഈ സന്ദേശത്തിന് സമഗ്രത പരിശോധന ഇല്ല, അതിനാൽ നിരസിച്ചു</string>
     <string name="pgp_saved">സേവ് ചെയ്തു</string>
+    <string name="pgp_key_renew">കീ പുതുക്കുക</string>
+    <string name="pgp_key_renewed">കീ പുതുക്കി, പബ്ലിക് കീ വീണ്ടും പങ്കിടുക</string>
+    <string name="pgp_import_confirm_title">ഫിംഗർപ്രിന്റ് പരിശോധിക്കുക</string>
+    <string name="pgp_import_confirm_save">ഡാറ്റാബേസിലും സംരക്ഷിക്കുക</string>
+    <string name="pgp_import_confirm_add">കീ ചേർക്കുക</string>
+    <string name="pgp_import_confirm_use">ഈ പരിശോധനയ്ക്ക് ഉപയോഗിക്കുക</string>
+    <string name="pgp_verify_session_title">ഈ പരിശോധനയ്ക്ക് മാത്രമുള്ള കീകൾ</string>
+    <string name="pgp_verify_session_empty">അധിക കീകളില്ല. ഇവിടെ ചേർക്കുന്ന കീകൾ പേജ് വിടുമ്പോൾ നീക്കം ചെയ്യും.</string>
+    <string name="pgp_key_known">ഈ കീ ഇതിനകം ഉണ്ട്</string>
 </resources>

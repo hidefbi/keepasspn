@@ -401,9 +401,6 @@
     <string name="pgp_keys_empty">هنوز کلید PGP ندارید. یکی بسازید یا کلید عمومی وارد کنید.</string>
     <string name="pgp_generate">ساخت کلید</string>
     <string name="pgp_import">وارد کردن کلید عمومی</string>
-    <string name="pgp_section_tools_title">رمزگذاری، امضا، تأیید</string>
-    <string name="pgp_section_decrypt_title">رمزگشایی پیام</string>
-    <string name="pgp_decrypt_input_hint">پیام برای رمزگشایی</string>
     <string name="pgp_clear_cache">پاک‌کردن حافظهٔ نهان PGP</string>
     <string name="pgp_cache_cleared">فایل‌ها و حافظهٔ نهان PGP پاک شد</string>
     <string name="pgp_working">در حال پردازش…</string>
@@ -461,4 +458,13 @@
     <string name="pgp_key_too_large">کلید یا امضا خیلی بزرگ است</string>
     <string name="pgp_error_no_integrity">این پیام بررسی یکپارچگی ندارد، بنابراین رد شد</string>
     <string name="pgp_saved">ذخیره شد</string>
+    <string name="pgp_key_renew">تمدید کلید</string>
+    <string name="pgp_key_renewed">کلید تمدید شد، کلید عمومی را دوباره به اشتراک بگذارید</string>
+    <string name="pgp_import_confirm_title">اثرانگشت را بررسی کنید</string>
+    <string name="pgp_import_confirm_save">در پایگاه داده هم ذخیره شود</string>
+    <string name="pgp_import_confirm_add">افزودن کلید</string>
+    <string name="pgp_import_confirm_use">برای این بررسی استفاده شود</string>
+    <string name="pgp_verify_session_title">کلیدها فقط برای این بررسی</string>
+    <string name="pgp_verify_session_empty">کلید اضافی وجود ندارد. کلیدهای افزوده‌شده در اینجا با خروج از صفحه حذف می‌شوند.</string>
+    <string name="pgp_key_known">این کلید از قبل وجود دارد</string>
 </resources>

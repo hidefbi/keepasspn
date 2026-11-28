@@ -81,10 +81,10 @@ fun URL.inTheSameDomainAs(url: URL?, sameSubDomain: Boolean = false): Boolean {
     // If we need exactly the same subdomain, it's not a match
     if (sameSubDomain)
         return false
-    // If contains subdomains (ie: subdomain.domain.org)
+    // The url is a subdomain of this host (ie: this is domain.org, url is subdomain.domain.org).
+    // The other way round is not a match: a stored sub.domain.org must not match domain.org,
+    // because on a shared domain another tenant could sit at the parent level.
     if (hostB.endsWith(".$hostA", ignoreCase = true))
-        return true
-    if (hostA.endsWith(".$hostB", ignoreCase = true))
         return true
     return false
 }

@@ -883,9 +883,6 @@ To keep our freedom, fix bugs, add features and keep the project active, we welc
     <string name="pgp_keys_empty">No PGP keys yet. Generate one or import a public key.</string>
     <string name="pgp_generate">Generate key</string>
     <string name="pgp_import">Import public key</string>
-    <string name="pgp_section_tools_title">Encrypt, sign, verify</string>
-    <string name="pgp_section_decrypt_title">Decrypt a message</string>
-    <string name="pgp_decrypt_input_hint">Armored message to decrypt</string>
     <string name="pgp_clear_cache">Clear PGP cache</string>
     <string name="pgp_cache_cleared">PGP files and cache cleared</string>
     <string name="pgp_working">Working…</string>
@@ -943,4 +940,13 @@ To keep our freedom, fix bugs, add features and keep the project active, we welc
     <string name="pgp_key_too_large">The key or signature is too large</string>
     <string name="pgp_error_no_integrity">This message has no integrity check, so it was refused</string>
     <string name="pgp_saved">Saved</string>
+    <string name="pgp_key_renew">Renew key</string>
+    <string name="pgp_key_renewed">Key renewed, share the public key again</string>
+    <string name="pgp_import_confirm_title">Check the fingerprint</string>
+    <string name="pgp_import_confirm_save">Also save to the database</string>
+    <string name="pgp_import_confirm_add">Add key</string>
+    <string name="pgp_import_confirm_use">Use for this check</string>
+    <string name="pgp_verify_session_title">Keys for this check only</string>
+    <string name="pgp_verify_session_empty">No extra keys. Keys added here are dropped when you leave the page.</string>
+    <string name="pgp_key_known">This key is already here</string>
 </resources>

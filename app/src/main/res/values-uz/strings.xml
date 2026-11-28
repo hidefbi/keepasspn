@@ -156,9 +156,6 @@ Erkinligimizni saqlash, xatolarni tuzatish, yangi imkoniyatlar qo\'shish va loyi
     <string name="pgp_keys_empty">Hali PGP kalitlari yo\'q. Bittasini yarating yoki ochiq kalitni import qiling.</string>
     <string name="pgp_generate">Kalit yaratish</string>
     <string name="pgp_import">Ochiq kalitni import qilish</string>
-    <string name="pgp_section_tools_title">Shifrlash, imzolash, tekshirish</string>
-    <string name="pgp_section_decrypt_title">Xabarni deshifrlash</string>
-    <string name="pgp_decrypt_input_hint">Deshifrlanadigan xabar</string>
     <string name="pgp_clear_cache">PGP keshini tozalash</string>
     <string name="pgp_cache_cleared">PGP fayllari va kesh tozalandi</string>
     <string name="pgp_working">Qayta ishlanmoqda…</string>
@@ -216,4 +213,13 @@ Erkinligimizni saqlash, xatolarni tuzatish, yangi imkoniyatlar qo\'shish va loyi
     <string name="pgp_key_too_large">Kalit yoki imzo juda katta</string>
     <string name="pgp_error_no_integrity">Bu xabarda yaxlitlik tekshiruvi yo\'q, shuning uchun rad etildi</string>
     <string name="pgp_saved">Saqlandi</string>
+    <string name="pgp_key_renew">Kalitni yangilash</string>
+    <string name="pgp_key_renewed">Kalit yangilandi, ochiq kalitni qayta ulashing</string>
+    <string name="pgp_import_confirm_title">Barmoq izini tekshiring</string>
+    <string name="pgp_import_confirm_save">Ma\'lumotlar bazasiga ham saqlash</string>
+    <string name="pgp_import_confirm_add">Kalit qo\'shish</string>
+    <string name="pgp_import_confirm_use">Bu tekshiruv uchun ishlatish</string>
+    <string name="pgp_verify_session_title">Faqat bu tekshiruv uchun kalitlar</string>
+    <string name="pgp_verify_session_empty">Qo\'shimcha kalit yo\'q. Bu yerga qo\'shilgan kalitlar sahifadan chiqqanda o\'chadi.</string>
+    <string name="pgp_key_known">Bu kalit allaqachon bor</string>
 </resources>

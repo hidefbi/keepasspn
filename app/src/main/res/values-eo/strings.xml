@@ -234,9 +234,6 @@ Por konservi nian liberecon, ripari erarojn, aldoni funkciojn kaj konservi la pr
     <string name="pgp_keys_empty">Ankoraŭ neniu PGP-ŝlosilo. Kreu unu aŭ enportu publikan ŝlosilon.</string>
     <string name="pgp_generate">Krei ŝlosilon</string>
     <string name="pgp_import">Enporti publikan ŝlosilon</string>
-    <string name="pgp_section_tools_title">Ĉifri, subskribi, kontroli</string>
-    <string name="pgp_section_decrypt_title">Malĉifri mesaĝon</string>
-    <string name="pgp_decrypt_input_hint">Mesaĝo por malĉifri</string>
     <string name="pgp_clear_cache">Malplenigi la PGP-kaŝmemoron</string>
     <string name="pgp_cache_cleared">PGP-dosieroj kaj kaŝmemoro malplenigitaj</string>
     <string name="pgp_working">Laborante…</string>
@@ -294,4 +291,13 @@ Por konservi nian liberecon, ripari erarojn, aldoni funkciojn kaj konservi la pr
     <string name="pgp_key_too_large">La ŝlosilo aŭ subskribo estas tro granda</string>
     <string name="pgp_error_no_integrity">Ĉi tiu mesaĝo ne havas kontrolon de integreco, do ĝi estis rifuzita</string>
     <string name="pgp_saved">Konservita</string>
+    <string name="pgp_key_renew">Renovigi ŝlosilon</string>
+    <string name="pgp_key_renewed">Ŝlosilo renovigita, kundividu la publikan ŝlosilon</string>
+    <string name="pgp_import_confirm_title">Kontrolu la fingrospuron</string>
+    <string name="pgp_import_confirm_save">Ankaŭ konservi en la datumbazo</string>
+    <string name="pgp_import_confirm_add">Aldoni ŝlosilon</string>
+    <string name="pgp_import_confirm_use">Uzi por ĉi tiu kontrolo</string>
+    <string name="pgp_verify_session_title">Ŝlosiloj nur por ĉi tiu kontrolo</string>
+    <string name="pgp_verify_session_empty">Neniu plia ŝlosilo. Ŝlosiloj aldonitaj ĉi tie forigiĝas kiam vi forlasas la paĝon.</string>
+    <string name="pgp_key_known">Ĉi tiu ŝlosilo jam estas</string>
 </resources>

@@ -491,9 +491,6 @@
     <string name="pgp_keys_empty">Још нема PGP кључева. Направите кључ или увезите јавни кључ.</string>
     <string name="pgp_generate">Направи кључ</string>
     <string name="pgp_import">Увези јавни кључ</string>
-    <string name="pgp_section_tools_title">Шифруј, потпиши, провери</string>
-    <string name="pgp_section_decrypt_title">Дешифруј поруку</string>
-    <string name="pgp_decrypt_input_hint">Порука за дешифровање</string>
     <string name="pgp_clear_cache">Очисти ПГП кеш</string>
     <string name="pgp_cache_cleared">ПГП датотеке и кеш су очишћени</string>
     <string name="pgp_working">Обрађује се…</string>
@@ -551,4 +548,13 @@
     <string name="pgp_key_too_large">Кључ или потпис је превелик</string>
     <string name="pgp_error_no_integrity">Ова порука нема проверу интегритета, па је одбијена</string>
     <string name="pgp_saved">Сачувано</string>
+    <string name="pgp_key_renew">Обнови кључ</string>
+    <string name="pgp_key_renewed">Кључ је обновљен, поново подели јавни кључ</string>
+    <string name="pgp_import_confirm_title">Проверите отисак</string>
+    <string name="pgp_import_confirm_save">Сачувај и у бази података</string>
+    <string name="pgp_import_confirm_add">Додај кључ</string>
+    <string name="pgp_import_confirm_use">Користи за ову проверу</string>
+    <string name="pgp_verify_session_title">Кључеви само за ову проверу</string>
+    <string name="pgp_verify_session_empty">Нема додатних кључева. Кључеви додати овде бришу се кад напустите страницу.</string>
+    <string name="pgp_key_known">Овај кључ већ постоји</string>
 </resources>

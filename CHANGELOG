@@ -1,7 +1,22 @@
 KeePassPN
+ * Feature: PGP has four tabs (Encrypt, Decrypt, Sign, Verify) and one input box; verify takes a pasted or picked signature and a public key imported for that check only, saved to the database only when ticked
+ * Change: every PGP key import shows the fingerprint and asks before the key is used
+ * Security: new databases use Argon2id with 64 MiB of memory instead of AES-KDF, older databases keep their setting
+ * Security: a passkey needs the relying party id to match the page origin the browser reports, public suffixes such as co.uk are refused
+ * Security: autofill matches the full page host, a subdomain entry no longer matches its parent domain or a sibling host
+ * Security: the passphrase kept with the Keystore needs an unlocked device on Android 9 and later, old copies still open
+ * Security: PGP keys expire after three years, use preferred algorithms, refuse SHA-1 and MD5 signatures and ignore revocations that don't verify
+ * Security: PGP secret keys use the largest S2K iteration count for new keys, and your own keys are added as recipients when encrypting
+ * Security: PGP temp files are overwritten with zeros before delete (best effort), and typed input is dropped when another PGP action is running
+ * Security: the native key transform joins its threads and wipes its memory on every error path
+ * Security: the entry picker ignores taps covered by another window
+ * Fix: the Argon2 version is checked before it is clamped, HMAC checks use a constant time compare
+ * Test: PGP round trip and failure tests
  * Change: the TOTP Summary folder uses the new TOTP icon, a transparent image shown in its own colors
  * Security: PGP clears its working buffers after use and keeps fewer copies of the passphrase and result text
  * Fix: a PGP key that was just made or imported shows in the list at once and is selected
+ * Change: generating a PGP key shows a working state until it is saved, the done message comes only after success and a failed save is shown
+ * Change: the PGP progress bar sits under the top bar, the selected key header uses the primary container colour, make and import have a card of their own
  * Security: PGP decrypt writes to a staging file and only shows the output after the integrity check passes; leaving the PGP screen stops a run and clears its files
  * Feature: PGP passphrase can be kept (Remember passphrase, wrapped with the Android Keystore) or asked each time; revoked and expired keys can't encrypt or sign
  * Feature: public keys can be loaded from a file too, armored or binary .gpg, up to 2 MB
@@ -25,6 +40,10 @@ KeePassPN
  * Feature: scanned codes are saved only to the 2FA group, which sits second at the root, after TOTP Summary
  * Feature: About > Check for updates shows the installed version and opens the release page
  * Change: the free and libre build variants are merged into one; build with ./gradlew assembleDebug
+ * Fix: undefined left shift in the SHA-1 and SHA-2 padding (found with UBSan)
+ * Security: an old plain copy of a PGP passphrase is wrapped again when the key is used, or dropped if the Keystore can't do it
+ * Security: an older PGP secret key gets the largest S2K count the next time its passphrase is used
+ * Feature: your own PGP key can be renewed from the key list, three more years, same fingerprint
  * Change: the PIN check shows a progress bar and locks the input while it runs
  * Security: passkeys are offered only to privileged callers (verified browsers and allow-listed apps)
  * Security: saving writes to a temporary file first, so an interrupted save cannot replace the database with a partial file

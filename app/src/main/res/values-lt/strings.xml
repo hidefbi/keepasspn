@@ -811,9 +811,6 @@ Siekdami išsaugoti laisvę, taisyti klaidas, pridėti funkcijų ir palaikyti pr
     <string name="pgp_keys_empty">PGP raktų dar nėra. Sukurkite raktą arba importuokite viešąjį raktą.</string>
     <string name="pgp_generate">Sukurti raktą</string>
     <string name="pgp_import">Importuoti viešąjį raktą</string>
-    <string name="pgp_section_tools_title">Šifruoti, pasirašyti, tikrinti</string>
-    <string name="pgp_section_decrypt_title">Iššifruoti pranešimą</string>
-    <string name="pgp_decrypt_input_hint">Iššifruotinas pranešimas</string>
     <string name="pgp_clear_cache">Išvalyti PGP talpyklą</string>
     <string name="pgp_cache_cleared">PGP failai ir talpykla išvalyti</string>
     <string name="pgp_working">Apdorojama…</string>
@@ -871,4 +868,13 @@ Siekdami išsaugoti laisvę, taisyti klaidas, pridėti funkcijų ir palaikyti pr
     <string name="pgp_key_too_large">Raktas arba parašas per didelis</string>
     <string name="pgp_error_no_integrity">Šis pranešimas neturi vientisumo patikros, todėl jis atmestas</string>
     <string name="pgp_saved">Įrašyta</string>
+    <string name="pgp_key_renew">Atnaujinti raktą</string>
+    <string name="pgp_key_renewed">Raktas atnaujintas, dar kartą pasidalinkite viešuoju raktu</string>
+    <string name="pgp_import_confirm_title">Patikrinkite pirštų atspaudą</string>
+    <string name="pgp_import_confirm_save">Taip pat įrašyti į duomenų bazę</string>
+    <string name="pgp_import_confirm_add">Pridėti raktą</string>
+    <string name="pgp_import_confirm_use">Naudoti šiam patikrinimui</string>
+    <string name="pgp_verify_session_title">Raktai tik šiam patikrinimui</string>
+    <string name="pgp_verify_session_empty">Papildomų raktų nėra. Čia pridėti raktai pašalinami išėjus iš puslapio.</string>
+    <string name="pgp_key_known">Šis raktas jau yra</string>
 </resources>

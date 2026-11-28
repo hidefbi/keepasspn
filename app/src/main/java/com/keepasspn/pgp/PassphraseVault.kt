@@ -37,27 +37,35 @@ import javax.crypto.spec.GCMParameterSpec
  * Keeps a PGP passphrase wrapped with a key from the Android Keystore. That key stays on the
  * device, so a backup copied to another phone can't open the passphrase and the app asks for
  * it again. Below Android 6 nothing is kept, the passphrase is asked each time.
+ *
+ * From Android 9 the key can only be used while the device is unlocked (v2). Values wrapped
+ * before that (v1) are still opened, with the old key.
  */
 object PassphraseVault {
 
-    private const val KEY_ALIAS = "keepasspn_pgp_passphrase"
+    private const val KEY_ALIAS_V1 = "keepasspn_pgp_passphrase"
+    private const val KEY_ALIAS_V2 = "keepasspn_pgp_passphrase_v2"
     private const val KEYSTORE = "AndroidKeyStore"
     private const val TRANSFORMATION = "AES/GCM/NoPadding"
     private const val TAG_BITS = 128
-    private const val PREFIX = "v1:"
+    private const val PREFIX_V1 = "v1:"
+    private const val PREFIX_V2 = "v2:"
 
     /**
      * Returns the wrapped passphrase as text, or null when it can't be wrapped on this device.
      */
     fun wrap(passphrase: CharArray): String? {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return null
+        val unlockedOnly = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
+        val alias = if (unlockedOnly) KEY_ALIAS_V2 else KEY_ALIAS_V1
+        val prefix = if (unlockedOnly) PREFIX_V2 else PREFIX_V1
         return try {
             val plain = encode(passphrase)
             try {
                 val cipher = Cipher.getInstance(TRANSFORMATION)
-                cipher.init(Cipher.ENCRYPT_MODE, wrappingKey())
+                cipher.init(Cipher.ENCRYPT_MODE, wrappingKey(alias, unlockedOnly))
                 val sealed = cipher.doFinal(plain)
-                PREFIX + Base64.encodeToString(cipher.iv, Base64.NO_WRAP) + ":" +
+                prefix + Base64.encodeToString(cipher.iv, Base64.NO_WRAP) + ":" +
                     Base64.encodeToString(sealed, Base64.NO_WRAP)
             } finally {
                 plain.fill(0)
@@ -68,16 +76,19 @@ object PassphraseVault {
     }
 
     /**
-     * Opens a stored passphrase. A value without the prefix is an older plain copy and comes back
-     * as it is. Returns null when a wrapped value can't be opened here, the caller asks for it.
+     * Opens a stored passphrase. A value without a prefix is an older plain copy and comes back
+     * as it is. Returns null when a wrapped value can't be opened here, for example while the
+     * device is locked, the caller asks for it.
      */
     fun unwrap(stored: CharArray): CharArray? {
         if (!isWrapped(stored)) return stored.copyOf()
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return null
+        val prefix = if (startsWith(stored, PREFIX_V2)) PREFIX_V2 else PREFIX_V1
+        val alias = if (prefix == PREFIX_V2) KEY_ALIAS_V2 else KEY_ALIAS_V1
         return try {
-            val parts = String(stored, PREFIX.length, stored.size - PREFIX.length).split(":")
+            val parts = String(stored, prefix.length, stored.size - prefix.length).split(":")
             if (parts.size != 2) return null
-            val key = existingKey() ?: return null
+            val key = existingKey(alias) ?: return null
             val cipher = Cipher.getInstance(TRANSFORMATION)
             cipher.init(
                 Cipher.DECRYPT_MODE,
@@ -95,31 +106,40 @@ object PassphraseVault {
         }
     }
 
-    private fun isWrapped(value: CharArray): Boolean {
-        return value.size > PREFIX.length && PREFIX.indices.all { value[it] == PREFIX[it] }
+    fun isWrapped(value: CharArray): Boolean {
+        return startsWith(value, PREFIX_V1) || startsWith(value, PREFIX_V2)
+    }
+
+    private fun startsWith(value: CharArray, prefix: String): Boolean {
+        return value.size > prefix.length && prefix.indices.all { value[it] == prefix[it] }
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun wrappingKey(): SecretKey {
-        return existingKey() ?: createKey(strongBox = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+    private fun wrappingKey(alias: String, unlockedOnly: Boolean): SecretKey {
+        return existingKey(alias)
+            ?: createKey(alias, strongBox = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P, unlockedOnly = unlockedOnly)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun existingKey(): SecretKey? {
+    private fun existingKey(alias: String): SecretKey? {
         val store = KeyStore.getInstance(KEYSTORE)
         store.load(null)
-        return store.getKey(KEY_ALIAS, null) as? SecretKey
+        return store.getKey(alias, null) as? SecretKey
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun createKey(strongBox: Boolean): SecretKey {
+    private fun createKey(alias: String, strongBox: Boolean, unlockedOnly: Boolean): SecretKey {
         val spec = KeyGenParameterSpec.Builder(
-            KEY_ALIAS,
+            alias,
             KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT
         )
             .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
             .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
             .setKeySize(256)
+        if (unlockedOnly && Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // No use while the device is locked, the app asks for the passphrase instead
+            spec.setUnlockedDeviceRequired(true)
+        }
         if (strongBox && Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             spec.setIsStrongBoxBacked(true)
         }
@@ -129,7 +149,7 @@ object PassphraseVault {
             generator.generateKey()
         } catch (e: ProviderException) {
             // StrongBox is missing on many phones, the normal Keystore is the fallback
-            if (strongBox) createKey(strongBox = false) else throw e
+            if (strongBox) createKey(alias, strongBox = false, unlockedOnly = unlockedOnly) else throw e
         }
     }
 

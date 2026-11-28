@@ -80,7 +80,7 @@ internal object ZipJson {
     }
 
     private fun readEntry(zip: InputStream): ByteArray {
-        val output = ByteArrayOutputStream()
+        val output = WipingOutputStream()
         val buffer = ByteArray(BUFFER_SIZE)
         try {
             var total = 0
@@ -96,6 +96,17 @@ internal object ZipJson {
             return output.toByteArray()
         } finally {
             buffer.fill(0)
+            output.wipe()
+        }
+    }
+
+    /**
+     * Keeps the JSON in the stream's own buffer, which is zeroed once the copy has been taken.
+     */
+    private class WipingOutputStream : ByteArrayOutputStream() {
+        fun wipe() {
+            java.util.Arrays.fill(buf, 0, buf.size, 0)
+            reset()
         }
     }
 

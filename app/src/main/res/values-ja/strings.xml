@@ -863,9 +863,6 @@
     <string name="pgp_keys_empty">PGP の鍵はまだありません。鍵を作成するか、公開鍵をインポートしてください。</string>
     <string name="pgp_generate">鍵を作成</string>
     <string name="pgp_import">公開鍵をインポート</string>
-    <string name="pgp_section_tools_title">暗号化・署名・検証</string>
-    <string name="pgp_section_decrypt_title">メッセージを復号</string>
-    <string name="pgp_decrypt_input_hint">復号するメッセージ</string>
     <string name="pgp_clear_cache">PGP キャッシュを消去</string>
     <string name="pgp_cache_cleared">PGP のファイルとキャッシュを消去しました</string>
     <string name="pgp_working">処理中…</string>
@@ -923,4 +920,13 @@
     <string name="pgp_key_too_large">鍵または署名が大きすぎます</string>
     <string name="pgp_error_no_integrity">このメッセージには整合性チェックがないため拒否しました</string>
     <string name="pgp_saved">保存しました</string>
+    <string name="pgp_key_renew">鍵の有効期限を延長</string>
+    <string name="pgp_key_renewed">鍵の期限を延長しました。公開鍵を再度共有してください</string>
+    <string name="pgp_import_confirm_title">フィンガープリントを確認</string>
+    <string name="pgp_import_confirm_save">データベースにも保存</string>
+    <string name="pgp_import_confirm_add">鍵を追加</string>
+    <string name="pgp_import_confirm_use">今回の検証に使用</string>
+    <string name="pgp_verify_session_title">今回の検証専用の鍵</string>
+    <string name="pgp_verify_session_empty">追加の鍵はありません。ここで追加した鍵はページを離れると消えます。</string>
+    <string name="pgp_key_known">この鍵は既にあります</string>
 </resources>

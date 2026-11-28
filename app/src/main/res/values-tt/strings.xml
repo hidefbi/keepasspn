@@ -143,9 +143,6 @@
     <string name="pgp_keys_empty">Әле PGP ачкычлары юк. Берне булдырыгыз яки ачык ачкычны импорт итегез.</string>
     <string name="pgp_generate">Ачкыч булдыру</string>
     <string name="pgp_import">Ачык ачкычны импорт итү</string>
-    <string name="pgp_section_tools_title">Шифрлау, имза, тикшерү</string>
-    <string name="pgp_section_decrypt_title">Хәбәрне дешифрлау</string>
-    <string name="pgp_decrypt_input_hint">Дешифрлау өчен хәбәр</string>
     <string name="pgp_clear_cache">PGP кэшын чистарту</string>
     <string name="pgp_cache_cleared">PGP файллары һәм кэш чистартылды</string>
     <string name="pgp_working">Эшкәртелә…</string>
@@ -203,4 +200,13 @@
     <string name="pgp_key_too_large">Ачкыч яки имза бик зур</string>
     <string name="pgp_error_no_integrity">Бу хәбәрдә тулылыкны тикшерү юк, шуңа кире кагылды</string>
     <string name="pgp_saved">Сакланды</string>
+    <string name="pgp_key_renew">Ачкычны озайту</string>
+    <string name="pgp_key_renewed">Ачкыч озайтылды, ачык ачкычны яңадан уртаклашыгыз</string>
+    <string name="pgp_import_confirm_title">Бармак эзен тикшерегез</string>
+    <string name="pgp_import_confirm_save">Мәгълүмат базасына да саклау</string>
+    <string name="pgp_import_confirm_add">Ачкыч өстәү</string>
+    <string name="pgp_import_confirm_use">Бу тикшерү өчен куллану</string>
+    <string name="pgp_verify_session_title">Бу тикшерү өчен генә ачкычлар</string>
+    <string name="pgp_verify_session_empty">Өстәмә ачкычлар юк. Монда өстәлгән ачкычлар биттән чыкканда бетәләр.</string>
+    <string name="pgp_key_known">Бу ачкыч инде бар</string>
 </resources>

@@ -403,9 +403,6 @@
     <string name="pgp_keys_empty">ਅਜੇ ਕੋਈ PGP ਕੁੰਜੀ ਨਹੀਂ। ਇੱਕ ਬਣਾਓ ਜਾਂ ਜਨਤਕ ਕੁੰਜੀ ਆਯਾਤ ਕਰੋ।</string>
     <string name="pgp_generate">ਕੁੰਜੀ ਬਣਾਓ</string>
     <string name="pgp_import">ਜਨਤਕ ਕੁੰਜੀ ਆਯਾਤ ਕਰੋ</string>
-    <string name="pgp_section_tools_title">ਇਨਕ੍ਰਿਪਟ, ਸਾਈਨ, ਤਸਦੀਕ</string>
-    <string name="pgp_section_decrypt_title">ਸੁਨੇਹਾ ਡੀਕ੍ਰਿਪਟ ਕਰੋ</string>
-    <string name="pgp_decrypt_input_hint">ਡੀਕ੍ਰਿਪਟ ਕਰਨ ਲਈ ਸੁਨੇਹਾ</string>
     <string name="pgp_clear_cache">PGP ਕੈਸ਼ ਸਾਫ਼ ਕਰੋ</string>
     <string name="pgp_cache_cleared">PGP ਫ਼ਾਈਲਾਂ ਅਤੇ ਕੈਸ਼ ਸਾਫ਼ ਕੀਤੇ ਗਏ</string>
     <string name="pgp_working">ਕੰਮ ਚੱਲ ਰਿਹਾ ਹੈ…</string>
@@ -463,4 +460,13 @@
     <string name="pgp_key_too_large">ਕੁੰਜੀ ਜਾਂ ਦਸਤਖ਼ਤ ਬਹੁਤ ਵੱਡਾ ਹੈ</string>
     <string name="pgp_error_no_integrity">ਇਸ ਸੁਨੇਹੇ ਵਿੱਚ ਇਕਸਾਰਤਾ ਜਾਂਚ ਨਹੀਂ, ਇਸ ਲਈ ਇਹ ਰੱਦ ਕੀਤਾ ਗਿਆ</string>
     <string name="pgp_saved">ਸੰਭਾਲਿਆ ਗਿਆ</string>
+    <string name="pgp_key_renew">ਕੁੰਜੀ ਨਵਿਆਓ</string>
+    <string name="pgp_key_renewed">ਕੁੰਜੀ ਨਵਿਆਈ ਗਈ, ਜਨਤਕ ਕੁੰਜੀ ਦੁਬਾਰਾ ਸਾਂਝੀ ਕਰੋ</string>
+    <string name="pgp_import_confirm_title">ਫਿੰਗਰਪ੍ਰਿੰਟ ਜਾਂਚੋ</string>
+    <string name="pgp_import_confirm_save">ਡੇਟਾਬੇਸ ਵਿੱਚ ਵੀ ਸੰਭਾਲੋ</string>
+    <string name="pgp_import_confirm_add">ਕੁੰਜੀ ਜੋੜੋ</string>
+    <string name="pgp_import_confirm_use">ਇਸ ਜਾਂਚ ਲਈ ਵਰਤੋ</string>
+    <string name="pgp_verify_session_title">ਸਿਰਫ਼ ਇਸ ਜਾਂਚ ਲਈ ਕੁੰਜੀਆਂ</string>
+    <string name="pgp_verify_session_empty">ਕੋਈ ਵਾਧੂ ਕੁੰਜੀ ਨਹੀਂ। ਇੱਥੇ ਜੋੜੀਆਂ ਕੁੰਜੀਆਂ ਪੰਨਾ ਛੱਡਣ ਤੇ ਹਟ ਜਾਂਦੀਆਂ ਹਨ।</string>
+    <string name="pgp_key_known">ਇਹ ਕੁੰਜੀ ਪਹਿਲਾਂ ਹੀ ਹੈ</string>
 </resources>

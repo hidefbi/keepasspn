@@ -873,9 +873,6 @@ Abychom zachovali svobodu, opravovali chyby, přidávali funkce a udrželi proje
     <string name="pgp_keys_empty">Zatím nejsou žádné PGP klíče. Vytvořte klíč nebo naimportujte veřejný klíč.</string>
     <string name="pgp_generate">Vytvořit klíč</string>
     <string name="pgp_import">Importovat veřejný klíč</string>
-    <string name="pgp_section_tools_title">Šifrovat, podepsat, ověřit</string>
-    <string name="pgp_section_decrypt_title">Dešifrovat zprávu</string>
-    <string name="pgp_decrypt_input_hint">Zpráva k dešifrování</string>
     <string name="pgp_clear_cache">Vymazat mezipaměť PGP</string>
     <string name="pgp_cache_cleared">Soubory a mezipaměť PGP byly vymazány</string>
     <string name="pgp_working">Zpracovávám…</string>
@@ -933,4 +930,13 @@ Abychom zachovali svobodu, opravovali chyby, přidávali funkce a udrželi proje
     <string name="pgp_key_too_large">Klíč nebo podpis je příliš velký</string>
     <string name="pgp_error_no_integrity">Tato zpráva nemá kontrolu integrity, proto byla odmítnuta</string>
     <string name="pgp_saved">Uloženo</string>
+    <string name="pgp_key_renew">Obnovit klíč</string>
+    <string name="pgp_key_renewed">Klíč obnoven, znovu sdílejte veřejný klíč</string>
+    <string name="pgp_import_confirm_title">Zkontrolujte otisk</string>
+    <string name="pgp_import_confirm_save">Uložit i do databáze</string>
+    <string name="pgp_import_confirm_add">Přidat klíč</string>
+    <string name="pgp_import_confirm_use">Použít pro tuto kontrolu</string>
+    <string name="pgp_verify_session_title">Klíče jen pro tuto kontrolu</string>
+    <string name="pgp_verify_session_empty">Žádné další klíče. Klíče přidané zde se po opuštění stránky zahodí.</string>
+    <string name="pgp_key_known">Tento klíč tu už je</string>
 </resources>

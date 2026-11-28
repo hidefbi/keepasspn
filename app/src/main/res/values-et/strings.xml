@@ -830,9 +830,6 @@ Meie vabaduse säilitamiseks, vigade parandamiseks, uute funktsioonide lisamisek
     <string name="pgp_keys_empty">PGP-võtmeid veel pole. Loo üks või impordi avalik võti.</string>
     <string name="pgp_generate">Loo võti</string>
     <string name="pgp_import">Impordi avalik võti</string>
-    <string name="pgp_section_tools_title">Krüpti, allkirjasta, kontrolli</string>
-    <string name="pgp_section_decrypt_title">Dekrüpti sõnum</string>
-    <string name="pgp_decrypt_input_hint">Dekrüpteeritav sõnum</string>
     <string name="pgp_clear_cache">Tühjenda PGP vahemälu</string>
     <string name="pgp_cache_cleared">PGP failid ja vahemälu on tühjendatud</string>
     <string name="pgp_working">Töötlen…</string>
@@ -890,4 +887,13 @@ Meie vabaduse säilitamiseks, vigade parandamiseks, uute funktsioonide lisamisek
     <string name="pgp_key_too_large">Võti või allkiri on liiga suur</string>
     <string name="pgp_error_no_integrity">Sõnumil puudub terviklikkuse kontroll, seetõttu see lükati tagasi</string>
     <string name="pgp_saved">Salvestatud</string>
+    <string name="pgp_key_renew">Uuenda võti</string>
+    <string name="pgp_key_renewed">Võti uuendatud, jaga avalikku võtit uuesti</string>
+    <string name="pgp_import_confirm_title">Kontrolli sõrmejälge</string>
+    <string name="pgp_import_confirm_save">Salvesta ka andmebaasi</string>
+    <string name="pgp_import_confirm_add">Lisa võti</string>
+    <string name="pgp_import_confirm_use">Kasuta seda kontrolli jaoks</string>
+    <string name="pgp_verify_session_title">Võtmed ainult selle kontrolli jaoks</string>
+    <string name="pgp_verify_session_empty">Lisavõtmeid pole. Siin lisatud võtmed kustuvad lehelt lahkumisel.</string>
+    <string name="pgp_key_known">See võti on juba olemas</string>
 </resources>

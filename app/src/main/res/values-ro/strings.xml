@@ -858,9 +858,6 @@ Pentru a ne menține libertatea, a repara erori, a adăuga funcționalități ș
     <string name="pgp_keys_empty">Nu există încă chei PGP. Creați una sau importați o cheie publică.</string>
     <string name="pgp_generate">Creează cheie</string>
     <string name="pgp_import">Importă cheie publică</string>
-    <string name="pgp_section_tools_title">Criptează, semnează, verifică</string>
-    <string name="pgp_section_decrypt_title">Decriptează un mesaj</string>
-    <string name="pgp_decrypt_input_hint">Mesaj de decriptat</string>
     <string name="pgp_clear_cache">Golește memoria cache PGP</string>
     <string name="pgp_cache_cleared">Fișierele și memoria cache PGP au fost golite</string>
     <string name="pgp_working">Se procesează…</string>
@@ -918,4 +915,13 @@ Pentru a ne menține libertatea, a repara erori, a adăuga funcționalități ș
     <string name="pgp_key_too_large">Cheia sau semnătura este prea mare</string>
     <string name="pgp_error_no_integrity">Mesajul nu are verificare de integritate, deci a fost refuzat</string>
     <string name="pgp_saved">Salvat</string>
+    <string name="pgp_key_renew">Reînnoiește cheia</string>
+    <string name="pgp_key_renewed">Cheie reînnoită, trimite din nou cheia publică</string>
+    <string name="pgp_import_confirm_title">Verificați amprenta</string>
+    <string name="pgp_import_confirm_save">Salvează și în baza de date</string>
+    <string name="pgp_import_confirm_add">Adaugă cheia</string>
+    <string name="pgp_import_confirm_use">Folosește pentru această verificare</string>
+    <string name="pgp_verify_session_title">Chei doar pentru această verificare</string>
+    <string name="pgp_verify_session_empty">Nicio cheie suplimentară. Cheile adăugate aici se șterg când părăsești pagina.</string>
+    <string name="pgp_key_known">Cheia există deja</string>
 </resources>

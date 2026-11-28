@@ -856,9 +856,6 @@ For å bevare friheten vår, rette feil, legge til funksjoner og holde prosjekte
     <string name="pgp_keys_empty">Ingen PGP-nøkler ennå. Lag en, eller importer en offentlig nøkkel.</string>
     <string name="pgp_generate">Lag nøkkel</string>
     <string name="pgp_import">Importer offentlig nøkkel</string>
-    <string name="pgp_section_tools_title">Krypter, signer, verifiser</string>
-    <string name="pgp_section_decrypt_title">Dekrypter en melding</string>
-    <string name="pgp_decrypt_input_hint">Melding som skal dekrypteres</string>
     <string name="pgp_clear_cache">Tøm PGP-hurtigbufferen</string>
     <string name="pgp_cache_cleared">PGP-filer og hurtigbufferen er tømt</string>
     <string name="pgp_working">Behandler…</string>
@@ -916,4 +913,13 @@ For å bevare friheten vår, rette feil, legge til funksjoner og holde prosjekte
     <string name="pgp_key_too_large">Nøkkelen eller signaturen er for stor</string>
     <string name="pgp_error_no_integrity">Meldingen har ingen integritetssjekk, så den ble avvist</string>
     <string name="pgp_saved">Lagret</string>
+    <string name="pgp_key_renew">Forny nøkkel</string>
+    <string name="pgp_key_renewed">Nøkkelen er fornyet, del den offentlige nøkkelen på nytt</string>
+    <string name="pgp_import_confirm_title">Kontroller fingeravtrykket</string>
+    <string name="pgp_import_confirm_save">Lagre også i databasen</string>
+    <string name="pgp_import_confirm_add">Legg til nøkkel</string>
+    <string name="pgp_import_confirm_use">Bruk til denne kontrollen</string>
+    <string name="pgp_verify_session_title">Nøkler bare for denne kontrollen</string>
+    <string name="pgp_verify_session_empty">Ingen ekstra nøkler. Nøkler lagt til her fjernes når du forlater siden.</string>
+    <string name="pgp_key_known">Denne nøkkelen finnes allerede</string>
 </resources>

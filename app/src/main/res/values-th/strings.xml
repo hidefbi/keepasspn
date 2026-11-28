@@ -813,9 +813,6 @@
     <string name="pgp_keys_empty">ยังไม่มีกุญแจ PGP สร้างกุญแจหรือนำเข้ากุญแจสาธารณะ</string>
     <string name="pgp_generate">สร้างกุญแจ</string>
     <string name="pgp_import">นำเข้ากุญแจสาธารณะ</string>
-    <string name="pgp_section_tools_title">เข้ารหัส ลงนาม ตรวจสอบ</string>
-    <string name="pgp_section_decrypt_title">ถอดรหัสข้อความ</string>
-    <string name="pgp_decrypt_input_hint">ข้อความที่จะถอดรหัส</string>
     <string name="pgp_clear_cache">ล้างแคช PGP</string>
     <string name="pgp_cache_cleared">ล้างไฟล์และแคช PGP แล้ว</string>
     <string name="pgp_working">กำลังประมวลผล…</string>
@@ -873,4 +870,13 @@
     <string name="pgp_key_too_large">คีย์หรือลายเซ็นใหญ่เกินไป</string>
     <string name="pgp_error_no_integrity">ข้อความนี้ไม่มีการตรวจสอบความสมบูรณ์ จึงถูกปฏิเสธ</string>
     <string name="pgp_saved">บันทึกแล้ว</string>
+    <string name="pgp_key_renew">ต่ออายุคีย์</string>
+    <string name="pgp_key_renewed">ต่ออายุคีย์แล้ว ส่งคีย์สาธารณะอีกครั้ง</string>
+    <string name="pgp_import_confirm_title">ตรวจสอบลายนิ้วมือ</string>
+    <string name="pgp_import_confirm_save">บันทึกลงฐานข้อมูลด้วย</string>
+    <string name="pgp_import_confirm_add">เพิ่มกุญแจ</string>
+    <string name="pgp_import_confirm_use">ใช้สำหรับการตรวจสอบนี้</string>
+    <string name="pgp_verify_session_title">กุญแจสำหรับการตรวจสอบนี้เท่านั้น</string>
+    <string name="pgp_verify_session_empty">ไม่มีกุญแจเพิ่มเติม กุญแจที่เพิ่มที่นี่จะถูกลบเมื่อออกจากหน้านี้</string>
+    <string name="pgp_key_known">มีกุญแจนี้อยู่แล้ว</string>
 </resources>

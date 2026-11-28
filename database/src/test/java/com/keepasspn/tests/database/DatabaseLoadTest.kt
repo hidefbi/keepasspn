@@ -53,7 +53,8 @@ class DatabaseLoadTest {
     private fun savedDatabase(password: String): ByteArray {
         val database = DatabaseInfo()
         database.createData("Test", "Root", null)
-        database.kdfEngine = KdfFactory.defaultKdf
+        // Argon2 needs its native library, which is not loaded in JVM tests
+        database.kdfEngine = KdfFactory.aesKdf
         val output = ByteArrayOutputStream()
         database.saveData(
             folder.newFile("cache.kdbx"),

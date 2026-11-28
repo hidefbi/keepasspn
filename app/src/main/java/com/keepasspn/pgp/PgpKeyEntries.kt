@@ -21,6 +21,7 @@ package com.keepasspn.pgp
 
 import com.keepasspn.database.element.Field
 import com.keepasspn.database.element.security.ProtectedString
+import com.keepasspn.encrypt.pgp.PgpCore
 import com.keepasspn.model.EntryInfo
 
 /**
@@ -76,6 +77,52 @@ object PgpKeyEntries {
     fun passphraseOf(entryInfo: EntryInfo): CharArray? {
         val stored = valueOf(entryInfo, FIELD_PASSPHRASE) ?: return null
         return PassphraseVault.unwrap(stored)
+    }
+
+    /**
+     * True when the kept passphrase is an old plain copy, not one wrapped with the Keystore.
+     */
+    fun hasLegacyPassphrase(entryInfo: EntryInfo): Boolean {
+        val stored = valueOf(entryInfo, FIELD_PASSPHRASE) ?: return false
+        return !PassphraseVault.isWrapped(stored)
+    }
+
+    fun setSecretKey(entryInfo: EntryInfo, armored: String) {
+        replaceField(entryInfo, FIELD_SECRET_KEY, ProtectedString(true, armored.toCharArray()))
+    }
+
+    fun setPublicKey(entryInfo: EntryInfo, armored: String) {
+        replaceField(entryInfo, FIELD_PUBLIC_KEY, ProtectedString(false, armored.toCharArray()))
+    }
+
+    /**
+     * Fixes old protection once the passphrase has been used: a plain passphrase copy is wrapped
+     * again (or dropped when the Keystore can't do it), and the secret key gets the current S2K
+     * count. Returns true when the entry changed, the caller saves it.
+     */
+    fun upgradeProtection(entryInfo: EntryInfo, passphrase: CharArray): Boolean {
+        var changed = false
+        if (hasLegacyPassphrase(entryInfo)) {
+            val wrapped = PassphraseVault.wrap(passphrase)
+            replaceField(entryInfo, FIELD_PASSPHRASE, wrapped?.let { ProtectedString(true, it.toCharArray()) })
+            changed = true
+        }
+        val secret = secretKeyOf(entryInfo) ?: return changed
+        val upgraded = try {
+            PgpCore.reprotect(secret, passphrase)
+        } catch (e: PgpCore.PgpError) {
+            null
+        }
+        if (upgraded != null) {
+            setSecretKey(entryInfo, upgraded)
+            changed = true
+        }
+        return changed
+    }
+
+    private fun replaceField(entryInfo: EntryInfo, name: String, value: ProtectedString?) {
+        entryInfo.customFields.removeAll { it.name == name }
+        value?.let { entryInfo.customFields.add(Field(name, it)) }
     }
 
     private fun valueOf(entryInfo: EntryInfo, name: String): CharArray? {

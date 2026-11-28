@@ -115,7 +115,7 @@ class HmacBlockInputStream(private val baseStream: InputStream, private val veri
             val cmpHmac: ByteArray = hmac.doFinal()
             blockKey.clear()
 
-            if (!cmpHmac.contentEquals(storedHmac)) {
+            if (!java.security.MessageDigest.isEqual(cmpHmac, storedHmac)) {
                 throw IOException("Invalid Hmac")
             }
 

@@ -767,9 +767,6 @@ Gure askatasuna mantentzeko, akatsak konpontzeko, funtzio berriak gehitzeko eta 
     <string name="pgp_keys_empty">Oraindik ez dago PGP giltzarik. Sortu bat edo inportatu gako publiko bat.</string>
     <string name="pgp_generate">Sortu giltza</string>
     <string name="pgp_import">Inportatu gako publikoa</string>
-    <string name="pgp_section_tools_title">Enkriptatu, sinatu, egiaztatu</string>
-    <string name="pgp_section_decrypt_title">Mezua desenkriptatu</string>
-    <string name="pgp_decrypt_input_hint">Desenkriptatzeko mezua</string>
     <string name="pgp_clear_cache">Garbitu PGP cachea</string>
     <string name="pgp_cache_cleared">PGP fitxategiak eta cachea garbitu dira</string>
     <string name="pgp_working">Prozesatzen…</string>
@@ -827,4 +824,13 @@ Gure askatasuna mantentzeko, akatsak konpontzeko, funtzio berriak gehitzeko eta 
     <string name="pgp_key_too_large">Gakoa edo sinadura handiegia da</string>
     <string name="pgp_error_no_integrity">Mezu honek ez du osotasun-egiaztapenik, beraz baztertu da</string>
     <string name="pgp_saved">Gordeta</string>
+    <string name="pgp_key_renew">Berritu gakoa</string>
+    <string name="pgp_key_renewed">Gakoa berritu da, partekatu berriro gako publikoa</string>
+    <string name="pgp_import_confirm_title">Egiaztatu hatz-marka</string>
+    <string name="pgp_import_confirm_save">Gorde datu-basean ere</string>
+    <string name="pgp_import_confirm_add">Gehitu gakoa</string>
+    <string name="pgp_import_confirm_use">Erabili egiaztapen honetarako</string>
+    <string name="pgp_verify_session_title">Gakoak egiaztapen honetarako bakarrik</string>
+    <string name="pgp_verify_session_empty">Ez dago gako gehigarririk. Hemen gehitutako gakoak orritik irtetean ezabatzen dira.</string>
+    <string name="pgp_key_known">Gako hau dagoeneko badago</string>
 </resources>

@@ -20,9 +20,11 @@
 package com.keepasspn.encrypt.pgp
 
 import org.bouncycastle.bcpg.ArmoredOutputStream
+import org.bouncycastle.bcpg.CompressionAlgorithmTags
 import org.bouncycastle.bcpg.HashAlgorithmTags
 import org.bouncycastle.bcpg.PublicKeyAlgorithmTags
 import org.bouncycastle.bcpg.SymmetricKeyAlgorithmTags
+import org.bouncycastle.bcpg.sig.Features
 import org.bouncycastle.bcpg.sig.KeyFlags
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import org.bouncycastle.openpgp.PGPCompressedData
@@ -46,6 +48,7 @@ import org.bouncycastle.openpgp.PGPSignature
 import org.bouncycastle.openpgp.PGPSignatureGenerator
 import org.bouncycastle.openpgp.PGPSignatureList
 import org.bouncycastle.openpgp.PGPSignatureSubpacketGenerator
+import org.bouncycastle.openpgp.PGPSignatureSubpacketVector
 import org.bouncycastle.openpgp.PGPUtil
 import org.bouncycastle.openpgp.operator.PGPDigestCalculator
 import org.bouncycastle.openpgp.operator.jcajce.JcaKeyFingerprintCalculator
@@ -82,6 +85,12 @@ object PgpCore {
     private const val RSA_KEY_SIZE_3072 = 3072
     private const val RSA_KEY_SIZE_4096 = 4096
     private const val BUFFER_SIZE = 65536
+    // Encoded S2K count byte, 255 is the largest. It means 65011712 hashed bytes, the most the format stores.
+    private const val S2K_COUNT = 0xFF
+    // What S2K_COUNT decodes to, older secret keys have less
+    private const val S2K_ITERATIONS = 65011712L
+    // New keys expire after three years. A renewal flow is still to be done.
+    private const val KEY_VALIDITY_SECONDS = 3L * 365 * 24 * 60 * 60
     /** Largest file or decrypted result the screen handles. */
     const val MAX_DATA_BYTES = 50L * 1024 * 1024
 
@@ -157,20 +166,22 @@ object PgpCore {
             val checksum = digestCalculator(HashAlgorithmTags.SHA1)
             val s2k = digestCalculator(HashAlgorithmTags.SHA256)
 
-            val signSubpackets = PGPSignatureSubpacketGenerator()
-            signSubpackets.setKeyFlags(false, KeyFlags.CERTIFY_OTHER or KeyFlags.SIGN_DATA)
+            val signSubpackets = primarySubpackets(KEY_VALIDITY_SECONDS)
             val encSubpackets = PGPSignatureSubpacketGenerator()
             encSubpackets.setKeyFlags(false, KeyFlags.ENCRYPT_COMMS or KeyFlags.ENCRYPT_STORAGE)
+            encSubpackets.setKeyExpirationTime(false, KEY_VALIDITY_SECONDS)
 
             val generator = PGPKeyRingGenerator(
                 PGPSignature.POSITIVE_CERTIFICATION,
                 signPair,
                 userId,
                 checksum,
-                signSubpackets.generate(),
+                signSubpackets,
                 null,
                 JcaPGPContentSignerBuilder(signPair.publicKey.algorithm, HashAlgorithmTags.SHA256).setProvider(PROVIDER),
-                JcePBESecretKeyEncryptorBuilder(SymmetricKeyAlgorithmTags.AES_256, s2k).setProvider(PROVIDER).build(passphrase)
+                JcePBESecretKeyEncryptorBuilder(SymmetricKeyAlgorithmTags.AES_256, s2k, S2K_COUNT)
+                    .setProvider(PROVIDER)
+                    .build(passphrase)
             )
             generator.addSubKey(encPair, encSubpackets.generate(), null)
 
@@ -187,6 +198,137 @@ object PgpCore {
     }
 
     /**
+     * Moves the expiry of a key to three years from now. The fingerprint stays the same and the
+     * secret key is re-protected with the current S2K count. The passphrase is checked first.
+     */
+    fun renew(secretArmored: String, passphrase: CharArray, now: Date = Date()): GeneratedKey {
+        if (passphrase.isEmpty()) throw PgpError(Reason.EMPTY_PASSPHRASE)
+        try {
+            val ring = readSecretRing(secretArmored)
+            val master = ring.secretKey
+            val privateKey = extractPrivateKey(master, passphrase)
+            val publics = HashMap<Long, PGPPublicKey>()
+
+            var masterPublic = master.publicKey
+            // Expiry in the signatures counts from the key creation time
+            val expiry = expiryFrom(masterPublic.creationTime, now)
+            for (userId in masterPublic.userIDs.asSequence().toList()) {
+                val own = masterPublic.getSignaturesForID(userId).asSequence()
+                    .filter {
+                        it.keyID == masterPublic.keyID && it.signatureType == PGPSignature.POSITIVE_CERTIFICATION
+                    }
+                    .toList()
+                for (sig in own) masterPublic = PGPPublicKey.removeCertification(masterPublic, userId, sig)
+                val certifier = PGPSignatureGenerator(
+                    JcaPGPContentSignerBuilder(masterPublic.algorithm, HashAlgorithmTags.SHA256).setProvider(PROVIDER)
+                )
+                certifier.init(PGPSignature.POSITIVE_CERTIFICATION, privateKey)
+                certifier.setHashedSubpackets(primarySubpackets(expiry))
+                masterPublic = PGPPublicKey.addCertification(
+                    masterPublic, userId, certifier.generateCertification(userId, masterPublic)
+                )
+            }
+            publics[masterPublic.keyID] = masterPublic
+
+            for (sub in ring.secretKeys.asSequence()) {
+                if (sub.isMasterKey) continue
+                var subPublic = sub.publicKey
+                val oldBindings = subPublic.getSignaturesOfType(PGPSignature.SUBKEY_BINDING).asSequence().toList()
+                val flags = oldBindings.lastOrNull()?.hashedSubPackets?.keyFlags ?: continue
+                for (old in oldBindings) subPublic = PGPPublicKey.removeCertification(subPublic, old)
+                val binder = PGPSignatureGenerator(
+                    JcaPGPContentSignerBuilder(masterPublic.algorithm, HashAlgorithmTags.SHA256).setProvider(PROVIDER)
+                )
+                binder.init(PGPSignature.SUBKEY_BINDING, privateKey)
+                binder.setHashedSubpackets(subkeySubpackets(flags, expiry))
+                subPublic = PGPPublicKey.addCertification(
+                    subPublic, binder.generateCertification(masterPublic, subPublic)
+                )
+                publics[subPublic.keyID] = subPublic
+            }
+
+            val renewedRing = reprotectRing(ring, publics, passphrase, passphrase)
+            return GeneratedKey(
+                secretArmored = armorSecret(renewedRing),
+                publicArmored = armorPublic(PGPPublicKeyRing(renewedRing.secretKeys.asSequence().map { it.publicKey }.toList())),
+                fingerprint = fingerprintOf(masterPublic)
+            )
+        } catch (e: PGPException) {
+            throw PgpError(Reason.INVALID_DATA, e)
+        }
+    }
+
+    /**
+     * Re-encrypts an older secret key with the current S2K count. Returns null when every key
+     * in the armored secret key already has it.
+     */
+    fun reprotect(secretArmored: String, passphrase: CharArray): String? {
+        if (passphrase.isEmpty()) throw PgpError(Reason.EMPTY_PASSPHRASE)
+        try {
+            val ring = readSecretRing(secretArmored)
+            if (ring.secretKeys.asSequence().none { isOlderS2k(it) }) return null
+            extractPrivateKey(ring.secretKey, passphrase)
+            return armorSecret(reprotectRing(ring, emptyMap(), passphrase, passphrase))
+        } catch (e: PGPException) {
+            throw PgpError(Reason.INVALID_DATA, e)
+        }
+    }
+
+    private fun isOlderS2k(key: PGPSecretKey): Boolean {
+        val s2k = key.s2K ?: return true
+        return s2k.iterationCount < S2K_ITERATIONS
+    }
+
+    private fun reprotectRing(
+        ring: PGPSecretKeyRing,
+        publics: Map<Long, PGPPublicKey>,
+        oldPassphrase: CharArray,
+        newPassphrase: CharArray
+    ): PGPSecretKeyRing {
+        val decryptor = JcePBESecretKeyDecryptorBuilder(
+            JcaPGPDigestCalculatorProviderBuilder().setProvider(PROVIDER).build()
+        ).setProvider(PROVIDER).build(oldPassphrase)
+        val encryptor = JcePBESecretKeyEncryptorBuilder(
+            SymmetricKeyAlgorithmTags.AES_256, digestCalculator(HashAlgorithmTags.SHA256), S2K_COUNT
+        ).setProvider(PROVIDER).build(newPassphrase)
+        val keys = ring.secretKeys.asSequence().map { key ->
+            val replaced = PGPSecretKey.replacePublicKey(key, publics[key.keyID] ?: key.publicKey)
+            PGPSecretKey.copyWithNewPassword(replaced, decryptor, encryptor)
+        }.toList()
+        return PGPSecretKeyRing(keys)
+    }
+
+    private fun expiryFrom(creation: Date, now: Date): Long {
+        return (now.time + KEY_VALIDITY_SECONDS * 1000 - creation.time) / 1000
+    }
+
+    private fun primarySubpackets(expirySeconds: Long): PGPSignatureSubpacketVector {
+        val subpackets = PGPSignatureSubpacketGenerator()
+        subpackets.setKeyFlags(false, KeyFlags.CERTIFY_OTHER or KeyFlags.SIGN_DATA)
+        subpackets.setKeyExpirationTime(false, expirySeconds)
+        // Preferences tell other OpenPGP software what to use with this key, the MDC feature
+        // asks for the integrity protected message format
+        subpackets.setPreferredSymmetricAlgorithms(
+            false, intArrayOf(SymmetricKeyAlgorithmTags.AES_256, SymmetricKeyAlgorithmTags.AES_128)
+        )
+        subpackets.setPreferredHashAlgorithms(
+            false, intArrayOf(HashAlgorithmTags.SHA512, HashAlgorithmTags.SHA256)
+        )
+        subpackets.setPreferredCompressionAlgorithms(
+            false, intArrayOf(CompressionAlgorithmTags.ZLIB, CompressionAlgorithmTags.UNCOMPRESSED)
+        )
+        subpackets.setFeature(false, Features.FEATURE_MODIFICATION_DETECTION)
+        return subpackets.generate()
+    }
+
+    private fun subkeySubpackets(flags: Int, expirySeconds: Long): PGPSignatureSubpacketVector {
+        val subpackets = PGPSignatureSubpacketGenerator()
+        subpackets.setKeyFlags(false, flags)
+        subpackets.setKeyExpirationTime(false, expirySeconds)
+        return subpackets.generate()
+    }
+
+    /**
      * Reads the first key of an armored public key and tells if it can encrypt.
      */
     fun inspect(publicArmored: String, now: Date = Date()): KeyInfo {
@@ -194,7 +336,7 @@ object PgpCore {
             val ring = readPublicRings(publicArmored).firstOrNull() ?: throw PgpError(Reason.INVALID_DATA)
             val userIds = ring.publicKey.userIDs.asSequence().toList()
             val canEncrypt = ring.publicKeys.asSequence().any {
-                it.isEncryptionKey && usable(ring.publicKey, it, now)
+                it.isEncryptionKey && usable(ring.publicKey, it, now) && allowsEncryption(it)
             }
             return KeyInfo(fingerprintOf(ring.publicKey), userIds, canEncrypt)
         } catch (e: PGPException) {
@@ -250,7 +392,7 @@ object PgpCore {
                 val subkeys = ring.publicKeys.asSequence().filter { it.isEncryptionKey }.toList()
                 if (subkeys.isEmpty()) throw PgpError(Reason.NO_MATCHING_KEY)
                 // The newest encryption key that is still usable, a revoked or expired key is refused
-                subkeys.filter { usable(ring.publicKey, it, now) }
+                subkeys.filter { usable(ring.publicKey, it, now) && allowsEncryption(it) }
                     .maxByOrNull { it.creationTime.time }
                     ?: throw PgpError(Reason.KEY_UNUSABLE)
             }
@@ -285,6 +427,9 @@ object PgpCore {
     /**
      * Decrypts a message with the matching secret key and writes the plain data to [sink].
      * Stops with TOO_LARGE when the data is over [MAX_DATA_BYTES].
+     *
+     * The plain data is written before the integrity check runs at the end of the stream.
+     * When this throws, the sink may already hold unverified data, so the caller must drop it.
      */
     fun decrypt(
         secretArmored: String,
@@ -363,21 +508,39 @@ object PgpCore {
         now: Date = Date()
     ): VerifyResult {
         checkLength(signatureArmored, MAX_SIGNATURE_CHARS)
+        return verify(publicArmored, source, signatureArmored.toByteArray(Charsets.UTF_8), control, now)
+    }
+
+    /**
+     * Same check for a signature in bytes, armored or binary. At most [MAX_SIGNATURE_CHARS] bytes.
+     */
+    fun verify(
+        publicArmored: List<String>,
+        source: InputStream,
+        signatureBytes: ByteArray,
+        control: Control = Control(),
+        now: Date = Date()
+    ): VerifyResult {
+        if (signatureBytes.size > MAX_SIGNATURE_CHARS) throw PgpError(Reason.TOO_LARGE)
         try {
             val factory = PGPObjectFactory(
-                PGPUtil.getDecoderStream(ByteArrayInputStream(signatureArmored.toByteArray(Charsets.UTF_8))),
+                PGPUtil.getDecoderStream(ByteArrayInputStream(signatureBytes)),
                 JcaKeyFingerprintCalculator()
             )
-            val signature = when (val found = factory.nextObject()) {
+            val sig = when (val found = factory.nextObject()) {
                 is PGPSignatureList -> if (found.isEmpty) null else found[0]
                 is PGPSignature -> found
                 else -> null
             } ?: throw PgpError(Reason.INVALID_DATA)
+            // SHA-1 and MD5 are broken for signatures, refuse them instead of showing a valid result
+            if (sig.hashAlgorithm == HashAlgorithmTags.SHA1 || sig.hashAlgorithm == HashAlgorithmTags.MD5) {
+                throw PgpError(Reason.INVALID_DATA)
+            }
 
             // Every key with this key ID. Two different keys with one ID can't tell who signed.
             val candidates = publicArmored
                 .flatMap { readPublicRings(it) }
-                .mapNotNull { ring -> ring.getPublicKey(signature.keyID)?.let { ring.publicKey to it } }
+                .mapNotNull { ring -> ring.getPublicKey(sig.keyID)?.let { ring.publicKey to it } }
             if (candidates.map { fingerprintOf(it.second) }.toSet().size > 1) {
                 throw PgpError(Reason.AMBIGUOUS_KEY)
             }
@@ -385,9 +548,9 @@ object PgpCore {
                 ?: return VerifyResult(signerFound = false, valid = false, keyUsable = false, signerFingerprint = null)
             val keyUsable = usable(primary, signerKey, now)
 
-            signature.init(JcaPGPContentVerifierBuilderProvider().setProvider(PROVIDER), signerKey)
-            copy(countingInput(source, control), updater { b, off, len -> signature.update(b, off, len) }, control)
-            val intact = signature.verify()
+            sig.init(JcaPGPContentVerifierBuilderProvider().setProvider(PROVIDER), signerKey)
+            copy(countingInput(source, control), updater { b, off, len -> sig.update(b, off, len) }, control)
+            val intact = sig.verify()
             return VerifyResult(
                 signerFound = true,
                 valid = intact && keyUsable,
@@ -561,10 +724,10 @@ object PgpCore {
      * binding signature from the primary key checks out. When in doubt it is not usable.
      */
     private fun usable(primary: PGPPublicKey, key: PGPPublicKey, now: Date): Boolean {
-        if (primary.getSignaturesOfType(PGPSignature.KEY_REVOCATION).hasNext()) return false
+        if (hasValidRevocation(primary, null)) return false
         if (expired(primary, now)) return false
         if (key.keyID == primary.keyID) return true
-        if (key.getSignaturesOfType(PGPSignature.SUBKEY_REVOCATION).hasNext()) return false
+        if (hasValidRevocation(primary, key)) return false
         if (expired(key, now)) return false
         return key.getSignaturesOfType(PGPSignature.SUBKEY_BINDING).asSequence().any { binding ->
             try {
@@ -574,6 +737,34 @@ object PgpCore {
                 false
             }
         }
+    }
+
+    /**
+     * A revocation counts only when its signature checks out against the key it revokes.
+     * [key] is null for a revocation of the primary key, otherwise a subkey revocation.
+     */
+    private fun hasValidRevocation(primary: PGPPublicKey, key: PGPPublicKey?): Boolean {
+        val type = if (key == null) PGPSignature.KEY_REVOCATION else PGPSignature.SUBKEY_REVOCATION
+        return (key ?: primary).getSignaturesOfType(type).asSequence().any { revocation ->
+            try {
+                revocation.init(JcaPGPContentVerifierBuilderProvider().setProvider(PROVIDER), primary)
+                if (key == null) revocation.verifyCertification(primary)
+                else revocation.verifyCertification(primary, key)
+            } catch (e: PGPException) {
+                false
+            }
+        }
+    }
+
+    /**
+     * A subkey with a key flags packet must allow encryption. Without the packet the key type decides.
+     */
+    private fun allowsEncryption(key: PGPPublicKey): Boolean {
+        val flags = key.getSignaturesOfType(PGPSignature.SUBKEY_BINDING).asSequence()
+            .map { it.hashedSubPackets?.keyFlags ?: 0 }
+            .toList()
+        if (flags.all { it == 0 }) return true
+        return flags.any { it and (KeyFlags.ENCRYPT_COMMS or KeyFlags.ENCRYPT_STORAGE) != 0 }
     }
 
     private fun expired(key: PGPPublicKey, now: Date): Boolean {

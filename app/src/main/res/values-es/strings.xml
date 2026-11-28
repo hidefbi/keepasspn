@@ -850,9 +850,6 @@ Para mantener nuestra libertad, corregir errores, añadir funciones y mantener e
     <string name="pgp_keys_empty">Todavía no hay claves PGP. Genera una o importa una clave pública.</string>
     <string name="pgp_generate">Generar clave</string>
     <string name="pgp_import">Importar clave pública</string>
-    <string name="pgp_section_tools_title">Cifrar, firmar, verificar</string>
-    <string name="pgp_section_decrypt_title">Descifrar un mensaje</string>
-    <string name="pgp_decrypt_input_hint">Mensaje a descifrar</string>
     <string name="pgp_clear_cache">Borrar caché de PGP</string>
     <string name="pgp_cache_cleared">Archivos y caché de PGP borrados</string>
     <string name="pgp_working">Procesando…</string>
@@ -910,4 +907,13 @@ Para mantener nuestra libertad, corregir errores, añadir funciones y mantener e
     <string name="pgp_key_too_large">La clave o la firma es demasiado grande</string>
     <string name="pgp_error_no_integrity">Este mensaje no tiene comprobación de integridad, así que se ha rechazado</string>
     <string name="pgp_saved">Guardado</string>
+    <string name="pgp_key_renew">Renovar clave</string>
+    <string name="pgp_key_renewed">Clave renovada, comparte de nuevo la clave pública</string>
+    <string name="pgp_import_confirm_title">Revisa la huella</string>
+    <string name="pgp_import_confirm_save">Guardar también en la base de datos</string>
+    <string name="pgp_import_confirm_add">Añadir clave</string>
+    <string name="pgp_import_confirm_use">Usar para esta comprobación</string>
+    <string name="pgp_verify_session_title">Claves solo para esta comprobación</string>
+    <string name="pgp_verify_session_empty">No hay claves extra. Las claves añadidas aquí se borran al salir de la página.</string>
+    <string name="pgp_key_known">Esta clave ya está</string>
 </resources>

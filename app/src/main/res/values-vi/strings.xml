@@ -853,9 +853,6 @@
     <string name="pgp_keys_empty">Chưa có khóa PGP nào. Tạo một khóa hoặc nhập khóa công khai.</string>
     <string name="pgp_generate">Tạo khóa</string>
     <string name="pgp_import">Nhập khóa công khai</string>
-    <string name="pgp_section_tools_title">Mã hóa, ký, xác minh</string>
-    <string name="pgp_section_decrypt_title">Giải mã tin nhắn</string>
-    <string name="pgp_decrypt_input_hint">Tin nhắn cần giải mã</string>
     <string name="pgp_clear_cache">Xóa bộ nhớ đệm PGP</string>
     <string name="pgp_cache_cleared">Đã xóa tệp và bộ nhớ đệm PGP</string>
     <string name="pgp_working">Đang xử lý…</string>
@@ -913,4 +910,13 @@
     <string name="pgp_key_too_large">Khóa hoặc chữ ký quá lớn</string>
     <string name="pgp_error_no_integrity">Tin nhắn này không có kiểm tra toàn vẹn nên đã bị từ chối</string>
     <string name="pgp_saved">Đã lưu</string>
+    <string name="pgp_key_renew">Gia hạn khóa</string>
+    <string name="pgp_key_renewed">Đã gia hạn khóa, chia sẻ lại khóa công khai</string>
+    <string name="pgp_import_confirm_title">Kiểm tra dấu vân tay</string>
+    <string name="pgp_import_confirm_save">Lưu cả vào cơ sở dữ liệu</string>
+    <string name="pgp_import_confirm_add">Thêm khóa</string>
+    <string name="pgp_import_confirm_use">Dùng cho lần kiểm tra này</string>
+    <string name="pgp_verify_session_title">Khóa chỉ dùng cho lần kiểm tra này</string>
+    <string name="pgp_verify_session_empty">Không có khóa thêm. Khóa thêm ở đây sẽ bị xóa khi bạn rời trang.</string>
+    <string name="pgp_key_known">Khóa này đã có rồi</string>
 </resources>

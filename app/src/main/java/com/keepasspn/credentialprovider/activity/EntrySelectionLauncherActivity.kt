@@ -62,6 +62,8 @@ class EntrySelectionLauncherActivity : DatabaseModeActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Taps are dropped while another app's window covers this one (tapjacking)
+        window.decorView.filterTouchesWhenObscured = true
         entrySelectionViewModel.initialize()
         lifecycleScope.launch {
             // Initialize the parameters

@@ -846,9 +846,6 @@
     <string name="pgp_keys_empty">لا توجد مفاتيح PGP بعد. أنشئ مفتاحا أو استورد مفتاحا عاما.</string>
     <string name="pgp_generate">إنشاء مفتاح</string>
     <string name="pgp_import">استيراد المفتاح العام</string>
-    <string name="pgp_section_tools_title">تشفير وتوقيع وتحقق</string>
-    <string name="pgp_section_decrypt_title">فك تشفير رسالة</string>
-    <string name="pgp_decrypt_input_hint">رسالة مدروعة لفك تشفيرها</string>
     <string name="pgp_clear_cache">مسح ذاكرة PGP المؤقتة</string>
     <string name="pgp_cache_cleared">تم مسح ملفات PGP والذاكرة المؤقتة</string>
     <string name="pgp_working">جارٍ العمل…</string>
@@ -906,4 +903,13 @@
     <string name="pgp_key_too_large">المفتاح أو التوقيع كبير جدا</string>
     <string name="pgp_error_no_integrity">هذه الرسالة بلا فحص سلامة، لذلك رُفضت</string>
     <string name="pgp_saved">تم الحفظ</string>
+    <string name="pgp_key_renew">تجديد المفتاح</string>
+    <string name="pgp_key_renewed">تم تجديد المفتاح، أعد مشاركة المفتاح العام</string>
+    <string name="pgp_import_confirm_title">تحقق من البصمة</string>
+    <string name="pgp_import_confirm_save">احفظ أيضا في قاعدة البيانات</string>
+    <string name="pgp_import_confirm_add">إضافة المفتاح</string>
+    <string name="pgp_import_confirm_use">استخدمه لهذا التحقق</string>
+    <string name="pgp_verify_session_title">مفاتيح لهذا التحقق فقط</string>
+    <string name="pgp_verify_session_empty">لا توجد مفاتيح إضافية. المفاتيح المضافة هنا تُحذف عند مغادرة الصفحة.</string>
+    <string name="pgp_key_known">هذا المفتاح موجود بالفعل</string>
 </resources>

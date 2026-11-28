@@ -813,9 +813,6 @@
     <string name="pgp_keys_empty">இன்னும் PGP விசைகள் இல்லை. ஒன்றை உருவாக்குங்கள் அல்லது பொது விசையை இறக்குமதி செய்யுங்கள்.</string>
     <string name="pgp_generate">விசையை உருவாக்கு</string>
     <string name="pgp_import">பொது விசையை இறக்குமதி செய்</string>
-    <string name="pgp_section_tools_title">குறியாக்கு, கையொப்பமிடு, சரிபார்</string>
-    <string name="pgp_section_decrypt_title">செய்தியை மறைநீக்கு</string>
-    <string name="pgp_decrypt_input_hint">மறைநீக்க வேண்டிய செய்தி</string>
     <string name="pgp_clear_cache">PGP தற்காலிக சேமிப்பை அழி</string>
     <string name="pgp_cache_cleared">PGP கோப்புகளும் தற்காலிக சேமிப்பும் அழிக்கப்பட்டன</string>
     <string name="pgp_working">செயலாக்கப்படுகிறது…</string>
@@ -873,4 +870,13 @@
     <string name="pgp_key_too_large">விசை அல்லது கையொப்பம் மிகப் பெரியது</string>
     <string name="pgp_error_no_integrity">இந்தச் செய்தியில் ஒருமைப்பாட்டுச் சோதனை இல்லை, எனவே நிராகரிக்கப்பட்டது</string>
     <string name="pgp_saved">சேமிக்கப்பட்டது</string>
+    <string name="pgp_key_renew">விசையை புதுப்பி</string>
+    <string name="pgp_key_renewed">விசை புதுப்பிக்கப்பட்டது, பொது விசையை மீண்டும் பகிரவும்</string>
+    <string name="pgp_import_confirm_title">கைரேகையைச் சரிபார்க்கவும்</string>
+    <string name="pgp_import_confirm_save">தரவுத்தளத்திலும் சேமிக்கவும்</string>
+    <string name="pgp_import_confirm_add">விசையைச் சேர்க்கவும்</string>
+    <string name="pgp_import_confirm_use">இந்தச் சரிபார்ப்புக்கு மட்டும் பயன்படுத்தவும்</string>
+    <string name="pgp_verify_session_title">இந்தச் சரிபார்ப்புக்கு மட்டும் விசைகள்</string>
+    <string name="pgp_verify_session_empty">கூடுதல் விசைகள் இல்லை. இங்கே சேர்க்கப்படும் விசைகள் பக்கத்தை விட்டு வெளியேறும்போது நீக்கப்படும்.</string>
+    <string name="pgp_key_known">இந்த விசை ஏற்கனவே உள்ளது</string>
 </resources>

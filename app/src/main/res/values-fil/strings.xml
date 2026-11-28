@@ -375,9 +375,6 @@ Upang mapanatili ang aming kalayaan, ayusin ang mga bug, magdagdag ng mga featur
     <string name="pgp_keys_empty">Wala pang PGP key. Gumawa ng isa o mag-import ng public key.</string>
     <string name="pgp_generate">Gumawa ng key</string>
     <string name="pgp_import">Mag-import ng public key</string>
-    <string name="pgp_section_tools_title">I-encrypt, i-sign, i-verify</string>
-    <string name="pgp_section_decrypt_title">I-decrypt ang mensahe</string>
-    <string name="pgp_decrypt_input_hint">Mensaheng ide-decrypt</string>
     <string name="pgp_clear_cache">I-clear ang PGP cache</string>
     <string name="pgp_cache_cleared">Na-clear ang mga PGP file at cache</string>
     <string name="pgp_working">Ginagawa…</string>
@@ -435,4 +432,13 @@ Upang mapanatili ang aming kalayaan, ayusin ang mga bug, magdagdag ng mga featur
     <string name="pgp_key_too_large">Masyadong malaki ang key o signature</string>
     <string name="pgp_error_no_integrity">Walang integrity check ang mensaheng ito, kaya tinanggihan</string>
     <string name="pgp_saved">Na-save</string>
+    <string name="pgp_key_renew">I-renew ang key</string>
+    <string name="pgp_key_renewed">Na-renew ang key, ibahagi ulit ang public key</string>
+    <string name="pgp_import_confirm_title">Suriin ang fingerprint</string>
+    <string name="pgp_import_confirm_save">I-save din sa database</string>
+    <string name="pgp_import_confirm_add">Idagdag ang key</string>
+    <string name="pgp_import_confirm_use">Gamitin para sa check na ito</string>
+    <string name="pgp_verify_session_title">Mga key para sa check na ito lang</string>
+    <string name="pgp_verify_session_empty">Walang dagdag na key. Mawawala ang mga key na idinagdag dito kapag umalis ka sa pahina.</string>
+    <string name="pgp_key_known">Nandito na ang key na ito</string>
 </resources>

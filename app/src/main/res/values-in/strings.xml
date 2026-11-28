@@ -847,9 +847,6 @@ Untuk menjaga kebebasan kami, memperbaiki bug, menambah fitur, dan menjaga proye
     <string name="pgp_keys_empty">Belum ada kunci PGP. Buat satu atau impor kunci publik.</string>
     <string name="pgp_generate">Buat kunci</string>
     <string name="pgp_import">Impor kunci publik</string>
-    <string name="pgp_section_tools_title">Enkripsi, tanda tangan, verifikasi</string>
-    <string name="pgp_section_decrypt_title">Dekripsi pesan</string>
-    <string name="pgp_decrypt_input_hint">Pesan untuk didekripsi</string>
     <string name="pgp_clear_cache">Hapus cache PGP</string>
     <string name="pgp_cache_cleared">File dan cache PGP sudah dihapus</string>
     <string name="pgp_working">Memproses…</string>
@@ -907,4 +904,13 @@ Untuk menjaga kebebasan kami, memperbaiki bug, menambah fitur, dan menjaga proye
     <string name="pgp_key_too_large">Kunci atau tanda tangan terlalu besar</string>
     <string name="pgp_error_no_integrity">Pesan ini tidak punya pemeriksaan integritas, jadi ditolak</string>
     <string name="pgp_saved">Tersimpan</string>
+    <string name="pgp_key_renew">Perbarui kunci</string>
+    <string name="pgp_key_renewed">Kunci diperbarui, bagikan lagi kunci publik</string>
+    <string name="pgp_import_confirm_title">Periksa sidik jari</string>
+    <string name="pgp_import_confirm_save">Simpan juga ke basis data</string>
+    <string name="pgp_import_confirm_add">Tambah kunci</string>
+    <string name="pgp_import_confirm_use">Gunakan untuk pemeriksaan ini</string>
+    <string name="pgp_verify_session_title">Kunci hanya untuk pemeriksaan ini</string>
+    <string name="pgp_verify_session_empty">Tidak ada kunci tambahan. Kunci yang ditambahkan di sini dihapus saat Anda keluar dari halaman.</string>
+    <string name="pgp_key_known">Kunci ini sudah ada</string>
 </resources>

@@ -862,9 +862,6 @@ Aby zachować naszą wolność, naprawiać błędy, dodawać funkcje i utrzymywa
     <string name="pgp_keys_empty">Nie ma jeszcze kluczy PGP. Utwórz klucz albo zaimportuj klucz publiczny.</string>
     <string name="pgp_generate">Utwórz klucz</string>
     <string name="pgp_import">Importuj klucz publiczny</string>
-    <string name="pgp_section_tools_title">Szyfruj, podpisz, weryfikuj</string>
-    <string name="pgp_section_decrypt_title">Odszyfruj wiadomość</string>
-    <string name="pgp_decrypt_input_hint">Wiadomość do odszyfrowania</string>
     <string name="pgp_clear_cache">Wyczyść pamięć podręczną PGP</string>
     <string name="pgp_cache_cleared">Pliki i pamięć podręczna PGP wyczyszczone</string>
     <string name="pgp_working">Przetwarzanie…</string>
@@ -922,4 +919,13 @@ Aby zachować naszą wolność, naprawiać błędy, dodawać funkcje i utrzymywa
     <string name="pgp_key_too_large">Klucz lub podpis jest za duży</string>
     <string name="pgp_error_no_integrity">Ta wiadomość nie ma kontroli integralności, więc została odrzucona</string>
     <string name="pgp_saved">Zapisano</string>
+    <string name="pgp_key_renew">Odnów klucz</string>
+    <string name="pgp_key_renewed">Klucz odnowiony, udostępnij ponownie klucz publiczny</string>
+    <string name="pgp_import_confirm_title">Sprawdź odcisk palca</string>
+    <string name="pgp_import_confirm_save">Zapisz też w bazie danych</string>
+    <string name="pgp_import_confirm_add">Dodaj klucz</string>
+    <string name="pgp_import_confirm_use">Użyj do tego sprawdzenia</string>
+    <string name="pgp_verify_session_title">Klucze tylko do tego sprawdzenia</string>
+    <string name="pgp_verify_session_empty">Brak dodatkowych kluczy. Klucze dodane tutaj znikną po wyjściu z tej strony.</string>
+    <string name="pgp_key_known">Ten klucz już jest</string>
 </resources>

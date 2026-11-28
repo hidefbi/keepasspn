@@ -871,9 +871,6 @@
     <string name="pgp_keys_empty">还没有 PGP 密钥。可以生成一个，或导入公钥。</string>
     <string name="pgp_generate">生成密钥</string>
     <string name="pgp_import">导入公钥</string>
-    <string name="pgp_section_tools_title">加密、签名、验证</string>
-    <string name="pgp_section_decrypt_title">解密消息</string>
-    <string name="pgp_decrypt_input_hint">要解密的消息</string>
     <string name="pgp_clear_cache">清除 PGP 缓存</string>
     <string name="pgp_cache_cleared">已清除 PGP 文件和缓存</string>
     <string name="pgp_working">处理中…</string>
@@ -931,4 +928,13 @@
     <string name="pgp_key_too_large">密钥或签名太大</string>
     <string name="pgp_error_no_integrity">此消息没有完整性校验，已拒绝</string>
     <string name="pgp_saved">已保存</string>
+    <string name="pgp_key_renew">续期密钥</string>
+    <string name="pgp_key_renewed">密钥已续期，请重新分享公钥</string>
+    <string name="pgp_import_confirm_title">核对指纹</string>
+    <string name="pgp_import_confirm_save">同时保存到数据库</string>
+    <string name="pgp_import_confirm_add">添加密钥</string>
+    <string name="pgp_import_confirm_use">仅用于本次验证</string>
+    <string name="pgp_verify_session_title">仅用于本次验证的密钥</string>
+    <string name="pgp_verify_session_empty">没有额外的密钥。这里添加的密钥离开页面后会被清除。</string>
+    <string name="pgp_key_known">这个密钥已经存在</string>
 </resources>

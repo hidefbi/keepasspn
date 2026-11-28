@@ -793,9 +793,6 @@
     <string name="pgp_keys_empty">Δεν υπάρχουν ακόμη κλειδιά PGP. Δημιουργήστε ένα ή εισαγάγετε ένα δημόσιο κλειδί.</string>
     <string name="pgp_generate">Δημιουργία κλειδιού</string>
     <string name="pgp_import">Εισαγωγή δημόσιου κλειδιού</string>
-    <string name="pgp_section_tools_title">Κρυπτογράφηση, υπογραφή, επαλήθευση</string>
-    <string name="pgp_section_decrypt_title">Αποκρυπτογράφηση μηνύματος</string>
-    <string name="pgp_decrypt_input_hint">Μήνυμα για αποκρυπτογράφηση</string>
     <string name="pgp_clear_cache">Εκκαθάριση προσωρινής μνήμης PGP</string>
     <string name="pgp_cache_cleared">Τα αρχεία και η προσωρινή μνήμη PGP εκκαθαρίστηκαν</string>
     <string name="pgp_working">Επεξεργασία…</string>
@@ -853,4 +850,13 @@
     <string name="pgp_key_too_large">Το κλειδί ή η υπογραφή είναι πολύ μεγάλα</string>
     <string name="pgp_error_no_integrity">Το μήνυμα δεν έχει έλεγχο ακεραιότητας και απορρίφθηκε</string>
     <string name="pgp_saved">Αποθηκεύτηκε</string>
+    <string name="pgp_key_renew">Ανανέωση κλειδιού</string>
+    <string name="pgp_key_renewed">Το κλειδί ανανεώθηκε, μοιραστείτε ξανά το δημόσιο κλειδί</string>
+    <string name="pgp_import_confirm_title">Ελέγξτε το αποτύπωμα</string>
+    <string name="pgp_import_confirm_save">Αποθήκευση και στη βάση δεδομένων</string>
+    <string name="pgp_import_confirm_add">Προσθήκη κλειδιού</string>
+    <string name="pgp_import_confirm_use">Χρήση για αυτόν τον έλεγχο</string>
+    <string name="pgp_verify_session_title">Κλειδιά μόνο για αυτόν τον έλεγχο</string>
+    <string name="pgp_verify_session_empty">Δεν υπάρχουν επιπλέον κλειδιά. Τα κλειδιά που προστίθενται εδώ διαγράφονται όταν φύγετε από τη σελίδα.</string>
+    <string name="pgp_key_known">Αυτό το κλειδί υπάρχει ήδη</string>
 </resources>

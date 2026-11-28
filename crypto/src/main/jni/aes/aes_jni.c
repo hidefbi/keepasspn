@@ -144,12 +144,14 @@ uint32_t generate_key_material(void *arg) {
 }
 
 JNIEXPORT jbyteArray JNICALL Java_com_keepasspn_encrypt_aes_NativeAESKeyTransformer_nTransformKey(JNIEnv *env, jobject this, jbyteArray seed, jbyteArray key, jlong rounds) {
-  master_key mk;
+  master_key *mk = NULL;
   uint32_t flip;
   pthread_t t1, t2;
   int iret;
-  void *vret1, *vret2;
-  jbyteArray result;
+  int t1_running = 0, t2_running = 0;
+  int lock1_ready = 0, lock2_ready = 0;
+  void *vret1 = NULL, *vret2 = NULL;
+  jbyteArray result = NULL;
   sha256_ctx h_ctx[1] __attribute__ ((aligned (16)));
 
   // step 1: housekeeping - sanity checks and fetch data from the JVM
@@ -165,69 +167,96 @@ JNIEXPORT jbyteArray JNICALL Java_com_keepasspn_encrypt_aes_NativeAESKeyTransfor
     (*env)->ThrowNew(env, bad_arg, "TransformMasterKey: illegal number of encryption rounds");
     return NULL;
   }
-  mk.rounds = (uint64_t)rounds;
-  mk.done[0] = mk.done[1] = 0;
-  if( pthread_mutex_init(&mk.lock1, NULL) != 0 ) {
+  // The key material lives on the heap, so it can be freed only once both threads are done
+  mk = (master_key *)calloc(1, sizeof(master_key));
+  if( mk == NULL ) {
+    (*env)->ThrowNew(env, bad_arg, "TransformMasterKey: failed to allocate the key material");
+    return NULL;
+  }
+  mk->rounds = (uint64_t)rounds;
+  mk->done[0] = mk->done[1] = 0;
+  if( pthread_mutex_init(&mk->lock1, NULL) != 0 ) {
     (*env)->ThrowNew(env, bad_arg, "TransformMasterKey: failed to initialize the mutex for thread 1"); // FIXME: get a better exception class for this...
-    return NULL;
+    goto cleanup;
   }
-  if( pthread_mutex_init(&mk.lock2, NULL) != 0 ) {
+  lock1_ready = 1;
+  if( pthread_mutex_init(&mk->lock2, NULL) != 0 ) {
     (*env)->ThrowNew(env, bad_arg, "TransformMasterKey: failed to initialize the mutex for thread 2"); // FIXME: get a better exception class for this...
-    return NULL;
+    goto cleanup;
   }
-  (*env)->GetByteArrayRegion(env, seed, 0, MASTER_KEY_SIZE, (jbyte *)mk.c_seed);
-  (*env)->GetByteArrayRegion(env, key, 0, MASTER_KEY_SIZE, (jbyte *)mk.key1);
+  lock2_ready = 1;
+  (*env)->GetByteArrayRegion(env, seed, 0, MASTER_KEY_SIZE, (jbyte *)mk->c_seed);
+  (*env)->GetByteArrayRegion(env, key, 0, MASTER_KEY_SIZE, (jbyte *)mk->key1);
 
   // step 2: encrypt the hash "rounds"
-  iret = pthread_create( &t1, NULL, (void*)(uintptr_t)generate_key_material, (void*)&mk );
+  iret = pthread_create( &t1, NULL, (void*)(uintptr_t)generate_key_material, (void*)mk );
   if( iret != 0 ) {
     (*env)->ThrowNew(env, bad_arg, "TransformMasterKey: failed to launch thread 1"); // FIXME: get a better exception class for this...
-    return NULL;
+    goto cleanup;
   }
-  iret = pthread_create( &t2, NULL, (void*)(uintptr_t)generate_key_material, (void*)&mk );
+  t1_running = 1;
+  iret = pthread_create( &t2, NULL, (void*)(uintptr_t)generate_key_material, (void*)mk );
   if( iret != 0 ) {
     (*env)->ThrowNew(env, bad_arg, "TransformMasterKey: failed to launch thread 2"); // FIXME: get a better exception class for this...
-    return NULL;
+    goto cleanup;
   }
+  t2_running = 1;
   iret = pthread_join( t1, &vret1 );
   if( iret != 0 ) {
     (*env)->ThrowNew(env, bad_arg, "TransformMasterKey: failed to join thread 1"); // FIXME: get a better exception class for this...
-    return NULL;
+    goto cleanup;
   }
+  t1_running = 0;
   iret = pthread_join( t2, &vret2 );
   if( iret != 0 ) {
     (*env)->ThrowNew(env, bad_arg, "TransformMasterKey: failed to join thread 2"); // FIXME: get a better exception class for this...
-    return NULL;
+    goto cleanup;
   }
+  t2_running = 0;
   if( vret1 == (void *)(-1) || vret2 == (void *)(-1) || vret1 != vret2 ) {
     (*env)->ThrowNew(env, bad_arg, "TransformMasterKey: invalid flip value(s) from completed thread(s)"); // FIXME: get a better exception class for this...
-    return NULL;
-  } else {
-    flip = (uint32_t)(uintptr_t)vret1;
+    goto cleanup;
   }
+  flip = (uint32_t)(uintptr_t)vret1;
 
   // step 3: final SHA256 hash
   sha256_begin(h_ctx);
   if( flip ) {
-    sha256_hash(mk.key2, MASTER_KEY_SIZE, h_ctx);
-    sha256_end(mk.key1, h_ctx);
+    sha256_hash(mk->key2, MASTER_KEY_SIZE, h_ctx);
+    sha256_end(mk->key1, h_ctx);
     flip = 0;
   } else {
-    sha256_hash(mk.key1, MASTER_KEY_SIZE, h_ctx);
-    sha256_end(mk.key2, h_ctx);
+    sha256_hash(mk->key1, MASTER_KEY_SIZE, h_ctx);
+    sha256_end(mk->key2, h_ctx);
     flip = 1;
   }
 
   // step 4: send the hash into the JVM
   result = (*env)->NewByteArray(env, MASTER_KEY_SIZE);
+  if( result == NULL )
+    goto cleanup; // an OutOfMemoryError is already pending
   if( flip )
-    (*env)->SetByteArrayRegion(env, result, 0, MASTER_KEY_SIZE, (jbyte *)mk.key2);
+    (*env)->SetByteArrayRegion(env, result, 0, MASTER_KEY_SIZE, (jbyte *)mk->key2);
   else
-    (*env)->SetByteArrayRegion(env, result, 0, MASTER_KEY_SIZE, (jbyte *)mk.key1);
+    (*env)->SetByteArrayRegion(env, result, 0, MASTER_KEY_SIZE, (jbyte *)mk->key1);
 
-  secure_wipe_memory(&mk, sizeof(mk));
+cleanup:
+  // Every path ends here. A thread that is still running may write to mk, so join it first.
+  if( t1_running && pthread_join( t1, NULL ) == 0 )
+    t1_running = 0;
+  if( t2_running && pthread_join( t2, NULL ) == 0 )
+    t2_running = 0;
+  if( t1_running || t2_running ) {
+    // A thread could not be joined. Leak the key material instead of freeing memory it may still use.
+    return NULL;
+  }
   secure_wipe_memory(h_ctx, sizeof(h_ctx));
-
+  if( lock1_ready )
+    pthread_mutex_destroy(&mk->lock1);
+  if( lock2_ready )
+    pthread_mutex_destroy(&mk->lock2);
+  secure_wipe_memory(mk, sizeof(*mk));
+  free(mk);
   return result;
 }
 #undef MASTER_KEY_SIZE

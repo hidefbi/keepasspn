@@ -109,9 +109,6 @@
     <string name="pgp_keys_empty">ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି PGP କୀ ନାହିଁ। ଗୋଟିଏ ତିଆରି କରନ୍ତୁ କିମ୍ବା ପବ୍ଲିକ୍ କୀ ଆମଦାନି କରନ୍ତୁ।</string>
     <string name="pgp_generate">କୀ ତିଆରି କରନ୍ତୁ</string>
     <string name="pgp_import">ପବ୍ଲିକ୍ କୀ ଆମଦାନି କରନ୍ତୁ</string>
-    <string name="pgp_section_tools_title">ଏନକ୍ରିପ୍ଟ, ସାଇନ, ଯାଞ୍ଚ</string>
-    <string name="pgp_section_decrypt_title">ବାର୍ତ୍ତା ଡିକ୍ରିପ୍ଟ କରନ୍ତୁ</string>
-    <string name="pgp_decrypt_input_hint">ଡିକ୍ରିପ୍ଟ ହେବାକୁ ଥିବା ବାର୍ତ୍ତା</string>
     <string name="pgp_clear_cache">PGP କ୍ୟାଶ୍ ସଫା କରନ୍ତୁ</string>
     <string name="pgp_cache_cleared">PGP ଫାଇଲ ଓ କ୍ୟାଶ୍ ସଫା ହୋଇଛି</string>
     <string name="pgp_working">ପ୍ରକ୍ରିୟାକରଣ ହେଉଛି…</string>
@@ -169,4 +166,13 @@
     <string name="pgp_key_too_large">କୀ କିମ୍ବା ସ୍ୱାକ୍ଷର ବହୁତ ବଡ଼</string>
     <string name="pgp_error_no_integrity">ଏହି ବାର୍ତ୍ତାରେ ଅଖଣ୍ଡତା ଯାଞ୍ଚ ନାହିଁ, ତେଣୁ ଏହା ପ୍ରତ୍ୟାଖ୍ୟାନ ହେଲା</string>
     <string name="pgp_saved">ସେଭ୍ ହୋଇଛି</string>
+    <string name="pgp_key_renew">କି ନବୀକରଣ କରନ୍ତୁ</string>
+    <string name="pgp_key_renewed">କି ନବୀକରଣ ହେଲା, ସାର୍ବଜନୀନ କି ପୁନର୍ବାର ସେୟାର କରନ୍ତୁ</string>
+    <string name="pgp_import_confirm_title">ଫିଙ୍ଗରପ୍ରିଣ୍ଟ ଯାଞ୍ଚ କରନ୍ତୁ</string>
+    <string name="pgp_import_confirm_save">ଡାଟାବେସରେ ମଧ୍ୟ ସେଭ୍ କରନ୍ତୁ</string>
+    <string name="pgp_import_confirm_add">କୀ ଯୋଗ କରନ୍ତୁ</string>
+    <string name="pgp_import_confirm_use">ଏହି ଯାଞ୍ଚ ପାଇଁ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="pgp_verify_session_title">କେବଳ ଏହି ଯାଞ୍ଚ ପାଇଁ କୀ</string>
+    <string name="pgp_verify_session_empty">ଅତିରିକ୍ତ କୀ ନାହିଁ। ଏଠାରେ ଯୋଗ ହୋଇଥିବା କୀ ପୃଷ୍ଠା ଛାଡ଼ିଲେ ବାହାର ହୋଇଯିବ।</string>
+    <string name="pgp_key_known">ଏହି କୀ ପୂର୍ବରୁ ଅଛି</string>
 </resources>

@@ -852,9 +852,6 @@
     <string name="pgp_keys_empty">目前沒有 PGP 金鑰。可以產生一個，或匯入公開金鑰。</string>
     <string name="pgp_generate">產生金鑰</string>
     <string name="pgp_import">匯入公開金鑰</string>
-    <string name="pgp_section_tools_title">加密、簽署、驗證</string>
-    <string name="pgp_section_decrypt_title">解密訊息</string>
-    <string name="pgp_decrypt_input_hint">要解密的訊息</string>
     <string name="pgp_clear_cache">清除 PGP 快取</string>
     <string name="pgp_cache_cleared">已清除 PGP 檔案與快取</string>
     <string name="pgp_working">處理中…</string>
@@ -912,4 +909,13 @@
     <string name="pgp_key_too_large">金鑰或簽章太大</string>
     <string name="pgp_error_no_integrity">此訊息沒有完整性檢查，已拒絕</string>
     <string name="pgp_saved">已儲存</string>
+    <string name="pgp_key_renew">續期金鑰</string>
+    <string name="pgp_key_renewed">金鑰已續期，請重新分享公鑰</string>
+    <string name="pgp_import_confirm_title">核對指紋</string>
+    <string name="pgp_import_confirm_save">同時儲存到資料庫</string>
+    <string name="pgp_import_confirm_add">加入金鑰</string>
+    <string name="pgp_import_confirm_use">僅用於本次驗證</string>
+    <string name="pgp_verify_session_title">僅用於本次驗證的金鑰</string>
+    <string name="pgp_verify_session_empty">沒有額外的金鑰。這裡加入的金鑰離開頁面後會被清除。</string>
+    <string name="pgp_key_known">這個金鑰已經存在</string>
 </resources>

@@ -74,8 +74,8 @@ class Argon2Kdf(private val type: Type) : KdfEngine() {
         val memory = (validated.memory / MEMORY_BLOCK_SIZE).toUInt()
         val iterations = validated.iterations.toUInt()
 
+        // Check the stored value as it is, clamping it first would hide an invalid version
         val version = parameters.getUInt32(PARAM_VERSION)?.toInt()
-            ?.coerceIn(MIN_VERSION.toInt(), MAX_VERSION.toInt())
             ?: MAX_VERSION.toInt()
         if (version < MIN_VERSION.toInt()
             || version > MAX_VERSION.toInt())
@@ -279,7 +279,7 @@ class Argon2Kdf(private val type: Type) : KdfEngine() {
         private val MAX_WORK_MIB: ULong = 8192u
         private val MIB: ULong = 1024uL * 1024uL
 
-        private val DEFAULT_MEMORY: ULong = (MEMORY_BLOCK_SIZE * 1024u * 16u).toULong() // 16 MiB
+        private val DEFAULT_MEMORY: ULong = (MEMORY_BLOCK_SIZE * 1024u * 64u).toULong() // 64 MiB, RFC 9106 second choice
         private val MIN_MEMORY: ULong = (MEMORY_BLOCK_SIZE * 8u).toULong() // 8 MiB
         private val MAX_MEMORY: ULong = UInt.MAX_VALUE.toULong()  // 4 GiB
         private const val MEMORY_BLOCK_SIZE: UInt = 1024u // to pass arguments to JNI

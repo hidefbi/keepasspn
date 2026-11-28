@@ -46,9 +46,6 @@
     <string name="pgp_keys_empty">ilo lawa PGP ala li lon. sina ken pali e wan, anu sina ken kama jo e ilo lawa pi jan ante.</string>
     <string name="pgp_generate">pali e ilo lawa</string>
     <string name="pgp_import">kama jo e ilo lawa pi jan ante</string>
-    <string name="pgp_section_tools_title">pana e sitelen pi pana sama, pana e sitelen pi lawa, lukin e sitelen</string>
-    <string name="pgp_section_decrypt_title">weka e nasin nasa pi sitelen</string>
-    <string name="pgp_decrypt_input_hint">sitelen pi weka nasa</string>
     <string name="pgp_clear_cache">weka e sitelen pi lukin awen PGP</string>
     <string name="pgp_cache_cleared">ilo PGP en awen li weka ala</string>
     <string name="pgp_working">tawa…</string>
@@ -106,4 +103,13 @@
     <string name="pgp_key_too_large">ilo open anu sitelen li suli ju</string>
     <string name="pgp_error_no_integrity">sitelen ni li awen ala e pona, mi weka e ona</string>
     <string name="pgp_saved">awen</string>
+    <string name="pgp_key_renew">o kama sin e ilo</string>
+    <string name="pgp_key_renewed">ilo li kama sin. o pana e ilo pi lawa ala</string>
+    <string name="pgp_import_confirm_title">Check the fingerprint</string>
+    <string name="pgp_import_confirm_save">Also save to the database</string>
+    <string name="pgp_import_confirm_add">Add key</string>
+    <string name="pgp_import_confirm_use">Use for this check</string>
+    <string name="pgp_verify_session_title">Keys for this check only</string>
+    <string name="pgp_verify_session_empty">No extra keys. Keys added here are dropped when you leave the page.</string>
+    <string name="pgp_key_known">This key is already here</string>
 </resources>

@@ -874,9 +874,6 @@ Om onze vrijheid te behouden, bugs te verhelpen, functies toe te voegen en het p
     <string name="pgp_keys_empty">Nog geen PGP-sleutels. Maak er een aan of importeer een publieke sleutel.</string>
     <string name="pgp_generate">Sleutel maken</string>
     <string name="pgp_import">Publieke sleutel importeren</string>
-    <string name="pgp_section_tools_title">Versleutelen, ondertekenen, verifiëren</string>
-    <string name="pgp_section_decrypt_title">Bericht ontsleutelen</string>
-    <string name="pgp_decrypt_input_hint">Bericht om te ontsleutelen</string>
     <string name="pgp_clear_cache">PGP-cache wissen</string>
     <string name="pgp_cache_cleared">PGP-bestanden en cache gewist</string>
     <string name="pgp_working">Bezig…</string>
@@ -934,4 +931,13 @@ Om onze vrijheid te behouden, bugs te verhelpen, functies toe te voegen en het p
     <string name="pgp_key_too_large">De sleutel of handtekening is te groot</string>
     <string name="pgp_error_no_integrity">Dit bericht heeft geen integriteitscontrole, dus het is geweigerd</string>
     <string name="pgp_saved">Opgeslagen</string>
+    <string name="pgp_key_renew">Sleutel verlengen</string>
+    <string name="pgp_key_renewed">Sleutel verlengd, deel de publieke sleutel opnieuw</string>
+    <string name="pgp_import_confirm_title">Controleer de vingerafdruk</string>
+    <string name="pgp_import_confirm_save">Ook opslaan in de database</string>
+    <string name="pgp_import_confirm_add">Sleutel toevoegen</string>
+    <string name="pgp_import_confirm_use">Gebruiken voor deze controle</string>
+    <string name="pgp_verify_session_title">Sleutels alleen voor deze controle</string>
+    <string name="pgp_verify_session_empty">Geen extra sleutels. Hier toegevoegde sleutels worden verwijderd als je de pagina verlaat.</string>
+    <string name="pgp_key_known">Deze sleutel staat er al</string>
 </resources>

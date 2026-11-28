@@ -538,9 +538,6 @@ Jotta säilyttäisimme vapautemme, korjaisimme virheitä, lisäisimme ominaisuuk
     <string name="pgp_keys_empty">PGP-avaimia ei ole vielä. Luo avain tai tuo julkinen avain.</string>
     <string name="pgp_generate">Luo avain</string>
     <string name="pgp_import">Tuo julkinen avain</string>
-    <string name="pgp_section_tools_title">Salaa, allekirjoita, tarkista</string>
-    <string name="pgp_section_decrypt_title">Pura viestin salaus</string>
-    <string name="pgp_decrypt_input_hint">Purettava viesti</string>
     <string name="pgp_clear_cache">Tyhjennä PGP-välimuisti</string>
     <string name="pgp_cache_cleared">PGP-tiedostot ja välimuisti tyhjennetty</string>
     <string name="pgp_working">Käsitellään…</string>
@@ -598,4 +595,13 @@ Jotta säilyttäisimme vapautemme, korjaisimme virheitä, lisäisimme ominaisuuk
     <string name="pgp_key_too_large">Avain tai allekirjoitus on liian suuri</string>
     <string name="pgp_error_no_integrity">Viestillä ei ole eheystarkistusta, joten se hylättiin</string>
     <string name="pgp_saved">Tallennettu</string>
+    <string name="pgp_key_renew">Uusi avain</string>
+    <string name="pgp_key_renewed">Avain uusittu, jaa julkinen avain uudelleen</string>
+    <string name="pgp_import_confirm_title">Tarkista sormenjälki</string>
+    <string name="pgp_import_confirm_save">Tallenna myös tietokantaan</string>
+    <string name="pgp_import_confirm_add">Lisää avain</string>
+    <string name="pgp_import_confirm_use">Käytä tähän tarkistukseen</string>
+    <string name="pgp_verify_session_title">Avaimet vain tähän tarkistukseen</string>
+    <string name="pgp_verify_session_empty">Ei ylimääräisiä avaimia. Täällä lisätyt avaimet poistuvat, kun poistut sivulta.</string>
+    <string name="pgp_key_known">Tämä avain on jo mukana</string>
 </resources>

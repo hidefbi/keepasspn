@@ -391,9 +391,6 @@ Lai saglabātu mūsu brīvību, labotu kļūdas, pievienotu funkcijas un uzturē
     <string name="pgp_keys_empty">PGP atslēgu vēl nav. Izveidojiet vienu vai importējiet publisko atslēgu.</string>
     <string name="pgp_generate">Izveidot atslēgu</string>
     <string name="pgp_import">Importēt publisko atslēgu</string>
-    <string name="pgp_section_tools_title">Šifrēt, parakstīt, pārbaudīt</string>
-    <string name="pgp_section_decrypt_title">Atšifrēt ziņojumu</string>
-    <string name="pgp_decrypt_input_hint">Ziņojums atšifrēšanai</string>
     <string name="pgp_clear_cache">Notīrīt PGP kešatmiņu</string>
     <string name="pgp_cache_cleared">PGP faili un kešatmiņa notīrīti</string>
     <string name="pgp_working">Notiek apstrāde…</string>
@@ -451,4 +448,13 @@ Lai saglabātu mūsu brīvību, labotu kļūdas, pievienotu funkcijas un uzturē
     <string name="pgp_key_too_large">Atslēga vai paraksts ir pārāk liels</string>
     <string name="pgp_error_no_integrity">Ziņojumam nav integritātes pārbaudes, tāpēc tas tika noraidīts</string>
     <string name="pgp_saved">Saglabāts</string>
+    <string name="pgp_key_renew">Atjaunot atslēgu</string>
+    <string name="pgp_key_renewed">Atslēga atjaunota, vēlreiz kopīgojiet publisko atslēgu</string>
+    <string name="pgp_import_confirm_title">Pārbaudiet pirkstu nospiedumu</string>
+    <string name="pgp_import_confirm_save">Saglabāt arī datubāzē</string>
+    <string name="pgp_import_confirm_add">Pievienot atslēgu</string>
+    <string name="pgp_import_confirm_use">Izmantot šai pārbaudei</string>
+    <string name="pgp_verify_session_title">Atslēgas tikai šai pārbaudei</string>
+    <string name="pgp_verify_session_empty">Papildu atslēgu nav. Šeit pievienotās atslēgas tiek dzēstas, kad lapa tiek pamesta.</string>
+    <string name="pgp_key_known">Šī atslēga jau ir</string>
 </resources>

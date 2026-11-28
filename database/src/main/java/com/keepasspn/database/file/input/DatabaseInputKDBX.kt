@@ -190,7 +190,7 @@ class DatabaseInputKDBX(database: DatabaseKDBX)
                     throw InvalidCredentialsDatabaseException()
                 }
                 // Mac doesn't match
-                if (!headerHmac.contentEquals(storedHmac)) {
+                if (!java.security.MessageDigest.isEqual(headerHmac, storedHmac)) {
                     throw InvalidCredentialsDatabaseException()
                 }
 

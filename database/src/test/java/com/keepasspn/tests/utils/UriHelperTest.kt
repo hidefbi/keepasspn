@@ -45,4 +45,16 @@ class UriHelperTest: TestCase() {
         assertFalse(expected.inTheSameDomainAs("https://example.com/domain.org", sameSubDomain = true))
         assertFalse(expected.inTheSameDomainAs("https://example.com/www.domain.org", sameSubDomain = false))
     }
+
+    fun testParentDomainIsNotASubdomainMatch() {
+        // An entry for a subdomain must not match the parent domain or a sibling tenant
+        assertFalse("login.domain.org".inTheSameDomainAs("domain.org", sameSubDomain = false))
+        assertFalse("acme.tenant-saas.com".inTheSameDomainAs("evil.tenant-saas.com", sameSubDomain = false))
+        assertFalse("acme.tenant-saas.com".inTheSameDomainAs("tenant-saas.com", sameSubDomain = false))
+        assertFalse("acme.tenant-saas.com".inTheSameDomainAs("tenant-saas.com", sameSubDomain = true))
+        // An entry for a parent domain still matches its subdomains
+        assertTrue("domain.org".inTheSameDomainAs("login.domain.org", sameSubDomain = false))
+        assertTrue("https://tenant-saas.com".inTheSameDomainAs("https://acme.tenant-saas.com/login", sameSubDomain = false))
+        assertFalse("domain.org".inTheSameDomainAs("login.domain.org", sameSubDomain = true))
+    }
 }

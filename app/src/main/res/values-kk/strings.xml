@@ -106,9 +106,6 @@
     <string name="pgp_keys_empty">PGP кілттері әлі жоқ. Жаңасын жасаңыз немесе ашық кілтті импорттаңыз.</string>
     <string name="pgp_generate">Кілт жасау</string>
     <string name="pgp_import">Ашық кілтті импорттау</string>
-    <string name="pgp_section_tools_title">Шифрлау, қол қою, тексеру</string>
-    <string name="pgp_section_decrypt_title">Хабарламаны шешу</string>
-    <string name="pgp_decrypt_input_hint">Шешуге арналған хабарлама</string>
     <string name="pgp_clear_cache">PGP кэшін тазалау</string>
     <string name="pgp_cache_cleared">PGP файлдары мен кэш тазаланды</string>
     <string name="pgp_working">Өңделуде…</string>
@@ -166,4 +163,13 @@
     <string name="pgp_key_too_large">Кілт немесе қолтаңба тым үлкен</string>
     <string name="pgp_error_no_integrity">Бұл хабарламада тұтастықты тексеру жоқ, сондықтан қабылданбады</string>
     <string name="pgp_saved">Сақталды</string>
+    <string name="pgp_key_renew">Кілтті жаңарту</string>
+    <string name="pgp_key_renewed">Кілт жаңартылды, ашық кілтті қайта бөлісіңіз</string>
+    <string name="pgp_import_confirm_title">Саусақ ізін тексеріңіз</string>
+    <string name="pgp_import_confirm_save">Деректер қорына да сақтау</string>
+    <string name="pgp_import_confirm_add">Кілт қосу</string>
+    <string name="pgp_import_confirm_use">Осы тексеру үшін пайдалану</string>
+    <string name="pgp_verify_session_title">Тек осы тексеруге арналған кілттер</string>
+    <string name="pgp_verify_session_empty">Қосымша кілттер жоқ. Осы жерде қосылған кілттер беттен шыққанда жойылады.</string>
+    <string name="pgp_key_known">Бұл кілт бар</string>
 </resources>

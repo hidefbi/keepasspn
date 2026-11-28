@@ -257,9 +257,6 @@
     <string name="pgp_keys_empty">अभी कोई PGP कुंजी नहीं है। एक बनाएँ या सार्वजनिक कुंजी आयात करें।</string>
     <string name="pgp_generate">कुंजी बनाएँ</string>
     <string name="pgp_import">सार्वजनिक कुंजी आयात करें</string>
-    <string name="pgp_section_tools_title">एन्क्रिप्ट, साइन, सत्यापित</string>
-    <string name="pgp_section_decrypt_title">संदेश डिक्रिप्ट करें</string>
-    <string name="pgp_decrypt_input_hint">डिक्रिप्ट करने के लिए संदेश</string>
     <string name="pgp_clear_cache">PGP कैश साफ़ करें</string>
     <string name="pgp_cache_cleared">PGP फ़ाइलें और कैश साफ़ किए गए</string>
     <string name="pgp_working">प्रोसेस हो रहा है…</string>
@@ -317,4 +314,13 @@
     <string name="pgp_key_too_large">कुंजी या हस्ताक्षर बहुत बड़ा है</string>
     <string name="pgp_error_no_integrity">इस संदेश में अखंडता जाँच नहीं है, इसलिए इसे अस्वीकार किया गया</string>
     <string name="pgp_saved">सहेजा गया</string>
+    <string name="pgp_key_renew">कुंजी नवीनीकरण करें</string>
+    <string name="pgp_key_renewed">कुंजी नवीनीकृत हुई, सार्वजनिक कुंजी फिर से साझा करें</string>
+    <string name="pgp_import_confirm_title">फ़िंगरप्रिंट जाँचें</string>
+    <string name="pgp_import_confirm_save">डेटाबेस में भी सहेजें</string>
+    <string name="pgp_import_confirm_add">कुंजी जोड़ें</string>
+    <string name="pgp_import_confirm_use">इस जाँच के लिए उपयोग करें</string>
+    <string name="pgp_verify_session_title">केवल इस जाँच के लिए कुंजियाँ</string>
+    <string name="pgp_verify_session_empty">कोई अतिरिक्त कुंजी नहीं। यहाँ जोड़ी गई कुंजियाँ पेज छोड़ने पर हट जाती हैं।</string>
+    <string name="pgp_key_known">यह कुंजी पहले से मौजूद है</string>
 </resources>

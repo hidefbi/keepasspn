@@ -813,9 +813,6 @@
     <string name="pgp_keys_empty">Ключоў PGP пакуль няма. Стварыце ключ або імпартуйце публічны ключ.</string>
     <string name="pgp_generate">Стварыць ключ</string>
     <string name="pgp_import">Імпартаваць публічны ключ</string>
-    <string name="pgp_section_tools_title">Шыфраванне, подпіс, праверка</string>
-    <string name="pgp_section_decrypt_title">Расшыфраваць паведамленне</string>
-    <string name="pgp_decrypt_input_hint">Паведамленне для расшыфроўкі</string>
     <string name="pgp_clear_cache">Ачысціць кэш PGP</string>
     <string name="pgp_cache_cleared">Файлы і кэш PGP ачышчаны</string>
     <string name="pgp_working">Апрацоўка…</string>
@@ -873,4 +870,13 @@
     <string name="pgp_key_too_large">Ключ або подпіс занадта вялікі</string>
     <string name="pgp_error_no_integrity">Гэта паведамленне без праверкі цэласнасці, таму яно адхілена</string>
     <string name="pgp_saved">Захавана</string>
+    <string name="pgp_key_renew">Падаўжыць ключ</string>
+    <string name="pgp_key_renewed">Ключ падоўжаны, зноў падайце публічны ключ</string>
+    <string name="pgp_import_confirm_title">Праверце адбітак</string>
+    <string name="pgp_import_confirm_save">Таксама захаваць у базе даных</string>
+    <string name="pgp_import_confirm_add">Дадаць ключ</string>
+    <string name="pgp_import_confirm_use">Выкарыстаць для гэтай праверкі</string>
+    <string name="pgp_verify_session_title">Ключы толькі для гэтай праверкі</string>
+    <string name="pgp_verify_session_empty">Дадатковых ключоў няма. Ключы, дададзеныя тут, выдаляюцца пры выхадзе са старонкі.</string>
+    <string name="pgp_key_known">Гэты ключ ужо ёсць</string>
 </resources>

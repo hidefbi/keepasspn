@@ -70,6 +70,7 @@ class KdfWorkLimitTest {
     fun argon2SettersStayInsideBudget() {
         val kdf = Argon2Kdf(Argon2Kdf.Type.ARGON2_ID)
         // Iterations are capped by the memory in use, 16 MiB allows 512
+        kdf.setMemoryUsage(16uL * 1024u * 1024u)
         kdf.setKeyRounds(100_000uL)
         assertEquals(512uL, kdf.getKeyRounds())
         // Memory is capped by the iterations in use, 512 iterations allow 16 MiB

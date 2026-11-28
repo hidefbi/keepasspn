@@ -187,9 +187,6 @@
     <string name="pgp_keys_empty">এখনও কোনো PGP কী নেই। একটি তৈরি করুন বা পাবলিক কী আমদানি করুন।</string>
     <string name="pgp_generate">কী তৈরি করুন</string>
     <string name="pgp_import">পাবলিক কী আমদানি করুন</string>
-    <string name="pgp_section_tools_title">এনক্রিপ্ট, সাইন, যাচাই</string>
-    <string name="pgp_section_decrypt_title">বার্তা ডিক্রিপ্ট করুন</string>
-    <string name="pgp_decrypt_input_hint">ডিক্রিপ্ট করার জন্য বার্তা</string>
     <string name="pgp_clear_cache">PGP ক্যাশ মুছুন</string>
     <string name="pgp_cache_cleared">PGP ফাইল ও ক্যাশ মুছে ফেলা হয়েছে</string>
     <string name="pgp_working">কাজ চলছে…</string>
@@ -247,4 +244,13 @@
     <string name="pgp_key_too_large">কী বা স্বাক্ষর খুব বড়</string>
     <string name="pgp_error_no_integrity">এই বার্তায় অখণ্ডতা যাচাই নেই, তাই এটি প্রত্যাখ্যান করা হয়েছে</string>
     <string name="pgp_saved">সংরক্ষিত</string>
+    <string name="pgp_key_renew">কী নবায়ন করুন</string>
+    <string name="pgp_key_renewed">কী নবায়ন হয়েছে, পাবলিক কী আবার শেয়ার করুন</string>
+    <string name="pgp_import_confirm_title">ফিঙ্গারপ্রিন্ট যাচাই করুন</string>
+    <string name="pgp_import_confirm_save">ডাটাবেসেও সংরক্ষণ করুন</string>
+    <string name="pgp_import_confirm_add">কী যোগ করুন</string>
+    <string name="pgp_import_confirm_use">এই যাচাইয়ের জন্য ব্যবহার করুন</string>
+    <string name="pgp_verify_session_title">শুধু এই যাচাইয়ের জন্য কী</string>
+    <string name="pgp_verify_session_empty">অতিরিক্ত কোনো কী নেই। এখানে যোগ করা কী পৃষ্ঠা ছাড়লে মুছে যায়।</string>
+    <string name="pgp_key_known">এই কী আগে থেকেই আছে</string>
 </resources>

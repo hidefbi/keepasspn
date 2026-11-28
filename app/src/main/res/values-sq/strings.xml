@@ -800,9 +800,6 @@ Për të ruajtur lirinë tonë, për të rregulluar gabimet, për të shtuar fun
     <string name="pgp_keys_empty">Ende nuk ka çelësa PGP. Krijoni një ose importoni një çelës publik.</string>
     <string name="pgp_generate">Krijo çelës</string>
     <string name="pgp_import">Importo çelës publik</string>
-    <string name="pgp_section_tools_title">Enkripto, nënshkruaj, verifiko</string>
-    <string name="pgp_section_decrypt_title">Dekripto një mesazh</string>
-    <string name="pgp_decrypt_input_hint">Mesazhi për dekriptim</string>
     <string name="pgp_clear_cache">Pastro memorien e fshehtë PGP</string>
     <string name="pgp_cache_cleared">Skedarët dhe memorja e fshehtë PGP u pastruan</string>
     <string name="pgp_working">Duke përpunuar…</string>
@@ -860,4 +857,13 @@ Për të ruajtur lirinë tonë, për të rregulluar gabimet, për të shtuar fun
     <string name="pgp_key_too_large">Çelësi ose nënshkrimi është shumë i madh</string>
     <string name="pgp_error_no_integrity">Ky mesazh nuk ka kontroll integriteti, prandaj u refuzua</string>
     <string name="pgp_saved">U ruajt</string>
+    <string name="pgp_key_renew">Rinovo çelësin</string>
+    <string name="pgp_key_renewed">Çelësi u rinovua, ndaje përsëri çelësin publik</string>
+    <string name="pgp_import_confirm_title">Kontrollo gjurmën e gishtit</string>
+    <string name="pgp_import_confirm_save">Ruaje edhe në bazën e të dhënave</string>
+    <string name="pgp_import_confirm_add">Shto çelësin</string>
+    <string name="pgp_import_confirm_use">Përdore për këtë kontroll</string>
+    <string name="pgp_verify_session_title">Çelësa vetëm për këtë kontroll</string>
+    <string name="pgp_verify_session_empty">Nuk ka çelësa shtesë. Çelësat e shtuar këtu fshihen kur largohesh nga faqja.</string>
+    <string name="pgp_key_known">Ky çelës ekziston tashmë</string>
 </resources>

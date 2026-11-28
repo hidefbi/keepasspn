@@ -843,9 +843,6 @@
     <string name="pgp_keys_empty">עדיין אין מפתחות PGP. צרו מפתח או ייבאו מפתח ציבורי.</string>
     <string name="pgp_generate">יצירת מפתח</string>
     <string name="pgp_import">ייבוא מפתח ציבורי</string>
-    <string name="pgp_section_tools_title">הצפנה, חתימה, אימות</string>
-    <string name="pgp_section_decrypt_title">פענוח הודעה</string>
-    <string name="pgp_decrypt_input_hint">הודעה לפענוח</string>
     <string name="pgp_clear_cache">ניקוי מטמון PGP</string>
     <string name="pgp_cache_cleared">קובצי PGP והמטמון נוקו</string>
     <string name="pgp_working">מעבד…</string>
@@ -903,4 +900,13 @@
     <string name="pgp_key_too_large">המפתח או החתימה גדולים מדי</string>
     <string name="pgp_error_no_integrity">להודעה הזו אין בדיקת שלמות, לכן היא נדחתה</string>
     <string name="pgp_saved">נשמר</string>
+    <string name="pgp_key_renew">חידוש המפתח</string>
+    <string name="pgp_key_renewed">המפתח חודש, שתף שוב את המפתח הציבורי</string>
+    <string name="pgp_import_confirm_title">בדקו את טביעת האצבע</string>
+    <string name="pgp_import_confirm_save">שמירה גם במסד הנתונים</string>
+    <string name="pgp_import_confirm_add">הוספת מפתח</string>
+    <string name="pgp_import_confirm_use">שימוש לבדיקה הזו</string>
+    <string name="pgp_verify_session_title">מפתחות לבדיקה הזו בלבד</string>
+    <string name="pgp_verify_session_empty">אין מפתחות נוספים. מפתחות שנוספו כאן נמחקים כשיוצאים מהדף.</string>
+    <string name="pgp_key_known">המפתח הזה כבר קיים</string>
 </resources>

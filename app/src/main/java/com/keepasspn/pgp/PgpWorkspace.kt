@@ -21,6 +21,8 @@ package com.keepasspn.pgp
 
 import android.content.Context
 import java.io.File
+import java.io.IOException
+import java.io.RandomAccessFile
 import java.util.UUID
 
 /**
@@ -38,10 +40,39 @@ object PgpWorkspace {
     }
 
     /**
-     * Removes every file in the PGP folder. Plain delete, the flash storage does not
-     * allow a reliable overwrite.
+     * Overwrites the file with zeros, then deletes it. Best effort only: flash storage and
+     * copy-on-write file systems may keep old blocks, so this is not a guarantee.
+     */
+    fun wipe(file: File) {
+        try {
+            if (file.isFile && file.length() > 0L) {
+                RandomAccessFile(file, "rw").use { raf ->
+                    val zeros = ByteArray(BUFFER_SIZE)
+                    var left = raf.length()
+                    raf.seek(0L)
+                    while (left > 0L) {
+                        val count = minOf(left, zeros.size.toLong()).toInt()
+                        raf.write(zeros, 0, count)
+                        left -= count
+                    }
+                    raf.fd.sync()
+                }
+            }
+        } catch (_: IOException) {
+            // Nothing else can be done, the file is deleted below anyway
+        } finally {
+            file.delete()
+        }
+    }
+
+    /**
+     * Wipes every file in the PGP folder, then removes the folder.
      */
     fun clearAll(context: Context) {
-        File(context.cacheDir, DIR_NAME).deleteRecursively()
+        val dir = File(context.cacheDir, DIR_NAME)
+        dir.walkBottomUp().forEach { if (it.isFile) wipe(it) }
+        dir.deleteRecursively()
     }
+
+    private const val BUFFER_SIZE = 65536
 }

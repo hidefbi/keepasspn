@@ -118,9 +118,6 @@
     <string name="pgp_keys_empty">अजून PGP की नाहीत. एक तयार करा किंवा सार्वजनिक की आयात करा.</string>
     <string name="pgp_generate">की तयार करा</string>
     <string name="pgp_import">सार्वजनिक की आयात करा</string>
-    <string name="pgp_section_tools_title">एन्क्रिप्ट, साइन, पडताळा</string>
-    <string name="pgp_section_decrypt_title">संदेश डिक्रिप्ट करा</string>
-    <string name="pgp_decrypt_input_hint">डिक्रिप्ट करायचा संदेश</string>
     <string name="pgp_clear_cache">PGP कॅशे साफ करा</string>
     <string name="pgp_cache_cleared">PGP फाइल्स आणि कॅशे साफ केले</string>
     <string name="pgp_working">प्रक्रिया सुरू आहे…</string>
@@ -178,4 +175,13 @@
     <string name="pgp_key_too_large">की किंवा स्वाक्षरी खूप मोठी आहे</string>
     <string name="pgp_error_no_integrity">या संदेशात अखंडता तपासणी नाही, म्हणून तो नाकारला</string>
     <string name="pgp_saved">जतन केले</string>
+    <string name="pgp_key_renew">की नूतनीकरण करा</string>
+    <string name="pgp_key_renewed">की नूतनीकरण झाली, सार्वजनिक की पुन्हा शेअर करा</string>
+    <string name="pgp_import_confirm_title">फिंगरप्रिंट तपासा</string>
+    <string name="pgp_import_confirm_save">डेटाबेसमध्येही जतन करा</string>
+    <string name="pgp_import_confirm_add">की जोडा</string>
+    <string name="pgp_import_confirm_use">या तपासणीसाठी वापरा</string>
+    <string name="pgp_verify_session_title">फक्त या तपासणीसाठी की</string>
+    <string name="pgp_verify_session_empty">अतिरिक्त की नाहीत. येथे जोडलेल्या की पेज सोडताना काढल्या जातात.</string>
+    <string name="pgp_key_known">ही की आधीच आहे</string>
 </resources>

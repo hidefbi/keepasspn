@@ -160,9 +160,6 @@ Da bi ohranili svobodo, odpravljali napake, dodajali funkcije in ohranjali proje
     <string name="pgp_keys_empty">Še ni PGP ključev. Ustvarite ključ ali uvozite javni ključ.</string>
     <string name="pgp_generate">Ustvari ključ</string>
     <string name="pgp_import">Uvozi javni ključ</string>
-    <string name="pgp_section_tools_title">Šifriraj, podpiši, preveri</string>
-    <string name="pgp_section_decrypt_title">Dešifriraj sporočilo</string>
-    <string name="pgp_decrypt_input_hint">Sporočilo za dešifriranje</string>
     <string name="pgp_clear_cache">Počisti predpomnilnik PGP</string>
     <string name="pgp_cache_cleared">Datoteke in predpomnilnik PGP so počiščeni</string>
     <string name="pgp_working">Obdelava…</string>
@@ -220,4 +217,13 @@ Da bi ohranili svobodo, odpravljali napake, dodajali funkcije in ohranjali proje
     <string name="pgp_key_too_large">Ključ ali podpis je prevelik</string>
     <string name="pgp_error_no_integrity">To sporočilo nima preverjanja celovitosti, zato je bilo zavrnjeno</string>
     <string name="pgp_saved">Shranjeno</string>
+    <string name="pgp_key_renew">Obnovi ključ</string>
+    <string name="pgp_key_renewed">Ključ je obnovljen, znova deli javni ključ</string>
+    <string name="pgp_import_confirm_title">Preverite prstni odtis</string>
+    <string name="pgp_import_confirm_save">Shrani tudi v bazo podatkov</string>
+    <string name="pgp_import_confirm_add">Dodaj ključ</string>
+    <string name="pgp_import_confirm_use">Uporabi za to preverjanje</string>
+    <string name="pgp_verify_session_title">Ključi samo za to preverjanje</string>
+    <string name="pgp_verify_session_empty">Ni dodatnih ključev. Ključi, dodani tukaj, se ob odhodu s strani izbrišejo.</string>
+    <string name="pgp_key_known">Ta ključ že obstaja</string>
 </resources>

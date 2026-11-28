@@ -863,9 +863,6 @@ Uygulama kullanıcı verilerini toplamaz, hiçbir sunucuya bağlanmaz, yalnızca
     <string name="pgp_keys_empty">Henüz PGP anahtarı yok. Bir tane oluşturun ya da genel anahtar içe aktarın.</string>
     <string name="pgp_generate">Anahtar oluştur</string>
     <string name="pgp_import">Genel anahtarı içe aktar</string>
-    <string name="pgp_section_tools_title">Şifrele, imzala, doğrula</string>
-    <string name="pgp_section_decrypt_title">Mesajın şifresini çöz</string>
-    <string name="pgp_decrypt_input_hint">Şifresi çözülecek mesaj</string>
     <string name="pgp_clear_cache">PGP önbelleğini temizle</string>
     <string name="pgp_cache_cleared">PGP dosyaları ve önbellek temizlendi</string>
     <string name="pgp_working">İşleniyor…</string>
@@ -923,4 +920,13 @@ Uygulama kullanıcı verilerini toplamaz, hiçbir sunucuya bağlanmaz, yalnızca
     <string name="pgp_key_too_large">Anahtar veya imza çok büyük</string>
     <string name="pgp_error_no_integrity">Bu iletinin bütünlük denetimi yok, bu yüzden reddedildi</string>
     <string name="pgp_saved">Kaydedildi</string>
+    <string name="pgp_key_renew">Anahtarı yenile</string>
+    <string name="pgp_key_renewed">Anahtar yenilendi, genel anahtarı yeniden paylaşın</string>
+    <string name="pgp_import_confirm_title">Parmak izini kontrol edin</string>
+    <string name="pgp_import_confirm_save">Veritabanına da kaydet</string>
+    <string name="pgp_import_confirm_add">Anahtar ekle</string>
+    <string name="pgp_import_confirm_use">Bu kontrol için kullan</string>
+    <string name="pgp_verify_session_title">Yalnızca bu kontrol için anahtarlar</string>
+    <string name="pgp_verify_session_empty">Ek anahtar yok. Burada eklenen anahtarlar sayfadan çıkınca silinir.</string>
+    <string name="pgp_key_known">Bu anahtar zaten var</string>
 </resources>

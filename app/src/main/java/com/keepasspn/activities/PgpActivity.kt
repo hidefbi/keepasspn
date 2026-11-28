@@ -42,6 +42,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import androidx.activity.viewModels
 import com.google.android.material.progressindicator.LinearProgressIndicator
+import com.google.android.material.tabs.TabLayout
 import com.keepasspn.R
 import com.keepasspn.activities.helpers.ExternalFileHelper
 import com.keepasspn.activities.legacy.DatabaseLockActivity
@@ -58,6 +59,7 @@ import com.keepasspn.pgp.PgpWorkspace
 import com.keepasspn.services.DatabaseTaskNotificationService
 import com.keepasspn.tasks.ActionRunnable
 import com.keepasspn.timeout.timeoutCopyToClipboard
+import com.keepasspn.view.showActionErrorIfNeeded
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -89,7 +91,21 @@ class PgpActivity : DatabaseLockActivity() {
         val name: String
     )
 
-    private enum class Section { TOOLS, DECRYPT }
+    private enum class Section { TOOLS, SIGNATURE }
+
+    private enum class Tab(val labelRes: Int) {
+        ENCRYPT(R.string.pgp_encrypt),
+        DECRYPT(R.string.pgp_decrypt),
+        SIGN(R.string.pgp_sign),
+        VERIFY(R.string.pgp_verify)
+    }
+
+    /** A public key added for one check. It stays on this page unless it is saved to the database. */
+    private class SessionKey(
+        val fingerprint: String,
+        val title: String,
+        val publicArmored: String
+    )
 
     private enum class Action { DECRYPT, SIGN }
 
@@ -108,13 +124,20 @@ class PgpActivity : DatabaseLockActivity() {
     private var awaitingPicker = false
     // Fingerprint of the key just added, selected once the list is read again
     private var pendingSelectFingerprint: String? = null
-    private var decryptFile: Source? = null
+    private lateinit var renewKeyButton: Button
+    private var signatureFile: Source? = null
+    private val sessionKeys = mutableListOf<SessionKey>()
+    private var currentTab = Tab.ENCRYPT
+    // The import dialog was opened from the verify tab
+    private var pendingImportForCheck = false
     private var textFile: File? = null
     private var output: File? = null
     private var outputName = "output.asc"
     private var outputIsText = false
 
     private var busy = false
+    // A key is being generated or saved to the database
+    private var generatingKey = false
     @Volatile private var cancelRequested = false
     private var workTotal = 1L
 
@@ -127,8 +150,12 @@ class PgpActivity : DatabaseLockActivity() {
     private lateinit var copyKeyButton: Button
     private lateinit var inputText: EditText
     private lateinit var toolsFileName: TextView
-    private lateinit var decryptText: EditText
-    private lateinit var decryptFileName: TextView
+    private lateinit var tabLayout: TabLayout
+    private lateinit var runButton: Button
+    private lateinit var signaturePanel: View
+    private lateinit var signatureInput: EditText
+    private lateinit var signatureFileName: TextView
+    private lateinit var sessionKeysView: TextView
     private lateinit var outputView: TextView
     private lateinit var outputActions: View
     private lateinit var copyOutputButton: Button
@@ -158,10 +185,16 @@ class PgpActivity : DatabaseLockActivity() {
         copyKeyButton = findViewById(R.id.pgp_key_copy_button)
         keysHeader.setOnClickListener { toggleKeys() }
         copyKeyButton.setOnClickListener { copySelectedKey() }
+        renewKeyButton = findViewById(R.id.pgp_key_renew_button)
+        renewKeyButton.setOnClickListener { renewSelectedKey() }
         inputText = findViewById(R.id.pgp_input)
         toolsFileName = findViewById(R.id.pgp_file_name)
-        decryptText = findViewById(R.id.pgp_decrypt_input)
-        decryptFileName = findViewById(R.id.pgp_decrypt_file_name)
+        signaturePanel = findViewById(R.id.pgp_signature_panel)
+        signatureInput = findViewById(R.id.pgp_signature_input)
+        signatureFileName = findViewById(R.id.pgp_signature_file_name)
+        sessionKeysView = findViewById(R.id.pgp_verify_session_list)
+        runButton = findViewById(R.id.pgp_run_button)
+        tabLayout = findViewById(R.id.pgp_tabs)
         outputView = findViewById(R.id.pgp_output)
         outputActions = findViewById(R.id.pgp_output_actions)
         copyOutputButton = findViewById(R.id.pgp_output_copy)
@@ -171,11 +204,11 @@ class PgpActivity : DatabaseLockActivity() {
         clearButton = findViewById(R.id.pgp_clear_button)
         actionButtons = listOf(
             findViewById<Button>(R.id.pgp_file_button),
-            findViewById<Button>(R.id.pgp_encrypt_button),
-            findViewById<Button>(R.id.pgp_sign_button),
-            findViewById<Button>(R.id.pgp_verify_button),
-            findViewById<Button>(R.id.pgp_decrypt_file_button),
-            findViewById<Button>(R.id.pgp_decrypt_button)
+            runButton,
+            findViewById<Button>(R.id.pgp_signature_file_button),
+            findViewById<Button>(R.id.pgp_verify_import_button),
+            findViewById<Button>(R.id.pgp_generate_button),
+            findViewById<Button>(R.id.pgp_import_button)
         )
 
         mExternalFileHelper = ExternalFileHelper(this)
@@ -191,27 +224,33 @@ class PgpActivity : DatabaseLockActivity() {
         mImportFileHelper = ExternalFileHelper(this)
         mImportFileHelper.buildOpenDocument { uri ->
             awaitingPicker = false
-            uri?.let { importFile(it) }
+            uri?.let { importFile(it, pendingImportForCheck) }
         }
 
         findViewById<Button>(R.id.pgp_generate_button).setOnClickListener { showGenerateDialog() }
-        findViewById<Button>(R.id.pgp_import_button).setOnClickListener { showImportDialog() }
+        findViewById<Button>(R.id.pgp_import_button).setOnClickListener { showImportDialog(forCheck = false) }
         findViewById<Button>(R.id.pgp_file_button).setOnClickListener {
             pendingSection = Section.TOOLS
             awaitingPicker = true
             mExternalFileHelper.openDocument()
         }
-        findViewById<Button>(R.id.pgp_decrypt_file_button).setOnClickListener {
-            pendingSection = Section.DECRYPT
+        findViewById<Button>(R.id.pgp_signature_file_button).setOnClickListener {
+            pendingSection = Section.SIGNATURE
             awaitingPicker = true
             mExternalFileHelper.openDocument()
         }
-        findViewById<Button>(R.id.pgp_encrypt_button).setOnClickListener { showRecipientsDialog() }
-        findViewById<Button>(R.id.pgp_sign_button).setOnClickListener { showSecretKeyDialog(Action.SIGN, Section.TOOLS) }
-        findViewById<Button>(R.id.pgp_verify_button).setOnClickListener { showVerifyDialog() }
-        findViewById<Button>(R.id.pgp_decrypt_button).setOnClickListener {
-            showSecretKeyDialog(Action.DECRYPT, Section.DECRYPT)
-        }
+        findViewById<Button>(R.id.pgp_verify_import_button).setOnClickListener { showImportDialog(forCheck = true) }
+        runButton.setOnClickListener { runAction() }
+        Tab.values().forEach { tabLayout.addTab(tabLayout.newTab().setText(it.labelRes)) }
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                tab?.position?.let { showTab(Tab.values()[it]) }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
         cancelButton.setOnClickListener { cancelRequested = true }
         clearButton.setOnClickListener { if (!busy) clearPage() }
         copyOutputButton.setOnClickListener { copyOutput() }
@@ -228,6 +267,8 @@ class PgpActivity : DatabaseLockActivity() {
         } else {
             restorePage(savedInstanceState)
         }
+        selectTab(Tab.values().getOrElse(savedInstanceState?.getInt(KEY_TAB, 0) ?: 0) { Tab.ENCRYPT })
+        renderSessionKeys()
 
         lifecycleScope.launch {
             mUserVerificationViewModel.onUserVerificationCanceled.collect {
@@ -280,10 +321,12 @@ class PgpActivity : DatabaseLockActivity() {
             outState.putString(KEY_TOOLS_PATH, it.file.path)
             outState.putString(KEY_TOOLS_NAME, it.name)
         }
-        decryptFile?.let {
-            outState.putString(KEY_DECRYPT_PATH, it.file.path)
-            outState.putString(KEY_DECRYPT_NAME, it.name)
+        signatureFile?.let {
+            outState.putString(KEY_SIGNATURE_PATH, it.file.path)
+            outState.putString(KEY_SIGNATURE_NAME, it.name)
         }
+        outState.putInt(KEY_TAB, currentTab.ordinal)
+        outState.putStringArrayList(KEY_SESSION_KEYS, ArrayList(sessionKeys.map { it.publicArmored }))
         output?.let {
             outState.putString(KEY_OUTPUT_PATH, it.path)
             outState.putString(KEY_OUTPUT_NAME, outputName)
@@ -295,9 +338,17 @@ class PgpActivity : DatabaseLockActivity() {
             val file = File(path)
             if (file.exists()) setPicked(Section.TOOLS, Source(file, false, state.getString(KEY_TOOLS_NAME) ?: "file"))
         }
-        state.getString(KEY_DECRYPT_PATH)?.let { path ->
+        state.getString(KEY_SIGNATURE_PATH)?.let { path ->
             val file = File(path)
-            if (file.exists()) setPicked(Section.DECRYPT, Source(file, false, state.getString(KEY_DECRYPT_NAME) ?: "file"))
+            if (file.exists()) setPicked(Section.SIGNATURE, Source(file, false, state.getString(KEY_SIGNATURE_NAME) ?: "file"))
+        }
+        state.getStringArrayList(KEY_SESSION_KEYS)?.forEach { armored ->
+            try {
+                val info = PgpCore.inspect(armored)
+                sessionKeys.add(SessionKey(info.fingerprint, info.userIds.firstOrNull() ?: info.fingerprint, armored))
+            } catch (e: PgpCore.PgpError) {
+                // A key that no longer reads is dropped
+            }
         }
         state.getString(KEY_OUTPUT_PATH)?.let { path ->
             val file = File(path)
@@ -321,8 +372,28 @@ class PgpActivity : DatabaseLockActivity() {
     ) {
         super.onDatabaseActionFinished(database, actionTask, result)
         // A key was added (generated or imported), the list has to show it
-        if (actionTask == DatabaseTaskNotificationService.ACTION_DATABASE_ADD_PGP_ENTRY_TASK && result.isSuccess) {
-            loadKeyRows(database)
+        if (actionTask == DatabaseTaskNotificationService.ACTION_DATABASE_UPDATE_ENTRY_TASK && generatingKey) {
+            setGenerating(false)
+            if (result.isSuccess) {
+                loadKeyRows(database)
+                Toast.makeText(this, R.string.pgp_key_renewed, Toast.LENGTH_SHORT).show()
+            } else {
+                pendingSelectFingerprint = null
+                showActionErrorIfNeeded(result)
+            }
+        }
+        if (actionTask == DatabaseTaskNotificationService.ACTION_DATABASE_ADD_PGP_ENTRY_TASK) {
+            if (result.isSuccess) loadKeyRows(database)
+            if (generatingKey) {
+                setGenerating(false)
+                if (result.isSuccess) {
+                    statusView.text = ""
+                    Toast.makeText(this, R.string.pgp_key_created, Toast.LENGTH_SHORT).show()
+                } else {
+                    pendingSelectFingerprint = null
+                    showActionErrorIfNeeded(result)
+                }
+            }
         }
     }
 
@@ -362,6 +433,8 @@ class PgpActivity : DatabaseLockActivity() {
         if (!isChangingConfigurations && !awaitingPicker) {
             cancelRequested = true
             releaseFiles()
+            sessionKeys.clear()
+            renderSessionKeys()
             PgpWorkspace.clearAll(this)
         }
     }
@@ -393,6 +466,7 @@ class PgpActivity : DatabaseLockActivity() {
         selectedTitle.text = row?.title.orEmpty()
         selectedFingerprint.text = row?.fingerprint.orEmpty()
         copyKeyButton.isEnabled = row != null
+        renewKeyButton.visibility = if (row?.hasSecret == true) View.VISIBLE else View.GONE
     }
 
     private fun selectKey(row: KeyRow) {
@@ -477,12 +551,13 @@ class PgpActivity : DatabaseLockActivity() {
     }
 
     private fun generateKey(userId: String, passphrase: CharArray, keyType: PgpCore.KeyType, remember: Boolean) {
-        if (mDatabase == null) {
+        if (mDatabase == null || busy || generatingKey) {
             passphrase.fill('\u0000')
             return
         }
-        Toast.makeText(this, R.string.pgp_generating, Toast.LENGTH_SHORT).show()
+        setGenerating(true, R.string.pgp_generating)
         lifecycleScope.launch {
+            var saving = false
             try {
                 val key = withContext(Dispatchers.Default) {
                     PgpCore.generate(userId, passphrase, keyType)
@@ -496,16 +571,22 @@ class PgpActivity : DatabaseLockActivity() {
                 )
                 pendingSelectFingerprint = key.fingerprint
                 addPgpEntry(entryInfo)
-                Toast.makeText(this@PgpActivity, R.string.pgp_key_created, Toast.LENGTH_SHORT).show()
+                saving = true
+                statusView.text = getString(R.string.pgp_working)
+                // onDatabaseActionFinished ends the wait and shows the result
             } catch (e: PgpCore.PgpError) {
                 showPgpError(e)
             } finally {
                 passphrase.fill('\u0000')
+                if (!saving) setGenerating(false)
             }
         }
     }
 
-    private fun showImportDialog() {
+    /**
+     * Opens the paste box for a key. [forCheck] is the verify tab: the key is kept for that check only.
+     */
+    private fun showImportDialog(forCheck: Boolean) {
         val editText = EditText(this).apply {
             hint = getString(R.string.pgp_import_hint)
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
@@ -515,24 +596,25 @@ class PgpActivity : DatabaseLockActivity() {
             .setTitle(R.string.pgp_import_title)
             .setView(editText)
             .setPositiveButton(android.R.string.ok) { _, _ ->
-                importPublicKey(editText.text.toString().trim())
+                importPublicKey(editText.text.toString().trim(), forCheck)
             }
             .setNegativeButton(android.R.string.cancel, null)
             .setNeutralButton(R.string.pgp_import_choose_file) { _, _ ->
+                pendingImportForCheck = forCheck
                 awaitingPicker = true
                 mImportFileHelper.openDocument()
             }
             .show()
     }
 
-    private fun importPublicKey(armored: String) {
+    private fun importPublicKey(armored: String, forCheck: Boolean) {
         if (mDatabase == null) return
         if (armored.length > PgpCore.MAX_KEY_CHARS) {
             Toast.makeText(this, R.string.pgp_key_too_large, Toast.LENGTH_LONG).show()
             return
         }
         try {
-            saveImportedKey(armored, PgpCore.inspect(armored))
+            confirmImportedKey(armored, PgpCore.inspect(armored), forCheck)
         } catch (e: PgpCore.PgpError) {
             if (e.reason == PgpCore.Reason.TOO_LARGE) {
                 Toast.makeText(this, R.string.pgp_key_too_large, Toast.LENGTH_LONG).show()
@@ -545,7 +627,7 @@ class PgpActivity : DatabaseLockActivity() {
     /**
      * Reads the picked key file off the main thread. A file over the limit is refused.
      */
-    private fun importFile(uri: Uri) {
+    private fun importFile(uri: Uri, forCheck: Boolean) {
         if (mDatabase == null || busy) return
         runWork(
             total = PgpCore.MAX_KEY_CHARS.toLong(),
@@ -565,10 +647,58 @@ class PgpActivity : DatabaseLockActivity() {
                 if (picked == null) {
                     Toast.makeText(this, R.string.pgp_key_too_large, Toast.LENGTH_LONG).show()
                 } else {
-                    saveImportedKey(picked.first, picked.second)
+                    confirmImportedKey(picked.first, picked.second, forCheck)
                 }
             }
         )
+    }
+
+    /**
+     * Shows the fingerprint and asks before the key is used. The verify tab keeps the key for this
+     * check, unless the box is ticked and it goes to the database like the keys card import.
+     */
+    private fun confirmImportedKey(armored: String, info: PgpCore.KeyInfo, forCheck: Boolean) {
+        if (mDatabase == null) return
+        if (forCheck && armored.length > SESSION_KEY_CHARS) {
+            Toast.makeText(this, R.string.pgp_key_too_large, Toast.LENGTH_LONG).show()
+            return
+        }
+        if (keyRows.any { it.fingerprint == info.fingerprint } || sessionKeys.any { it.fingerprint == info.fingerprint }) {
+            Toast.makeText(this, R.string.pgp_key_known, Toast.LENGTH_SHORT).show()
+            return
+        }
+        val view = LayoutInflater.from(this).inflate(R.layout.dialog_pgp_import_confirm, null)
+        view.findViewById<TextView>(R.id.pgp_import_confirm_user).text = info.userIds.firstOrNull() ?: info.fingerprint
+        view.findViewById<TextView>(R.id.pgp_import_confirm_fingerprint).text =
+            info.fingerprint.chunked(4).joinToString(" ")
+        val saveBox: CheckBox = view.findViewById(R.id.pgp_import_confirm_save)
+        saveBox.visibility = if (forCheck) View.VISIBLE else View.GONE
+        AlertDialog.Builder(this)
+            .setTitle(R.string.pgp_import_confirm_title)
+            .setView(view)
+            .setPositiveButton(if (forCheck) R.string.pgp_import_confirm_use else R.string.pgp_import_confirm_add) { _, _ ->
+                if (forCheck && !saveBox.isChecked) {
+                    addSessionKey(armored, info)
+                } else {
+                    saveImportedKey(armored, info)
+                }
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
+    private fun addSessionKey(armored: String, info: PgpCore.KeyInfo) {
+        sessionKeys.add(SessionKey(info.fingerprint, info.userIds.firstOrNull() ?: info.fingerprint, armored))
+        renderSessionKeys()
+        Toast.makeText(this, R.string.pgp_key_imported, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun renderSessionKeys() {
+        sessionKeysView.text = if (sessionKeys.isEmpty()) {
+            getString(R.string.pgp_verify_session_empty)
+        } else {
+            sessionKeys.joinToString("\n\n") { "${it.title}\n${it.fingerprint.chunked(4).joinToString(" ")}" }
+        }
     }
 
     private fun saveImportedKey(armored: String, info: PgpCore.KeyInfo) {
@@ -593,7 +723,7 @@ class PgpActivity : DatabaseLockActivity() {
             Toast.makeText(this, R.string.pgp_no_recipient_keys, Toast.LENGTH_SHORT).show()
             return
         }
-        val input = currentInput(Section.TOOLS) ?: return
+        val input = currentInput() ?: return
         val checked = BooleanArray(candidates.size)
         AlertDialog.Builder(this)
             .setTitle(R.string.pgp_recipients_title)
@@ -602,10 +732,13 @@ class PgpActivity : DatabaseLockActivity() {
             }
             .setPositiveButton(android.R.string.ok) { _, _ ->
                 val chosen = candidates.filterIndexed { index, _ -> checked[index] }.map { it.publicArmored }
+                // Your own keys are always added, so the message can be read again on this app
+                val own = keyRows.filter { it.hasSecret && it.canEncrypt }.map { it.publicArmored }
+                val recipients = (chosen + own).distinct()
                 if (chosen.isEmpty()) {
                     Toast.makeText(this, R.string.pgp_no_recipient_keys, Toast.LENGTH_SHORT).show()
                 } else {
-                    encryptInput(input, chosen)
+                    encryptInput(input, recipients)
                 }
             }
             .setNegativeButton(android.R.string.cancel, null)
@@ -613,6 +746,11 @@ class PgpActivity : DatabaseLockActivity() {
     }
 
     private fun encryptInput(input: Source, recipients: List<String>) {
+        if (busy) {
+            // runWork skips the work when busy, so the typed text is dropped here
+            discardInput(input)
+            return
+        }
         val out = PgpWorkspace.newFile(this, "output")
         runWork(
             total = input.file.length(),
@@ -632,14 +770,14 @@ class PgpActivity : DatabaseLockActivity() {
         )
     }
 
-    private fun showSecretKeyDialog(action: Action, section: Section) {
+    private fun showSecretKeyDialog(action: Action) {
         if (busy) return
         val candidates = keyRows.filter { it.hasSecret }
         if (candidates.isEmpty()) {
             Toast.makeText(this, R.string.pgp_no_secret_keys, Toast.LENGTH_SHORT).show()
             return
         }
-        val input = currentInput(section) ?: return
+        val input = currentInput() ?: return
         AlertDialog.Builder(this)
             .setTitle(R.string.pgp_key_to_use_title)
             .setItems(candidates.map { it.title }.toTypedArray()) { _, which ->
@@ -658,22 +796,23 @@ class PgpActivity : DatabaseLockActivity() {
      * Reads the secret key of the entry, after user verification when the database asks for it.
      * The callback gets the passphrase and must wipe it when done.
      */
-    private fun useSecretKey(entryId: EntryId, ready: (String, CharArray) -> Unit) {
+    private fun useSecretKey(entryId: EntryId, upgrade: Boolean = true, ready: (String, CharArray) -> Unit) {
         val database = mDatabase ?: return
         val run: () -> Unit = {
             lifecycleScope.launch {
                 val info: EntryInfo? = database.getEntryInfoById(entryId, raw = true)
                 val secret = info?.let { PgpKeyEntries.secretKeyOf(it) }
                 val passphrase = info?.let { PgpKeyEntries.passphraseOf(it) }
+                if (info == null || secret == null) {
+                    passphrase?.fill('\u0000')
+                    Toast.makeText(this@PgpActivity, R.string.pgp_error_no_secret, Toast.LENGTH_SHORT).show()
+                    return@launch
+                }
                 when {
-                    secret == null -> {
-                        passphrase?.fill('\u0000')
-                        Toast.makeText(this@PgpActivity, R.string.pgp_error_no_secret, Toast.LENGTH_SHORT).show()
-                    }
                     busy -> passphrase?.fill('\u0000')
-                    passphrase != null -> ready(secret, passphrase)
+                    passphrase != null -> useWithPassphrase(info, secret, passphrase, upgrade, ready)
                     // Not kept, or the Keystore can't open it here: ask for it
-                    else -> askPassphrase { typed -> ready(secret, typed) }
+                    else -> askPassphrase { typed -> useWithPassphrase(info, secret, typed, upgrade, ready) }
                 }
             }
         }
@@ -689,6 +828,57 @@ class PgpActivity : DatabaseLockActivity() {
             )
         } else {
             run()
+        }
+    }
+
+    /**
+     * The passphrase is in hand, so old protection can be fixed before the action runs. A wrong
+     * passphrase fails the fix quietly and the action reports it.
+     */
+    private fun useWithPassphrase(
+        info: EntryInfo,
+        secret: String,
+        passphrase: CharArray,
+        upgrade: Boolean,
+        ready: (String, CharArray) -> Unit
+    ) {
+        if (upgrade && PgpKeyEntries.upgradeProtection(info, passphrase)) updateEntry(info)
+        ready(secret, passphrase)
+    }
+
+    private fun renewSelectedKey() {
+        val row = selectedRow ?: return
+        if (!row.hasSecret) return
+        useSecretKey(row.entryId, upgrade = false) { secret, passphrase ->
+            renewKey(row.entryId, secret, passphrase)
+        }
+    }
+
+    private fun renewKey(entryId: EntryId, secret: String, passphrase: CharArray) {
+        val database = mDatabase
+        if (database == null || generatingKey) {
+            passphrase.fill('\u0000')
+            return
+        }
+        setGenerating(true, R.string.pgp_working)
+        lifecycleScope.launch {
+            var saving = false
+            try {
+                val renewed = withContext(Dispatchers.Default) { PgpCore.renew(secret, passphrase) }
+                val info = database.getEntryInfoById(entryId, raw = true)
+                if (info != null) {
+                    PgpKeyEntries.setSecretKey(info, renewed.secretArmored)
+                    PgpKeyEntries.setPublicKey(info, renewed.publicArmored)
+                    pendingSelectFingerprint = renewed.fingerprint
+                    updateEntry(info)
+                    saving = true
+                }
+            } catch (e: PgpCore.PgpError) {
+                showPgpError(e)
+            } finally {
+                passphrase.fill('\u0000')
+                if (!saving) setGenerating(false)
+            }
         }
     }
 
@@ -716,6 +906,11 @@ class PgpActivity : DatabaseLockActivity() {
     }
 
     private fun decryptInput(input: Source, secret: String, passphrase: CharArray) {
+        if (busy) {
+            passphrase.fill('\u0000')
+            discardInput(input)
+            return
+        }
         // Plain data is written to a staging file first. It only becomes the output after decrypt
         // has checked the integrity of the whole message, so unchecked data is never shown or saved.
         val staging = PgpWorkspace.newFile(this, "staging")
@@ -741,6 +936,11 @@ class PgpActivity : DatabaseLockActivity() {
     }
 
     private fun signInput(input: Source, secret: String, passphrase: CharArray) {
+        if (busy) {
+            passphrase.fill('\u0000')
+            discardInput(input)
+            return
+        }
         val out = PgpWorkspace.newFile(this, "signature")
         runWork(
             total = input.file.length(),
@@ -760,32 +960,63 @@ class PgpActivity : DatabaseLockActivity() {
         )
     }
 
-    private fun showVerifyDialog() {
-        if (busy) return
-        val input = currentInput(Section.TOOLS) ?: return
-        val signatureEdit = EditText(this).apply {
-            hint = getString(R.string.pgp_signature_hint)
-            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
-            minLines = 6
+    /** The button under the input does what the tab says. */
+    private fun runAction() {
+        when (currentTab) {
+            Tab.ENCRYPT -> showRecipientsDialog()
+            Tab.DECRYPT -> showSecretKeyDialog(Action.DECRYPT)
+            Tab.SIGN -> showSecretKeyDialog(Action.SIGN)
+            Tab.VERIFY -> runVerify()
         }
-        AlertDialog.Builder(this)
-            .setTitle(R.string.pgp_signature_title)
-            .setView(signatureEdit)
-            .setPositiveButton(android.R.string.ok) { _, _ ->
-                val signature = signatureEdit.text.toString().trim()
-                if (signature.length > PgpCore.MAX_SIGNATURE_CHARS) {
-                    discardInput(input)
-                    Toast.makeText(this, R.string.pgp_key_too_large, Toast.LENGTH_LONG).show()
-                } else {
-                    verifyInput(input, signature)
-                }
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
     }
 
-    private fun verifyInput(input: Source, signature: String) {
-        val publicKeys = keyRows.map { it.publicArmored }
+    private fun selectTab(tab: Tab) {
+        tabLayout.getTabAt(tab.ordinal)?.select()
+        showTab(tab)
+    }
+
+    private fun showTab(tab: Tab) {
+        currentTab = tab
+        signaturePanel.visibility = if (tab == Tab.VERIFY) View.VISIBLE else View.GONE
+        runButton.setText(tab.labelRes)
+    }
+
+    private fun runVerify() {
+        if (busy || generatingKey) return
+        val signature = signatureBytes() ?: return
+        val input = currentInput() ?: return
+        verifyInput(input, signature)
+    }
+
+    /** The picked signature file wins, otherwise the pasted text. Nothing past the limit is read. */
+    private fun signatureBytes(): ByteArray? {
+        val picked = signatureFile
+        if (picked != null) {
+            if (picked.file.length() > PgpCore.MAX_SIGNATURE_CHARS) {
+                Toast.makeText(this, R.string.pgp_key_too_large, Toast.LENGTH_LONG).show()
+                return null
+            }
+            return picked.file.readBytes()
+        }
+        val text = signatureInput.text.toString().trim()
+        if (text.isEmpty()) {
+            Toast.makeText(this, R.string.pgp_nothing_to_process, Toast.LENGTH_SHORT).show()
+            return null
+        }
+        if (text.length > PgpCore.MAX_SIGNATURE_CHARS) {
+            Toast.makeText(this, R.string.pgp_key_too_large, Toast.LENGTH_LONG).show()
+            return null
+        }
+        return text.toByteArray(Charsets.UTF_8)
+    }
+
+    private fun verifyInput(input: Source, signature: ByteArray) {
+        if (busy || generatingKey) {
+            discardInput(input)
+            return
+        }
+        // Keys from the database and the keys added for this check
+        val publicKeys = keyRows.map { it.publicArmored } + sessionKeys.map { it.publicArmored }
         runWork(
             total = input.file.length(),
             produced = null,
@@ -801,16 +1032,18 @@ class PgpActivity : DatabaseLockActivity() {
             done = { result ->
                 statusView.text = when {
                     !result.signerFound -> getString(R.string.pgp_verify_unknown)
-                    result.valid -> getString(
-                        R.string.pgp_verify_good,
-                        keyRows.firstOrNull { it.fingerprint == result.signerFingerprint }?.title
-                            ?: result.signerFingerprint.orEmpty()
-                    )
+                    result.valid -> getString(R.string.pgp_verify_good, titleOf(result.signerFingerprint))
                     !result.keyUsable -> getString(R.string.pgp_verify_key_unusable)
                     else -> getString(R.string.pgp_verify_bad)
                 }
             }
         )
+    }
+
+    private fun titleOf(fingerprint: String?): String {
+        return keyRows.firstOrNull { it.fingerprint == fingerprint }?.title
+            ?: sessionKeys.firstOrNull { it.fingerprint == fingerprint }?.title
+            ?: fingerprint.orEmpty()
     }
 
     /**
@@ -824,8 +1057,8 @@ class PgpActivity : DatabaseLockActivity() {
         work: (PgpCore.Control) -> T,
         done: (T) -> Unit
     ) {
-        if (busy) {
-            produced?.delete()
+        if (busy || generatingKey) {
+            produced?.let { PgpWorkspace.wipe(it) }
             return
         }
         cancelRequested = false
@@ -840,14 +1073,14 @@ class PgpActivity : DatabaseLockActivity() {
                 val result = withContext(Dispatchers.IO) { work(control) }
                 done(result)
             } catch (e: PgpCore.PgpError) {
-                produced?.delete()
+                produced?.let { PgpWorkspace.wipe(it) }
                 if (e.reason == PgpCore.Reason.CANCELLED) {
                     statusView.text = getString(R.string.error_cancel_by_user)
                 } else {
                     showPgpError(e)
                 }
             } catch (e: IOException) {
-                produced?.delete()
+                produced?.let { PgpWorkspace.wipe(it) }
                 statusView.text = getString(ioError)
             } finally {
                 setBusy(false)
@@ -857,12 +1090,27 @@ class PgpActivity : DatabaseLockActivity() {
 
     private fun setBusy(working: Boolean) {
         busy = working
+        progressBar.isIndeterminate = false
         progressBar.progress = 0
         progressBar.visibility = if (working) View.VISIBLE else View.GONE
         cancelButton.visibility = if (working) View.VISIBLE else View.GONE
-        clearButton.isEnabled = !working
-        actionButtons.forEach { it.isEnabled = !working }
+        updateControls()
         if (working) statusView.text = getString(R.string.pgp_working)
+    }
+
+    private fun setGenerating(working: Boolean, message: Int = R.string.pgp_working) {
+        generatingKey = working
+        progressBar.isIndeterminate = working
+        progressBar.visibility = if (working) View.VISIBLE else View.GONE
+        if (working) statusView.text = getString(message)
+        updateControls()
+    }
+
+    // Buttons stay off while a run or a key job is going
+    private fun updateControls() {
+        val locked = busy || generatingKey
+        clearButton.isEnabled = !locked
+        actionButtons.forEach { it.isEnabled = !locked }
     }
 
     private fun updateProgress(count: Long) {
@@ -898,16 +1146,16 @@ class PgpActivity : DatabaseLockActivity() {
     private fun setPicked(section: Section, source: Source) {
         when (section) {
             Section.TOOLS -> {
-                toolsFile?.file?.takeIf { it != source.file }?.delete()
+                toolsFile?.file?.takeIf { it != source.file }?.let { PgpWorkspace.wipe(it) }
                 toolsFile = source
                 toolsFileName.text = getString(R.string.pgp_file_name, source.name)
                 toolsFileName.visibility = View.VISIBLE
             }
-            Section.DECRYPT -> {
-                decryptFile?.file?.takeIf { it != source.file }?.delete()
-                decryptFile = source
-                decryptFileName.text = getString(R.string.pgp_file_name, source.name)
-                decryptFileName.visibility = View.VISIBLE
+            Section.SIGNATURE -> {
+                signatureFile?.file?.takeIf { it != source.file }?.let { PgpWorkspace.wipe(it) }
+                signatureFile = source
+                signatureFileName.text = getString(R.string.pgp_file_name, source.name)
+                signatureFileName.visibility = View.VISIBLE
             }
         }
     }
@@ -928,10 +1176,9 @@ class PgpActivity : DatabaseLockActivity() {
     /**
      * The file wins when one is picked. Typed text is written to a temp file, it must fit in 1 MB.
      */
-    private fun currentInput(section: Section): Source? {
-        val picked = if (section == Section.TOOLS) toolsFile else decryptFile
-        if (picked != null) return picked
-        val text = (if (section == Section.TOOLS) inputText else decryptText).text.toString()
+    private fun currentInput(): Source? {
+        toolsFile?.let { return it }
+        val text = inputText.text.toString()
         if (text.isBlank()) {
             Toast.makeText(this, R.string.pgp_nothing_to_process, Toast.LENGTH_SHORT).show()
             return null
@@ -941,7 +1188,7 @@ class PgpActivity : DatabaseLockActivity() {
             Toast.makeText(this, R.string.pgp_text_too_large, Toast.LENGTH_LONG).show()
             return null
         }
-        textFile?.delete()
+        textFile?.let { PgpWorkspace.wipe(it) }
         val file = PgpWorkspace.newFile(this, "text")
         file.writeBytes(bytes)
         bytes.fill(0)
@@ -951,7 +1198,7 @@ class PgpActivity : DatabaseLockActivity() {
 
     /** Typed text is used once, the temp file goes right after. Picked files stay until replaced. */
     private fun discardInput(input: Source) {
-        if (input.isText) input.file.delete()
+        if (input.isText) PgpWorkspace.wipe(input.file)
     }
 
     /**
@@ -961,7 +1208,9 @@ class PgpActivity : DatabaseLockActivity() {
     private fun clearPage() {
         releaseFiles()
         inputText.setText("")
-        decryptText.setText("")
+        signatureInput.setText("")
+        sessionKeys.clear()
+        renderSessionKeys()
         statusView.text = ""
     }
 
@@ -969,24 +1218,24 @@ class PgpActivity : DatabaseLockActivity() {
      * Deletes the picked files, the temp text and the result, and hides them. The text boxes stay.
      */
     private fun releaseFiles() {
-        toolsFile?.file?.delete()
+        toolsFile?.file?.let { PgpWorkspace.wipe(it) }
         toolsFile = null
-        decryptFile?.file?.delete()
-        decryptFile = null
-        textFile?.delete()
+        signatureFile?.file?.let { PgpWorkspace.wipe(it) }
+        signatureFile = null
+        textFile?.let { PgpWorkspace.wipe(it) }
         textFile = null
-        output?.delete()
+        output?.let { PgpWorkspace.wipe(it) }
         output = null
         outputIsText = false
         toolsFileName.visibility = View.GONE
-        decryptFileName.visibility = View.GONE
+        signatureFileName.visibility = View.GONE
         outputView.text = ""
         outputView.visibility = View.GONE
         outputActions.visibility = View.GONE
     }
 
     private fun setOutput(file: File, name: String) {
-        output?.takeIf { it != file }?.delete()
+        output?.takeIf { it != file }?.let { PgpWorkspace.wipe(it) }
         output = file
         outputName = name
         showOutputPreview()
@@ -1073,8 +1322,12 @@ class PgpActivity : DatabaseLockActivity() {
     companion object {
         private const val KEY_TOOLS_PATH = "pgp_tools_path"
         private const val KEY_TOOLS_NAME = "pgp_tools_name"
-        private const val KEY_DECRYPT_PATH = "pgp_decrypt_path"
-        private const val KEY_DECRYPT_NAME = "pgp_decrypt_name"
+        private const val KEY_SIGNATURE_PATH = "pgp_signature_path"
+        private const val KEY_SIGNATURE_NAME = "pgp_signature_name"
+        private const val KEY_TAB = "pgp_tab"
+        private const val KEY_SESSION_KEYS = "pgp_session_keys"
+        // Keys for one check are saved with the screen state, so they stay small
+        private const val SESSION_KEY_CHARS = 64 * 1024
         private const val KEY_OUTPUT_PATH = "pgp_output_path"
         private const val KEY_OUTPUT_NAME = "pgp_output_name"
     }

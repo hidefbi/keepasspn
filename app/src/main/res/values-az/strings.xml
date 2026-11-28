@@ -743,9 +743,6 @@ Azadlığımızı qorumaq, səhvləri düzəltmək, yeni funksiyalar əlavə etm
     <string name="pgp_keys_empty">Hələ PGP açarı yoxdur. Yaradın və ya açıq açarı idxal edin.</string>
     <string name="pgp_generate">Açar yarat</string>
     <string name="pgp_import">Açıq açarı idxal et</string>
-    <string name="pgp_section_tools_title">Şifrələ, imzala, yoxla</string>
-    <string name="pgp_section_decrypt_title">Mesajın şifrəsini aç</string>
-    <string name="pgp_decrypt_input_hint">Şifrəsi açılacaq ASCII mesaj</string>
     <string name="pgp_clear_cache">PGP keşini təmizlə</string>
     <string name="pgp_cache_cleared">PGP faylları və keş təmizləndi</string>
     <string name="pgp_working">İşlənir…</string>
@@ -803,4 +800,13 @@ Azadlığımızı qorumaq, səhvləri düzəltmək, yeni funksiyalar əlavə etm
     <string name="pgp_key_too_large">Açar və ya imza çox böyükdür</string>
     <string name="pgp_error_no_integrity">Bu mesajda bütövlük yoxlanışı yoxdur, ona görə rədd edildi</string>
     <string name="pgp_saved">Saxlanıldı</string>
+    <string name="pgp_key_renew">Açarı yenilə</string>
+    <string name="pgp_key_renewed">Açar yeniləndi, ictimai açarı yenidən paylaşın</string>
+    <string name="pgp_import_confirm_title">Barmaq izini yoxlayın</string>
+    <string name="pgp_import_confirm_save">Verilənlər bazasına da saxla</string>
+    <string name="pgp_import_confirm_add">Açarı əlavə et</string>
+    <string name="pgp_import_confirm_use">Yalnız bu yoxlama üçün istifadə et</string>
+    <string name="pgp_verify_session_title">Yalnız bu yoxlama üçün açarlar</string>
+    <string name="pgp_verify_session_empty">Əlavə açar yoxdur. Burada əlavə edilən açarlar səhifədən çıxanda silinir.</string>
+    <string name="pgp_key_known">Bu açar artıq mövcuddur</string>
 </resources>

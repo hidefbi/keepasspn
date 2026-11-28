@@ -852,9 +852,6 @@
     <string name="pgp_keys_empty">Ще немає ключів PGP. Створіть ключ або імпортуйте відкритий ключ.</string>
     <string name="pgp_generate">Створити ключ</string>
     <string name="pgp_import">Імпортувати відкритий ключ</string>
-    <string name="pgp_section_tools_title">Шифрування, підпис, перевірка</string>
-    <string name="pgp_section_decrypt_title">Розшифрувати повідомлення</string>
-    <string name="pgp_decrypt_input_hint">Повідомлення для розшифрування</string>
     <string name="pgp_clear_cache">Очистити кеш PGP</string>
     <string name="pgp_cache_cleared">Файли та кеш PGP очищено</string>
     <string name="pgp_working">Обробка…</string>
@@ -912,4 +909,13 @@
     <string name="pgp_key_too_large">Ключ або підпис занадто великі</string>
     <string name="pgp_error_no_integrity">Це повідомлення без перевірки цілісності, тому його відхилено</string>
     <string name="pgp_saved">Збережено</string>
+    <string name="pgp_key_renew">Продовжити ключ</string>
+    <string name="pgp_key_renewed">Ключ продовжено, надішліть відкритий ключ знову</string>
+    <string name="pgp_import_confirm_title">Перевірте відбиток</string>
+    <string name="pgp_import_confirm_save">Також зберегти в базі даних</string>
+    <string name="pgp_import_confirm_add">Додати ключ</string>
+    <string name="pgp_import_confirm_use">Використати для цієї перевірки</string>
+    <string name="pgp_verify_session_title">Ключі лише для цієї перевірки</string>
+    <string name="pgp_verify_session_empty">Додаткових ключів немає. Ключі, додані тут, видаляються після виходу з сторінки.</string>
+    <string name="pgp_key_known">Цей ключ уже є</string>
 </resources>

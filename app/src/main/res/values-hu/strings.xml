@@ -866,9 +866,6 @@ Szabadságunk megőrzése, a hibák javítása, új funkciók hozzáadása és a
     <string name="pgp_keys_empty">Még nincs PGP-kulcs. Hozzon létre egyet, vagy importáljon nyilvános kulcsot.</string>
     <string name="pgp_generate">Kulcs létrehozása</string>
     <string name="pgp_import">Nyilvános kulcs importálása</string>
-    <string name="pgp_section_tools_title">Titkosítás, aláírás, ellenőrzés</string>
-    <string name="pgp_section_decrypt_title">Üzenet visszafejtése</string>
-    <string name="pgp_decrypt_input_hint">Visszafejtendő üzenet</string>
     <string name="pgp_clear_cache">PGP gyorsítótár törlése</string>
     <string name="pgp_cache_cleared">A PGP-fájlok és a gyorsítótár törölve</string>
     <string name="pgp_working">Feldolgozás…</string>
@@ -926,4 +923,13 @@ Szabadságunk megőrzése, a hibák javítása, új funkciók hozzáadása és a
     <string name="pgp_key_too_large">A kulcs vagy az aláírás túl nagy</string>
     <string name="pgp_error_no_integrity">Az üzenetben nincs integritásellenőrzés, ezért elutasítottuk</string>
     <string name="pgp_saved">Mentve</string>
+    <string name="pgp_key_renew">Kulcs megújítása</string>
+    <string name="pgp_key_renewed">A kulcs megújult, ossza meg újra a nyilvános kulcsot</string>
+    <string name="pgp_import_confirm_title">Ellenőrizze az ujjlenyomatot</string>
+    <string name="pgp_import_confirm_save">Mentés az adatbázisba is</string>
+    <string name="pgp_import_confirm_add">Kulcs hozzáadása</string>
+    <string name="pgp_import_confirm_use">Használat ehhez az ellenőrzéshez</string>
+    <string name="pgp_verify_session_title">Kulcsok csak ehhez az ellenőrzéshez</string>
+    <string name="pgp_verify_session_empty">Nincs további kulcs. Az itt hozzáadott kulcsok az oldal elhagyásakor törlődnek.</string>
+    <string name="pgp_key_known">Ez a kulcs már szerepel</string>
 </resources>

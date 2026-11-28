@@ -800,9 +800,6 @@ Per mantenir la nostra llibertat, corregir errors, afegir funcions i mantenir el
     <string name="pgp_keys_empty">Encara no hi ha claus PGP. Genereu-ne una o importeu una clau pública.</string>
     <string name="pgp_generate">Genera una clau</string>
     <string name="pgp_import">Importa una clau pública</string>
-    <string name="pgp_section_tools_title">Xifra, signa, verifica</string>
-    <string name="pgp_section_decrypt_title">Desxifra un missatge</string>
-    <string name="pgp_decrypt_input_hint">Missatge a desxifrar</string>
     <string name="pgp_clear_cache">Esborra la memòria cau de PGP</string>
     <string name="pgp_cache_cleared">S\'han esborrat els fitxers i la memòria cau de PGP</string>
     <string name="pgp_working">Processant…</string>
@@ -860,4 +857,13 @@ Per mantenir la nostra llibertat, corregir errors, afegir funcions i mantenir el
     <string name="pgp_key_too_large">La clau o la signatura és massa gran</string>
     <string name="pgp_error_no_integrity">Aquest missatge no té comprovació d\'integritat, així que s\'ha rebutjat</string>
     <string name="pgp_saved">Desat</string>
+    <string name="pgp_key_renew">Renova la clau</string>
+    <string name="pgp_key_renewed">Clau renovada, torna a compartir la clau pública</string>
+    <string name="pgp_import_confirm_title">Comprova l\'empremta</string>
+    <string name="pgp_import_confirm_save">Desa-la també a la base de dades</string>
+    <string name="pgp_import_confirm_add">Afegeix la clau</string>
+    <string name="pgp_import_confirm_use">Usa-la només per a aquesta comprovació</string>
+    <string name="pgp_verify_session_title">Claus només per a aquesta comprovació</string>
+    <string name="pgp_verify_session_empty">No hi ha claus extra. Les claus afegides aquí s\'esborren en sortir de la pàgina.</string>
+    <string name="pgp_key_known">Aquesta clau ja hi és</string>
 </resources>

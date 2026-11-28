@@ -140,9 +140,6 @@
     <string name="pgp_keys_empty">PGP ကီး မရှိသေးပါ။ တစ်ခုဖန်တီးပါ သို့မဟုတ် အများပြည်သူ ကီးကို သွင်းပါ။</string>
     <string name="pgp_generate">ကီးဖန်တီးရန်</string>
     <string name="pgp_import">အများပြည်သူ ကီးကို သွင်းရန်</string>
-    <string name="pgp_section_tools_title">ကုဒ်ဝှက်၊ လက်မှတ်ထိုး၊ စစ်ဆေး</string>
-    <string name="pgp_section_decrypt_title">မက်ဆေ့ဂျ်ကို ကုဒ်ဖြေ</string>
-    <string name="pgp_decrypt_input_hint">ကုဒ်ဖြေရန် မက်ဆေ့ဂျ်</string>
     <string name="pgp_clear_cache">PGP cache ကို ရှင်းမည်</string>
     <string name="pgp_cache_cleared">PGP ဖိုင်များနှင့် cache ကို ရှင်းပြီးပါပြီ</string>
     <string name="pgp_working">လုပ်ဆောင်နေသည်…</string>
@@ -200,4 +197,13 @@
     <string name="pgp_key_too_large">သော့သို့မဟုတ် လက်မှတ် ကြီးလွန်းသည်</string>
     <string name="pgp_error_no_integrity">ဤမက်ဆေ့ဂျ်တွင် ခိုင်မာမှုစစ်ဆေးချက် မရှိသောကြောင့် ပယ်ချလိုက်သည်</string>
     <string name="pgp_saved">သိမ်းပြီးပါပြီ</string>
+    <string name="pgp_key_renew">သော့ကို သက်တမ်းတိုးရန်</string>
+    <string name="pgp_key_renewed">သော့ သက်တမ်းတိုးပြီးပါပြီ၊ အများပြည်သူသော့ကို ပြန်မျှဝေပါ</string>
+    <string name="pgp_import_confirm_title">လက်ဗွေကို စစ်ဆေးပါ</string>
+    <string name="pgp_import_confirm_save">ဒေတာဘေ့စ်တွင်လည်း သိမ်းပါ</string>
+    <string name="pgp_import_confirm_add">ကီး ထည့်ပါ</string>
+    <string name="pgp_import_confirm_use">ဤစစ်ဆေးမှုအတွက် သုံးပါ</string>
+    <string name="pgp_verify_session_title">ဤစစ်ဆေးမှုအတွက်သာ ကီးများ</string>
+    <string name="pgp_verify_session_empty">အပို ကီးမရှိပါ။ ဤနေရာတွင် ထည့်ထားသော ကီးများကို စာမျက်နှာမှ ထွက်သည်နှင့် ဖျက်ပါမည်။</string>
+    <string name="pgp_key_known">ဤကီး ရှိပြီးသားပါ</string>
 </resources>

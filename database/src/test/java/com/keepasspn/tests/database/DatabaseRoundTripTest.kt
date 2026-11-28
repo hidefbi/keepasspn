@@ -56,7 +56,8 @@ class DatabaseRoundTripTest {
     fun entriesAreReadBackAfterSaving() {
         val database = DatabaseInfo()
         database.createData("Test", "Root", null)
-        database.kdfEngine = KdfFactory.defaultKdf
+        // Argon2 needs its native library, which is not loaded in JVM tests
+        database.kdfEngine = KdfFactory.aesKdf
         val root = database.rootGroup!!
         listOf("Mail" to "s3cret", "Bank" to "p4ss").forEach { (title, password) ->
             val entryInfo = EntryInfo().apply {

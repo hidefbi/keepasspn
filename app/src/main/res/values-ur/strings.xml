@@ -107,9 +107,6 @@
     <string name="pgp_keys_empty">ابھی کوئی PGP کلید نہیں۔ ایک بنائیں یا عوامی کلید درآمد کریں۔</string>
     <string name="pgp_generate">کلید بنائیں</string>
     <string name="pgp_import">عوامی کلید درآمد کریں</string>
-    <string name="pgp_section_tools_title">خفیہ کاری، دستخط، تصدیق</string>
-    <string name="pgp_section_decrypt_title">پیغام کی خفیہ کشائی</string>
-    <string name="pgp_decrypt_input_hint">خفیہ کشائی کے لیے پیغام</string>
     <string name="pgp_clear_cache">PGP کیش صاف کریں</string>
     <string name="pgp_cache_cleared">PGP فائلیں اور کیش صاف ہو گئے</string>
     <string name="pgp_working">کارروائی جاری ہے…</string>
@@ -167,4 +164,13 @@
     <string name="pgp_key_too_large">کلید یا دستخط بہت بڑا ہے</string>
     <string name="pgp_error_no_integrity">اس پیغام میں سالمیت کی جانچ نہیں، اس لیے اسے مسترد کر دیا گیا</string>
     <string name="pgp_saved">محفوظ ہو گیا</string>
+    <string name="pgp_key_renew">کلید کی تجدید کریں</string>
+    <string name="pgp_key_renewed">کلید کی تجدید ہو گئی، عوامی کلید دوبارہ شیئر کریں</string>
+    <string name="pgp_import_confirm_title">فنگر پرنٹ کی تصدیق کریں</string>
+    <string name="pgp_import_confirm_save">ڈیٹا بیس میں بھی محفوظ کریں</string>
+    <string name="pgp_import_confirm_add">کلید شامل کریں</string>
+    <string name="pgp_import_confirm_use">اس تصدیق کے لیے استعمال کریں</string>
+    <string name="pgp_verify_session_title">صرف اس تصدیق کے لیے کلیدیں</string>
+    <string name="pgp_verify_session_empty">کوئی اضافی کلید نہیں۔ یہاں شامل کی گئی کلیدیں صفحہ چھوڑنے پر حذف ہو جائیں گی۔</string>
+    <string name="pgp_key_known">یہ کلید پہلے سے موجود ہے</string>
 </resources>

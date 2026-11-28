@@ -848,9 +848,6 @@
     <string name="pgp_keys_empty">Все още няма PGP ключове. Създайте или импортирайте публичен ключ.</string>
     <string name="pgp_generate">Създай ключ</string>
     <string name="pgp_import">Импорт на публичен ключ</string>
-    <string name="pgp_section_tools_title">Шифроване, подпис, проверка</string>
-    <string name="pgp_section_decrypt_title">Разшифроване на съобщение</string>
-    <string name="pgp_decrypt_input_hint">Съобщение за разшифроване</string>
     <string name="pgp_clear_cache">Изчистване на PGP кеша</string>
     <string name="pgp_cache_cleared">Файловете и кешът на PGP са изчистени</string>
     <string name="pgp_working">Обработва се…</string>
@@ -908,4 +905,13 @@
     <string name="pgp_key_too_large">Ключът или подписът е твърде голям</string>
     <string name="pgp_error_no_integrity">Съобщението няма проверка за целостта и е отхвърлено</string>
     <string name="pgp_saved">Запазено</string>
+    <string name="pgp_key_renew">Поднови ключа</string>
+    <string name="pgp_key_renewed">Ключът е подновен, изпратете отново публичния ключ</string>
+    <string name="pgp_import_confirm_title">Проверете отпечатъка</string>
+    <string name="pgp_import_confirm_save">Запазване и в базата данни</string>
+    <string name="pgp_import_confirm_add">Добавяне на ключ</string>
+    <string name="pgp_import_confirm_use">Използване за тази проверка</string>
+    <string name="pgp_verify_session_title">Ключове само за тази проверка</string>
+    <string name="pgp_verify_session_empty">Няма допълнителни ключове. Ключовете, добавени тук, се изтриват при напускане на страницата.</string>
+    <string name="pgp_key_known">Този ключ вече е наличен</string>
 </resources>
