@@ -108,18 +108,19 @@ enum class SortNodeEnum {
             if (object1 == object2)
                 return 0
 
+            // The recycle bin goes last in the whole list when the option is on
+            if (sortDatabaseParameters.recycleBinEnabled && sortNodeParameters.recycleBinBottom) {
+                val isRecycleBin1 = sortDatabaseParameters.recycleBinId == object1.nodeId
+                val isRecycleBin2 = sortDatabaseParameters.recycleBinId == object2.nodeId
+                if (isRecycleBin1 != isRecycleBin2) {
+                    return if (isRecycleBin1) 1 else -1
+                }
+            }
+
             when (object1) {
                 is GroupInfo -> {
                     when (object2) {
                         is GroupInfo -> {
-                            // RecycleBin at end of groups
-                            if (sortDatabaseParameters.recycleBinEnabled && sortNodeParameters.recycleBinBottom) {
-                                val isRecycleBin1 = sortDatabaseParameters.recycleBinId == object1.nodeId
-                                val isRecycleBin2 = sortDatabaseParameters.recycleBinId == object2.nodeId
-                                if (isRecycleBin1 != isRecycleBin2) {
-                                    return if (isRecycleBin1) 1 else -1
-                                }
-                            }
                             return specificOrderOrHashIfEquals(object1, object2)
                         }
                         else -> {

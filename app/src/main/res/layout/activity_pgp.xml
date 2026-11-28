@@ -152,21 +152,50 @@
                         android:orientation="vertical"
                         android:visibility="gone" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/pgp_key_copy_button"
-                        style="@style/Widget.Material3.Button.TextButton"
+                    <!-- Copy and renew sit side by side in one pill, renew only for your own keys -->
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.Material3.CardView.Filled"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/pgp_key_copy_public" />
+                        android:layout_marginTop="10dp"
+                        app:cardBackgroundColor="@color/pgp_key_actions_bg"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/pgp_key_renew_button"
-                        style="@style/Widget.Material3.Button.TextButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/pgp_key_renew"
-                        android:visibility="gone" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/pgp_key_copy_button"
+                                style="@style/Widget.Material3.Button.TextButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/pgp_key_copy_public" />
+
+                            <View
+                                android:id="@+id/pgp_key_actions_divider"
+                                android:layout_width="1dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center_vertical"
+                                android:alpha="0.3"
+                                android:background="?attr/colorOnSurfaceVariant"
+                                android:visibility="gone" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/pgp_key_renew_button"
+                                style="@style/Widget.Material3.Button.TextButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/pgp_key_renew"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
 
                 </LinearLayout>
 
@@ -188,11 +217,12 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/pgp_generate_button"
-                        style="@style/Widget.Material3.Button.TonalButton"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginEnd="4dp"
+                        app:backgroundTint="@color/pgp_action"
                         android:text="@string/pgp_generate" />
 
                     <com.google.android.material.button.MaterialButton
@@ -222,12 +252,52 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <com.google.android.material.tabs.TabLayout
+                    <!-- Tab bar: the selected tab is drawn in code -->
+                    <LinearLayout
                         android:id="@+id/pgp_tabs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:tabGravity="fill"
-                        app:tabMode="fixed" />
+                        android:orientation="horizontal"
+                        android:padding="6dp">
+
+                        <TextView
+                            android:id="@+id/pgp_tab_enc"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/pgp_encrypt"
+                            android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+                        <TextView
+                            android:id="@+id/pgp_tab_dec"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/pgp_decrypt"
+                            android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+                        <TextView
+                            android:id="@+id/pgp_tab_sig"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/pgp_sign"
+                            android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+                        <TextView
+                            android:id="@+id/pgp_tab_ver"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/pgp_verify"
+                            android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+                    </LinearLayout>
+app:tabMode="fixed" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -250,7 +320,8 @@
                         android:id="@+id/pgp_file_button"
                         style="@style/Widget.Material3.Button.OutlinedButton"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="52dp"
+                        app:cornerRadius="14dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/pgp_choose_file" />
 
@@ -343,11 +414,59 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/pgp_run_button"
-                        style="@style/Widget.Material3.Button.TonalButton"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
+                        app:backgroundTint="@color/pgp_action"
                         android:text="@string/pgp_encrypt" />
+
+                <!-- Result -->
+                <TextView
+                    android:id="@+id/pgp_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+                <TextView
+                    android:id="@+id/pgp_output"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="?attr/colorSurfaceVariant"
+                    android:fontFamily="monospace"
+                    android:padding="12dp"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textIsSelectable="true"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/pgp_output_actions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/pgp_output_copy"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp" android:text="@string/pgp_output_copy" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/pgp_output_save"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp" android:text="@string/pgp_output_save" />
+
+                </LinearLayout>
+
 
                 </LinearLayout>
 
@@ -370,52 +489,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/pgp_clear" />
-
-            <!-- Result -->
-            <TextView
-                android:id="@+id/pgp_status"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textAppearance="?attr/textAppearanceBodyMedium"
-                android:textColor="?attr/colorOnSurfaceVariant" />
-
-            <TextView
-                android:id="@+id/pgp_output"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="?attr/colorSurfaceVariant"
-                android:fontFamily="monospace"
-                android:padding="12dp"
-                android:textAppearance="?attr/textAppearanceBodyMedium"
-                android:textIsSelectable="true"
-                android:visibility="gone" />
-
-            <LinearLayout
-                android:id="@+id/pgp_output_actions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                android:visibility="gone">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/pgp_output_copy"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="4dp" android:text="@string/pgp_output_copy" />
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/pgp_output_save"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="4dp" android:text="@string/pgp_output_save" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

@@ -242,6 +242,18 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
         loadMainGroup(GroupState(groupId, firstVisibleItem = 0))
     }
 
+    /**
+     * Sort info of the open database, with the current recycle bin id.
+     */
+    fun currentSortDatabaseParameters(): SortNodeEnum.SortDatabaseParameters? {
+        return mDatabase?.let { database ->
+            SortNodeEnum.SortDatabaseParameters(
+                recycleBinEnabled = database.isRecycleBinEnabled,
+                recycleBinId = database.recycleBin?.nodeId
+            )
+        }
+    }
+
     fun onSortSelected(
         sortNode: SortNodeEnum? = null,
         sortNodeParameters: SortNodeEnum.SortNodeParameters? = null
@@ -252,12 +264,7 @@ class GroupViewModel(application: Application): AndroidViewModel(application) {
             sortNodeParameters = sortNodeParameters
         )
         viewModelScope.launch {
-            val sortDatabaseParameters = mDatabase?.let { database ->
-                SortNodeEnum.SortDatabaseParameters(
-                    recycleBinEnabled = database.isRecycleBinEnabled,
-                    recycleBinId = database.recycleBin?.nodeId
-                )
-            }
+            val sortDatabaseParameters = currentSortDatabaseParameters()
             _viewEvent.emit(GroupEvent.SortSelected(SortNode(
                 sortNodeEnum = sortNode,
                 sortNodeParameters = sortNodeParameters,

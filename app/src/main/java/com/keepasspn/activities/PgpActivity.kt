@@ -19,12 +19,15 @@
  */
 package com.keepasspn.activities
 
+import android.graphics.Typeface
+import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
 import android.text.Editable
 import android.text.InputType
 import android.transition.TransitionManager
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -39,10 +42,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.activity.viewModels
+import com.google.android.material.color.MaterialColors
 import com.google.android.material.progressindicator.LinearProgressIndicator
-import com.google.android.material.tabs.TabLayout
 import com.keepasspn.R
 import com.keepasspn.activities.helpers.ExternalFileHelper
 import com.keepasspn.activities.legacy.DatabaseLockActivity
@@ -125,6 +129,7 @@ class PgpActivity : DatabaseLockActivity() {
     // Fingerprint of the key just added, selected once the list is read again
     private var pendingSelectFingerprint: String? = null
     private lateinit var renewKeyButton: Button
+    private lateinit var keyActionsDivider: View
     private var signatureFile: Source? = null
     private val sessionKeys = mutableListOf<SessionKey>()
     private var currentTab = Tab.ENCRYPT
@@ -150,7 +155,8 @@ class PgpActivity : DatabaseLockActivity() {
     private lateinit var copyKeyButton: Button
     private lateinit var inputText: EditText
     private lateinit var toolsFileName: TextView
-    private lateinit var tabLayout: TabLayout
+    private lateinit var tabBar: LinearLayout
+    private lateinit var tabViews: List<TextView>
     private lateinit var runButton: Button
     private lateinit var signaturePanel: View
     private lateinit var signatureInput: EditText
@@ -186,6 +192,7 @@ class PgpActivity : DatabaseLockActivity() {
         keysHeader.setOnClickListener { toggleKeys() }
         copyKeyButton.setOnClickListener { copySelectedKey() }
         renewKeyButton = findViewById(R.id.pgp_key_renew_button)
+        keyActionsDivider = findViewById(R.id.pgp_key_actions_divider)
         renewKeyButton.setOnClickListener { renewSelectedKey() }
         inputText = findViewById(R.id.pgp_input)
         toolsFileName = findViewById(R.id.pgp_file_name)
@@ -194,7 +201,13 @@ class PgpActivity : DatabaseLockActivity() {
         signatureFileName = findViewById(R.id.pgp_signature_file_name)
         sessionKeysView = findViewById(R.id.pgp_verify_session_list)
         runButton = findViewById(R.id.pgp_run_button)
-        tabLayout = findViewById(R.id.pgp_tabs)
+        tabBar = findViewById(R.id.pgp_tabs)
+        tabViews = listOf(
+            findViewById<TextView>(R.id.pgp_tab_enc),
+            findViewById<TextView>(R.id.pgp_tab_dec),
+            findViewById<TextView>(R.id.pgp_tab_sig),
+            findViewById<TextView>(R.id.pgp_tab_ver)
+        )
         outputView = findViewById(R.id.pgp_output)
         outputActions = findViewById(R.id.pgp_output_actions)
         copyOutputButton = findViewById(R.id.pgp_output_copy)
@@ -241,16 +254,8 @@ class PgpActivity : DatabaseLockActivity() {
         }
         findViewById<Button>(R.id.pgp_verify_import_button).setOnClickListener { showImportDialog(forCheck = true) }
         runButton.setOnClickListener { runAction() }
-        Tab.values().forEach { tabLayout.addTab(tabLayout.newTab().setText(it.labelRes)) }
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                tab?.position?.let { showTab(Tab.values()[it]) }
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {}
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {}
-        })
+        tabViews.forEachIndexed { i, view -> view.setOnClickListener { showTab(Tab.values()[i]) } }
+        styleTabs()
         cancelButton.setOnClickListener { cancelRequested = true }
         clearButton.setOnClickListener { if (!busy) clearPage() }
         copyOutputButton.setOnClickListener { copyOutput() }
@@ -467,6 +472,7 @@ class PgpActivity : DatabaseLockActivity() {
         selectedFingerprint.text = row?.fingerprint.orEmpty()
         copyKeyButton.isEnabled = row != null
         renewKeyButton.visibility = if (row?.hasSecret == true) View.VISIBLE else View.GONE
+        keyActionsDivider.visibility = renewKeyButton.visibility
     }
 
     private fun selectKey(row: KeyRow) {
@@ -960,6 +966,42 @@ class PgpActivity : DatabaseLockActivity() {
         )
     }
 
+    /** The tab bar is a light green gradient. */
+    private fun styleTabs() {
+        val density = resources.displayMetrics.density
+        tabBar.background = GradientDrawable(
+            GradientDrawable.Orientation.LEFT_RIGHT,
+            intArrayOf(
+                ContextCompat.getColor(this, R.color.pgp_tab_bar_start),
+                ContextCompat.getColor(this, R.color.pgp_tab_bar_end)
+            )
+        ).apply {
+            cornerRadius = 22 * density
+        }
+    }
+
+    /**
+     * The selected tab is a filled pill with white text, the others are plain text. The text is centred
+     * in code too, the screen style can override the gravity set in the layout.
+     */
+    private fun styleTab(view: TextView, selected: Boolean) {
+        val density = resources.displayMetrics.density
+        view.gravity = Gravity.CENTER
+        view.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        if (selected) {
+            view.background = GradientDrawable().apply {
+                setColor(MaterialColors.getColor(view, com.google.android.material.R.attr.colorPrimary))
+                cornerRadius = 16 * density
+            }
+            view.setTextColor(MaterialColors.getColor(view, com.google.android.material.R.attr.colorOnPrimary))
+            view.typeface = Typeface.DEFAULT_BOLD
+        } else {
+            view.background = null
+            view.setTextColor(MaterialColors.getColor(view, com.google.android.material.R.attr.colorPrimary))
+            view.typeface = Typeface.DEFAULT
+        }
+    }
+
     /** The button under the input does what the tab says. */
     private fun runAction() {
         when (currentTab) {
@@ -971,12 +1013,12 @@ class PgpActivity : DatabaseLockActivity() {
     }
 
     private fun selectTab(tab: Tab) {
-        tabLayout.getTabAt(tab.ordinal)?.select()
         showTab(tab)
     }
 
     private fun showTab(tab: Tab) {
         currentTab = tab
+        tabViews.forEachIndexed { i, view -> styleTab(view, i == tab.ordinal) }
         signaturePanel.visibility = if (tab == Tab.VERIFY) View.VISIBLE else View.GONE
         runButton.setText(tab.labelRes)
     }

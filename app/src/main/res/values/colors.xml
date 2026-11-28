@@ -678,4 +678,9 @@
     <color name="purple_theme_night_inversePrimary">#2E006E</color>
     <color name="purple_theme_night_textPrimary">@color/purple_lighter</color>
 
+    <!-- PGP screen: tab bar gradient and the action orange -->
+    <color name="pgp_tab_bar_start">#CFE6C8</color>
+    <color name="pgp_tab_bar_end">#BFE0C9</color>
+    <color name="pgp_action">#E58232</color>
+    <color name="pgp_key_actions_bg">#D3DCCD</color>
 </resources>

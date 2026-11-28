@@ -1,4 +1,9 @@
 KeePassPN
+ * Change: the recycle bin stays at the very bottom of the list when the option is on
+ * Fix: crash after dragging a row in the list
+ * Change: PGP tab text is centred, the selected tab has no shadow, the copy and renew bar uses the surface colour from the design
+ * Change: PGP tabs are a green bar with a filled pill under the selected tab, main buttons are orange, the result sits inside the tools card
+ * Change: PGP screen layout: copy and renew share one pill, the tabs sit on a green bar with a filled pill under the selected one, generate, encrypt and the other main buttons are filled
  * Feature: PGP has four tabs (Encrypt, Decrypt, Sign, Verify) and one input box; verify takes a pasted or picked signature and a public key imported for that check only, saved to the database only when ticked
  * Change: every PGP key import shows the fingerprint and asks before the key is used
  * Security: new databases use Argon2id with 64 MiB of memory instead of AES-KDF, older databases keep their setting

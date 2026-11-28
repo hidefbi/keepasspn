@@ -178,17 +178,23 @@ class GroupFragment : DatabaseFragment() {
             val startPosition = mDragStartPosition
             mDragStartPosition = RecyclerView.NO_POSITION
             val finalPosition = viewHolder.adapterPosition
-            if (startPosition == RecyclerView.NO_POSITION
+            val reorder = if (startPosition == RecyclerView.NO_POSITION
                 || finalPosition == RecyclerView.NO_POSITION
                 || finalPosition == startPosition) {
-                adapter.cancelDisplayOrder()
+                null
             } else {
-                val node = adapter.nodeAt(finalPosition)
-                val listedIndex = adapter.listedIndexAt(finalPosition)
-                adapter.commitDisplayOrder()
-                mGroupViewModel.onReorderNode(node, listedIndex)
+                Pair(adapter.nodeAt(finalPosition), adapter.listedIndexAt(finalPosition))
             }
-            adapter.setPressedNode(null)
+            // clearView can run in the middle of a layout, so the adapter updates wait for it to finish
+            recyclerView.post {
+                if (reorder == null) {
+                    adapter.cancelDisplayOrder()
+                } else {
+                    adapter.commitDisplayOrder()
+                    mGroupViewModel.onReorderNode(reorder.first, reorder.second)
+                }
+                adapter.setPressedNode(null)
+            }
         }
     }
 
@@ -327,6 +333,10 @@ class GroupFragment : DatabaseFragment() {
                                 val children = groupUIState.children
                                 mAdapter?.showAllOtpCodes = currentGroup.nodeId == TotpSummary.NODE_ID
                                 if (children != null) {
+                                    // The recycle bin may have been created after the last sort, refresh its id
+                                    mAdapter?.notifyChangeSort(
+                                        sortDatabaseParameters = mGroupViewModel.currentSortDatabaseParameters()
+                                    )
                                     mAdapter?.rebuildList(
                                         nodes = children,
                                         isSearch = isSearchInfo
